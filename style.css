@@ -426,20 +426,22 @@ table,
 
 .navbar-default .navbar-nav>li>a {
   color: #fff;
-  font-size: 12px
+  font-size: 12px;
 }
 
 .navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-nav>li>a:hover {
   background-color: rgba(0, 0, 0, .7);
-  color: rgba(255, 255, 255, .7)
+  color: rgba(255, 255, 255, .7);
 }
 
 .navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a:focus,
 .navbar-default .navbar-nav>.active>a:hover {
-  color: rgba(255, 255, 255, .55);
-  background-color: transparent
+  /* color: rgba(255, 255, 255, .55);
+  background-color: transparent */
+  color: rgba(0, 0, 0, 1);
+  background-color:rgba(255, 255, 255, .7);
 }
 
 .navbar-default .navbar-collapse,

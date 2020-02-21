@@ -1131,14 +1131,14 @@ input:checked+.slider:before {
 .t-dark>div>div>div>div>div>div>div>a,
 .t-dark>div>div>div>span>a,
 .t-dark>div>div>div>div>div>div>div>span>a {
-  color: rgba(255, 255, 255, .5)
+  color: rgba(255, 255, 255, .7)
 }
 
 .t-light>div>div>div>div>div>div>a,
 .t-light>div>div>div>div>div>div>div>a,
 .t-light>div>div>div>span>a,
 .t-light>div>div>div>div>div>div>div>span>a {
-  color: rgba(0, 0, 0, .5)
+  color: rgba(0, 0, 0, .7)
 }
 
 .alkaliMetals { /* Pink */

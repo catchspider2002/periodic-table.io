@@ -1,11 +1,13 @@
 @font-face {
   font-family: 'Lato Regular';
-  src: url(fonts/Lato-Regular.woff2) format('woff2'), url(fonts/Lato-Regular.woff) format('woff'), url(fonts/Lato-Regular.ttf) format('truetype')
+  src: url(fonts/Lato-Regular.woff2) format('woff2'), url(fonts/Lato-Regular.woff) format('woff'), url(fonts/Lato-Regular.ttf) format('truetype');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Lato Heavy';
-  src: url(fonts/Lato-Heavy.woff2) format('woff2'), url(fonts/Lato-Heavy.woff) format('woff'), url(fonts/Lato-Heavy.ttf) format('truetype')
+  src: url(fonts/Lato-Heavy.woff2) format('woff2'), url(fonts/Lato-Heavy.woff) format('woff'), url(fonts/Lato-Heavy.ttf) format('truetype');
+  font-display: swap;
 }
 
 html {

@@ -24,7 +24,7 @@ const fileManifest = [
   },
   {
     "url": "about.html",
-    "revision": "d6286e1ff13381ffa611eb1005e80489"
+    "revision": "286a3f6eb8a6b372deca3571a3653a45"
   },
   {
     "url": "browserconfig.xml",
@@ -32,7 +32,7 @@ const fileManifest = [
   },
   {
     "url": "btstrp.list.iso.min.js",
-    "revision": "327dd14deb7ce668b1cbdc15ab06d417"
+    "revision": "1a70123986aad85f0564eed40cce64e4"
   },
   {
     "url": "compare.html",
@@ -68,7 +68,7 @@ const fileManifest = [
   },
   {
     "url": "index.html",
-    "revision": "a8fe3d42950184437e3c99982a9e88bd"
+    "revision": "3351387e09a0ab0c73aa454c9be80847"
   },
   {
     "url": "list.html",
@@ -248,7 +248,7 @@ const fileManifest = [
   },
   {
     "url": "style.css",
-    "revision": "25b75f0661e4200ac2371e11fbe2ce6f"
+    "revision": "1e470335d328c632e72a84b549521b55"
   },
   {
     "url": "images/placeholder.png",

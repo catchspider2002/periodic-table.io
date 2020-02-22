@@ -1,0 +1,42 @@
+{
+  "name": "periodic-table.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catchspider2002/periodic-table.io.git"
+  },
+  "keywords": [
+    "Periodic",
+    "Table",
+    "chemical",
+    "elements",
+    "interactive",
+    "PWA",
+    "properties",
+    "history",
+    "name",
+    "origin",
+    "images",
+    "applications",
+    "hazards",
+    "electron",
+    "shell",
+    "diagram",
+    "chemistry",
+    "electron",
+    "configuration",
+    "isotopes",
+    "information"
+  ],
+  "author": "Naveen CS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/catchspider2002/periodic-table.io/issues"
+  },
+  "homepage": "https://github.com/catchspider2002/periodic-table.io#readme"
+}

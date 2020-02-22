@@ -361,7 +361,7 @@ table,
 }
 
 .navbar-collapse.in {
-  overflow-y: auto
+  overflow-y: auto;
 }
 
 @media (min-width:768px) {
@@ -391,7 +391,7 @@ table,
 }
 
 .navbar-nav {
-  margin: 7.5px -15px
+  margin: 0px -15px
 }
 
 .navbar-nav>li>a {

@@ -32,7 +32,7 @@ const fileManifest = [
   },
   {
     "url": "btstrp.list.iso.min.js",
-    "revision": "1a70123986aad85f0564eed40cce64e4"
+    "revision": "e2d4bf54f321be88adb4eb807396ba5b"
   },
   {
     "url": "compare.html",

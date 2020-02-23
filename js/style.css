@@ -440,8 +440,6 @@ table,
 .navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a:focus,
 .navbar-default .navbar-nav>.active>a:hover {
-  /* color: rgba(255, 255, 255, .55);
-  background-color: transparent */
   color: rgba(0, 0, 0, 1);
   background-color:rgba(255, 255, 255, .7);
 }

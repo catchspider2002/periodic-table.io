@@ -1023,10 +1023,7 @@ function colorClicked(colorId) {
   for (var i = 0; i < colorClass.length; i++)
     colorClass[i].style.outline = "4px solid transparent"
 
-  if (defaultNewTheme === "light")
-    id(colorId).style.outline = "4px solid #505050";
-  else
-    id(colorId).style.outline = "4px solid #d8d8d8";
+  id(colorId).style.outline = (defaultNewTheme === "light") ? "4px solid #505050": "4px solid #d8d8d8";
 
   localStorage.setItem("defaultColor", colorId);
   setColor(window[colorId]);
@@ -3510,10 +3507,7 @@ function resizeElement() {
 
 function setBorder() {
   var element = this.id;
-  if (defaultNewTheme === "light")
-    id(element).style.outline = "4px solid #505050";
-  else
-    id(element).style.outline = "4px solid #d8d8d8";
+    id(element).style.outline = (defaultNewTheme === "light") ? "4px solid #505050" : "4px solid #d8d8d8";
 }
 
 function removeBorder() {

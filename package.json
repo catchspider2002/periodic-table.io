@@ -1,42 +1,54 @@
 {
-  "name": "periodic-table.io",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/catchspider2002/periodic-table.io.git"
-  },
-  "keywords": [
-    "Periodic",
-    "Table",
-    "chemical",
-    "elements",
-    "interactive",
-    "PWA",
-    "properties",
-    "history",
-    "name",
-    "origin",
-    "images",
-    "applications",
-    "hazards",
-    "electron",
-    "shell",
-    "diagram",
-    "chemistry",
-    "electron",
-    "configuration",
-    "isotopes",
-    "information"
-  ],
-  "author": "Naveen CS",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/catchspider2002/periodic-table.io/issues"
-  },
-  "homepage": "https://github.com/catchspider2002/periodic-table.io#readme"
+    "name": "periodic-table.io",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.html",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "minify-constants-js": "uglifyjs js/constants.js --compress --mangle --output constants.min.js",
+        "minify-btstrp-js": "uglifyjs js/btstrp.list.iso.js --compress --mangle --output btstrp.list.iso.min.js",
+        "minify-css": "cleancss -o style.min.css js/style.css",
+        "watch": "watch \"npm run minify-constants-js && npm run minify-btstrp-js && npm run minify-css\" ./js",
+        "workbox": "workbox generate:sw"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/catchspider2002/periodic-table.io.git"
+    },
+    "keywords": [
+        "Periodic",
+        "Table",
+        "chemical",
+        "elements",
+        "interactive",
+        "PWA",
+        "properties",
+        "history",
+        "name",
+        "origin",
+        "images",
+        "applications",
+        "hazards",
+        "electron",
+        "shell",
+        "diagram",
+        "chemistry",
+        "electron",
+        "configuration",
+        "isotopes",
+        "information"
+    ],
+    "author": "Naveen CS",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/catchspider2002/periodic-table.io/issues"
+    },
+    "homepage": "https://github.com/catchspider2002/periodic-table.io#readme",
+    "dependencies": {
+        "uglify-js": "^3.8.0",
+        "watch": "^1.0.2"
+    },
+    "devDependencies": {
+        "clean-css": "^4.2.3"
+    }
 }

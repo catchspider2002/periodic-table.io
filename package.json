@@ -46,6 +46,7 @@
     "homepage": "https://github.com/catchspider2002/periodic-table.io#readme",
     "dependencies": {
         "uglify-js": "^3.8.0",
+        "lit-html": "^1.2.1",
         "watch": "^1.0.2"
     },
     "devDependencies": {

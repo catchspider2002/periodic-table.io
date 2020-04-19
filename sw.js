@@ -120,7 +120,7 @@ const fileManifest = [
   },
   {
     "url": "locales/locale.fr.js",
-    "revision": "4fdb222660f797ec3b2927f88018c0d3"
+    "revision": "c12477b35ff8aaee0ef1fff2caba04bf"
   },
   {
     "url": "locales/locale.gb.js",
@@ -152,11 +152,11 @@ const fileManifest = [
   },
   {
     "url": "locales/locale.ja.js",
-    "revision": "aede59b02a86a96cb5a082d68479fd38"
+    "revision": "cbb15f7613995fe8dbb62c289fee6626"
   },
   {
     "url": "locales/locale.ko.js",
-    "revision": "9527aef0b6f76b62012f73a41023cffb"
+    "revision": "d53aa1d1054077393ba7a2077cdb91bc"
   },
   {
     "url": "locales/locale.nb.js",
@@ -216,7 +216,7 @@ const fileManifest = [
   },
   {
     "url": "locales/locale.vi.js",
-    "revision": "089390927d36aacbdfc8f352fba2bdaf"
+    "revision": "351dbe366462363ce179b714c5b01cea"
   },
   {
     "url": "locales/locale.zs.js",
@@ -224,7 +224,7 @@ const fileManifest = [
   },
   {
     "url": "locales/locale.zt.js",
-    "revision": "1caedecf872f1bf8e641d6dabf1824c0"
+    "revision": "6feaf864a1347a86fe0af4490a9f8efa"
   },
   {
     "url": "manifest.json",

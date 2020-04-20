@@ -1240,8 +1240,10 @@ function setTheme() {
   localStorage.setItem("defaultNewTheme", defaultNewTheme);
 
   setDefaultTheme();
-  if (id("elementSquare"))
+  if (id("elementSquare")){
     drawImage();
+    drawSvg();
+  }
 }
 
 
@@ -2197,6 +2199,14 @@ function getQueryVariable(variable) {
   }
   return null;
 }
+
+function drawSvg(){
+  var b = document.querySelector("svelte-electron"); 
+  b.setAttribute("num",num);
+  b.setAttribute("sym",sym);
+  b.setAttribute("fontColor",(defaultNewTheme === "light") ? "rgba(0, 0, 0, 0.75)" : "rgba(255, 255, 255, 0.75)");
+  b.setAttribute("strokeColor", (defaultNewTheme === "light") ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)");
+  }
 
 function elementLoad() {
   initializePage();
@@ -3498,6 +3508,7 @@ function resizeElement() {
   id("elementGroups").style.height = elementSquareWidth + "px";
 
   drawImage();
+  drawSvg();
   var groupTableWidth = id("groupTable").clientWidth;
   id("groupTable").style.fontSize = (groupTableWidth / 7.7143) + "px";
   id("resultNumber").style.fontSize = (groupTableWidth / 5.684) + "px";

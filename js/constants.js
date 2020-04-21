@@ -1241,7 +1241,7 @@ function setTheme() {
 
   setDefaultTheme();
   if (id("elementSquare")){
-    drawImage();
+    // drawImage();
     drawSvg();
   }
 }
@@ -2200,13 +2200,13 @@ function getQueryVariable(variable) {
   return null;
 }
 
-function drawSvg(){
-  var b = document.querySelector("svelte-electron"); 
-  b.setAttribute("num",num);
-  b.setAttribute("sym",sym);
-  b.setAttribute("fontColor",(defaultNewTheme === "light") ? "rgba(0, 0, 0, 0.75)" : "rgba(255, 255, 255, 0.75)");
-  b.setAttribute("strokeColor", (defaultNewTheme === "light") ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)");
-  }
+function drawSvg() {
+  var b = document.querySelector("svelte-electron");
+  b.setAttribute("num", num);
+  b.setAttribute("sym", sym);
+  b.setAttribute("strokecolor",(defaultNewTheme === "light") ? "rgba(0, 0, 0, 0.95)" : "rgba(255, 255, 255, 0.95)");
+  b.setAttribute("fontcolor", (defaultNewTheme === "light") ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)");
+}
 
 function elementLoad() {
   initializePage();
@@ -3507,7 +3507,7 @@ function resizeElement() {
   id("elementSquare").style.height = elementSquareWidth + "px";
   id("elementGroups").style.height = elementSquareWidth + "px";
 
-  drawImage();
+  // drawImage();
   drawSvg();
   var groupTableWidth = id("groupTable").clientWidth;
   id("groupTable").style.fontSize = (groupTableWidth / 7.7143) + "px";

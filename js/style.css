@@ -964,6 +964,10 @@ canvas {
   padding: 0 5%;
 }
 
+.font-weight-600 {
+  font-weight: 600;
+}
+
 #valueRow2 {
   width: 40%;
 }

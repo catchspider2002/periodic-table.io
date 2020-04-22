@@ -1727,20 +1727,20 @@ function setSize(tablePercent) {
 // About
 
 // resize the page so that it resizes the layout
-function blogisotope() {
-  var t = elem.getBoundingClientRect().width;
-  return Math.floor(t * 0.04);
-}
+// function blogisotope() {
+//   var t = elem.getBoundingClientRect().width;
+//   return Math.floor(t * 0.04);
+// }
 
-function bloggingisotope() {
-  var iso = new Isotope(elem, {
-    itemSelector: ".post-masonry",
-    animationEngine: "jquery",
-    masonry: {
-      gutterWidth: blogisotope()
-    }
-  });
-}
+// function bloggingisotope() {
+//   var iso = new Isotope(elem, {
+//     itemSelector: ".post-masonry",
+//     animationEngine: "jquery",
+//     masonry: {
+//       gutterWidth: blogisotope()
+//     }
+//   });
+// }
 
 function aboutLoad() {
   initializePage();
@@ -2359,7 +2359,7 @@ function elementLoad() {
       break;
   }
 
-  id("elementPic").onload = bloggingisotope;
+  // id("elementPic").onload = bloggingisotope;
 
  id("elementPic").src = "images/"+imageSrc +".jpg";
  id("elementPicture").src = "images/"+imageSrc +".jpg";
@@ -3125,7 +3125,7 @@ function elementLoad() {
   id("highlight").setAttribute("transform", "translate(" + eleHighlight + ")");
 
   resizeElement();
-  bloggingisotope();
+  // bloggingisotope();
   if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he")
     id("tableSVG").setAttribute("transform", "scale(-1,1)");
   else
@@ -3513,7 +3513,7 @@ function resizeElement() {
   id("groupTable").style.fontSize = (groupTableWidth / 7.7143) + "px";
   id("resultNumber").style.fontSize = (groupTableWidth / 5.684) + "px";
   id("resultSymbol").style.fontSize = (groupTableWidth / 2.16) + "px";
-  bloggingisotope();
+  // bloggingisotope();
 }
 
 function setBorder() {

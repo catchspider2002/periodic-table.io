@@ -706,9 +706,13 @@ canvas {
 }
 
 .masonry {
-  columns: 4 300px;
+  columns: 5 300px;
   column-gap: 30px;
   margin-bottom: 30px;
+}
+
+.masonry-4-col {
+  columns: 4 300px;
 }
 
 .masonry-col {
@@ -1174,6 +1178,8 @@ input:checked + .slider:before {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
+.t-dark > div > div > .headerOutline,
+.t-dark > div > div > div > div > .headerOutline,
 .t-dark > div > div > div > div > div > .headerOutline,
 .t-dark > div > div > div > div > div > div > .headerOutline,
 .t-dark > div > div > div > div > div > div > div > .headerOutline {
@@ -1181,6 +1187,8 @@ input:checked + .slider:before {
   background-color: #eaeaea;
 }
 
+.t-light > div > div > .headerOutline,
+.t-light > div > div > div > div > .headerOutline,
 .t-light > div > div > div > div > div > .headerOutline,
 .t-light > div > div > div > div > div > div > .headerOutline,
 .t-light > div > div > div > div > div > div > div > .headerOutline {

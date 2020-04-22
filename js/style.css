@@ -165,6 +165,10 @@ select:focus {
   padding-top: 42px;
 }
 
+.margin-top-42 {
+  margin-top: 42px;
+}
+
 .padding-bottom-25 {
   padding-bottom: 25px;
 }
@@ -295,10 +299,25 @@ table,
   display: table;
 }
 
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
 .grid {
   display: grid;
   grid-template-columns: auto auto;
   margin: 0 -15px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin: 0 -15px;
+}
+
+.grid-span-3 {
+  grid-column: 1 / span 3;
 }
 
 .padding-0 {
@@ -684,6 +703,19 @@ canvas {
 .post-masonry {
   margin-bottom: 30px;
   right: 0;
+}
+
+.masonry {
+  columns: 4 300px;
+  column-gap: 30px;
+  margin-bottom: 30px;
+}
+
+.masonry-col {
+  margin-bottom: 30px;
+  -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+  page-break-inside: avoid; /* Firefox */
+  break-inside: avoid; /* IE 10+ */
 }
 
 .blog-thumb {
@@ -1142,12 +1174,14 @@ input:checked + .slider:before {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
+.t-dark > div > div > div > div > div > .headerOutline,
 .t-dark > div > div > div > div > div > div > .headerOutline,
 .t-dark > div > div > div > div > div > div > div > .headerOutline {
   color: #000;
   background-color: #eaeaea;
 }
 
+.t-light > div > div > div > div > div > .headerOutline,
 .t-light > div > div > div > div > div > div > .headerOutline,
 .t-light > div > div > div > div > div > div > div > .headerOutline {
   color: #eaeaea;

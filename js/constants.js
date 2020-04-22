@@ -1805,9 +1805,9 @@ function aboutLoad() {
   id("slTrans").textContent = slTrans;
   id("hrTrans").textContent = hrTrans;
 
-  window.addEventListener("resize", bloggingisotope);
-  bloggingisotope();
-  bloggingisotope();
+  // window.addEventListener("resize", bloggingisotope);
+  // bloggingisotope();
+  // bloggingisotope();
 }
 
 function pg404Load() {

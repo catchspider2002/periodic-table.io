@@ -165,6 +165,10 @@ select:focus {
   padding-top: 42px;
 }
 
+.margin-top-10 {
+  margin-top: 10px;
+}
+
 .margin-top-30 {
   margin-top: 30px;
 }
@@ -327,6 +331,15 @@ table,
   display: grid;
   grid-template-columns: auto auto auto;
   margin: 0 -15px;
+}
+
+.grid-5 {
+  display: grid;
+  grid-template-columns: 50px 50px 50px 50px 50px;
+  grid-template-rows: 50px 50px 50px 50px 50px;
+  margin: 15px 15px 15px 15px;
+  column-gap: 15px;
+  row-gap: 15px;
 }
 
 .grid-span-3 {

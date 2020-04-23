@@ -1252,6 +1252,7 @@ function setTheme() {
 function indexLoad() {
 
   initializePage();
+  id("homeTitle").textContent = home + " - " + homeTitle;
 
   id("pageHeader").textContent = home;
 
@@ -1744,6 +1745,8 @@ function setSize(tablePercent) {
 
 function aboutLoad() {
   initializePage();
+  id("homeTitle").textContent = about + " - " + homeTitle;
+  
   id("about").textContent = about;
   id("contact").textContent = contact;
   id("line1").textContent = line1;
@@ -1812,18 +1815,21 @@ function aboutLoad() {
 
 function pg404Load() {
   initializePage();
+  id("homeTitle").textContent = "Page Not Found" + " - " + homeTitle;
 
   id("main404").textContent = "Page Not Found";
 }
 
 function storeLoad() {
   initializePage();
+  id("homeTitle").textContent = store + " - " + homeTitle;
 
   id("pageHeader").textContent = store;
 }
 
 function privacyLoad() {
   initializePage();
+  id("homeTitle").textContent = privacy + " - " + homeTitle;
 
   id("pageHeader").textContent = privacy;
   
@@ -1835,6 +1841,7 @@ function privacyLoad() {
 
 function compareLoad() {
   initializePage();
+  id("homeTitle").textContent = compare + " - " + homeTitle;
 
   id("pageHeader").textContent = compare;
 
@@ -2014,6 +2021,7 @@ function removeFade() {
 
 function listLoad() {
   initializePage();
+  id("homeTitle").textContent = list + " - " + homeTitle;
 
   id("pageHeader").textContent = list;
   id("sortNumber").textContent = sortNumber;
@@ -2221,6 +2229,7 @@ function elementLoad() {
   var eleName = item.id;
 
   var itemName = window[item.nme];
+  id("homeTitle").textContent = itemName + " - " + homeTitle;
 
   id("group").textContent = group;
   id("period").textContent = period;

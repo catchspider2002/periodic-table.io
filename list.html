@@ -111,17 +111,19 @@
       <div class="container">
         <div class="row">
           <div id="users">
-            <div class="post-masonry col-md-3 col-sm-3 col-xs-6">
-              <input class="search" id="searchText" aria-label="Search" />
-            </div>
-            <div class="post-masonry col-md-2 col-sm-3 col-xs-6">
-              <button id="buttonSortNum" class="sort" data-sort="listNum"><span id="sortNumber"></span><span id="sortNum"></span></button>
-            </div>
-            <div class="post-masonry col-md-2 col-sm-3 col-xs-6">
-              <button id="buttonSortName" class="sort" data-sort="listName"><span id="sortName"></span><span id="sortNm"></span></button>
-            </div>
-            <div class="post-masonry col-md-2 col-sm-3 col-xs-6">
-              <button id="buttonSortSym" class="sort" data-sort="listSym"><span id="sortSymbol"></span><span id="sortSym"></span></button>
+            <div class="flex flex-wrap">
+              <div class="post-masonry flex-auto margin-left-15 margin-right-15">
+                <input class="search" id="searchText" aria-label="Search" />
+              </div>
+              <div class="post-masonry flex-auto margin-left-15 margin-right-15">
+                <button id="buttonSortNum" class="sort" data-sort="listNum"><span id="sortNumber"></span><span id="sortNum"></span></button>
+              </div>
+              <div class="post-masonry flex-auto margin-left-15 margin-right-15">
+                <button id="buttonSortName" class="sort" data-sort="listName"><span id="sortName"></span><span id="sortNm"></span></button>
+              </div>
+              <div class="post-masonry flex-auto margin-left-15 margin-right-15">
+                <button id="buttonSortSym" class="sort" data-sort="listSym"><span id="sortSymbol"></span><span id="sortSym"></span></button>
+              </div>
             </div>
             <div class="row"></div>
             <div id="mainList" class="list text-center">

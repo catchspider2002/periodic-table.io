@@ -954,7 +954,7 @@ function initializePage() {
 
   defaultColor = localStorage.getItem("defaultColor");
 
-  if (!defaultColor || defaultColor === "color20") {
+  if (!defaultColor || defaultColor === "color20") { // Added so that users already using color20 are reset to color10
     localStorage.setItem("defaultColor", "color10");
     defaultColor = "color10";
   }

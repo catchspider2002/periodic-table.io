@@ -92,7 +92,7 @@ button {
 
 input,
 select {
-  border: 1px solid #ccc;
+  border: 1px solid #777777;
   padding: 9px 12px;
   color: #555;
 }
@@ -1150,9 +1150,9 @@ input:checked + .slider:before {
 }
 
 #colorTable > tbody > tr > td {
-  width: 13%;
+  width: 12%;
   margin: 0 1.8% 1.8%;
-  padding-bottom: 13%;
+  padding-bottom: 12%;
   display: inline-block;
 }
 
@@ -1202,11 +1202,13 @@ input:checked + .slider:before {
 }
 
 .t-dark > div > .modal-dialog,
+.t-dark > div > div > div > div > div > input,
 .t-dark > div > div > div > div > div > .close {
   color: rgba(255, 255, 255, 0.8);
 }
 
 .t-light > div > .modal-dialog,
+.t-light > div > div > div > div > div > input,
 .t-light > div > div > div > div > div > .close {
   color: rgba(0, 0, 0, 0.8);
 }
@@ -1418,15 +1420,6 @@ input:checked + .slider:before {
 .teeLink {
   padding: 10px 0;
 }
-
-/* @keyframes rotate {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-} */
 
 @media print {
   .navbar {

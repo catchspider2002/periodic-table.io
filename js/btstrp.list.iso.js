@@ -35,7 +35,9 @@ a[P]([u,pt,"["+r+'="modal"]'])
 var vt=function(t,n){for(var e=0,i=n[O];i>e;e++)new t(n[e])},mt=o.initCallback=function(t){t=t||n
 for(var e=0,i=a[O];i>e;e++)vt(a[e][1],t[D](a[e][2]))}
 return n[i]?mt():dt(n,"DOMContentLoaded",function(){mt()}),{Modal:pt}})
-/*list*/
+
+
+/*List*/
 var List=function(modules){function __webpack_require__(moduleId){if(installedModules[moduleId])return installedModules[moduleId].exports
 var module=installedModules[moduleId]={i:moduleId,l:!1,exports:{}}
 return modules[moduleId].call(module.exports,module,module.exports,__webpack_require__),module.l=!0,module.exports}var installedModules={}
@@ -292,7 +294,7 @@ function setLangFile(inLang) {
   }
 
   newStyle.appendChild(document.createTextNode("button{float:" + dirRev + "}.listNum>*{" + dirRev + ":25px;" + dir + ":unset}.text-left{text-align:" + dir + "}.text-right{text-align:" + dirRev + "}"));
-  newStyle.appendChild(document.createTextNode(".col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.navbar-brand,.listName,.listSym{float:" + dir + "}"));
+  newStyle.appendChild(document.createTextNode(".col-xs-4,.col-xs-6,.navbar-brand,.listName,.listSym{float:" + dir + "}"));
   newStyle.appendChild(document.createTextNode("@media (min-width:768px){.post-masonry{" + dirRev + ":0;" + dir + ":unset}.col-sm-3,.col-sm-6,.navbar-header,.navbar-nav,.navbar-nav>li{float:" + dir + "}.navbar-right{float:" + dirRev + "}}@media (min-width:992px){.col-md-2,.col-md-3,.col-md-4{float:" + dir + "}}@media (min-width:1200px){.col-lg-3,.col-lg-4{float:" + dir + "}}@media (min-width:1724px){.col-lg-3,.col-lg-4,.col-md-4{float:" + dir + "}}"));
   newStyle.appendChild(document.createTextNode("#topRowCompare{margin-" + dir + ":-25px}.webLink{float:" + dir + ";clear:" + dir + "}"));
 

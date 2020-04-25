@@ -242,51 +242,42 @@ if(derivedLang === "pl"){
 }
 
 function setLangFile(inLang) {
-  var regularFont, heavyFont, fontType, fontExt;
+  var regularFont, heavyFont;
 
   switch (inLang) {
     case "ar":
     case "fa":
       regularFont = "NotoSansKufiArabic-Regular";
       heavyFont = "NotoSansKufiArabic-Bold";
-      fontExt = "ttf";
       break;
     case "hi":
       regularFont = "NotoSansDevanagari-Regular";
       heavyFont = "NotoSansDevanagari-Bold";
-      fontExt = "ttf";
       break;
     case "ko":
       regularFont = "NotoSansKR-Regular";
       heavyFont = "NotoSansKR-Bold";
-      fontExt = "otf";
       break;
     case "ja":
       regularFont = "NotoSansJP-Regular";
       heavyFont = "NotoSansJP-Bold";
-      fontExt = "otf";
       break;
     case "zs":
       regularFont = "NotoSansSC-Regular";
       heavyFont = "NotoSansSC-Bold";
-      fontExt = "otf";
       break;
     case "zt":
       regularFont = "NotoSansTC-Regular";
       heavyFont = "NotoSansTC-Bold";
-      fontExt = "otf";
       break;
     default:
       regularFont = "LatoLatin-Regular";
       heavyFont = "LatoLatin-Heavy";
-      fontExt = "ttf";
   }
 
-  fontType = (fontExt === "ttf") ? "truetype" : "opentype";
-  
   var newStyle = document.createElement("style");
-  newStyle.appendChild(document.createTextNode("@font-face {font-family: Special Regular;src: url(fonts/" + regularFont + ".woff2) format('woff2'), url(fonts/" + regularFont + ".woff) format('woff'), url(fonts/" + regularFont + "." + fontExt + ") format('" + fontType + "');}"));
-  newStyle.appendChild(document.createTextNode("@font-face {font-family: Special Heavy;src: url(fonts/" + heavyFont + ".woff2) format('woff2'), url(fonts/" + heavyFont + ".woff) format('woff'), url(fonts/" + heavyFont + "." + fontExt + ") format('" + fontType + "');}"));
+  newStyle.appendChild(document.createTextNode("@font-face {font-family: Special Regular;src: url(fonts/" + regularFont + ".woff2) format('woff2'), url(fonts/" + regularFont + ".woff) format('woff');}"));
+  newStyle.appendChild(document.createTextNode("@font-face {font-family: Special Heavy;src: url(fonts/" + heavyFont + ".woff2) format('woff2'), url(fonts/" + heavyFont + ".woff) format('woff');}"));
 
   var dir, dirRev;
 

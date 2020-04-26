@@ -2171,7 +2171,7 @@ function listLoad() {
   var options = {
     valueNames: ["listName", "listNum", "listSym"]
   };
-  var userList = new List("users", options);
+  var userList = new List("mainList", options);
 }
 
 function sortFunc(var1, var2, var3) {

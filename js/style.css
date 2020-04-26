@@ -79,7 +79,7 @@ select {
   width: 100%;
   font: inherit;
   outline: 0;
-  line-height: normal;
+  line-height: inherit;
 }
 
 button {
@@ -287,11 +287,23 @@ table,
   flex: 1 1 auto;
 }
 
+.flex-1 {
+  flex: 1 1 0%;;
+}
+
 .flex-col {
   flex-direction: column;
 }
 .flex-wrap {
   flex-wrap: wrap;
+}
+
+.flex-all-wrap {
+  flex-wrap: wrap;
+}
+
+.list > div{
+  min-width: 300px;
 }
 
 @media (min-width: 768px) {
@@ -828,6 +840,7 @@ canvas {
   line-height: 0;
   border-style: solid;
   font-size: 0.85em;
+  position: relative;
 }
 
 .listNum > * {

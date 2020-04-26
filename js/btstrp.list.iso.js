@@ -293,7 +293,7 @@ function setLangFile(inLang) {
     dirRev = "right";
   }
 
-  newStyle.appendChild(document.createTextNode("button{float:" + dirRev + "}.listNum>*{" + dirRev + ":25px;" + dir + ":unset}.text-left{text-align:" + dir + "}.text-right{text-align:" + dirRev + "}"));
+  newStyle.appendChild(document.createTextNode("button{float:" + dirRev + "}.listNum>*{" + dirRev + ":-50px;" + dir + ":unset}.text-left{text-align:" + dir + "}.text-right{text-align:" + dirRev + "}"));
   newStyle.appendChild(document.createTextNode(".col-xs-4,.col-xs-6,.navbar-brand,.listName,.listSym{float:" + dir + "}"));
   newStyle.appendChild(document.createTextNode("@media (min-width:768px){.post-masonry{" + dirRev + ":0;" + dir + ":unset}.col-sm-6,.navbar-header,.navbar-nav,.navbar-nav>li{float:" + dir + "}.navbar-right{float:" + dirRev + "}}@media (min-width:992px){.col-md-4{float:" + dir + "}}@media (min-width:1200px){.col-lg-3{float:" + dir + "}}@media (min-width:1724px){.col-lg-3,.col-md-4{float:" + dir + "}}"));
   newStyle.appendChild(document.createTextNode("#topRowCompare{margin-" + dir + ":-25px}.webLink{float:" + dir + ";clear:" + dir + "}"));
@@ -326,7 +326,7 @@ function setColor(themeColor) {
 
   if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he")
     newStyle.appendChild(document.createTextNode(".listNum{border-color:rgba(" + themeColor + ",0.5) transparent transparent transparent}.navbar-toggle{background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
-    
+
   else
     newStyle.appendChild(document.createTextNode(".listNum{border-color:transparent rgba(" + themeColor + ",0.5) transparent transparent}.navbar-toggle{background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
 

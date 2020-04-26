@@ -44,7 +44,7 @@ body.fade-out {
 }
 
 a {
-  color: #428bca;
+  /* color: #428bca; */
   background: 0 0;
   text-decoration: underline;
   -ms-transition: background-color 0.4s linear, color 0.4s linear;
@@ -1225,17 +1225,17 @@ input:checked + .slider:before {
   background-color: #efefef;
 }
 
-.t-dark > div > div > div > div > div > div > a,
-.t-dark > div > div > div > div > div > div > div > a,
+.t-dark > div > div > div > div > div > div > a
+/* .t-dark > div > div > div > div > div > div > div > a,
 .t-dark > div > div > div > span > a,
-.t-dark > div > div > div > div > div > div > div > span > a {
+.t-dark > div > div > div > div > div > div > div > span > a  */ {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.t-light > div > div > div > div > div > div > a,
-.t-light > div > div > div > div > div > div > div > a,
+.t-light > div > div > div > div > div > div > a
+/* .t-light > div > div > div > div > div > div > div > a,
 .t-light > div > div > div > span > a,
-.t-light > div > div > div > div > div > div > div > span > a {
+.t-light > div > div > div > div > div > div > div > span > a */ {
   color: rgba(0, 0, 0, 0.7);
 }
 

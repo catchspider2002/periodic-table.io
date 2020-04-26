@@ -1026,7 +1026,7 @@ function colorClicked(colorId) {
   id(colorId).style.outline = (defaultNewTheme === "light") ? "4px solid #505050": "4px solid #d8d8d8";
 
   localStorage.setItem("defaultColor", colorId);
-  setColor(window[colorId]);
+  setColor(window[colorId], defaultNewTheme);
 }
 
 function setNavbar() {

@@ -301,6 +301,37 @@ function setLangFile(inLang) {
   document.head.appendChild(newStyle);
 }
 
+// function adjust(color, amount) {
+//   return '#' + color.replace(/^#/, '').replace(/../g, function (color) {
+//     return ('0' + Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)).substr(-2);
+//   });
+// }
+
+// function lightenDarkenColor(col, amt) {
+//   var usePound = false;
+
+//   if (col[0] === "#") {
+//     col = col.slice(1);
+//     usePound = true;
+//   }
+
+//   var num = parseInt(col, 16);
+//   var r = (num >> 16) + amt;
+//   var b = ((num >> 8) & 0x00ff) + amt;
+//   var g = (num & 0x0000ff) + amt;
+
+//   if (r > 255) r = 255;
+//   else if (r < 0) r = 0;
+
+//   if (b > 255) b = 255;
+//   else if (b < 0) b = 0;
+
+//   if (g > 255) g = 255;
+//   else if (g < 0) g = 0;
+
+//   return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16);
+// };
+
 function rgbToHex(rgb) {
   var r = rgb.split(",")[0];
   g = rgb.split(",")[1];
@@ -310,8 +341,21 @@ function rgbToHex(rgb) {
   return "#" + (0x1000000 + rgbNew).toString(16).slice(1);
 }
 
-function setColor(themeColor) {
+function setColor(themeColor, theme) {
   var hexValue = rgbToHex(themeColor);
+  var num = 100;
+  
+  // var lightColor = lightenDarkenColor(hexValue, num);
+  // var darkColor = lightenDarkenColor(hexValue, -num);
+  // var linkColor = (theme === "light") ? darkColor : lightColor
+  // var newLinkColor = (theme === "light") ? adjust(hexValue, -160) : adjust(hexValue, 160);
+  // console.log('theme: '+theme + '; hexValue: ' + hexValue);
+  // console.log('linkColor: ' + linkColor);
+  // console.log('lightColor: '+lightColor);
+  // console.log('darkColor: '+darkColor);
+
+  // console.log('adjust lightColor: ' + adjust(hexValue, num));
+  // console.log('adjust darkColor: ' + adjust(hexValue, -num));
 
   var metaThemeColor = document.querySelector("meta[name=theme-color]");
   metaThemeColor.setAttribute("content", hexValue);
@@ -320,6 +364,9 @@ function setColor(themeColor) {
   metaTileColor.setAttribute("content", hexValue);
 
   var newStyle = document.createElement("style");
+  newStyle.appendChild(document.createTextNode("a{color:" + hexValue + "}")); // testing
+  // newStyle.appendChild(document.createTextNode("#test{color:" + pSBC ( 0.42, rgb(20,60,200) ) + "}")); // testing
+  
   newStyle.appendChild(document.createTextNode("#footerwrap,#topRowCompare,.modal-content,.navbar-default,button,html{background-color:rgba(" + themeColor + ",1)}.aboutHeader{color:rgba(" + themeColor + ",.7)}input:checked+.slider{background-color:rgb(" + themeColor + ")}input:focus+.slider{box-shadow:0 0 1px rgb(" + themeColor + ")}"));
   newStyle.appendChild(document.createTextNode(".box-content,.list-content{background-color:rgba(" + themeColor + ",.25)}.actualHeader,.listSym{background-color:rgba(" + themeColor + ",.3)}"));
   newStyle.appendChild(document.createTextNode(".navbar-default,.navbar-collapse.in{background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}.sort{background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));

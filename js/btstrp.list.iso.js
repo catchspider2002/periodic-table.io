@@ -284,18 +284,18 @@ function setLangFile(inLang) {
   var dir, dirRev;
 
   if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he") {
-    newStyle.appendChild(document.createTextNode("html{direction:rtl}.listNum{border-width:60px 60px 0 0}"));
+    newStyle.appendChild(document.createTextNode("html{direction:rtl}"));
     dir = "right";
     dirRev = "left";
   } else {
-    newStyle.appendChild(document.createTextNode("html{direction:ltr}.listNum{border-width:0 60px 60px 0}"));
+    newStyle.appendChild(document.createTextNode("html{direction:ltr}"));
     dir = "left";
     dirRev = "right";
   }
 
-  newStyle.appendChild(document.createTextNode("button{float:" + dirRev + "}.listNum>*{" + dirRev + ":-50px;" + dir + ":unset}.text-left{text-align:" + dir + "}.text-right{text-align:" + dirRev + "}"));
-  newStyle.appendChild(document.createTextNode(".col-xs-4,.col-xs-6,.navbar-brand,.listName,.listSym{float:" + dir + "}"));
-  newStyle.appendChild(document.createTextNode("@media (min-width:768px){.post-masonry{" + dirRev + ":0;" + dir + ":unset}.col-sm-6,.navbar-header,.navbar-nav,.navbar-nav>li{float:" + dir + "}.navbar-right{float:" + dirRev + "}}@media (min-width:992px){.col-md-4{float:" + dir + "}}@media (min-width:1200px){.col-lg-3{float:" + dir + "}}@media (min-width:1724px){.col-lg-3,.col-md-4{float:" + dir + "}}"));
+  newStyle.appendChild(document.createTextNode("button{float:" + dirRev + "}.listNum>*{" + dirRev + ":10px;" + dir + ":unset}.text-left{text-align:" + dir + "}.text-right{text-align:" + dirRev + "}"));
+  newStyle.appendChild(document.createTextNode(".col-xs-4,.col-xs-6,.navbar-brand{float:" + dir + "}"));
+  newStyle.appendChild(document.createTextNode("@media (min-width:768px){.post-masonry{" + dirRev + ":0;" + dir + ":unset}.navbar-header,.navbar-nav,.navbar-nav>li{float:" + dir + "}.navbar-right{float:" + dirRev + "}}"));
   newStyle.appendChild(document.createTextNode("#topRowCompare{margin-" + dir + ":-25px}.webLink{float:" + dir + ";clear:" + dir + "}"));
 
   document.head.appendChild(newStyle);
@@ -321,14 +321,14 @@ function setColor(themeColor) {
 
   var newStyle = document.createElement("style");
   newStyle.appendChild(document.createTextNode("#footerwrap,#topRowCompare,.modal-content,.navbar-default,button,html{background-color:rgba(" + themeColor + ",1)}.aboutHeader{color:rgba(" + themeColor + ",.7)}input:checked+.slider{background-color:rgb(" + themeColor + ")}input:focus+.slider{box-shadow:0 0 1px rgb(" + themeColor + ")}"));
-  newStyle.appendChild(document.createTextNode(".box-content,.list-content{background-color:rgba(" + themeColor + ",.25)}.actualHeader,.listSym{background-color:rgba(" + themeColor + ",.5)}"));
+  newStyle.appendChild(document.createTextNode(".box-content,.list-content{background-color:rgba(" + themeColor + ",.25)}.actualHeader,.listSym{background-color:rgba(" + themeColor + ",.3)}"));
   newStyle.appendChild(document.createTextNode(".navbar-default,.navbar-collapse.in{background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}.sort{background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
 
   if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he")
-    newStyle.appendChild(document.createTextNode(".listNum{border-color:rgba(" + themeColor + ",0.5) transparent transparent transparent}.navbar-toggle{background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
+    newStyle.appendChild(document.createTextNode(".listNum{background: linear-gradient(-45deg, transparent 0%, transparent 50%, rgba(" + themeColor + ",0.3) 50%, rgba(" + themeColor + ",0.3) 100%)}.navbar-toggle{background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
 
   else
-    newStyle.appendChild(document.createTextNode(".listNum{border-color:transparent rgba(" + themeColor + ",0.5) transparent transparent}.navbar-toggle{background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
+    newStyle.appendChild(document.createTextNode(".listNum{background: linear-gradient(45deg, transparent 0%, transparent 50%, rgba(" + themeColor + ",0.3) 50%, rgba(" + themeColor + ",0.3) 100%)}.navbar-toggle{background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
 
   document.head.appendChild(newStyle);
 }

@@ -222,9 +222,6 @@ select:focus {
   margin-left: -15px;
 }
 
-.col-lg-3,
-.col-md-4,
-.col-sm-6,
 .col-xs-4,
 .col-xs-6 {
   position: relative;
@@ -238,33 +235,6 @@ select:focus {
 
 .col-xs-4 {
   width: 33.33333333%;
-}
-
-@media (min-width: 768px) {
-  .col-sm-6 {
-    width: 50%;
-  }
-}
-
-@media (min-width: 992px) {
-  .col-md-4 {
-    width: 33.33333333%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .col-lg-3 {
-    width: 25%;
-  }
-}
-
-@media (min-width: 1724px) {
-  .col-md-4 {
-    width: 25%;
-  }
-  .col-lg-3 {
-    width: 20%;
-  }
 }
 
 table,
@@ -288,7 +258,7 @@ table,
 }
 
 .flex-1 {
-  flex: 1 1 0%;;
+  flex: 1 1 0%;
 }
 
 .flex-col {
@@ -302,7 +272,7 @@ table,
   flex-wrap: wrap;
 }
 
-.list > div{
+.list > div {
   min-width: 300px;
 }
 
@@ -726,6 +696,10 @@ canvas {
   right: 0;
 }
 
+.post-masonry > a {
+  text-decoration: none;
+}
+
 .masonry {
   columns: 5 300px;
   column-gap: 30px;
@@ -816,12 +790,14 @@ canvas {
   overflow: hidden;
 }
 
-.listSym {
+.listSym,
+.listNum {
   width: 60px;
 }
 
 .listName,
-.listSym {
+.listSym,
+.listNum {
   height: 60px;
   line-height: 60px;
 }
@@ -830,22 +806,15 @@ canvas {
   width: calc(100% - 120px);
 }
 
-.listOuterNum {
-  float: right;
-}
-
 .listNum {
-  width: 0;
-  height: 0;
-  line-height: 0;
-  border-style: solid;
-  font-size: 0.85em;
+  background: linear-gradient(45deg, transparent 0%, transparent 50%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 100%);
   position: relative;
+  font-size: 0.85em;
 }
 
 .listNum > * {
   position: absolute;
-  top: 13px;
+  top: -13px;
 }
 
 #pageHeader {

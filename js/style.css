@@ -223,36 +223,17 @@ select:focus {
 }
 
 .col-lg-3,
-.col-lg-4,
-.col-md-2,
-.col-md-3,
 .col-md-4,
-.col-sm-3,
-.col-sm-6, 
+.col-sm-6,
 .col-xs-4,
-.col-xs-5,
-.col-xs-6,
-.col-xs-7,
-.col-xs-8 {
+.col-xs-6 {
   position: relative;
   min-height: 1px;
   padding: 0 15px;
 }
 
-.col-xs-8 {
-  width: 66.66666667%;
-}
-
-.col-xs-7 {
-  width: 58.33333333%;
-}
-
 .col-xs-6 {
   width: 50%;
-}
-
-.col-xs-5 {
-  width: 41.66666667%;
 }
 
 .col-xs-4 {
@@ -263,27 +244,15 @@ select:focus {
   .col-sm-6 {
     width: 50%;
   }
-  .col-sm-3 {
-    width: 25%;
-  }
 }
 
 @media (min-width: 992px) {
   .col-md-4 {
     width: 33.33333333%;
   }
-  .col-md-3 {
-    width: 25%;
-  }
-  .col-md-2 {
-    width: 16.66666667%;
-  }
 }
 
 @media (min-width: 1200px) {
-  .col-lg-4 {
-    width: 33.33333333%;
-  }
   .col-lg-3 {
     width: 25%;
   }
@@ -292,9 +261,6 @@ select:focus {
 @media (min-width: 1724px) {
   .col-md-4 {
     width: 25%;
-  }
-  .col-lg-4 {
-    width: 33.33333333%;
   }
   .col-lg-3 {
     width: 20%;
@@ -331,7 +297,8 @@ table,
 @media (min-width: 768px) {
   .flex-wrap {
     flex-wrap: nowrap;
-  }}
+  }
+}
 
 .justify-between {
   justify-content: space-between;
@@ -1227,7 +1194,7 @@ input:checked + .slider:before {
 }
 .t-light > div > div > div > div > div > div > input,
 .t-light > div > div > div > div > div > div > div > select,
-.t-light > div > div > div > div > div > div > div > div > select{
+.t-light > div > div > div > div > div > div > div > div > select {
   background-color: rgba(255, 255, 255, 0.9);
   color: rgba(0, 0, 0, 0.8);
 }

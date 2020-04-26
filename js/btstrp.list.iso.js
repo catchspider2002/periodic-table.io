@@ -295,7 +295,7 @@ function setLangFile(inLang) {
 
   newStyle.appendChild(document.createTextNode("button{float:" + dirRev + "}.listNum>*{" + dirRev + ":25px;" + dir + ":unset}.text-left{text-align:" + dir + "}.text-right{text-align:" + dirRev + "}"));
   newStyle.appendChild(document.createTextNode(".col-xs-4,.col-xs-6,.navbar-brand,.listName,.listSym{float:" + dir + "}"));
-  newStyle.appendChild(document.createTextNode("@media (min-width:768px){.post-masonry{" + dirRev + ":0;" + dir + ":unset}.col-sm-3,.col-sm-6,.navbar-header,.navbar-nav,.navbar-nav>li{float:" + dir + "}.navbar-right{float:" + dirRev + "}}@media (min-width:992px){.col-md-2,.col-md-3,.col-md-4{float:" + dir + "}}@media (min-width:1200px){.col-lg-3,.col-lg-4{float:" + dir + "}}@media (min-width:1724px){.col-lg-3,.col-lg-4,.col-md-4{float:" + dir + "}}"));
+  newStyle.appendChild(document.createTextNode("@media (min-width:768px){.post-masonry{" + dirRev + ":0;" + dir + ":unset}.col-sm-6,.navbar-header,.navbar-nav,.navbar-nav>li{float:" + dir + "}.navbar-right{float:" + dirRev + "}}@media (min-width:992px){.col-md-4{float:" + dir + "}}@media (min-width:1200px){.col-lg-3{float:" + dir + "}}@media (min-width:1724px){.col-lg-3,.col-md-4{float:" + dir + "}}"));
   newStyle.appendChild(document.createTextNode("#topRowCompare{margin-" + dir + ":-25px}.webLink{float:" + dir + ";clear:" + dir + "}"));
 
   document.head.appendChild(newStyle);

@@ -767,9 +767,6 @@ canvas {
   display: inline-block;
   margin-bottom: 20px;
   text-transform: uppercase;
-}
-
-.actualHeader {
   padding: 3px 9px 1px;
 }
 
@@ -1199,22 +1196,12 @@ input:checked + .slider:before {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-.t-dark > div > div > .headerOutline,
-.t-dark > div > div > div > div > .headerOutline,
-.t-dark > div > div > div > div > div > .headerOutline,
-.t-dark > div > div > div > div > div > div > .headerOutline,
-.t-dark > div > div > div > div > div > div > div > .headerOutline {
+.t-dark .headerOutline {
   color: #000;
-  background-color: #eaeaea;
 }
 
-.t-light > div > div > .headerOutline,
-.t-light > div > div > div > div > .headerOutline,
-.t-light > div > div > div > div > div > .headerOutline,
-.t-light > div > div > div > div > div > div > .headerOutline,
-.t-light > div > div > div > div > div > div > div > .headerOutline {
+.t-light .headerOutline {
   color: #eaeaea;
-  background-color: #000;
 }
 
 .t-dark #headerWrap {
@@ -1290,7 +1277,7 @@ input:checked + .slider:before {
 }
 
 #color1 {
-  background-color: #ffb900;
+  background-color: #ffc107;
 }
 
 #color2 {

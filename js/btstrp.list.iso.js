@@ -185,31 +185,32 @@ last_rd=rd}return 0>best_loc?!1:!0}}])
 
 var userLang, langValue, derivedLang;
 
-var color1 = "255,193,7";
-var color2 = "255,140,0";
-var color3 = "247,99,12";
-var color4 = "239,105,80";
-var color5 = "232,17,35";
-var color6 = "195,0,82";
-var color7 = "191,0,119";
-var color8 = "154,0,137";
-var color9 = "0,120,215";
-var color10 = "0,99,177";
-var color11 = "142,140,216";
-var color12 = "107,105,214";
-var color13 = "0,153,188";
-var color14 = "45,125,154";
-var color15 = "3,131,135";
-var color16 = "0,204,106";
-var color17 = "16,137,62";
-var color18 = "73,130,5";
-var color19 = "16,124,16";
+var color1 = {base: "255,193,7", light: "#F0DEA5", dark: "#4D3A02"};
+var color2 = {base: "255,140,0", light: "#F0CEA3", dark: "#4D2A00"};
+var color3 = {base: "247,99,12", light: "#EEC1A7", dark: "#4B1E04"};
+var color4 = {base: "239,105,80", light: "#ECC3BB", dark: "#482018"};
+var color5 = {base: "232,17,35", light: "#E9A8AE", dark: "#46050B"};
+var color6 = {base: "195,0,82", light: "#DEA3BC", dark: "#3B0019"};
+var color7 = {base: "191,0,119", light: "#DDA3C7", dark: "#3A0024"};
+var color8 = {base: "154,0,137", light: "#D2A3CD", dark: "#2F0029"};
+var color9 = {base: "0,120,215", light: "#A3C8E4", dark: "#002441"};
+var color10 = {base: "0,99,177", light: "#A3C1D9", dark: "#001E35"};
+var color11 = {base: "142140216", light: "CECEE5", dark: "2B2A41"};
+var color12 = {base: "107105214", light: "C4C3E4", dark: "202041"};
+var color13 = {base: "0,153,188", light: "A3D2DC", dark: "2E+39"};
+var color14 = {base: "45125154", light: "#255,193,7", dark: "#255,193,7"};
+var color15 = {base: "3131135", light: "#255,193,7", dark: "#255,193,7"};
+var color16 = {base: "0,204,106", light: "#255,193,7", dark: "#255,193,7"};
+var color17 = {base: "16,137,62", light: "#255,193,7", dark: "#255,193,7"};
+var color18 = {base: "73,130,5", light: "#255,193,7", dark: "#255,193,7"};
+var color19 = {base: "16,124,16", light: "#255,193,7", dark: "#255,193,7"};
 // var color20 = "118,118,118";
-var color21 = "76,74,72";
-var color22 = "105,121,126";
-var color23 = "100,124,100";
-var color24 = "132,117,69";
-var color25 = "126,115,95";
+var color21 = {base: "76,74,72", light: "#255,193,7", dark: "#255,193,7"};
+var color22 = {base: "105,121,126", light: "#255,193,7", dark: "#255,193,7"};
+var color23 = {base: "100,124,100", light: "#255,193,7", dark: "#255,193,7"};
+var color24 = {base: "132,117,69", light: "#255,193,7", dark: "#255,193,7"};
+var color25 = {base: "126,115,95", light: "#255,193,7", dark: "#255,193,7"};
+
 
 function getLang() {
   langValue = localStorage.getItem("langValue");
@@ -301,37 +302,6 @@ function setLangFile(inLang) {
   document.head.appendChild(newStyle);
 }
 
-// function adjust(color, amount) {
-//   return '#' + color.replace(/^#/, '').replace(/../g, function (color) {
-//     return ('0' + Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)).substr(-2);
-//   });
-// }
-
-// function lightenDarkenColor(col, amt) {
-//   var usePound = false;
-
-//   if (col[0] === "#") {
-//     col = col.slice(1);
-//     usePound = true;
-//   }
-
-//   var num = parseInt(col, 16);
-//   var r = (num >> 16) + amt;
-//   var b = ((num >> 8) & 0x00ff) + amt;
-//   var g = (num & 0x0000ff) + amt;
-
-//   if (r > 255) r = 255;
-//   else if (r < 0) r = 0;
-
-//   if (b > 255) b = 255;
-//   else if (b < 0) b = 0;
-
-//   if (g > 255) g = 255;
-//   else if (g < 0) g = 0;
-
-//   return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16);
-// };
-
 function rgbToHex(rgb) {
   var r = rgb.split(",")[0];
   g = rgb.split(",")[1];
@@ -341,22 +311,14 @@ function rgbToHex(rgb) {
   return "#" + (0x1000000 + rgbNew).toString(16).slice(1);
 }
 
-function setColor(themeColor, theme) {
+function setColor(colorSet, theme) {
+  var themeColor = colorSet["base"];
+  var darkColor = colorSet["dark"];
+  var lightColor = colorSet["light"];
+  var bgColor = (theme === "light") ? lightColor : darkColor;
+  var fgColor = (theme === "light") ? darkColor : lightColor;
   var hexValue = rgbToHex(themeColor);
-  var num = 100;
   
-  // var lightColor = lightenDarkenColor(hexValue, num);
-  // var darkColor = lightenDarkenColor(hexValue, -num);
-  // var linkColor = (theme === "light") ? darkColor : lightColor
-  // var newLinkColor = (theme === "light") ? adjust(hexValue, -160) : adjust(hexValue, 160);
-  // console.log('theme: '+theme + '; hexValue: ' + hexValue);
-  // console.log('linkColor: ' + linkColor);
-  // console.log('lightColor: '+lightColor);
-  // console.log('darkColor: '+darkColor);
-
-  // console.log('adjust lightColor: ' + adjust(hexValue, num));
-  // console.log('adjust darkColor: ' + adjust(hexValue, -num));
-
   var metaThemeColor = document.querySelector("meta[name=theme-color]");
   metaThemeColor.setAttribute("content", hexValue);
 
@@ -364,18 +326,17 @@ function setColor(themeColor, theme) {
   metaTileColor.setAttribute("content", hexValue);
 
   var newStyle = document.createElement("style");
-  newStyle.appendChild(document.createTextNode("a{color:" + hexValue + "}")); // testing
-  // newStyle.appendChild(document.createTextNode("#test{color:" + pSBC ( 0.42, rgb(20,60,200) ) + "}")); // testing
+  newStyle.appendChild(document.createTextNode("a{color:" + fgColor + "}"));
   
-  newStyle.appendChild(document.createTextNode("#footerwrap,#topRowCompare,.modal-content,.navbar-default,button,html{background-color:rgba(" + themeColor + ",1)}.aboutHeader{color:rgba(" + themeColor + ",.7)}input:checked+.slider{background-color:rgb(" + themeColor + ")}input:focus+.slider{box-shadow:0 0 1px rgb(" + themeColor + ")}"));
-  newStyle.appendChild(document.createTextNode(".box-content,.list-content{background-color:rgba(" + themeColor + ",.25)}.actualHeader,.listSym{background-color:rgba(" + themeColor + ",.3)}"));
+  newStyle.appendChild(document.createTextNode("#footerwrap,#topRowCompare,.modal-content,.navbar-default,button,html{background-color:rgb(" + themeColor + ")}.aboutHeader{color:" + fgColor + "}input:checked+.slider{background-color:rgb(" + themeColor + ")}input:focus+.slider{box-shadow:0 0 1px rgb(" + themeColor + ")}"));
+  newStyle.appendChild(document.createTextNode(".box-content,.list-content{background-color:" + bgColor + "}.headerOutline{background-color:" + fgColor + "}.listSym{background-color:rgba(" + themeColor + ",.3)}"));
   newStyle.appendChild(document.createTextNode(".navbar-default,.navbar-collapse.in{background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}.sort{background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
 
   if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he")
-    newStyle.appendChild(document.createTextNode(".listNum{background: linear-gradient(-45deg, transparent 0%, transparent 50%, rgba(" + themeColor + ",0.3) 50%, rgba(" + themeColor + ",0.3) 100%)}.navbar-toggle{background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
+    newStyle.appendChild(document.createTextNode(".listNum{background: linear-gradient(-45deg, transparent 0%, transparent 50%, " + fgColor + " 50%, " + fgColor + " 100%)}.navbar-toggle{background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
 
   else
-    newStyle.appendChild(document.createTextNode(".listNum{background: linear-gradient(45deg, transparent 0%, transparent 50%, rgba(" + themeColor + ",0.3) 50%, rgba(" + themeColor + ",0.3) 100%)}.navbar-toggle{background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
+    newStyle.appendChild(document.createTextNode(".listNum{background: linear-gradient(45deg, transparent 0%, transparent 50%, rgba(" + themeColor + ",.3) 50%, rgba(" + themeColor + ",.3) 100%)}.navbar-toggle{background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
 
   document.head.appendChild(newStyle);
 }

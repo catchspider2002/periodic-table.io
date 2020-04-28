@@ -195,21 +195,22 @@ var color7 = {base: "191,0,119", light: "#DDA3C7", dark: "#3A0024"};
 var color8 = {base: "154,0,137", light: "#D2A3CD", dark: "#2F0029"};
 var color9 = {base: "0,120,215", light: "#A3C8E4", dark: "#002441"};
 var color10 = {base: "0,99,177", light: "#A3C1D9", dark: "#001E35"};
-var color11 = {base: "142140216", light: "CECEE5", dark: "2B2A41"};
-var color12 = {base: "107105214", light: "C4C3E4", dark: "202041"};
-var color13 = {base: "0,153,188", light: "A3D2DC", dark: "2E+39"};
-var color14 = {base: "45125154", light: "#255,193,7", dark: "#255,193,7"};
-var color15 = {base: "3131135", light: "#255,193,7", dark: "#255,193,7"};
-var color16 = {base: "0,204,106", light: "#255,193,7", dark: "#255,193,7"};
-var color17 = {base: "16,137,62", light: "#255,193,7", dark: "#255,193,7"};
-var color18 = {base: "73,130,5", light: "#255,193,7", dark: "#255,193,7"};
-var color19 = {base: "16,124,16", light: "#255,193,7", dark: "#255,193,7"};
+var color11 = {base: "142,140,216", light: "#CECEE5", dark: "#2B2A41"};
+var color12 = {base: "107,105,214", light: "#C4C3E4", dark: "#202041"};
+var color13 = {base: "0,153,188", light: "#A3D2DC", dark: "#002E39"};
+var color14 = {base: "45,125,154", light: "#B1C9D2", dark: "#0E262F"};
+var color15 = {base: "3,131,135", light: "#A4CBCC", dark: "#012829"};
+var color16 = {base: "0,204,106", light: "#A3E1C3", dark: "#003E20"};
+var color17 = {base: "16,137,62", light: "#A8CDB6", dark: "#052913"};
+var color18 = {base: "73,130,5", light: "#B9CBA5", dark: "#162702"};
+var color19 = {base: "16,124,16", light: "#A8C9A8", dark: "#052505"};
+
 // var color20 = "118,118,118";
-var color21 = {base: "76,74,72", light: "#255,193,7", dark: "#255,193,7"};
-var color22 = {base: "105,121,126", light: "#255,193,7", dark: "#255,193,7"};
-var color23 = {base: "100,124,100", light: "#255,193,7", dark: "#255,193,7"};
-var color24 = {base: "132,117,69", light: "#255,193,7", dark: "#255,193,7"};
-var color25 = {base: "126,115,95", light: "#255,193,7", dark: "#255,193,7"};
+var color21 = {base: "76,74,72", light: "#BABAB9", dark: "#171616"};
+var color22 = {base: "105,121,126", light: "#C3C8C9", dark: "#202526"};
+var color23 = {base: "100,124,100", light: "#C2C9C2", dark: "#1E251E"};
+var color24 = {base: "132,117,69", light: "#CBC7B8", dark: "#282315"};
+var color25 = {base: "126,115,95", light: "#C9C6C0", dark: "#26231D"};
 
 
 function getLang() {
@@ -332,11 +333,12 @@ function setColor(colorSet, theme) {
   newStyle.appendChild(document.createTextNode(".box-content,.list-content{background-color:" + bgColor + "}.headerOutline{background-color:" + fgColor + "}.listSym{background-color:rgba(" + themeColor + ",.3)}"));
   newStyle.appendChild(document.createTextNode(".navbar-default,.navbar-collapse.in{background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}.sort{background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
 
-  if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he")
-    newStyle.appendChild(document.createTextNode(".listNum{background: linear-gradient(-45deg, transparent 0%, transparent 50%, " + fgColor + " 50%, " + fgColor + " 100%)}.navbar-toggle{background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
+  var deg = "45deg"
 
-  else
-    newStyle.appendChild(document.createTextNode(".listNum{background: linear-gradient(45deg, transparent 0%, transparent 50%, rgba(" + themeColor + ",.3) 50%, rgba(" + themeColor + ",.3) 100%)}.navbar-toggle{background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
+  if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he")
+  deg = "-45deg"
+    
+  newStyle.appendChild(document.createTextNode(".listNum{background: linear-gradient("+deg+", transparent 0%, transparent 50%, rgba(" + themeColor + ",.3) 50%, rgba(" + themeColor + ",.3) 100%)}.navbar-toggle{background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
 
   document.head.appendChild(newStyle);
 }

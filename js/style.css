@@ -883,13 +883,13 @@ canvas {
 
 #snippetOuter {
   width: 10.5em;
-  height: 10.5em;
+  /* height: 10.5em; */
   padding: 1em 0;
 }
 
 #snippetRight {
   width: 26.5em;
-  height: 10.5em;
+  /* height: 10.5em; */
   padding: 1em 0;
 }
 
@@ -1056,7 +1056,7 @@ canvas {
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #777;
 }
 
 .slider:before {

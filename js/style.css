@@ -703,7 +703,6 @@ canvas {
 .masonry {
   columns: 5 300px;
   column-gap: 30px;
-  margin-bottom: 30px;
 }
 
 .masonry-4-col {
@@ -715,6 +714,8 @@ canvas {
   -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
   page-break-inside: avoid; /* Firefox */
   break-inside: avoid; /* IE 10+ */
+  /* display: inline-block;
+  width: 100%; */
 }
 
 .blog-thumb {
@@ -1165,15 +1166,13 @@ input:checked + .slider:before {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-.t-dark > div > div > div > div > div > div > input,
-.t-dark > div > div > div > div > div > div > div > select,
-.t-dark > div > div > div > div > div > div > div > div > select {
+.t-dark input,
+.t-dark select {
   background-color: rgba(0, 0, 0, 0.9);
   color: rgba(255, 255, 255, 0.8);
 }
-.t-light > div > div > div > div > div > div > input,
-.t-light > div > div > div > div > div > div > div > select,
-.t-light > div > div > div > div > div > div > div > div > select {
+.t-light input,
+.t-light select {
   background-color: rgba(255, 255, 255, 0.9);
   color: rgba(0, 0, 0, 0.8);
 }
@@ -1212,17 +1211,11 @@ input:checked + .slider:before {
   background-color: #efefef;
 }
 
-.t-dark > div > div > div > div > div > div > a
-/* .t-dark > div > div > div > div > div > div > div > a,
-.t-dark > div > div > div > span > a,
-.t-dark > div > div > div > div > div > div > div > span > a  */ {
+.t-dark > div > div > div > div > div > div > a {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.t-light > div > div > div > div > div > div > a
-/* .t-light > div > div > div > div > div > div > div > a,
-.t-light > div > div > div > span > a,
-.t-light > div > div > div > div > div > div > div > span > a */ {
+.t-light > div > div > div > div > div > div > a {
   color: rgba(0, 0, 0, 0.7);
 }
 

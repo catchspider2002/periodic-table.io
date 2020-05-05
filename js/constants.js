@@ -1007,6 +1007,7 @@ function initializePage() {
   settingsLink.textContent = settings;
   id("aboutLink").textContent = about;
   id("storeLink").textContent = store;
+  id("printableLink").textContent = "PRINTABLES";
 
 
   for (var i = 0; i < colorClass.length; i++) {

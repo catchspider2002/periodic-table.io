@@ -1,13 +1,41 @@
 @font-face {
   font-family: "Lato Regular";
-  src: url(fonts/Lato-Regular.woff2) format("woff2"), url(fonts/Lato-Regular.woff) format("woff");
+  src: url(../fonts/Lato-Regular.woff2) format("woff2"), url(../fonts/Lato-Regular.woff) format("woff");
   font-display: swap;
 }
 
 @font-face {
   font-family: "Lato Heavy";
-  src: url(fonts/Lato-Heavy.woff2) format("woff2"), url(fonts/Lato-Heavy.woff) format("woff");
+  src: url(../fonts/Lato-Heavy.woff2) format("woff2"), url(../fonts/Lato-Heavy.woff) format("woff");
   font-display: swap;
+}
+
+@font-face {
+  font-family: "pt-icons";
+  src: url("../fonts/pt-icons.woff?31kazk") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.iconFont {
+  font-family: "pt-icons";
+  text-transform: lowercase;
+  font-size: 24px;
+  padding-right: 10px;
+}
+
+#settingsLink,
+#translateLink,
+#githubLink {
+  display: block;
+}
+@media (min-width: 768px) {
+  #settingsLink,
+  #translateLink,
+  #githubLink {
+    display: none;
+  }
 }
 
 html {
@@ -272,6 +300,29 @@ table,
   flex-wrap: wrap;
 }
 
+.px-4 {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.m-2 {
+  margin: 0.5rem;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
 .list > div {
   min-width: 300px;
 }
@@ -471,6 +522,8 @@ table,
 .navbar-default .navbar-nav > li > a {
   color: #fff;
   font-size: 12px;
+  display: flex;
+  line-height: 20px;
 }
 
 .navbar-default .navbar-nav > li > a:focus,

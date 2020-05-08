@@ -1005,9 +1005,9 @@ function initializePage() {
   id("compareLink").textContent = compare;
   id("translateLink").textContent = translate;
   settingsLink.textContent = settings;
-  id("aboutLink").textContent = about;
+  // id("aboutLink").textContent = about;
   id("storeLink").textContent = store;
-  id("printableLink").textContent = "PRINTABLES";
+  // id("printableLink").innerHTML = "<span class='iconFont'>a</span>" + "PRINTABLES";
 
 
   for (var i = 0; i < colorClass.length; i++) {

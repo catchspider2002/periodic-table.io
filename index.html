@@ -85,29 +85,32 @@
         </div>
         <div id="listNavbar" class="navbar-collapse navbar-right collapse">
           <ul class="nav navbar-nav">
-            <li class="active">
+            <!-- <li id="homeList" class="active">
               <a href="./"><span class='iconFont'>g</span><span id="homeLink"></span></a>
+            </li> -->
+            <li id="listList">
+              <a href="list.html"><span class='iconFont'>a</span><span id="listLink" class="linkText"></span></a>
             </li>
-            <li>
-              <a href="list.html"><span class='iconFont'>a</span><span id="listLink"></span></a>
+            <li id="compareList">
+              <a href="compare.html"><span class='iconFont'>d</span><span id="compareLink" class="linkText"></span></a>
             </li>
-            <li>
-              <a href="compare.html"><span class='iconFont'>d</span><span id="compareLink"></span></a>
+            <li id="printableList">
+              <a href="store.html"><span class='iconFont'>e</span><span id="printableLink" class="linkText"></span></a>
             </li>
-            <li>
-              <a target="_blank" href="https://windows-uwp.oneskyapp.com/collaboration" rel="noopener noreferrer"><span class='iconFont'>k</span><span id="translateLink"></span></a>
+            <li id="storeList">
+              <a href="store.html"><span class='iconFont'>o</span><span id="storeLink" class="linkText"></span></a>
             </li>
-            <li>
-              <a href="#" data-toggle="modal" data-target="#settingsModal"><span class='iconFont'>l</span><span id="settingsLink"></span></a>
+            <li id="translateList">
+              <a target="_blank" href="https://windows-uwp.oneskyapp.com/collaboration" rel="noopener noreferrer"><span class='iconFont'>k</span><span id="translateLink" class="linkText"></span></a>
+            </li>
+            <li id="settingsList">
+              <a href="#" data-toggle="modal" data-target="#settingsModal"><span class='iconFont'>l</span><span id="settingsLink" class="linkText"></span></a>
             </li>
             <!-- <li>
               <a href="about.html"><span class='iconFont'>i</span><span id="aboutLink"></span></a>
             </li> -->
             <li>
-              <a href="store.html"><span class='iconFont'>o</span><span id="storeLink"></span></a>
-            </li>
-            <li>
-              <a href="store.html"><span class='iconFont'>e</span><span id="printableLink">Printable</span></a>
+              <a href="store.html"><span class='iconFont'>c</span><span id="themeLink" class="linkText">Theme</span></a>
             </li>
           </ul>
         </div>
@@ -1201,8 +1204,9 @@
         <div class="text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">Privacy</div>
       </div>
       <div class="flex justify-center">
-        <div class="flex"><span class='iconFont'>r</span>Github</div>
-        <div class="flex"><span class='iconFont'>q</span>Twitter</div>
+        <a href="about.html" class="flex"><span class='iconFont'>i</span><span id="aboutLink">About</span></a>
+        <div class="flex"><span class='iconFont'>r</span><span>Github</span></div>
+        <div class="flex"><span class='iconFont'>q</span><span>Twitter</span></div>
       </div>
     </div>
 

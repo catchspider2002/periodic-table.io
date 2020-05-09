@@ -22,19 +22,32 @@
   font-family: "pt-icons";
   text-transform: lowercase;
   font-size: 24px;
-  padding-right: 10px;
 }
 
+.linkText{
+  padding-left: 10px;
+}
+
+#storeLink,
 #settingsLink,
 #translateLink,
-#githubLink {
+#themeLink {
   display: block;
 }
 @media (min-width: 768px) {
+  #storeLink,
   #settingsLink,
   #translateLink,
-  #githubLink {
+  #themeLink {
     display: none;
+  }
+}
+@media (min-width: 1724px) {
+  #storeLink,
+  #settingsLink,
+  #translateLink,
+  #themeLink {
+    display: block;
   }
 }
 
@@ -1274,52 +1287,52 @@ input:checked + .slider:before {
 
 .alkaliMetals {
   /* Pink */
-  background-color: rgba(228, 27, 144, 0.65);
+  background-color: rgba(228, 27, 144, 0.5);
 }
 
 .alkalineEarthMetals {
   /* Blue */
-  background-color: rgba(34, 97, 196, 0.65);
+  background-color: rgba(34, 97, 196, 0.5);
 }
 
 .transitionMetals {
   /* Red */
-  background-color: rgba(217, 38, 38, 0.65);
+  background-color: rgba(217, 38, 38, 0.5);
 }
 
 .postTransitionMetals {
   /* Deep Purple */
-  background-color: rgba(139, 102, 204, 0.65);
+  background-color: rgba(139, 102, 204, 0.5);
 }
 
 .otherNonmetals {
   /* Green */
-  background-color: rgba(26, 152, 90, 0.65);
+  background-color: rgba(26, 152, 90, 0.5);
 }
 
 .metalloids {
   /* Orange */
-  background-color: rgba(255, 85, 0, 0.65);
+  background-color: rgba(255, 85, 0, 0.5);
 }
 
 .halogens {
   /* Cyan */
-  background-color: rgba(59, 168, 221, 0.65);
+  background-color: rgba(59, 168, 221, 0.5);
 }
 
 .nobleGases {
   /* Lime */
-  background-color: rgba(91, 170, 9, 0.65);
+  background-color: rgba(91, 170, 9, 0.5);
 }
 
 .lanthanides {
   /* Amber */
-  background-color: rgba(217, 133, 38, 0.65);
+  background-color: rgba(217, 133, 38, 0.5);
 }
 
 .actinides {
   /* Brown */
-  background-color: rgba(123, 113, 81, 0.65);
+  background-color: rgba(123, 113, 81, 0.5);
 }
 
 #color1 {

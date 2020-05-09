@@ -1000,13 +1000,21 @@ function initializePage() {
   id("themeLight").textContent = themeLight;
   id("themeDark").textContent = themeDark;
 
-  id("homeLink").textContent = home;
+  // id("homeLink").textContent = home;
+  // id("homeList").title = home;
   id("listLink").textContent = list;
+  id("listList").title = list;
   id("compareLink").textContent = compare;
+  id("compareList").title = compare;
   id("translateLink").textContent = translate;
+  id("translateList").title = translate;
   settingsLink.textContent = settings;
+  id("settingsList").title = settings;
   // id("aboutLink").textContent = about;
   id("storeLink").textContent = store;
+  id("storeList").title = store;
+  id("printableLink").textContent = "Printables";
+  id("printableList").title = "Printables";
   // id("printableLink").innerHTML = "<span class='iconFont'>a</span>" + "PRINTABLES";
 
 
@@ -1050,7 +1058,7 @@ function setNavbar() {
         navWidth = 536 + 60;
         break;
       case "ca":
-        navWidth = 507 + 60;
+        navWidth = 585 + 60;
         break;
       case "cs":
         navWidth = 527 + 60;
@@ -1603,34 +1611,34 @@ function setOutline() {
 
   switch (colClass) {
     case "alkaliMetals":
-      elementColor = "rgba(228,27,144, 0.65)";
+      elementColor = "rgba(228,27,144, 0.5)";
       break;
     case "alkalineEarthMetals":
-      elementColor = "rgba(34,97,196,0.65)";
+      elementColor = "rgba(34,97,196,0.5)";
       break;
     case "transitionMetals":
-      elementColor = "rgba(217,38,38,0.65)";
+      elementColor = "rgba(217,38,38,0.5)";
       break;
     case "postTransitionMetals":
-      elementColor = "rgba(139,102,204,0.65)";
+      elementColor = "rgba(139,102,204,0.5)";
       break;
     case "otherNonmetals":
-      elementColor = "rgba(26,152,90,0.65)";
+      elementColor = "rgba(26,152,90,0.5)";
       break;
     case "metalloids":
-      elementColor = "rgba(255,85,0,0.65)";
+      elementColor = "rgba(255,85,0,0.5)";
       break;
     case "halogens":
-      elementColor = "rgba(59,168,221,0.65)";
+      elementColor = "rgba(59,168,221,0.5)";
       break;
     case "nobleGases":
-      elementColor = "rgba(91,170,9,0.65)";
+      elementColor = "rgba(91,170,9,0.5)";
       break;
     case "lanthanides":
-      elementColor = "rgba(217,133,38,0.65)";
+      elementColor = "rgba(217,133,38,0.5)";
       break;
     case "actinides":
-      elementColor = "rgba(123,113,81,0.65)";
+      elementColor = "rgba(123,113,81,0.5)";
       break;
   }
 

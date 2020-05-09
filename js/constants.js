@@ -933,13 +933,27 @@ function closeMenusOnResize() {
   }
 }
 
+function changeIcon(){
+
+  if (id("themeIcon").textContent === "f"){
+    id("themeIcon").textContent = "c";
+    defaultNewTheme = "light";
+  }
+  else{
+    id("themeIcon").textContent = "f";
+    defaultNewTheme = "dark";
+  }
+
+  localStorage.setItem("defaultNewTheme", defaultNewTheme);
+  setTheme()
+}
+
 function initializePage() {
 
   document.body.classList.remove("fade-out");
 
-  var settingsLink = id("settingsLink");
-
-  settingsLink.addEventListener("click", closeMenu, false);
+  id("settingsLink").addEventListener("click", closeMenu, false);
+  id("themeList").addEventListener("click", changeIcon, false);
 
   // Event listeners
   window.addEventListener("resize", closeMenusOnResize, false);
@@ -951,6 +965,7 @@ function initializePage() {
     localStorage.setItem("defaultNewTheme", "light");
     defaultNewTheme = "light";
   }
+  id("themeIcon").textContent = (defaultNewTheme === "light") ? "c" : "f"
 
   defaultColor = localStorage.getItem("defaultColor");
 
@@ -959,10 +974,10 @@ function initializePage() {
     defaultColor = "color10";
   }
   else{
-  if (defaultColor.indexOf(",") > 0){
-    localStorage.setItem("defaultColor", "color10");
-    defaultColor = "color10";
-  }
+    if (defaultColor.indexOf(",") > 0){
+      localStorage.setItem("defaultColor", "color10");
+      defaultColor = "color10";
+    }
   }
 
   defaultTemp = localStorage.getItem("defaultTemp");
@@ -995,10 +1010,10 @@ function initializePage() {
 
   id("tempCelsius").textContent = tempCelsius;
   id("tempFahrenheit").textContent = tempFahrenheit;
-  id("theme").textContent = theme;
+  // id("theme").textContent = theme;
   id("themeColor").textContent = labelColorMain;
-  id("themeLight").textContent = themeLight;
-  id("themeDark").textContent = themeDark;
+  // id("themeLight").textContent = themeLight;
+  // id("themeDark").textContent = themeDark;
 
   // id("homeLink").textContent = home;
   // id("homeList").title = home;
@@ -1008,13 +1023,15 @@ function initializePage() {
   id("compareList").title = compare;
   id("translateLink").textContent = translate;
   id("translateList").title = translate;
-  settingsLink.textContent = settings;
+  id("settingsLink").textContent = settings;
   id("settingsList").title = settings;
   // id("aboutLink").textContent = about;
   id("storeLink").textContent = store;
   id("storeList").title = store;
   id("printableLink").textContent = "Printables";
   id("printableList").title = "Printables";
+  id("themeLink").textContent = theme;
+  id("themeList").title = theme;
   // id("printableLink").innerHTML = "<span class='iconFont'>a</span>" + "PRINTABLES";
 
 
@@ -1042,124 +1059,128 @@ function setNavbar() {
   var noOverflow = cls("no-overflow");
 
   if (window.innerWidth > 768) {
-    var navWidth = 414;
-
+    var navWidth = 500;
+        
+    if (window.innerWidth > 1200)
+      navWidth = 900;
+    else{
     switch (derivedLang) {
       case "en":
-        navWidth = 467 + 60;
+        navWidth = 562 + 60;
         break;
       case "gb":
-        navWidth = 467 + 60;
+        navWidth = 562 + 60;
         break;
       case "ar":
-        navWidth = 362 + 60;
+        navWidth = 558 + 60;
         break;
       case "bg":
-        navWidth = 536 + 60;
+        navWidth = 585 + 60;
         break;
       case "ca":
         navWidth = 585 + 60;
         break;
       case "cs":
-        navWidth = 527 + 60;
+        navWidth = 597 + 60;
         break;
       case "da":
-        navWidth = 497 + 60;
+        navWidth = 585 + 60;
         break;
       case "de":
-        navWidth = 564 + 60;
+        navWidth = 592 + 60;
         break;
       case "el":
-        navWidth = 576 + 60;
-        break;
-      case "es":
-        navWidth = 494 + 60;
-        break;
-      case "fa":
-        navWidth = 418 + 60;
-        break;
-      case "fi":
-        navWidth = 462 + 60;
-        break;
-      case "fr":
-        navWidth = 525 + 60;
-        break;
-      case "he":
-        navWidth = 364 + 60;
-        break;
-      case "hi":
-        navWidth = 348 + 60;
-        break;
-      case "hr":
-        navWidth = 588 + 60;
-        break;
-      case "hu":
-        navWidth = 562 + 60;
-        break;
-      case "id":
-        navWidth = 595 + 60;
-        break;
-      case "it":
         navWidth = 571 + 60;
         break;
+      case "es":
+        navWidth = 579 + 60;
+        break;
+      case "fa":
+        navWidth = 572 + 60;
+        break;
+      case "fi":
+        navWidth = 565 + 60;
+        break;
+      case "fr":
+        navWidth = 577 + 60;
+        break;
+      case "he":
+        navWidth = 547 + 60;
+        break;
+      case "hi":
+        navWidth = 527 + 60;
+        break;
+      case "hr":
+        navWidth = 587 + 60;
+        break;
+      case "hu":
+        navWidth = 622 + 60;
+        break;
+      case "id":
+        navWidth = 608 + 60;
+        break;
+      case "it":
+        navWidth = 601 + 60;
+        break;
       case "ja":
-        navWidth = 456 + 60;
+        navWidth = 563 + 60;
         break;
       case "ko":
-        navWidth = 336 + 60;
+        navWidth = 523 + 60;
         break;
       case "nb":
-        navWidth = 500 + 60;
+        navWidth = 592 + 60;
         break;
       case "nl":
-        navWidth = 482 + 60;
+        navWidth = 570 + 60;
         break;
       case "nn":
-        navWidth = 478 + 60;
+        navWidth = 562 + 60;
         break;
       case "ph":
-        navWidth = 548 + 60;
+        navWidth = 583 + 60;
         break;
       case "pt":
-        navWidth = 519 + 60;
+        navWidth = 579 + 60;
         break;
       case "ro":
-        navWidth = 438 + 60;
+        navWidth = 571 + 60;
         break;
       case "ru":
-        navWidth = 605 + 60;
+        navWidth = 593 + 60;
         break;
       case "sk":
-        navWidth = 508 + 60;
+        navWidth = 598 + 60;
         break;
       case "sl":
-        navWidth = 518 + 60;
+        navWidth = 593 + 60;
         break;
       case "sr":
-        navWidth = 500 + 60;
+        navWidth = 580 + 60;
         break;
       case "sv":
-        navWidth = 492 + 60;
+        navWidth = 586 + 60;
         break;
       case "th":
-        navWidth = 422 + 60;
+        navWidth = 574 + 60;
         break;
       case "tr":
-        navWidth = 518 + 60;
+        navWidth = 598 + 60;
         break;
       case "uk":
-        navWidth = 641 + 60;
+        navWidth = 603 + 60;
         break;
       case "vi":
-        navWidth = 517 + 60;
+        navWidth = 603 + 60;
         break;
       case "zs":
-        navWidth = 500 + 60;
+        navWidth = 527 + 60;
         break;
       case "zt":
-        navWidth = 325 + 60;
+        navWidth = 587 + 60;
         break;
     }
+  }
     navWidth = navWidth + 16;
 
     for (var i = 0; i < noOverflow.length; i++) {
@@ -1224,11 +1245,11 @@ function loaderFunc() {
 function setSettings() {
   id("languageSelectSetting").addEventListener("change", setLanguage, false);
   id("tempSelectSetting").addEventListener("change", setTemp, false);
-  id("themeSelectSetting").addEventListener("change", setTheme, false);
+  // id("themeSelectSetting").addEventListener("change", setTheme, false);
 
   id("languageSelectSetting").value = langValue;
   id("tempSelectSetting").value = defaultTemp;
-  id("themeSelectSetting").value = defaultNewTheme;
+  // id("themeSelectSetting").value = defaultNewTheme;
 }
 
 function setTemp() {
@@ -1245,8 +1266,8 @@ function setTemp() {
 }
 
 function setTheme() {
-  defaultNewTheme = id("themeSelectSetting").value;
-  localStorage.setItem("defaultNewTheme", defaultNewTheme);
+  // defaultNewTheme = id("themeSelectSetting").value;
+  // localStorage.setItem("defaultNewTheme", defaultNewTheme);
 
   setDefaultTheme();
   if (id("elementSquare")){

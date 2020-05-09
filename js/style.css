@@ -26,6 +26,7 @@
 
 .linkText{
   padding-left: 10px;
+  padding-right: 10px;
 }
 
 #storeLink,
@@ -42,7 +43,7 @@
     display: none;
   }
 }
-@media (min-width: 1724px) {
+@media (min-width: 1200px) {
   #storeLink,
   #settingsLink,
   #translateLink,

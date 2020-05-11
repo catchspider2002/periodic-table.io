@@ -327,7 +327,7 @@ function setColor(colorSet, theme) {
   metaTileColor.setAttribute("content", hexValue);
 
   var newStyle = document.createElement("style");
-  newStyle.appendChild(document.createTextNode("a{color:" + fgColor + "}"));
+  newStyle.appendChild(document.createTextNode("a{color:" + fgColor + "}a:focus,a:hover{color: rgba(" + themeColor + ",.7)}"));
   
   newStyle.appendChild(document.createTextNode("#topRowCompare,.modal-content,.navbar-default,button{background-color:rgb(" + themeColor + ")}.aboutHeader{color:" + fgColor + "}input:checked+.slider{background-color:rgb(" + themeColor + ")}input:focus+.slider{box-shadow:0 0 1px rgb(" + themeColor + ")}"));
   newStyle.appendChild(document.createTextNode(".box-content,.list-content{background-color:" + bgColor + "}.headerOutline{background-color:" + fgColor + "}.listSym{background-color:rgba(" + themeColor + ",.3)}"));

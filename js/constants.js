@@ -1025,7 +1025,6 @@ function initializePage() {
   id("translateList").title = translate;
   id("settingsLink").textContent = settings;
   id("settingsList").title = settings;
-  // id("aboutLink").textContent = about;
   id("storeLink").textContent = store;
   id("storeList").title = store;
   id("printableLink").textContent = "Printables";
@@ -1033,6 +1032,10 @@ function initializePage() {
   id("themeLink").textContent = theme;
   id("themeList").title = theme;
   // id("printableLink").innerHTML = "<span class='iconFont'>a</span>" + "PRINTABLES";
+  id("translate2Link").textContent = translate;
+  id("aboutLink").textContent = about;
+  id("creditsLink").textContent = credits;
+  id("privacyLink").textContent = privacy;
 
 
   for (var i = 0; i < colorClass.length; i++) {

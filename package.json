@@ -46,9 +46,10 @@
     "homepage": "https://github.com/catchspider2002/periodic-table.io#readme",
     "dependencies": {
         "@prettier/plugin-xml": "^0.7.2",
+        "html-minifier": "^4.0.0",
         "i": "^0.3.6",
         "prettier": "^2.0.5",
-        "uglify-js": "^3.9.1",
+        "uglify-js": "^3.9.2",
         "watch": "^1.0.2"
     },
     "devDependencies": {

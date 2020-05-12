@@ -385,27 +385,8 @@ table,
 
 .grid {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto 1fr;
   margin: 0 -15px;
-}
-
-.grid-3 {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  margin: 0 -15px;
-}
-
-.grid-5 {
-  display: grid;
-  grid-template-columns: 50px 50px 50px 50px 50px;
-  grid-template-rows: 50px 50px 50px 50px 50px;
-  margin: 15px 15px 15px 15px;
-  column-gap: 15px;
-  row-gap: 15px;
-}
-
-.grid-span-3 {
-  grid-column: 1 / span 3;
 }
 
 .padding-0 {

@@ -1239,6 +1239,10 @@ function loaderFunc() {
     aboutLoad();
   else if (id("privacyPolicy"))
     privacyLoad();
+  else if (id("credits"))
+    creditsLoad();
+  else if (id("printables"))
+    printablesLoad();
   else if (id("pg404Header"))
     pg404Load();
   else if (id("lightTeeHeader"))
@@ -1802,6 +1806,41 @@ function aboutLoad() {
   id("feature9").textContent = feature9;
   //  id("feature10").textContent = feature10;
   id("pageHeader").textContent = about;
+
+  // window.addEventListener("resize", bloggingisotope);
+  // bloggingisotope();
+  // bloggingisotope();
+}
+
+function pg404Load() {
+  initializePage();
+  id("homeTitle").textContent = "Page Not Found" + " - " + homeTitle;
+
+  id("main404").textContent = "Page Not Found";
+}
+
+function storeLoad() {
+  initializePage();
+  id("homeTitle").textContent = store + " - " + homeTitle;
+
+  id("pageHeader").textContent = store;
+}
+
+function privacyLoad() {
+  initializePage();
+  id("homeTitle").textContent = privacy + " - " + homeTitle;
+
+  id("pageHeader").textContent = privacy;
+  
+  id("privacyHeader").textContent = privacy;
+  id("privacyPolicy").textContent = privacyFull;
+}
+
+function creditsLoad() {
+  initializePage();
+  id("homeTitle").textContent = credits + " - " + homeTitle;
+
+  id("pageHeader").textContent = credits;
   id("credits").textContent = credits;
   id("translation").textContent = translation;
 
@@ -1840,34 +1879,13 @@ function aboutLoad() {
   id("heTrans").textContent = heTrans;
   id("slTrans").textContent = slTrans;
   id("hrTrans").textContent = hrTrans;
-
-  // window.addEventListener("resize", bloggingisotope);
-  // bloggingisotope();
-  // bloggingisotope();
 }
 
-function pg404Load() {
+function printablesLoad() {
   initializePage();
-  id("homeTitle").textContent = "Page Not Found" + " - " + homeTitle;
+  id("homeTitle").textContent = "Printables" + " - " + homeTitle;
 
-  id("main404").textContent = "Page Not Found";
-}
-
-function storeLoad() {
-  initializePage();
-  id("homeTitle").textContent = store + " - " + homeTitle;
-
-  id("pageHeader").textContent = store;
-}
-
-function privacyLoad() {
-  initializePage();
-  id("homeTitle").textContent = privacy + " - " + homeTitle;
-
-  id("pageHeader").textContent = privacy;
-  
-  id("privacyHeader").textContent = privacy;
-  id("privacyPolicy").textContent = privacyFull;
+  id("pageHeader").textContent = "Printables";
 }
 
 // Compare

@@ -1,18 +1,18 @@
 @font-face {
   font-family: "Lato Regular";
-  src: url(../fonts/Lato-Regular.woff2) format("woff2"), url(../fonts/Lato-Regular.woff) format("woff");
+  src: url(../../fonts/Lato-Regular.woff2) format("woff2"), url(../../fonts/Lato-Regular.woff) format("woff");
   font-display: swap;
 }
 
 @font-face {
   font-family: "Lato Heavy";
-  src: url(../fonts/Lato-Heavy.woff2) format("woff2"), url(../fonts/Lato-Heavy.woff) format("woff");
+  src: url(../../fonts/Lato-Heavy.woff2) format("woff2"), url(../../fonts/Lato-Heavy.woff) format("woff");
   font-display: swap;
 }
 
 @font-face {
   font-family: "pt-icons";
-  src: url("../fonts/pt-icons.woff?31kazk") format("woff");
+  src: url("../../fonts/pt-icons.woff?31kazk") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -37,6 +37,7 @@
 #themeLink {
   display: block;
 }
+
 @media (min-width: 768px) {
   #storeLink,
   #settingsLink,
@@ -1169,7 +1170,13 @@ input:checked + .slider:before {
 
 .aboutHeader {
   font-size: 1.5em;
-  padding: 2em 1em 1em;
+  padding: 0em 1em 1em;
+}
+
+@media (min-width: 1200px) {
+  .aboutHeader {
+    padding: 2em 1em 1em;
+  }
 }
 
 #about {

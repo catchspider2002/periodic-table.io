@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Elements: The Periodic Table is a Progressive Web App (PWA) and provides comprehensive and useful information about the chemical elements all in one place. Know more about the properties, history, name origin, images, applications, hazards and electron shell diagram of each element.">
+    <meta name="keywords" content="Periodic Table, chemical, elements, interactive, PWA, properties, history, name origin, images, applications, hazards, electron shell, diagram, chemistry, electron configuration, isotopes, information">
+    <meta name="author" content="Naveen CS">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#0078d7">
+    <link rel="canonical" href="https://periodic-table.io/compare.html">
+    <meta name="msapplication-TileColor" content="#0078d7">
+    <meta name="msapplication-TileImage" content="mstile-144x144.png">
+	  <meta name="msapplication-square70x70logo" content="mstile-70x70.png">
+    <meta name="msapplication-square150x150logo" content="mstile-150x150.png">
+    <meta name="msapplication-wide310x150logo" content="mstile-310x150.png">
+    <meta name="msapplication-square310x310logo" content="mstile-310x310.png">
+    <meta name="theme-color" content="#0078d7">
+    <meta name="google" content="notranslate">
+    <meta name="robots" content="index,follow">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta property="og:site_name" content="Periodic-Table.io">
+    <meta property="og:title" content="Elements: The Periodic Table">
+    <meta property="og:description" content="Elements: The Periodic Table is a Progressive Web App (PWA) and provides comprehensive and useful information about the chemical elements all in one place. Know more about the properties, history, name origin, images, applications, hazards and electron shell diagram of each element.">
+    <meta property="og:image" itemprop="image" content="https://periodic-table.io/android-chrome-256x256.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://periodic-table.io/compare.html">
+
+    <title id="homeTitle">Elements: The Periodic Table</title>
+    <link rel="stylesheet" href="style.min.css" />
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function() {
+          navigator.serviceWorker.register("/sw.js").then(function(o) {
+            console.log("Workbox SW registered: ", o)
+          }).catch(function(o) {
+            console.log("Workbox SW registration failed: ", o)
+          })
+        })
+      }
+
+    </script>
+</head>
+
+  <body id="body" class="t-light normalFont">
+    <script>
+      document.body.className += ' fade-out';
+
+    </script>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top heavyFont" role="navigation">
+      <div class="top-container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-label="Expand">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="./" aria-label="Home">
+            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 10.054166 10.054166" class="periodic-table-logo">
+              <g transform="translate(-11.223271,-248.751622)" style="fill:#ffffff">
+                <path d="m 14.368697,250.65729 a 1.3007583,1.300758 0 0 0 -1.300758,1.30076 1.3007583,1.300758 0 0 0 1.009148,1.26637 1.5960997,1.5960997 0 0 1 1.552505,-1.58069 1.3007583,1.300758 0 0 0 -1.260895,-0.98644 z m 4.841172,1.58093 a 1.5081255,1.5081255 0 0 0 -1.470202,1.17775 l -0.824437,-0.0999 a 0.12567713,0.12567713 0 0 0 -0.139889,0.10965 0.12567713,0.12567713 0 0 0 0.109624,0.13989 l 0.820853,0.0995 a 1.5081255,1.5081255 0 0 0 -0.0041,0.0812 1.5081255,1.5081255 0 0 0 1.508126,1.50813 1.5081255,1.5081255 0 0 0 1.508125,-1.50813 1.5081255,1.5081255 0 0 0 -1.508125,-1.50812 z m -4.331148,1.68937 a 0.12567712,0.12567712 0 0 0 -0.07784,0.028 l -0.843043,0.68281 a 1.3007583,1.300758 0 0 0 -0.87434,-0.3398 1.3007583,1.300758 0 0 0 -1.300758,1.30076 1.3007583,1.300758 0 0 0 1.300758,1.30076 1.3007583,1.300758 0 0 0 1.300759,-1.30076 1.3007583,1.300758 0 0 0 -0.257418,-0.77439 l 0.832219,-0.67406 a 0.12567712,0.12567712 0 0 0 0.01858,-0.17676 0.12567712,0.12567712 0 0 0 -0.09892,-0.0466 z"></path>
+                <path d="m 15.672524,251.73018 a 1.5081255,1.5081254 0 0 0 -1.508126,1.50813 1.5081255,1.5081254 0 0 0 0.296741,0.89542 l 0.292273,-0.23672 a 0.20108339,0.20108339 0 0 1 0.282822,0.0297 0.20108339,0.20108339 0 0 1 -0.0297,0.28282 l -0.2651,0.21471 a 1.5081255,1.5081254 0 0 0 0.931091,0.32219 1.5081255,1.5081254 0 0 0 1.444403,-1.07677 l -0.241045,-0.0292 a 0.20108339,0.20108339 0 0 1 -0.175408,-0.22384 0.20108339,0.20108339 0 0 1 0.223814,-0.17541 l 0.254668,0.0309 a 1.5081255,1.5081254 0 0 0 0.0017,-0.0337 1.5081255,1.5081254 0 0 0 -1.508125,-1.50813 z"
+                style="opacity:0.7"></path>
+              </g>
+            </svg>
+          </a>
+          <div class="navbar-header no-overflow">
+            <h1 id="pageHeader"></h1>
+          </div>
+        </div>
+        <div id="listNavbar" class="navbar-collapse navbar-right collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <a id="listList" href="list.html"><span class='iconFont'>a</span><span id="listLink" class="linkText"></span></a>
+            </li>
+            <li>
+              <a id="compareList" href="compare.html"><span class='iconFont'>d</span><span id="compareLink" class="linkText"></span></a>
+            </li>
+            <li>
+              <a id="printableList" href="printables.html"><span class='iconFont'>e</span><span id="printableLink" class="linkText"></span></a>
+            </li>
+            <li>
+              <a id="storeList" href="store.html"><span class='iconFont'>o</span><span id="storeLink" class="linkText"></span></a>
+            </li>
+            <li>
+              <a id="translateList" target="_blank" href="https://windows-uwp.oneskyapp.com/collaboration" rel="noopener noreferrer"><span class='iconFont'>k</span><span id="translateLink" class="linkText"></span></a>
+            </li>
+            <li>
+              <a id="settingsList" href="#" data-toggle="modal" data-target="#settingsModal"><span class='iconFont'>l</span><span id="settingsLink" class="linkText"></span></a>
+            </li>
+            <li>
+              <a id="themeList" href="#"><span id="themeIcon" class='iconFont'>c</span><span id="themeLink" class="linkText">Theme</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- *****************************************************************************************************************
+	 HEADERWRAP
+	 ***************************************************************************************************************** -->
+
+    <div class="content-wrapper">
+      <div class="container">
+        <div class="row">
+          <div id="compareBg" class="box-content">
+            <div id="mainCompare">
+              <div id="topRowCompare">
+                <div id="compareTop" class="square">
+                  <div class="col-xs-4 new-table"></div>
+                  <div class="col-xs-4 new-table padding-10">
+                    <select id="firstElement" aria-label="First Element"></select>
+                  </div>
+                  <div class="col-xs-4 new-table padding-10">
+                    <select id="secondElement" aria-label="Second Element"></select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont" id="labelName"></div>
+                <a id="compEle1">
+                  <div id="name1" class="col-xs-4 new-table compareLink"></div>
+                </a>
+                <a id="compEle2">
+                  <div id="name2" class="col-xs-4 new-table compareLink"></div>
+                </a>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont" id="labelSymbol"></div>
+                <div id="symbol1" class="col-xs-4 new-table"></div>
+                <div id="symbol2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont" id="labelAtmNoMain"></div>
+                <div id="atmNo1" class="col-xs-4 new-table"></div>
+                <div id="atmNo2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont" id="group"></div>
+                <div id="groups1" class="col-xs-4 new-table"></div>
+                <div id="groups2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont" id="period"></div>
+                <div id="periods1" class="col-xs-4 new-table"></div>
+                <div id="periods2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont" id="block"></div>
+                <div id="block1" class="col-xs-4 new-table"></div>
+                <div id="block2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont hyphen" id="labelCrustMain"></div>
+                <div id="crust1" class="col-xs-4 new-table"></div>
+                <div id="crust2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont hyphen" id="labelUniverseMain"></div>
+                <div id="universe1" class="col-xs-4 new-table"></div>
+                <div id="universe2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row padding-top-42">
+                <div id="labelGeneralProp" class="headerOutline text-upper heavyFont">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont" id="labelAtmWtMain"></div>
+                <div id="atmWeight1" class="col-xs-4 new-table"></div>
+                <div id="atmWeight2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont" id="labelCategoryMain"></div>
+                <div id="category1" class="col-xs-4 new-table"></div>
+                <div id="category2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont" id="labelColorMain"></div>
+                <div id="eleColor1" class="col-xs-4 new-table"></div>
+                <div id="eleColor2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont" id="labelRadioMain"></div>
+                <div id="radioactive1" class="col-xs-4 new-table"></div>
+                <div id="radioactive2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont" id="labelStructureMain"></div>
+                <div id="structure1" class="col-xs-4 new-table"></div>
+                <div id="structure2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row padding-top-42">
+                <div id="labelPhysicalProp" class="headerOutline text-upper heavyFont">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont"><span id="labelDensityMain"></span> (<span id="labelDensity"></span>)</div>
+                <div id="density1" class="col-xs-4 new-table"></div>
+                <div id="density2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont" id="labelPhaseMain"></div>
+                <div id="phase1" class="col-xs-4 new-table"></div>
+                <div id="phase2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont" id="labelMeltingMain"></div>
+                <div id="meltPoint1" class="col-xs-4 new-table"></div>
+                <div id="meltPoint2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont" id="labelBoilingMain"></div>
+                <div id="boilPoint1" class="col-xs-4 new-table"></div>
+                <div id="boilPoint2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont"><span id="labelFusionMain"></span> (<span id="labelFusion1"></span>)</div>
+                <div id="fusion1" class="col-xs-4 new-table"></div>
+                <div id="fusion2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont hyphen"><span id="labelVaporizationMain"></span> (<span id="labelFusion2"></span>)</div>
+                <div id="vaporization1" class="col-xs-4 new-table"></div>
+                <div id="vaporization2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont hyphen"><span id="labelSpecificMain"></span> (<span id="labelSpecific"></span>)</div>
+                <div id="spHeat1" class="col-xs-4 new-table"></div>
+                <div id="spHeat2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row padding-top-42">
+                <div id="labelAtomicProp" class="headerOutline text-upper heavyFont">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont" id="labelRadiusMain"></div>
+                <div id="atmRadius1" class="col-xs-4 new-table"></div>
+                <div id="atmRadius2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont" id="labelCovalentMain"></div>
+                <div id="covRadius1" class="col-xs-4 new-table"></div>
+                <div id="covRadius2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont hyphen"><span id="labelElectronegativityMain"></span> (<span id="pauling"></span>)</div>
+                <div id="eleNeg1" class="col-xs-4 new-table"></div>
+                <div id="eleNeg2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont hyphen"><span id="labelIonizationMain"></span> (<span id="labelIonization"></span>)</div>
+                <div id="ionization1" class="col-xs-4 new-table"></div>
+                <div id="ionization2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont"><span id="labelVolumeMain"></span> (<span id="labelVolume"></span>)</div>
+                <div id="volume1" class="col-xs-4 new-table"></div>
+                <div id="volume2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont hyphen"><span id="labelThermalMain"></span> (<span id="labelThermal"></span>)</div>
+                <div id="theCond1" class="col-xs-4 new-table"></div>
+                <div id="theCond2" class="col-xs-4 new-table"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont hyphen" id="labelOxidationMain"></div>
+                <div id="oxidation1" class="col-xs-4 new-table ltrText text-left"></div>
+                <div id="oxidation2" class="col-xs-4 new-table ltrText text-left"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont hyphen" id="labelConfigMain"></div>
+                <div id="elecConfig1" class="col-xs-4 new-table ltrText text-left"></div>
+                <div id="elecConfig2" class="col-xs-4 new-table ltrText text-left"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 new-table heavyFont" id="labelElectronsMain"></div>
+                <div id="electrons1" class="col-xs-4 new-table ltrText text-left"></div>
+                <div id="electrons2" class="col-xs-4 new-table ltrText text-left"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="flex flex-wrap justify-center pt-2">
+        <a target="_blank" href="https://windows-uwp.oneskyapp.com/collaboration" rel="noopener noreferrer" class="px-4 py-2"><span id="translate2Link" class="linkText">Translate</span></a>
+        <a href="about.html" class="px-4 py-2"><span id="aboutLink" class="linkText"></span></a>
+        <a href="credits.html" class="px-4 py-2"><span id="creditsLink" class="linkText">Credits</span></a>
+        <a href="privacy-policy.html" class="px-4 py-2"><span id="privacyLink" class="linkText">Privacy</span></a>
+      </div>
+      <div class="flex flex-wrap justify-center pt-2 py-4">
+        <a target="_blank" href="https://github.com/catchspider2002/periodic-table.io" rel="noopener noreferrer" class="flex px-4 py-2"><span class='iconFont self-center'>r</span><span class="linkText self-center">Github</span></a>
+        <a target="_blank" href="https://twitter.com/periodictableio" rel="noopener noreferrer" class="flex px-4 py-2"><span class='iconFont self-center'>q</span><span class="linkText self-center">Twitter</span></a>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="modalSettings" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-inner">
+            <div class="modal-header">
+              <span id="modalSettings" class="modal-title text-left text-upper heavyFont"></span>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="grid">
+                <div class="new-table heavyFont padding-top-5 settingsLeft text-left" id="language"></div>
+                <div class="new-table">
+                  <select id="languageSelectSetting" aria-label="Language">
+                  <option id="sysLanguage" value="sys"></option>
+                  <option value="en">English</option>
+                  <option value="gb">English (UK) </option>
+                  <option value="ar">العربية</option>
+                  <option value="bg">Български</option>
+                  <option value="ca">Català</option>
+                  <option value="cs">Čeština</option>
+                  <option value="da">Dansk</option>
+                  <option value="de">Deutsch</option>
+                  <option value="el">Ελληνικά</option>
+                  <option value="es">Español</option>
+                  <option value="fa">فارسی</option>
+                  <option value="fi">Suomi</option>
+                  <option value="fr">Français</option>
+                  <option value="he">עברית</option>
+                  <option value="hi">हिंदी</option>
+                  <option value="hr">Hrvatski</option>
+                  <option value="hu">Magyar</option>
+                  <option value="id">Bahasa Indonesia</option>
+                  <option value="it">Italiano</option>
+                  <option value="ja">日本語</option>
+                  <option value="ko">한국어</option>
+                  <option value="nb">Norsk Bokmål</option>
+                  <option value="nn">Norsk Nynorsk</option>
+                  <option value="nl">Nederlands</option>
+                  <option value="ph">Polski</option>
+                  <option value="pt">Português</option>
+                  <option value="ro">Română</option>
+                  <option value="ru">Русский</option>
+                  <option value="sk">Slovenčina</option>
+                  <option value="sl">Slovenščina</option>
+                  <option value="sr">Српски</option>
+                  <option value="sv">Svenska</option>
+                  <option value="th">ไทย</option>
+                  <option value="tr">Türkçe</option>
+                  <option value="uk">Українська</option>
+                  <option value="vi">Tiếng Việt</option>
+                  <option value="zs">中文(简体)</option>
+                  <option value="zt">中文(繁體)</option>
+                </select>
+                </div>
+                <div class="new-table heavyFont padding-top-5 settingsLeft text-left" id="temperature"></div>
+                <div class="new-table">
+                  <select id="tempSelectSetting" aria-label="Temperature">
+                  <option id="tempCelsius" value="celsius"></option>
+                  <option id="tempFahrenheit" value="fahrenheit"></option>
+                </select>
+                </div>
+                <!-- <div class="new-table heavyFont padding-top-5 settingsLeft text-left" id="theme"></div>
+                <div class="new-table">
+                  <select id="themeSelectSetting" aria-label="Theme">
+                  <option id="themeLight" value="light"></option>
+                  <option id="themeDark" value="dark"></option>
+                </select>
+                </div> -->
+                <div class="new-table heavyFont padding-top-5 settingsLeft text-left" id="themeColor"></div>
+                <div class="new-table">
+                <table id="colorTable">
+                  <tbody>
+                    <tr>
+                      <td id="color1" class="colorClass"></td>
+                      <td id="color2" class="colorClass"></td>
+                      <td id="color3" class="colorClass"></td>
+                      <td id="color4" class="colorClass"></td>
+                      <td id="color5" class="colorClass"></td>
+                      <td id="color6" class="colorClass"></td>
+                    </tr>
+                    <tr>
+                      <td id="color7" class="colorClass"></td>
+                      <td id="color8" class="colorClass"></td>
+                      <td id="color9" class="colorClass"></td>
+                      <td id="color10" class="colorClass"></td>
+                      <td id="color11" class="colorClass"></td>
+                      <td id="color12" class="colorClass"></td>
+                    </tr>
+                    <tr>
+                      <td id="color13" class="colorClass"></td>
+                      <td id="color14" class="colorClass"></td>
+                      <td id="color15" class="colorClass"></td>
+                      <td id="color16" class="colorClass"></td>
+                      <td id="color17" class="colorClass"></td>
+                      <td id="color18" class="colorClass"></td>
+                    </tr>
+                    <tr>
+                      <td id="color19" class="colorClass"></td>
+                      <!-- <td id="color20" class="colorClass"></td> -->
+                      <td id="color21" class="colorClass"></td>
+                      <td id="color22" class="colorClass"></td>
+                      <td id="color23" class="colorClass"></td>
+                      <td id="color24" class="colorClass"></td>
+                      <td id="color25" class="colorClass"></td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CSS and JavaScript placed at the end of the document so the pages load faster
+    ========================================================================================== -->
+    <script>
+      loadjs=function(){function e(e,n){var t,r,i,c=[],o=(e=e.push?e:[e]).length,f=o;for(t=function(e,t){t.length&&c.push(e),--f||n(c)};o--;)r=e[o],(i=s[r])?t(r,i):(u[r]=u[r]||[]).push(t)}function n(e,n){if(e){var t=u[e];if(s[e]=n,t)for(;t.length;)t[0](e,n),t.splice(0,1)}}function t(e,n,r,i){var o,s,u=document,f=r.async,a=(r.numRetries||0)+1,h=r.before||c;i=i||0,/(^css!|\.css$)/.test(e)?(o=!0,(s=u.createElement("link")).rel="stylesheet",s.href=e.replace(/^css!/,"")):((s=u.createElement("script")).src=e,s.async=void 0===f||f),s.onload=s.onerror=s.onbeforeload=function(c){var u=c.type[0];if(o&&"hideFocus"in s)try{s.sheet.cssText.length||(u="e")}catch(e){u="e"}if("e"==u&&(i+=1)<a)return t(e,n,r,i);n(e,u,c.defaultPrevented)},!1!==h(e,s)&&u.head.appendChild(s)}function r(e,n,r){var i,c,o=(e=e.push?e:[e]).length,s=o,u=[];for(i=function(e,t,r){if("e"==t&&u.push(e),"b"==t){if(!r)return;u.push(e)}--o||n(u)},c=0;c<s;c++)t(e[c],i,r)}function i(e,t,i){var s,u;if(t&&t.trim&&(s=t),u=(s?i:t)||{},s){if(s in o)throw"LoadJS";o[s]=!0}r(e,function(e){e.length?(u.error||c)(e):(u.success||c)(),n(s,e)},u)}var c=function(){},o={},s={},u={};return i.ready=function(n,t){return e(n,function(e){e.length?(t.error||c)(e):(t.success||c)()}),i},i.done=function(e){n(e,[])},i.reset=function(){o={},s={},u={}},i.isDefined=function(e){return e in o},i}();
+      loadjs(["btstrp.list.iso.min.js"], {
+        success: function() {
+          setLangFile(derivedLang);
+          loadjs(["constants.min.js", "locales/locale." + derivedLang + ".js"], {
+            success: function() {
+              compareLoad();
+            }
+          });
+        }
+      });
+
+    </script>
+  </body>
+
+</html>

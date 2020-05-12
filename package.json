@@ -5,10 +5,14 @@
     "main": "index.html",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "minify-constants-js": "uglifyjs js/constants.js --compress --mangle --output constants.min.js",
-        "minify-btstrp-js": "uglifyjs js/btstrp.list.iso.js --compress --mangle --output btstrp.list.iso.min.js",
-        "minify-css": "cleancss -o style.min.css js/style.css",
-        "watch": "watch \"npm run minify-constants-js && npm run minify-btstrp-js && npm run minify-css\" ./js",
+        "minify-constants-js": "uglifyjs src/js/constants.js --compress --mangle --output constants.min.js",
+        "minify-btstrp-js": "uglifyjs src/js/btstrp.list.iso.js --compress --mangle --output btstrp.list.iso.min.js",
+        "minify-css": "cleancss -o style.min.css src/css/style.css",
+        "minify-html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true --input-dir src/html --output-dir .",
+        "watch-js": "watch \"npm run minify-constants-js && npm run minify-btstrp-js\" ./src/js",
+        "watch-css": "watch \"npm run minify-css\" ./src/css",
+        "watch-html": "watch \"npm run minify-html\" ./src/html",
+        "watch": "concurrently \"npm run watch-js\" \"npm run watch-css\" \"npm run watch-html\"",
         "workbox": "workbox generate:sw"
     },
     "repository": {
@@ -46,13 +50,14 @@
     "homepage": "https://github.com/catchspider2002/periodic-table.io#readme",
     "dependencies": {
         "@prettier/plugin-xml": "^0.7.2",
-        "html-minifier": "^4.0.0",
-        "i": "^0.3.6",
         "prettier": "^2.0.5",
-        "uglify-js": "^3.9.2",
         "watch": "^1.0.2"
     },
     "devDependencies": {
+        "concurrently": "^5.2.0",
+        "html-minifier": "^4.0.0",
+        "i": "^0.3.6",
+        "uglify-js": "^3.9.2",
         "clean-css": "^4.2.3"
     }
 }

@@ -1218,12 +1218,16 @@ function setLanguage() {
   langValue = id("languageSelectSetting").value;
   localStorage.setItem("langValue", langValue);
 
+  console.log("langValue: " + langValue);
   derivedLang = getLang();
+  console.log("derivedLang: " + derivedLang);
   setLangFile(derivedLang);
+  document.documentElement.setAttribute('lang',derivedLang)
   
   loadjs(["locales/locale." + derivedLang + ".js"], {
     success: loaderFunc
   });
+  
 }
 
 function loaderFunc() {

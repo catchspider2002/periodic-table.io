@@ -1891,8 +1891,33 @@ function printablesLoad() {
 
   id("pageHeader").textContent = "Printables";
   id("printablesHeader").textContent =  "Printables";
-  id("printables").textContent =  "Printables";
+  // id("printables").innerHTML =  "Periodic Table Poster for Download<br>High quality periodic table images<br>Available in below languages<br>PNG, JPG, PDF (F 5wq1e2)";
+
+
+  // var cssLink = document.createElement("link") 
+  // cssLink.href = "style.min.css"; 
+  // cssLink.rel = "stylesheet"; 
+  // cssLink.type = "text/css"; 
+
+  //Instead of this
+  //frames['frame1'].document.body.appendChild(cssLink);
+  //Do this
+
+  // var myIframe = document.getElementById('gumroad-embed-iframe-RsUKZ');
+
+  // waitForElement("gumroad-embed-iframe-RsUKZ", function(){
+  //     console.log("Available now");
+  // });
 }
+
+// function waitForElement(elementId, callback){
+//   var poops = setInterval(function(){
+//       if(id(elementId)){
+//           clearInterval(poops);
+//           callback();
+//       }
+//   }, 100);
+// }
 
 // Compare
 

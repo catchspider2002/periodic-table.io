@@ -510,7 +510,7 @@ table,
   right: 0;
   left: 0;
   z-index: 1030;
-  box-shadow: 0 2px 5px rgba(128, 128, 128, 0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .navbar-nav {

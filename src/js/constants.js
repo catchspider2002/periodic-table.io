@@ -1245,7 +1245,7 @@ function loaderFunc() {
     privacyLoad();
   else if (id("credits"))
     creditsLoad();
-  else if (id("printables"))
+  else if (id("printablesHeader"))
     printablesLoad();
   else if (id("pg404Header"))
     pg404Load();
@@ -1890,6 +1890,8 @@ function printablesLoad() {
   id("homeTitle").textContent = "Printables" + " - " + homeTitle;
 
   id("pageHeader").textContent = "Printables";
+  id("printablesHeader").textContent =  "Printables";
+  id("printables").textContent =  "Printables";
 }
 
 // Compare

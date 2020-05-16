@@ -1796,7 +1796,7 @@ function aboutLoad() {
   id("suppLang").textContent = languages;
   id("langList").textContent = enTrans + '; ' + arTrans + '; ' + bgTrans + '; ' + caTrans + '; ' + csTrans + '; ' + daTrans + '; ' + deTrans + '; ' + elTrans + '; ' +
     esTrans + '; ' + faTrans + '; ' + fiTrans + '; ' + frTrans + '; ' + heTrans + '; ' + hiTrans + '; ' + hrTrans + '; ' + huTrans + '; ' + idTrans + '; ' + itTrans + '; ' +
-	jaTrans + '; ' + koTrans + '; ' + nnTrans + '; ' + nlTrans + '; ' + plTrans + '; ' + ptTrans + '; ' + roTrans + '; ' + ruTrans + '; ' + skTrans + '; ' + slTrans + '; ' +
+	jaTrans + '; ' + koTrans + '; ' + nlTrans + '; ' + nnTrans + '; ' + plTrans + '; ' + ptTrans + '; ' + roTrans + '; ' + ruTrans + '; ' + skTrans + '; ' + slTrans + '; ' +
 	srTrans + '; ' + svTrans + '; ' + thTrans + '; ' + trTrans + '; ' + ukTrans + '; ' + viTrans + '; ' + zhTrans + '; ' + chTrans + ';';
 
   id("feature1").textContent = feature1;

@@ -185,17 +185,16 @@ last_rd=rd}return 0>best_loc?!1:!0}}])
 
 var userLang, langValue, derivedLang;
 
-var color1 = {base: "217, 38, 38", light: "#EC9292", dark: "#6D1313"};
-var color2 = {base: "255, 85, 0", light: "#FFAA7F", dark: "#802B00"};
-var color3 = {base: "217, 133, 38", light: "#ECC292", dark: "#6D4313"};
-var color4 = {base: "123, 113, 81", light: "#BDB8A8", dark: "#3E3929"};
-var color5 = {base: "91, 170, 9", light: "#ADD484", dark: "#2E5505"};
-var color6 = {base: "26, 152, 90", light: "#8CCBAC", dark: "#0D4C2D"};
-var color7 = {base: "59, 168, 221", light: "#9DD3EE", dark: "#1E546F"};
-var color8 = {base: "0, 120, 215", light: "#7FBBEB", dark: "#003C6C"};
-var color9 = {base: "139, 102, 204", light: "#C5B2E5", dark: "#463366"};
-var color10 = {base: "228, 27, 144", light: "#F18DC7", dark: "#720E48"};
-
+var color1 = {base: "253, 58, 74", light: "#FECED2", dark: "#3F0F13"};
+var color2 = {base: "255, 85, 0", light: "#FFD4BF", dark: "#401500"};
+var color3 = {base: "217, 133, 38", light: "#F5E0C9", dark: "#36210A"};
+var color4 = {base: "123, 113, 81", light: "#DEDBD3", dark: "#1F1C14"};
+var color5 = {base: "91, 170, 9", light: "#D6EAC1", dark: "#172B02"};
+var color6 = {base: "26, 152, 90", light: "#C6E5D6", dark: "#072617"};
+var color7 = {base: "59, 168, 221", light: "#CEE9F6", dark: "#0F2A37"};
+var color8 = {base: "0, 120, 215", light: "#BFDDF5", dark: "#001E36"};
+var color9 = {base: "139, 102, 204", light: "#E2D9F2", dark: "#231A33"};
+var color10 = {base: "228, 27, 144", light: "#F8C6E3", dark: "#390724"};
 
 // var color1 = {base: "217, 38, 38", light: "#F0DEA5", dark: "#4D3A02"};
 // var color2 = {base: "255, 85, 0", light: "#F0CEA3", dark: "#4D2A00"};

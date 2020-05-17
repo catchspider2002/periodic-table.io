@@ -185,32 +185,44 @@ last_rd=rd}return 0>best_loc?!1:!0}}])
 
 var userLang, langValue, derivedLang;
 
-var color1 = {base: "255,193,7", light: "#F0DEA5", dark: "#4D3A02"};
-var color2 = {base: "255,140,0", light: "#F0CEA3", dark: "#4D2A00"};
-var color3 = {base: "247,99,12", light: "#EEC1A7", dark: "#4B1E04"};
-var color4 = {base: "239,105,80", light: "#ECC3BB", dark: "#482018"};
-var color5 = {base: "232,17,35", light: "#E9A8AE", dark: "#46050B"};
-var color6 = {base: "195,0,82", light: "#DEA3BC", dark: "#3B0019"};
-var color7 = {base: "191,0,119", light: "#DDA3C7", dark: "#3A0024"};
-var color8 = {base: "154,0,137", light: "#D2A3CD", dark: "#2F0029"};
-var color9 = {base: "0,120,215", light: "#A3C8E4", dark: "#002441"};
-var color10 = {base: "0,99,177", light: "#A3C1D9", dark: "#001E35"};
-var color11 = {base: "142,140,216", light: "#CECEE5", dark: "#2B2A41"};
-var color12 = {base: "107,105,214", light: "#C4C3E4", dark: "#202041"};
-var color13 = {base: "0,153,188", light: "#A3D2DC", dark: "#002E39"};
-var color14 = {base: "45,125,154", light: "#B1C9D2", dark: "#0E262F"};
-var color15 = {base: "3,131,135", light: "#A4CBCC", dark: "#012829"};
-var color16 = {base: "0,204,106", light: "#A3E1C3", dark: "#003E20"};
-var color17 = {base: "16,137,62", light: "#A8CDB6", dark: "#052913"};
-var color18 = {base: "73,130,5", light: "#B9CBA5", dark: "#162702"};
-var color19 = {base: "16,124,16", light: "#A8C9A8", dark: "#052505"};
+var color1 = {base: "217, 38, 38", light: "#EC9292", dark: "#6D1313"};
+var color2 = {base: "255, 85, 0", light: "#FFAA7F", dark: "#802B00"};
+var color3 = {base: "217, 133, 38", light: "#ECC292", dark: "#6D4313"};
+var color4 = {base: "123, 113, 81", light: "#BDB8A8", dark: "#3E3929"};
+var color5 = {base: "91, 170, 9", light: "#ADD484", dark: "#2E5505"};
+var color6 = {base: "26, 152, 90", light: "#8CCBAC", dark: "#0D4C2D"};
+var color7 = {base: "59, 168, 221", light: "#9DD3EE", dark: "#1E546F"};
+var color8 = {base: "0, 120, 215", light: "#7FBBEB", dark: "#003C6C"};
+var color9 = {base: "139, 102, 204", light: "#C5B2E5", dark: "#463366"};
+var color10 = {base: "228, 27, 144", light: "#F18DC7", dark: "#720E48"};
+
+
+// var color1 = {base: "217, 38, 38", light: "#F0DEA5", dark: "#4D3A02"};
+// var color2 = {base: "255, 85, 0", light: "#F0CEA3", dark: "#4D2A00"};
+// var color3 = {base: "217, 133, 38", light: "#EEC1A7", dark: "#4B1E04"};
+// var color4 = {base: "123, 113, 81", light: "#ECC3BB", dark: "#482018"};
+// var color5 = {base: "91, 170, 9", light: "#E9A8AE", dark: "#46050B"};
+// var color6 = {base: "26, 152, 90", light: "#DEA3BC", dark: "#3B0019"};
+// var color7 = {base: "59, 168, 221", light: "#DDA3C7", dark: "#3A0024"};
+// var color8 = {base: "0, 120, 215", light: "#D2A3CD", dark: "#2F0029"};
+// var color9 = {base: "139, 102, 204", light: "#A3C8E4", dark: "#002441"};
+// var color10 = {base: "228, 27, 144", light: "#A3C1D9", dark: "#001E35"};
+// var color11 = {base: "142,140,216", light: "#CECEE5", dark: "#2B2A41"};
+// var color12 = {base: "107,105,214", light: "#C4C3E4", dark: "#202041"};
+// var color13 = {base: "0,153,188", light: "#A3D2DC", dark: "#002E39"};
+// var color14 = {base: "45,125,154", light: "#B1C9D2", dark: "#0E262F"};
+// var color15 = {base: "3,131,135", light: "#A4CBCC", dark: "#012829"};
+// var color16 = {base: "0,204,106", light: "#A3E1C3", dark: "#003E20"};
+// var color17 = {base: "16,137,62", light: "#A8CDB6", dark: "#052913"};
+// var color18 = {base: "73,130,5", light: "#B9CBA5", dark: "#162702"};
+// var color19 = {base: "16,124,16", light: "#A8C9A8", dark: "#052505"};
 
 // var color20 = "118,118,118";
-var color21 = {base: "76,74,72", light: "#BABAB9", dark: "#171616"};
-var color22 = {base: "105,121,126", light: "#C3C8C9", dark: "#202526"};
-var color23 = {base: "100,124,100", light: "#C2C9C2", dark: "#1E251E"};
-var color24 = {base: "132,117,69", light: "#CBC7B8", dark: "#282315"};
-var color25 = {base: "126,115,95", light: "#C9C6C0", dark: "#26231D"};
+// var color21 = {base: "76,74,72", light: "#BABAB9", dark: "#171616"};
+// var color22 = {base: "105,121,126", light: "#C3C8C9", dark: "#202526"};
+// var color23 = {base: "100,124,100", light: "#C2C9C2", dark: "#1E251E"};
+// var color24 = {base: "132,117,69", light: "#CBC7B8", dark: "#282315"};
+// var color25 = {base: "126,115,95", light: "#C9C6C0", dark: "#26231D"};
 
 
 function getLang() {

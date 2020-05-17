@@ -1229,9 +1229,9 @@ input:checked + .slider:before {
 }
 
 #colorTable > tbody > tr > td {
-  width: 12%;
+  width: 16%;
   margin: 0 1.8% 1.8%;
-  padding-bottom: 12%;
+  padding-bottom: 16%;
   display: inline-block;
 }
 
@@ -1252,8 +1252,7 @@ input:checked + .slider:before {
 .t-dark > div > div > div > div > div > div > div > span > a:focus,
 .t-dark > div > div > div > div > div > div > div > span > a:hover,
 .t-dark > div > div > div > div > div > div > div > a:focus,
-.t-dark > div > div > div > div > div > div > div > a:hover  */
-{
+.t-dark > div > div > div > div > div > div > div > a:hover  */ {
   color: #eaeaea;
 }
 
@@ -1267,8 +1266,7 @@ input:checked + .slider:before {
 .t-light > div > div > div > div > div > div > div > span > a:focus,
 .t-light > div > div > div > div > div > div > div > span > a:hover,
 .t-light > div > div > div > div > div > div > div > a:focus,
-.t-light > div > div > div > div > div > div > div > a:hover */
- {
+.t-light > div > div > div > div > div > div > div > a:hover */ {
   color: #000;
 }
 
@@ -1334,7 +1332,7 @@ input:checked + .slider:before {
 
 .alkalineEarthMetals {
   /* Blue */
-  background-color: rgba(34, 97, 196, 0.5);
+  background-color: rgba(0, 120, 215, 0.5);
 }
 
 .transitionMetals {
@@ -1378,104 +1376,104 @@ input:checked + .slider:before {
 }
 
 #color1 {
-  background-color: #ffc107;
+  background-color: rgb(217, 38, 38);
 }
 
 #color2 {
-  background-color: #ff8c00;
+  background-color: rgb(255, 85, 0);
 }
 
 #color3 {
-  background-color: #f7630c;
+  background-color: rgb(217, 133, 38);
 }
 
 #color4 {
-  background-color: #ef6950;
+  background-color: rgb(123, 113, 81);
 }
 
 #color5 {
-  background-color: #e81123;
+  background-color: rgb(91, 170, 9);
 }
 
 #color6 {
-  background-color: #c30052;
+  background-color: rgb(26, 152, 90);
 }
 
 #color7 {
-  background-color: #bf0077;
+  background-color: rgb(59, 168, 221);
 }
 
 #color8 {
-  background-color: #9a0089;
+  background-color: rgb(0, 120, 215);
 }
 
 #color9 {
-  background-color: #0078d7;
+  background-color: rgb(139, 102, 204);
 }
 
 #color10 {
-  background-color: #0063b1;
+  background-color: rgb(228, 27, 144);
 }
 
-#color11 {
+/* #color11 {
   background-color: #8e8cd8;
-}
+} */
 
-#color12 {
+/* #color12 {
   background-color: #6b69d6;
-}
+} */
 
-#color13 {
+/* #color13 {
   background-color: #0099bc;
-}
+} */
 
-#color14 {
+/* #color14 {
   background-color: #2d7d9a;
-}
+} */
 
-#color15 {
+/* #color15 {
   background-color: #038387;
-}
+} */
 
-#color16 {
+/* #color16 {
   background-color: #00cc6a;
-}
+} */
 
-#color17 {
+/* #color17 {
   background-color: #10893e;
-}
+} */
 
-#color18 {
+/* #color18 {
   background-color: #498205;
-}
+} */
 
-#color19 {
+/* #color19 {
   background-color: #107c10;
-}
+} */
 
 /* #color20 {
   background-color: #767676;
 } */
 
-#color21 {
+/* #color21 {
   background-color: #4c4a48;
-}
+} */
 
-#color22 {
+/* #color22 {
   background-color: #69797e;
 }
 
 #color23 {
   background-color: #647c64;
-}
+} */
 
-#color24 {
+/* #color24 {
   background-color: #847545;
-}
+} */
 
-#color25 {
+/* #color25 {
   background-color: #7e735f;
-}
+} */
 
 .teeImage {
   width: auto;

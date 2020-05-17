@@ -1326,53 +1326,43 @@ input:checked + .slider:before {
 }
 
 .alkaliMetals {
-  /* Pink */
-  background-color: rgba(228, 27, 144, 0.5);
+  background-color: rgba(228, 27, 144, 0.5); /* Pink */
 }
 
 .alkalineEarthMetals {
-  /* Blue */
-  background-color: rgba(0, 120, 215, 0.5);
+  background-color: rgba(0, 120, 215, 0.5); /* Blue */
 }
 
 .transitionMetals {
-  /* Red */
-  background-color: rgba(253, 58, 74, 0.5);
+  background-color: rgba(253, 58, 74, 0.5); /* Red */
 }
 
 .postTransitionMetals {
-  /* Deep Purple */
-  background-color: rgba(139, 102, 204, 0.5);
+  background-color: rgba(139, 102, 204, 0.5); /* Deep Purple */
 }
 
 .otherNonmetals {
-  /* Green */
-  background-color: rgba(26, 152, 90, 0.5);
+  background-color: rgba(26, 152, 90, 0.5); /* Green */
 }
 
 .metalloids {
-  /* Orange */
-  background-color: rgba(255, 85, 0, 0.5);
+  background-color: rgba(245, 128, 37, 0.5); /* Orange */
 }
 
 .halogens {
-  /* Cyan */
-  background-color: rgba(59, 168, 221, 0.5);
+  background-color: rgba(59, 168, 221, 0.5); /* Cyan */
 }
 
 .nobleGases {
-  /* Lime */
-  background-color: rgba(91, 170, 9, 0.5);
+  background-color: rgba(91, 170, 9, 0.5); /* Lime */
 }
 
 .lanthanides {
-  /* Amber */
-  background-color: rgba(217, 133, 38, 0.5);
+  background-color: rgba(255, 167, 0, 0.5); /* Yellow */
 }
 
 .actinides {
-  /* Brown */
-  background-color: rgba(123, 113, 81, 0.5);
+  background-color: rgba(123, 113, 81, 0.5); /* Brown */
 }
 
 #color1 {
@@ -1380,11 +1370,11 @@ input:checked + .slider:before {
 }
 
 #color2 {
-  background-color: rgb(255, 85, 0);
+  background-color: rgb(245, 128, 37);
 }
 
 #color3 {
-  background-color: rgb(217, 133, 38);
+  background-color: rgb(255, 167, 0);
 }
 
 #color4 {

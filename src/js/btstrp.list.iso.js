@@ -186,8 +186,8 @@ last_rd=rd}return 0>best_loc?!1:!0}}])
 var userLang, langValue, derivedLang;
 
 var color1 = {base: "253, 58, 74", light: "#FECED2", dark: "#3F0F13"};
-var color2 = {base: "255, 85, 0", light: "#FFD4BF", dark: "#401500"};
-var color3 = {base: "217, 133, 38", light: "#F5E0C9", dark: "#36210A"};
+var color2 = {base: "245, 128, 37", light: "#FCDFC8", dark: "#3D2009"};
+var color3 = {base: "255, 167, 0", light: "#FFE9BF", dark: "#402A00"};
 var color4 = {base: "123, 113, 81", light: "#DEDBD3", dark: "#1F1C14"};
 var color5 = {base: "91, 170, 9", light: "#D6EAC1", dark: "#172B02"};
 var color6 = {base: "26, 152, 90", light: "#C6E5D6", dark: "#072617"};

@@ -125,7 +125,7 @@ module.exports = {
     "/element.html?num=118": ["element.html"]
   },
   "globIgnores": [
-    "node_modules/**/*","workbox-sw.prod.v2.1.2.js","workbox-sw.prod.v2.1.3.js","workbox-cli-config.js","js/**/*","images/PeriodicTableLogo.svg",
+    "node_modules/**/*","src/**/*","zohoverify/**/*","google8252c5ae790e9d85.html","workbox-sw.prod.v2.1.2.js","workbox-sw.prod.v2.1.3.js","workbox-cli-config.js","js/**/*","images/PeriodicTableLogo.svg",
 	"fonts/NotoSansSC-Regular.woff2","fonts/NotoSansSC-Bold.woff2","fonts/NotoSansKufiArabic-Regular.woff2","fonts/NotoSansKufiArabic-Bold.woff2","fonts/NotoSansKR-Regular.woff2","fonts/NotoSansKR-Bold.woff2",
 	"fonts/NotoSansJP-Regular.woff2","fonts/NotoSansJP-Bold.woff2","fonts/NotoSansDevanagari-Bold.woff2","fonts/NotoSansDevanagari-Regular.woff2","fonts/NotoSansTC-Bold.woff2","fonts/NotoSansTC-Regular.woff2"
 	

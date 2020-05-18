@@ -1,4 +1,4 @@
-/* Native Javascript for Bootstrap 3 v2.0.22 */
+/* Native Javascript for Bootstrap 3 v2.0.22 - bootstrap-native.js*/
 Array.prototype.lastIndexOf||(Array.prototype.lastIndexOf=function(searchElement){"use strict"
 if(void 0===this||null===this)throw new TypeError
 var n,k,t=Object(this),len=t.length>>>0
@@ -37,7 +37,7 @@ for(var e=0,i=a[O];i>e;e++)vt(a[e][1],t[D](a[e][2]))}
 return n[i]?mt():dt(n,"DOMContentLoaded",function(){mt()}),{Modal:pt}})
 
 
-/*List*/
+/*List - list.min.js*/
 var List=function(modules){function __webpack_require__(moduleId){if(installedModules[moduleId])return installedModules[moduleId].exports
 var module=installedModules[moduleId]={i:moduleId,l:!1,exports:{}}
 return modules[moduleId].call(module.exports,module,module.exports,__webpack_require__),module.l=!0,module.exports}var installedModules={}

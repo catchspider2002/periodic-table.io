@@ -317,6 +317,18 @@ table,
   flex-wrap: wrap;
 }
 
+.m-1 {
+  margin: 0.25rem;
+}
+
+.m-2 {
+  margin: 0.5rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
 .px-2 {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
@@ -1221,6 +1233,25 @@ input:checked + .slider:before {
   direction: ltr;
 }
 
+.new {
+  background-color: black;
+  color: red;
+  line-height: normal;
+  padding: 3px 8px 2px;
+  border-radius: 9999px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 6px;
+}
+
+@media (min-width: 768px) {
+  .new {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    margin-left: 2px;
+  }
+}
+
 #colorTable {
   table-layout: fixed;
   width: 100%;
@@ -1243,30 +1274,12 @@ input:checked + .slider:before {
 }
 
 .t-dark,
-.t-dark > div > table > tbody > tr > td > .elements
-/* ,
-.t-dark > div > div > div > div > div > div > a:focus,
-.t-dark > div > div > div > div > div > div > a:hover,
-.t-dark > div > div > div > span > a:focus,
-.t-dark > div > div > div > span > a:hover,
-.t-dark > div > div > div > div > div > div > div > span > a:focus,
-.t-dark > div > div > div > div > div > div > div > span > a:hover,
-.t-dark > div > div > div > div > div > div > div > a:focus,
-.t-dark > div > div > div > div > div > div > div > a:hover  */ {
+.t-dark > div > table > tbody > tr > td > .elements {
   color: #eaeaea;
 }
 
 .t-light,
-.t-light > div > table > tbody > tr > td > .elements
-/* ,
-.t-light > div > div > div > div > div > div > a:focus,
-.t-light > div > div > div > div > div > div > a:hover,
-.t-light > div > div > div > span > a:focus,
-.t-light > div > div > div > span > a:hover,
-.t-light > div > div > div > div > div > div > div > span > a:focus,
-.t-light > div > div > div > div > div > div > div > span > a:hover,
-.t-light > div > div > div > div > div > div > div > a:focus,
-.t-light > div > div > div > div > div > div > div > a:hover */ {
+.t-light > div > table > tbody > tr > td > .elements {
   color: #000;
 }
 

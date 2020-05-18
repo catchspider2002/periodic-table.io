@@ -4,14 +4,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Elements: The Periodic Table is a Progressive Web App (PWA) and provides comprehensive and useful information about the chemical elements all in one place. Know more about the properties, history, name origin, images, applications, hazards and electron shell diagram of each element."
-    />
-    <meta
-      name="keywords"
-      content="Periodic Table, chemical, elements, interactive, PWA, properties, history, name origin, images, applications, hazards, electron shell, diagram, chemistry, electron configuration, isotopes, information"
-    />
+    <meta name="description" content="Elements: The Periodic Table is a Progressive Web App (PWA) and provides useful information about the chemical elements. Know more about the properties, history, name origin, images, applications, hazards and electron shell diagram of each element.">    
+    <meta name="keywords" content="Periodic Table, chemical, elements, interactive, PWA, properties, history, name origin, images, applications, hazards, electron shell, diagram, chemistry, electron configuration, isotopes, information">
     <meta name="author" content="Naveen CS" />
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
@@ -96,7 +90,7 @@
               <a id="compareList" href="compare.html"><span class='iconFont'>d</span><span id="compareLink" class="linkText"></span></a>
             </li>
             <li>
-              <a id="printableList" href="printables.html"><span class='iconFont'>e</span><span id="printableLink" class="linkText"></span></a>
+              <a id="printableList" href="printables.html"><span class='iconFont'>e</span><span id="printableLink" class="linkText"></span><span class="new">NEW</span></a>
             </li>
             <li>
               <a id="storeList" href="store.html"><span class='iconFont'>o</span><span id="storeLink" class="linkText"></span></a>
@@ -1206,17 +1200,18 @@
     </div>
     <div id="footer">
       <div class="flex flex-wrap justify-center pt-2">
-        <a target="_blank" href="https://windows-uwp.oneskyapp.com/collaboration" rel="noopener noreferrer" class="px-4 py-2"><span id="translate2Link" class="linkText"></span></a>
-        <a href="about.html" class="px-4 py-2"><span id="aboutLink" class="linkText"></span></a>
-        <a href="credits.html" class="px-4 py-2"><span id="creditsLink" class="linkText"></span></a>
-        <a href="privacy-policy.html" class="px-4 py-2"><span id="privacyLink" class="linkText"></span></a>
+        <a target="_blank" href="https://windows-uwp.oneskyapp.com/collaboration" rel="noopener noreferrer" class="m-1 px-4 py-2"><span id="translate2Link" class="linkText"></span></a>
+        <a href="about.html" class="m-1 px-4 py-2"><span id="aboutLink" class="linkText"></span></a>
+        <a href="credits.html" class="m-1 px-4 py-2"><span id="creditsLink" class="linkText"></span></a>
+        <a href="privacy-policy.html" class="m-1 px-4 py-2"><span id="privacyLink" class="linkText"></span></a>
       </div>
       <div class="flex flex-wrap justify-center pt-2 py-4">
-        <a target="_blank" href="https://github.com/catchspider2002/periodic-table.io" rel="noopener noreferrer" class="flex px-4 py-2"><span class='iconFont self-center'>r</span><span class="linkText self-center">Github</span></a>
-        <a target="_blank" href="https://twitter.com/periodictableio" rel="noopener noreferrer" class="flex px-4 py-2"><span class='iconFont self-center'>q</span><span class="linkText self-center">Twitter</span></a>
-        <a target="_blank" href="https://gumroad.com/periodictabio" rel="noopener noreferrer" class="flex px-4 py-2"><span class='iconFont self-center'>s</span><span class="linkText self-center">Gumroad</span></a>
+        <a target="_blank" href="https://github.com/catchspider2002/periodic-table.io" rel="noopener noreferrer" class="flex m-1 px-4 py-2"><span class='iconFont self-center'>r</span><span class="linkText self-center">Github</span></a>
+        <a target="_blank" href="https://twitter.com/periodictableio" rel="noopener noreferrer" class="flex m-1 px-4 py-2"><span class='iconFont self-center'>q</span><span class="linkText self-center">Twitter</span></a>
+        <a target="_blank" href="https://gumroad.com/periodictabio" rel="noopener noreferrer" class="flex m-1 px-4 py-2"><span class='iconFont self-center'>s</span><span class="linkText self-center">Gumroad</span></a>
       </div>
-    </div>
+      <div class="flex flex-wrap justify-center p-2 pb-8 self-center">Made with&nbsp;<span style="color:#e25555">❤</span>&nbsp;by Naveen CS</div>
+  </div>
     <!-- Modal -->
     <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="modalSettings" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -1436,5 +1431,7 @@
         },
       });
     </script>
+    <!-- Get the details from https://woo-metadata-tool.janpotoms.now.sh/ -->
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"Periodic-Table.io","url":"https://periodic-table.io","address":"","sameAs":["https://twitter.com/periodictableio"]}</script>
   </body>
 </html>

@@ -1841,6 +1841,11 @@ function privacyLoad() {
   
   id("privacyHeader").textContent = privacy;
   id("privacyPolicy").textContent = privacyFull;
+
+  // document.querySelector('meta[name="description"]').setAttribute("content", about);
+  // document.querySelector('meta[name="keywords"]').setAttribute("content", privacy);
+  // document.querySelector('meta[name="description"]').setAttribute("content", about);
+  // document.querySelector('meta[name="description"]').setAttribute("content", about);
 }
 
 function creditsLoad() {
@@ -3183,6 +3188,14 @@ function elementLoad() {
   if (num === "2" || num === "3" || num === "5" || num === "6" || num === "10" || num === "15" || num === "18" || num === "26" || num === "27" || num === "28" || num === "36" || num === "46" || num === "74" || num === "79" || num === "80" || num === "82" || num === "96")
     link2url = link2url + "-chemical-element";
 
+    var description = itemName + " - " + homeHeader + "; " + window[eleName + "History"].replace(/<br><br>/g," ")
+    document.querySelector('meta[name="description"]').setAttribute("content", description);
+    document.querySelector('meta[name="keywords"]').setAttribute("content", itemName + ", " + homeHeader + ", " + elements + ", " + isotopes + ", " + labelConfigMain + ", " 
+                                                                          + hist + ", " + properties + ", " + uses + ", PWA, responsive, interactive");
+    document.querySelector('meta[property="og:title"]').setAttribute("content", itemName + " - " + homeTitle);
+    document.querySelector('meta[property="og:description"]').setAttribute("content", description);
+
+    // chemical, interactive, PWA, properties, history, name origin, images, applications, hazards, electron shell, diagram, chemistry, information
   id("link2").href = "https://www.britannica.com/science/" + link2url;
   id("link3").href = "http://www.wolframalpha.com/input/?i=" + item.nme + "+element";
   id("link4").href = "http://www.chemicool.com/elements/" + link4url + ".html";
@@ -3231,370 +3244,370 @@ function setDegrees() {
   id("outputBoilingMain").textContent = getTemp(boiling);
 }
 
-function drawImage() {
-  var A45 = 0.7071;
-  var A90sin = 1;
-  var A90cos = 0;
-  var A0sin = 0;
-  var A0cos = 1;
-  var A10sin = 0.173648178;
-  var A10cos = 0.984807753;
-  var A30sin = 0.5;
-  var A30cos = 0.8660254;
-  var A50sin = 0.766044443;
-  var A50cos = 0.6427876;
-  var A70sin = 0.93969262;
-  var A70cos = 0.342020;
-  var A11sin = 0.19509032201612826784828486847702;
-  var A11cos = 0.98078528040323044912618223613424;
-  var A22sin = 0.3826834323650897717284599840304;
-  var A22cos = 0.92387953251128675612818318939679;
-  var A33sin = 0.55557023301960222474283081394853;
-  var A33cos = 0.83146961230254523707878837761791;
+// function drawImage() {
+//   var A45 = 0.7071;
+//   var A90sin = 1;
+//   var A90cos = 0;
+//   var A0sin = 0;
+//   var A0cos = 1;
+//   var A10sin = 0.173648178;
+//   var A10cos = 0.984807753;
+//   var A30sin = 0.5;
+//   var A30cos = 0.8660254;
+//   var A50sin = 0.766044443;
+//   var A50cos = 0.6427876;
+//   var A70sin = 0.93969262;
+//   var A70cos = 0.342020;
+//   var A11sin = 0.19509032201612826784828486847702;
+//   var A11cos = 0.98078528040323044912618223613424;
+//   var A22sin = 0.3826834323650897717284599840304;
+//   var A22cos = 0.92387953251128675612818318939679;
+//   var A33sin = 0.55557023301960222474283081394853;
+//   var A33cos = 0.83146961230254523707878837761791;
 
-  var fontColor = (defaultNewTheme === "light") ? "rgba(255, 255, 255, 0.75)" : "rgba(0, 0, 0, 0.75)";
-  var strokeColor = (defaultNewTheme === "light") ? "rgba(0, 0, 0, 0.9)" : "rgba(255, 255, 255, 0.9)";
+//   var fontColor = (defaultNewTheme === "light") ? "rgba(255, 255, 255, 0.75)" : "rgba(0, 0, 0, 0.75)";
+//   var strokeColor = (defaultNewTheme === "light") ? "rgba(0, 0, 0, 0.9)" : "rgba(255, 255, 255, 0.9)";
 
-  var margin = 0;
+//   var margin = 0;
 
-  var electronsRowWidth = id("electronsRow").clientWidth - 30;
+//   var electronsRowWidth = id("electronsRow").clientWidth - 30;
 
-  canvasSize = electronsRowWidth;
+//   canvasSize = electronsRowWidth;
 
-  if (num > 86)
-    margin = -1 * canvasSize / 28.97;
-  else if (num > 54)
-    margin = -1 * canvasSize / 11.27;
-  else if (num > 36 && num != 46)
-    margin = -1 * canvasSize / 7;
-  else if (num > 18)
-    margin = -1 * canvasSize / 5;
-  else if (num > 10)
-    margin = -1 * canvasSize / 3.94;
-  else if (num > 2)
-    margin = -1 * canvasSize / 3.25;
-  else
-    margin = -1 * canvasSize / 2.74;
+//   if (num > 86)
+//     margin = -1 * canvasSize / 28.97;
+//   else if (num > 54)
+//     margin = -1 * canvasSize / 11.27;
+//   else if (num > 36 && num != 46)
+//     margin = -1 * canvasSize / 7;
+//   else if (num > 18)
+//     margin = -1 * canvasSize / 5;
+//   else if (num > 10)
+//     margin = -1 * canvasSize / 3.94;
+//   else if (num > 2)
+//     margin = -1 * canvasSize / 3.25;
+//   else
+//     margin = -1 * canvasSize / 2.74;
 
-  id("myCanvas").style.margin = margin + "px 0px " + margin + "px 0px";
-  var configFontSize = canvasSize / 19;
-  var canvas = id("myCanvas");
-  radius = Math.round(0.015 * canvasSize * 100, 2) / 100;
-  canvas.width = canvasSize;
-  canvas.height = canvasSize;
-  var context = canvas.getContext("2d");
+//   id("myCanvas").style.margin = margin + "px 0px " + margin + "px 0px";
+//   var configFontSize = canvasSize / 19;
+//   var canvas = id("myCanvas");
+//   radius = Math.round(0.015 * canvasSize * 100, 2) / 100;
+//   canvas.width = canvasSize;
+//   canvas.height = canvasSize;
+//   var context = canvas.getContext("2d");
 
-  var spacing = Math.round(0.0553571428571429 * canvasSize * 100, 2) / 100;
-  var rad1 = Math.round(0.4857142857142857 * canvasSize * 100, 2) / 100;
-  var rad2 = rad1 - spacing;
-  var rad3 = rad2 - spacing;
-  var rad4 = rad3 - spacing;
-  var rad5 = rad4 - spacing;
-  var rad6 = rad5 - spacing;
-  var rad7 = rad6 - spacing;
-  var rad8 = rad7 - spacing;
-  var cenX = canvasSize / 2;
-  var cenY = canvasSize / 2;
+//   var spacing = Math.round(0.0553571428571429 * canvasSize * 100, 2) / 100;
+//   var rad1 = Math.round(0.4857142857142857 * canvasSize * 100, 2) / 100;
+//   var rad2 = rad1 - spacing;
+//   var rad3 = rad2 - spacing;
+//   var rad4 = rad3 - spacing;
+//   var rad5 = rad4 - spacing;
+//   var rad6 = rad5 - spacing;
+//   var rad7 = rad6 - spacing;
+//   var rad8 = rad7 - spacing;
+//   var cenX = canvasSize / 2;
+//   var cenY = canvasSize / 2;
 
-  context.strokeStyle = strokeColor;
-  context.fillStyle = strokeColor;
+//   context.strokeStyle = strokeColor;
+//   context.fillStyle = strokeColor;
 
-  if (num > 86)
-    bigCircle(context, rad1, cenX, cenY, deg);
+//   if (num > 86)
+//     bigCircle(context, rad1, cenX, cenY, deg);
 
-  if (num > 54)
-    bigCircle(context, rad2, cenX, cenY, deg);
+//   if (num > 54)
+//     bigCircle(context, rad2, cenX, cenY, deg);
 
-  if (num > 36 && num != 46)
-    bigCircle(context, rad3, cenX, cenY, deg);
+//   if (num > 36 && num != 46)
+//     bigCircle(context, rad3, cenX, cenY, deg);
 
-  if (num > 18)
-    bigCircle(context, rad4, cenX, cenY, deg);
+//   if (num > 18)
+//     bigCircle(context, rad4, cenX, cenY, deg);
 
-  if (num > 10)
-    bigCircle(context, rad5, cenX, cenY, deg);
+//   if (num > 10)
+//     bigCircle(context, rad5, cenX, cenY, deg);
 
-  if (num > 2)
-    bigCircle(context, rad6, cenX, cenY, deg);
+//   if (num > 2)
+//     bigCircle(context, rad6, cenX, cenY, deg);
 
-  bigCircle(context, rad7, cenX, cenY, deg);
+//   bigCircle(context, rad7, cenX, cenY, deg);
 
-  context.beginPath();
-  context.arc(cenX, cenY, rad8, 0, deg, false);
-  context.closePath();
-  context.fill();
+//   context.beginPath();
+//   context.arc(cenX, cenY, rad8, 0, deg, false);
+//   context.closePath();
+//   context.fill();
 
-  context.fillStyle = fontColor;
-  context.textAlign = "center";
-  context.font = "normal " + configFontSize + "px Lato Regular";
-  context.fillText(sym, cenX, cenY + configFontSize / 3);
+//   context.fillStyle = fontColor;
+//   context.textAlign = "center";
+//   context.font = "normal " + configFontSize + "px Lato Regular";
+//   context.fillText(sym, cenX, cenY + configFontSize / 3);
 
-  context.fillStyle = strokeColor;
+//   context.fillStyle = strokeColor;
 
-  if (num > 0)
-    smallCircle(context, rad7, -A0sin, -A0cos);
-  if (num > 1)
-    smallCircle(context, rad7, A0sin, A0cos);
+//   if (num > 0)
+//     smallCircle(context, rad7, -A0sin, -A0cos);
+//   if (num > 1)
+//     smallCircle(context, rad7, A0sin, A0cos);
 
-  if (num > 2)
-    smallCircle(context, rad6, -A0sin, -A0cos);
-  if (num > 3)
-    smallCircle(context, rad6, A0sin, A0cos);
-  if (num > 4)
-    smallCircle(context, rad6, -A90sin, A90cos);
-  if (num > 5)
-    smallCircle(context, rad6, A90sin, A90cos);
-  if (num > 6)
-    smallCircle(context, rad6, -A45, -A45);
-  if (num > 7)
-    smallCircle(context, rad6, A45, -A45);
-  if (num > 8)
-    smallCircle(context, rad6, -A45, A45);
-  if (num > 9)
-    smallCircle(context, rad6, A45, A45);
+//   if (num > 2)
+//     smallCircle(context, rad6, -A0sin, -A0cos);
+//   if (num > 3)
+//     smallCircle(context, rad6, A0sin, A0cos);
+//   if (num > 4)
+//     smallCircle(context, rad6, -A90sin, A90cos);
+//   if (num > 5)
+//     smallCircle(context, rad6, A90sin, A90cos);
+//   if (num > 6)
+//     smallCircle(context, rad6, -A45, -A45);
+//   if (num > 7)
+//     smallCircle(context, rad6, A45, -A45);
+//   if (num > 8)
+//     smallCircle(context, rad6, -A45, A45);
+//   if (num > 9)
+//     smallCircle(context, rad6, A45, A45);
 
-  if (num > 10)
-    smallCircle(context, rad5, -A0sin, -A0cos);
-  if (num > 11)
-    smallCircle(context, rad5, A0sin, A0cos);
-  if (num > 12)
-    smallCircle(context, rad5, -A10cos, -A10sin);
-  if (num > 13)
-    smallCircle(context, rad5, A10cos, -A10sin);
-  if (num > 14)
-    smallCircle(context, rad5, -A30cos, A30sin);
-  if (num > 15)
-    smallCircle(context, rad5, A30cos, A30sin);
-  if (num > 16)
-    smallCircle(context, rad5, -A50cos, -A50sin);
-  if (num > 17)
-    smallCircle(context, rad5, A50cos, -A50sin);
+//   if (num > 10)
+//     smallCircle(context, rad5, -A0sin, -A0cos);
+//   if (num > 11)
+//     smallCircle(context, rad5, A0sin, A0cos);
+//   if (num > 12)
+//     smallCircle(context, rad5, -A10cos, -A10sin);
+//   if (num > 13)
+//     smallCircle(context, rad5, A10cos, -A10sin);
+//   if (num > 14)
+//     smallCircle(context, rad5, -A30cos, A30sin);
+//   if (num > 15)
+//     smallCircle(context, rad5, A30cos, A30sin);
+//   if (num > 16)
+//     smallCircle(context, rad5, -A50cos, -A50sin);
+//   if (num > 17)
+//     smallCircle(context, rad5, A50cos, -A50sin);
 
-  if (num > 18)
-    smallCircle(context, rad4, -A0sin, -A0cos);
-  if (num > 19 && num != 24 && num != 29)
-    smallCircle(context, rad4, A0sin, A0cos);
+//   if (num > 18)
+//     smallCircle(context, rad4, -A0sin, -A0cos);
+//   if (num > 19 && num != 24 && num != 29)
+//     smallCircle(context, rad4, A0sin, A0cos);
 
-  if (num > 20)
-    smallCircle(context, rad5, -A50cos, A50sin);
-  if (num > 21)
-    smallCircle(context, rad5, A50cos, A50sin);
-  if (num > 22)
-    smallCircle(context, rad5, -A30cos, -A30sin);
-  if (num > 23) {
-    smallCircle(context, rad5, A30cos, -A30sin);
-    smallCircle(context, rad5, -A10cos, A10sin);
-  }
-  if (num > 25)
-    smallCircle(context, rad5, A10cos, A10sin);
-  if (num > 26)
-    smallCircle(context, rad5, -A70cos, -A70sin);
-  if (num > 27)
-    smallCircle(context, rad5, A70cos, -A70sin);
-  if (num > 28) {
-    smallCircle(context, rad5, -A70cos, A70sin);
-    smallCircle(context, rad5, A70cos, A70sin);
-  }
+//   if (num > 20)
+//     smallCircle(context, rad5, -A50cos, A50sin);
+//   if (num > 21)
+//     smallCircle(context, rad5, A50cos, A50sin);
+//   if (num > 22)
+//     smallCircle(context, rad5, -A30cos, -A30sin);
+//   if (num > 23) {
+//     smallCircle(context, rad5, A30cos, -A30sin);
+//     smallCircle(context, rad5, -A10cos, A10sin);
+//   }
+//   if (num > 25)
+//     smallCircle(context, rad5, A10cos, A10sin);
+//   if (num > 26)
+//     smallCircle(context, rad5, -A70cos, -A70sin);
+//   if (num > 27)
+//     smallCircle(context, rad5, A70cos, -A70sin);
+//   if (num > 28) {
+//     smallCircle(context, rad5, -A70cos, A70sin);
+//     smallCircle(context, rad5, A70cos, A70sin);
+//   }
 
-  if (num > 30)
-    smallCircle(context, rad4, -A90sin, A90cos);
-  if (num > 31)
-    smallCircle(context, rad4, A90sin, A90cos);
-  if (num > 32)
-    smallCircle(context, rad4, -A45, -A45);
-  if (num > 33)
-    smallCircle(context, rad4, A45, -A45);
-  if (num > 34)
-    smallCircle(context, rad4, -A45, A45);
-  if (num > 35)
-    smallCircle(context, rad4, A45, A45);
+//   if (num > 30)
+//     smallCircle(context, rad4, -A90sin, A90cos);
+//   if (num > 31)
+//     smallCircle(context, rad4, A90sin, A90cos);
+//   if (num > 32)
+//     smallCircle(context, rad4, -A45, -A45);
+//   if (num > 33)
+//     smallCircle(context, rad4, A45, -A45);
+//   if (num > 34)
+//     smallCircle(context, rad4, -A45, A45);
+//   if (num > 35)
+//     smallCircle(context, rad4, A45, A45);
 
-  if (num > 36 && num != 46)
-    smallCircle(context, rad3, -A0sin, -A0cos);
-  if (num > 37 && num != 41 && num != 42 && num != 44 && num != 45 && num != 46 && num != 47)
-    smallCircle(context, rad3, A0sin, A0cos);
+//   if (num > 36 && num != 46)
+//     smallCircle(context, rad3, -A0sin, -A0cos);
+//   if (num > 37 && num != 41 && num != 42 && num != 44 && num != 45 && num != 46 && num != 47)
+//     smallCircle(context, rad3, A0sin, A0cos);
 
-  if (num > 38)
-    smallCircle(context, rad4, -A22cos, -A22sin);
-  if (num > 39)
-    smallCircle(context, rad4, A22cos, -A22sin);
-  if (num > 40) {
-    smallCircle(context, rad4, A22cos, A22sin);
-    smallCircle(context, rad4, -A22cos, A22sin);
-  }
-  if (num > 41)
-    smallCircle(context, rad4, -A22sin, -A22cos);
-  if (num > 43) {
-    smallCircle(context, rad4, A22sin, -A22cos);
-    smallCircle(context, rad4, -A22sin, A22cos);
-  }
-  if (num > 44)
-    smallCircle(context, rad4, A22sin, A22cos);
-  if (num > 45) {
-    smallCircle(context, rad4, -A11cos, -A11sin);
-    smallCircle(context, rad4, A11cos, -A11sin);
-  }
-  if (num > 48)
-    smallCircle(context, rad3, -A90sin, A90cos);
-  if (num > 49)
-    smallCircle(context, rad3, A90sin, A90cos);
-  if (num > 50)
-    smallCircle(context, rad3, -A45, -A45);
-  if (num > 51)
-    smallCircle(context, rad3, A45, -A45);
-  if (num > 52)
-    smallCircle(context, rad3, -A45, A45);
-  if (num > 53)
-    smallCircle(context, rad3, A45, A45);
-  if (num > 54)
-    smallCircle(context, rad2, -A0sin, -A0cos);
-  if (num > 55 && num != 78 && num != 79)
-    smallCircle(context, rad2, A0sin, A0cos);
-  if (num > 56 && num != 59 && num != 60 && num != 61 && num != 62 && num != 63 && num != 65 && num != 66 && num != 67 && num != 68 && num != 69 && num != 70)
-    smallCircle(context, rad3, -A22cos, -A22sin);
-  if (num > 57)
-    smallCircle(context, rad4, -A11sin, A11cos);
-  if (num > 58) {
-    smallCircle(context, rad4, A33cos, A33sin);
-    smallCircle(context, rad4, -A11sin, -A11cos);
-  }
-  if (num > 59)
-    smallCircle(context, rad4, A33sin, -A33cos);
-  if (num > 60)
-    smallCircle(context, rad4, -A33cos, A33sin);
-  if (num > 61)
-    smallCircle(context, rad4, -A33sin, -A33cos);
-  if (num > 62)
-    smallCircle(context, rad4, A11sin, A11cos);
-  if (num > 64) {
-    smallCircle(context, rad4, -A11cos, A11sin);
-    smallCircle(context, rad4, A11cos, A11sin);
-  }
-  if (num > 65)
-    smallCircle(context, rad4, A11sin, -A11cos);
-  if (num > 66)
-    smallCircle(context, rad4, -A33cos, -A33sin);
-  if (num > 67)
-    smallCircle(context, rad4, A33sin, A33cos);
-  if (num > 68)
-    smallCircle(context, rad4, A33cos, -A33sin);
-  if (num > 69)
-    smallCircle(context, rad4, -A33sin, A33cos);
-  if (num > 71)
-    smallCircle(context, rad3, A22cos, -A22sin);
-  if (num > 72)
-    smallCircle(context, rad3, A22cos, A22sin);
-  if (num > 73)
-    smallCircle(context, rad3, -A22cos, A22sin);
-  if (num > 74)
-    smallCircle(context, rad3, -A22sin, -A22cos);
-  if (num > 75)
-    smallCircle(context, rad3, A22sin, -A22cos);
-  if (num > 76)
-    smallCircle(context, rad3, -A22sin, A22cos);
-  if (num > 77) {
-    smallCircle(context, rad3, A22sin, A22cos);
-    smallCircle(context, rad3, -A11cos, -A11sin);
-  }
-  if (num > 78)
-    smallCircle(context, rad3, A11cos, -A11sin);
-  if (num > 80)
-    smallCircle(context, rad2, -A10cos, -A10sin);
-  if (num > 81)
-    smallCircle(context, rad2, A10cos, -A10sin);
-  if (num > 82)
-    smallCircle(context, rad2, -A30cos, A30sin);
-  if (num > 83)
-    smallCircle(context, rad2, A30cos, A30sin);
-  if (num > 84)
-    smallCircle(context, rad2, -A50cos, -A50sin);
-  if (num > 85)
-    smallCircle(context, rad2, A50cos, -A50sin);
+//   if (num > 38)
+//     smallCircle(context, rad4, -A22cos, -A22sin);
+//   if (num > 39)
+//     smallCircle(context, rad4, A22cos, -A22sin);
+//   if (num > 40) {
+//     smallCircle(context, rad4, A22cos, A22sin);
+//     smallCircle(context, rad4, -A22cos, A22sin);
+//   }
+//   if (num > 41)
+//     smallCircle(context, rad4, -A22sin, -A22cos);
+//   if (num > 43) {
+//     smallCircle(context, rad4, A22sin, -A22cos);
+//     smallCircle(context, rad4, -A22sin, A22cos);
+//   }
+//   if (num > 44)
+//     smallCircle(context, rad4, A22sin, A22cos);
+//   if (num > 45) {
+//     smallCircle(context, rad4, -A11cos, -A11sin);
+//     smallCircle(context, rad4, A11cos, -A11sin);
+//   }
+//   if (num > 48)
+//     smallCircle(context, rad3, -A90sin, A90cos);
+//   if (num > 49)
+//     smallCircle(context, rad3, A90sin, A90cos);
+//   if (num > 50)
+//     smallCircle(context, rad3, -A45, -A45);
+//   if (num > 51)
+//     smallCircle(context, rad3, A45, -A45);
+//   if (num > 52)
+//     smallCircle(context, rad3, -A45, A45);
+//   if (num > 53)
+//     smallCircle(context, rad3, A45, A45);
+//   if (num > 54)
+//     smallCircle(context, rad2, -A0sin, -A0cos);
+//   if (num > 55 && num != 78 && num != 79)
+//     smallCircle(context, rad2, A0sin, A0cos);
+//   if (num > 56 && num != 59 && num != 60 && num != 61 && num != 62 && num != 63 && num != 65 && num != 66 && num != 67 && num != 68 && num != 69 && num != 70)
+//     smallCircle(context, rad3, -A22cos, -A22sin);
+//   if (num > 57)
+//     smallCircle(context, rad4, -A11sin, A11cos);
+//   if (num > 58) {
+//     smallCircle(context, rad4, A33cos, A33sin);
+//     smallCircle(context, rad4, -A11sin, -A11cos);
+//   }
+//   if (num > 59)
+//     smallCircle(context, rad4, A33sin, -A33cos);
+//   if (num > 60)
+//     smallCircle(context, rad4, -A33cos, A33sin);
+//   if (num > 61)
+//     smallCircle(context, rad4, -A33sin, -A33cos);
+//   if (num > 62)
+//     smallCircle(context, rad4, A11sin, A11cos);
+//   if (num > 64) {
+//     smallCircle(context, rad4, -A11cos, A11sin);
+//     smallCircle(context, rad4, A11cos, A11sin);
+//   }
+//   if (num > 65)
+//     smallCircle(context, rad4, A11sin, -A11cos);
+//   if (num > 66)
+//     smallCircle(context, rad4, -A33cos, -A33sin);
+//   if (num > 67)
+//     smallCircle(context, rad4, A33sin, A33cos);
+//   if (num > 68)
+//     smallCircle(context, rad4, A33cos, -A33sin);
+//   if (num > 69)
+//     smallCircle(context, rad4, -A33sin, A33cos);
+//   if (num > 71)
+//     smallCircle(context, rad3, A22cos, -A22sin);
+//   if (num > 72)
+//     smallCircle(context, rad3, A22cos, A22sin);
+//   if (num > 73)
+//     smallCircle(context, rad3, -A22cos, A22sin);
+//   if (num > 74)
+//     smallCircle(context, rad3, -A22sin, -A22cos);
+//   if (num > 75)
+//     smallCircle(context, rad3, A22sin, -A22cos);
+//   if (num > 76)
+//     smallCircle(context, rad3, -A22sin, A22cos);
+//   if (num > 77) {
+//     smallCircle(context, rad3, A22sin, A22cos);
+//     smallCircle(context, rad3, -A11cos, -A11sin);
+//   }
+//   if (num > 78)
+//     smallCircle(context, rad3, A11cos, -A11sin);
+//   if (num > 80)
+//     smallCircle(context, rad2, -A10cos, -A10sin);
+//   if (num > 81)
+//     smallCircle(context, rad2, A10cos, -A10sin);
+//   if (num > 82)
+//     smallCircle(context, rad2, -A30cos, A30sin);
+//   if (num > 83)
+//     smallCircle(context, rad2, A30cos, A30sin);
+//   if (num > 84)
+//     smallCircle(context, rad2, -A50cos, -A50sin);
+//   if (num > 85)
+//     smallCircle(context, rad2, A50cos, -A50sin);
 
-  if (num > 86)
-    smallCircle(context, rad1, -A0sin, -A0cos);
-  if (num > 87)
-    smallCircle(context, rad1, A0sin, A0cos);
+//   if (num > 86)
+//     smallCircle(context, rad1, -A0sin, -A0cos);
+//   if (num > 87)
+//     smallCircle(context, rad1, A0sin, A0cos);
 
-  if (num > 88 && num != 94 && num != 95 && num != 97 && num != 98 && num != 99 && num != 100 && num != 101 && num != 102 && num != 103)
-    smallCircle(context, rad2, -A50cos, A50sin);
-  if (num > 89 && num != 91 && num != 92 && num != 93 && num != 94 && num != 95 && num != 96 && num != 97 && num != 98 && num != 99 && num != 100 && num != 101 && num != 102 && num != 103)
-    smallCircle(context, rad2, A50cos, A50sin);
+//   if (num > 88 && num != 94 && num != 95 && num != 97 && num != 98 && num != 99 && num != 100 && num != 101 && num != 102 && num != 103)
+//     smallCircle(context, rad2, -A50cos, A50sin);
+//   if (num > 89 && num != 91 && num != 92 && num != 93 && num != 94 && num != 95 && num != 96 && num != 97 && num != 98 && num != 99 && num != 100 && num != 101 && num != 102 && num != 103)
+//     smallCircle(context, rad2, A50cos, A50sin);
 
-  if (num > 90) {
-    smallCircle(context, rad3, -A11sin, A11cos);
-    smallCircle(context, rad3, A33cos, A33sin);
-  }
-  if (num > 91)
-    smallCircle(context, rad3, -A11sin, -A11cos);
-  if (num > 92)
-    smallCircle(context, rad3, A33sin, -A33cos);
-  if (num > 93) {
-    smallCircle(context, rad3, -A33cos, A33sin);
-    smallCircle(context, rad3, -A33sin, -A33cos);
-  }
-  if (num > 94)
-    smallCircle(context, rad3, A11sin, A11cos);
-  if (num > 96)
-    smallCircle(context, rad3, -A11cos, A11sin);
-  if (num > 96)
-    smallCircle(context, rad3, A11cos, A11sin);
-  if (num > 97)
-    smallCircle(context, rad3, A11sin, -A11cos);
-  if (num > 98)
-    smallCircle(context, rad3, -A33cos, -A33sin);
-  if (num > 99)
-    smallCircle(context, rad3, A33sin, A33cos);
-  if (num > 100)
-    smallCircle(context, rad3, A33cos, -A33sin);
-  if (num > 101)
-    smallCircle(context, rad3, -A33sin, A33cos);
+//   if (num > 90) {
+//     smallCircle(context, rad3, -A11sin, A11cos);
+//     smallCircle(context, rad3, A33cos, A33sin);
+//   }
+//   if (num > 91)
+//     smallCircle(context, rad3, -A11sin, -A11cos);
+//   if (num > 92)
+//     smallCircle(context, rad3, A33sin, -A33cos);
+//   if (num > 93) {
+//     smallCircle(context, rad3, -A33cos, A33sin);
+//     smallCircle(context, rad3, -A33sin, -A33cos);
+//   }
+//   if (num > 94)
+//     smallCircle(context, rad3, A11sin, A11cos);
+//   if (num > 96)
+//     smallCircle(context, rad3, -A11cos, A11sin);
+//   if (num > 96)
+//     smallCircle(context, rad3, A11cos, A11sin);
+//   if (num > 97)
+//     smallCircle(context, rad3, A11sin, -A11cos);
+//   if (num > 98)
+//     smallCircle(context, rad3, -A33cos, -A33sin);
+//   if (num > 99)
+//     smallCircle(context, rad3, A33sin, A33cos);
+//   if (num > 100)
+//     smallCircle(context, rad3, A33cos, -A33sin);
+//   if (num > 101)
+//     smallCircle(context, rad3, -A33sin, A33cos);
 
-  if (num > 102 && num != 104 && num != 105 && num != 106 && num != 107 && num != 108 && num != 109 && num != 110 && num != 111 && num != 112)
-    smallCircle(context, rad1, -A90sin, A90cos);
+//   if (num > 102 && num != 104 && num != 105 && num != 106 && num != 107 && num != 108 && num != 109 && num != 110 && num != 111 && num != 112)
+//     smallCircle(context, rad1, -A90sin, A90cos);
 
-  if (num > 104)
-    smallCircle(context, rad2, -A30cos, -A30sin);
-  if (num > 105)
-    smallCircle(context, rad2, A30cos, -A30sin);
-  if (num > 106)
-    smallCircle(context, rad2, -A10cos, A10sin);
-  if (num > 107)
-    smallCircle(context, rad2, A10cos, A10sin);
-  if (num > 108)
-    smallCircle(context, rad2, -A70cos, -A70sin);
-  if (num > 109)
-    smallCircle(context, rad2, A70cos, -A70sin);
-  if (num > 110)
-    smallCircle(context, rad2, -A70cos, A70sin);
-  if (num > 111)
-    smallCircle(context, rad2, A70cos, A70sin);
+//   if (num > 104)
+//     smallCircle(context, rad2, -A30cos, -A30sin);
+//   if (num > 105)
+//     smallCircle(context, rad2, A30cos, -A30sin);
+//   if (num > 106)
+//     smallCircle(context, rad2, -A10cos, A10sin);
+//   if (num > 107)
+//     smallCircle(context, rad2, A10cos, A10sin);
+//   if (num > 108)
+//     smallCircle(context, rad2, -A70cos, -A70sin);
+//   if (num > 109)
+//     smallCircle(context, rad2, A70cos, -A70sin);
+//   if (num > 110)
+//     smallCircle(context, rad2, -A70cos, A70sin);
+//   if (num > 111)
+//     smallCircle(context, rad2, A70cos, A70sin);
 
-  if (num > 113)
-    smallCircle(context, rad1, A90sin, A90cos);
-  if (num > 114)
-    smallCircle(context, rad1, -A45, -A45);
-  if (num > 115)
-    smallCircle(context, rad1, A45, -A45);
-  if (num > 116)
-    smallCircle(context, rad1, -A45, A45);
-  if (num > 117)
-    smallCircle(context, rad1, A45, A45);
-}
+//   if (num > 113)
+//     smallCircle(context, rad1, A90sin, A90cos);
+//   if (num > 114)
+//     smallCircle(context, rad1, -A45, -A45);
+//   if (num > 115)
+//     smallCircle(context, rad1, A45, -A45);
+//   if (num > 116)
+//     smallCircle(context, rad1, -A45, A45);
+//   if (num > 117)
+//     smallCircle(context, rad1, A45, A45);
+// }
 
-function smallCircle(context, rad, ang1, ang2) {
-  context.beginPath();
-  context.arc(canvasSize / 2 + rad * ang1, canvasSize / 2 + rad * ang2, radius, 0, deg, false);
-  context.closePath();
-  context.fill();
-}
+// function smallCircle(context, rad, ang1, ang2) {
+//   context.beginPath();
+//   context.arc(canvasSize / 2 + rad * ang1, canvasSize / 2 + rad * ang2, radius, 0, deg, false);
+//   context.closePath();
+//   context.fill();
+// }
 
-function bigCircle(context, rad, cenX, cenY, deg) {
-  context.beginPath();
-  context.arc(cenX, cenY, rad, 0, deg, false);
-  context.closePath();
-  context.stroke();
-}
+// function bigCircle(context, rad, cenX, cenY, deg) {
+//   context.beginPath();
+//   context.arc(cenX, cenY, rad, 0, deg, false);
+//   context.closePath();
+//   context.stroke();
+// }
 
 function resizeElement() {
   var elementSquareWidth = id("elementSquare").clientWidth;

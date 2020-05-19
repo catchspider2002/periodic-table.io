@@ -269,6 +269,14 @@ function setLangFile(inLang) {
       regularFont = "NotoSansDevanagari-Regular";
       heavyFont = "NotoSansDevanagari-Bold";
       break;
+    case "he":
+      regularFont = "NotoSansHebrew-Regular";
+      heavyFont = "NotoSansHebrew-Bold";
+      break;
+    case "th":
+      regularFont = "NotoSansThai-Regular";
+      heavyFont = "NotoSansThai-Bold";
+      break;
     case "ko":
       regularFont = "NotoSansKR-Regular";
       heavyFont = "NotoSansKR-Bold";

@@ -35,6 +35,9 @@
 
     <title id="homeTitle">Elements: The Periodic Table</title>
     <link rel="stylesheet" href="style.min.css" />
+    <!-- <script src="https://cdn.polyfill.io/v3/polyfill.min.js"></script> -->
+    <link href="svelte-bundle.css" rel="stylesheet">
+    <script defer src="svelte-bundle.js"></script>
 
     <script>
       if ("serviceWorker" in navigator) {
@@ -78,7 +81,7 @@
           </div>
         </div>
         <div id="listNavbar" class="navbar-collapse navbar-right collapse">
-          <ul class="nav navbar-nav">
+          <!-- <ul class="nav navbar-nav">
             <li>
               <a id="listList" href="list.html"><span class='iconFont'>a</span><span id="listLink" class="linkText"></span></a>
             </li>
@@ -100,7 +103,7 @@
             <li>
               <a id="themeList" href="#"><span id="themeIcon" class='iconFont'>c</span><span id="themeLink" class="linkText">Theme</span></a>
             </li>
-          </ul>
+          </ul> -->
         </div>
       </div>
     </div>
@@ -114,11 +117,12 @@
         </div>
         <div>
           <span id="privacyPolicy"></span>
+          <span id="helloWorld"></span>
         </div>
       </div>
     </div>
     <div id="footer">
-      <div class="flex flex-wrap justify-center pt-2">
+      <!-- <div class="flex flex-wrap justify-center pt-2">
         <a target="_blank" href="https://windows-uwp.oneskyapp.com/collaboration" rel="noopener noreferrer" class="m-1 p-2"><span id="translate2Link" class="linkText"></span></a>
         <a href="about.html" class="m-1 p-2"><span id="aboutLink" class="linkText"></span></a>
         <a href="credits.html" class="m-1 p-2"><span id="creditsLink" class="linkText"></span></a>
@@ -129,7 +133,7 @@
         <a target="_blank" href="https://twitter.com/periodictableio" rel="noopener noreferrer" class="flex m-1 p-2"><span class='iconFont self-center'>q</span><span class="linkText self-center">Twitter</span></a>
         <a target="_blank" href="https://gumroad.com/periodictabio" rel="noopener noreferrer" class="flex m-1 p-2"><span class='iconFont self-center'>s</span><span class="linkText self-center">Gumroad</span></a>
       </div>
-      <div class="flex flex-wrap justify-center p-2 pb-8 self-center">Made with&nbsp;<span style="color:#e25555">❤</span>&nbsp;by Naveen CS</div>
+      <div class="flex flex-wrap justify-center p-2 pb-8 self-center">Made with&nbsp;<span style="color:#e25555">❤</span>&nbsp;by Naveen CS</div> -->
   </div>
     <!-- Modal -->
     <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="modalSettings" aria-hidden="true">

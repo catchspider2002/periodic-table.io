@@ -1,3 +1,4 @@
+
 var p1 = 1;
 var p2 = 2;
 var p3 = 3;
@@ -103,7 +104,8 @@ var group16 = cls("c16");
 var group17 = cls("c17");
 var group18 = cls("c18");
 
-var colorClass = cls("colorClass");  
+
+let colorClass = cls("colorClass");  
 var elem = id("mainElements");
 var mlt1, mlt2, bln1, bln2, num, sym, item, canvasSize, radius, melting, boiling;
 var deg = 2 * Math.PI;
@@ -969,7 +971,7 @@ function initializePage() {
 
   defaultColor = localStorage.getItem("defaultColor");
 
-  invalidColors = ["color11","color12","color13","color14","color15","color16","color17","color18","color19","color20","color21","color22","color23","color24","color25"]
+  var invalidColors = ["color11","color12","color13","color14","color15","color16","color17","color18","color19","color20","color21","color22","color23","color24","color25"]
 
   if (!defaultColor ||  invalidColors.indexOf(defaultColor) > -1) { 
     // Added so that users already using invalidcolors are reset to color8

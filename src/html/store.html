@@ -35,6 +35,8 @@
 
     <title id="homeTitle">Elements: The Periodic Table</title>
     <link rel="stylesheet" href="style.min.css" />
+    <link href="svelte-bundle.css" rel="stylesheet">
+    <script defer src="svelte-bundle.js"></script>
 
     <script>
       if ("serviceWorker" in navigator) {
@@ -77,31 +79,7 @@
             <h1 id="pageHeader"></h1>
           </div>
         </div>
-        <div id="listNavbar" class="navbar-collapse navbar-right collapse">
-          <ul class="nav navbar-nav">
-            <li>
-              <a id="listList" href="list.html"><span class='iconFont'>a</span><span id="listLink" class="linkText"></span></a>
-            </li>
-            <li>
-              <a id="compareList" href="compare.html"><span class='iconFont'>d</span><span id="compareLink" class="linkText"></span></a>
-            </li>
-            <li>
-              <a id="printableList" href="printables.html"><span class='iconFont'>e</span><span id="printableLink" class="linkText"></span><span class="new">NEW</span></a>
-            </li>
-            <li>
-              <a id="storeList" href="store.html"><span class='iconFont'>o</span><span id="storeLink" class="linkText"></span></a>
-            </li>
-            <li>
-              <a id="translateList" target="_blank" href="https://windows-uwp.oneskyapp.com/collaboration" rel="noopener noreferrer"><span class='iconFont'>k</span><span id="translateLink" class="linkText"></span></a>
-            </li>
-            <li>
-              <a id="settingsList" href="#" data-toggle="modal" data-target="#settingsModal"><span class='iconFont'>l</span><span id="settingsLink" class="linkText"></span></a>
-            </li>
-            <li>
-              <a id="themeList" href="#"><span id="themeIcon" class='iconFont'>c</span><span id="themeLink" class="linkText">Theme</span></a>
-            </li>
-          </ul>
-        </div>
+        <div id="listNavbar" class="navbar-collapse navbar-right collapse"></div>
       </div>
     </div>
     <!-- *****************************************************************************************************************
@@ -146,20 +124,7 @@
         </div>
       </div>
     </div>
-    <div id="footer">
-      <div class="flex flex-wrap justify-center pt-2">
-        <a target="_blank" href="https://windows-uwp.oneskyapp.com/collaboration" rel="noopener noreferrer" class="m-1 p-2"><span id="translate2Link" class="linkText"></span></a>
-        <a href="about.html" class="m-1 p-2"><span id="aboutLink" class="linkText"></span></a>
-        <a href="credits.html" class="m-1 p-2"><span id="creditsLink" class="linkText"></span></a>
-        <a href="privacy-policy.html" class="m-1 p-2"><span id="privacyLink" class="linkText"></span></a>
-      </div>
-      <div class="flex flex-wrap justify-center pt-2 py-4">
-        <a target="_blank" href="https://github.com/catchspider2002/periodic-table.io" rel="noopener noreferrer" class="flex m-1 p-2"><span class='iconFont self-center'>r</span><span class="linkText self-center">Github</span></a>
-        <a target="_blank" href="https://twitter.com/periodictableio" rel="noopener noreferrer" class="flex m-1 p-2"><span class='iconFont self-center'>q</span><span class="linkText self-center">Twitter</span></a>
-        <a target="_blank" href="https://gumroad.com/periodictabio" rel="noopener noreferrer" class="flex m-1 p-2"><span class='iconFont self-center'>s</span><span class="linkText self-center">Gumroad</span></a>
-      </div>
-      <div class="flex flex-wrap justify-center p-2 pb-8 self-center">Made with&nbsp;<span style="color:#e25555">❤</span>&nbsp;by Naveen CS</div>
-  </div>
+    <div id="footer"></div>
     <!-- Modal -->
     <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="modalSettings" aria-hidden="true">
       <div class="modal-dialog" role="document">

@@ -107,7 +107,7 @@ var group18 = cls("c18");
 
 let colorClass = cls("colorClass");  
 var elem = id("mainElements");
-var mlt1, mlt2, bln1, bln2, num, sym, item, canvasSize, radius, melting, boiling;
+var mlt1, mlt2, bln1, bln2, num, sym, item, canvasSize, radius, melting, boiling, lang;
 var deg = 2 * Math.PI;
 var defaultNewTheme, defaultTemp, defaultMargin, defaultName, defaultAtmNo, defaultPunc, defaultColor;
 
@@ -1545,7 +1545,7 @@ function indexLoad() {
 
 function clickLink() {
   console.log("urlLang: "+urlLang)
-  document.location.href = "element.html?num=" + this.id.replace("ele", "");
+  document.location.href = "element.html?num=" + this.id.replace("ele", "") + "&lang=" + urlLang;
 }
 
 function setOpacity100() {
@@ -2340,6 +2340,7 @@ function elementLoad() {
   window.addEventListener("resize", resizeElement);
 
   num = getQueryVariable("num") ? getQueryVariable("num") : "1";
+  lang = getQueryVariable("lang") ? getQueryVariable("lang") : "en";
 
   item = returnItem("ele" + num);
   var eleName = item.id;

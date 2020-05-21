@@ -912,6 +912,30 @@ function getTemp(tempValue) {
   return newTemp;
 }
 
+document.onkeydown = function(evt) {
+  evt = evt || window.event;
+  var isEscape = false;
+  if ("key" in evt) 
+      isEscape = (evt.key === "Escape" || evt.key === "Esc");
+   else
+      isEscape = (evt.keyCode === 27);
+  if (isEscape)
+      closeMenu();
+};
+
+document.addEventListener("click", function(evt) {
+      var targetElement = evt.target;  // clicked element
+
+  do {
+      if (targetElement.id === "topNavbar") {
+          return;
+      }
+      // Go up the DOM
+      targetElement = targetElement.parentNode;
+  } while (targetElement);
+  closeMenu();
+});
+
 // Navbar and dropdowns
 var toggle = document.getElementsByClassName("navbar-toggle")[0],
   collapse = document.getElementsByClassName("navbar-collapse")[0];
@@ -1223,9 +1247,10 @@ function setLanguage() {
   langValue = id("languageSelectSetting").value;
   localStorage.setItem("langValue", langValue);
 
-  console.log("langValue: " + langValue);
+  // console.log("langValue: " + langValue);
   derivedLang = getLang();
-  console.log("derivedLang: " + derivedLang);
+  urlLang = derivedLang.replace("zs","zh-cn").replace("zt","zh-tw").replace("ph","pl").replace("gb","en-gb")
+  // console.log("derivedLang: " + derivedLang);
   setLangFile(derivedLang);
   document.documentElement.setAttribute('lang',derivedLang)
   
@@ -1261,11 +1286,9 @@ function loaderFunc() {
 function setSettings() {
   id("languageSelectSetting").addEventListener("change", setLanguage, false);
   id("tempSelectSetting").addEventListener("change", setTemp, false);
-  // id("themeSelectSetting").addEventListener("change", setTheme, false);
 
   id("languageSelectSetting").value = langValue;
   id("tempSelectSetting").value = defaultTemp;
-  // id("themeSelectSetting").value = defaultNewTheme;
 }
 
 function setTemp() {
@@ -1521,6 +1544,7 @@ function indexLoad() {
 }
 
 function clickLink() {
+  console.log("urlLang: "+urlLang)
   document.location.href = "element.html?num=" + this.id.replace("ele", "");
 }
 

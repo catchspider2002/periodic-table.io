@@ -183,7 +183,7 @@ if(score_threshold>=score){if(score_threshold=score,best_loc=j-1,!(best_loc>loc)
 start=Math.max(1,2*loc-best_loc)}}}if(match_bitapScore_(d+1,loc)>score_threshold)break
 last_rd=rd}return 0>best_loc?!1:!0}}])
 
-var userLang, langValue, derivedLang;
+var userLang, langValue, derivedLang, urlLang;
 
 var color1 = {base: "253, 58, 74", light: "#FECED2", dark: "#3F0F13"};
 var color2 = {base: "245, 128, 37", light: "#FCDFC8", dark: "#3D2009"};
@@ -255,6 +255,7 @@ if(derivedLang === "pl"){
 	derivedLang = "en";
 	localStorage.setItem("langValue", "sys");
 }
+urlLang = derivedLang.replace("zs","zh-cn").replace("zt","zh-tw").replace("ph","pl").replace("gb","en-gb")
 
 function setLangFile(inLang) {
   var regularFont, heavyFont;

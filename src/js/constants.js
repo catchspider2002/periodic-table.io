@@ -1872,6 +1872,7 @@ function privacyLoad() {
   // document.querySelector('meta[name="keywords"]').setAttribute("content", privacy);
   // document.querySelector('meta[name="description"]').setAttribute("content", about);
   // document.querySelector('meta[name="description"]').setAttribute("content", about);
+  barbaInit()
 }
 
 function creditsLoad() {
@@ -1917,7 +1918,10 @@ function creditsLoad() {
   id("heTrans").textContent = heTrans;
   id("slTrans").textContent = slTrans;
   id("hrTrans").textContent = hrTrans;
+  barbaInit()
 }
+
+
 
 function printablesLoad() {
   initializePage();
@@ -2121,6 +2125,27 @@ function setDegreesFirst() {
 function setDegreesSecond() {
   id("meltPoint2").textContent = getTemp(mlt2);
   id("boilPoint2").textContent = getTemp(bln2);
+}
+
+function barbaInit(){  
+  // init barba with a simple opacity transition
+  barba.init({
+    transitions: [
+      {
+        name: "opacity-transition",
+        leave(data) {
+          return gsap.to(data.current.container, {
+            opacity: 0,
+          });
+        },
+        enter(data) {
+          return gsap.from(data.next.container, {
+            opacity: 0,
+          });
+        },
+      },
+    ],
+  });
 }
 
 // List

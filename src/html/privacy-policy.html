@@ -187,27 +187,6 @@
 
     <!-- load gsap animation library (minified version) -->
     <script src="https://unpkg.com/gsap@latest/dist/gsap.min.js"></script>
-
-    <!-- init barba with a simple opacity transition -->
-    <script type="text/javascript">
-      barba.init({
-        transitions: [
-          {
-            name: "opacity-transition",
-            leave(data) {
-              return gsap.to(data.current.container, {
-                opacity: 0,
-              });
-            },
-            enter(data) {
-              return gsap.from(data.next.container, {
-                opacity: 0,
-              });
-            },
-          },
-        ],
-      });
-    </script>
     <!-- CSS and JavaScript placed at the end of the document so the pages load faster
     ========================================================================================== -->
     <script>
@@ -223,6 +202,7 @@
         }
       });
     </script>
+
     <!-- Get the details from https://woo-metadata-tool.janpotoms.now.sh/ -->
     <script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"Periodic-Table.io","url":"https://periodic-table.io","address":"","sameAs":["https://twitter.com/periodictableio"]}</script>
   </body>

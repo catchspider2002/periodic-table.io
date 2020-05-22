@@ -1872,7 +1872,6 @@ function privacyLoad() {
   // document.querySelector('meta[name="keywords"]').setAttribute("content", privacy);
   // document.querySelector('meta[name="description"]').setAttribute("content", about);
   // document.querySelector('meta[name="description"]').setAttribute("content", about);
-  barbaInit()
 }
 
 function creditsLoad() {
@@ -1918,7 +1917,6 @@ function creditsLoad() {
   id("heTrans").textContent = heTrans;
   id("slTrans").textContent = slTrans;
   id("hrTrans").textContent = hrTrans;
-  barbaInit()
 }
 
 
@@ -2127,26 +2125,6 @@ function setDegreesSecond() {
   id("boilPoint2").textContent = getTemp(bln2);
 }
 
-function barbaInit(){  
-  // init barba with a simple opacity transition
-  barba.init({
-    transitions: [
-      {
-        name: "opacity-transition",
-        leave(data) {
-          return gsap.to(data.current.container, {
-            opacity: 0,
-          });
-        },
-        enter(data) {
-          return gsap.from(data.next.container, {
-            opacity: 0,
-          });
-        },
-      },
-    ],
-  });
-}
 
 // List
 
@@ -3284,7 +3262,6 @@ function elementLoad() {
   id("highlight").setAttribute("transform", "translate(" + eleHighlight + ")");
 
   resizeElement();
-  // bloggingisotope();
   if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he")
     id("tableSVG").setAttribute("transform", "scale(-1,1)");
   else
@@ -3672,7 +3649,6 @@ function resizeElement() {
   id("groupTable").style.fontSize = (groupTableWidth / 7.7143) + "px";
   id("resultNumber").style.fontSize = (groupTableWidth / 5.684) + "px";
   id("resultSymbol").style.fontSize = (groupTableWidth / 2.16) + "px";
-  // bloggingisotope();
 }
 
 function setBorder() {

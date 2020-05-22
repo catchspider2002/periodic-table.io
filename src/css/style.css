@@ -62,7 +62,6 @@ html {
   overflow: hidden;
   height: 100%;
   scroll-behavior: smooth;
-  background-color: black;
 }
 
 body {
@@ -833,7 +832,7 @@ canvas {
   -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
   page-break-inside: avoid; /* Firefox */
   break-inside: avoid; /* IE 10+ */
-  /* box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   /* display: inline-block;
   width: 100%; */
 }
@@ -1291,12 +1290,12 @@ input:checked + .slider:before {
 
 .t-dark,
 .t-dark > div > div > div > div > div > div > #compareTop {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(30, 30, 30);
 }
 
 .t-light,
 .t-light > div > div > div > div > div > div > #compareTop {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(225, 225, 225);
 }
 
 .t-dark input,

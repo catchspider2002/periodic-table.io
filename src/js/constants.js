@@ -1250,7 +1250,7 @@ function setLanguage() {
   // console.log("langValue: " + langValue);
   derivedLang = getLang();
   urlLang = derivedLang.replace("zs","zh-cn").replace("zt","zh-tw").replace("ph","pl").replace("gb","en-gb")
-  // console.log("derivedLang: " + derivedLang);
+  console.log("derivedLang: " + derivedLang);
   setLangFile(derivedLang);
   document.documentElement.setAttribute('lang',derivedLang)
   
@@ -1263,7 +1263,7 @@ function setLanguage() {
 function loaderFunc() {
   if (id("ptable"))
     indexLoad();
-  else if (id("elementSquare"))
+  else if (id("outputConfigMain"))
     elementLoad();
   else if (id("firstElement"))
     compareLoad();
@@ -1295,7 +1295,7 @@ function setTemp() {
   defaultTemp = id("tempSelectSetting").value;
   localStorage.setItem("defaultTemp", defaultTemp);
 
-  if (id("elementSquare"))
+  if (id("outputConfigMain"))
     setDegrees();
 
   if (id("firstElement")) {
@@ -1309,7 +1309,7 @@ function setTheme() {
   // localStorage.setItem("defaultNewTheme", defaultNewTheme);
 
   setDefaultTheme();
-  if (id("elementSquare")){
+  if (id("outputConfigMain")){
     // drawImage();
     drawSvg();
   }
@@ -1545,7 +1545,7 @@ function indexLoad() {
 
 function clickLink() {
   console.log("urlLang: "+urlLang)
-  document.location.href = "element.html?num=" + this.id.replace("ele", "") + "&lang=" + urlLang;
+  document.location.href = "element.html?num=" + this.id.replace("ele", "")// + "&lang=" + urlLang;
 }
 
 function setOpacity100() {
@@ -2343,7 +2343,7 @@ function elementLoad() {
   window.addEventListener("resize", resizeElement);
 
   num = getQueryVariable("num") ? getQueryVariable("num") : "1";
-  lang = getQueryVariable("lang") ? getQueryVariable("lang") : "en";
+  // lang = getQueryVariable("lang") ? getQueryVariable("lang") : "en";
 
   item = returnItem("ele" + num);
   var eleName = item.id;
@@ -3232,7 +3232,7 @@ function elementLoad() {
   id("link5").href = "http://www.rsc.org/periodic-table/element/" + num + "/" + item.nme;
   id("link6").href = "http://www.webelements.com/" + item.nme + "/";
 
-  id("resultSymbol").textContent = sym;
+  id("resultSymbolInner").textContent = sym;
   id("resultNumber").textContent = getNum(transNum);
 
   id("outputPeriod").textContent = getNum(item.prd);
@@ -3639,16 +3639,10 @@ function setDegrees() {
 // }
 
 function resizeElement() {
-  var elementSquareWidth = id("elementSquare").clientWidth;
-  id("elementSquare").style.height = elementSquareWidth + "px";
-  id("elementGroups").style.height = elementSquareWidth + "px";
-
-  // drawImage();
+var firstSquareWidth = id("firstSquare").clientWidth;
+id("firstSquare").style.fontSize = (firstSquareWidth / 7.7143) + "px";
+id("secondSquare").style.fontSize = (firstSquareWidth / 10.374) + "px";
   drawSvg();
-  var groupTableWidth = id("groupTable").clientWidth;
-  id("groupTable").style.fontSize = (groupTableWidth / 7.7143) + "px";
-  id("resultNumber").style.fontSize = (groupTableWidth / 5.684) + "px";
-  id("resultSymbol").style.fontSize = (groupTableWidth / 2.16) + "px";
 }
 
 function setBorder() {

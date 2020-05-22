@@ -316,7 +316,7 @@ function setLangFile(inLang) {
   }
 
   newStyle.appendChild(document.createTextNode("button{float:" + dirRev + "}.listNum>*{" + dirRev + ":10px;" + dir + ":unset}.text-left{text-align:" + dir + "}.text-right{text-align:" + dirRev + "}"));
-  newStyle.appendChild(document.createTextNode(".col-xs-4,.col-xs-6,.navbar-brand{float:" + dir + "}"));
+  newStyle.appendChild(document.createTextNode(".col-xs-4,.navbar-brand{float:" + dir + "}"));
   newStyle.appendChild(document.createTextNode("@media (min-width:768px){.post-masonry{" + dirRev + ":0;" + dir + ":unset}.navbar-header,.navbar-nav,.navbar-nav>li{float:" + dir + "}.navbar-right{float:" + dirRev + "}}"));
   newStyle.appendChild(document.createTextNode("#topRowCompare{margin-" + dir + ":-25px}.webLink{float:" + dir + ";clear:" + dir + "}"));
 

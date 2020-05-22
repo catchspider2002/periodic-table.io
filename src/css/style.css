@@ -272,18 +272,10 @@ select:focus {
   margin-left: -15px;
 }
 
-.col-xs-4,
-.col-xs-6 {
+.col-xs-4 {
   position: relative;
   min-height: 1px;
   padding: 0 15px;
-}
-
-.col-xs-6 {
-  width: 50%;
-}
-
-.col-xs-4 {
   width: 33.33333333%;
 }
 
@@ -320,6 +312,44 @@ table,
 
 .flex-all-wrap {
   flex-wrap: wrap;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: start;
+  flex-wrap: nowrap;
+  padding-bottom: 30px;
+}
+
+.flex-cell {
+  flex: 0 0 50%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.flex-cell:before {
+  content: "";
+  display: table;
+  padding-top: 100%;
+}
+
+.flex-item {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#firstSquare,
+#secondSquare {
+  margin: 0;
+}
+
+#secondSquare {
+  padding: 25px;
 }
 
 .m-1 {
@@ -401,6 +431,10 @@ table,
 
 .justify-center {
   justify-content: center;
+}
+
+.content-center {
+  align-content: center;
 }
 
 .self-center {
@@ -508,6 +542,18 @@ table,
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+#resultNumber {
+  font-size: 1em;
+  height: 30%;
+  width: 100%;
+}
+
+#resultSymbol {
+  font-size: 2.7em;
+  height: 70%;
+  width: 100%;
 }
 
 .navbar-collapse {
@@ -879,11 +925,6 @@ canvas {
   text-transform: uppercase;
 }
 
-.table-cell-middle {
-  display: table-cell;
-  vertical-align: middle;
-}
-
 .padding-top-5 {
   padding-top: 5px;
 }
@@ -899,17 +940,18 @@ canvas {
   padding: 43px 0 15px;
 }
 
-.inner {
-  height: 100%;
-}
-
 .padding-left-small {
-  padding-left: 0.5em;
-  padding-right: 0.5em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  padding-top: 0.75em;
 }
 
 .list-content {
   overflow: hidden;
+}
+
+.line-height-normal {
+  line-height: normal;
 }
 
 .listSym,
@@ -1026,18 +1068,8 @@ canvas {
   width: 100%;
 }
 
-.square30 {
-  height: 30%;
-  width: 100%;
-}
-
 .square33 {
   height: 33%;
-  width: 100%;
-}
-
-.square70 {
-  height: 70%;
   width: 100%;
 }
 
@@ -1151,10 +1183,6 @@ canvas {
 
 :-moz-placeholder {
   color: #a9a9a9;
-}
-
-#elementSquare {
-  padding: 5px;
 }
 
 .switch {
@@ -1304,12 +1332,14 @@ input:checked + .slider:before {
 }
 
 .t-dark .box-content,
-.t-dark .list-content {
+.t-dark .list-content,
+.t-dark .flex-item {
   background-color: rgb(42, 42, 48);
 }
 
 .t-light .box-content,
-.t-light .list-content {
+.t-light .list-content,
+.t-light .flex-item {
   background-color: rgb(235, 235, 235);
 }
 

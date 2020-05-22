@@ -62,78 +62,27 @@
     <!-- Fixed navbar -->
     <div id="topNavbar" class="navbar navbar-default navbar-fixed-top heavyFont" role="navigation">     
     </div>
-    <!-- *****************************************************************************************************************
-	 HEADERWRAP
-	 ***************************************************************************************************************** -->
 
     <div class="content-wrapper">
       <div class="container">
-        <div class="masonry masonry-4-col">
-              <div class="row masonry-col">
-                <div class="col-xs-6">
-                  <div id="elementSquare" class="box-content">
-                    <div class="inner">
-                      <table class="square">
-                        <tr class="square30">
-                          <td>
-                            <div id="mainNumber" class="table square">
-                              <div id="resultNumber" class="table-cell-middle padding-left-small"></div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="square70">
-                          <td>
-                            <div id="mainSymbol" class="table square">
-                              <div id="resultSymbol" class="table-cell-middle text-center"></div>
-                            </div>
-                          </td>
-                        </tr>
-                      </table>
+        <div class="masonry masonry-4-col">              
+              <div class="flex-container row">
+                <div class="flex-cell">
+                  <div id="firstSquare" class="flex-item masonry-col flex flex-col">
+                    <div id="resultNumber" class="padding-left-small flex line-height-normal"></div>
+                    <div id="resultSymbol" class="text-center flex content-center justify-center line-height-normal">
+                      <span id="resultSymbolInner" class="self-center"></span>
                     </div>
                   </div>
                 </div>
-                <div class="col-xs-6">
-                  <div id="elementGroups" class="box-content">
-                    <div class="inner">
-                      <table id="groupTable" class="square">
-                        <tr class="square33">
-                          <td>
-                            <div class="table square">
-                              <div class="table-cell-middle heavyFont" id="group"></div>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="table square">
-                              <div id="outputGroup" class="table-cell-middle"></div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="square33">
-                          <td>
-                            <div class="table square">
-                              <div class="table-cell-middle heavyFont" id="period"></div>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="table square">
-                              <div id="outputPeriod" class="table-cell-middle"></div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="square33">
-                          <td>
-                            <div class="table square">
-                              <div class="table-cell-middle heavyFont" id="block"></div>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="table square">
-                              <div id="outputBlock" class="table-cell-middle"></div>
-                            </div>
-                          </td>
-                        </tr>
-                      </table>
-                    </div>
+                <div class="flex-cell">
+                  <div id="secondSquare" class="flex-item masonry-col grid">
+                    <div id="group" class="heavyFont"></div>
+                    <div id="outputGroup" class="text-center"></div>
+                    <div id="period" class="heavyFont"></div>
+                    <div id="outputPeriod" class="text-center"></div>
+                    <div id="block" class="heavyFont"></div>
+                    <div id="outputBlock" class="text-center"></div>
                   </div>
                 </div>
               </div>
@@ -449,122 +398,18 @@
     <!-- CSS and JavaScript placed at the end of the document so the pages load faster
     ========================================================================================== -->
     <script>
-      loadjs = (function () {
-        function e(e, n) {
-          var t,
-            r,
-            i,
-            c = [],
-            o = (e = e.push ? e : [e]).length,
-            f = o;
-          for (
-            t = function (e, t) {
-              t.length && c.push(e), --f || n(c);
-            };
-            o--;
-
-          )
-            (r = e[o]), (i = s[r]) ? t(r, i) : (u[r] = u[r] || []).push(t);
-        }
-        function n(e, n) {
-          if (e) {
-            var t = u[e];
-            if (((s[e] = n), t)) for (; t.length; ) t[0](e, n), t.splice(0, 1);
-          }
-        }
-        function t(e, n, r, i) {
-          var o,
-            s,
-            u = document,
-            f = r.async,
-            a = (r.numRetries || 0) + 1,
-            h = r.before || c;
-          (i = i || 0),
-            /(^css!|\.css$)/.test(e)
-              ? ((o = !0), ((s = u.createElement("link")).rel = "stylesheet"), (s.href = e.replace(/^css!/, "")))
-              : (((s = u.createElement("script")).src = e), (s.async = void 0 === f || f)),
-            (s.onload = s.onerror = s.onbeforeload = function (c) {
-              var u = c.type[0];
-              if (o && "hideFocus" in s)
-                try {
-                  s.sheet.cssText.length || (u = "e");
-                } catch (e) {
-                  u = "e";
-                }
-              if ("e" == u && (i += 1) < a) return t(e, n, r, i);
-              n(e, u, c.defaultPrevented);
-            }),
-            !1 !== h(e, s) && u.head.appendChild(s);
-        }
-        function r(e, n, r) {
-          var i,
-            c,
-            o = (e = e.push ? e : [e]).length,
-            s = o,
-            u = [];
-          for (
-            i = function (e, t, r) {
-              if (("e" == t && u.push(e), "b" == t)) {
-                if (!r) return;
-                u.push(e);
-              }
-              --o || n(u);
-            },
-              c = 0;
-            c < s;
-            c++
-          )
-            t(e[c], i, r);
-        }
-        function i(e, t, i) {
-          var s, u;
-          if ((t && t.trim && (s = t), (u = (s ? i : t) || {}), s)) {
-            if (s in o) throw "LoadJS";
-            o[s] = !0;
-          }
-          r(
-            e,
-            function (e) {
-              e.length ? (u.error || c)(e) : (u.success || c)(), n(s, e);
-            },
-            u
-          );
-        }
-        var c = function () {},
-          o = {},
-          s = {},
-          u = {};
-        return (
-          (i.ready = function (n, t) {
-            return (
-              e(n, function (e) {
-                e.length ? (t.error || c)(e) : (t.success || c)();
-              }),
-              i
-            );
-          }),
-          (i.done = function (e) {
-            n(e, []);
-          }),
-          (i.reset = function () {
-            (o = {}), (s = {}), (u = {});
-          }),
-          (i.isDefined = function (e) {
-            return e in o;
-          }),
-          i
-        );
-      })();
+      loadjs=function(){function e(e,n){var t,r,i,c=[],o=(e=e.push?e:[e]).length,f=o;for(t=function(e,t){t.length&&c.push(e),--f||n(c)};o--;)r=e[o],(i=s[r])?t(r,i):(u[r]=u[r]||[]).push(t)}function n(e,n){if(e){var t=u[e];if(s[e]=n,t)for(;t.length;)t[0](e,n),t.splice(0,1)}}function t(e,n,r,i){var o,s,u=document,f=r.async,a=(r.numRetries||0)+1,h=r.before||c;i=i||0,/(^css!|\.css$)/.test(e)?(o=!0,(s=u.createElement("link")).rel="stylesheet",s.href=e.replace(/^css!/,"")):((s=u.createElement("script")).src=e,s.async=void 0===f||f),s.onload=s.onerror=s.onbeforeload=function(c){var u=c.type[0];if(o&&"hideFocus"in s)try{s.sheet.cssText.length||(u="e")}catch(e){u="e"}if("e"==u&&(i+=1)<a)return t(e,n,r,i);n(e,u,c.defaultPrevented)},!1!==h(e,s)&&u.head.appendChild(s)}function r(e,n,r){var i,c,o=(e=e.push?e:[e]).length,s=o,u=[];for(i=function(e,t,r){if("e"==t&&u.push(e),"b"==t){if(!r)return;u.push(e)}--o||n(u)},c=0;c<s;c++)t(e[c],i,r)}function i(e,t,i){var s,u;if(t&&t.trim&&(s=t),u=(s?i:t)||{},s){if(s in o)throw"LoadJS";o[s]=!0}r(e,function(e){e.length?(u.error||c)(e):(u.success||c)(),n(s,e)},u)}var c=function(){},o={},s={},u={};return i.ready=function(n,t){return e(n,function(e){e.length?(t.error||c)(e):(t.success||c)()}),i},i.done=function(e){n(e,[])},i.reset=function(){o={},s={},u={}},i.isDefined=function(e){return e in o},i}();
       loadjs(["btstrp.list.iso.min.js"], {
-        success: function () {
+        success: function() {
           setLangFile(derivedLang);
           loadjs(["constants.min.js", "locales/locale." + derivedLang + ".js"], {
-            success: function () {
+            success: function() {
               elementLoad();
-            },
+            }
           });
-        },
+        }
       });
+
     </script>
     <!-- Get the details from https://woo-metadata-tool.janpotoms.now.sh/ -->
     <script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"Periodic-Table.io","url":"https://periodic-table.io","address":"","sameAs":["https://twitter.com/periodictableio"]}</script>

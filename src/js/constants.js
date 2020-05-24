@@ -1269,7 +1269,7 @@ function loaderFunc() {
     compareLoad();
   else if (id("mainList"))
     listLoad();
-  else if (id("credits"))
+  else if (id("about"))
     aboutLoad();
   else if (id("privacyPolicy"))
     privacyLoad();
@@ -2329,10 +2329,56 @@ function getQueryVariable(variable) {
 
 function drawSvg() {
   var b = document.querySelector("svelte-electron");
+  var val1 = -800
+  var val2 = 1600
+  var multiplier = 0
+
+  if (num > 86) multiplier = 0;
+  else if (num > 54) multiplier = 1;
+  else if (num > 36 && num != 46) multiplier = 2;
+  else if (num > 18) multiplier = 3;
+  else if (num > 10) multiplier = 4;
+  else if (num > 2) multiplier = 5;
+  else multiplier = 6;
+
+  val1 = -800 + multiplier * 80
+  val2 = 1600 - multiplier * 80 * 2
+
+  // if (num > 86) {
+  //   val1 = -800
+  //   val2 = 1600
+  //   }
+  //   else if (num > 54) {
+  //   val1 = -800 + 80
+  //   val2 = 1600 - 160
+  //   }
+  //   else if (num > 36 && num != 46) {
+  //   val1 = -800 + 160
+  //   val2 = 1600 - 320
+  //   }
+  //   else if (num > 18) {
+  //   val1 = -800 + 240
+  //   val2 = 1600 - 480
+  //   }
+  //   else if (num > 10) {
+  //   val1 = -800 + 320
+  //   val2 = 1600 - 640
+  //   }
+  //   else if (num > 2) {
+  //   val1 = -800 + 400
+  //   val2 = 1600 - 800
+  //   }
+  //   else {
+  //   val1 = -800 + 480
+  //   val2 = 1600 - 960
+  //   }
+
   b.setAttribute("num", num);
   b.setAttribute("sym", sym);
   b.setAttribute("strokecolor",(defaultNewTheme === "light") ? "rgba(0, 0, 0, 0.95)" : "rgba(255, 255, 255, 0.95)");
   b.setAttribute("fontcolor", (defaultNewTheme === "light") ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)");
+  b.setAttribute("val1", val1);
+  b.setAttribute("val2", val2);
 }
 
 function elementLoad() {

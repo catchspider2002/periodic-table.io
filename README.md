@@ -5,7 +5,7 @@
 
 
 <div align="center">
-  <img src="android-chrome-384x384.png" alt="periodic-table.io" />
+  <img src="android-chrome-192x192.png" alt="periodic-table.io" />
 </div>
 
 # License

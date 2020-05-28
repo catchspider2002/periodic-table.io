@@ -2,6 +2,8 @@
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/catchspider2002/periodic-table.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+![GitHub last commit](https://img.shields.io/github/last-commit/catchspider2002/periodic-table.io)
+![Website](https://img.shields.io/website?up_message=online&url=https%3A%2F%2Fperiodic-table.io%2F)
 
 
 <div align="center">

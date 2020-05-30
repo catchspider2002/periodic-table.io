@@ -12,6 +12,8 @@
 
 # Translations
 
+Contributions are welcome for the translations.
+
 Available in the website
 
 [![Arabic](https://img.shields.io/badge/Arabic-99.2%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
@@ -51,7 +53,7 @@ Available in the website
 [![Ukrainian](https://img.shields.io/badge/Ukrainian-96.3%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Vietnamese](https://img.shields.io/badge/Vietnamese-99.4%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 
-Not Available in the website
+Below are not yet added to the website. I'll be adding new languages when it is crosses 80% translation.
 
 [![Afrikaans](https://img.shields.io/badge/Afrikaans-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Albanian](https://img.shields.io/badge/Albanian-68.5%25-yellow)](https://windows-uwp.oneskyapp.com/collaboration)

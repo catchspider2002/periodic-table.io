@@ -1246,7 +1246,6 @@ function setLanguage() {
 
   derivedLang = getLang();
   urlLang = derivedLang.replace("zs","zh-cn").replace("zt","zh-tw").replace("ph","pl").replace("gb","en-gb")
-  // console.log("derivedLang: " + derivedLang);
   setLangFile(derivedLang);
   document.documentElement.setAttribute('lang', urlLang)
   

@@ -1039,10 +1039,7 @@ function initializePage() {
 
   id("tempCelsius").textContent = tempCelsius;
   id("tempFahrenheit").textContent = tempFahrenheit;
-  // id("theme").textContent = theme;
   id("themeColor").textContent = labelColorMain;
-  // id("themeLight").textContent = themeLight;
-  // id("themeDark").textContent = themeDark;
 
   // id("homeLink").textContent = home;
   // id("homeList").title = home;
@@ -1056,16 +1053,16 @@ function initializePage() {
   id("settingsList").title = settings;
   id("storeLink").textContent = store;
   id("storeList").title = store;
-  id("printableLink").textContent = "Printables";
-  id("printableList").title = "Printables";
+  id("printableLink").textContent = printables;
+  id("printableList").title = printables;
   id("themeLink").textContent = theme;
   id("themeList").title = theme;
-  // id("printableLink").innerHTML = "<span class='iconFont'>a</span>" + "PRINTABLES";
   id("translate2Link").textContent = translate;
   id("aboutLink").textContent = about;
   id("creditsLink").textContent = credits;
   id("privacyLink").textContent = privacy;
-
+  
+  document.documentElement.setAttribute('lang', urlLang)
 
   for (var i = 0; i < colorClass.length; i++) {
     colorClass[i].addEventListener("click", function() {
@@ -1247,12 +1244,11 @@ function setLanguage() {
   langValue = id("languageSelectSetting").value;
   localStorage.setItem("langValue", langValue);
 
-  // console.log("langValue: " + langValue);
   derivedLang = getLang();
   urlLang = derivedLang.replace("zs","zh-cn").replace("zt","zh-tw").replace("ph","pl").replace("gb","en-gb")
-  console.log("derivedLang: " + derivedLang);
+  // console.log("derivedLang: " + derivedLang);
   setLangFile(derivedLang);
-  document.documentElement.setAttribute('lang',derivedLang)
+  document.documentElement.setAttribute('lang', urlLang)
   
   loadjs(["locales/locale." + derivedLang + ".js"], {
     success: loaderFunc
@@ -1839,10 +1835,6 @@ function aboutLoad() {
   id("feature9").textContent = feature9;
   //  id("feature10").textContent = feature10;
   id("pageHeader").textContent = about;
-
-  // window.addEventListener("resize", bloggingisotope);
-  // bloggingisotope();
-  // bloggingisotope();
 }
 
 function pg404Load() {

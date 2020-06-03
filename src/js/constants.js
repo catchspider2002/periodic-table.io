@@ -2373,14 +2373,14 @@ function drawSvg() {
 }
 
 function elementLoad() {
+  num = getQueryVariable("num") ? getQueryVariable("num") : "1";
+  lang = getQueryVariable("lang") ? getQueryVariable("lang") : "en";
+
   initializePage();
   id("elementPic").src = "images/placeholder.png"
   id("elementPicture").src = "images/placeholder.png"
 
   window.addEventListener("resize", resizeElement);
-
-  num = getQueryVariable("num") ? getQueryVariable("num") : "1";
-  // lang = getQueryVariable("lang") ? getQueryVariable("lang") : "en";
 
   item = returnItem("ele" + num);
   var eleName = item.id;

@@ -310,7 +310,6 @@ table,
   display: flex;
   justify-content: start;
   flex-wrap: nowrap;
-  padding-bottom: 30px;
 }
 
 .flex-cell {
@@ -866,7 +865,7 @@ canvas {
 }
 
 .masonry-col {
-  margin-bottom: 30px;
+  margin-top: 30px;
   -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
   page-break-inside: avoid; /* Firefox */
   break-inside: avoid; /* IE 10+ */
@@ -926,18 +925,18 @@ canvas {
   margin-bottom: 20px;
   text-transform: uppercase;
   padding: 3px 9px 1px;
-  position: relative;
-  height: 32px;
+  /* position: relative;
+  height: 32px; */
 }
 
-.headerOutline:after {
+/* .headerOutline:after {
   content: "";
   position: absolute;
   top: 0;
   right: 0;
   width: 100%;
   height: 100%;
-}
+} */
 
 #elementDiagram {
   padding: 43px 0 15px;

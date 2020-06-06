@@ -926,6 +926,17 @@ canvas {
   margin-bottom: 20px;
   text-transform: uppercase;
   padding: 3px 9px 1px;
+  position: relative;
+  height: 32px;
+}
+
+.headerOutline:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #elementDiagram {
@@ -1365,10 +1376,13 @@ input:checked + .slider:before {
 
 .t-dark .headerOutline {
   color: #000;
+  background-color: #fff;
 }
 
 .t-light .headerOutline {
-  color: #eaeaea;
+  /* color: #eaeaea; */
+  color: #fff;
+  background-color: #000;
 }
 
 .t-dark #headerWrap {

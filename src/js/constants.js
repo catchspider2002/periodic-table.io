@@ -862,7 +862,7 @@ var rawData = [{
 
 function returnItem(itemId) {
   for (var j = 0; j < rawData.length; j++) {
-    if (rawData[j].id === itemId)
+    if (rawData[j].id === "ele" + itemId)
       return rawData[j];
   }
 }
@@ -1700,7 +1700,8 @@ function setOutline() {
 
   id("snippet").style.backgroundColor = elementColor;
   id("details").style.backgroundColor = elementColor;
-  var eleId = returnItem(element.replace("element", "ele"));
+  // var eleId = returnItem(element.replace("element", "ele"));
+  var eleId = returnItem(element.replace("element", ""));
 
   id("snippetNum").innerHTML = getNum(eleId.num);
   id("snippetSym").innerHTML = eleId.sym;
@@ -1789,24 +1790,6 @@ function setSize(tablePercent) {
   id("ptable").style.fontSize = (individualWidth / 4) + "px";
 }
 
-
-// About
-
-// resize the page so that it resizes the layout
-// function blogisotope() {
-//   var t = elem.getBoundingClientRect().width;
-//   return Math.floor(t * 0.04);
-// }
-
-// function bloggingisotope() {
-//   var iso = new Isotope(elem, {
-//     itemSelector: ".post-masonry",
-//     animationEngine: "jquery",
-//     masonry: {
-//       gutterWidth: blogisotope()
-//     }
-//   });
-// }
 
 function aboutLoad() {
   initializePage();
@@ -2032,7 +2015,8 @@ function compareLoad() {
 
 function firstChanged() {
   var firstElement = id("firstElement").value;
-  var firstDetails = returnItem("ele" + firstElement);
+  // var firstDetails = returnItem("ele" + firstElement);
+  var firstDetails = returnItem(firstElement);
 
   id("atmNo1").textContent = getNum(firstDetails.num);
   id("name1").textContent = window[firstDetails.nme];
@@ -2070,7 +2054,8 @@ function firstChanged() {
 
 function secondChanged() {
   var secondElement = id("secondElement").value;
-  var secondDetails = returnItem("ele" + secondElement);
+  // var secondDetails = returnItem("ele" + secondElement);
+  var secondDetails = returnItem(secondElement);
 
   id("atmNo2").textContent = getNum(secondDetails.num);
   id("name2").textContent = window[secondDetails.nme];
@@ -2382,7 +2367,8 @@ function elementLoad() {
 
   window.addEventListener("resize", resizeElement);
 
-  item = returnItem("ele" + num);
+  // item = returnItem("ele" + num);
+  item = returnItem(num);
   var eleName = item.id;
 
   var itemName = window[item.nme];
@@ -2479,7 +2465,8 @@ function elementLoad() {
     id("previousElement").innerHTML = "&mdash;";
     id("previousElement").style.textDecoration = "none";
   } else {
-    var previousElement = returnItem("ele" + previousNum);
+    var previousElement = returnItem(previousNum);
+    // var previousElement = returnItem("ele" + previousNum);
     id("previousElement").innerHTML = window[previousElement.nme];
     id("previousElement").href = "element.html?num=" + previousNum;
   }
@@ -2488,7 +2475,8 @@ function elementLoad() {
     id("nextElement").innerHTML = "&mdash;";
     id("nextElement").style.textDecoration = "none";
   } else {
-    var nextElement = returnItem("ele" + nextNum);
+    // var nextElement = returnItem("ele" + nextNum);
+    var nextElement = returnItem(nextNum);
     id("nextElement").innerHTML = window[nextElement.nme];
     id("nextElement").href = "element.html?num=" + nextNum;
   }

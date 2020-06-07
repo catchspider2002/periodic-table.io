@@ -65,7 +65,7 @@
 
     <div class="content-wrapper">
       <div class="container">
-        <div class="masonry masonry-4-col">              
+        <div class="masonry">
               <div class="flex-container row">
                 <div class="flex-cell">
                   <div id="firstSquare" class="flex-item masonry-col flex flex-col">
@@ -87,8 +87,8 @@
                 </div>
               </div>
               <div class="box-content masonry-col">
-                <div id="labelGeneralProp" class="row headerOutline text-upper heavyFont">
-                </div>
+                <span id="labelGeneralProp" class="headerOutline text-upper heavyFont">
+                </span>
                 <div class="grid">
                   <div id="labelAtmNoMain" class="new-table heavyFont"></div>
                   <div id="outputAtmNoMain" class="new-table"></div>
@@ -104,11 +104,11 @@
                   <div id="outputStructureMain" class="new-table"></div>
                 </div>
               </div>
-            <!-- /.post-masonry - Name Reason -->
+            <!-- Name Reason -->
               <div class="box-content text-center masonry-col">
                 <div id="elementReasonMain"></div>
               </div>
-            <!-- /.post-masonry - Electron Configuration -->
+            <!-- Electron Configuration -->
               <div class="box-content masonry-col">
                 <div class="grid padding-bottom-25">
                   <div id="labelElectronsMain" class="new-table heavyFont"></div>
@@ -122,10 +122,10 @@
                 <svelte-electron num="118" sym="He" />
                 <!-- <svg id="mySVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg> -->
               </div>
-            <!-- /.post-masonry - Physical Properties -->
+            <!-- Physical Properties -->
               <div class="box-content masonry-col">
-                <div id="labelPhysicalProp" class="row headerOutline text-upper heavyFont">
-                </div>
+                <span id="labelPhysicalProp" class="headerOutline text-upper heavyFont">
+                </span>
                 <div class="grid">
                   <div class="new-table heavyFont" id="labelPhaseMain"></div>
                   <div id="outputPhaseMain" class="new-table"></div>
@@ -143,27 +143,26 @@
                   <div id="outputSpecificMain" class="new-table"></div>
                 </div>
               </div>
-            <!-- /.post-masonry - History -->
+            <!-- History -->
               <div class="box-content masonry-col">
-                <div id="history" class="row headerOutline text-upper heavyFont">
-                </div>
+                <span id="history" class="headerOutline text-upper heavyFont"></span>
                 <div id="elementHistoryMain"></div>
               </div>
-            <!-- /.post-masonry - Facts -->
+            <!-- Facts -->
               <div class="box-content masonry-col text-center">
                 <div id="elementFactsMain"></div>
               </div>
-            <!-- /.post-masonry - Uses -->
+            <!-- Uses -->
               <div class="box-content masonry-col">
-                <div id="uses" class="row headerOutline text-upper heavyFont">
-                </div>
+                <span id="uses" class="headerOutline text-upper heavyFont">
+                </span>
                 <div id="elementUsesMain"></div>
                 <div></div>
               </div>
-            <!-- /.post-masonry - Atomic Properties -->
+            <!-- Atomic Properties -->
               <div class="box-content masonry-col">
-                <div id="labelAtomicProp" class="row headerOutline text-upper heavyFont">
-                </div>
+                <span id="labelAtomicProp" class="headerOutline text-upper heavyFont">
+                </span>
                 <div class="grid">
                   <div class="new-table heavyFont" id="labelRadiusMain"></div>
                   <div id="outputRadiusMain" class="new-table"></div>
@@ -181,8 +180,8 @@
                   <div id="outputOxidationMain" class="new-table ltrText text-left"></div>
                 </div>
               </div>
-            <!-- /.post-masonry - Image -->
-            <div class="post-masonry masonry-col">
+            <!-- Image -->
+            <div class="masonry-col">
               <div class="blog-thumb">
                 <img id="elementPic" src="images/placeholder.png" alt="" data-toggle="modal" data-target="#exampleModal" />
               </div>
@@ -193,7 +192,7 @@
                 </div>
               </div>
             </div>
-            <!-- /.post-masonry - Abundance -->
+            <!-- Abundance -->
               <div class="box-content masonry-col">
                 <div class="grid">
                   <div class="new-table heavyFont" id="labelCrustMain"></div>
@@ -202,17 +201,14 @@
                   <div id="outputUniverseMain" class="new-table">40.078</div>
                 </div>
               </div>
-            <!-- </div> -->
-            <!-- /.post-masonry - Hazards -->
+            <!-- Hazards -->
               <div class="box-content masonry-col text-center">
                 <div id="elementDangersMain"></div>
               </div>
-            <!-- </div> -->
-            <!-- /.post-masonry - Important Links -->
+            <!-- Important Links -->
               <div class="box-content masonry-col">
-                <div class="row">
-                  <div id="labelLinksMain" class="headerOutline text-upper heavyFont">
-                  </div>
+                <div>
+                  <span id="labelLinksMain" class="headerOutline text-upper heavyFont"></span>
                 </div>
                 <a id="link1" class="webLink" target="_blank" rel="noopener noreferrer"></a>
                 <a id="link2" class="webLink" target="_blank" rel="noopener noreferrer">Encyclopaedia Britannica</a>
@@ -221,18 +217,15 @@
                 <a id="link5" class="webLink" target="_blank" rel="noopener noreferrer">RSC Visual Elements</a>
                 <a id="link6" class="webLink" target="_blank" rel="noopener noreferrer">WebElements</a>
               </div>
-            <!-- </div> -->
-            <!-- /.post-masonry - Isotopes -->
+            <!-- Isotopes -->
               <div class="box-content masonry-col">
-                <div id="isotopes" class="row headerOutline text-upper heavyFont">
-                </div>
+                <span id="isotopes" class="headerOutline text-upper heavyFont"></span>
                 <div class="heavyFont padding-0 margin-y-10" id="stableIsotopes"></div>
                 <span id="stableIsotopesList" class="isotopeLine"></span>
                 <div class="heavyFont padding-0 margin-y-10" id="unstableIsotopes"></div>
                 <span id="unstableIsotopesList" class="isotopeLine"></span>
               </div>
-            <!-- </div> -->
-            <!-- /.post-masonry - Small Table -->
+            <!-- Small Table -->
               <div class="box-content masonry-col">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 325 75" id="tableSVG">
                   <g transform="translate(0,-977.3622)">

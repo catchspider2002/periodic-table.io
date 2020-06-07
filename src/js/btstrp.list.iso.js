@@ -257,6 +257,45 @@ if(derivedLang === "pl"){
 }
 urlLang = derivedLang.replace("zs","zh-cn").replace("zt","zh-tw").replace("ph","pl").replace("gb","en-gb")
 
+
+var languageList =  [
+  { id: 'en', url: 'en-us'}, 
+  { id: 'gb', url: 'en-gb'}, 
+  { id: 'bg', url: 'bg'}, 
+  { id: 'ca', url: 'ca'}, 
+  { id: 'zs', url: 'zh-cn'}, 
+  { id: 'zt', url: 'zh-tw'}, 
+  { id: 'hr', url: 'hr'}, 
+  { id: 'cs', url: 'cs'}, 
+  { id: 'da', url: 'da'}, 
+  { id: 'nl', url: 'nl'}, 
+  { id: 'fi', url: 'fi'}, 
+  { id: 'fr', url: 'fr'}, 
+  { id: 'de', url: 'de'}, 
+  { id: 'el', url: 'el'}, 
+  { id: 'hi', url: 'hi'}, 
+  { id: 'hu', url: 'hu'}, 
+  { id: 'id', url: 'id'}, 
+  { id: 'it', url: 'it'}, 
+  { id: 'ja', url: 'ja'}, 
+  { id: 'ko', url: 'ko'}, 
+  { id: 'nb', url: 'nb-no'}, 
+  { id: 'nn', url: 'nn-no'}, 
+  { id: 'ph', url: 'pl'}, 
+  { id: 'pt', url: 'pt'}, 
+  { id: 'ro', url: 'ro'}, 
+  { id: 'ru', url: 'ru'}, 
+  { id: 'sr', url: 'sr'}, 
+  { id: 'sk', url: 'sk'}, 
+  { id: 'sl', url: 'sl'}, 
+  { id: 'es', url: 'es'}, 
+  { id: 'sv', url: 'sv'}, 
+  { id: 'th', url: 'th'}, 
+  { id: 'tr', url: 'tr'}, 
+  { id: 'uk', url: 'uk'}, 
+  { id: 'vi', url: 'vi'}
+  }
+
 function setLangFile(inLang) {
   var regularFont, heavyFont;
 
@@ -317,7 +356,7 @@ function setLangFile(inLang) {
 
   newStyle.appendChild(document.createTextNode("button{float:" + dirRev + "}.listNum>*{" + dirRev + ":10px;" + dir + ":unset}.text-left{text-align:" + dir + "}.text-right{text-align:" + dirRev + "}"));
   newStyle.appendChild(document.createTextNode(".col-xs-4,.navbar-brand{float:" + dir + "}"));
-  newStyle.appendChild(document.createTextNode("@media (min-width:768px){.post-masonry{" + dirRev + ":0;" + dir + ":unset}.navbar-header,.navbar-nav,.navbar-nav>li{float:" + dir + "}.navbar-right{float:" + dirRev + "}}"));
+  newStyle.appendChild(document.createTextNode("@media (min-width:768px){.navbar-header,.navbar-nav,.navbar-nav>li{float:" + dir + "}.navbar-right{float:" + dirRev + "}}"));
   newStyle.appendChild(document.createTextNode("#topRowCompare{margin-" + dir + ":-25px}.webLink{float:" + dir + ";clear:" + dir + "}"));
 
   document.head.appendChild(newStyle);

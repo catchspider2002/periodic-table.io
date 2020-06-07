@@ -196,6 +196,7 @@ select:focus {
   margin-top: -36px;
   width: auto;
   background-color: transparent;
+  color: #fff;
 }
 
 .text-center {
@@ -711,14 +712,15 @@ table,
 }
 
 .modal-backdrop.in {
-  filter: alpha(opacity=50);
-  opacity: 0.5;
+  filter: alpha(opacity=75);
+  opacity: 0.75;
 }
 
 .modal-header {
   min-height: 16.42857143px;
   padding: 15px;
-  border-bottom: 2px solid rgba(128, 128, 128, 0.5);
+  /* border-bottom: 2px solid rgba(128, 128, 128, 0.5); */
+  color: #fff;
 }
 
 .modal-title {
@@ -838,7 +840,7 @@ canvas {
 }
 
 .content-wrapper {
-  padding-bottom: 10px;
+  padding-bottom: 32px;
 }
 
 .box-content {
@@ -1334,13 +1336,15 @@ input:checked + .slider:before {
 
 .t-dark .box-content,
 .t-dark .list-content,
-.t-dark .flex-item {
+.t-dark .flex-item,
+.t-dark .modal-content {
   background-color: rgb(42, 42, 48);
 }
 
 .t-light .box-content,
 .t-light .list-content,
-.t-light .flex-item {
+.t-light .flex-item,
+.t-light .modal-content {
   background-color: rgb(235, 235, 235);
 }
 
@@ -1355,22 +1359,12 @@ input:checked + .slider:before {
   color: rgba(0, 0, 0, 0.8);
 }
 
-.t-dark > div > .modal-dialog,
-.t-dark .close {
+.t-dark > div > .modal-dialog {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.t-light > div > .modal-dialog,
-.t-light .close {
+.t-light > div > .modal-dialog {
   color: rgba(0, 0, 0, 0.8);
-}
-
-.t-dark .modal-inner {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.t-light .modal-inner {
-  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .t-dark .headerOutline {

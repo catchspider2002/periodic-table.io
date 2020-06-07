@@ -349,11 +349,11 @@ function setColor(colorSet, theme) {
   var newStyle = document.createElement("style");
   newStyle.appendChild(document.createTextNode("a{color:" + fgColor + "}a:focus,a:hover{color: rgb(" + themeColor + ")}"));
   
-  newStyle.appendChild(document.createTextNode("#topRowCompare,.modal-content,.navbar-default,button{background-color:rgb(" + themeColor + ")}.aboutHeader{color:" + fgColor + "}input:checked+.slider{background-color:rgb(" + themeColor + ")}input:focus+.slider{box-shadow:0 0 1px rgb(" + themeColor + ")}"));
+  newStyle.appendChild(document.createTextNode("#topRowCompare,.navbar-default,button{background-color:rgb(" + themeColor + ")}.aboutHeader{color:" + fgColor + "}input:checked+.slider{background-color:rgb(" + themeColor + ")}input:focus+.slider{box-shadow:0 0 1px rgb(" + themeColor + ")}"));
   // newStyle.appendChild(document.createTextNode(".box-content,.list-content{background-color:" + bgColor + "}"));
   newStyle.appendChild(document.createTextNode(".masonry-col{border-color: rgb(" + themeColor + ")}"));
   newStyle.appendChild(document.createTextNode(".headerOutline{background-color:" + fgColor + "}.listSym{background-color:rgba(" + themeColor + ",.3)}"));
-  newStyle.appendChild(document.createTextNode(".navbar-default,.navbar-collapse.in{background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}.sort{background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
+  newStyle.appendChild(document.createTextNode(".navbar-default,.navbar-collapse.in, .modal-header{background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}.sort{background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
 
   var deg = "45deg"
 

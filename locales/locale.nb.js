@@ -354,7 +354,7 @@ var ukTrans="Ukrainsk"
 var uzTrans="Usbekisk"
 var viTrans="Vietnamesisk"
 var afTrans="Afrikaans"
-var isTrans="Icelandic"
+var isTrans="Islandsk"
 var swTrans="Swahili"
 var eoTrans="Esperanto"
 

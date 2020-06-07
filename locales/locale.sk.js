@@ -354,7 +354,7 @@ var ukTrans="Ukrajinčina"
 var uzTrans="Uzbečtina"
 var viTrans="Vietnamčina"
 var afTrans="Afrikánčina"
-var isTrans="Icelandic"
+var isTrans="Islandčina"
 var swTrans="Swahilčina"
 var eoTrans="Esperanto"
 

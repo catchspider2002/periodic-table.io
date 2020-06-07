@@ -354,7 +354,7 @@ var ukTrans="Ukraina"
 var uzTrans="Uzbekki"
 var viTrans="Vietnam"
 var afTrans="Afrikaans"
-var isTrans="Icelandic"
+var isTrans="Islanti"
 var swTrans="Suahili"
 var eoTrans="Esperanto"
 

@@ -5,10 +5,20 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/catchspider2002/periodic-table.io)
 ![Website](https://img.shields.io/website?up_message=online&url=https%3A%2F%2Fperiodic-table.io%2F)
 
-
 <div align="center">
   <img src="android-chrome-192x192.png" alt="periodic-table.io" />
 </div>
+
+[periodic-table.io](https://periodic-table.io) provides comprehensive and useful information about the chemical elements all in one place. Click on an element to know more about the properties, history, name origin, images, applications, hazards and electron shell diagram of each element.
+
+- Visually pleasing colour coded table
+- Simple fluid design and has lots of details
+- Detailed description for each element
+- View the list of all elements in the alphabetical order
+- Electron shell diagram and image for each element
+- Compare the properties of 2 elements
+- Search for the elements using their symbol, atomic number or name
+- Links to informative websites for further study
 
 # Translations (As of Jun 7, 2020)
 

@@ -160,7 +160,9 @@ input,
 select {
   border: 1px solid #777777;
   padding: 9px 12px;
-  color: #555;
+  /* color: #555; */
+  background-color: var(--form-bg-color);
+  color: var(--form-text-color);
 }
 
 select {
@@ -1336,11 +1338,11 @@ input:checked + .slider:before {
   background-color: var(--card-bg-color);
 }
 
-input,
+/* input,
 select {
   background-color: var(--form-bg-color);
   color: var(--form-text-color);
-}
+} */
 
 /* .headerOutline {
   color: var(--alt-text-color);

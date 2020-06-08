@@ -294,7 +294,7 @@ var languageList =  [
   { id: 'tr', url: 'tr'}, 
   { id: 'uk', url: 'uk'}, 
   { id: 'vi', url: 'vi'}
-  }
+]
 
 function setLangFile(inLang) {
   var regularFont, heavyFont;
@@ -388,7 +388,7 @@ function setColor(colorSet, theme) {
   var newStyle = document.createElement("style");
   newStyle.appendChild(document.createTextNode("a{color:" + fgColor + "}a:focus,a:hover{color: rgb(" + themeColor + ")}"));
   
-  newStyle.appendChild(document.createTextNode("#topRowCompare,.navbar-default,button{background-color:rgb(" + themeColor + ")}.aboutHeader{color:" + fgColor + "}input:checked+.slider{background-color:rgb(" + themeColor + ")}input:focus+.slider{box-shadow:0 0 1px rgb(" + themeColor + ")}"));
+  newStyle.appendChild(document.createTextNode(".navbar-default,button{background-color:rgb(" + themeColor + ")}.aboutHeader{color:" + fgColor + "}input:checked+.slider{background-color:rgb(" + themeColor + ")}input:focus+.slider{box-shadow:0 0 1px rgb(" + themeColor + ")}"));
   // newStyle.appendChild(document.createTextNode(".box-content,.list-content{background-color:" + bgColor + "}"));
   newStyle.appendChild(document.createTextNode(".masonry-col{border-color: rgb(" + themeColor + ")}"));
   newStyle.appendChild(document.createTextNode(".headerOutline{background-color:" + fgColor + "}.listSym{background-color:rgba(" + themeColor + ",.3)}"));

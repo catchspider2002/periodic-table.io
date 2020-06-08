@@ -970,6 +970,7 @@ function changeIcon(){
     defaultNewTheme = "dark";
   }
 
+  document.documentElement.setAttribute('data-theme',defaultNewTheme);
   localStorage.setItem("defaultNewTheme", defaultNewTheme);
   setTheme()
 }
@@ -988,9 +989,11 @@ function initializePage() {
   defaultNewTheme = localStorage.getItem("defaultNewTheme");
 
   if (!defaultNewTheme) {
-    localStorage.setItem("defaultNewTheme", "light");
     defaultNewTheme = "light";
+    localStorage.setItem("defaultNewTheme", defaultNewTheme);
   }
+  document.documentElement.setAttribute('data-theme', defaultNewTheme);
+
   id("themeIcon").textContent = (defaultNewTheme === "light") ? "c" : "f"
 
   defaultColor = localStorage.getItem("defaultColor");
@@ -1225,18 +1228,18 @@ function setNavbar() {
 }
 
 function setDefaultTheme() {
-  var body = id("body").classList;
-  if (defaultNewTheme === "light") {
-    if (body.contains("t-dark")) {
-      body.remove("t-dark");
-      body.add("t-light");
-    }
-  } else {
-    if (body.contains("t-light")) {
-      body.remove("t-light");
-      body.add("t-dark");
-    }
-  }
+  // var body = id("body").classList;
+  // if (defaultNewTheme === "light") {
+  //   if (body.contains("t-dark")) {
+  //     body.remove("t-dark");
+  //     body.add("t-light");
+  //   }
+  // } else {
+  //   if (body.contains("t-light")) {
+  //     body.remove("t-light");
+  //     body.add("t-dark");
+  //   }
+  // }
   colorClicked(localStorage.getItem("defaultColor"));
 }
 
@@ -1300,14 +1303,9 @@ function setTemp() {
 }
 
 function setTheme() {
-  // defaultNewTheme = id("themeSelectSetting").value;
-  // localStorage.setItem("defaultNewTheme", defaultNewTheme);
-
   setDefaultTheme();
-  if (id("outputConfigMain")){
-    // drawImage();
+  if (id("outputConfigMain"))
     drawSvg();
-  }
 }
 
 
@@ -1789,7 +1787,6 @@ function setSize(tablePercent) {
   id("groupPeriod").style.width = (individualWidth * 2) + "px";
   id("ptable").style.fontSize = (individualWidth / 4) + "px";
 }
-
 
 function aboutLoad() {
   initializePage();

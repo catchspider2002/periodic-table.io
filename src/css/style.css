@@ -1,3 +1,23 @@
+:root {
+  --primary-color: #302ae6;
+  --body-bg-color: rgb(220, 220, 220);
+  --card-bg-color: rgb(235, 235, 235);
+  --text-color: #000;
+  --alt-text-color: #eaeaea;
+  --form-bg-color: rgba(255, 255, 255, 0.9);
+  --form-text-color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="dark"] {
+  --primary-color: #9a97f3;
+  --body-bg-color: rgb(24, 24, 30);
+  --card-bg-color: rgb(42, 42, 48);
+  --text-color: #eaeaea;
+  --alt-text-color: #000;
+  --form-bg-color: rgba(0, 0, 0, 0.9);
+  --form-text-color: rgba(255, 255, 255, 0.8);
+}
+
 @font-face {
   font-family: "Lato Regular";
   src: url(../../fonts/Lato-Regular.woff2) format("woff2"), url(../../fonts/Lato-Regular.woff) format("woff");
@@ -73,6 +93,8 @@ body {
   opacity: 1;
   transition: 0.1s opacity;
   -ms-transition: 0.1s opacity;
+  background-color: var(--body-bg-color);
+  color: var(--text-color);
 }
 
 body.fade-out {
@@ -87,16 +109,6 @@ body.fade-out {
 
 .heavyFont {
   font-family: "Lato Heavy", "Special Heavy", sans-serif;
-}
-
-.shadow-lg {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-.shadow-xl {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-.shadow-2xl {
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
 a {
@@ -230,6 +242,7 @@ select:focus {
   z-index: 100;
   width: calc(100% - 17px);
   height: 80px;
+  background-color: var(--body-bg-color);
 }
 
 @media (min-width: 768px) {
@@ -929,18 +942,8 @@ canvas {
   padding: 3px 9px 1px;
   margin-left: -15px;
   margin-right: -15px;
-  /* position: relative;
-  height: 32px; */
+  color: var(--alt-text-color);
 }
-
-/* .headerOutline:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-} */
 
 #elementDiagram {
   padding: 43px 0 15px;
@@ -1002,7 +1005,7 @@ canvas {
   margin-right: 15px;
 }
 
-.m-b-30{
+.m-b-30 {
   margin-bottom: 30px;
 }
 
@@ -1317,77 +1320,31 @@ input:checked + .slider:before {
   hyphens: auto;
 }
 
-.t-dark,
-.t-dark > div > table > tbody > tr > td > .elements {
-  color: #eaeaea;
+/* .elements {
+  color: var(--text-color);
+} */
+
+/* body,
+#topRowCompare {
+  background-color: var(--body-bg-color);
+} */
+
+.box-content,
+.list-content,
+.flex-item,
+.modal-body {
+  background-color: var(--card-bg-color);
 }
 
-.t-light,
-.t-light > div > table > tbody > tr > td > .elements {
-  color: #000;
+input,
+select {
+  background-color: var(--form-bg-color);
+  color: var(--form-text-color);
 }
 
-.t-dark,
-.t-dark > div > div > div > div > div > div > #compareTop {
-  background-color: rgb(24, 24, 30);
-}
-
-.t-light,
-.t-light > div > div > div > div > div > div > #compareTop {
-  background-color: rgb(220, 220, 220);
-}
-
-.t-dark .box-content,
-.t-dark .list-content,
-.t-dark .flex-item,
-.t-dark .modal-body {
-  background-color: rgb(42, 42, 48);
-}
-
-.t-light .box-content,
-.t-light .list-content,
-.t-light .flex-item,
-.t-light .modal-body {
-  background-color: rgb(235, 235, 235);
-}
-
-.t-dark input,
-.t-dark select {
-  background-color: rgba(0, 0, 0, 0.9);
-  color: rgba(255, 255, 255, 0.8);
-}
-.t-light input,
-.t-light select {
-  background-color: rgba(255, 255, 255, 0.9);
-  color: rgba(0, 0, 0, 0.8);
-}
-
-.t-dark > div > .modal-dialog {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.t-light > div > .modal-dialog {
-  color: rgba(0, 0, 0, 0.8);
-}
-
-.t-dark .headerOutline {
-  color: #000;
-  background-color: #fff;
-}
-
-.t-light .headerOutline {
-  /* color: #eaeaea; */
-  color: #fff;
-  background-color: #000;
-}
-
-.t-dark #headerWrap {
-  background-color: #000;
-}
-
-.t-light #headerWrap {
-  background-color: #efefef;
-}
+/* .headerOutline {
+  color: var(--alt-text-color);
+} */
 
 .alkaliMetals {
   background-color: rgba(228, 27, 144, 0.5); /* Pink */
@@ -1511,3 +1468,76 @@ input:checked + .slider:before {
     padding-top: 0;
   }
 }
+
+
+/* .t-dark,
+.t-dark > div > table > tbody > tr > td > .elements {
+  color: #eaeaea;
+}
+
+.t-light,
+.t-light > div > table > tbody > tr > td > .elements {
+  color: #000;
+}
+
+.t-dark,
+.t-dark > div > div > div > div > div > div > #compareTop {
+  background-color: rgb(24, 24, 30);
+}
+
+.t-light,
+.t-light > div > div > div > div > div > div > #compareTop
+ {
+  background-color: rgb(220, 220, 220);
+} 
+
+.t-dark .box-content,
+.t-dark .list-content,
+.t-dark .flex-item,
+.t-dark .modal-body {
+  background-color: rgb(42, 42, 48);
+}
+
+.t-light .box-content,
+.t-light .list-content,
+.t-light .flex-item,
+.t-light .modal-body {
+  background-color: rgb(235, 235, 235);
+} 
+
+.t-dark > div > .modal-dialog {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.t-light > div > .modal-dialog {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.t-dark input,
+.t-dark select {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: rgba(255, 255, 255, 0.8);
+}
+.t-light input,
+.t-light select {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.t-dark .headerOutline {
+  color: #000;
+  background-color: #fff;
+}
+
+.t-light .headerOutline {
+  color: #fff;
+  background-color: #000;
+}
+
+.t-dark #headerWrap {
+  background-color: #000;
+}
+
+.t-light #headerWrap {
+  background-color: #efefef;
+} */

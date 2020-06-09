@@ -733,7 +733,6 @@ table,
 .modal-header {
   min-height: 16.42857143px;
   padding: 15px;
-  /* border-bottom: 2px solid rgba(128, 128, 128, 0.5); */
   color: #fff;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
@@ -747,6 +746,11 @@ table,
 .modal-body {
   position: relative;
   padding: 20px;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.bottom-rounded{
   border-bottom-left-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 }

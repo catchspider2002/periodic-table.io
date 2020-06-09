@@ -22,9 +22,12 @@
 
 # Translations (As of Jun 7, 2020)
 
-Contributions are welcome for the translations.
+Contributions are welcome for the translations. There are 2 files available for translation: General Terms and Element Details.
 
-Available in the website
+## General Terms
+This contains the text for all the labels used in all the pages except for the element details mentioned below. The current status of the translation is below:
+
+#### Available in the website
 
 [![Arabic](https://img.shields.io/badge/Arabic-99.2%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Bulgarian](https://img.shields.io/badge/Bulgarian-98.9%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
@@ -63,7 +66,7 @@ Available in the website
 [![Ukrainian](https://img.shields.io/badge/Ukrainian-96.4%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Vietnamese](https://img.shields.io/badge/Vietnamese-99.4%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 
-Below are not yet added to the website. I'll be adding new languages when it is crosses 80% translation.
+#### Below are not yet added to the website. I'll be adding new languages when it is crosses 80% translation.
 
 [![Afrikaans](https://img.shields.io/badge/Afrikaans-36.5%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Albanian](https://img.shields.io/badge/Albanian-68.8%25-yellow)](https://windows-uwp.oneskyapp.com/collaboration)
@@ -80,6 +83,9 @@ Below are not yet added to the website. I'll be adding new languages when it is 
 [![Malay](https://img.shields.io/badge/Malay-72.1%25-yellow)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Swahili](https://img.shields.io/badge/Swahili-35.7%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Uzbek](https://img.shields.io/badge/Uzbek-59.6%25-orange)](https://windows-uwp.oneskyapp.com/collaboration)
+
+## Element Details
+This contains the text for individual element details like name reason, history, facts, applications and hazards. Below is a sample from Hydrogen element:
 
 **Name Reason**
 > From the Greek word *hydro* (water), and *genes* (forming)

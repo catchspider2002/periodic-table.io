@@ -81,6 +81,21 @@ Below are not yet added to the website. I'll be adding new languages when it is 
 [![Swahili](https://img.shields.io/badge/Swahili-35.7%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Uzbek](https://img.shields.io/badge/Uzbek-59.6%25-orange)](https://windows-uwp.oneskyapp.com/collaboration)
 
+**Name Reason**
+> From the Greek word *hydro* (water), and *genes* (forming)
+
+**History**
+> Henry Cavendish was the first to distinguish hydrogen from other gases in 1766 when he prepared it by reacting hydrochloric acid with zinc.<br><br>In 1670, English scientist Robert Boyle had observed its production by reacting strong acids with metals.<br><br>French scientist Antoine Lavoisier later named the element hydrogen in 1783.
+
+**Facts**
+> Hydrogen is the primary component of Jupiter and the other gas giant planets
+
+**Applications**
+> Liquid hydrogen is used as a rocket fuel.<br><br>Hydrogen is commonly used in power stations as a coolant in generators.<br><br>Hydrogen's two heavier isotopes (deuterium and tritium) are used in nuclear fusion. Used as a shielding gas in welding methods such as atomic hydrogen welding.
+
+**Hazards**
+> Hydrogen poses a number of hazards to safety, from fires when mixed with air to being an asphyxiant in its pure form
+
 # License
 
 MIT License

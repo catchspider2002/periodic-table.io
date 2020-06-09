@@ -20,7 +20,7 @@
 - Search for the elements using their symbol, atomic number or name
 - Links to informative websites for further study
 
-# Translations (As of Jun 7, 2020)
+# Translations (As of Jun 10, 2020)
 
 Contributions are welcome for the translations. There are 2 files available for translation: General Terms and Element Details.
 
@@ -32,11 +32,11 @@ This contains the text for all the labels used in all the pages except for the e
 [![Arabic](https://img.shields.io/badge/Arabic-99.2%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Bulgarian](https://img.shields.io/badge/Bulgarian-98.9%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Catalan](https://img.shields.io/badge/Catalan-99.2%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
-[![Chinese%20Traditional](https://img.shields.io/badge/Chinese%20Traditional-88.9%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Chinese%20Simplified](https://img.shields.io/badge/Chinese%20Simplified-100.0%25-brightgreen)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Chinese%20Traditional](https://img.shields.io/badge/Chinese%20Traditional-88.9%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Croatian](https://img.shields.io/badge/Croatian-100.0%25-brightgreen)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Czech](https://img.shields.io/badge/Czech-98.9%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
-[![Danish](https://img.shields.io/badge/Danish-80.8%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Danish](https://img.shields.io/badge/Danish-86.4%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Dutch](https://img.shields.io/badge/Dutch-98.9%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Finnish](https://img.shields.io/badge/Finnish-97.8%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 [![French](https://img.shields.io/badge/French-99.4%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
@@ -53,12 +53,12 @@ This contains the text for all the labels used in all the pages except for the e
 [![Norwegian%20Nynorsk](https://img.shields.io/badge/Norwegian%20Nynorsk-73.5%25-yellow)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Persian](https://img.shields.io/badge/Persian-99.4%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Polish](https://img.shields.io/badge/Polish-94.2%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
-[![Portuguese](https://img.shields.io/badge/Portuguese-99.4%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Portuguese](https://img.shields.io/badge/Portuguese-99.7%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Romanian](https://img.shields.io/badge/Romanian-99.2%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Russian](https://img.shields.io/badge/Russian-99.4%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Serbian](https://img.shields.io/badge/Serbian-97.5%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
-[![Slovenian](https://img.shields.io/badge/Slovenian-85.2%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Slovak](https://img.shields.io/badge/Slovak-97.8%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Slovenian](https://img.shields.io/badge/Slovenian-85.2%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Spanish](https://img.shields.io/badge/Spanish-99.4%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Swedish](https://img.shields.io/badge/Swedish-87.5%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Thai](https://img.shields.io/badge/Thai-98.6%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
@@ -76,9 +76,9 @@ This contains the text for all the labels used in all the pages except for the e
 [![Estonian](https://img.shields.io/badge/Estonian-63.8%25-orange)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Filipino](https://img.shields.io/badge/Filipino-74.7%25-yellow)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Icelandic](https://img.shields.io/badge/Icelandic-43.2%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
-[![Kazakh](https://img.shields.io/badge/Kazakh-69.9%25-yellow)](https://windows-uwp.oneskyapp.com/collaboration)
-[![Lithuanian](https://img.shields.io/badge/Lithuanian-67.7%25-yellow)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Kazakh](https://img.shields.io/badge/Kazakh-71.0%25-yellow)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Latvian](https://img.shields.io/badge/Latvian-67.4%25-yellow)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Lithuanian](https://img.shields.io/badge/Lithuanian-67.7%25-yellow)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Macedonian](https://img.shields.io/badge/Macedonian-63.8%25-orange)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Malay](https://img.shields.io/badge/Malay-72.1%25-yellow)](https://windows-uwp.oneskyapp.com/collaboration)
 [![Swahili](https://img.shields.io/badge/Swahili-35.7%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
@@ -101,6 +101,63 @@ This contains the text for individual element details like name reason, history,
 
 **Hazards**
 > Hydrogen poses a number of hazards to safety, from fires when mixed with air to being an asphyxiant in its pure form
+
+#### Available in the website
+
+[![Arabic](https://img.shields.io/badge/Arabic-1.7%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Bulgarian](https://img.shields.io/badge/Bulgarian-1.2%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Catalan](https://img.shields.io/badge/Catalan-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Chinese%20Simplified](https://img.shields.io/badge/Chinese%20Simplified-100.0%25-brightgreen)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Chinese%20Traditional](https://img.shields.io/badge/Chinese%20Traditional-0.7%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Croatian](https://img.shields.io/badge/Croatian-24.9%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Czech](https://img.shields.io/badge/Czech-16.6%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Danish](https://img.shields.io/badge/Danish-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Dutch](https://img.shields.io/badge/Dutch-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Finnish](https://img.shields.io/badge/Finnish-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![French](https://img.shields.io/badge/French-100.0%25-brightgreen)](https://windows-uwp.oneskyapp.com/collaboration)
+[![German](https://img.shields.io/badge/German-5.9%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Greek](https://img.shields.io/badge/Greek-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Hebrew](https://img.shields.io/badge/Hebrew-0.2%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Hindi](https://img.shields.io/badge/Hindi-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Hungarian](https://img.shields.io/badge/Hungarian-80.7%25-green)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Indonesian](https://img.shields.io/badge/Indonesian-2.4%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Italian](https://img.shields.io/badge/Italian-20.2%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Japanese](https://img.shields.io/badge/Japanese-1.7%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Korean](https://img.shields.io/badge/Korean-100.0%25-brightgreen)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Norwegian%20Bokmål](https://img.shields.io/badge/Norwegian%20Bokmål-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Norwegian%20Nynorsk](https://img.shields.io/badge/Norwegian%20Nynorsk-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Persian](https://img.shields.io/badge/Persian-4.9%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Polish](https://img.shields.io/badge/Polish-0.3%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Portuguese](https://img.shields.io/badge/Portuguese-13.4%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Romanian](https://img.shields.io/badge/Romanian-20.3%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Russian](https://img.shields.io/badge/Russian-18.3%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Serbian](https://img.shields.io/badge/Serbian-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Slovak](https://img.shields.io/badge/Slovak-0.7%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Slovenian](https://img.shields.io/badge/Slovenian-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Spanish](https://img.shields.io/badge/Spanish-100.0%25-brightgreen)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Swedish](https://img.shields.io/badge/Swedish-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Thai](https://img.shields.io/badge/Thai-4.9%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Turkish](https://img.shields.io/badge/Turkish-0.7%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Ukrainian](https://img.shields.io/badge/Ukrainian-0.7%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Vietnamese](https://img.shields.io/badge/Vietnamese-15.6%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+
+#### Below are not yet added to the website since the General Terms is not 80% translated
+
+[![Afrikaans](https://img.shields.io/badge/Afrikaans-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Albanian](https://img.shields.io/badge/Albanian-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Azerbaijani](https://img.shields.io/badge/Azerbaijani-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Belarusian](https://img.shields.io/badge/Belarusian-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Esperanto](https://img.shields.io/badge/Esperanto-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Estonian](https://img.shields.io/badge/Estonian-0.5%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Filipino](https://img.shields.io/badge/Filipino-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Icelandic](https://img.shields.io/badge/Icelandic-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Kazakh](https://img.shields.io/badge/Kazakh-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Latvian](https://img.shields.io/badge/Latvian-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Lithuanian](https://img.shields.io/badge/Lithuanian-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Macedonian](https://img.shields.io/badge/Macedonian-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Malay](https://img.shields.io/badge/Malay-1.4%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Swahili](https://img.shields.io/badge/Swahili-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
+[![Uzbek](https://img.shields.io/badge/Uzbek-0.0%25-red)](https://windows-uwp.oneskyapp.com/collaboration)
 
 # License
 

@@ -1034,7 +1034,7 @@ function initializePage() {
 
   colorClicked(defaultColor);
 
-  id("homeTitle").textContent = homeTitle;
+  id("homeTitle").textContent = homeHeader;
   id("modalSettings").textContent = settings;
   id("language").textContent = language;
   id("sysLanguage").textContent = sysLanguage;
@@ -1314,7 +1314,7 @@ function setTheme() {
 function indexLoad() {
 
   initializePage();
-  id("homeTitle").textContent = home + " - " + homeTitle;
+  id("homeTitle").textContent = home + " - " + homeHeader;
 
   id("pageHeader").textContent = home;
 
@@ -1790,7 +1790,7 @@ function setSize(tablePercent) {
 
 function aboutLoad() {
   initializePage();
-  id("homeTitle").textContent = about + " - " + homeTitle;
+  id("homeTitle").textContent = about + " - " + homeHeader;
   
   id("about").textContent = about;
   id("contact").textContent = contact;
@@ -1818,21 +1818,21 @@ function aboutLoad() {
 
 function pg404Load() {
   initializePage();
-  id("homeTitle").textContent = "Page Not Found" + " - " + homeTitle;
+  id("homeTitle").textContent = "Page Not Found" + " - " + homeHeader;
 
   id("main404").textContent = "Page Not Found";
 }
 
 function storeLoad() {
   initializePage();
-  id("homeTitle").textContent = store + " - " + homeTitle;
+  id("homeTitle").textContent = store + " - " + homeHeader;
 
   id("pageHeader").textContent = store;
 }
 
 function privacyLoad() {
   initializePage();
-  id("homeTitle").textContent = privacy + " - " + homeTitle;
+  id("homeTitle").textContent = privacy + " - " + homeHeader;
 
   id("pageHeader").textContent = privacy;
   
@@ -1847,7 +1847,7 @@ function privacyLoad() {
 
 function creditsLoad() {
   initializePage();
-  id("homeTitle").textContent = credits + " - " + homeTitle;
+  id("homeTitle").textContent = credits + " - " + homeHeader;
 
   id("pageHeader").textContent = credits;
   id("credits").textContent = credits;
@@ -1894,7 +1894,7 @@ function creditsLoad() {
 
 function printablesLoad() {
   initializePage();
-  id("homeTitle").textContent = "Printables" + " - " + homeTitle;
+  id("homeTitle").textContent = "Printables" + " - " + homeHeader;
 
   id("pageHeader").textContent = "Printables";
   id("printablesHeader").textContent =  "Printables";
@@ -1930,7 +1930,7 @@ function printablesLoad() {
 
 function compareLoad() {
   initializePage();
-  id("homeTitle").textContent = compare + " - " + homeTitle;
+  id("homeTitle").textContent = compare + " - " + homeHeader;
 
   id("pageHeader").textContent = compare;
 
@@ -2113,7 +2113,7 @@ function removeFade() {
 
 function listLoad() {
   initializePage();
-  id("homeTitle").textContent = list + " - " + homeTitle;
+  id("homeTitle").textContent = list + " - " + homeHeader;
 
   id("pageHeader").textContent = list;
   id("sortNumber").textContent = sortNumber;
@@ -2369,7 +2369,7 @@ function elementLoad() {
   var eleName = item.id;
 
   var itemName = window[item.nme];
-  id("homeTitle").textContent = itemName + " - " + homeTitle;
+  id("homeTitle").textContent = itemName + " - " + homeHeader;
 
   id("group").textContent = group;
   id("period").textContent = period;
@@ -3244,7 +3244,7 @@ function elementLoad() {
     document.querySelector('meta[name="description"]').setAttribute("content", description);
     document.querySelector('meta[name="keywords"]').setAttribute("content", itemName + ", " + homeHeader + ", " + elements + ", " + isotopes + ", " + labelConfigMain + ", " 
                                                                           + hist + ", " + properties + ", " + uses + ", PWA, responsive, interactive");
-    document.querySelector('meta[property="og:title"]').setAttribute("content", itemName + " - " + homeTitle);
+    document.querySelector('meta[property="og:title"]').setAttribute("content", itemName + " - " + homeHeader);
     document.querySelector('meta[property="og:description"]').setAttribute("content", description);
 
     // chemical, interactive, PWA, properties, history, name origin, images, applications, hazards, electron shell, diagram, chemistry, information

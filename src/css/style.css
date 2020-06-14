@@ -1,7 +1,7 @@
 :root {
   --primary-color: #302ae6;
-  --body-bg-color: rgb(225, 225, 225);
-  --card-bg-color: rgb(235, 235, 235);
+  --body-bg-color: rgb(230, 230, 230);
+  --card-bg-color: rgb(245, 245, 245);
   --text-color: #000;
   --alt-text-color: #eaeaea;
   --form-bg-color: rgba(255, 255, 255, 0.9);
@@ -1326,31 +1326,12 @@ input:checked + .slider:before {
   hyphens: auto;
 }
 
-/* .elements {
-  color: var(--text-color);
-} */
-
-/* body,
-#topRowCompare {
-  background-color: var(--body-bg-color);
-} */
-
 .box-content,
 .list-content,
 .flex-item,
 .modal-body {
   background-color: var(--card-bg-color);
 }
-
-/* input,
-select {
-  background-color: var(--form-bg-color);
-  color: var(--form-text-color);
-} */
-
-/* .headerOutline {
-  color: var(--alt-text-color);
-} */
 
 .alkaliMetals {
   background-color: rgba(228, 27, 144, 0.5); /* Pink */
@@ -1474,76 +1455,3 @@ select {
     padding-top: 0;
   }
 }
-
-
-/* .t-dark,
-.t-dark > div > table > tbody > tr > td > .elements {
-  color: #eaeaea;
-}
-
-.t-light,
-.t-light > div > table > tbody > tr > td > .elements {
-  color: #000;
-}
-
-.t-dark,
-.t-dark > div > div > div > div > div > div > #compareTop {
-  background-color: rgb(24, 24, 30);
-}
-
-.t-light,
-.t-light > div > div > div > div > div > div > #compareTop
- {
-  background-color: rgb(220, 220, 220);
-} 
-
-.t-dark .box-content,
-.t-dark .list-content,
-.t-dark .flex-item,
-.t-dark .modal-body {
-  background-color: rgb(42, 42, 48);
-}
-
-.t-light .box-content,
-.t-light .list-content,
-.t-light .flex-item,
-.t-light .modal-body {
-  background-color: rgb(235, 235, 235);
-} 
-
-.t-dark > div > .modal-dialog {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.t-light > div > .modal-dialog {
-  color: rgba(0, 0, 0, 0.8);
-}
-
-.t-dark input,
-.t-dark select {
-  background-color: rgba(0, 0, 0, 0.9);
-  color: rgba(255, 255, 255, 0.8);
-}
-.t-light input,
-.t-light select {
-  background-color: rgba(255, 255, 255, 0.9);
-  color: rgba(0, 0, 0, 0.8);
-}
-
-.t-dark .headerOutline {
-  color: #000;
-  background-color: #fff;
-}
-
-.t-light .headerOutline {
-  color: #fff;
-  background-color: #000;
-}
-
-.t-dark #headerWrap {
-  background-color: #000;
-}
-
-.t-light #headerWrap {
-  background-color: #efefef;
-} */

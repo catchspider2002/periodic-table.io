@@ -613,6 +613,30 @@ table,
   line-height: 20px;
 }
 
+#logs > li:not(.versionHeader),
+#features > li {
+  text-indent: -24px;
+  padding-left: 24px;
+  list-style-type: none;
+}
+
+#logs > li:not(.versionHeader)::before {
+  content: "i";
+  font-family: "pt-icons";
+  padding: 0 7px 0 0;
+}
+
+#features > li::before {
+  content: "j";
+  font-family: "pt-icons";
+  padding: 0 7px 0 0;
+}
+
+.versionHeader {
+  margin-left: -15px;
+  list-style-type: none;
+}
+
 @media (min-width: 768px) {
   .navbar-toggle {
     display: none;
@@ -750,7 +774,7 @@ table,
   border-bottom-right-radius: 0.25rem;
 }
 
-.bottom-rounded{
+.bottom-rounded {
   border-bottom-left-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 }
@@ -1136,11 +1160,6 @@ canvas {
   width: 40%;
 }
 
-.versionHeader {
-  margin-left: -15px;
-  list-style-type: none;
-}
-
 #modalImage,
 #modalSettings {
   padding-left: 5px;
@@ -1277,7 +1296,6 @@ input:checked + .slider:before {
   padding-bottom: 1.5em;
 }
 
-#features,
 #logs {
   padding: 0 15px;
 }

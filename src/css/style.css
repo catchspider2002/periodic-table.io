@@ -604,7 +604,7 @@ table,
 }
 
 .navbar-nav {
-  margin: 0px -15px;
+  margin: 0 -15px;
 }
 
 .navbar-nav > li > a {
@@ -917,6 +917,14 @@ canvas {
   /* display: inline-block;
   width: 100%; */
   border-radius: 0.25rem;
+}
+
+#elementPicture {
+  border-radius: 0.25rem;
+}
+
+#elementPic {
+  border-radius: 0.125rem;
 }
 
 .masonry-col,
@@ -1304,22 +1312,29 @@ input:checked + .slider:before {
   direction: ltr;
 }
 
-.new {
+.new,
+.newFooter {
   background-color: #b50000;
   line-height: normal;
-  padding: 4px 8px 0px;
-  font-size: 0.9em;
   border-radius: 6px;
-  margin-top: -1px;
-  margin-bottom: 2px;
-  margin-left: 6px;
+}
+
+.newFooter {
+  margin: -12px 0 20px 0;
+  font-size: 0.8em;
+  padding: 3px 5px 0;
+  color: #eaeaea;
+}
+
+.new {
+  padding: 4px 6px 0;
+  margin: -1px 0 2px 6px;
+  font-size: 0.9em;
 }
 
 @media (min-width: 768px) {
   .new {
-    margin-top: -10px;
-    margin-bottom: 10px;
-    margin-left: 2px;
+    margin: -10px 0 10px 2px;
   }
 }
 

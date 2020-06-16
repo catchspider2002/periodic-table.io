@@ -1294,7 +1294,7 @@ function setTemp() {
   localStorage.setItem("defaultTemp", defaultTemp);
 
   if (id("outputConfigMain"))
-    setDegrees();
+    setDegrees(); 
 
   if (id("firstElement")) {
     setDegreesFirst();

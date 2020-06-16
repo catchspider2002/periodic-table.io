@@ -288,7 +288,7 @@ const fileManifest = [
   },
   {
     "url": "style.min.css",
-    "revision": "28f2697837240f8fb791852725760ef6"
+    "revision": "be8ce5943e795edec705e987036249be"
   },
   {
     "url": "svelte-bundle.css",

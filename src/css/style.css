@@ -1,21 +1,19 @@
 :root {
-  --primary-color: #302ae6;
   --body-bg-color: rgb(230, 230, 230);
   --card-bg-color: rgb(245, 245, 245);
-  --text-color: #000;
-  --alt-text-color: #eaeaea;
+  --text-color: 0, 0, 0;
+  --alt-text-color: rgb(234, 234, 234);
   --form-bg-color: rgba(255, 255, 255, 0.9);
-  --form-text-color: rgba(0, 0, 0, 0.8);
+  --blockquote-color: 103, 106, 109;
 }
 
 [data-theme="dark"] {
-  --primary-color: #9a97f3;
   --body-bg-color: rgb(24, 24, 30);
   --card-bg-color: rgb(42, 42, 48);
-  --text-color: #eaeaea;
-  --alt-text-color: #000;
+  --text-color: 234, 234, 234;
+  --alt-text-color: rgb(0, 0, 0);
   --form-bg-color: rgba(0, 0, 0, 0.9);
-  --form-text-color: rgba(255, 255, 255, 0.8);
+  --blockquote-color: 148, 146, 143;
 }
 
 @font-face {
@@ -94,7 +92,7 @@ body {
   transition: 0.1s opacity;
   -ms-transition: 0.1s opacity;
   background-color: var(--body-bg-color);
-  color: var(--text-color);
+  color: rgb(var(--text-color));
 }
 
 body.fade-out {
@@ -162,7 +160,7 @@ select {
   padding: 9px 12px;
   /* color: #555; */
   background-color: var(--form-bg-color);
-  color: var(--form-text-color);
+  color: rgba(var(--text-color), 0.8);
 }
 
 select {
@@ -1316,18 +1314,18 @@ input:checked + .slider:before {
 .newFooter {
   background-color: #b50000;
   line-height: normal;
-  border-radius: 6px;
+  border-radius: 4px;
+  padding: 4px 6px 0;
 }
 
 .newFooter {
   margin: -12px 0 20px 0;
-  font-size: 0.8em;
-  padding: 3px 5px 0;
+  font-size: 0.7em;
   color: #eaeaea;
+  font-weight: 600;
 }
 
 .new {
-  padding: 4px 6px 0;
   margin: -1px 0 2px 6px;
   font-size: 0.9em;
 }
@@ -1454,6 +1452,34 @@ input:checked + .slider:before {
 
 .teeLink {
   padding: 10px 0;
+}
+
+blockquote {
+  color: rgb(var(--blockquote-color));
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  border-left: 5px solid rgba(var(--blockquote-color), 0.3);
+}
+
+#translationContent img {
+  height: 24px;
+  width: auto;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+blockquote,
+#translationContent p,
+#translationContent h1,
+#translationContent h2,
+#translationContent h4 {
+  margin-bottom: 16px;
+}
+
+#translationContent h1,
+#translationContent h2{
+  padding-bottom: .3em;
+  border-bottom: 1px solid rgba(var(--blockquote-color), 0.5);
 }
 
 /* Scrollbar */

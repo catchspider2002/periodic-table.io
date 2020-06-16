@@ -1271,6 +1271,8 @@ function loaderFunc() {
     aboutLoad();
   else if (id("privacyPolicy"))
     privacyLoad();
+  else if (id("translationHeader"))
+    translationLoad();
   else if (id("credits"))
     creditsLoad();
   else if (id("printablesHeader"))
@@ -1838,11 +1840,15 @@ function privacyLoad() {
   
   id("privacyHeader").textContent = privacy;
   id("privacyPolicy").textContent = privacyFull;
+}
 
-  // document.querySelector('meta[name="description"]').setAttribute("content", about);
-  // document.querySelector('meta[name="keywords"]').setAttribute("content", privacy);
-  // document.querySelector('meta[name="description"]').setAttribute("content", about);
-  // document.querySelector('meta[name="description"]').setAttribute("content", about);
+function translationLoad() {
+  initializePage();
+  id("homeTitle").textContent = translation + " - " + homeHeader;
+
+  id("pageHeader").textContent = translation;
+  
+  id("privacyHeader").textContent = translation;
 }
 
 function creditsLoad() {

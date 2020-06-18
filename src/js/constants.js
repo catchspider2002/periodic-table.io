@@ -1316,6 +1316,20 @@ function setTheme() {
 function indexLoad() {
 
   initializePage();
+
+
+
+  var ele = document.getElementsByName("flight-type");
+
+ele.forEach((radio) => {
+  radio.addEventListener("change", () => {
+    console.log(radio.value);
+  });
+});
+
+
+
+
   id("homeTitle").textContent = home + " - " + homeHeader;
 
   id("pageHeader").textContent = home;

@@ -184,6 +184,7 @@ start=Math.max(1,2*loc-best_loc)}}}if(match_bitapScore_(d+1,loc)>score_threshold
 last_rd=rd}return 0>best_loc?!1:!0}}])
 
 var userLang, langValue, derivedLang, urlLang;
+var root = document.documentElement;
 
 var color1 = {base: "253, 58, 74", light: "#FECED2", dark: "#3F0F13"};
 var color2 = {base: "245, 128, 37", light: "#FCDFC8", dark: "#3D2009"};
@@ -195,33 +196,6 @@ var color7 = {base: "59, 168, 221", light: "#CEE9F6", dark: "#0F2A37"};
 var color8 = {base: "0, 120, 215", light: "#BFDDF5", dark: "#001E36"};
 var color9 = {base: "139, 102, 204", light: "#E2D9F2", dark: "#231A33"};
 var color10 = {base: "228, 27, 144", light: "#F8C6E3", dark: "#390724"};
-
-// var color1 = {base: "217, 38, 38", light: "#F0DEA5", dark: "#4D3A02"};
-// var color2 = {base: "255, 85, 0", light: "#F0CEA3", dark: "#4D2A00"};
-// var color3 = {base: "217, 133, 38", light: "#EEC1A7", dark: "#4B1E04"};
-// var color4 = {base: "123, 113, 81", light: "#ECC3BB", dark: "#482018"};
-// var color5 = {base: "91, 170, 9", light: "#E9A8AE", dark: "#46050B"};
-// var color6 = {base: "26, 152, 90", light: "#DEA3BC", dark: "#3B0019"};
-// var color7 = {base: "59, 168, 221", light: "#DDA3C7", dark: "#3A0024"};
-// var color8 = {base: "0, 120, 215", light: "#D2A3CD", dark: "#2F0029"};
-// var color9 = {base: "139, 102, 204", light: "#A3C8E4", dark: "#002441"};
-// var color10 = {base: "228, 27, 144", light: "#A3C1D9", dark: "#001E35"};
-// var color11 = {base: "142,140,216", light: "#CECEE5", dark: "#2B2A41"};
-// var color12 = {base: "107,105,214", light: "#C4C3E4", dark: "#202041"};
-// var color13 = {base: "0,153,188", light: "#A3D2DC", dark: "#002E39"};
-// var color14 = {base: "45,125,154", light: "#B1C9D2", dark: "#0E262F"};
-// var color15 = {base: "3,131,135", light: "#A4CBCC", dark: "#012829"};
-// var color16 = {base: "0,204,106", light: "#A3E1C3", dark: "#003E20"};
-// var color17 = {base: "16,137,62", light: "#A8CDB6", dark: "#052913"};
-// var color18 = {base: "73,130,5", light: "#B9CBA5", dark: "#162702"};
-// var color19 = {base: "16,124,16", light: "#A8C9A8", dark: "#052505"};
-
-// var color20 = "118,118,118";
-// var color21 = {base: "76,74,72", light: "#BABAB9", dark: "#171616"};
-// var color22 = {base: "105,121,126", light: "#C3C8C9", dark: "#202526"};
-// var color23 = {base: "100,124,100", light: "#C2C9C2", dark: "#1E251E"};
-// var color24 = {base: "132,117,69", light: "#CBC7B8", dark: "#282315"};
-// var color25 = {base: "126,115,95", light: "#C9C6C0", dark: "#26231D"};
 
 
 function getLang() {
@@ -353,11 +327,10 @@ function setLangFile(inLang) {
     dir = "left";
     dirRev = "right";
   }
+  root.style.setProperty("--direction", dir);
+  root.style.setProperty("--direction-rev", dirRev);
 
-  newStyle.appendChild(document.createTextNode("button{float:" + dirRev + "}.listNum>*{" + dirRev + ":10px;" + dir + ":unset}.text-left{text-align:" + dir + "}.text-right{text-align:" + dirRev + "}"));
-  newStyle.appendChild(document.createTextNode(".col-xs-4,.navbar-brand{float:" + dir + "}"));
-  newStyle.appendChild(document.createTextNode("@media (min-width:768px){.navbar-header,.navbar-nav,.navbar-nav>li{float:" + dir + "}.navbar-right{float:" + dirRev + "}}"));
-  newStyle.appendChild(document.createTextNode("#topRowCompare{margin-" + dir + ":-25px}.webLink{float:" + dir + ";clear:" + dir + "}"));
+  newStyle.appendChild(document.createTextNode(".listNum>*{" + dirRev + ":10px;" + dir + ":unset}#topRowCompare{margin-" + dir + ":-25px}"));
 
   document.head.appendChild(newStyle);
 }
@@ -375,9 +348,11 @@ function setColor(colorSet, theme) {
   var themeColor = colorSet["base"];
   var darkColor = colorSet["dark"];
   var lightColor = colorSet["light"];
-  var bgColor = (theme === "light") ? lightColor : darkColor;
   var fgColor = (theme === "light") ? darkColor : lightColor;
   var hexValue = rgbToHex(themeColor);
+
+  root.style.setProperty("--theme-color", themeColor);
+  root.style.setProperty("--fg-color", fgColor);
   
   var metaThemeColor = document.querySelector("meta[name=theme-color]");
   metaThemeColor.setAttribute("content", hexValue);
@@ -385,21 +360,17 @@ function setColor(colorSet, theme) {
   var metaTileColor = document.querySelector("meta[name=msapplication-TileColor]");
   metaTileColor.setAttribute("content", hexValue);
 
-  var newStyle = document.createElement("style");
-  newStyle.appendChild(document.createTextNode("a{color:" + fgColor + "}a:focus,a:hover{color: rgb(" + themeColor + ")}"));
+  // var newStyle = document.createElement("style");
+  // newStyle.appendChild(document.createTextNode("a{a:focus,a:hover{}"));
   
-  newStyle.appendChild(document.createTextNode(".navbar-default,button{background-color:rgb(" + themeColor + ")}.aboutHeader{color:" + fgColor + "}input:checked+.slider{background-color:rgb(" + themeColor + ")}input:focus+.slider{box-shadow:0 0 1px rgb(" + themeColor + ")}"));
-  // newStyle.appendChild(document.createTextNode(".box-content,.list-content{background-color:" + bgColor + "}"));
-  newStyle.appendChild(document.createTextNode(".masonry-col{border-color: rgb(" + themeColor + ")}"));
-  newStyle.appendChild(document.createTextNode(".headerOutline{background-color:" + fgColor + "}.listSym{background-color:rgba(" + themeColor + ",.3)}"));
-  newStyle.appendChild(document.createTextNode(".navbar-default,.navbar-collapse.in, .modal-header{background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}.sort{background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
-
+  // newStyle.appendChild(document.createTextNode(".aboutHeader{color:" + fgColor + "}.headerOutline{background-color:" + fgColor + "}"));
+  
   var deg = "45deg"
 
   if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he")
   deg = "-45deg"
-    
-  newStyle.appendChild(document.createTextNode(".listNum{background: linear-gradient("+deg+", transparent 0%, transparent 50%, rgba(" + themeColor + ",.3) 50%, rgba(" + themeColor + ",.3) 100%)}.navbar-toggle{background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(to right, rgb(" + themeColor + "), rgb(" + themeColor + "))}"));
 
-  document.head.appendChild(newStyle);
+  root.style.setProperty("--degrees", deg);
+
+  // document.head.appendChild(newStyle);
 }

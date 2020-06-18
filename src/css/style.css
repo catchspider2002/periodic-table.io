@@ -483,6 +483,17 @@ table,
   margin: 0 -15px;
 }
 
+.grid-row-gap-10 {
+  grid-row-gap: 10px;
+}
+
+#settingPeriodicTable {
+  grid-column: 1 / span 2;
+  border-bottom: 2px solid rgba(var(--theme-color));
+  margin: 15px;
+  padding: 0;
+}
+
 .padding-0 {
   padding: 0;
 }
@@ -1522,22 +1533,8 @@ blockquote,
   border-bottom: 1px solid rgba(var(--blockquote-color), 0.5);
 }
 
-.flight-types > input {
-  display: none;
-}
-
-.flight-types label {
-  background-color: red;
-  color: pink;
-  cursor: pointer;
-  padding: 4px 18px;
-  margin-right: 16px;
-  border-radius: 1rem;
-  display: inline-block;
-}
-
 .radio-toolbar {
-  margin: 10px;
+  margin: 0 15px;
 }
 
 .radio-toolbar input[type="radio"] {
@@ -1548,8 +1545,9 @@ blockquote,
 
 .radio-toolbar label {
   display: inline-block;
-  /* background-color: rgb(var(--blockquote-color)); */
-  padding: 10px 20px;
+  /* background-color: rgb(var(--theme-color)); */
+  padding: 4px 8px;
+  margin-right: 10px;
   font-family: sans-serif, Arial;
   font-size: 16px;
   border: 2px solid rgb(var(--blockquote-color));
@@ -1566,6 +1564,9 @@ blockquote,
 
 .radio-toolbar input[type="radio"]:checked + label {
   border-color: rgb(var(--theme-color));
+  /* background-color: var(--dark-color); */
+  color: var(--alt-text-color);
+  background-color: var(--fg-color);
 }
 
 /* Scrollbar */

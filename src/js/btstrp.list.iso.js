@@ -351,26 +351,19 @@ function setColor(colorSet, theme) {
   var fgColor = (theme === "light") ? darkColor : lightColor;
   var hexValue = rgbToHex(themeColor);
 
-  root.style.setProperty("--theme-color", themeColor);
-  root.style.setProperty("--fg-color", fgColor);
-  
   var metaThemeColor = document.querySelector("meta[name=theme-color]");
   metaThemeColor.setAttribute("content", hexValue);
 
   var metaTileColor = document.querySelector("meta[name=msapplication-TileColor]");
   metaTileColor.setAttribute("content", hexValue);
-
-  // var newStyle = document.createElement("style");
-  // newStyle.appendChild(document.createTextNode("a{a:focus,a:hover{}"));
-  
-  // newStyle.appendChild(document.createTextNode(".aboutHeader{color:" + fgColor + "}.headerOutline{background-color:" + fgColor + "}"));
   
   var deg = "45deg"
 
   if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he")
   deg = "-45deg"
 
+  root.style.setProperty("--theme-color", themeColor);
+  root.style.setProperty("--dark-color", darkColor);
+  root.style.setProperty("--fg-color", fgColor);
   root.style.setProperty("--degrees", deg);
-
-  // document.head.appendChild(newStyle);
 }

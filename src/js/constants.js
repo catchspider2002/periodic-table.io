@@ -1040,8 +1040,12 @@ function initializePage() {
   id("sysLanguage").textContent = sysLanguage;
   id("temperature").textContent = temperature;
 
-  id("tempCelsius").textContent = tempCelsius;
-  id("tempFahrenheit").textContent = tempFahrenheit;
+  document.querySelector('label[for="tempcelsius"]').textContent = tempCelsius;
+  document.querySelector('label[for="tempfahrenheit"]').textContent = tempFahrenheit;
+  
+  // id("labelCelsius").innerHTML = tempCelsius;
+  // id("labelFahrenheit").innerHTML = tempFahrenheit;
+
   id("themeColor").textContent = labelColorMain;
 
   // id("homeLink").textContent = home;
@@ -1285,14 +1289,17 @@ function loaderFunc() {
 
 function setSettings() {
   id("languageSelectSetting").addEventListener("change", setLanguage, false);
-  id("tempSelectSetting").addEventListener("change", setTemp, false);
+  // id("tempSelectSetting").addEventListener("change", setTemp, false);
 
   id("languageSelectSetting").value = langValue;
-  id("tempSelectSetting").value = defaultTemp;
+  // id("tempSelectSetting").value = defaultTemp;
+  id("temp"+ defaultTemp).checked = true;
 }
 
 function setTemp() {
-  defaultTemp = id("tempSelectSetting").value;
+  defaultTemp = document.querySelector('input[name="temperature"]:checked').value;
+
+  // defaultTemp = id("tempSelectSetting").value;
   localStorage.setItem("defaultTemp", defaultTemp);
 
   if (id("outputConfigMain"))
@@ -1316,9 +1323,6 @@ function setTheme() {
 function indexLoad() {
 
   initializePage();
-
-
-
   var ele = document.getElementsByName("flight-type");
 
 ele.forEach((radio) => {
@@ -1327,8 +1331,7 @@ ele.forEach((radio) => {
   });
 });
 
-
-
+  id("settingPeriodicTable").textContent = homeHeader
 
   id("homeTitle").textContent = home + " - " + homeHeader;
 

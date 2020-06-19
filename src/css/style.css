@@ -39,7 +39,7 @@
 .iconFont {
   font-family: "pt-icons";
   text-transform: lowercase;
-  font-size: 24px;
+  font-size: 1.5rem;
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -199,9 +199,8 @@ select:focus {
 .navbar-toggle {
   width: auto;
   position: relative;
-  padding: 13px 14px 17px;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-    linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
+  /*padding: 13px 14px 17px;*/
+  background: transparent;
 }
 
 .navbar-toggle .icon-bar {
@@ -209,8 +208,8 @@ select:focus {
   display: block;
   width: 22px;
   height: 2px;
-  border-radius: 1px;
-  margin-top: 4px;
+  border-radius: 1rem;
+  margin-top: 0.25rem;
 }
 
 .close {
@@ -228,7 +227,7 @@ select:focus {
 }
 
 .container {
-  padding: 84px 15px 0;
+  padding: 84px 1rem 0;
   margin: 0 auto;
 }
 
@@ -286,14 +285,14 @@ select:focus {
 }
 
 .row {
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: -1rem;
+  margin-left: -1rem;
 }
 
 .col-xs-4 {
   position: relative;
   min-height: 1px;
-  padding: 0 15px;
+  padding: 0 1rem;
   width: 33.33333333%;
 }
 
@@ -348,7 +347,7 @@ table,
   display: flex;
   justify-content: center;
   align-items: stretch;
-  padding: 0 15px;
+  padding: 0 1rem;
   box-sizing: border-box;
 }
 
@@ -480,7 +479,7 @@ table,
 .grid {
   display: grid;
   grid-template-columns: auto 1fr;
-  margin: 0 -15px;
+  margin: 0 -1rem;
 }
 
 .grid-row-gap-10 {
@@ -490,7 +489,7 @@ table,
 #settingPeriodicTable {
   grid-column: 1 / span 2;
   border-bottom: 2px solid rgba(var(--theme-color));
-  margin: 15px;
+  margin: 1rem;
   padding: 0;
 }
 
@@ -508,7 +507,7 @@ table,
 
 .new-table {
   margin: 10px 0;
-  padding: 0 15px;
+  padding: 0 1rem;
 }
 
 .table > tbody > tr > td {
@@ -563,9 +562,9 @@ table,
 }
 
 .periodic-table-logo {
-  width: 38px;
-  height: 38px;
-  margin: 5px 15px 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 0.375rem 1rem 0;
 }
 
 .no-overflow {
@@ -592,8 +591,8 @@ table,
 
 .navbar-collapse {
   max-height: 340px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 1rem;
+  padding-left: 1rem;
   overflow-x: visible;
   -webkit-overflow-scrolling: touch;
   border-top: 1px solid transparent;
@@ -631,7 +630,7 @@ table,
 }
 
 .navbar-nav {
-  margin: 0 -15px;
+  margin: 0 -1rem;
 }
 
 .navbar-nav > li > a {
@@ -642,8 +641,8 @@ table,
 
 #logs > li:not(.versionHeader),
 #features > li {
-  text-indent: -24px;
-  padding-left: 24px;
+  text-indent: -1.5rem;
+  padding-left: 1.5rem;
   list-style-type: none;
 }
 
@@ -660,7 +659,7 @@ table,
 }
 
 .versionHeader {
-  margin-left: -15px;
+  margin-left: -1rem;
   list-style-type: none;
 }
 
@@ -672,11 +671,11 @@ table,
     margin: 0;
   }
   .navbar-nav > li > a {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
   .navbar-nav.navbar-right:last-child {
-    margin-right: -15px;
+    margin-right: -1rem;
   }
   .navbar-right {
     padding-right: 10px;
@@ -801,7 +800,7 @@ button {
 
 .modal-header {
   min-height: 16.42857143px;
-  padding: 15px;
+  padding: 1rem;
   color: #fff;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
@@ -935,7 +934,7 @@ canvas {
 }
 
 .content-wrapper {
-  padding-bottom: 32px;
+  padding-bottom: 2rem;
 }
 
 .box-content {
@@ -986,11 +985,11 @@ canvas {
 
 #imgDesc,
 #feature1 {
-  padding-top: 15px;
+  padding-top: 1rem;
 }
 
 .webLink {
-  padding: 8px 0;
+  padding: 0.5rem 0;
   display: block;
 }
 
@@ -1020,13 +1019,13 @@ canvas {
   display: inline-block;
   text-transform: uppercase;
   padding: 3px 9px 1px;
-  margin: 0 -15px 20px;
+  margin: 0 -1rem 20px;
   color: var(--alt-text-color);
   background-color: var(--fg-color);
 }
 
 #elementDiagram {
-  padding: 43px 0 15px;
+  padding: 43px 0 1rem;
 }
 
 .list-content {
@@ -1071,7 +1070,7 @@ canvas {
 #pageHeader {
   color: #eee;
   line-height: 50px;
-  font-size: 15px;
+  font-size: 1rem;
 }
 
 .top-container {
@@ -1079,8 +1078,8 @@ canvas {
 }
 
 .m-x-15 {
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .m-b-30 {
@@ -1267,7 +1266,7 @@ canvas {
   position: relative;
   display: inline-block;
   width: 50px;
-  height: 24px;
+  height: 1.5rem;
 }
 
 .switch input {
@@ -1292,10 +1291,10 @@ canvas {
 
 .slider:before {
   content: "";
-  height: 16px;
-  width: 16px;
-  left: 4px;
-  bottom: 4px;
+  height: 1rem;
+  width: 1rem;
+  left: 0.25rem;
+  bottom: 0.25rem;
   background-color: #fff;
 }
 
@@ -1314,7 +1313,7 @@ input:focus + .slider {
 }
 
 .slider.round {
-  border-radius: 24px;
+  border-radius: 1.5rem;
 }
 
 .slider.round:before {
@@ -1354,7 +1353,7 @@ input:focus + .slider {
 }
 
 #logs {
-  padding: 0 15px;
+  padding: 0 1rem;
 }
 
 .ltrText {
@@ -1365,8 +1364,8 @@ input:focus + .slider {
 .newFooter {
   background-color: #b50000;
   line-height: normal;
-  border-radius: 4px;
-  padding: 4px 6px 0;
+  border-radius: 0.25rem;
+  padding: 0.25rem 6px 0;
 }
 
 .newFooter {
@@ -1513,10 +1512,10 @@ blockquote {
 }
 
 #translationContent img {
-  height: 24px;
+  height: 1.5rem;
   width: auto;
   display: inline-block;
-  margin-right: 8px;
+  margin-right: 0.5rem;
 }
 
 blockquote,
@@ -1524,7 +1523,7 @@ blockquote,
 #translationContent h1,
 #translationContent h2,
 #translationContent h4 {
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 
 #translationContent h1,
@@ -1534,7 +1533,7 @@ blockquote,
 }
 
 .radio-toolbar {
-  margin: 0 15px;
+  margin: 0 1rem;
 }
 
 .radio-toolbar input[type="radio"] {
@@ -1546,12 +1545,14 @@ blockquote,
 .radio-toolbar label {
   display: inline-block;
   /* background-color: rgb(var(--theme-color)); */
-  padding: 4px 8px;
+  padding: 0.25rem 0.5rem;
   margin-right: 10px;
   font-family: sans-serif, Arial;
-  font-size: 16px;
+  font-size: 1rem;
   border: 2px solid rgb(var(--blockquote-color));
-  border-radius: 4px;
+  border-radius: 0.25rem;
+  line-height: 1.5rem;
+  cursor: pointer;
 }
 
 .radio-toolbar label:hover {
@@ -1563,10 +1564,17 @@ blockquote,
 }
 
 .radio-toolbar input[type="radio"]:checked + label {
-  border-color: rgb(var(--theme-color));
-  /* background-color: var(--dark-color); */
+  border-color: transparent;
   color: var(--alt-text-color);
   background-color: var(--fg-color);
+      font-weight: 600;
+}
+
+.radio-toolbar input[type=radio]:checked+label::before{
+    content: "g";
+    font-family: "pt-icons";
+    padding-right: 0.5em;
+    line-height: 0;
 }
 
 /* Scrollbar */

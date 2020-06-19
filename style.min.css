@@ -1639,7 +1639,7 @@ blockquote,
 }
 
 .radio-toolbar input[type=radio]:checked+label::before{
-    content: "g";
+    content: "i";
     font-family: "pt-icons";
     padding-right: 0.5em;
     line-height: 0;

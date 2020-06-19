@@ -1154,7 +1154,7 @@
     <div id="footer"></div>
     <!-- Modal -->
     <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="modalSettings" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <!-- <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-inner">
             <div class="modal-header">
@@ -1164,8 +1164,8 @@
               </button>
             </div>
             <div class="modal-body">
-              <div class="grid grid-row-gap-10">
-                <div class="new-table heavyFont padding-top-5 settingsLeft text-left" id="language"></div>
+              <div class="grid grid-row-gap-10 items-center">
+                <div class="new-table heavyFont padding-top-5 text-left" id="language"></div>
                 <div class="new-table">
                   <select id="languageSelectSetting" aria-label="Language">
                     <option id="sysLanguage" value="sys"></option>
@@ -1209,16 +1209,8 @@
                     <option value="zt">中文(繁體)</option>
                   </select>
                 </div>
-                <!-- <div class="new-table heavyFont padding-top-5 settingsLeft text-left" id="temperature"></div> -->
-                <!-- <div></div>
-                <div class="new-table">
-                  <select id="tempSelectSetting" aria-label="Temperature">
-                    <option id="tempCelsius" value="celsius"></option>
-                    <option id="tempFahrenheit" value="fahrenheit"></option>
-                  </select>
-                </div> -->
 
-                <div class="new-table heavyFont padding-top-5 settingsLeft text-left" id="temperature"></div> 
+                <div class="new-table heavyFont padding-top-5 text-left" id="temperature"></div> 
                 <div class="radio-toolbar padding-top-5">
                   <input type="radio" id="tempcelsius" name="temperature" value="celsius" onchange="setTemp()"/>
                   <label for="tempcelsius"></label>
@@ -1226,8 +1218,7 @@
                   <input type="radio" id="tempfahrenheit" name="temperature" value="fahrenheit" onchange="setTemp()"/>
                   <label for="tempfahrenheit"></label>
                 </div>
-
-                <div class="new-table heavyFont padding-top-5 settingsLeft text-left" id="themeColor"></div>
+                <div class="new-table heavyFont padding-top-5 text-left self-start" id="themeColor"></div>
                 <div class="new-table">
                   <table id="colorTable">
                     <tbody>
@@ -1249,7 +1240,7 @@
                   </table>
                 </div>
                 <div id="settingPeriodicTable" class="new-table span-2">Periodic Table</div>
-                <div class="new-table heavyFont padding-top-5 settingsLeft text-left" id="tableWidth"></div>
+                <div class="new-table heavyFont padding-top-5 text-left" id="tableWidth"></div>
                 <div class="new-table">
                   <select id="marginSetting" aria-label="Table Width">
                     <option value="1">100%</option>
@@ -1259,14 +1250,14 @@
                     <option value="0.8">80%</option>
                   </select>
                 </div>
-                <div class="new-table heavyFont padding-top-5 settingsLeft text-left" id="labelName"></div>
+                <div class="new-table heavyFont padding-top-5 text-left" id="labelName"></div>
                 <div class="new-table text-left padding-top-5">
                   <label class="switch">
                     <input id="nameSelectSetting" type="checkbox" />
                     <span class="slider round"></span>
                   </label>
                 </div>
-                <div class="new-table heavyFont padding-top-5 settingsLeft text-left" id="labelAtmWtMain"></div>
+                <div class="new-table heavyFont padding-top-5 text-left" id="labelAtmWtMain"></div>
                 <div class="new-table text-left padding-top-5">
                   <label class="switch">
                     <input id="atmNoSelectSetting" type="checkbox" />
@@ -1277,7 +1268,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <!-- CSS and JavaScript placed at the end of the document so the pages load faster

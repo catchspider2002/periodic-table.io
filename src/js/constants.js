@@ -1019,12 +1019,21 @@ function initializePage() {
     defaultTemp = "celsius";
   }
 
+  defaultStyle = localStorage.getItem("defaultStyle");
+
+  if (!defaultStyle) {
+    localStorage.setItem("defaultStyle", "1");
+    defaultStyle = "1";
+  }
+
   defaultMargin = localStorage.getItem("defaultMargin");
 
   if (!defaultMargin) {
     localStorage.setItem("defaultMargin", "1");
     defaultMargin = "1";
   }
+
+  document.documentElement.setAttribute('data-style', defaultStyle);
 
   setDefaultTheme();
 
@@ -1047,6 +1056,10 @@ function initializePage() {
   // id("labelFahrenheit").innerHTML = tempFahrenheit;
 
   id("themeColor").textContent = labelColorMain;
+
+  id("tableWidth").textContent = tableWidth;
+  id("settingsName").textContent = labelName;
+  id("settingsAtmWtMain").textContent = labelAtmWtMain;
 
   // id("homeLink").textContent = home;
   // id("homeList").title = home;
@@ -1232,18 +1245,6 @@ function setNavbar() {
 }
 
 function setDefaultTheme() {
-  // var body = id("body").classList;
-  // if (defaultNewTheme === "light") {
-  //   if (body.contains("t-dark")) {
-  //     body.remove("t-dark");
-  //     body.add("t-light");
-  //   }
-  // } else {
-  //   if (body.contains("t-light")) {
-  //     body.remove("t-light");
-  //     body.add("t-dark");
-  //   }
-  // }
   colorClicked(localStorage.getItem("defaultColor"));
 }
 
@@ -1294,6 +1295,7 @@ function setSettings() {
   id("languageSelectSetting").value = langValue;
   // id("tempSelectSetting").value = defaultTemp;
   id("temp"+ defaultTemp).checked = true;
+  id("style"+ defaultStyle).checked = true;
 }
 
 function setTemp() {
@@ -1309,6 +1311,13 @@ function setTemp() {
     setDegreesFirst();
     setDegreesSecond();
   }
+}
+
+function setStyle(){
+  defaultStyle = document.querySelector('input[name="tableStyle"]:checked').value;
+  // console.log(defaultStyle)
+  document.documentElement.setAttribute('data-style', defaultStyle);
+  localStorage.setItem("defaultStyle", defaultStyle);
 }
 
 function setTheme() {
@@ -1347,10 +1356,6 @@ ele.forEach((radio) => {
   id("detailRow6").textContent = labelConfigMain;
   id("lanthanidesMain").textContent = lanthanides;
   id("actinidesMain").textContent = actinides;
-
-  id("tableWidth").textContent = tableWidth;
-  id("labelName").textContent = labelName;
-  id("labelAtmWtMain").textContent = labelAtmWtMain;
 
   id("ctg1").textContent = cat1;
   id("ctg2").textContent = cat2;

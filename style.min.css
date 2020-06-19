@@ -1451,7 +1451,7 @@ input:focus + .slider {
  }
 
 .alkalineEarthMetals {
-  background-color: rgba(--var(color8), 0.5); /* Blue */
+  background-color: rgba(var(--color8), 0.5); /* Blue */
 }
  
  [data-style="2"] .alkalineEarthMetals{
@@ -1467,7 +1467,7 @@ input:focus + .slider {
  }
 
 .postTransitionMetals {
-  background-color: rgba(--var(color9), 0.5); /* Deep Purple */
+  background-color: rgba(var(--color9), 0.5); /* Deep Purple */
 }
  
  [data-style="2"] .postTransitionMetals{
@@ -1475,7 +1475,7 @@ input:focus + .slider {
  }
 
 .otherNonmetals {
-  background-color: rgba(--var(color6), 0.5); /* Green */
+  background-color: rgba(var(--color6), 0.5); /* Green */
 }
  
  [data-style="2"] .otherNonmetals{
@@ -1483,7 +1483,7 @@ input:focus + .slider {
  }
 
 .metalloids {
-  background-color: rgba(--var(color2), 0.5); /* Orange */
+  background-color: rgba(var(--color2), 0.5); /* Orange */
 }
  
  [data-style="2"] .metalloids{
@@ -1491,7 +1491,7 @@ input:focus + .slider {
  }
 
 .halogens {
-  background-color: rgba(--var(color7), 0.5); /* Cyan */
+  background-color: rgba(var(--color7), 0.5); /* Cyan */
 }
  
  [data-style="2"] .halogens{
@@ -1499,7 +1499,7 @@ input:focus + .slider {
  }
 
 .nobleGases {
-  background-color: rgba(--var(color5), 0.5); /* Lime */
+  background-color: rgba(var(--color5), 0.5); /* Lime */
 }
  
  [data-style="2"] .nobleGases{
@@ -1507,7 +1507,7 @@ input:focus + .slider {
  }
 
 .lanthanides {
-  background-color: rgba(--var(color3), 0.5); /* Yellow */
+  background-color: rgba(var(--color3), 0.5); /* Yellow */
 }
  
  [data-style="2"] .lanthanides{
@@ -1515,7 +1515,7 @@ input:focus + .slider {
  }
 
 .actinides {
-  background-color: rgba(--var(color4), 0.5); /* Brown */
+  background-color: rgba(var(--color4), 0.5); /* Brown */
 }
  
 [data-style="2"] .actinides{
@@ -1523,43 +1523,43 @@ input:focus + .slider {
  }
 
 #color1 {
-  background-color: rgb(--var(color1));
+  background-color: rgb(var(--color1));
 }
 
 #color2 {
-  background-color: rgb(--var(color2));
+  background-color: rgb(var(--color2));
 }
 
 #color3 {
-  background-color: rgb(--var(color3));
+  background-color: rgb(var(--color3));
 }
 
 #color4 {
-  background-color: rgb(--var(color4));
+  background-color: rgb(var(--color4));
 }
 
 #color5 {
-  background-color: rgb(--var(color5));
+  background-color: rgb(var(--color5));
 }
 
 #color6 {
-  background-color: rgb(--var(color6));
+  background-color: rgb(var(--color6));
 }
 
 #color7 {
-  background-color: rgb(--var(color7));
+  background-color: rgb(var(--color7));
 }
 
 #color8 {
-  background-color: rgb(--var(color8));
+  background-color: rgb(var(--color8));
 }
 
 #color9 {
-  background-color: rgb(--var(color9));
+  background-color: rgb(var(--color9));
 }
 
 #color10 {
-  background-color: rgb(--var(color10));
+  background-color: rgb(var(--color10));
 }
 
 .teeImage {

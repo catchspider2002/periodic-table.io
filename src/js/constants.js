@@ -970,7 +970,7 @@ function changeIcon(){
     defaultNewTheme = "dark";
   }
 
-  document.documentElement.setAttribute('data-theme',defaultNewTheme);
+  document.documentElement.setAttribute('data-theme', defaultNewTheme);
   localStorage.setItem("defaultNewTheme", defaultNewTheme);
   setTheme()
 }

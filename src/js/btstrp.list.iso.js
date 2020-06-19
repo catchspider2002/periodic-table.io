@@ -316,22 +316,12 @@ function setLangFile(inLang) {
   newStyle.appendChild(document.createTextNode("@font-face {font-family: Special Regular;src: url(fonts/" + regularFont + ".woff2) format('woff2'), url(fonts/" + regularFont + ".woff) format('woff');}"));
   newStyle.appendChild(document.createTextNode("@font-face {font-family: Special Heavy;src: url(fonts/" + heavyFont + ".woff2) format('woff2'), url(fonts/" + heavyFont + ".woff) format('woff');}"));
 
-  var dir, dirRev;
-
-  if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he") {
-    newStyle.appendChild(document.createTextNode("html{direction:rtl}"));
-    dir = "right";
-    dirRev = "left";
-  } else {
-    newStyle.appendChild(document.createTextNode("html{direction:ltr}"));
-    dir = "left";
-    dirRev = "right";
-  }
-  root.style.setProperty("--direction", dir);
-  root.style.setProperty("--direction-rev", dirRev);
-
-  newStyle.appendChild(document.createTextNode(".listNum>*{" + dirRev + ":10px;" + dir + ":unset}#topRowCompare{margin-" + dir + ":-25px}"));
-
+ 
+  if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he") 
+    document.documentElement.setAttribute('data-direction', "rtl");
+   else 
+    document.documentElement.setAttribute('data-direction', "ltr");
+  
   document.head.appendChild(newStyle);
 }
 
@@ -357,13 +347,7 @@ function setColor(colorSet, theme) {
   var metaTileColor = document.querySelector("meta[name=msapplication-TileColor]");
   metaTileColor.setAttribute("content", hexValue);
   
-  var deg = "45deg"
-
-  if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he")
-  deg = "-45deg"
-
   root.style.setProperty("--theme-color", themeColor);
   root.style.setProperty("--dark-color", darkColor);
   root.style.setProperty("--fg-color", fgColor);
-  root.style.setProperty("--degrees", deg);
 }

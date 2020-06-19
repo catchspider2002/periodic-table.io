@@ -5,6 +5,8 @@
   --alt-text-color: rgb(234, 234, 234);
   --form-bg-color: rgba(255, 255, 255, 0.9);
   --blockquote-color: 103, 106, 109;
+  --cat1-bg-color: rgba(228, 27, 144, 0.5);
+  --cat1-border-color: transparent;
 }
 
 [data-theme="dark"] {
@@ -14,6 +16,11 @@
   --alt-text-color: rgb(0, 0, 0);
   --form-bg-color: rgba(0, 0, 0, 0.9);
   --blockquote-color: 148, 146, 143;
+}
+
+[data-style="2"] {
+  --cat1-bg-color: transparent;
+  --cat1-border-color: rgba(228, 27, 144, 0.5);
 }
 
 @font-face {

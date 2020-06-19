@@ -1,5 +1,5 @@
 :root {
-  --body-bg-color: rgb(230, 230, 230);
+  --body-bg-color: rgb(235, 235, 235);
   --card-bg-color: rgb(245, 245, 245);
   --text-color: 0, 0, 0;
   --alt-text-color: rgb(234, 234, 234);
@@ -492,6 +492,8 @@ table,
   margin: 1rem;
   padding: 0;
 }
+.items-center	{align-items: center;}
+.self-start	{align-self: flex-start;}
 
 .padding-0 {
   padding: 0;
@@ -938,7 +940,7 @@ canvas {
 }
 
 .box-content {
-  padding: 25px;
+  padding: 1.5rem;
   overflow: hidden;
 }
 
@@ -1018,8 +1020,9 @@ canvas {
 .headerOutline {
   display: inline-block;
   text-transform: uppercase;
-  padding: 3px 9px 1px;
-  margin: 0 -1rem 20px;
+  padding: 0.25rem 1.5rem 2px 1.5rem;
+  border-radius: 1rem;
+  margin: 0 -2.25rem 1rem;
   color: var(--alt-text-color);
   background-color: var(--fg-color);
 }

@@ -5,8 +5,7 @@
   --alt-text-color: rgb(234, 234, 234);
   --form-bg-color: rgba(255, 255, 255, 0.9);
   --blockquote-color: 103, 106, 109;
-  --cat1-bg-color: rgba(228, 27, 144, 0.5);
-  --cat1-border-color: transparent;
+  --cat1: 228, 27, 144;
 }
 
 [data-theme="dark"] {
@@ -18,10 +17,15 @@
   --blockquote-color: 148, 146, 143;
 }
 
-[data-style="2"] {
-  --cat1-bg-color: transparent;
-  --cat1-border-color: rgba(228, 27, 144, 0.5);
-}
+.alkaliMetals {
+   background-color: rgba(var(--cat1), 0.5);
+   border: 0;
+ }
+ 
+ [data-style="2"] .alkaliMetals {
+   background-color: transparent;
+   border: 2px solid rgba(var(--cat1), 0.5);     
+ }
 
 @font-face {
   font-family: "Lato Regular";
@@ -1424,9 +1428,9 @@ input:focus + .slider {
   background-color: var(--card-bg-color);
 }
 
-.alkaliMetals {
-  background-color: rgba(228, 27, 144, 0.5); /* Pink */
-}
+/* .alkaliMetals {
+   background-color: rgba(228, 27, 144, 0.5);
+ } */
 
 .alkalineEarthMetals {
   background-color: rgba(0, 120, 215, 0.5); /* Blue */

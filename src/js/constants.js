@@ -1078,6 +1078,9 @@ function initializePage() {
   id("themeLink").textContent = theme;
   id("themeList").title = theme;
   id("translate2Link").textContent = translate;
+  id("suggestionLink").textContent = suggestions;
+  id("newFooter").textContent = newContent;
+  id("newHeader").textContent = newContent;
   id("aboutLink").textContent = about;
   id("creditsLink").textContent = credits;
   id("privacyLink").textContent = privacy;

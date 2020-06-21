@@ -20,7 +20,7 @@
 - Search for the elements using their symbol, atomic number or name
 - Links to informative websites for further study
 
-# Translations (As of June 21, 2020)
+# Translations (As of June 22, 2020)
 
 Contributions are welcome for the translations. **Click on the translation status badge below to go directly to that language translation page.** There are 2 files available for translation: General Terms and Element Details.
 
@@ -34,8 +34,8 @@ This contains the text for the labels used in all the pages except for the eleme
 [![Catalan](https://img.shields.io/badge/Catalan-95.7%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/23)
 [![Chinese%20Simplified](https://img.shields.io/badge/Chinese%20Simplified-100%25-brightgreen)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/3)
 [![Chinese%20Traditional](https://img.shields.io/badge/Chinese%20Traditional-85.8%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/2)
-[![Croatian](https://img.shields.io/badge/Croatian-99.5%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/22)
-[![Czech](https://img.shields.io/badge/Czech-95.4%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/13)
+[![Croatian](https://img.shields.io/badge/Croatian-100%25-brightgreen)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/22)
+[![Czech](https://img.shields.io/badge/Czech-95.7%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/13)
 [![Danish](https://img.shields.io/badge/Danish-83.3%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/27)
 [![Dutch](https://img.shields.io/badge/Dutch-95.4%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/12)
 [![Finnish](https://img.shields.io/badge/Finnish-94.4%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/18)
@@ -109,7 +109,7 @@ This contains the text for individual element details like name reason, history,
 [![Catalan](https://img.shields.io/badge/Catalan-0%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/23)
 [![Chinese%20Simplified](https://img.shields.io/badge/Chinese%20Simplified-100%25-brightgreen)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/3)
 [![Chinese%20Traditional](https://img.shields.io/badge/Chinese%20Traditional-0.7%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/2)
-[![Croatian](https://img.shields.io/badge/Croatian-24.9%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/22)
+[![Croatian](https://img.shields.io/badge/Croatian-25.8%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/22)
 [![Czech](https://img.shields.io/badge/Czech-16.6%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/13)
 [![Danish](https://img.shields.io/badge/Danish-0%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/27)
 [![Dutch](https://img.shields.io/badge/Dutch-0%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/12)

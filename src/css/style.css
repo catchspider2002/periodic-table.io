@@ -19,6 +19,11 @@
   --direction: left;
   --direction-rev: right;
   --degrees: 45deg;
+  --dark75: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
+  --light75: linear-gradient(to right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+      linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
+  --fg-color: var(--dark75);
 }
 
 [data-direction="rtl"] {
@@ -35,6 +40,7 @@
   --alt-text-color: rgb(0, 0, 0);
   --form-bg-color: rgba(0, 0, 0, 0.9);
   --blockquote-color: 148, 146, 143;
+  --fgColor: var(--light75);
 }
 
 @font-face {
@@ -208,9 +214,9 @@ button:hover {
 }
 
 select:focus {
-  border-color: rgb(102, 175, 233);
+  border-color: rgb(var(--theme-color));
   outline: 0;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(var(--theme-color),0.4);
 }
 
 .sort {
@@ -1328,7 +1334,7 @@ canvas {
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: #777;
+  background-color: rgba(var(--blockquote-color),.3);
 }
 
 .slider:before {
@@ -1647,10 +1653,12 @@ blockquote,
   margin-bottom: 0.5rem;
   font-family: sans-serif, Arial;
   font-size: 1rem;
-  border: 1px solid rgba(var(--blockquote-color), 0.5);
+  border: .1rem solid rgba(var(--blockquote-color), 0.3);
+  color: rgba(var(--blockquote-color), 0.5);
   border-radius: 0.25rem;
   line-height: 1.5rem;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .radio-toolbar label::before {
@@ -1658,11 +1666,12 @@ blockquote,
   font-family: "pt-icons";
   padding-right: 0.5em;
   line-height: 0;
-  color: rgb(var(--blockquote-color));
+  color: currentColor;
 }
 
 .radio-toolbar label:hover {
-  border-color: rgb(var(--blockquote-color));
+  border-color: rgba(var(--blockquote-color), 0.7);
+  color: rgba(var(--blockquote-color), 0.7);
 }
 
 .radio-toolbar input[type="radio"]:focus + label {
@@ -1670,10 +1679,10 @@ blockquote,
 }
 
 .radio-toolbar input[type="radio"]:checked + label {
-  border-color: transparent;
-  color: var(--alt-text-color);
-  background-color: var(--fg-color);
-  font-weight: 600;
+  /* border-color: transparent; */
+  color: var(--fg-color);
+  border-color: var(--fg-color);
+  /* font-weight: 600; */
 }
 
 .radio-toolbar input[type="radio"]:checked + label::before {
@@ -1681,7 +1690,7 @@ blockquote,
   font-family: "pt-icons";
   padding-right: 0.5em;
   line-height: 0;
-  color: rgb(var(--theme-color));
+  color: var(--fg-color);
 }
 
 /* Scrollbar */

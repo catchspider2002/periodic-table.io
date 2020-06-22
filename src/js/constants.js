@@ -990,9 +990,15 @@ function initializePage() {
 
   if (!defaultNewTheme) {
     defaultNewTheme = "light";
+
+    if (window.matchMedia("(prefers-color-scheme)").media !== "not all") {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) defaultNewTheme = "dark";
+      else defaultNewTheme = "light";
+    }
+
     localStorage.setItem("defaultNewTheme", defaultNewTheme);
   }
-  document.documentElement.setAttribute('data-theme', defaultNewTheme);
+  document.documentElement.setAttribute("data-theme", defaultNewTheme);
 
   id("themeIcon").textContent = (defaultNewTheme === "light") ? "c" : "f"
 
@@ -1104,7 +1110,7 @@ function colorClicked(colorId) {
   id(colorId).style.outline = (defaultNewTheme === "light") ? "4px solid #505050": "4px solid #d8d8d8";
 
   localStorage.setItem("defaultColor", colorId);
-  setColor(window[colorId], defaultNewTheme);
+  setColor(window[colorId]);
 }
 
 function setNavbar() {

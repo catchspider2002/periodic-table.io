@@ -186,16 +186,16 @@ last_rd=rd}return 0>best_loc?!1:!0}}])
 var userLang, langValue, derivedLang, urlLang;
 var root = document.documentElement;
 
-var color1 = {base: "253, 58, 74", light: "#FECED2", dark: "#3F0F13"};
-var color2 = {base: "245, 128, 37", light: "#FCDFC8", dark: "#3D2009"};
-var color3 = {base: "255, 167, 0", light: "#FFE9BF", dark: "#402A00"};
-var color4 = {base: "123, 113, 81", light: "#DEDBD3", dark: "#1F1C14"};
-var color5 = {base: "91, 170, 9", light: "#D6EAC1", dark: "#172B02"};
-var color6 = {base: "26, 152, 90", light: "#C6E5D6", dark: "#072617"};
-var color7 = {base: "59, 168, 221", light: "#CEE9F6", dark: "#0F2A37"};
-var color8 = {base: "0, 120, 215", light: "#BFDDF5", dark: "#001E36"};
-var color9 = {base: "139, 102, 204", light: "#E2D9F2", dark: "#231A33"};
-var color10 = {base: "228, 27, 144", light: "#F8C6E3", dark: "#390724"};
+var color1 = "253, 58, 74"
+var color2 =  "245, 128, 37"
+var color3 =  "255, 167, 0"
+var color4 =  "123, 113, 81"
+var color5 =  "91, 170, 9"
+var color6 =  "26, 152, 90"
+var color7 =  "59, 168, 221"
+var color8 =  "0, 120, 215"
+var color9 =  "139, 102, 204"
+var color10 =  "228, 27, 144"
 
 
 function getLang() {
@@ -334,12 +334,8 @@ function rgbToHex(rgb) {
   return "#" + (0x1000000 + rgbNew).toString(16).slice(1);
 }
 
-function setColor(colorSet, theme) {
-  var themeColor = colorSet["base"];
-  var darkColor = colorSet["dark"];
-  var lightColor = colorSet["light"];
-  var fgColor = (theme === "light") ? darkColor : lightColor;
-  var hexValue = rgbToHex(themeColor);
+function setColor(color) {
+  var hexValue = rgbToHex(color);
 
   var metaThemeColor = document.querySelector("meta[name=theme-color]");
   metaThemeColor.setAttribute("content", hexValue);
@@ -347,7 +343,5 @@ function setColor(colorSet, theme) {
   var metaTileColor = document.querySelector("meta[name=msapplication-TileColor]");
   metaTileColor.setAttribute("content", hexValue);
   
-  root.style.setProperty("--theme-color", themeColor);
-  root.style.setProperty("--dark-color", darkColor);
-  root.style.setProperty("--fg-color", fgColor);
+  root.style.setProperty("--theme-color", color);
 }

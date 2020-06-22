@@ -1652,6 +1652,7 @@ blockquote,
   border-radius: 0.25rem;
   line-height: 1.5rem;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .radio-toolbar label::before {
@@ -1659,11 +1660,12 @@ blockquote,
   font-family: "pt-icons";
   padding-right: 0.5em;
   line-height: 0;
-  color: rgba(var(--blockquote-color), 0.5);
+  color: currentColor;
 }
 
 .radio-toolbar label:hover {
   border-color: rgb(var(--blockquote-color));
+  color: rgb(var(--blockquote-color));
 }
 
 .radio-toolbar input[type="radio"]:focus + label {

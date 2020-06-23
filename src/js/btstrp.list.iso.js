@@ -197,7 +197,6 @@ var color8 =  "0, 120, 215"
 var color9 =  "139, 102, 204"
 var color10 =  "228, 27, 144"
 
-
 function getLang() {
   langValue = localStorage.getItem("langValue");
 

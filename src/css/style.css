@@ -982,11 +982,6 @@ canvas {
   overflow: hidden;
 }
 
-/* .post-masonry {
-  margin-bottom: 30px;
-  right: 0;
-} */
-
 .list a {
   text-decoration: none;
 }
@@ -1180,13 +1175,11 @@ canvas {
 
 #snippetOuter {
   width: 10.5em;
-  /* height: 10.5em; */
   padding: 1em 0;
 }
 
 #snippetRight {
   width: 26.5em;
-  /* height: 10.5em; */
   padding: 1em 0;
 }
 

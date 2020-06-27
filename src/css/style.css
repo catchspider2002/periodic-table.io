@@ -21,6 +21,8 @@
   --degrees: 45deg;
   --fg-color: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
   linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
+  --style1Image: url(../../images/light-style1.png);
+  --style2Image: url(../../images/light-style2.png);
 }
 
 [data-direction="rtl"] {
@@ -39,6 +41,8 @@
   --blockquote-color: 148, 146, 143;
   --fg-color: linear-gradient(to right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
   linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
+  --style1Image: url(../../images/dark-style1.png);
+  --style2Image: url(../../images/dark-style2.png);
 }
 
 @font-face {
@@ -1650,7 +1654,6 @@ blockquote,
   margin-bottom: 0.5rem;
   font-family: sans-serif, Arial;
   font-size: 1rem;
-  /*border: .1rem solid rgba(var(--blockquote-color), 0.3);*/
   background: rgba(var(--blockquote-color),.3);
   color: rgba(var(--blockquote-color), 0.5);
   border-radius: 0.25rem;
@@ -1677,8 +1680,7 @@ blockquote,
 }
 
 .radio-toolbar input[type="radio"]:checked + label {
-  color: var(--fg-color);
-  /*border-color: var(--fg-color);*/
+  color: rgb(255,255,255);
   background: linear-gradient(to right,rgba(0,0,0,.35),rgba(0,0,0,.35)),linear-gradient(to right,rgb(var(--theme-color)),rgb(var(--theme-color)));
 }
 
@@ -1688,6 +1690,48 @@ blockquote,
   padding-right: 0.5em;
   line-height: 0;
   color: var(--fg-color);
+}
+
+.radio-style label {
+  opacity: 0.3;  
+  background: none;
+  display: inline-flex;
+}
+
+.radio-style label:hover {
+  opacity: 0.7;
+}
+
+.radio-style label::before {
+  font-size: 30px;
+  margin-top: -50%;
+  align-self: center;
+  color: rgb(var(--text-color));
+}
+.radio-style input[type="radio"]:checked + label::before {
+  color: rgb(var(--text-color));
+
+}
+
+.radio-style input[type="radio"]:checked + label {
+  opacity: 1;
+}
+
+#style1Label, #style2Label{
+  background-size: contain;
+  width: 44%;
+  padding-top: 19.5%;
+  background-repeat: no-repeat;
+  position: relative;
+  justify-content:  center
+}
+
+#style1Label{
+  background-image: var(--style1Image);
+}
+
+#style2Label{
+  background-image: var(--style2Image);
 }
 
 /* Scrollbar */

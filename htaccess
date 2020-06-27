@@ -1,6 +1,13 @@
 RewriteEngine On
 RewriteCond %{HTTPS} !on
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
+ErrorDocument 404 /404.html
 
 AddDefaultCharset UTF-8
 
@@ -19,7 +26,6 @@ AddType application/x-font-woff2 .woff2
     ExpiresByType application/x-javascript "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"
     ExpiresByType application/x-icon "access plus 1 year"
-    ExpiresByType application/x-font-ttf "access plus 1 year"
     ExpiresByType application/x-font-woff "access plus 1 year"
     ExpiresByType application/x-font-woff2 "access plus 1 year"
 </IfModule>

@@ -1878,8 +1878,6 @@ function translationLoad() {
   id("homeTitle").textContent = translation + " - " + homeHeader;
 
   id("pageHeader").textContent = translation;
-  
-  id("privacyHeader").textContent = translation;
 }
 
 function creditsLoad() {

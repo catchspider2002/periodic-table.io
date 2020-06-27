@@ -19,11 +19,8 @@
   --direction: left;
   --direction-rev: right;
   --degrees: 45deg;
-  --dark75: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
-    linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
-  --light75: linear-gradient(to right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
-      linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
-  --fg-color: var(--dark75);
+  --fg-color: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+  linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
 }
 
 [data-direction="rtl"] {
@@ -40,7 +37,8 @@
   --alt-text-color: rgb(0, 0, 0);
   --form-bg-color: rgba(0, 0, 0, 0.9);
   --blockquote-color: 148, 146, 143;
-  --fgColor: var(--light75);
+  --fg-color: linear-gradient(to right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+  linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
 }
 
 @font-face {
@@ -1057,7 +1055,7 @@ canvas {
   border-radius: 1rem;
   margin: 0 -2.25rem 1rem;
   color: var(--alt-text-color);
-  background-color: var(--fg-color);
+  background: var(--fg-color);
 }
 
 #elementDiagram {
@@ -1272,6 +1270,11 @@ canvas {
 
 .unselectable {
   cursor: default;
+}
+
+.disable-select {
+  -webkit-user-select: none;  
+  user-select: none;
 }
 
 #actinides,

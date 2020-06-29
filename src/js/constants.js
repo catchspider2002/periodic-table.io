@@ -1698,39 +1698,59 @@ function setOutline() {
 
   switch (colClass) {
     case "alkaliMetals":
-      elementColor = "rgba(" + color10.base + ",0.5)";
+      elementColor = "rgba(" + color10 + ",0.5)";
       break;
     case "alkalineEarthMetals":
-      elementColor = "rgba(" + color8.base + ",0.5)";
+      elementColor = "rgba(" + color8 + ",0.5)";
       break;
     case "transitionMetals":
-      elementColor = "rgba(" + color1.base + ",0.5)";
+      elementColor = "rgba(" + color1 + ",0.5)";
       break;
     case "postTransitionMetals":
-      elementColor = "rgba(" + color9.base + ",0.5)";
+      elementColor = "rgba(" + color9 + ",0.5)";
       break;
     case "otherNonmetals":
-      elementColor = "rgba(" + color6.base + ",0.5)";
+      elementColor = "rgba(" + color6 + ",0.5)";
       break;
     case "metalloids":
-      elementColor = "rgba(" + color2.base + ",0.5)";
+      elementColor = "rgba(" + color2 + ",0.5)";
       break;
     case "halogens":
-      elementColor = "rgba(" + color7.base + ",0.5)";
+      elementColor = "rgba(" + color7 + ",0.5)";
       break;
     case "nobleGases":
-      elementColor = "rgba(" + color5.base + ",0.5)";
+      elementColor = "rgba(" + color5 + ",0.5)";
       break;
     case "lanthanides":
-      elementColor = "rgba(" + color3.base + ",0.5)";
+      elementColor = "rgba(" + color3 + ",0.5)";
       break;
     case "actinides":
-      elementColor = "rgba(" + color4.base + ",0.5)";
+      elementColor = "rgba(" + color4 + ",0.5)";
       break;
   }
 
-  id("snippet").style.backgroundColor = elementColor;
-  id("details").style.backgroundColor = elementColor;
+  console.log(document.documentElement.getAttribute('data-style'));
+
+  if (document.documentElement.getAttribute('data-style') === "2"){
+    id("snippet").style.backgroundColor = "transparent";
+    id("details").style.backgroundColor = "transparent";
+    id("snippet").style.border = "none";
+    id("details").style.border = "none";
+    id("snippet").style.borderBottom = "0.125em solid " + elementColor;
+    id("details").style.borderBottom = "0.125em solid " + elementColor;
+  }
+  else if (document.documentElement.getAttribute('data-style') === "3") {
+    id("snippet").style.backgroundColor = "transparent";
+    id("details").style.backgroundColor = "transparent";
+    id("snippet").style.border = "0.125em solid " + elementColor;
+    id("details").style.border = "0.125em solid " + elementColor;
+  }
+  else{
+    id("snippet").style.backgroundColor = elementColor;
+    id("details").style.backgroundColor = elementColor;
+    id("snippet").style.border = "none";
+    id("details").style.border = "none";
+  }
   // var eleId = returnItem(element.replace("element", "ele"));
   var eleId = returnItem(element.replace("element", ""));
 

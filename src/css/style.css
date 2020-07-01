@@ -23,6 +23,7 @@
   linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
   --style1Image: url(../../images/light-style1.png);
   --style2Image: url(../../images/light-style2.png);
+  --style3Image: url(../../images/light-style3.png);
 }
 
 [data-direction="rtl"] {
@@ -43,6 +44,7 @@
   linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
   --style1Image: url(../../images/dark-style1.png);
   --style2Image: url(../../images/dark-style2.png);
+  --style3Image: url(../../images/dark-style3.png);
 }
 
 @font-face {
@@ -1749,7 +1751,7 @@ blockquote,
 }
 
 #style3Label{
-  background-image: var(--style2Image);
+  background-image: var(--style3Image);
 }
 
 /* Scrollbar */

@@ -225,8 +225,9 @@ select:focus {
 
 .sort {
   font-size: 0.94em;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-    linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
+  /* background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color))); */
+    background-color: var(--darker-color-50);;
 }
 
 .navbar-toggle {
@@ -777,8 +778,9 @@ button {
 .navbar-default,
 .navbar-collapse.in,
 .modal-header {
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.35)),
-    linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
+  /* background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.35)),
+    linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color))); */
+    background-color: var(--darker-color-50);
 }
 
 .modal {

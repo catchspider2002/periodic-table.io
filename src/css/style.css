@@ -18,19 +18,27 @@
   --text-direction: ltr;
   --direction: left;
   --direction-rev: right;
-  --degrees: 45deg;
+  /* --degrees: 45deg; */
   --fg-color: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
   linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
   --style1Image: url(../../images/light-style1.png);
   --style2Image: url(../../images/light-style2.png);
   --style3Image: url(../../images/light-style3.png);
+  --icon-padding: 0 .5em 0 0;
+  --sign: 1;
+  --slider-right: unset;
+  --slider-left: 0.25rem;
 }
 
 [data-direction="rtl"] {
   --text-direction: rtl;
   --direction: right;
   --direction-rev: left;
-  --degrees: -45deg;
+  /* --degrees: -45deg; */
+  --icon-padding: 0 0 0 .5em;
+  --sign: -1;
+  --slider-right: 0.25rem;
+  --slider-left: unset;
 }
 
 [data-theme="dark"] {
@@ -700,11 +708,12 @@ table,
 #features > li::before {
   content: "j";
   font-family: "pt-icons";
-  padding: 0 7px 0 0;
+  padding: var(--icon-padding);
 }
 
 .versionHeader {
   margin-left: -1rem;
+  margin-right: -1rem;
   list-style-type: none;
 }
 
@@ -1099,7 +1108,7 @@ canvas {
 }
 
 .listNum {
-  background: linear-gradient(var(--degrees), transparent 0%, transparent 50%, rgba(var(--theme-color), 0.3) 50%, rgba(var(--theme-color), 0.3) 100%);
+  background: linear-gradient(calc(var(--sign) * 45deg), transparent 0%, transparent 50%, rgba(var(--theme-color), 0.3) 50%, rgba(var(--theme-color), 0.3) 100%);
   position: relative;
   font-size: 0.85em;
 }
@@ -1346,15 +1355,16 @@ canvas {
   content: "";
   height: 1rem;
   width: 1rem;
-  left: 0.25rem;
+  left: var(--slider-left);
+  right: var(--slider-right);
   bottom: 0.25rem;
   background-color: #fff;
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform:translateX(calc(var(--sign) * 26px));
+  -ms-transform:translateX(calc(var(--sign) * 26px));
+  transform: translateX(calc(var(--sign) * 26px));
 }
 
 input:checked + .slider {
@@ -1683,7 +1693,7 @@ blockquote,
 .radio-toolbar label::before {
   content: "b";
   font-family: "pt-icons";
-  padding-right: 0.5em;
+  padding: var(--icon-padding);
   line-height: 0;
   color: currentColor;
 }
@@ -1705,7 +1715,7 @@ blockquote,
 .radio-toolbar input[type="radio"]:checked + label::before {
   content: "i";
   font-family: "pt-icons";
-  padding-right: 0.5em;
+  padding: var(--icon-padding);
   line-height: 0;
   color: var(--fg-color);
 }
@@ -1728,7 +1738,6 @@ blockquote,
 }
 .radio-style input[type="radio"]:checked + label::before {
   color: rgb(var(--text-color));
-
 }
 
 .radio-style input[type="radio"]:checked + label {

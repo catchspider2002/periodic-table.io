@@ -2565,8 +2565,6 @@ function elementLoad() {
       break;
   }
 
-  // id("elementPic").onload = bloggingisotope;
-
  id("elementPic").src = "images/"+imageSrc +".jpg";
  id("elementPicture").src = "images/"+imageSrc +".jpg";
 

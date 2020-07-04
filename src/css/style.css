@@ -406,7 +406,6 @@ table,
 
 .flex-item {
   flex-grow: 1;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -525,7 +524,8 @@ table,
 
 .grid {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto auto;
+  column-gap: 2rem;
   margin: 0 -1rem;
 }
 

@@ -86,6 +86,17 @@
                   </div>
                 </div>
               </div>
+              <!-- Protons, Electrons, Neutrons -->
+              <div class="box-content masonry-col">
+                  <div class="grid-3">
+                      <div id="protons" class="new-table text-center heavyFont"></div>
+                      <div id="electrons" class="new-table text-center heavyFont"></div>
+                      <div id="neutrons" class="new-table text-center heavyFont"></div>
+                      <div id="outputProtons" class="text-center new-table font-size-1-5"></div>
+                      <div id="outputElectrons" class="text-center new-table font-size-1-5"></div>
+                      <div id="outputNeutrons" class="text-center new-table font-size-1-5"></div>
+                  </div>
+              </div>
               <!-- General Prooperties -->
               <div class="box-content masonry-col">
                 <span id="labelGeneralProp" class="headerOutline text-upper heavyFont">
@@ -95,6 +106,8 @@
                   <div id="outputAtmNoMain" class="new-table"></div>
                   <div id="labelAtmWtMain" class="new-table heavyFont"></div>
                   <div id="outputAtmWtMain" class="new-table"></div>
+                  <div id="labelMassNum" class="new-table heavyFont"></div>
+                  <div id="outputMassNum" class="new-table"></div>
                   <div id="labelCategoryMain" class="new-table heavyFont"></div>
                   <div id="outputCategoryMain" class="new-table"></div>
                   <div id="labelColorMain" class="new-table heavyFont"></div>
@@ -107,8 +120,13 @@
               </div>
             <!-- Name Reason -->
               <div class="box-content text-center masonry-col">
-                <div id="elementReasonMain"></div>
+                <div id="elementReasonMain" class="line-height-2"></div>
               </div>
+              <!-- History -->
+                <div class="box-content masonry-col">
+                  <span id="history" class="headerOutline text-upper heavyFont"></span>
+                  <div id="elementHistoryMain" class="line-height-2"></div>
+                </div>
             <!-- Electron Configuration -->
               <div class="box-content masonry-col">
                 <div class="grid padding-bottom-25">
@@ -122,6 +140,10 @@
                 </div> -->
                 <svelte-electron num="118" sym="He" />
               </div>
+              <!-- Facts -->
+                <div class="box-content masonry-col text-center">
+                  <div id="elementFactsMain" class="line-height-2"></div>
+                </div>
             <!-- Physical Properties -->
               <div class="box-content masonry-col">
                 <span id="labelPhysicalProp" class="headerOutline text-upper heavyFont">
@@ -143,21 +165,24 @@
                   <div id="outputSpecificMain" class="new-table"></div>
                 </div>
               </div>
-            <!-- History -->
-              <div class="box-content masonry-col">
-                <span id="history" class="headerOutline text-upper heavyFont"></span>
-                <div id="elementHistoryMain"></div>
-              </div>
-            <!-- Facts -->
-              <div class="box-content masonry-col text-center">
-                <div id="elementFactsMain"></div>
-              </div>
-            <!-- Uses -->
-              <div class="box-content masonry-col">
-                <span id="uses" class="headerOutline text-upper heavyFont">
-                </span>
-                <div id="elementUsesMain"></div>
-                <div></div>
+              <!-- Abundance -->
+                <div class="box-content masonry-col">
+                  <div class="grid">
+                    <div class="new-table heavyFont" id="labelCrustMain"></div>
+                    <div id="outputCrustMain" class="new-table">20</div>
+                    <div class="new-table heavyFont" id="labelUniverseMain"></div>
+                    <div id="outputUniverseMain" class="new-table">40.078</div>
+                  </div>
+                </div>
+              <!-- Image -->
+              <div class="masonry-col">
+                  <div class="blog-thumb">
+                  <img id="elementPic" src="images/placeholder.png" alt="" data-toggle="modal" data-target="#exampleModal" />
+                </div>
+                  <div class="box-content bottom-rounded line-height-2">
+                    <span id="imgCredits" class="heavyFont"></span><span id="imgCreditsLink"></span>
+                    <div id="imgDesc"></div>
+                  </div>
               </div>
             <!-- Atomic Properties -->
               <div class="box-content masonry-col">
@@ -180,29 +205,25 @@
                   <div id="outputOxidationMain" class="new-table ltrText text-left"></div>
                 </div>
               </div>
-            <!-- Image -->
-            <div class="masonry-col">
-                <div class="blog-thumb">
-                <img id="elementPic" src="images/placeholder.png" alt="" data-toggle="modal" data-target="#exampleModal" />
-              </div>
-                <div class="box-content bottom-rounded">
-                  <span id="imgCredits" class="heavyFont"></span><span id="imgCreditsLink"></span>
-                  <div id="imgDesc"></div>
+              <!-- Uses -->
+                <div class="box-content masonry-col">
+                  <span id="uses" class="headerOutline text-upper heavyFont">
+                  </span>
+                  <div id="elementUsesMain" class="line-height-2"></div>
+                  <div></div>
                 </div>
-            </div>
-            <!-- Abundance -->
-              <div class="box-content masonry-col">
-                <div class="grid">
-                  <div class="new-table heavyFont" id="labelCrustMain"></div>
-                  <div id="outputCrustMain" class="new-table">20</div>
-                  <div class="new-table heavyFont" id="labelUniverseMain"></div>
-                  <div id="outputUniverseMain" class="new-table">40.078</div>
-                </div>
-              </div>
             <!-- Hazards -->
               <div class="box-content masonry-col text-center">
-                <div id="elementDangersMain"></div>
+                <div id="elementDangersMain" class="line-height-2"></div>
               </div>
+              <!-- Isotopes -->
+                <div class="box-content masonry-col">
+                  <span id="isotopes" class="headerOutline text-upper heavyFont"></span>
+                  <div class="heavyFont padding-0 margin-y-10" id="stableIsotopes"></div>
+                  <span id="stableIsotopesList" class="isotopeLine"></span>
+                  <div class="heavyFont padding-0 margin-y-10" id="unstableIsotopes"></div>
+                  <span id="unstableIsotopesList" class="isotopeLine"></span>
+                </div>
             <!-- Important Links -->
               <div class="box-content masonry-col">
                 <span id="labelLinksMain" class="headerOutline text-upper heavyFont"></span>
@@ -212,14 +233,6 @@
                 <a id="link4" class="webLink" target="_blank" rel="noopener noreferrer">Chemicool</a>
                 <a id="link5" class="webLink" target="_blank" rel="noopener noreferrer">RSC Visual Elements</a>
                 <a id="link6" class="webLink" target="_blank" rel="noopener noreferrer">WebElements</a>
-              </div>
-            <!-- Isotopes -->
-              <div class="box-content masonry-col">
-                <span id="isotopes" class="headerOutline text-upper heavyFont"></span>
-                <div class="heavyFont padding-0 margin-y-10" id="stableIsotopes"></div>
-                <span id="stableIsotopesList" class="isotopeLine"></span>
-                <div class="heavyFont padding-0 margin-y-10" id="unstableIsotopes"></div>
-                <span id="unstableIsotopesList" class="isotopeLine"></span>
               </div>
             <!-- Small Table -->
               <div class="box-content masonry-col">

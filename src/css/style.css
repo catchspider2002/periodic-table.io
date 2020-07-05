@@ -297,6 +297,7 @@ select:focus {
   height: 80px;
   background-color: var(--body-bg-color);
   margin-right: -25px;
+  margin-left: -25px;
 }
 
 [data-direction="rtl"] #topRowCompare {
@@ -529,6 +530,13 @@ table,
   margin: 0 -1rem;
 }
 
+.grid-3 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 2rem;
+  margin: 0 -1rem;
+}
+
 .grid-row-gap-10 {
   grid-row-gap: 10px;
 }
@@ -640,6 +648,10 @@ table,
   font-size: 2.7em;
   height: 70%;
   width: 100%;
+}
+
+.font-size-1-5{
+  font-size: 1.5em;
 }
 
 .navbar-collapse {
@@ -1085,6 +1097,10 @@ canvas {
 
 .line-height-normal {
   line-height: normal;
+}
+
+.line-height-2{
+  line-height: 2;
 }
 
 .listSym,

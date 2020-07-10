@@ -583,7 +583,8 @@ function initializePage() {
   id("modalSettings").textContent = settings;
   id("language").textContent = language;
   id("sysLanguage").textContent = sysLanguage;
-  id("temperature").textContent = temperature;
+  id("temperature").textContent = temperature;  
+  id("settingPeriodicTable").textContent = homeHeader
 
   document.querySelector('label[for="tempcelsius"]').textContent = tempCelsius;
   document.querySelector('label[for="tempfahrenheit"]').textContent = tempFahrenheit;
@@ -879,8 +880,6 @@ ele.forEach((radio) => {
   });
 });
 
-  id("settingPeriodicTable").textContent = homeHeader
-
   id("homeTitle").textContent = home + " - " + homeHeader;
 
   id("pageHeader").textContent = home;
@@ -1101,7 +1100,7 @@ ele.forEach((radio) => {
 
 function clickLink() {
   console.log("urlLang: "+urlLang)
-  document.location.href = "element.html?num=" + this.id.replace("ele", "")// + "&lang=" + urlLang;
+  document.location.href = "element.html?num=" + this.id.replace("ele", "")+ "&lang=" + urlLang;
 }
 
 function setOpacity100() {
@@ -1258,8 +1257,6 @@ function setOutline() {
       elementColor = "rgba(" + color4 + ",0.5)";
       break;
   }
-
-  console.log(document.documentElement.getAttribute('data-style'));
 
   if (document.documentElement.getAttribute('data-style') === "2"){
     id("snippet").style.backgroundColor = "transparent";
@@ -1930,18 +1927,33 @@ function drawSvg() {
   //   val1 = -800 + 480
   //   val2 = 1600 - 960
   //   }
+  // var style = getComputedStyle(document.body).getPropertyValue('--color-font-general');
+
+  // console.log("--text-color: " + getComputedStyle(document.body).getPropertyValue("--text-color"));
+  // console.log("--form-bg-color: " + getComputedStyle(document.body).getPropertyValue("--form-bg-color"));
+
+  var textColor = getComputedStyle(document.body).getPropertyValue("--text-color");
+  var formBgColor = getComputedStyle(document.body).getPropertyValue("--form-bg-color");
 
   b.setAttribute("num", num);
   b.setAttribute("sym", sym);
-  b.setAttribute("strokecolor",(defaultNewTheme === "light") ? "rgba(0, 0, 0, 0.95)" : "rgba(255, 255, 255, 0.95)");
-  b.setAttribute("fontcolor", (defaultNewTheme === "light") ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)");
+  b.setAttribute("fontcolor",formBgColor);
+  b.setAttribute("strokecolor", "rgba("+ textColor + ", 0.9)");
   b.setAttribute("val1", val1);
   b.setAttribute("val2", val2);
 }
 
 function elementLoad() {
-  num = getQueryVariable("num") ? getQueryVariable("num") : "1";
-  lang = getQueryVariable("lang") ? getQueryVariable("lang") : "en";
+  num = getQueryVariable("num") || "1";
+  lang = getQueryVariable("lang") || "en-us";
+
+  console.log(lang)
+
+  langValue = languageList.find(x => x.url === lang).id
+
+  console.log(langValue);
+
+  localStorage.setItem("langValue", langValue);
 
   initializePage();
   id("elementPic").src = "images/placeholder.png"

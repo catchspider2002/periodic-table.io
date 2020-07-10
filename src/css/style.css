@@ -1524,7 +1524,6 @@ input:focus + .slider {
 
 .alkaliMetals {
   background-color: rgba(var(--color10), 0.5);
-  border-bottom: 0;
 }
 
 [data-style="2"] .alkaliMetals, [data-style="3"] .alkaliMetals {

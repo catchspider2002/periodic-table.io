@@ -589,17 +589,12 @@ function initializePage() {
   document.querySelector('label[for="tempcelsius"]').textContent = tempCelsius;
   document.querySelector('label[for="tempfahrenheit"]').textContent = tempFahrenheit;
   
-  // id("labelCelsius").innerHTML = tempCelsius;
-  // id("labelFahrenheit").innerHTML = tempFahrenheit;
-
   id("themeColor").textContent = labelColorMain;
 
   id("tableWidth").textContent = tableWidth;
   id("settingsName").textContent = labelName;
   id("settingsAtmWtMain").textContent = labelAtmWtMain;
 
-  // id("homeLink").textContent = home;
-  // id("homeList").title = home;
   id("listLink").textContent = list;
   id("listList").title = list;
   id("compareLink").textContent = compare;
@@ -830,10 +825,7 @@ function loaderFunc() {
 
 function setSettings() {
   id("languageSelectSetting").addEventListener("change", setLanguage, false);
-  // id("tempSelectSetting").addEventListener("change", setTemp, false);
-
   id("languageSelectSetting").value = langValue;
-  // id("tempSelectSetting").value = defaultTemp;
   id("temp"+ defaultTemp).checked = true;
   id("style"+ defaultStyle).checked = true;
 }
@@ -1099,8 +1091,8 @@ ele.forEach((radio) => {
 }
 
 function clickLink() {
-  console.log("urlLang: "+urlLang)
-  document.location.href = "element.html?num=" + this.id.replace("ele", "")+ "&lang=" + urlLang;
+  // console.log("urlLang: "+urlLang)
+  document.location.href = "element.html?num=" + this.id.replace("ele", "") //+ "&lang=" + urlLang;
 }
 
 function setOpacity100() {
@@ -1947,13 +1939,13 @@ function elementLoad() {
   num = getQueryVariable("num") || "1";
   lang = getQueryVariable("lang") || "en-us";
 
-  console.log(lang)
+  // console.log(lang)
 
-  langValue = languageList.find(x => x.url === lang).id
+  // langValue = languageList.find(x => x.url === lang).id
 
-  console.log(langValue);
+  // console.log(langValue);
 
-  localStorage.setItem("langValue", langValue);
+  // localStorage.setItem("langValue", langValue);
 
   initializePage();
   id("elementPic").src = "images/placeholder.png"

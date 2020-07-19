@@ -24,7 +24,7 @@ const fileManifest = [
   },
   {
     "url": "about.html",
-    "revision": "2b24131558831a56662b35b3063a25cf"
+    "revision": "c75725ad421e77d00ad3ce5ca7bb8614"
   },
   {
     "url": "browserconfig.xml",
@@ -44,11 +44,11 @@ const fileManifest = [
   },
   {
     "url": "constants.min.js",
-    "revision": "f70381369828248ae05a6b5fade3763b"
+    "revision": "8b86569052823cb5663bc6d165b42207"
   },
   {
     "url": "credits.html",
-    "revision": "64460cbad9ec4718dd2d6fa58a252aaa"
+    "revision": "9b331aad6ca1bce74ec4479ea826fd0a"
   },
   {
     "url": "element.html",
@@ -200,7 +200,7 @@ const fileManifest = [
   },
   {
     "url": "locales/locale.ph.js",
-    "revision": "875f51909a0ae7f0abb11ac0477f9408"
+    "revision": "22fdabbfcedc7e701ecfbea6b268a51e"
   },
   {
     "url": "locales/locale.pt.js",
@@ -260,15 +260,15 @@ const fileManifest = [
   },
   {
     "url": "package-lock.json",
-    "revision": "903b5a12b2e02c2e7f8bc6da51caf689"
+    "revision": "be12a92da1769c7e9c4bb24d36c34188"
   },
   {
     "url": "package.json",
-    "revision": "420b2321de1260fb31c446799b8a68fa"
+    "revision": "6e3827f9554400757ac3f4e17a0f337e"
   },
   {
     "url": "printables.html",
-    "revision": "eee13c3da9d3da819ae43938df72a4f8"
+    "revision": "8d290fc8cd72ad87edfabc29498196de"
   },
   {
     "url": "privacy-policy.html",
@@ -288,7 +288,7 @@ const fileManifest = [
   },
   {
     "url": "style.min.css",
-    "revision": "d25cf57cf2c9371d883890b2ccfc837c"
+    "revision": "26507c35c500ce071e46d62ced20efd9"
   },
   {
     "url": "svelte-bundle.css",
@@ -296,11 +296,11 @@ const fileManifest = [
   },
   {
     "url": "svelte-bundle.js",
-    "revision": "40ca005ad6a7d3d51bc0a72e7cca170a"
+    "revision": "23fcdd853f8ab7c27bc4541b70e2f981"
   },
   {
     "url": "translation.html",
-    "revision": "4cad793c10a1bbd751e09f2bfc0a9074"
+    "revision": "7052da68cab86f8030b21d6966e8e73b"
   },
   {
     "url": "images/placeholder.png",

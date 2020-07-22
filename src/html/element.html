@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="style.min.css" />
     <script defer src="svelte-bundle.js"></script>
 
-    <script src="bundle.js"></script>
+    <!-- <script src="bundle.js"></script> -->
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", function () {
@@ -128,7 +128,7 @@
                   <div id="elementHistoryMain" class="line-height-2"></div>
                 </div>
             <!-- Electron Configuration -->
-              <div class="box-content masonry-col">
+              <div id="electronConf" class="box-content masonry-col">
                 <div class="grid padding-bottom-25">
                   <div id="labelElectronsMain" class="new-table heavyFont"></div>
                   <div id="outputElectronsMain" class="new-table ltrText text-left"></div>
@@ -138,7 +138,7 @@
                 <!-- <div id="elementDiagram">
                   <canvas id="myCanvas"></canvas>
                 </div> -->
-                <svelte-electron num="118" sym="He" />
+                <!-- <svelte-electron num="118" sym="He" /> -->
               </div>
               <!-- Facts -->
                 <div class="box-content masonry-col text-center">

@@ -855,7 +855,8 @@ function setStyle(){
 function setTheme() {
   setDefaultTheme();
   if (id("outputConfigMain"))
-    drawSvg();
+    // drawSvg();
+    svgElectron()
 }
 
 
@@ -1874,12 +1875,90 @@ function getQueryVariable(variable) {
   return null;
 }
 
-function drawSvg() {
-  var b = document.querySelector("svelte-electron");
+// function drawSvg() {
+//   var b = document.querySelector("svelte-electron");
+//   var val1 = -800
+//   var val2 = 1600
+//   var multiplier = 0
+
+//   if (num > 86) multiplier = 0;
+//   else if (num > 54) multiplier = 1;
+//   else if (num > 36 && num != 46) multiplier = 2;
+//   else if (num > 18) multiplier = 3;
+//   else if (num > 10) multiplier = 4;
+//   else if (num > 2) multiplier = 5;
+//   else multiplier = 6;
+
+//   val1 = -800 + multiplier * 80
+//   val2 = 1600 - multiplier * 80 * 2
+
+//   var textColor = getComputedStyle(document.body).getPropertyValue("--text-color");
+//   var formBgColor = getComputedStyle(document.body).getPropertyValue("--form-bg-color");
+
+//   b.setAttribute("num", num);
+//   b.setAttribute("sym", sym);
+//   b.setAttribute("fontcolor",formBgColor);
+//   b.setAttribute("strokecolor", "rgba("+ textColor + ", 0.9)");
+//   b.setAttribute("val1", val1);
+//   b.setAttribute("val2", val2);
+// }
+
+function createSVGRing(radius, strokeColor){
+  var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  circle.setAttribute('r', radius);
+  circle.setAttribute('fill', 'none');
+  circle.setAttribute('stroke-width', '8');
+  circle.setAttribute('stroke', strokeColor);
+  return circle
+}
+
+function createSVGAtom(ring, x, y, strokeColor){
+  var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  circle.setAttribute('class', 'electron '+ ring);
+  circle.setAttribute('cx', x);
+  circle.setAttribute('cy', y);
+  circle.setAttribute('r', '25');
+  circle.setAttribute('fill', strokeColor);
+  return circle
+}
+
+function svgElectron(){
+    var A45 = 0.7071;
+    var A90sin = 1;
+    var A90cos = 0;
+    var A0sin = 0;
+    var A0cos = 1;
+    var A10sin = 0.173648178;
+    var A10cos = 0.984807753;
+    var A30sin = 0.5;
+    var A30cos = 0.8660254;
+    var A50sin = 0.766044443;
+    var A50cos = 0.6427876;
+    var A70sin = 0.93969262;
+    var A70cos = 0.342020;
+    var A11sin = 0.19509032201612826784828486847702;
+    var A11cos = 0.98078528040323044912618223613424;
+    var A22sin = 0.3826834323650897717284599840304;
+    var A22cos = 0.92387953251128675612818318939679;
+    var A33sin = 0.55557023301960222474283081394853;
+    var A33cos = 0.83146961230254523707878837761791;
+
   var val1 = -800
   var val2 = 1600
   var multiplier = 0
 
+  let rad1 = 230;
+  let rad2 = 320;
+  let rad3 = 410;
+  let rad4 = 500;
+  let rad5 = 590;
+  let rad6 = 680;
+  let rad7 = 770;
+  
+  var electronConf = id("electronConf");
+  if(electronConf.childNodes[1])
+    electronConf.removeChild(electronConf.childNodes[1]);
+  
   if (num > 86) multiplier = 0;
   else if (num > 54) multiplier = 1;
   else if (num > 36 && num != 46) multiplier = 2;
@@ -1890,49 +1969,311 @@ function drawSvg() {
 
   val1 = -800 + multiplier * 80
   val2 = 1600 - multiplier * 80 * 2
-
-  // if (num > 86) {
-  //   val1 = -800
-  //   val2 = 1600
-  //   }
-  //   else if (num > 54) {
-  //   val1 = -800 + 80
-  //   val2 = 1600 - 160
-  //   }
-  //   else if (num > 36 && num != 46) {
-  //   val1 = -800 + 160
-  //   val2 = 1600 - 320
-  //   }
-  //   else if (num > 18) {
-  //   val1 = -800 + 240
-  //   val2 = 1600 - 480
-  //   }
-  //   else if (num > 10) {
-  //   val1 = -800 + 320
-  //   val2 = 1600 - 640
-  //   }
-  //   else if (num > 2) {
-  //   val1 = -800 + 400
-  //   val2 = 1600 - 800
-  //   }
-  //   else {
-  //   val1 = -800 + 480
-  //   val2 = 1600 - 960
-  //   }
-  // var style = getComputedStyle(document.body).getPropertyValue('--color-font-general');
-
-  // console.log("--text-color: " + getComputedStyle(document.body).getPropertyValue("--text-color"));
-  // console.log("--form-bg-color: " + getComputedStyle(document.body).getPropertyValue("--form-bg-color"));
-
   var textColor = getComputedStyle(document.body).getPropertyValue("--text-color");
   var formBgColor = getComputedStyle(document.body).getPropertyValue("--form-bg-color");
+  var strokeColor = "rgba("+ textColor + ", 0.9)"
+  // Testing for svg
+  var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute('viewBox', '-800 ' + val1 + ' 1600 ' + val2 + '');  
+  svg.setAttribute('class', 'atom');
+  svg.setAttribute('version', '1.1');
+  svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+  // svg.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
+  
+  electronConf.appendChild(svg);
 
-  b.setAttribute("num", num);
-  b.setAttribute("sym", sym);
-  b.setAttribute("fontcolor",formBgColor);
-  b.setAttribute("strokecolor", "rgba("+ textColor + ", 0.9)");
-  b.setAttribute("val1", val1);
-  b.setAttribute("val2", val2);
+  var g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  var circle1 = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  circle1.setAttribute('class', 'nucleus');
+  circle1.setAttribute('r', '130');
+  circle1.setAttribute('fill', strokeColor);
+  circle1.setAttribute('stroke', strokeColor);
+  var text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  text.setAttribute('class', 'font-fam');
+  text.setAttribute('x', '0');
+  text.setAttribute('y', '0');
+  text.setAttribute('alignment-baseline', 'middle');
+  text.setAttribute('dominant-baseline', 'middle');
+  text.setAttribute('text-anchor', 'middle');
+  text.setAttribute('fill', formBgColor);
+  var txt = document.createTextNode(sym);
+  text.appendChild(txt);
+  
+  svg.appendChild(g);
+  g.appendChild(circle1);
+  g.appendChild(text);
+
+  if (num > 86)
+    g.appendChild(createSVGRing(rad7, strokeColor));
+  if (num > 54)
+    g.appendChild(createSVGRing(rad6, strokeColor));
+  if (num > 36 && num != 46)
+    g.appendChild(createSVGRing(rad5, strokeColor));
+  if (num > 18)
+    g.appendChild(createSVGRing(rad4, strokeColor));
+  if (num > 10)
+    g.appendChild(createSVGRing(rad3, strokeColor));
+  if (num > 2)
+    g.appendChild(createSVGRing(rad2, strokeColor));
+  g.appendChild(createSVGRing(rad1, strokeColor));
+
+  if (num > 0)
+  g.appendChild(createSVGAtom("one", -A0sin * rad1, -A0cos * rad1, strokeColor));
+      if (num > 1)
+  g.appendChild(createSVGAtom("one", A0sin * rad1, A0cos * rad1, strokeColor));
+      if (num > 2)
+  g.appendChild(createSVGAtom("two", -A0sin* rad2, -A0cos* rad2, strokeColor));
+      if (num > 3)
+  g.appendChild(createSVGAtom("two", A0sin* rad2, A0cos* rad2, strokeColor));
+      if (num > 4)
+  g.appendChild(createSVGAtom("two", -A90sin* rad2, A90cos* rad2, strokeColor));
+      if (num > 5)
+  g.appendChild(createSVGAtom("two", A90sin* rad2, A90cos* rad2, strokeColor));
+      if (num > 6)
+  g.appendChild(createSVGAtom("two", -A45* rad2, -A45* rad2, strokeColor));
+      if (num > 7)
+  g.appendChild(createSVGAtom("two", A45* rad2, -A45* rad2, strokeColor));
+      if (num > 8)
+  g.appendChild(createSVGAtom("two", -A45* rad2, A45* rad2, strokeColor));
+      if (num > 9)
+  g.appendChild(createSVGAtom("two", A45* rad2, A45* rad2, strokeColor));
+  
+      if (num > 10)
+  g.appendChild(createSVGAtom("three", -A0sin* rad3, -A0cos * rad3, strokeColor));
+      if (num > 11)
+  g.appendChild(createSVGAtom("three", A0sin* rad3, A0cos * rad3, strokeColor));
+      if (num > 12)
+  g.appendChild(createSVGAtom("three", -A10cos* rad3, -A10sin * rad3, strokeColor));
+      if (num > 13)
+  g.appendChild(createSVGAtom("three", A10cos* rad3, -A10sin * rad3, strokeColor));
+      if (num > 14)
+  g.appendChild(createSVGAtom("three", -A30cos* rad3, A30sin * rad3, strokeColor));
+      if (num > 15)
+  g.appendChild(createSVGAtom("three", A30cos* rad3, A30sin * rad3, strokeColor));
+      if (num > 16)
+  g.appendChild(createSVGAtom("three", -A50cos* rad3, -A50sin * rad3, strokeColor));
+      if (num > 17)
+  g.appendChild(createSVGAtom("three", A50cos* rad3, -A50sin * rad3, strokeColor));
+  
+      if (num > 18)
+  g.appendChild(createSVGAtom("four", -A0sin* rad4, -A0cos * rad4, strokeColor));
+      if (num > 19 && num != 24 && num != 29)
+  g.appendChild(createSVGAtom("four", -A0sin* rad4, A0cos * rad4, strokeColor));
+  
+      if (num > 20)
+  g.appendChild(createSVGAtom("three", -A50cos* rad3, A50sin * rad3, strokeColor));
+      if (num > 21)
+  g.appendChild(createSVGAtom("three", A50cos* rad3, A50sin * rad3, strokeColor));
+      if (num > 22)
+  g.appendChild(createSVGAtom("three", -A30cos* rad3, -A30sin * rad3, strokeColor));
+      if (num > 23){
+  g.appendChild(createSVGAtom("three", A30cos* rad3, -A30sin * rad3, strokeColor));
+  g.appendChild(createSVGAtom("three", -A10cos* rad3, A10sin * rad3, strokeColor));
+    }
+  
+      if (num > 25)
+  g.appendChild(createSVGAtom("three", A10cos* rad3, A10sin * rad3, strokeColor));
+      if (num > 26)
+  g.appendChild(createSVGAtom("three", -A70cos* rad3, -A70sin * rad3, strokeColor));
+      if (num > 27)
+  g.appendChild(createSVGAtom("three", A70cos* rad3, -A70sin * rad3, strokeColor));
+      if (num > 28){
+  g.appendChild(createSVGAtom("three", -A70cos* rad3, A70sin * rad3, strokeColor));
+  g.appendChild(createSVGAtom("three", A70cos* rad3, A70sin * rad3, strokeColor));
+    }
+  
+      if (num > 30)
+  g.appendChild(createSVGAtom("four", -A90sin* rad4, A90cos * rad4, strokeColor));
+      if (num > 31)
+  g.appendChild(createSVGAtom("four", A90sin* rad4, A90cos * rad4, strokeColor));
+      if (num > 32)
+  g.appendChild(createSVGAtom("four", -A45* rad4, -A45 * rad4, strokeColor));
+      if (num > 33)
+  g.appendChild(createSVGAtom("four", A45* rad4, -A45 * rad4, strokeColor));
+      if (num > 34)
+  g.appendChild(createSVGAtom("four", -A45* rad4, A45 * rad4, strokeColor));
+      if (num > 35)
+  g.appendChild(createSVGAtom("four", A45* rad4, A45 * rad4, strokeColor));
+  
+      if (num > 36 && num != 46)
+  g.appendChild(createSVGAtom("five", -A0sin* rad5, -A0cos * rad5, strokeColor));
+      if (num > 37 && num != 41 && num != 42 && num != 44 && num != 45 && num != 46 && num != 47)
+  g.appendChild(createSVGAtom("five", A0sin* rad5, A0cos * rad5, strokeColor));
+  
+      if (num > 38)
+  g.appendChild(createSVGAtom("four", -A22cos* rad4, -A22sin * rad4, strokeColor));
+      if (num > 39)
+  g.appendChild(createSVGAtom("four", A22cos* rad4, -A22sin * rad4, strokeColor));
+      if (num > 40){
+  g.appendChild(createSVGAtom("four", A22cos* rad4, A22sin * rad4, strokeColor));
+  g.appendChild(createSVGAtom("four", -A22cos* rad4, A22sin * rad4, strokeColor));
+    }
+  
+      if (num > 41)
+  g.appendChild(createSVGAtom("four", -A22sin* rad4, -A22cos * rad4, strokeColor));
+      if (num > 43){
+  g.appendChild(createSVGAtom("four", A22sin* rad4, -A22cos * rad4, strokeColor));
+  g.appendChild(createSVGAtom("four", -A22sin* rad4, A22cos * rad4, strokeColor));
+    }
+  
+      if (num > 44)
+  g.appendChild(createSVGAtom("four", A22sin* rad4, A22cos * rad4, strokeColor));
+      if (num > 45){
+  g.appendChild(createSVGAtom("four", -A11cos* rad4, -A11sin * rad4, strokeColor));
+  g.appendChild(createSVGAtom("four", A11cos* rad4, -A11sin * rad4, strokeColor));
+    }
+  
+      if (num > 48)
+  g.appendChild(createSVGAtom("five", -A90sin* rad5, A90cos* rad5, strokeColor));
+      if (num > 49)
+  g.appendChild(createSVGAtom("five", A90sin* rad5, A90cos* rad5, strokeColor));
+      if (num > 50)
+  g.appendChild(createSVGAtom("five", -A45* rad5, -A45* rad5, strokeColor));
+      if (num > 51)
+  g.appendChild(createSVGAtom("five", A45* rad5, -A45* rad5, strokeColor));
+      if (num > 52)
+  g.appendChild(createSVGAtom("five", -A45* rad5, A45* rad5, strokeColor));
+      if (num > 53)
+  g.appendChild(createSVGAtom("five", A45* rad5, A45* rad5, strokeColor));
+      if (num > 54)
+  g.appendChild(createSVGAtom("six", -A0sin* rad6, -A0cos* rad6, strokeColor));
+      if (num > 55 && num != 78 && num != 79)
+  g.appendChild(createSVGAtom("six", A0sin* rad6, A0cos* rad6, strokeColor));
+      if (num > 56 && num != 59 && num != 60 && num != 61 && num != 62 && num != 63 && num != 65 && num != 66 && num != 67 && num != 68 && num != 69 && num != 70)
+  g.appendChild(createSVGAtom("five", -A22cos* rad5, -A22sin* rad5, strokeColor));
+      if (num > 57)
+  g.appendChild(createSVGAtom("four", -A11sin* rad4, A11cos * rad4, strokeColor));
+      if (num > 58){
+  g.appendChild(createSVGAtom("four", A33cos* rad4, A33sin * rad4, strokeColor));
+  g.appendChild(createSVGAtom("four", -A11sin* rad4, -A11cos * rad4, strokeColor));
+    }
+  
+      if (num > 59)
+  g.appendChild(createSVGAtom("four", A33sin* rad4, -A33cos * rad4, strokeColor));
+      if (num > 60)
+  g.appendChild(createSVGAtom("four", -A33cos* rad4, A33sin * rad4, strokeColor));
+      if (num > 61)
+  g.appendChild(createSVGAtom("four", -A33sin* rad4, -A33cos * rad4, strokeColor));
+      if (num > 62)
+  g.appendChild(createSVGAtom("four", A11sin* rad4, A11cos * rad4, strokeColor));
+      if (num > 64){
+  g.appendChild(createSVGAtom("four", -A11cos* rad4, A11sin * rad4, strokeColor));
+  g.appendChild(createSVGAtom("four", A11cos* rad4, A11sin * rad4, strokeColor));
+    }
+  
+      if (num > 65)
+  g.appendChild(createSVGAtom("four", A11sin* rad4, -A11cos * rad4, strokeColor));
+      if (num > 66)
+  g.appendChild(createSVGAtom("four", -A33cos* rad4, -A33sin * rad4, strokeColor));
+      if (num > 67)
+  g.appendChild(createSVGAtom("four", A33sin* rad4, A33cos * rad4, strokeColor));
+      if (num > 68)
+  g.appendChild(createSVGAtom("four", A33cos* rad4, -A33sin * rad4, strokeColor));
+      if (num > 69)
+  g.appendChild(createSVGAtom("four", -A33sin* rad4, A33cos * rad4, strokeColor));
+      if (num > 71)
+  g.appendChild(createSVGAtom("five", A22cos* rad5, -A22sin* rad5, strokeColor));
+      if (num > 72)
+  g.appendChild(createSVGAtom("five", A22cos* rad5, A22sin* rad5, strokeColor));
+      if (num > 73)
+  g.appendChild(createSVGAtom("five", -A22cos* rad5, A22sin* rad5, strokeColor));
+      if (num > 74)
+  g.appendChild(createSVGAtom("five", -A22sin* rad5, -A22cos* rad5, strokeColor));
+      if (num > 75)
+  g.appendChild(createSVGAtom("five", A22sin* rad5, -A22cos* rad5, strokeColor));
+      if (num > 76)
+  g.appendChild(createSVGAtom("five", -A22sin* rad5, A22cos* rad5, strokeColor));
+      if (num > 77){
+  g.appendChild(createSVGAtom("five", A22sin* rad5, A22cos* rad5, strokeColor));
+  g.appendChild(createSVGAtom("five", -A11cos* rad5, -A11sin* rad5, strokeColor));
+    }
+  
+      if (num > 78)
+  g.appendChild(createSVGAtom("five", A11cos* rad5, -A11sin* rad5, strokeColor)); 
+      if (num > 80)
+  g.appendChild(createSVGAtom("six", -A10cos* rad6, -A10sin* rad6, strokeColor)); 
+      if (num > 81)
+  g.appendChild(createSVGAtom("six", A10cos* rad6, -A10sin* rad6, strokeColor));
+      if (num > 82)
+  g.appendChild(createSVGAtom("six", -A30cos* rad6, A30sin* rad6, strokeColor));
+      if (num > 83)
+  g.appendChild(createSVGAtom("six", A30cos* rad6, A30sin* rad6, strokeColor)); 
+      if (num > 84)
+  g.appendChild(createSVGAtom("six", -A50cos* rad6, -A50sin* rad6, strokeColor)); 
+      if (num > 85)
+  g.appendChild(createSVGAtom("six", A50cos* rad6, -A50sin* rad6, strokeColor));
+  
+      if (num > 86)
+  g.appendChild(createSVGAtom("seven", -A0sin* rad7, -A0cos* rad7, strokeColor));
+      if (num > 87)
+  g.appendChild(createSVGAtom("seven", A0sin* rad7, A0cos* rad7, strokeColor)); 
+  
+      if (num > 88 && num != 94 && num != 95 && num != 97 && num != 98 && num != 99 && num != 100 && num != 101 && num != 102 && num != 103)
+  g.appendChild(createSVGAtom("six", -A50cos* rad6, A50sin* rad6, strokeColor));
+      if (num > 89 && num != 91 && num != 92 && num != 93 && num != 94 && num != 95 && num != 96 && num != 97 && num != 98 && num != 99 && num != 100 && num != 101 && num != 102 && num != 103)
+  g.appendChild(createSVGAtom("six", A50cos* rad6, A50sin* rad6, strokeColor));
+  
+      if (num > 90){
+  g.appendChild(createSVGAtom("five", -A11sin* rad5, A11cos* rad5, strokeColor)); 
+  g.appendChild(createSVGAtom("five", A33cos* rad5, A33sin* rad5, strokeColor));
+}
+  
+      if (num > 91)
+  g.appendChild(createSVGAtom("five", -A11sin* rad5, -A11cos* rad5, strokeColor));
+      if (num > 92)
+  g.appendChild(createSVGAtom("five", A33sin* rad5, -A33cos* rad5, strokeColor)); 
+      if (num > 93){
+  g.appendChild(createSVGAtom("five", -A33cos* rad5, A33sin* rad5, strokeColor));
+  g.appendChild(createSVGAtom("five", -A33sin* rad5, -A33cos* rad5, strokeColor));
+    }
+  
+      if (num > 94)
+  g.appendChild(createSVGAtom("five", A11sin* rad5, A11cos* rad5, strokeColor)); 
+      if (num > 96)
+  g.appendChild(createSVGAtom("five", -A11cos* rad5, A11sin* rad5, strokeColor));
+      if (num > 96)
+  g.appendChild(createSVGAtom("five", A11cos* rad5, A11sin* rad5, strokeColor));
+      if (num > 97)
+  g.appendChild(createSVGAtom("five", A11sin* rad5, -A11cos* rad5, strokeColor));
+      if (num > 98)
+  g.appendChild(createSVGAtom("five", -A33cos* rad5, -A33sin* rad5, strokeColor)); 
+      if (num > 99)
+  g.appendChild(createSVGAtom("five", A33sin* rad5, A33cos* rad5, strokeColor)); 
+      if (num > 100)
+  g.appendChild(createSVGAtom("five", A33cos* rad5, -A33sin* rad5, strokeColor)); 
+      if (num > 101)
+  g.appendChild(createSVGAtom("five", -A33sin* rad5, A33cos* rad5, strokeColor));
+  
+      if (num > 102 && num != 104 && num != 105 && num != 106 && num != 107 && num != 108 && num != 109 && num != 110 && num != 111 && num != 112)
+  g.appendChild(createSVGAtom("seven", -A90sin* rad7, A90cos* rad7, strokeColor)); 
+  
+      if (num > 104)
+  g.appendChild(createSVGAtom("six", -A30cos* rad6, -A30sin* rad6, strokeColor)); 
+      if (num > 105)
+  g.appendChild(createSVGAtom("six", A30cos* rad6, -A30sin* rad6, strokeColor)); 
+      if (num > 106)
+  g.appendChild(createSVGAtom("six", -A10cos* rad6, A10sin* rad6, strokeColor)); 
+      if (num > 107)
+  g.appendChild(createSVGAtom("six", A10cos* rad6, A10sin* rad6, strokeColor)); 
+      if (num > 108)
+  g.appendChild(createSVGAtom("six", -A70cos* rad6, -A70sin* rad6, strokeColor));
+      if (num > 109)
+  g.appendChild(createSVGAtom("six", A70cos* rad6, -A70sin* rad6, strokeColor));
+      if (num > 110)
+  g.appendChild(createSVGAtom("six", -A70cos* rad6, A70sin* rad6, strokeColor));
+      if (num > 111)
+  g.appendChild(createSVGAtom("six", A70cos* rad6, A70sin* rad6, strokeColor));
+  
+      if (num > 113)
+  g.appendChild(createSVGAtom("seven", A90sin* rad7, A90cos* rad7, strokeColor));
+      if (num > 114)
+  g.appendChild(createSVGAtom("seven", -A45* rad7, -A45* rad7, strokeColor));
+      if (num > 115)
+  g.appendChild(createSVGAtom("seven", A45* rad7, -A45* rad7, strokeColor));
+      if (num > 116)
+  g.appendChild(createSVGAtom("seven", -A45* rad7, A45* rad7, strokeColor)); 
+      if (num > 117)
+  g.appendChild(createSVGAtom("seven", A45* rad7, A45* rad7, strokeColor));
 }
 
 function elementLoad() {
@@ -1940,11 +2281,9 @@ function elementLoad() {
   lang = getQueryVariable("lang") || "en-us";
 
   // console.log(lang)
-
   // langValue = languageList.find(x => x.url === lang).id
 
   // console.log(langValue);
-
   // localStorage.setItem("langValue", langValue);
 
   initializePage();
@@ -2884,6 +3223,8 @@ function elementLoad() {
 
   id("highlight").setAttribute("transform", "translate(" + eleHighlight + ")");
 
+  // svgElectron()
+
   resizeElement();
   if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he")
     id("tableSVG").setAttribute("transform", "scale(-1,1)");
@@ -3265,7 +3606,8 @@ function resizeElement() {
 var firstSquareWidth = id("firstSquare").clientWidth;
 id("firstSquare").style.fontSize = (firstSquareWidth / 7.7143) + "px";
 id("secondSquare").style.fontSize = (firstSquareWidth / 10.374) + "px";
-  drawSvg();
+  // drawSvg();
+  svgElectron()
 }
 
 function setBorder() {

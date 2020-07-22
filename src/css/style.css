@@ -1491,9 +1491,9 @@ input:focus + .slider {
 }
 
 #colorTable > tbody > tr > td {
-  width: 16%;
+  width: 15%;
   margin: 0 1.8% 1.8%;
-  padding-bottom: 16%;
+  padding-bottom: 15%;
   display: inline-block;
 }
 
@@ -1808,6 +1808,67 @@ blockquote,
 
 #style3Label {
   background-image: var(--style3Image);
+}
+
+.twitter-share-button {
+  height: 48px;
+  padding: 10px;
+  background-color: rgb(15, 91, 148);
+  color: #fff;
+  text-decoration: none;
+  margin: 0 auto;
+}
+
+.twitter-share-button:hover {
+  background-color: rgba(15, 91, 148, 0.9);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Electron */
+
+.font-fam {
+  font-size: 5em;
+  font-weight: 500;
+}
+
+.one {
+  animation: rotate 10s infinite linear;
+}
+
+.two {
+  animation: rotate 11s infinite linear;
+}
+
+.three {
+  animation: rotate 12s infinite linear;
+}
+
+.four {
+  animation: rotate 13s infinite linear;
+}
+
+.five {
+  animation: rotate 14s infinite linear;
+}
+
+.six {
+  animation: rotate 15s infinite linear;
+}
+
+.seven {
+  animation: rotate 16s infinite linear;
+}
+.electron {
+  transition: all 0.1s ease-in-out;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Scrollbar */

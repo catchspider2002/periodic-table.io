@@ -1912,9 +1912,8 @@ function createSVGRing(radius, strokeColor){
   return circle
 }
 
-function createSVGAtom(ring, x, y, strokeColor){
+function createSVGAtom(x, y, strokeColor){
   var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-  circle.setAttribute('class', 'electron '+ ring);
   circle.setAttribute('cx', x);
   circle.setAttribute('cy', y);
   circle.setAttribute('r', '25');
@@ -1983,6 +1982,21 @@ function svgElectron(){
   electronConf.appendChild(svg);
 
   var g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  var g1 = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  g1.setAttribute('class', 'one');
+  var g2 = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  g2.setAttribute('class', 'two');
+  var g3 = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  g3.setAttribute('class', 'three');
+  var g4 = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  g4.setAttribute('class', 'four');
+  var g5 = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  g5.setAttribute('class', 'five');
+  var g6 = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  g6.setAttribute('class', 'six');
+  var g7 = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  g7.setAttribute('class', 'seven');
+
   var circle1 = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
   circle1.setAttribute('class', 'nucleus');
   circle1.setAttribute('r', '130');
@@ -2003,277 +2017,291 @@ function svgElectron(){
   g.appendChild(circle1);
   g.appendChild(text);
 
-  if (num > 86)
-    g.appendChild(createSVGRing(rad7, strokeColor));
-  if (num > 54)
-    g.appendChild(createSVGRing(rad6, strokeColor));
-  if (num > 36 && num != 46)
-    g.appendChild(createSVGRing(rad5, strokeColor));
-  if (num > 18)
-    g.appendChild(createSVGRing(rad4, strokeColor));
-  if (num > 10)
-    g.appendChild(createSVGRing(rad3, strokeColor));
-  if (num > 2)
-    g.appendChild(createSVGRing(rad2, strokeColor));
-  g.appendChild(createSVGRing(rad1, strokeColor));
+  if (num > 86){
+    g.appendChild(g7);
+    g7.appendChild(createSVGRing(rad7, strokeColor));
+  }
+  if (num > 54){
+    g.appendChild(g6);
+    g6.appendChild(createSVGRing(rad6, strokeColor));
+  }
+  if (num > 36 && num != 46){
+    g.appendChild(g5);
+    g5.appendChild(createSVGRing(rad5, strokeColor));
+  }
+  if (num > 18){
+    g.appendChild(g4);
+    g4.appendChild(createSVGRing(rad4, strokeColor));
+  }
+  if (num > 10){
+    g.appendChild(g3);
+    g3.appendChild(createSVGRing(rad3, strokeColor));
+  }
+  if (num > 2){
+    g.appendChild(g2);
+    g2.appendChild(createSVGRing(rad2, strokeColor));
+  }
+    
+  g.appendChild(g1);
+  g1.appendChild(createSVGRing(rad1, strokeColor));
 
   if (num > 0)
-  g.appendChild(createSVGAtom("one", -A0sin * rad1, -A0cos * rad1, strokeColor));
+  g1.appendChild(createSVGAtom(-A0sin * rad1, -A0cos * rad1, strokeColor));
       if (num > 1)
-  g.appendChild(createSVGAtom("one", A0sin * rad1, A0cos * rad1, strokeColor));
+  g1.appendChild(createSVGAtom(A0sin * rad1, A0cos * rad1, strokeColor));
       if (num > 2)
-  g.appendChild(createSVGAtom("two", -A0sin* rad2, -A0cos* rad2, strokeColor));
+  g2.appendChild(createSVGAtom(-A0sin* rad2, -A0cos* rad2, strokeColor));
       if (num > 3)
-  g.appendChild(createSVGAtom("two", A0sin* rad2, A0cos* rad2, strokeColor));
+  g2.appendChild(createSVGAtom(A0sin* rad2, A0cos* rad2, strokeColor));
       if (num > 4)
-  g.appendChild(createSVGAtom("two", -A90sin* rad2, A90cos* rad2, strokeColor));
+  g2.appendChild(createSVGAtom(-A90sin* rad2, A90cos* rad2, strokeColor));
       if (num > 5)
-  g.appendChild(createSVGAtom("two", A90sin* rad2, A90cos* rad2, strokeColor));
+  g2.appendChild(createSVGAtom(A90sin* rad2, A90cos* rad2, strokeColor));
       if (num > 6)
-  g.appendChild(createSVGAtom("two", -A45* rad2, -A45* rad2, strokeColor));
+  g2.appendChild(createSVGAtom(-A45* rad2, -A45* rad2, strokeColor));
       if (num > 7)
-  g.appendChild(createSVGAtom("two", A45* rad2, -A45* rad2, strokeColor));
+  g2.appendChild(createSVGAtom(A45* rad2, -A45* rad2, strokeColor));
       if (num > 8)
-  g.appendChild(createSVGAtom("two", -A45* rad2, A45* rad2, strokeColor));
+  g2.appendChild(createSVGAtom(-A45* rad2, A45* rad2, strokeColor));
       if (num > 9)
-  g.appendChild(createSVGAtom("two", A45* rad2, A45* rad2, strokeColor));
+  g2.appendChild(createSVGAtom(A45* rad2, A45* rad2, strokeColor));
   
       if (num > 10)
-  g.appendChild(createSVGAtom("three", -A0sin* rad3, -A0cos * rad3, strokeColor));
+  g3.appendChild(createSVGAtom(-A0sin* rad3, -A0cos * rad3, strokeColor));
       if (num > 11)
-  g.appendChild(createSVGAtom("three", A0sin* rad3, A0cos * rad3, strokeColor));
+  g3.appendChild(createSVGAtom(A0sin* rad3, A0cos * rad3, strokeColor));
       if (num > 12)
-  g.appendChild(createSVGAtom("three", -A10cos* rad3, -A10sin * rad3, strokeColor));
+  g3.appendChild(createSVGAtom(-A10cos* rad3, -A10sin * rad3, strokeColor));
       if (num > 13)
-  g.appendChild(createSVGAtom("three", A10cos* rad3, -A10sin * rad3, strokeColor));
+  g3.appendChild(createSVGAtom(A10cos* rad3, -A10sin * rad3, strokeColor));
       if (num > 14)
-  g.appendChild(createSVGAtom("three", -A30cos* rad3, A30sin * rad3, strokeColor));
+  g3.appendChild(createSVGAtom(-A30cos* rad3, A30sin * rad3, strokeColor));
       if (num > 15)
-  g.appendChild(createSVGAtom("three", A30cos* rad3, A30sin * rad3, strokeColor));
+  g3.appendChild(createSVGAtom(A30cos* rad3, A30sin * rad3, strokeColor));
       if (num > 16)
-  g.appendChild(createSVGAtom("three", -A50cos* rad3, -A50sin * rad3, strokeColor));
+  g3.appendChild(createSVGAtom(-A50cos* rad3, -A50sin * rad3, strokeColor));
       if (num > 17)
-  g.appendChild(createSVGAtom("three", A50cos* rad3, -A50sin * rad3, strokeColor));
+  g3.appendChild(createSVGAtom(A50cos* rad3, -A50sin * rad3, strokeColor));
   
       if (num > 18)
-  g.appendChild(createSVGAtom("four", -A0sin* rad4, -A0cos * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(-A0sin* rad4, -A0cos * rad4, strokeColor));
       if (num > 19 && num != 24 && num != 29)
-  g.appendChild(createSVGAtom("four", -A0sin* rad4, A0cos * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(-A0sin* rad4, A0cos * rad4, strokeColor));
   
       if (num > 20)
-  g.appendChild(createSVGAtom("three", -A50cos* rad3, A50sin * rad3, strokeColor));
+  g3.appendChild(createSVGAtom(-A50cos* rad3, A50sin * rad3, strokeColor));
       if (num > 21)
-  g.appendChild(createSVGAtom("three", A50cos* rad3, A50sin * rad3, strokeColor));
+  g3.appendChild(createSVGAtom(A50cos* rad3, A50sin * rad3, strokeColor));
       if (num > 22)
-  g.appendChild(createSVGAtom("three", -A30cos* rad3, -A30sin * rad3, strokeColor));
+  g3.appendChild(createSVGAtom(-A30cos* rad3, -A30sin * rad3, strokeColor));
       if (num > 23){
-  g.appendChild(createSVGAtom("three", A30cos* rad3, -A30sin * rad3, strokeColor));
-  g.appendChild(createSVGAtom("three", -A10cos* rad3, A10sin * rad3, strokeColor));
+  g3.appendChild(createSVGAtom(A30cos* rad3, -A30sin * rad3, strokeColor));
+  g3.appendChild(createSVGAtom(-A10cos* rad3, A10sin * rad3, strokeColor));
     }
   
       if (num > 25)
-  g.appendChild(createSVGAtom("three", A10cos* rad3, A10sin * rad3, strokeColor));
+  g3.appendChild(createSVGAtom(A10cos* rad3, A10sin * rad3, strokeColor));
       if (num > 26)
-  g.appendChild(createSVGAtom("three", -A70cos* rad3, -A70sin * rad3, strokeColor));
+  g3.appendChild(createSVGAtom(-A70cos* rad3, -A70sin * rad3, strokeColor));
       if (num > 27)
-  g.appendChild(createSVGAtom("three", A70cos* rad3, -A70sin * rad3, strokeColor));
+  g3.appendChild(createSVGAtom(A70cos* rad3, -A70sin * rad3, strokeColor));
       if (num > 28){
-  g.appendChild(createSVGAtom("three", -A70cos* rad3, A70sin * rad3, strokeColor));
-  g.appendChild(createSVGAtom("three", A70cos* rad3, A70sin * rad3, strokeColor));
+  g3.appendChild(createSVGAtom(-A70cos* rad3, A70sin * rad3, strokeColor));
+  g3.appendChild(createSVGAtom(A70cos* rad3, A70sin * rad3, strokeColor));
     }
   
       if (num > 30)
-  g.appendChild(createSVGAtom("four", -A90sin* rad4, A90cos * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(-A90sin* rad4, A90cos * rad4, strokeColor));
       if (num > 31)
-  g.appendChild(createSVGAtom("four", A90sin* rad4, A90cos * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(A90sin* rad4, A90cos * rad4, strokeColor));
       if (num > 32)
-  g.appendChild(createSVGAtom("four", -A45* rad4, -A45 * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(-A45* rad4, -A45 * rad4, strokeColor));
       if (num > 33)
-  g.appendChild(createSVGAtom("four", A45* rad4, -A45 * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(A45* rad4, -A45 * rad4, strokeColor));
       if (num > 34)
-  g.appendChild(createSVGAtom("four", -A45* rad4, A45 * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(-A45* rad4, A45 * rad4, strokeColor));
       if (num > 35)
-  g.appendChild(createSVGAtom("four", A45* rad4, A45 * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(A45* rad4, A45 * rad4, strokeColor));
   
       if (num > 36 && num != 46)
-  g.appendChild(createSVGAtom("five", -A0sin* rad5, -A0cos * rad5, strokeColor));
+  g5.appendChild(createSVGAtom(-A0sin* rad5, -A0cos * rad5, strokeColor));
       if (num > 37 && num != 41 && num != 42 && num != 44 && num != 45 && num != 46 && num != 47)
-  g.appendChild(createSVGAtom("five", A0sin* rad5, A0cos * rad5, strokeColor));
+  g5.appendChild(createSVGAtom(A0sin* rad5, A0cos * rad5, strokeColor));
   
       if (num > 38)
-  g.appendChild(createSVGAtom("four", -A22cos* rad4, -A22sin * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(-A22cos* rad4, -A22sin * rad4, strokeColor));
       if (num > 39)
-  g.appendChild(createSVGAtom("four", A22cos* rad4, -A22sin * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(A22cos* rad4, -A22sin * rad4, strokeColor));
       if (num > 40){
-  g.appendChild(createSVGAtom("four", A22cos* rad4, A22sin * rad4, strokeColor));
-  g.appendChild(createSVGAtom("four", -A22cos* rad4, A22sin * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(A22cos* rad4, A22sin * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(-A22cos* rad4, A22sin * rad4, strokeColor));
     }
   
       if (num > 41)
-  g.appendChild(createSVGAtom("four", -A22sin* rad4, -A22cos * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(-A22sin* rad4, -A22cos * rad4, strokeColor));
       if (num > 43){
-  g.appendChild(createSVGAtom("four", A22sin* rad4, -A22cos * rad4, strokeColor));
-  g.appendChild(createSVGAtom("four", -A22sin* rad4, A22cos * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(A22sin* rad4, -A22cos * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(-A22sin* rad4, A22cos * rad4, strokeColor));
     }
   
       if (num > 44)
-  g.appendChild(createSVGAtom("four", A22sin* rad4, A22cos * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(A22sin* rad4, A22cos * rad4, strokeColor));
       if (num > 45){
-  g.appendChild(createSVGAtom("four", -A11cos* rad4, -A11sin * rad4, strokeColor));
-  g.appendChild(createSVGAtom("four", A11cos* rad4, -A11sin * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(-A11cos* rad4, -A11sin * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(A11cos* rad4, -A11sin * rad4, strokeColor));
     }
   
       if (num > 48)
-  g.appendChild(createSVGAtom("five", -A90sin* rad5, A90cos* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(-A90sin* rad5, A90cos* rad5, strokeColor));
       if (num > 49)
-  g.appendChild(createSVGAtom("five", A90sin* rad5, A90cos* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(A90sin* rad5, A90cos* rad5, strokeColor));
       if (num > 50)
-  g.appendChild(createSVGAtom("five", -A45* rad5, -A45* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(-A45* rad5, -A45* rad5, strokeColor));
       if (num > 51)
-  g.appendChild(createSVGAtom("five", A45* rad5, -A45* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(A45* rad5, -A45* rad5, strokeColor));
       if (num > 52)
-  g.appendChild(createSVGAtom("five", -A45* rad5, A45* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(-A45* rad5, A45* rad5, strokeColor));
       if (num > 53)
-  g.appendChild(createSVGAtom("five", A45* rad5, A45* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(A45* rad5, A45* rad5, strokeColor));
       if (num > 54)
-  g.appendChild(createSVGAtom("six", -A0sin* rad6, -A0cos* rad6, strokeColor));
+  g6.appendChild(createSVGAtom(-A0sin* rad6, -A0cos* rad6, strokeColor));
       if (num > 55 && num != 78 && num != 79)
-  g.appendChild(createSVGAtom("six", A0sin* rad6, A0cos* rad6, strokeColor));
+  g6.appendChild(createSVGAtom(A0sin* rad6, A0cos* rad6, strokeColor));
       if (num > 56 && num != 59 && num != 60 && num != 61 && num != 62 && num != 63 && num != 65 && num != 66 && num != 67 && num != 68 && num != 69 && num != 70)
-  g.appendChild(createSVGAtom("five", -A22cos* rad5, -A22sin* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(-A22cos* rad5, -A22sin* rad5, strokeColor));
       if (num > 57)
-  g.appendChild(createSVGAtom("four", -A11sin* rad4, A11cos * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(-A11sin* rad4, A11cos * rad4, strokeColor));
       if (num > 58){
-  g.appendChild(createSVGAtom("four", A33cos* rad4, A33sin * rad4, strokeColor));
-  g.appendChild(createSVGAtom("four", -A11sin* rad4, -A11cos * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(A33cos* rad4, A33sin * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(-A11sin* rad4, -A11cos * rad4, strokeColor));
     }
   
       if (num > 59)
-  g.appendChild(createSVGAtom("four", A33sin* rad4, -A33cos * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(A33sin* rad4, -A33cos * rad4, strokeColor));
       if (num > 60)
-  g.appendChild(createSVGAtom("four", -A33cos* rad4, A33sin * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(-A33cos* rad4, A33sin * rad4, strokeColor));
       if (num > 61)
-  g.appendChild(createSVGAtom("four", -A33sin* rad4, -A33cos * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(-A33sin* rad4, -A33cos * rad4, strokeColor));
       if (num > 62)
-  g.appendChild(createSVGAtom("four", A11sin* rad4, A11cos * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(A11sin* rad4, A11cos * rad4, strokeColor));
       if (num > 64){
-  g.appendChild(createSVGAtom("four", -A11cos* rad4, A11sin * rad4, strokeColor));
-  g.appendChild(createSVGAtom("four", A11cos* rad4, A11sin * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(-A11cos* rad4, A11sin * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(A11cos* rad4, A11sin * rad4, strokeColor));
     }
   
       if (num > 65)
-  g.appendChild(createSVGAtom("four", A11sin* rad4, -A11cos * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(A11sin* rad4, -A11cos * rad4, strokeColor));
       if (num > 66)
-  g.appendChild(createSVGAtom("four", -A33cos* rad4, -A33sin * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(-A33cos* rad4, -A33sin * rad4, strokeColor));
       if (num > 67)
-  g.appendChild(createSVGAtom("four", A33sin* rad4, A33cos * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(A33sin* rad4, A33cos * rad4, strokeColor));
       if (num > 68)
-  g.appendChild(createSVGAtom("four", A33cos* rad4, -A33sin * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(A33cos* rad4, -A33sin * rad4, strokeColor));
       if (num > 69)
-  g.appendChild(createSVGAtom("four", -A33sin* rad4, A33cos * rad4, strokeColor));
+  g4.appendChild(createSVGAtom(-A33sin* rad4, A33cos * rad4, strokeColor));
       if (num > 71)
-  g.appendChild(createSVGAtom("five", A22cos* rad5, -A22sin* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(A22cos* rad5, -A22sin* rad5, strokeColor));
       if (num > 72)
-  g.appendChild(createSVGAtom("five", A22cos* rad5, A22sin* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(A22cos* rad5, A22sin* rad5, strokeColor));
       if (num > 73)
-  g.appendChild(createSVGAtom("five", -A22cos* rad5, A22sin* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(-A22cos* rad5, A22sin* rad5, strokeColor));
       if (num > 74)
-  g.appendChild(createSVGAtom("five", -A22sin* rad5, -A22cos* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(-A22sin* rad5, -A22cos* rad5, strokeColor));
       if (num > 75)
-  g.appendChild(createSVGAtom("five", A22sin* rad5, -A22cos* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(A22sin* rad5, -A22cos* rad5, strokeColor));
       if (num > 76)
-  g.appendChild(createSVGAtom("five", -A22sin* rad5, A22cos* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(-A22sin* rad5, A22cos* rad5, strokeColor));
       if (num > 77){
-  g.appendChild(createSVGAtom("five", A22sin* rad5, A22cos* rad5, strokeColor));
-  g.appendChild(createSVGAtom("five", -A11cos* rad5, -A11sin* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(A22sin* rad5, A22cos* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(-A11cos* rad5, -A11sin* rad5, strokeColor));
     }
   
       if (num > 78)
-  g.appendChild(createSVGAtom("five", A11cos* rad5, -A11sin* rad5, strokeColor)); 
+  g5.appendChild(createSVGAtom(A11cos* rad5, -A11sin* rad5, strokeColor)); 
       if (num > 80)
-  g.appendChild(createSVGAtom("six", -A10cos* rad6, -A10sin* rad6, strokeColor)); 
+  g6.appendChild(createSVGAtom(-A10cos* rad6, -A10sin* rad6, strokeColor)); 
       if (num > 81)
-  g.appendChild(createSVGAtom("six", A10cos* rad6, -A10sin* rad6, strokeColor));
+  g6.appendChild(createSVGAtom(A10cos* rad6, -A10sin* rad6, strokeColor));
       if (num > 82)
-  g.appendChild(createSVGAtom("six", -A30cos* rad6, A30sin* rad6, strokeColor));
+  g6.appendChild(createSVGAtom(-A30cos* rad6, A30sin* rad6, strokeColor));
       if (num > 83)
-  g.appendChild(createSVGAtom("six", A30cos* rad6, A30sin* rad6, strokeColor)); 
+  g6.appendChild(createSVGAtom(A30cos* rad6, A30sin* rad6, strokeColor)); 
       if (num > 84)
-  g.appendChild(createSVGAtom("six", -A50cos* rad6, -A50sin* rad6, strokeColor)); 
+  g6.appendChild(createSVGAtom(-A50cos* rad6, -A50sin* rad6, strokeColor)); 
       if (num > 85)
-  g.appendChild(createSVGAtom("six", A50cos* rad6, -A50sin* rad6, strokeColor));
+  g6.appendChild(createSVGAtom(A50cos* rad6, -A50sin* rad6, strokeColor));
   
       if (num > 86)
-  g.appendChild(createSVGAtom("seven", -A0sin* rad7, -A0cos* rad7, strokeColor));
+  g7.appendChild(createSVGAtom(-A0sin* rad7, -A0cos* rad7, strokeColor));
       if (num > 87)
-  g.appendChild(createSVGAtom("seven", A0sin* rad7, A0cos* rad7, strokeColor)); 
+  g7.appendChild(createSVGAtom(A0sin* rad7, A0cos* rad7, strokeColor)); 
   
       if (num > 88 && num != 94 && num != 95 && num != 97 && num != 98 && num != 99 && num != 100 && num != 101 && num != 102 && num != 103)
-  g.appendChild(createSVGAtom("six", -A50cos* rad6, A50sin* rad6, strokeColor));
+  g6.appendChild(createSVGAtom(-A50cos* rad6, A50sin* rad6, strokeColor));
       if (num > 89 && num != 91 && num != 92 && num != 93 && num != 94 && num != 95 && num != 96 && num != 97 && num != 98 && num != 99 && num != 100 && num != 101 && num != 102 && num != 103)
-  g.appendChild(createSVGAtom("six", A50cos* rad6, A50sin* rad6, strokeColor));
+  g6.appendChild(createSVGAtom(A50cos* rad6, A50sin* rad6, strokeColor));
   
       if (num > 90){
-  g.appendChild(createSVGAtom("five", -A11sin* rad5, A11cos* rad5, strokeColor)); 
-  g.appendChild(createSVGAtom("five", A33cos* rad5, A33sin* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(-A11sin* rad5, A11cos* rad5, strokeColor)); 
+  g5.appendChild(createSVGAtom(A33cos* rad5, A33sin* rad5, strokeColor));
 }
   
       if (num > 91)
-  g.appendChild(createSVGAtom("five", -A11sin* rad5, -A11cos* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(-A11sin* rad5, -A11cos* rad5, strokeColor));
       if (num > 92)
-  g.appendChild(createSVGAtom("five", A33sin* rad5, -A33cos* rad5, strokeColor)); 
+  g5.appendChild(createSVGAtom(A33sin* rad5, -A33cos* rad5, strokeColor)); 
       if (num > 93){
-  g.appendChild(createSVGAtom("five", -A33cos* rad5, A33sin* rad5, strokeColor));
-  g.appendChild(createSVGAtom("five", -A33sin* rad5, -A33cos* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(-A33cos* rad5, A33sin* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(-A33sin* rad5, -A33cos* rad5, strokeColor));
     }
   
       if (num > 94)
-  g.appendChild(createSVGAtom("five", A11sin* rad5, A11cos* rad5, strokeColor)); 
+  g5.appendChild(createSVGAtom(A11sin* rad5, A11cos* rad5, strokeColor)); 
       if (num > 96)
-  g.appendChild(createSVGAtom("five", -A11cos* rad5, A11sin* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(-A11cos* rad5, A11sin* rad5, strokeColor));
       if (num > 96)
-  g.appendChild(createSVGAtom("five", A11cos* rad5, A11sin* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(A11cos* rad5, A11sin* rad5, strokeColor));
       if (num > 97)
-  g.appendChild(createSVGAtom("five", A11sin* rad5, -A11cos* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(A11sin* rad5, -A11cos* rad5, strokeColor));
       if (num > 98)
-  g.appendChild(createSVGAtom("five", -A33cos* rad5, -A33sin* rad5, strokeColor)); 
+  g5.appendChild(createSVGAtom(-A33cos* rad5, -A33sin* rad5, strokeColor)); 
       if (num > 99)
-  g.appendChild(createSVGAtom("five", A33sin* rad5, A33cos* rad5, strokeColor)); 
+  g5.appendChild(createSVGAtom(A33sin* rad5, A33cos* rad5, strokeColor)); 
       if (num > 100)
-  g.appendChild(createSVGAtom("five", A33cos* rad5, -A33sin* rad5, strokeColor)); 
+  g5.appendChild(createSVGAtom(A33cos* rad5, -A33sin* rad5, strokeColor)); 
       if (num > 101)
-  g.appendChild(createSVGAtom("five", -A33sin* rad5, A33cos* rad5, strokeColor));
+  g5.appendChild(createSVGAtom(-A33sin* rad5, A33cos* rad5, strokeColor));
   
       if (num > 102 && num != 104 && num != 105 && num != 106 && num != 107 && num != 108 && num != 109 && num != 110 && num != 111 && num != 112)
-  g.appendChild(createSVGAtom("seven", -A90sin* rad7, A90cos* rad7, strokeColor)); 
+  g7.appendChild(createSVGAtom(-A90sin* rad7, A90cos* rad7, strokeColor)); 
   
       if (num > 104)
-  g.appendChild(createSVGAtom("six", -A30cos* rad6, -A30sin* rad6, strokeColor)); 
+  g6.appendChild(createSVGAtom(-A30cos* rad6, -A30sin* rad6, strokeColor)); 
       if (num > 105)
-  g.appendChild(createSVGAtom("six", A30cos* rad6, -A30sin* rad6, strokeColor)); 
+  g6.appendChild(createSVGAtom(A30cos* rad6, -A30sin* rad6, strokeColor)); 
       if (num > 106)
-  g.appendChild(createSVGAtom("six", -A10cos* rad6, A10sin* rad6, strokeColor)); 
+  g6.appendChild(createSVGAtom(-A10cos* rad6, A10sin* rad6, strokeColor)); 
       if (num > 107)
-  g.appendChild(createSVGAtom("six", A10cos* rad6, A10sin* rad6, strokeColor)); 
+  g6.appendChild(createSVGAtom(A10cos* rad6, A10sin* rad6, strokeColor)); 
       if (num > 108)
-  g.appendChild(createSVGAtom("six", -A70cos* rad6, -A70sin* rad6, strokeColor));
+  g6.appendChild(createSVGAtom(-A70cos* rad6, -A70sin* rad6, strokeColor));
       if (num > 109)
-  g.appendChild(createSVGAtom("six", A70cos* rad6, -A70sin* rad6, strokeColor));
+  g6.appendChild(createSVGAtom(A70cos* rad6, -A70sin* rad6, strokeColor));
       if (num > 110)
-  g.appendChild(createSVGAtom("six", -A70cos* rad6, A70sin* rad6, strokeColor));
+  g6.appendChild(createSVGAtom(-A70cos* rad6, A70sin* rad6, strokeColor));
       if (num > 111)
-  g.appendChild(createSVGAtom("six", A70cos* rad6, A70sin* rad6, strokeColor));
+  g6.appendChild(createSVGAtom(A70cos* rad6, A70sin* rad6, strokeColor));
   
       if (num > 113)
-  g.appendChild(createSVGAtom("seven", A90sin* rad7, A90cos* rad7, strokeColor));
+  g7.appendChild(createSVGAtom(A90sin* rad7, A90cos* rad7, strokeColor));
       if (num > 114)
-  g.appendChild(createSVGAtom("seven", -A45* rad7, -A45* rad7, strokeColor));
+  g7.appendChild(createSVGAtom(-A45* rad7, -A45* rad7, strokeColor));
       if (num > 115)
-  g.appendChild(createSVGAtom("seven", A45* rad7, -A45* rad7, strokeColor));
+  g7.appendChild(createSVGAtom(A45* rad7, -A45* rad7, strokeColor));
       if (num > 116)
-  g.appendChild(createSVGAtom("seven", -A45* rad7, A45* rad7, strokeColor)); 
+  g7.appendChild(createSVGAtom(-A45* rad7, A45* rad7, strokeColor)); 
       if (num > 117)
-  g.appendChild(createSVGAtom("seven", A45* rad7, A45* rad7, strokeColor));
+  g7.appendChild(createSVGAtom(A45* rad7, A45* rad7, strokeColor));
 }
 
 function elementLoad() {

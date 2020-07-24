@@ -543,7 +543,7 @@ table,
 .grid-3 {
   display: grid;
   grid-template-columns: auto auto auto;
-  column-gap: 2rem;
+  /* column-gap: 2rem; */
   margin: 0 -1rem;
 }
 
@@ -1214,6 +1214,12 @@ canvas {
   white-space: nowrap;
   padding: 0 6%;
   font-size: 0.56em;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #details {

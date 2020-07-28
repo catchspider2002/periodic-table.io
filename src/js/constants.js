@@ -2480,7 +2480,7 @@ function elementLoad() {
  id("elementPicture").src = "images/"+imageSrc +".jpg";
 
   var eleHighlight, eleStable, eleUnstable, eleCredits;
-  var preLink = "<a target='_blank' rel='noopener' href=";
+  var preLink = "<a class='underlineLink' target='_blank' rel='noopener' href=";
 
   switch (num) {
     case "1":

@@ -83,11 +83,6 @@
   padding-right: 5px;
 }
 
-.linkText {
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
 .text-left {
   text-align: var(--direction);
 }
@@ -159,7 +154,7 @@ body.fade-out {
 
 a {
   background: 0 0;
-  text-decoration: underline;
+  text-decoration: none;
   /* -ms-transition: background-color 0.4s linear, color 0.4s linear;
   transition: background-color 0.4s linear, color 0.4s linear; */
 }
@@ -172,7 +167,7 @@ a:hover {
 
 a:focus,
 a:hover {
-  text-decoration: none;
+  /* text-decoration: none; */
   color: rgb(var(--theme-color));
 }
 
@@ -497,9 +492,9 @@ table,
   margin: 0.5rem;
 }
 
-#footer > div > a {
+/* #footer > div > a {
   text-decoration: none;
-}
+} */
 
 .justify-center {
   justify-content: center;
@@ -615,7 +610,7 @@ table,
 .nav > li > a {
   display: block;
   padding: 10px;
-  text-decoration: none;
+  /* text-decoration: none; */
 }
 
 .nav > li > a:focus,
@@ -1019,9 +1014,9 @@ canvas {
   overflow: hidden;
 }
 
-.list a {
+/* .list a {
   text-decoration: none;
-}
+} */
 
 .masonry {
   columns: 4 300px;
@@ -1060,19 +1055,33 @@ canvas {
   padding-top: 1rem;
 }
 
+.block {
+  display: block;
+}
+
 .webLink {
   padding: 0.5rem 0;
   display: block;
 }
 
-.compareLink {
+.linkText {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.underlineLink {
+  padding-bottom: 0.125rem;
+  border-bottom: 1px solid rgb(var(--theme-color));
+}
+
+/* .compareLink {
   text-decoration: underline;
 }
 
 .compareLink:focus,
 .compareLink:hover {
   text-decoration: none;
-}
+} */
 
 #headerwrap {
   padding-top: 60px;
@@ -1821,14 +1830,14 @@ blockquote,
   padding: 10px;
   background-color: rgb(15, 91, 148);
   color: #fff;
-  text-decoration: none;
+  /* text-decoration: none; */
   margin: 0 auto;
 }
 
 .twitter-share-button:hover {
   background-color: rgba(15, 91, 148, 0.9);
   color: #fff;
-  text-decoration: none;
+  /* text-decoration: none; */
 }
 
 /* Electron */

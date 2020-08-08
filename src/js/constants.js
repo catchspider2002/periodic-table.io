@@ -611,11 +611,13 @@ function initializePage() {
   id("themeList").title = theme;
   id("translate2Link").textContent = translate;
   id("suggestionLink").textContent = suggestions;
-  // id("newFooter").textContent = newContent;
-  id("newHeader").textContent = newContent;
   id("aboutLink").textContent = about;
   id("creditsLink").textContent = credits;
   id("privacyLink").textContent = privacy;
+  
+  var newSpan = cls("new")
+  for (var i = 0; i < newSpan.length; i++)
+  newSpan[i].textContent = newContent;
   
   document.documentElement.setAttribute('lang', urlLang)
 

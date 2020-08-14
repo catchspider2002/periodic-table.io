@@ -78,13 +78,13 @@ var singlePeriod = cls("periods");
 var singleCategory = cls("category");
 var singleNum = cls("eleNum");
 var singleWt = cls("eleWt");
-var period1 = cls("r1");
-var period2 = cls("r2");
-var period3 = cls("r3");
-var period4 = cls("r4");
-var period5 = cls("r5");
-var period6 = cls("r6");
-var period7 = cls("r7");
+// var period1 = cls("r1");
+// var period2 = cls("r2");
+// var period3 = cls("r3");
+// var period4 = cls("r4");
+// var period5 = cls("r5");
+// var period6 = cls("r6");
+// var period7 = cls("r7");
 var group1 = cls("c1");
 var group2 = cls("c2");
 var group3 = cls("c3");
@@ -785,10 +785,14 @@ function setDefaultTheme() {
   colorClicked(localStorage.getItem("defaultColor"));
 }
 
-function setLanguage() {
+function setLanguageValue() {  
   langValue = id("languageSelectSetting").value;
   localStorage.setItem("langValue", langValue);
 
+  setLanguage()
+}
+
+function setLanguage() {
   derivedLang = getLang();
   urlLang = derivedLang.replace("zs","zh-cn").replace("zt","zh-tw").replace("ph","pl").replace("gb","en-gb")
   setLangFile(derivedLang);
@@ -801,10 +805,8 @@ function setLanguage() {
   });
   
   console.log("urlLang: " + urlLang)
-  if (id("outputConfigMain")){
-      console.log("outputConfigMain")
+  if (id("outputConfigMain"))
     history.pushState({page: 2}, "title 2", "?num=" + num + "&lang=" + urlLang);
-  }
 }
 
 function loaderFunc() {
@@ -833,7 +835,7 @@ function loaderFunc() {
 }
 
 function setSettings() {
-  id("languageSelectSetting").addEventListener("change", setLanguage, false);
+  id("languageSelectSetting").addEventListener("change", setLanguageValue, false);
   id("languageSelectSetting").value = langValue;
   id("temp"+ defaultTemp).checked = true;
   id("style"+ defaultStyle).checked = true;
@@ -1076,7 +1078,6 @@ ele.forEach((radio) => {
   eleTD[i].href =  "element.html?num=" + eleTD[i].id.replace("element", "") + "&lang=" + urlLang;
   // console.log("tst: " + eleTD[i].id.replace("element", ""))
   }
-  // "element.html?num=" + this.id.replace("ele", "") + "&lang=" + urlLang;
 
   defaultName = localStorage.getItem("defaultName");
 
@@ -1104,10 +1105,10 @@ ele.forEach((radio) => {
   setScenarios();
 }
 
-function clickLink() {
-  console.log("urlLang: "+urlLang)
-  document.location.href = "element.html?num=" + this.id.replace("ele", "") + "&lang=" + urlLang;
-}
+// function clickLink() {
+//   console.log("urlLang: "+urlLang)
+//   document.location.href = "element.html?num=" + this.id.replace("ele", "") + "&lang=" + urlLang;
+// }
 
 function setOpacity100() {
   setOpacity(1);
@@ -1118,7 +1119,7 @@ function setOpacity15() {
   setOpacity(0.15);
   for (var i = 0; i < className.length; i++)
     className[i].style.opacity = 1;
-  if (className === period1 || className === period2 || className === period3 || className === period4 || className === period5 || className === period6 || className === period7)
+  if (className === cls("r1") || className === cls("r2") || className === cls("r3") || className === cls("r4") || className === cls("r5") || className === cls("r6") || className === cls("r7"))
     id("periodHeader").style.opacity = 1;
   if (className === group1 || className === group2 || className === group3 || className === group4 || className === group5 || className === group6 ||
     className === group7 || className === group8 || className === group9 || className === group10 || className === group11 || className === group12 ||
@@ -2321,8 +2322,21 @@ function elementLoad() {
   num = getQueryVariable("num") || "1";
   lang = getQueryVariable("lang") || "en-us";
 
-  // console.log(lang)
-  // langValue = languageList.find(x => x.url === lang).id
+  console.log("lang: " + lang)
+  let test = languageList.find(x => x.url === lang)
+  if (test)
+    langValue = test.id
+  else
+    langValue = 'en'
+  urlLang = languageList.find(x => x.id === langValue).url
+  console.log(urlLang)
+
+  id("languageSelectSetting").value = langValue;
+  localStorage.setItem("langValue", langValue);
+
+  // setLanguage();
+
+  // langValue = languageList.find(x => x.url === lang).id || 'en'
 
   // console.log(langValue);
   // localStorage.setItem("langValue", langValue);

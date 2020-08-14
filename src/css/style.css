@@ -67,13 +67,13 @@
   font-display: swap;
 }
 
-@font-face {
+/* @font-face {
   font-family: "pt-icons";
   src: url("../../fonts/pt-icons.woff?31kazk") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: block;
-}
+} */
 
 @font-face {
   font-family: "periodic-table";
@@ -741,14 +741,14 @@ table,
 }
 
 #logs > li:not(.versionHeader)::before {
-  content: "i";
-  font-family: "pt-icons";
+  content: "J";
+  font-family: "periodic-table";
   padding: 0 7px 0 0;
 }
 
 #features > li::before {
-  content: "j";
-  font-family: "pt-icons";
+  content: "c";
+  font-family: "periodic-table";
   padding: var(--icon-padding);
 }
 
@@ -1830,8 +1830,8 @@ blockquote,
 }
 
 .radio-toolbar label::before {
-  content: "b";
-  font-family: "pt-icons";
+  content: "L";
+  font-family: "periodic-table";
   padding: var(--icon-padding);
   line-height: 0;
   color: currentColor;
@@ -1853,8 +1853,8 @@ blockquote,
 }
 
 .radio-toolbar input[type="radio"]:checked + label::before {
-  content: "i";
-  font-family: "pt-icons";
+  content: "J";
+  font-family: "periodic-table";
   padding: var(--icon-padding);
   line-height: 0;
   color: var(--fg-color);

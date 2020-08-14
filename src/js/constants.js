@@ -491,12 +491,12 @@ function closeMenusOnResize() {
 
 function changeIcon(){
 
-  if (id("themeIcon").textContent === "f"){
-    id("themeIcon").textContent = "c";
+  if (id("themeIcon").textContent === "N"){
+    id("themeIcon").textContent = "t";
     defaultNewTheme = "light";
   }
   else{
-    id("themeIcon").textContent = "f";
+    id("themeIcon").textContent = "N";
     defaultNewTheme = "dark";
   }
 
@@ -530,7 +530,7 @@ function initializePage() {
   }
   document.documentElement.setAttribute("data-theme", defaultNewTheme);
 
-  id("themeIcon").textContent = (defaultNewTheme === "light") ? "c" : "f"
+  id("themeIcon").textContent = (defaultNewTheme === "light") ? "t" : "N"
 
   defaultColor = localStorage.getItem("defaultColor");
 
@@ -794,10 +794,17 @@ function setLanguage() {
   setLangFile(derivedLang);
   document.documentElement.setAttribute('lang', urlLang)
   
+  console.log("derivedLang: " + derivedLang)
+  
   loadjs(["locales/locale." + derivedLang + ".js"], {
     success: loaderFunc
   });
   
+  console.log("urlLang: " + urlLang)
+  if (id("outputConfigMain")){
+      console.log("outputConfigMain")
+    history.pushState({page: 2}, "title 2", "?num=" + num + "&lang=" + urlLang);
+  }
 }
 
 function loaderFunc() {
@@ -1063,9 +1070,13 @@ ele.forEach((radio) => {
       singleWt[i].textContent = getNum(singleWt[i].textContent);
   }
   
-  var eleTD = cls("eleTD");
-  for (var i = 0; i < eleTD.length; i++)
-    eleTD[i].addEventListener("click", clickLink, false);
+  var eleTD = cls("elements");
+  for (var i = 0; i < eleTD.length; i++){
+    // eleTD[i].addEventListener("click", clickLink, false);
+  eleTD[i].href =  "element.html?num=" + eleTD[i].id.replace("element", "") + "&lang=" + urlLang;
+  // console.log("tst: " + eleTD[i].id.replace("element", ""))
+  }
+  // "element.html?num=" + this.id.replace("ele", "") + "&lang=" + urlLang;
 
   defaultName = localStorage.getItem("defaultName");
 
@@ -1094,8 +1105,8 @@ ele.forEach((radio) => {
 }
 
 function clickLink() {
-  // console.log("urlLang: "+urlLang)
-  document.location.href = "element.html?num=" + this.id.replace("ele", "") //+ "&lang=" + urlLang;
+  console.log("urlLang: "+urlLang)
+  document.location.href = "element.html?num=" + this.id.replace("ele", "") + "&lang=" + urlLang;
 }
 
 function setOpacity100() {
@@ -3212,6 +3223,16 @@ function elementLoad() {
                                                                           + hist + ", " + properties + ", " + uses + ", PWA, responsive, interactive");
     document.querySelector('meta[property="og:title"]').setAttribute("content", itemName + " - " + homeHeader);
     document.querySelector('meta[property="og:description"]').setAttribute("content", description);
+    
+    var link = document.createElement('link');
+    link.rel = 'canonical';
+    link.href = "https://periodic-table.io/element.html?num="+num+"&lang=en";
+    document.head.appendChild(link);
+    
+    // htmlgenericcontrol linkfile = new htmlgenericcontrol("link");
+    // linkFile.Attributes.Add("rel", "canonical");
+    // // linkFile.Attributes.Add("href", "https://periodic-table.io/element.html?num="+num+"&lang=en");
+    // document.Header.Controls.Add(linkFile);
 
     // chemical, interactive, PWA, properties, history, name origin, images, applications, hazards, electron shell, diagram, chemistry, information
   id("link2").href = "https://www.britannica.com/science/" + link2url;

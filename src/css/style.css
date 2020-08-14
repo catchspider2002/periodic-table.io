@@ -75,9 +75,17 @@
   font-display: block;
 }
 
+@font-face {
+  font-family: "periodic-table";
+  src: url("../../fonts/periodic-table.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
 .iconFont {
-  font-family: "pt-icons";
-  text-transform: lowercase;
+  font-family: "periodic-table";
+  text-transform: none;
   font-size: 1.5rem;
   padding-left: 5px;
   padding-right: 5px;
@@ -521,6 +529,14 @@ table,
 .self-center {
   align-self: center;
 }
+
+.elements {
+  display: block;
+}
+
+/* .elements:hover{ */
+/* color: currentColor; */
+/* } */
 
 .list > div {
   min-width: 300px;
@@ -1241,16 +1257,18 @@ canvas {
 
 #details {
   font-size: 0.82em;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 2em;
+  grid-template-rows: repeat(6, 1fr);
+  padding: 0.25em 1em;
 }
 
-#snippetOuter {
-  width: 10.5em;
-  padding: 1em 0;
-}
-
-#snippetRight {
-  width: 26.5em;
-  padding: 1em 0;
+.innerSnippet {
+  display: grid;
+  grid-template-columns: 10.5em 1fr;
+  grid-column-gap: 1em;
+  padding: 1em;
 }
 
 .snippetGap {
@@ -1292,14 +1310,15 @@ canvas {
 
 #detailRow1 {
   font-size: 1.231em;
-  vertical-align: middle;
-  height: 20%;
-  padding: 0 5%;
+  /* vertical-align: middle; */
+  /* height: 20%; */
+  /* padding: 0 5%; */
+  grid-column: 1/3;
 }
 
-#detailRow2 {
-  width: 60%;
-}
+/* #detailRow2 { */
+/* width: 60%; */
+/* } */
 
 #detailRow2,
 #detailRow3,
@@ -1307,7 +1326,7 @@ canvas {
 #detailRow5,
 #detailRow6 {
   font-weight: 600;
-  padding: 0 5%;
+  /* padding: 0 5%; */
 }
 
 .font-weight-600 {
@@ -1534,6 +1553,11 @@ input:focus + .slider {
   background-color: var(--card-bg-color);
 }
 
+.elements:hover,
+.elements:focus {
+  color: currentColor;
+}
+
 [data-style="2"] .alkaliMetals,
 [data-style="2"] .alkalineEarthMetals,
 [data-style="2"] .transitionMetals,
@@ -1571,6 +1595,11 @@ input:focus + .slider {
   border-color: rgba(var(--color10), 0.5);
 }
 
+[data-style="2"] .alkaliMetals:hover,
+[data-style="3"] .alkaliMetals:hover {
+  color: rgb(var(--color10));
+}
+
 .alkalineEarthMetals {
   background-color: rgba(var(--color8), 0.5); /* Blue */
 }
@@ -1578,6 +1607,11 @@ input:focus + .slider {
 [data-style="2"] .alkalineEarthMetals,
 [data-style="3"] .alkalineEarthMetals {
   border-color: rgba(var(--color8), 0.5);
+}
+
+[data-style="2"] .alkalineEarthMetals:hover,
+[data-style="3"] .alkalineEarthMetals:hover {
+  color: rgb(var(--color8));
 }
 
 .transitionMetals {
@@ -1589,6 +1623,11 @@ input:focus + .slider {
   border-color: rgba(var(--color1), 0.5);
 }
 
+[data-style="2"] .transitionMetals:hover,
+[data-style="3"] .transitionMetals:hover {
+  color: rgb(var(--color1));
+}
+
 .postTransitionMetals {
   background-color: rgba(var(--color9), 0.5); /* Deep Purple */
 }
@@ -1596,6 +1635,11 @@ input:focus + .slider {
 [data-style="2"] .postTransitionMetals,
 [data-style="3"] .postTransitionMetals {
   border-color: rgba(var(--color9), 0.5);
+}
+
+[data-style="2"] .postTransitionMetals:hover,
+[data-style="3"] .postTransitionMetals:hover {
+  color: rgb(var(--color9));
 }
 
 .otherNonmetals {
@@ -1607,6 +1651,11 @@ input:focus + .slider {
   border-color: rgba(var(--color6), 0.5);
 }
 
+[data-style="2"] .otherNonmetals:hover,
+[data-style="3"] .otherNonmetals:hover {
+  color: rgb(var(--color6));
+}
+
 .metalloids {
   background-color: rgba(var(--color2), 0.5); /* Orange */
 }
@@ -1614,6 +1663,11 @@ input:focus + .slider {
 [data-style="2"] .metalloids,
 [data-style="3"] .metalloids {
   border-color: rgba(var(--color2), 0.5);
+}
+
+[data-style="2"] .metalloids:hover,
+[data-style="3"] .metalloids:hover {
+  color: rgb(var(--color2));
 }
 
 .halogens {
@@ -1625,6 +1679,11 @@ input:focus + .slider {
   border-color: rgba(var(--color7), 0.5);
 }
 
+[data-style="2"] .halogens:hover,
+[data-style="3"] .halogens:hover {
+  color: rgb(var(--color7));
+}
+
 .nobleGases {
   background-color: rgba(var(--color5), 0.5); /* Lime */
 }
@@ -1632,6 +1691,11 @@ input:focus + .slider {
 [data-style="2"] .nobleGases,
 [data-style="3"] .nobleGases {
   border-color: rgba(var(--color5), 0.5);
+}
+
+[data-style="2"] .nobleGases:hover,
+[data-style="3"] .nobleGases:hover {
+  color: rgb(var(--color5));
 }
 
 .lanthanides {
@@ -1643,6 +1707,11 @@ input:focus + .slider {
   border-color: rgba(var(--color3), 0.5);
 }
 
+[data-style="2"] .lanthanides:hover,
+[data-style="3"] .lanthanides:hover {
+  color: rgb(var(--color3));
+}
+
 .actinides {
   background-color: rgba(var(--color4), 0.5); /* Brown */
 }
@@ -1650,6 +1719,11 @@ input:focus + .slider {
 [data-style="2"] .actinides,
 [data-style="3"] .actinides {
   border-color: rgba(var(--color4), 0.5);
+}
+
+[data-style="2"] .actinides:hover,
+[data-style="3"] .actinides:hover {
+  color: rgb(var(--color4));
 }
 
 #color1 {

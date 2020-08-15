@@ -508,6 +508,12 @@ function initializePage() {
 
   document.body.classList.remove("fade-out");
 
+  urlLang = getUrlLang(langValue)
+  console.log("urlLang: " + urlLang)
+
+  id("languageSelectSetting").value = langValue;
+  localStorage.setItem("langValue", langValue);
+
   id("settingsLink").addEventListener("click", closeMenu, false);
   id("themeList").addEventListener("click", changeIcon, false);
 
@@ -594,25 +600,35 @@ function initializePage() {
   id("settingsName").textContent = labelName;
   id("settingsAtmWtMain").textContent = labelAtmWtMain;
 
+  id("navLogo").href = "./" + (urlLang === "en" ? "" : "?lang=" + urlLang)
   id("listLink").textContent = list;
   id("listList").title = list;
+  id("listList").href = "list.html" + (urlLang === "en" ? "" : "?lang=" + urlLang)
   id("compareLink").textContent = compare;
   id("compareList").title = compare;
+  id("compareList").href = "compare.html" + (urlLang === "en" ? "" : "?lang=" + urlLang)
   id("translateLink").textContent = translate;
   id("translateList").title = translate;
+  id("translateList").href = "translation.html" + (urlLang === "en" ? "" : "?lang=" + urlLang)
   id("settingsLink").textContent = settings;
   id("settingsList").title = settings;
   id("storeLink").textContent = store;
   id("storeList").title = store;
+  id("storeList").href = "store.html" + (urlLang === "en" ? "" : "?lang=" + urlLang)
   id("printableLink").textContent = printables;
   id("printableList").title = printables;
+  id("printableList").href = "printables.html" + (urlLang === "en" ? "" : "?lang=" + urlLang)
   id("themeLink").textContent = theme;
   id("themeList").title = theme;
   id("translate2Link").textContent = translate;
+  id("translate2Link").href = "translation.html" + (urlLang === "en" ? "" : "?lang=" + urlLang)
   id("suggestionLink").textContent = suggestions;
   id("aboutLink").textContent = about;
+  id("aboutLink").href = "about.html" + (urlLang === "en" ? "" : "?lang=" + urlLang)
   id("creditsLink").textContent = credits;
+  id("creditsLink").href = "credits.html" + (urlLang === "en" ? "" : "?lang=" + urlLang)
   id("privacyLink").textContent = privacy;
+  id("privacyLink").href = "privacy-policy.html" + (urlLang === "en" ? "" : "?lang=" + urlLang)
   
   var newSpan = cls("new")
   for (var i = 0; i < newSpan.length; i++)
@@ -791,22 +807,28 @@ function setLanguageValue() {
   setLanguage()
 }
 
-function setLanguage() {
-  // langValue = getLang();
-  // urlLang = derivedLang.replace("zs","zh-cn").replace("zt","zh-tw").replace("ph","pl").replace("gb","en-gb")
+function loadlangFile(){
   urlLang = getUrlLang(langValue)
   setLangFile(langValue);
   document.documentElement.setAttribute('lang', urlLang)
-  
-  console.log("langValue: " + langValue)
-  
+
   loadjs(["locales/locale." + langValue + ".js"], {
     success: loaderFunc
   });
+
+}
+
+function setLanguage() {
+  // langValue = getLang();
+  // urlLang = derivedLang.replace("zs","zh-cn").replace("zt","zh-tw").replace("ph","pl").replace("gb","en-gb")
   
-  console.log("urlLang: " + urlLang)
+  loadlangFile()
+  
+  // console.log("urlLang: " + urlLang)
   if (id("outputConfigMain"))
     history.pushState({page: 2}, "title 2", "?num=" + num + "&lang=" + urlLang);
+  else
+    history.pushState({page: 2}, "title 2", "?lang=" + urlLang);
 }
 
 function loaderFunc() {
@@ -1073,11 +1095,8 @@ ele.forEach((radio) => {
   }
   
   var eleTD = cls("elements");
-  for (var i = 0; i < eleTD.length; i++){
-    // eleTD[i].addEventListener("click", clickLink, false);
-  eleTD[i].href =  "element.html?num=" + eleTD[i].id.replace("element", "") + "&lang=" + urlLang;
-  // console.log("tst: " + eleTD[i].id.replace("element", ""))
-  }
+  for (var i = 0; i < eleTD.length; i++)
+    eleTD[i].href =  "element.html?num=" + eleTD[i].id.replace("element", "") + (urlLang === "en" ? "" : "&lang=" + urlLang);
 
   defaultName = localStorage.getItem("defaultName");
 
@@ -1104,11 +1123,6 @@ ele.forEach((radio) => {
 
   setScenarios();
 }
-
-// function clickLink() {
-//   console.log("urlLang: "+urlLang)
-//   document.location.href = "element.html?num=" + this.id.replace("ele", "") + "&lang=" + urlLang;
-// }
 
 function setOpacity100() {
   setOpacity(1);
@@ -1606,7 +1620,7 @@ function firstChanged() {
 
   id("atmNo1").textContent = getNum(firstDetails.num);
   id("name1").textContent = window[firstDetails.nme];
-  id("compEle1").href = "element.html?num=" + firstDetails.num;
+  id("compEle1").href = "element.html?num=" + firstDetails.num + (urlLang === "en" ? "" : "&lang=" + urlLang);
   id("symbol1").textContent = firstDetails.sym;
   id("periods1").textContent = getNum(firstDetails.prd);
   id("block1").textContent = firstDetails.blk;
@@ -1645,7 +1659,7 @@ function secondChanged() {
 
   id("atmNo2").textContent = getNum(secondDetails.num);
   id("name2").textContent = window[secondDetails.nme];
-  id("compEle2").href = "element.html?num=" + secondDetails.num;
+  id("compEle2").href = "element.html?num=" + secondDetails.num + (urlLang === "en" ? "" : "&lang=" + urlLang);
   id("symbol2").textContent = secondDetails.sym;
   id("periods2").textContent = getNum(secondDetails.prd);
   id("block2").textContent = secondDetails.blk;
@@ -1730,7 +1744,13 @@ function listLoad() {
     }
   }
 
+  
+  var elementList = cls("elementList");
+  for (var i = 0; i < elementList.length; i++)
+    elementList[i].href =  "element.html?num=" + elementList[i].id.replace("elementList", "") + (urlLang === "en" ? "" : "&lang=" + urlLang);
+
   id("eleList1").innerHTML = hydrogen;
+  // id("elementList1").href = "element.html?num=" + "1" + (urlLang === "en" ? "" : "&lang=" + urlLang);
   id("eleList2").innerHTML = helium;
   id("eleList3").innerHTML = lithium;
   id("eleList4").innerHTML = beryllium;
@@ -1877,17 +1897,6 @@ function sortBySymbol() {
 }
 
 // Element
-
-function getQueryVariable(variable) {
-  var query = window.location.search.substring(1);
-  var vars = query.split("&");
-  for (var i = 0; i < vars.length; i++) {
-    var pair = vars[i].split("=");
-    if (pair[0] === variable)
-      return pair[1];
-  }
-  return null;
-}
 
 // function drawSvg() {
 //   var b = document.querySelector("svelte-electron");
@@ -2320,28 +2329,6 @@ function svgElectron(){
 
 function elementLoad() {
   num = getQueryVariable("num") || "1";
-  lang = getQueryVariable("lang") || "en";
-
-  console.log("lang: " + lang)
-  langValue = getIdLang(lang)
-  urlLang = getUrlLang(langValue)
-  // let test = languageList.find(x => x.url === lang)
-  // if (test)
-  //   langValue = test.id
-  // else
-  //   langValue = 'en'
-  // urlLang = languageList.find(x => x.id === langValue).url
-  console.log("urlLang: " + urlLang)
-
-  id("languageSelectSetting").value = langValue;
-  localStorage.setItem("langValue", langValue);
-
-  // setLanguage();
-
-  // langValue = languageList.find(x => x.url === lang).id || 'en'
-
-  // console.log(langValue);
-  // localStorage.setItem("langValue", langValue);
 
   initializePage();
   id("elementPic").src = "images/placeholder.png"
@@ -2458,19 +2445,17 @@ function elementLoad() {
     id("previousElement").style.textDecoration = "none";
   } else {
     var previousElement = returnItem(previousNum);
-    // var previousElement = returnItem("ele" + previousNum);
     id("previousElement").innerHTML = window[previousElement.nme];
-    id("previousElement").href = "element.html?num=" + previousNum;
+    id("previousElement").href = "element.html?num=" + previousNum + (urlLang === "en" ? "" : "&lang=" + urlLang);
   }
 
   if (num === "118") {
     id("nextElement").innerHTML = "&mdash;";
     id("nextElement").style.textDecoration = "none";
   } else {
-    // var nextElement = returnItem("ele" + nextNum);
     var nextElement = returnItem(nextNum);
     id("nextElement").innerHTML = window[nextElement.nme];
-    id("nextElement").href = "element.html?num=" + nextNum;
+    id("nextElement").href = "element.html?num=" + nextNum + (urlLang === "en" ? "" : "&lang=" + urlLang);
   }
 
   var imageSrc = sym;
@@ -3244,11 +3229,6 @@ function elementLoad() {
     link.rel = 'canonical';
     link.href = "https://periodic-table.io/element.html?num="+num+"&lang=en";
     document.head.appendChild(link);
-    
-    // htmlgenericcontrol linkfile = new htmlgenericcontrol("link");
-    // linkFile.Attributes.Add("rel", "canonical");
-    // // linkFile.Attributes.Add("href", "https://periodic-table.io/element.html?num="+num+"&lang=en");
-    // document.Header.Controls.Add(linkFile);
 
     // chemical, interactive, PWA, properties, history, name origin, images, applications, hazards, electron shell, diagram, chemistry, information
   id("link2").href = "https://www.britannica.com/science/" + link2url;
@@ -3304,376 +3284,10 @@ function setDegrees() {
   id("outputBoilingMain").textContent = getTemp(boiling);
 }
 
-// function drawImage() {
-//   var A45 = 0.7071;
-//   var A90sin = 1;
-//   var A90cos = 0;
-//   var A0sin = 0;
-//   var A0cos = 1;
-//   var A10sin = 0.173648178;
-//   var A10cos = 0.984807753;
-//   var A30sin = 0.5;
-//   var A30cos = 0.8660254;
-//   var A50sin = 0.766044443;
-//   var A50cos = 0.6427876;
-//   var A70sin = 0.93969262;
-//   var A70cos = 0.342020;
-//   var A11sin = 0.19509032201612826784828486847702;
-//   var A11cos = 0.98078528040323044912618223613424;
-//   var A22sin = 0.3826834323650897717284599840304;
-//   var A22cos = 0.92387953251128675612818318939679;
-//   var A33sin = 0.55557023301960222474283081394853;
-//   var A33cos = 0.83146961230254523707878837761791;
-
-//   var fontColor = (defaultNewTheme === "light") ? "rgba(255, 255, 255, 0.75)" : "rgba(0, 0, 0, 0.75)";
-//   var strokeColor = (defaultNewTheme === "light") ? "rgba(0, 0, 0, 0.9)" : "rgba(255, 255, 255, 0.9)";
-
-//   var margin = 0;
-
-//   var electronsRowWidth = id("electronsRow").clientWidth - 30;
-
-//   canvasSize = electronsRowWidth;
-
-//   if (num > 86)
-//     margin = -1 * canvasSize / 28.97;
-//   else if (num > 54)
-//     margin = -1 * canvasSize / 11.27;
-//   else if (num > 36 && num != 46)
-//     margin = -1 * canvasSize / 7;
-//   else if (num > 18)
-//     margin = -1 * canvasSize / 5;
-//   else if (num > 10)
-//     margin = -1 * canvasSize / 3.94;
-//   else if (num > 2)
-//     margin = -1 * canvasSize / 3.25;
-//   else
-//     margin = -1 * canvasSize / 2.74;
-
-//   id("myCanvas").style.margin = margin + "px 0px " + margin + "px 0px";
-//   var configFontSize = canvasSize / 19;
-//   var canvas = id("myCanvas");
-//   radius = Math.round(0.015 * canvasSize * 100, 2) / 100;
-//   canvas.width = canvasSize;
-//   canvas.height = canvasSize;
-//   var context = canvas.getContext("2d");
-
-//   var spacing = Math.round(0.0553571428571429 * canvasSize * 100, 2) / 100;
-//   var rad1 = Math.round(0.4857142857142857 * canvasSize * 100, 2) / 100;
-//   var rad2 = rad1 - spacing;
-//   var rad3 = rad2 - spacing;
-//   var rad4 = rad3 - spacing;
-//   var rad5 = rad4 - spacing;
-//   var rad6 = rad5 - spacing;
-//   var rad7 = rad6 - spacing;
-//   var rad8 = rad7 - spacing;
-//   var cenX = canvasSize / 2;
-//   var cenY = canvasSize / 2;
-
-//   context.strokeStyle = strokeColor;
-//   context.fillStyle = strokeColor;
-
-//   if (num > 86)
-//     bigCircle(context, rad1, cenX, cenY, deg);
-
-//   if (num > 54)
-//     bigCircle(context, rad2, cenX, cenY, deg);
-
-//   if (num > 36 && num != 46)
-//     bigCircle(context, rad3, cenX, cenY, deg);
-
-//   if (num > 18)
-//     bigCircle(context, rad4, cenX, cenY, deg);
-
-//   if (num > 10)
-//     bigCircle(context, rad5, cenX, cenY, deg);
-
-//   if (num > 2)
-//     bigCircle(context, rad6, cenX, cenY, deg);
-
-//   bigCircle(context, rad7, cenX, cenY, deg);
-
-//   context.beginPath();
-//   context.arc(cenX, cenY, rad8, 0, deg, false);
-//   context.closePath();
-//   context.fill();
-
-//   context.fillStyle = fontColor;
-//   context.textAlign = "center";
-//   context.font = "normal " + configFontSize + "px Lato Regular";
-//   context.fillText(sym, cenX, cenY + configFontSize / 3);
-
-//   context.fillStyle = strokeColor;
-
-//   if (num > 0)
-//     smallCircle(context, rad7, -A0sin, -A0cos);
-//   if (num > 1)
-//     smallCircle(context, rad7, A0sin, A0cos);
-
-//   if (num > 2)
-//     smallCircle(context, rad6, -A0sin, -A0cos);
-//   if (num > 3)
-//     smallCircle(context, rad6, A0sin, A0cos);
-//   if (num > 4)
-//     smallCircle(context, rad6, -A90sin, A90cos);
-//   if (num > 5)
-//     smallCircle(context, rad6, A90sin, A90cos);
-//   if (num > 6)
-//     smallCircle(context, rad6, -A45, -A45);
-//   if (num > 7)
-//     smallCircle(context, rad6, A45, -A45);
-//   if (num > 8)
-//     smallCircle(context, rad6, -A45, A45);
-//   if (num > 9)
-//     smallCircle(context, rad6, A45, A45);
-
-//   if (num > 10)
-//     smallCircle(context, rad5, -A0sin, -A0cos);
-//   if (num > 11)
-//     smallCircle(context, rad5, A0sin, A0cos);
-//   if (num > 12)
-//     smallCircle(context, rad5, -A10cos, -A10sin);
-//   if (num > 13)
-//     smallCircle(context, rad5, A10cos, -A10sin);
-//   if (num > 14)
-//     smallCircle(context, rad5, -A30cos, A30sin);
-//   if (num > 15)
-//     smallCircle(context, rad5, A30cos, A30sin);
-//   if (num > 16)
-//     smallCircle(context, rad5, -A50cos, -A50sin);
-//   if (num > 17)
-//     smallCircle(context, rad5, A50cos, -A50sin);
-
-//   if (num > 18)
-//     smallCircle(context, rad4, -A0sin, -A0cos);
-//   if (num > 19 && num != 24 && num != 29)
-//     smallCircle(context, rad4, A0sin, A0cos);
-
-//   if (num > 20)
-//     smallCircle(context, rad5, -A50cos, A50sin);
-//   if (num > 21)
-//     smallCircle(context, rad5, A50cos, A50sin);
-//   if (num > 22)
-//     smallCircle(context, rad5, -A30cos, -A30sin);
-//   if (num > 23) {
-//     smallCircle(context, rad5, A30cos, -A30sin);
-//     smallCircle(context, rad5, -A10cos, A10sin);
-//   }
-//   if (num > 25)
-//     smallCircle(context, rad5, A10cos, A10sin);
-//   if (num > 26)
-//     smallCircle(context, rad5, -A70cos, -A70sin);
-//   if (num > 27)
-//     smallCircle(context, rad5, A70cos, -A70sin);
-//   if (num > 28) {
-//     smallCircle(context, rad5, -A70cos, A70sin);
-//     smallCircle(context, rad5, A70cos, A70sin);
-//   }
-
-//   if (num > 30)
-//     smallCircle(context, rad4, -A90sin, A90cos);
-//   if (num > 31)
-//     smallCircle(context, rad4, A90sin, A90cos);
-//   if (num > 32)
-//     smallCircle(context, rad4, -A45, -A45);
-//   if (num > 33)
-//     smallCircle(context, rad4, A45, -A45);
-//   if (num > 34)
-//     smallCircle(context, rad4, -A45, A45);
-//   if (num > 35)
-//     smallCircle(context, rad4, A45, A45);
-
-//   if (num > 36 && num != 46)
-//     smallCircle(context, rad3, -A0sin, -A0cos);
-//   if (num > 37 && num != 41 && num != 42 && num != 44 && num != 45 && num != 46 && num != 47)
-//     smallCircle(context, rad3, A0sin, A0cos);
-
-//   if (num > 38)
-//     smallCircle(context, rad4, -A22cos, -A22sin);
-//   if (num > 39)
-//     smallCircle(context, rad4, A22cos, -A22sin);
-//   if (num > 40) {
-//     smallCircle(context, rad4, A22cos, A22sin);
-//     smallCircle(context, rad4, -A22cos, A22sin);
-//   }
-//   if (num > 41)
-//     smallCircle(context, rad4, -A22sin, -A22cos);
-//   if (num > 43) {
-//     smallCircle(context, rad4, A22sin, -A22cos);
-//     smallCircle(context, rad4, -A22sin, A22cos);
-//   }
-//   if (num > 44)
-//     smallCircle(context, rad4, A22sin, A22cos);
-//   if (num > 45) {
-//     smallCircle(context, rad4, -A11cos, -A11sin);
-//     smallCircle(context, rad4, A11cos, -A11sin);
-//   }
-//   if (num > 48)
-//     smallCircle(context, rad3, -A90sin, A90cos);
-//   if (num > 49)
-//     smallCircle(context, rad3, A90sin, A90cos);
-//   if (num > 50)
-//     smallCircle(context, rad3, -A45, -A45);
-//   if (num > 51)
-//     smallCircle(context, rad3, A45, -A45);
-//   if (num > 52)
-//     smallCircle(context, rad3, -A45, A45);
-//   if (num > 53)
-//     smallCircle(context, rad3, A45, A45);
-//   if (num > 54)
-//     smallCircle(context, rad2, -A0sin, -A0cos);
-//   if (num > 55 && num != 78 && num != 79)
-//     smallCircle(context, rad2, A0sin, A0cos);
-//   if (num > 56 && num != 59 && num != 60 && num != 61 && num != 62 && num != 63 && num != 65 && num != 66 && num != 67 && num != 68 && num != 69 && num != 70)
-//     smallCircle(context, rad3, -A22cos, -A22sin);
-//   if (num > 57)
-//     smallCircle(context, rad4, -A11sin, A11cos);
-//   if (num > 58) {
-//     smallCircle(context, rad4, A33cos, A33sin);
-//     smallCircle(context, rad4, -A11sin, -A11cos);
-//   }
-//   if (num > 59)
-//     smallCircle(context, rad4, A33sin, -A33cos);
-//   if (num > 60)
-//     smallCircle(context, rad4, -A33cos, A33sin);
-//   if (num > 61)
-//     smallCircle(context, rad4, -A33sin, -A33cos);
-//   if (num > 62)
-//     smallCircle(context, rad4, A11sin, A11cos);
-//   if (num > 64) {
-//     smallCircle(context, rad4, -A11cos, A11sin);
-//     smallCircle(context, rad4, A11cos, A11sin);
-//   }
-//   if (num > 65)
-//     smallCircle(context, rad4, A11sin, -A11cos);
-//   if (num > 66)
-//     smallCircle(context, rad4, -A33cos, -A33sin);
-//   if (num > 67)
-//     smallCircle(context, rad4, A33sin, A33cos);
-//   if (num > 68)
-//     smallCircle(context, rad4, A33cos, -A33sin);
-//   if (num > 69)
-//     smallCircle(context, rad4, -A33sin, A33cos);
-//   if (num > 71)
-//     smallCircle(context, rad3, A22cos, -A22sin);
-//   if (num > 72)
-//     smallCircle(context, rad3, A22cos, A22sin);
-//   if (num > 73)
-//     smallCircle(context, rad3, -A22cos, A22sin);
-//   if (num > 74)
-//     smallCircle(context, rad3, -A22sin, -A22cos);
-//   if (num > 75)
-//     smallCircle(context, rad3, A22sin, -A22cos);
-//   if (num > 76)
-//     smallCircle(context, rad3, -A22sin, A22cos);
-//   if (num > 77) {
-//     smallCircle(context, rad3, A22sin, A22cos);
-//     smallCircle(context, rad3, -A11cos, -A11sin);
-//   }
-//   if (num > 78)
-//     smallCircle(context, rad3, A11cos, -A11sin);
-//   if (num > 80)
-//     smallCircle(context, rad2, -A10cos, -A10sin);
-//   if (num > 81)
-//     smallCircle(context, rad2, A10cos, -A10sin);
-//   if (num > 82)
-//     smallCircle(context, rad2, -A30cos, A30sin);
-//   if (num > 83)
-//     smallCircle(context, rad2, A30cos, A30sin);
-//   if (num > 84)
-//     smallCircle(context, rad2, -A50cos, -A50sin);
-//   if (num > 85)
-//     smallCircle(context, rad2, A50cos, -A50sin);
-
-//   if (num > 86)
-//     smallCircle(context, rad1, -A0sin, -A0cos);
-//   if (num > 87)
-//     smallCircle(context, rad1, A0sin, A0cos);
-
-//   if (num > 88 && num != 94 && num != 95 && num != 97 && num != 98 && num != 99 && num != 100 && num != 101 && num != 102 && num != 103)
-//     smallCircle(context, rad2, -A50cos, A50sin);
-//   if (num > 89 && num != 91 && num != 92 && num != 93 && num != 94 && num != 95 && num != 96 && num != 97 && num != 98 && num != 99 && num != 100 && num != 101 && num != 102 && num != 103)
-//     smallCircle(context, rad2, A50cos, A50sin);
-
-//   if (num > 90) {
-//     smallCircle(context, rad3, -A11sin, A11cos);
-//     smallCircle(context, rad3, A33cos, A33sin);
-//   }
-//   if (num > 91)
-//     smallCircle(context, rad3, -A11sin, -A11cos);
-//   if (num > 92)
-//     smallCircle(context, rad3, A33sin, -A33cos);
-//   if (num > 93) {
-//     smallCircle(context, rad3, -A33cos, A33sin);
-//     smallCircle(context, rad3, -A33sin, -A33cos);
-//   }
-//   if (num > 94)
-//     smallCircle(context, rad3, A11sin, A11cos);
-//   if (num > 96)
-//     smallCircle(context, rad3, -A11cos, A11sin);
-//   if (num > 96)
-//     smallCircle(context, rad3, A11cos, A11sin);
-//   if (num > 97)
-//     smallCircle(context, rad3, A11sin, -A11cos);
-//   if (num > 98)
-//     smallCircle(context, rad3, -A33cos, -A33sin);
-//   if (num > 99)
-//     smallCircle(context, rad3, A33sin, A33cos);
-//   if (num > 100)
-//     smallCircle(context, rad3, A33cos, -A33sin);
-//   if (num > 101)
-//     smallCircle(context, rad3, -A33sin, A33cos);
-
-//   if (num > 102 && num != 104 && num != 105 && num != 106 && num != 107 && num != 108 && num != 109 && num != 110 && num != 111 && num != 112)
-//     smallCircle(context, rad1, -A90sin, A90cos);
-
-//   if (num > 104)
-//     smallCircle(context, rad2, -A30cos, -A30sin);
-//   if (num > 105)
-//     smallCircle(context, rad2, A30cos, -A30sin);
-//   if (num > 106)
-//     smallCircle(context, rad2, -A10cos, A10sin);
-//   if (num > 107)
-//     smallCircle(context, rad2, A10cos, A10sin);
-//   if (num > 108)
-//     smallCircle(context, rad2, -A70cos, -A70sin);
-//   if (num > 109)
-//     smallCircle(context, rad2, A70cos, -A70sin);
-//   if (num > 110)
-//     smallCircle(context, rad2, -A70cos, A70sin);
-//   if (num > 111)
-//     smallCircle(context, rad2, A70cos, A70sin);
-
-//   if (num > 113)
-//     smallCircle(context, rad1, A90sin, A90cos);
-//   if (num > 114)
-//     smallCircle(context, rad1, -A45, -A45);
-//   if (num > 115)
-//     smallCircle(context, rad1, A45, -A45);
-//   if (num > 116)
-//     smallCircle(context, rad1, -A45, A45);
-//   if (num > 117)
-//     smallCircle(context, rad1, A45, A45);
-// }
-
-// function smallCircle(context, rad, ang1, ang2) {
-//   context.beginPath();
-//   context.arc(canvasSize / 2 + rad * ang1, canvasSize / 2 + rad * ang2, radius, 0, deg, false);
-//   context.closePath();
-//   context.fill();
-// }
-
-// function bigCircle(context, rad, cenX, cenY, deg) {
-//   context.beginPath();
-//   context.arc(cenX, cenY, rad, 0, deg, false);
-//   context.closePath();
-//   context.stroke();
-// }
-
 function resizeElement() {
-var firstSquareWidth = id("firstSquare").clientWidth;
-id("firstSquare").style.fontSize = (firstSquareWidth / 7.7143) + "px";
-id("secondSquare").style.fontSize = (firstSquareWidth / 10.374) + "px";
-  // drawSvg();
+  var firstSquareWidth = id("firstSquare").clientWidth;
+  id("firstSquare").style.fontSize = (firstSquareWidth / 7.7143) + "px";
+  id("secondSquare").style.fontSize = (firstSquareWidth / 10.374) + "px";
   svgElectron()
 }
 

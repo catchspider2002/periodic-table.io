@@ -183,7 +183,7 @@ if(score_threshold>=score){if(score_threshold=score,best_loc=j-1,!(best_loc>loc)
 start=Math.max(1,2*loc-best_loc)}}}if(match_bitapScore_(d+1,loc)>score_threshold)break
 last_rd=rd}return 0>best_loc?!1:!0}}])
 
-var userLang, langValue, urlLang; //derivedLang, 
+var userLang, langValue, urlLang;
 var root = document.documentElement;
 
 var color1 = "253, 58, 74"
@@ -261,20 +261,9 @@ function getLang() {
       langValue = "en"
 
     localStorage.setItem("langValue", langValue);
-    // langValue = "sys";
   }
-  //  else
-  //   userLang = (langValue === "sys") ? (window.navigator.language || window.navigator.userLanguage) : langValue;
-  // return newLang;
 }
-
-// derivedLang = getLang();
 getLang();
-
-// if(derivedLang === "pl"){
-// 	derivedLang = "en";
-// 	localStorage.setItem("langValue", "sys");
-// }
 
 function getUrlLang(lang){
   let langExists = languageList.find(x => x.id === lang)
@@ -292,10 +281,10 @@ function getIdLang(lang){
     return "en"
 }
 
-// urlLang = derivedLang.replace("zs","zh-cn").replace("zt","zh-tw").replace("ph","pl").replace("gb","en-gb")
 urlLang = getUrlLang(langValue);
 
 function setLangFile(inLang) {
+  console.log("setLangFile")
   var regularFont, heavyFont;
 
   switch (inLang) {
@@ -350,6 +339,17 @@ function setLangFile(inLang) {
   document.head.appendChild(newStyle);
 }
 
+function getQueryVariable(variable) {
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split("=");
+    if (pair[0] === variable)
+      return pair[1];
+  }
+  return null;
+}
+
 function rgbToHex(rgb) {
   var r = rgb.split(",")[0];
   g = rgb.split(",")[1];
@@ -378,7 +378,6 @@ function colorLuminance(hex, lum) {
 
 	return rgb;
 }
-
 
 function setColor(color) {
   var hexValue = rgbToHex(color);

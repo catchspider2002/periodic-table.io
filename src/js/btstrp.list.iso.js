@@ -232,7 +232,10 @@ var languageList =  [
   { id: 'th', url: 'th'}, 
   { id: 'tr', url: 'tr'}, 
   { id: 'uk', url: 'uk'}, 
-  { id: 'vi', url: 'vi'}
+  { id: 'vi', url: 'vi'},
+  { id: 'ar', url: 'ar'}, 
+  { id: 'he', url: 'he'}, 
+  { id: 'fa', url: 'fa'}
 ]
 
 function getLang() {

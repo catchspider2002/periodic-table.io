@@ -621,14 +621,14 @@ function initializePage() {
   id("themeLink").textContent = theme;
   id("themeList").title = theme;
   id("translate2Link").textContent = translate;
-  id("translate2Link").href = "translation.html" + (urlLang === "en" ? "" : "?lang=" + urlLang)
+  id("translationFooter").href = "translation.html" + (urlLang === "en" ? "" : "?lang=" + urlLang)
   id("suggestionLink").textContent = suggestions;
   id("aboutLink").textContent = about;
-  id("aboutLink").href = "about.html" + (urlLang === "en" ? "" : "?lang=" + urlLang)
+  id("aboutFooter").href = "about.html" + (urlLang === "en" ? "" : "?lang=" + urlLang)
   id("creditsLink").textContent = credits;
-  id("creditsLink").href = "credits.html" + (urlLang === "en" ? "" : "?lang=" + urlLang)
+  id("creditsFooter").href = "credits.html" + (urlLang === "en" ? "" : "?lang=" + urlLang)
   id("privacyLink").textContent = privacy;
-  id("privacyLink").href = "privacy-policy.html" + (urlLang === "en" ? "" : "?lang=" + urlLang)
+  id("privacyFooter").href = "privacy-policy.html" + (urlLang === "en" ? "" : "?lang=" + urlLang)
   
   var newSpan = cls("new")
   for (var i = 0; i < newSpan.length; i++)
@@ -3227,7 +3227,21 @@ function elementLoad() {
     
     var link = document.createElement('link');
     link.rel = 'canonical';
-    link.href = "https://periodic-table.io/element.html?num="+num+"&lang=en";
+    link.href = "https://periodic-table.io/element.html?num="+num+"&lang="+urlLang;
+    document.head.appendChild(link);
+
+    for (var i = 0; i < languageList.length; i++) {
+    var link = document.createElement('link');
+    link.rel = 'alternate';
+    link.hreflang = languageList[i].url;
+    link.href = "https://periodic-table.io/element.html?num=" + num + "&lang=" + languageList[i].url;
+    document.head.appendChild(link);
+    }
+    
+    var link = document.createElement('link');
+    link.rel = 'alternate';
+    link.hreflang = 'x-default';
+    link.href = "https://periodic-table.io/element.html?num=" + num;
     document.head.appendChild(link);
 
     // chemical, interactive, PWA, properties, history, name origin, images, applications, hazards, electron shell, diagram, chemistry, information

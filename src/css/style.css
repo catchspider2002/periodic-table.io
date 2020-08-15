@@ -1146,6 +1146,13 @@ canvas {
   line-height: 2;
 }
 
+.listGrid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  column-gap: 2rem;
+  row-gap: 2rem;
+}
+
 .listSym,
 .listNum {
   width: 60px;

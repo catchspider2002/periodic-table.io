@@ -104,7 +104,6 @@ var group16 = cls("c16");
 var group17 = cls("c17");
 var group18 = cls("c18");
 
-
 let colorClass = cls("colorClass");  
 var elem = id("mainElements");
 var mlt1, mlt2, bln1, bln2, num, sym, item, canvasSize, radius, melting, boiling, lang;
@@ -134,12 +133,12 @@ var pc7 = "×10<sup>-7</sup>%";
 var pc8 = "×10<sup>-8</sup>%";
 var pc9 = "×10<sup>-9</sup>%";
 
-if (derivedLang === "sq" || derivedLang === "az" || derivedLang === "be" || derivedLang === "bg" || derivedLang === "ca" || derivedLang === "hr" ||
-  derivedLang === "cs" || derivedLang === "da" || derivedLang === "nl" || derivedLang === "et" || derivedLang === "fi" || derivedLang === "fr" ||
-  derivedLang === "de" || derivedLang === "el" || derivedLang === "hu" || derivedLang === "id" || derivedLang === "it" || derivedLang === "kk" ||
-  derivedLang === "lv" || derivedLang === "lt" || derivedLang === "mk" || derivedLang === "nn" || derivedLang === "ph" || derivedLang === "pt" ||
-  derivedLang === "ro" || derivedLang === "ru" || derivedLang === "sr" || derivedLang === "sk" || derivedLang === "sl" || derivedLang === "es" ||
-  derivedLang === "sv" || derivedLang === "tr" || derivedLang === "uk" || derivedLang === "uz" || derivedLang === "vi")
+if (langValue === "sq" || langValue === "az" || langValue === "be" || langValue === "bg" || langValue === "ca" || langValue === "hr" ||
+langValue === "cs" || langValue === "da" || langValue === "nl" || langValue === "et" || langValue === "fi" || langValue === "fr" ||
+langValue === "de" || langValue === "el" || langValue === "hu" || langValue === "id" || langValue === "it" || langValue === "kk" ||
+langValue === "lv" || langValue === "lt" || langValue === "mk" || langValue === "nn" || langValue === "ph" || langValue === "pt" ||
+langValue === "ro" || langValue === "ru" || langValue === "sr" || langValue === "sk" || langValue === "sl" || langValue === "es" ||
+langValue === "sv" || langValue === "tr" || langValue === "uk" || langValue === "uz" || langValue === "vi")
   defaultPunc = "comma";
 else
   defaultPunc = "dot";
@@ -406,14 +405,14 @@ function cls(classId) {
 }
 
 function getNum(value) {
-  if (derivedLang === "ar") {
+  if (langValue === "ar") {
     // Arabic
     value = value.toString().replace(/\./g, "٫");
     var id = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
     return value.toString().replace(/[0-9]/g, function(w) {
       return id[+w]
     });
-  } else if (derivedLang === "fa") {
+  } else if (langValue === "fa") {
     // Persian
     value = value.toString().replace(/\./g, "٫");
     var id = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
@@ -430,7 +429,7 @@ function getTemp(tempValue) {
   if (tempValue == "-")
     newTemp = "-";
   else {
-    if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he")
+    if (langValue === "ar" || langValue === "fa" || langValue === "he")
       newTemp = getNum(Math.round((tempValue + 273.15) * 100) / 100) + " K " + ((defaultTemp == "celsius") ? (getNum(tempValue) + " | °C") : (getNum(Math.round(((tempValue * 1.8) + 32) * 100) / 100) + " °F"));
     else
       newTemp = (Math.round((tempValue + 273.15) * 100) / 100) + " K | " + ((defaultTemp == "celsius") ? (tempValue + " °C") : ((Math.round(((tempValue * 1.8) + 32) * 100) / 100) + " °F"));
@@ -582,7 +581,7 @@ function initializePage() {
   id("homeTitle").textContent = homeHeader;
   id("modalSettings").textContent = settings;
   id("language").textContent = language;
-  id("sysLanguage").textContent = sysLanguage;
+  // id("sysLanguage").textContent = sysLanguage;
   id("temperature").textContent = temperature;  
   id("settingPeriodicTable").textContent = homeHeader
 
@@ -650,7 +649,7 @@ function setNavbar() {
     if (window.innerWidth > 1200)
       navWidth = 900;
     else{
-    switch (derivedLang) {
+    switch (langValue) {
       case "en":
         navWidth = 562 + 60;
         break;
@@ -770,7 +769,7 @@ function setNavbar() {
     navWidth = navWidth + 16;
 
     for (var i = 0; i < noOverflow.length; i++) {
-      if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he") {
+      if (langValue === "ar" || langValue === "fa" || langValue === "he") {
         noOverflow[i].style.left = navWidth + "px";
         noOverflow[i].style.right = "75px";
       } else {
@@ -793,14 +792,15 @@ function setLanguageValue() {
 }
 
 function setLanguage() {
-  derivedLang = getLang();
-  urlLang = derivedLang.replace("zs","zh-cn").replace("zt","zh-tw").replace("ph","pl").replace("gb","en-gb")
-  setLangFile(derivedLang);
+  // langValue = getLang();
+  // urlLang = derivedLang.replace("zs","zh-cn").replace("zt","zh-tw").replace("ph","pl").replace("gb","en-gb")
+  urlLang = getUrlLang(langValue)
+  setLangFile(langValue);
   document.documentElement.setAttribute('lang', urlLang)
   
-  console.log("derivedLang: " + derivedLang)
+  console.log("langValue: " + langValue)
   
-  loadjs(["locales/locale." + derivedLang + ".js"], {
+  loadjs(["locales/locale." + langValue + ".js"], {
     success: loaderFunc
   });
   
@@ -1051,20 +1051,20 @@ ele.forEach((radio) => {
   }
 
   for (var i = 0; i < periodLength; i++) {
-    if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he")
+    if (langValue === "ar" || langValue === "fa" || langValue === "he")
       singlePeriod[i].textContent = getNum(singlePeriod[i].textContent);
     singlePeriod[i].addEventListener("mouseenter", setOpacity15, false);
     singlePeriod[i].addEventListener("mouseleave", setOpacity100, false);
   }
 
   for (var i = 0; i < groupLength; i++) {
-    if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he")
+    if (langValue === "ar" || langValue === "fa" || langValue === "he")
       singleGroup[i].textContent = getNum(singleGroup[i].textContent);
     singleGroup[i].addEventListener("mouseenter", setOpacity15, false);
     singleGroup[i].addEventListener("mouseleave", setOpacity100, false);
   }
 
-  if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he") {
+  if (langValue === "ar" || langValue === "fa" || langValue === "he") {
     for (var i = 0; i < singleNum.length; i++)
       singleNum[i].textContent = getNum(singleNum[i].textContent);
 
@@ -1297,20 +1297,20 @@ function setOutline() {
 
 
   if (eleYear.indexOf(" ") > 0) {
-    if (derivedLang === "zs")
+    if (langValue === "zs")
       eleYear = "公元前" + eleYear.substring(0, eleYear.indexOf(" ")) + "年";
-    else if (derivedLang === "ko")
+    else if (langValue === "ko")
       eleYear = "기원전 " + eleYear.substring(0, eleYear.indexOf(" ")) + "년";
-    else if (derivedLang === "ja")
+    else if (langValue === "ja")
       eleYear = "紀元前" + eleYear.substring(0, eleYear.indexOf(" ")) + "年";
-    else if (derivedLang === "kk")
+    else if (langValue === "kk")
       eleYear = "б.з.д" + eleYear.substring(0, eleYear.indexOf(" ")) + "ж.";
-    else if (derivedLang === "hu" || derivedLang === "tr" || derivedLang === "ms" || derivedLang === "th")
+    else if (langValue === "hu" || langValue === "tr" || langValue === "ms" || langValue === "th")
       eleYear = BC + " " + eleYear.substring(0, eleYear.indexOf(" "));
     else
       eleYear = eleYear.substring(0, eleYear.indexOf(" ")) + " " + BC;
   } else {
-    if (derivedLang === "ko")
+    if (langValue === "ko")
       eleYear = eleYear + "년";
   }
 
@@ -1723,7 +1723,7 @@ function listLoad() {
 
   var listNumbers = cls("listNum");
 
-  if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he") {
+  if (langValue === "ar" || langValue === "fa" || langValue === "he") {
     for (var i = 0; i < listNumbers.length; i++) {
       for (var j = 0; j < listNumbers[i].childNodes.length; j++)
         listNumbers[i].childNodes[j].textContent = getNum(listNumbers[i].childNodes[j].textContent)
@@ -2320,16 +2320,18 @@ function svgElectron(){
 
 function elementLoad() {
   num = getQueryVariable("num") || "1";
-  lang = getQueryVariable("lang") || "en-us";
+  lang = getQueryVariable("lang") || "en";
 
   console.log("lang: " + lang)
-  let test = languageList.find(x => x.url === lang)
-  if (test)
-    langValue = test.id
-  else
-    langValue = 'en'
-  urlLang = languageList.find(x => x.id === langValue).url
-  console.log(urlLang)
+  langValue = getIdLang(lang)
+  urlLang = getUrlLang(langValue)
+  // let test = languageList.find(x => x.url === lang)
+  // if (test)
+  //   langValue = test.id
+  // else
+  //   langValue = 'en'
+  // urlLang = languageList.find(x => x.id === langValue).url
+  console.log("urlLang: " + urlLang)
 
   id("languageSelectSetting").value = langValue;
   localStorage.setItem("langValue", langValue);
@@ -3291,7 +3293,7 @@ function elementLoad() {
   // svgElectron()
 
   resizeElement();
-  if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he")
+  if (langValue === "ar" || langValue === "fa" || langValue === "he")
     id("tableSVG").setAttribute("transform", "scale(-1,1)");
   else
     id("tableSVG").setAttribute("transform", "scale(1,1)");

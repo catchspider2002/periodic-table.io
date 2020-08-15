@@ -183,7 +183,7 @@ if(score_threshold>=score){if(score_threshold=score,best_loc=j-1,!(best_loc>loc)
 start=Math.max(1,2*loc-best_loc)}}}if(match_bitapScore_(d+1,loc)>score_threshold)break
 last_rd=rd}return 0>best_loc?!1:!0}}])
 
-var userLang, langValue, derivedLang, urlLang;
+var userLang, langValue, urlLang; //derivedLang, 
 var root = document.documentElement;
 
 var color1 = "253, 58, 74"
@@ -197,43 +197,9 @@ var color8 =  "0, 120, 215"
 var color9 =  "139, 102, 204"
 var color10 =  "228, 27, 144"
 
-function getLang() {
-  langValue = localStorage.getItem("langValue");
-
-  if (!langValue) {
-    userLang = window.navigator.language || window.navigator.userLanguage;
-    localStorage.setItem("langValue", "sys");
-    langValue = "sys";
-  } else
-    userLang = (langValue === "sys") ? (window.navigator.language || window.navigator.userLanguage) : langValue;
-
-  var newLang;
-  if (userLang === "zh-Hans-CN" || userLang === "zh-SG" || userLang === "zh-CN" || userLang === "zh-Hans" || userLang === "zh-Hans-HK")
-    newLang = "zs";
-  else if (userLang === "zh-Hant-TW" || userLang === "zh-Hant" || userLang === "zh-TW" || userLang === "zh-Hant-HK")
-    newLang = "zt";
-  else if (userLang === "pl" || userLang === "pl-PL")
-    newLang = "ph";
-  else if (userLang === "en-GB")
-    newLang = "gb";
-  else
-    newLang = (userLang.indexOf("-") > 0) ? (userLang.substr(0, userLang.indexOf("-"))) : userLang;
-
-  return newLang;
-}
-
-derivedLang = getLang();
-
-if(derivedLang === "pl"){
-	derivedLang = "en";
-	localStorage.setItem("langValue", "sys");
-}
-urlLang = derivedLang.replace("zs","zh-cn").replace("zt","zh-tw").replace("ph","pl").replace("gb","en-gb")
-
-
 var languageList =  [
-  { id: 'en', url: 'en-us'}, 
-  { id: 'gb', url: 'en-gb'}, 
+  { id: 'en', url: 'en'},
+  { id: 'gb', url: 'en-gb'},
   { id: 'bg', url: 'bg'}, 
   { id: 'ca', url: 'ca'}, 
   { id: 'zs', url: 'zh-cn'}, 
@@ -268,6 +234,66 @@ var languageList =  [
   { id: 'uk', url: 'uk'}, 
   { id: 'vi', url: 'vi'}
 ]
+
+function getLang() {
+  console.log("getLang")
+  langValue = localStorage.getItem("langValue");
+
+  if (!langValue || langValue === "sys") {
+    userLang = window.navigator.language || window.navigator.userLanguage;
+
+    var newLang;
+    if (userLang === "zh-Hans-CN" || userLang === "zh-SG" || userLang === "zh-CN" || userLang === "zh-Hans" || userLang === "zh-Hans-HK")
+      newLang = "zs";
+    else if (userLang === "zh-Hant-TW" || userLang === "zh-Hant" || userLang === "zh-TW" || userLang === "zh-Hant-HK")
+      newLang = "zt";
+    else if (userLang === "pl" || userLang === "pl-PL")
+      newLang = "ph";
+    else if (userLang === "en-GB")
+      newLang = "gb";
+    else
+      newLang = (userLang.indexOf("-") > 0) ? (userLang.substr(0, userLang.indexOf("-"))) : userLang;
+
+    let langExists = languageList.find(x => x.id === newLang)
+    if(langExists)
+      langValue = newLang
+    else
+      langValue = "en"
+
+    localStorage.setItem("langValue", langValue);
+    // langValue = "sys";
+  }
+  //  else
+  //   userLang = (langValue === "sys") ? (window.navigator.language || window.navigator.userLanguage) : langValue;
+  // return newLang;
+}
+
+// derivedLang = getLang();
+getLang();
+
+// if(derivedLang === "pl"){
+// 	derivedLang = "en";
+// 	localStorage.setItem("langValue", "sys");
+// }
+
+function getUrlLang(lang){
+  let langExists = languageList.find(x => x.id === lang)
+  if (langExists)
+    return langExists.url
+  else
+    return "en"
+}
+
+function getIdLang(lang){
+  let langExists = languageList.find(x => x.url === lang)
+  if (langExists)
+    return langExists.id
+  else
+    return "en"
+}
+
+// urlLang = derivedLang.replace("zs","zh-cn").replace("zt","zh-tw").replace("ph","pl").replace("gb","en-gb")
+urlLang = getUrlLang(langValue);
 
 function setLangFile(inLang) {
   var regularFont, heavyFont;
@@ -316,7 +342,7 @@ function setLangFile(inLang) {
   newStyle.appendChild(document.createTextNode("@font-face {font-family: Special Heavy;src: url(fonts/" + heavyFont + ".woff2) format('woff2'), url(fonts/" + heavyFont + ".woff) format('woff');}"));
 
  
-  if (derivedLang === "ar" || derivedLang === "fa" || derivedLang === "he") 
+  if (langValue === "ar" || langValue === "fa" || langValue === "he") 
     document.documentElement.setAttribute('data-direction', "rtl");
    else 
     document.documentElement.setAttribute('data-direction', "ltr");

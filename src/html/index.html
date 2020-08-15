@@ -1277,8 +1277,8 @@
       })();
       loadjs(["btstrp.list.iso.min.js"], {
         success: function () {
-          setLangFile(derivedLang);
-          loadjs(["constants.min.js", "locales/locale." + derivedLang + ".js"], {
+          setLangFile(langValue);
+          loadjs(["constants.min.js", "locales/locale." + langValue + ".js"], {
             success: function () {
               indexLoad();
             },

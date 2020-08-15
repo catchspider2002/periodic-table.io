@@ -239,7 +239,7 @@ var languageList =  [
 ]
 
 function getLang() {
-  console.log("getLang")
+  // console.log("getLang")
   langValue = localStorage.getItem("langValue");
 
   if (!langValue || langValue === "sys") {
@@ -287,7 +287,7 @@ function getIdLang(lang){
 urlLang = getUrlLang(langValue);
 
 function setLangFile(inLang) {
-  console.log("setLangFile")
+  // console.log("setLangFile")
   var regularFont, heavyFont;
 
   switch (inLang) {

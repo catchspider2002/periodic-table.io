@@ -509,7 +509,7 @@ function initializePage() {
   document.body.classList.remove("fade-out");
 
   urlLang = getUrlLang(langValue)
-  console.log("urlLang: " + urlLang)
+  // console.log("urlLang: " + urlLang)
 
   id("languageSelectSetting").value = langValue;
   localStorage.setItem("langValue", langValue);
@@ -635,6 +635,12 @@ function initializePage() {
   newSpan[i].textContent = newContent;
   
   document.documentElement.setAttribute('lang', urlLang)
+  
+  var link = document.createElement('link');
+  link.rel = 'canonical';
+  link.href = window.location.href 
+  // "https://periodic-table.io/element.html?num="+num+"&lang="+urlLang;
+  document.head.appendChild(link);
 
   for (var i = 0; i < colorClass.length; i++) {
     colorClass[i].addEventListener("click", function() {
@@ -800,14 +806,10 @@ function setDefaultTheme() {
   colorClicked(localStorage.getItem("defaultColor"));
 }
 
-function setLanguageValue() {  
+function setLanguage() {
   langValue = id("languageSelectSetting").value;
   localStorage.setItem("langValue", langValue);
 
-  setLanguage()
-}
-
-function loadlangFile(){
   urlLang = getUrlLang(langValue)
   setLangFile(langValue);
   document.documentElement.setAttribute('lang', urlLang)
@@ -815,14 +817,6 @@ function loadlangFile(){
   loadjs(["locales/locale." + langValue + ".js"], {
     success: loaderFunc
   });
-
-}
-
-function setLanguage() {
-  // langValue = getLang();
-  // urlLang = derivedLang.replace("zs","zh-cn").replace("zt","zh-tw").replace("ph","pl").replace("gb","en-gb")
-  
-  loadlangFile()
   
   // console.log("urlLang: " + urlLang)
   if (id("outputConfigMain"))
@@ -857,7 +851,7 @@ function loaderFunc() {
 }
 
 function setSettings() {
-  id("languageSelectSetting").addEventListener("change", setLanguageValue, false);
+  id("languageSelectSetting").addEventListener("change", setLanguage, false);
   id("languageSelectSetting").value = langValue;
   id("temp"+ defaultTemp).checked = true;
   id("style"+ defaultStyle).checked = true;
@@ -865,8 +859,6 @@ function setSettings() {
 
 function setTemp() {
   defaultTemp = document.querySelector('input[name="temperature"]:checked').value;
-
-  // defaultTemp = id("tempSelectSetting").value;
   localStorage.setItem("defaultTemp", defaultTemp);
 
   if (id("outputConfigMain"))
@@ -880,7 +872,6 @@ function setTemp() {
 
 function setStyle(){
   defaultStyle = document.querySelector('input[name="tableStyle"]:checked').value;
-  // console.log(defaultStyle)
   document.documentElement.setAttribute('data-style', defaultStyle);
   localStorage.setItem("defaultStyle", defaultStyle);
 }
@@ -888,10 +879,8 @@ function setStyle(){
 function setTheme() {
   setDefaultTheme();
   if (id("outputConfigMain"))
-    // drawSvg();
     svgElectron()
 }
-
 
 // Index -------------------------------------------------------------------------------------
 
@@ -3225,17 +3214,17 @@ function elementLoad() {
     document.querySelector('meta[property="og:title"]').setAttribute("content", itemName + " - " + homeHeader);
     document.querySelector('meta[property="og:description"]').setAttribute("content", description);
     
-    var link = document.createElement('link');
-    link.rel = 'canonical';
-    link.href = "https://periodic-table.io/element.html?num="+num+"&lang="+urlLang;
-    document.head.appendChild(link);
+    // var link = document.createElement('link');
+    // link.rel = 'canonical';
+    // link.href = "https://periodic-table.io/element.html?num="+num+"&lang="+urlLang;
+    // document.head.appendChild(link);
 
     for (var i = 0; i < languageList.length; i++) {
-    var link = document.createElement('link');
-    link.rel = 'alternate';
-    link.hreflang = languageList[i].url;
-    link.href = "https://periodic-table.io/element.html?num=" + num + "&lang=" + languageList[i].url;
-    document.head.appendChild(link);
+      var link = document.createElement('link');
+      link.rel = 'alternate';
+      link.hreflang = languageList[i].url;
+      link.href = "https://periodic-table.io/element.html?num=" + num + "&lang=" + languageList[i].url;
+      document.head.appendChild(link);
     }
     
     var link = document.createElement('link');

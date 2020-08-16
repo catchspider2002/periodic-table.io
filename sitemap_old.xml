@@ -1,0 +1,633 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>https://periodic-table.io/</loc>
+	<lastmod>2020-05-18T08:42:22+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/list.html</loc>
+	<lastmod>2020-05-18T08:42:22+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/compare.html</loc>
+	<lastmod>2020-05-18T08:42:25+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/printables.html</loc>
+	<lastmod>2020-05-18T08:42:25+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/store.html</loc>
+	<lastmod>2020-05-18T08:42:26+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/about.html</loc>
+	<lastmod>2020-05-18T08:42:28+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/credits.html</loc>
+	<lastmod>2020-05-18T08:42:27+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/privacy-policy.html</loc>
+	<lastmod>2020-05-18T08:42:27+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=1</loc>
+	<lastmod>2020-05-18T08:42:28+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=2</loc>
+	<lastmod>2020-05-18T08:42:28+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=3</loc>
+	<lastmod>2020-05-18T08:42:28+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=4</loc>
+	<lastmod>2020-05-18T08:42:29+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=5</loc>
+	<lastmod>2020-05-18T08:42:29+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=6</loc>
+	<lastmod>2020-05-18T08:42:29+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=7</loc>
+	<lastmod>2020-05-18T08:42:32+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=8</loc>
+	<lastmod>2020-05-18T08:42:29+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=9</loc>
+	<lastmod>2020-05-18T08:42:29+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=10</loc>
+	<lastmod>2020-05-18T08:42:29+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=11</loc>
+	<lastmod>2020-05-18T08:42:30+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=12</loc>
+	<lastmod>2020-05-18T08:42:30+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=13</loc>
+	<lastmod>2020-05-18T08:42:30+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=14</loc>
+	<lastmod>2020-05-18T08:42:30+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=15</loc>
+	<lastmod>2020-05-18T08:42:30+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=16</loc>
+	<lastmod>2020-05-18T08:42:30+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=17</loc>
+	<lastmod>2020-05-18T08:42:30+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=18</loc>
+	<lastmod>2020-05-18T08:42:31+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=19</loc>
+	<lastmod>2020-05-18T08:42:31+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=20</loc>
+	<lastmod>2020-05-18T08:42:31+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=21</loc>
+	<lastmod>2020-05-18T08:42:31+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=22</loc>
+	<lastmod>2020-05-18T08:42:31+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=23</loc>
+	<lastmod>2020-05-18T08:42:31+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=24</loc>
+	<lastmod>2020-05-18T08:42:31+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=25</loc>
+	<lastmod>2020-05-18T08:42:32+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=26</loc>
+	<lastmod>2020-05-18T08:42:32+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=27</loc>
+	<lastmod>2020-05-18T08:42:32+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=28</loc>
+	<lastmod>2020-05-18T08:42:32+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=29</loc>
+	<lastmod>2020-05-18T08:42:32+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=30</loc>
+	<lastmod>2020-05-18T08:42:32+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=31</loc>
+	<lastmod>2020-05-18T08:42:32+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=32</loc>
+	<lastmod>2020-05-18T08:42:33+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=33</loc>
+	<lastmod>2020-05-18T08:42:33+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=34</loc>
+	<lastmod>2020-05-18T08:42:33+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=35</loc>
+	<lastmod>2020-05-18T08:42:33+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=36</loc>
+	<lastmod>2020-05-18T08:42:33+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=37</loc>
+	<lastmod>2020-05-18T08:42:33+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=38</loc>
+	<lastmod>2020-05-18T08:42:33+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=39</loc>
+	<lastmod>2020-05-18T08:42:33+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=40</loc>
+	<lastmod>2020-05-18T08:42:33+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=41</loc>
+	<lastmod>2020-05-18T08:42:34+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=42</loc>
+	<lastmod>2020-05-18T08:42:34+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=43</loc>
+	<lastmod>2020-05-18T08:42:33+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=44</loc>
+	<lastmod>2020-05-18T08:42:34+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=45</loc>
+	<lastmod>2020-05-18T08:42:34+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=46</loc>
+	<lastmod>2020-05-18T08:42:34+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=47</loc>
+	<lastmod>2020-05-18T08:42:34+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=48</loc>
+	<lastmod>2020-05-18T08:42:34+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=49</loc>
+	<lastmod>2020-05-18T08:42:35+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=50</loc>
+	<lastmod>2020-05-18T08:42:34+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=51</loc>
+	<lastmod>2020-05-18T08:42:35+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=52</loc>
+	<lastmod>2020-05-18T08:42:35+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=53</loc>
+	<lastmod>2020-05-18T08:42:35+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=54</loc>
+	<lastmod>2020-05-18T08:42:35+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=55</loc>
+	<lastmod>2020-05-18T08:42:35+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=56</loc>
+	<lastmod>2020-05-18T08:42:35+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=57</loc>
+	<lastmod>2020-05-18T08:42:35+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=58</loc>
+	<lastmod>2020-05-18T08:42:35+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=59</loc>
+	<lastmod>2020-05-18T08:42:35+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=60</loc>
+	<lastmod>2020-05-18T08:42:35+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=61</loc>
+	<lastmod>2020-05-18T08:42:36+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=62</loc>
+	<lastmod>2020-05-18T08:42:36+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=63</loc>
+	<lastmod>2020-05-18T08:42:36+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=64</loc>
+	<lastmod>2020-05-18T08:42:36+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=65</loc>
+	<lastmod>2020-05-18T08:42:36+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=66</loc>
+	<lastmod>2020-05-18T08:42:36+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=67</loc>
+	<lastmod>2020-05-18T08:42:36+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=68</loc>
+	<lastmod>2020-05-18T08:42:37+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=69</loc>
+	<lastmod>2020-05-18T08:42:36+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=70</loc>
+	<lastmod>2020-05-18T08:42:37+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=71</loc>
+	<lastmod>2020-05-18T08:42:37+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=72</loc>
+	<lastmod>2020-05-18T08:42:37+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=73</loc>
+	<lastmod>2020-05-18T08:42:37+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=74</loc>
+	<lastmod>2020-05-18T08:42:37+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=75</loc>
+	<lastmod>2020-05-18T08:42:37+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=76</loc>
+	<lastmod>2020-05-18T08:42:37+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=77</loc>
+	<lastmod>2020-05-18T08:42:37+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=78</loc>
+	<lastmod>2020-05-18T08:42:37+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=79</loc>
+	<lastmod>2020-05-18T08:42:38+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=80</loc>
+	<lastmod>2020-05-18T08:42:38+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=81</loc>
+	<lastmod>2020-05-18T08:42:38+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=82</loc>
+	<lastmod>2020-05-18T08:42:38+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=83</loc>
+	<lastmod>2020-05-18T08:42:38+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=84</loc>
+	<lastmod>2020-05-18T08:42:38+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=85</loc>
+	<lastmod>2020-05-18T08:42:38+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=86</loc>
+	<lastmod>2020-05-18T08:42:38+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=87</loc>
+	<lastmod>2020-05-18T08:42:38+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=88</loc>
+	<lastmod>2020-05-18T08:42:38+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=89</loc>
+	<lastmod>2020-05-18T08:42:39+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=90</loc>
+	<lastmod>2020-05-18T08:42:39+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=91</loc>
+	<lastmod>2020-05-18T08:42:39+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=92</loc>
+	<lastmod>2020-05-18T08:42:39+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=93</loc>
+	<lastmod>2020-05-18T08:42:39+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=94</loc>
+	<lastmod>2020-05-18T08:42:39+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=95</loc>
+	<lastmod>2020-05-18T08:42:39+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=96</loc>
+	<lastmod>2020-05-18T08:42:39+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=97</loc>
+	<lastmod>2020-05-18T08:42:39+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=98</loc>
+	<lastmod>2020-05-18T08:42:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=99</loc>
+	<lastmod>2020-05-18T08:42:39+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=100</loc>
+	<lastmod>2020-05-18T08:42:39+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=101</loc>
+	<lastmod>2020-05-18T08:42:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=102</loc>
+	<lastmod>2020-05-18T08:42:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=103</loc>
+	<lastmod>2020-05-18T08:42:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=104</loc>
+	<lastmod>2020-05-18T08:42:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=105</loc>
+	<lastmod>2020-05-18T08:42:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=106</loc>
+	<lastmod>2020-05-18T08:42:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=107</loc>
+	<lastmod>2020-05-18T08:42:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=108</loc>
+	<lastmod>2020-05-18T08:42:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=109</loc>
+	<lastmod>2020-05-18T08:42:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=110</loc>
+	<lastmod>2020-05-18T08:42:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=111</loc>
+	<lastmod>2020-05-18T08:42:40+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=112</loc>
+	<lastmod>2020-05-18T08:42:41+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=113</loc>
+	<lastmod>2020-05-18T08:42:41+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=114</loc>
+	<lastmod>2020-05-18T08:42:41+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=115</loc>
+	<lastmod>2020-05-18T08:42:41+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=116</loc>
+	<lastmod>2020-05-18T08:42:41+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=117</loc>
+	<lastmod>2020-05-18T08:42:41+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://periodic-table.io/element.html?num=118</loc>
+	<lastmod>2020-05-18T08:42:41+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+</urlset>

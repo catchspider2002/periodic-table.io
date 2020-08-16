@@ -20,11 +20,11 @@ importScripts('workbox-sw.prod.v2.1.3.js');
 const fileManifest = [
   {
     "url": "404.html",
-    "revision": "b83e3b80268b643c2f07b051fbf7d495"
+    "revision": "43195819f5eee270e4a7b2c04290d09c"
   },
   {
     "url": "about.html",
-    "revision": "c1d73a0680a3811b092d613d5ce14504"
+    "revision": "125fc860178f737bcb5692cc269bb742"
   },
   {
     "url": "browserconfig.xml",
@@ -36,7 +36,7 @@ const fileManifest = [
   },
   {
     "url": "compare.html",
-    "revision": "4b74da51a6101590e7d3e997b816155f"
+    "revision": "c0bccaa9e943e34133453a3e3fb5c67f"
   },
   {
     "url": "constants.min.js",
@@ -44,7 +44,7 @@ const fileManifest = [
   },
   {
     "url": "credits.html",
-    "revision": "bd5214f4d9d002f7d43659071119384f"
+    "revision": "22e31dc5de559c31c309478f03c02d33"
   },
   {
     "url": "element.html",
@@ -264,7 +264,7 @@ const fileManifest = [
   },
   {
     "url": "printables.html",
-    "revision": "2434b3b1fb88b3caaa74fc302a77ac1a"
+    "revision": "a56d74b4412438f54c90c13c525696e6"
   },
   {
     "url": "privacy-policy.html",
@@ -280,7 +280,7 @@ const fileManifest = [
   },
   {
     "url": "store.html",
-    "revision": "a08bb398492f928ef75154534788582b"
+    "revision": "c1d814e74ff1d4010f1ce9f10759b82e"
   },
   {
     "url": "style.min.css",
@@ -292,11 +292,11 @@ const fileManifest = [
   },
   {
     "url": "svelte-bundle.js",
-    "revision": "5c2bb3f59ec37e9d44a64bbd3388c8fb"
+    "revision": "19dec7b74d08c875f3ca5584af0a4929"
   },
   {
     "url": "translation.html",
-    "revision": "0f7268baed95d1e22c8d8d63fa7d692b"
+    "revision": "8c66c50e60f9a6b760693d72b2b954a1"
   },
   {
     "url": "images/placeholder.png",

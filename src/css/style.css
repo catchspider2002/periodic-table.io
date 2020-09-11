@@ -1095,7 +1095,7 @@ canvas {
 
 .underlineLink {
   padding-bottom: 0.125rem;
-  border-bottom: 1px solid rgb(var(--theme-color));
+  border-bottom: 2px solid rgb(var(--theme-color));
 }
 
 /* .compareLink {

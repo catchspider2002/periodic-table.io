@@ -1098,15 +1098,6 @@ canvas {
   border-bottom: 2px solid rgb(var(--theme-color));
 }
 
-/* .compareLink {
-  text-decoration: underline;
-}
-
-.compareLink:focus,
-.compareLink:hover {
-  text-decoration: none;
-} */
-
 #headerwrap {
   padding-top: 60px;
   overflow-x: auto;

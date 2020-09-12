@@ -218,6 +218,7 @@ var languageList =  [
   { id: 'it', url: 'it'}, 
   { id: 'ja', url: 'ja'}, 
   { id: 'ko', url: 'ko'}, 
+  { id: 'ms', url: 'ms'}, 
   { id: 'nb', url: 'nb-no'}, 
   { id: 'nn', url: 'nn-no'}, 
   { id: 'ph', url: 'pl'}, 

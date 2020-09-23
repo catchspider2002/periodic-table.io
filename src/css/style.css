@@ -97,6 +97,10 @@
   text-align: var(--direction-rev);
 }
 
+.solName{
+  display: none;
+}
+
 #storeLink,
 #settingsLink,
 #translateLink,
@@ -121,6 +125,7 @@
   #translateLink,
   #printableLink,
   #themeLink,
+  .solName,
   .newHeader {
     display: block;
   }
@@ -1935,31 +1940,31 @@ blockquote,
 }
 
 .one {
-  animation: rotate 16s infinite linear;
+  animation: rotate 10s infinite linear;
 }
 
 .two {
-  animation: rotate 15s infinite linear;
-}
-
-.three {
-  animation: rotate 14s infinite linear;
-}
-
-.four {
-  animation: rotate 13s infinite linear;
-}
-
-.five {
   animation: rotate 12s infinite linear;
 }
 
+.three {
+  animation: rotate 14.4s infinite linear;
+}
+
+.four {
+  animation: rotate 17.28s infinite linear;
+}
+
+.five {
+  animation: rotate 20.74s infinite linear;
+}
+
 .six {
-  animation: rotate 11s infinite linear;
+  animation: rotate 24.88s infinite linear;
 }
 
 .seven {
-  animation: rotate 10s infinite linear;
+  animation: rotate 29.86s infinite linear;
 }
 .electron {
   transition: all 0.1s ease-in-out;
@@ -2059,6 +2064,7 @@ blockquote,
 .grid-container {
   display: grid;
   overflow: auto;
+  max-height: calc(100vh - 410px);
 }
 .grid-container .grid {
   display: flex;

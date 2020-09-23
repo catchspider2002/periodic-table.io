@@ -1483,8 +1483,6 @@ function creditsLoad() {
   id("msTrans").textContent = msTrans;
 }
 
-
-
 function printablesLoad() {
   initializePage();
   id("homeTitle").textContent = "Printables" + " - " + homeHeader;

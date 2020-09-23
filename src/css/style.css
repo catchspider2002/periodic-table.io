@@ -110,7 +110,8 @@
   #storeLink,
   #settingsLink,
   #translateLink,
-  #themeLink {
+  #themeLink,
+  .newHeader {
     display: none;
   }
 }
@@ -118,7 +119,8 @@
   #storeLink,
   #settingsLink,
   #translateLink,
-  #themeLink {
+  #themeLink,
+  .newHeader {
     display: block;
   }
 }
@@ -713,6 +715,10 @@ table,
     padding-right: 0;
     padding-left: 0;
   }
+
+  .dropdownLink ul {
+    width: unset;
+  }
 }
 
 .navbar-fixed-top {
@@ -1137,7 +1143,7 @@ canvas {
   line-height: 2;
 }
 
-.listGrid{
+.listGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   column-gap: 2rem;
@@ -1928,15 +1934,15 @@ blockquote,
 }
 
 .one {
-  animation: rotate 10s infinite linear;
+  animation: rotate 16s infinite linear;
 }
 
 .two {
-  animation: rotate 11s infinite linear;
+  animation: rotate 15s infinite linear;
 }
 
 .three {
-  animation: rotate 12s infinite linear;
+  animation: rotate 14s infinite linear;
 }
 
 .four {
@@ -1944,15 +1950,15 @@ blockquote,
 }
 
 .five {
-  animation: rotate 14s infinite linear;
+  animation: rotate 12s infinite linear;
 }
 
 .six {
-  animation: rotate 15s infinite linear;
+  animation: rotate 11s infinite linear;
 }
 
 .seven {
-  animation: rotate 16s infinite linear;
+  animation: rotate 10s infinite linear;
 }
 .electron {
   transition: all 0.1s ease-in-out;
@@ -1988,6 +1994,63 @@ blockquote,
   *::-webkit-scrollbar-thumb {
     background-color: #888888;
   }
+}
+
+/* Dropdown Link in Navbar */
+.dropdownLink,
+.dropdownLink ul li {
+  color: #fff;
+  /* background: darkorange; */
+  display: block;
+  /* float: left; */
+  /* padding: 1rem; */
+  position: relative;
+  /* text-decoration: none; */
+  transition-duration: 0.5s;
+}
+
+/* .dropdownLink a {
+  color: #fff;
+} */
+
+.dropdownLink:hover,
+.dropdownLink:focus-within {
+  /* background: red; */
+  cursor: pointer;
+}
+
+.dropdownLink:focus-within a {
+  outline: none;
+}
+
+.dropdownLink ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  visibility: hidden;
+  opacity: 0;
+  background-color: var(--darker-color-0);
+  width: 100%;
+  min-width: 12rem;
+  position: absolute;
+  transition: all 0.5s ease;
+  left: 0;
+  display: none;
+}
+
+.dropdownLink:hover > ul,
+.dropdownLink:focus-within > ul,
+.dropdownLink ul:hover,
+.dropdownLink ul:focus {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+.dropdownLink ul li {
+  clear: both;
+  width: 100%;
+  padding: 0.5em 1em;
 }
 
 @media print {

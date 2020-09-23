@@ -387,6 +387,7 @@ function setColor(color) {
   var hexValue = rgbToHex(color);
 
   var darkerColor50 = colorLuminance(hexValue, -0.5);
+  var darkerColor0 = colorLuminance(hexValue, -0.6);
 
   var metaThemeColor = document.querySelector("meta[name=theme-color]");
   metaThemeColor.setAttribute("content", darkerColor50);
@@ -396,4 +397,5 @@ function setColor(color) {
   
   root.style.setProperty("--theme-color", color);
   root.style.setProperty("--darker-color-50", darkerColor50);
+  root.style.setProperty("--darker-color-0", darkerColor0);
 }

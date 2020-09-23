@@ -838,6 +838,10 @@ function loaderFunc() {
     aboutLoad();
   else if (id("privacyPolicy"))
     privacyLoad();
+  else if (id("solubilityHeader"))
+    solubilityLoad();
+  else if (id("reactivityHeader"))
+    reactivityLoad();
   else if (id("translationHeader"))
     translationLoad();
   else if (id("credits"))
@@ -1429,6 +1433,21 @@ function privacyLoad() {
   id("privacyHeader").textContent = privacy;
   id("privacyPolicy").textContent = privacyFull;
 }
+
+function solubilityLoad(){
+  initializePage();
+  id("homeTitle").textContent = "Solubility Chart" + " - " + homeHeader;
+
+  id("pageHeader").textContent = "Solubility Chart";
+}
+
+function reactivityLoad(){  
+  initializePage();
+  id("homeTitle").textContent = "Reactivity Series" + " - " + homeHeader;
+
+  id("pageHeader").textContent = "Reactivity Series";
+}
+  
 
 function translationLoad() {
   initializePage();

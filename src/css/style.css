@@ -18,7 +18,6 @@
   --text-direction: ltr;
   --direction: left;
   --direction-rev: right;
-  /* --degrees: 45deg; */
   --fg-color: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
     linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
   --style1Image: url(../../images/light-style1.png);
@@ -34,7 +33,6 @@
   --text-direction: rtl;
   --direction: right;
   --direction-rev: left;
-  /* --degrees: -45deg; */
   --icon-padding: 0 0 0 0.5em;
   --sign: -1;
   --slider-right: 0.25rem;
@@ -102,6 +100,7 @@
 #storeLink,
 #settingsLink,
 #translateLink,
+#printableLink,
 #themeLink {
   display: block;
 }
@@ -110,6 +109,7 @@
   #storeLink,
   #settingsLink,
   #translateLink,
+  #printableLink,
   #themeLink,
   .newHeader {
     display: none;
@@ -119,6 +119,7 @@
   #storeLink,
   #settingsLink,
   #translateLink,
+  #printableLink,
   #themeLink,
   .newHeader {
     display: block;
@@ -2026,7 +2027,7 @@ blockquote,
 .dropdownLink ul {
   list-style: none;
   margin: 0;
-  padding-left: 0;
+  padding: 0.5em 0;
   visibility: hidden;
   opacity: 0;
   background-color: var(--darker-color-0);
@@ -2051,6 +2052,45 @@ blockquote,
   clear: both;
   width: 100%;
   padding: 0.5em 1em;
+}
+
+/* Solubility Chart */
+
+.grid-container {
+  display: grid;
+  overflow: auto;
+}
+.grid-container .grid {
+  display: flex;
+  flex-wrap: nowrap;
+  column-gap: 0;
+  margin: 0;
+}
+.grid-col {
+  width: 150px;
+  min-width: 150px;
+}
+
+.grid-item--header {
+  height: 100px;
+  min-height: 100px;
+  position: sticky;
+  position: -webkit-sticky;
+  /* background: white; */
+  top: 0;
+}
+
+.grid-col--fixed-left {
+  position: sticky;
+  position: -webkit-sticky;
+  left: 0;
+  z-index: 9998;
+  /* background: white; */
+}
+
+.grid-item {
+  height: 50px;
+  border: 1px solid gray;
 }
 
 @media print {

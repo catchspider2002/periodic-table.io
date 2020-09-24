@@ -5,16 +5,16 @@
   --alt-text-color: rgb(234, 234, 234);
   --form-bg-color: rgba(255, 255, 255, 0.9);
   --blockquote-color: 103, 106, 109;
-  --color1: 253, 58, 74;
-  --color2: 245, 128, 37;
-  --color3: 255, 167, 0;
-  --color4: 123, 113, 81;
-  --color5: 91, 170, 9;
-  --color6: 26, 152, 90;
-  --color7: 59, 168, 221;
-  --color8: 0, 120, 215;
-  --color9: 139, 102, 204;
-  --color10: 228, 27, 144;
+  --color1: 253, 58, 74; /* Red */
+  --color2: 245, 128, 37; /* Orange */
+  --color3: 255, 167, 0; /* Yellow */
+  --color4: 123, 113, 81; /* Brown */
+  --color5: 91, 170, 9; /* Lime */
+  --color6: 26, 152, 90; /* Green */
+  --color7: 59, 168, 221; /* Cyan */
+  --color8: 0, 120, 215; /* Blue */
+  --color9: 139, 102, 204; /* Purple */
+  --color10: 228, 27, 144; /* Pink */
   --text-direction: ltr;
   --direction: left;
   --direction-rev: right;
@@ -97,7 +97,11 @@
   text-align: var(--direction-rev);
 }
 
-.solName{
+.solName,
+.slightlySolName,
+.solubleName,
+.insolubleName,
+.unavailableName {
   display: none;
 }
 
@@ -126,8 +130,19 @@
   #printableLink,
   #themeLink,
   .solName,
+  .slightlySolName,
+  .solubleName,
+  .insolubleName,
+  .unavailableName,
   .newHeader {
     display: block;
+  }
+
+  .solShort {
+    display: none;
+  }
+  .grid-item {
+    height: 66px;
   }
 }
 
@@ -2073,16 +2088,17 @@ blockquote,
   margin: 0;
 }
 .grid-col {
-  width: 150px;
-  min-width: 150px;
+  /* width: 150px;
+  min-width: 150px; */
+  text-align: center;
 }
 
 .grid-item--header {
   height: 100px;
-  min-height: 100px;
+  /* min-height: 100px; */
   position: sticky;
   position: -webkit-sticky;
-  /* background: white; */
+  background-color: var(--card-bg-color);
   top: 0;
 }
 
@@ -2090,13 +2106,34 @@ blockquote,
   position: sticky;
   position: -webkit-sticky;
   left: 0;
-  z-index: 9998;
-  /* background: white; */
+  z-index: 1;
+  background-color: var(--card-bg-color);
 }
 
 .grid-item {
-  height: 50px;
-  border: 1px solid gray;
+  height: 56px;
+  /* border: 1px solid gray; */
+  min-width: 50px;
+  padding: 4px 8px;
+  place-items: center;
+  display: grid;
+  margin: 24px 6px;
+}
+
+.slightlySol {
+  color: rgb(var(--color3));
+}
+
+.soluble {
+  color: rgb(var(--color6));
+}
+
+.insoluble {
+  color: rgb(var(--color1));
+}
+
+.unavailable {
+  color: rgb(var(--color9));
 }
 
 @media print {

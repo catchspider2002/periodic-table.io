@@ -1123,6 +1123,7 @@ function setOpacity100() {
 
 function setOpacity15() {
   var className = window[this.id];
+  console.log(className)
   setOpacity(0.15);
   for (var i = 0; i < className.length; i++)
     className[i].style.opacity = 1;

@@ -2117,7 +2117,7 @@ blockquote,
   padding: 4px 8px;
   place-items: center;
   display: grid;
-  margin: 24px 6px;
+  margin: 0 6px 24px;
 }
 
 .slightlySol {

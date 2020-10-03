@@ -295,7 +295,7 @@ select:focus {
 }
 
 .container {
-  padding: 84px 1rem 0;
+  padding: 32px 1rem 0;
   margin: 0 auto;
 }
 
@@ -743,9 +743,10 @@ table,
 }
 
 .navbar-fixed-top {
-  position: fixed;
-  right: 0;
-  left: 0;
+  position: sticky;
+  /* right: 0; */
+  /* left: 0; */
+  top: 0;
   z-index: 1030;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
@@ -1126,7 +1127,7 @@ canvas {
 }
 
 #headerwrap {
-  padding-top: 60px;
+  padding-top: 10px;
   overflow-x: auto;
 }
 

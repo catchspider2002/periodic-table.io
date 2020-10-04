@@ -20,7 +20,7 @@
 - Search for the elements using their symbol, atomic number or name
 - Links to informative websites for further study
 
-# Translations (As of September 12, 2020)
+# Translations (As of October 5, 2020)
 
 Contributions are welcome for the translations. **Click on the translation status badge below to go directly to that language translation page.** There are 2 files available for translation: General Terms and Element Details.
 
@@ -112,7 +112,7 @@ This contains the text for individual element details like name reason, history,
 [![Croatian](https://img.shields.io/badge/Croatian-29.5%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/22)
 [![Czech](https://img.shields.io/badge/Czech-16.6%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/13)
 [![Danish](https://img.shields.io/badge/Danish-0%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/27)
-[![Dutch](https://img.shields.io/badge/Dutch-0%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/12)
+[![Dutch](https://img.shields.io/badge/Dutch-8.5%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/12)
 [![Finnish](https://img.shields.io/badge/Finnish-0%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/18)
 [![French](https://img.shields.io/badge/French-100%25-brightgreen)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/5)
 [![German](https://img.shields.io/badge/German-6.8%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/6)
@@ -158,8 +158,6 @@ This contains the text for individual element details like name reason, history,
 [![Macedonian](https://img.shields.io/badge/Macedonian-0%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/644)
 [![Swahili](https://img.shields.io/badge/Swahili-0%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/494)
 [![Uzbek](https://img.shields.io/badge/Uzbek-0%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/213)
-
-
 
 
 # License

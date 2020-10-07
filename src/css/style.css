@@ -1252,6 +1252,11 @@ canvas {
 .groups,
 .periods {
   font-size: 0.742em;
+  word-break: break-word;
+}
+
+#period{
+  word-break: break-word;
 }
 
 .eleNum {
@@ -1352,6 +1357,9 @@ canvas {
 #detailRow5,
 #detailRow6 {
   font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   /* padding: 0 5%; */
 }
 
@@ -1383,6 +1391,7 @@ canvas {
 .category {
   font-size: 0.88em;
   padding: 3px 0 2px;
+  word-break: break-word;
 }
 
 .unselectable {
@@ -1570,6 +1579,7 @@ input:focus + .slider {
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
+  word-break: break-word;
 }
 
 .box-content,

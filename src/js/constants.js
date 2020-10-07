@@ -599,6 +599,7 @@ function initializePage() {
   id("tableWidth").textContent = tableWidth;
   id("settingsName").textContent = labelName;
   id("settingsAtmWtMain").textContent = labelAtmWtMain;
+  id("tableStyle").textContent = style;
 
   id("navLogo").href = "./" + (urlLang === "en" ? "" : "?lang=" + urlLang)
   id("listLink").textContent = list;
@@ -1394,9 +1395,9 @@ function aboutLoad() {
   id("versionHist").textContent = changelog;
   id("suppLang").textContent = languages;
   id("langList").textContent = enTrans + '; ' + arTrans + '; ' + bgTrans + '; ' + caTrans + '; ' + csTrans + '; ' + daTrans + '; ' + deTrans + '; ' + elTrans + '; ' +
-    esTrans + '; ' + faTrans + '; ' + fiTrans + '; ' + frTrans + '; ' + heTrans + '; ' + hiTrans + '; ' + hrTrans + '; ' + huTrans + '; ' + idTrans + '; ' + itTrans + '; ' +
-  jaTrans + '; ' + koTrans + '; ' + msTrans + '; ' + nlTrans + '; ' + nnTrans + '; ' + plTrans + '; ' + ptTrans + '; ' + roTrans + '; ' + ruTrans + '; ' + skTrans + '; ' +
-  slTrans + '; ' + srTrans + '; ' + svTrans + '; ' + thTrans + '; ' + trTrans + '; ' + ukTrans + '; ' + viTrans + '; ' + zhTrans + '; ' + chTrans + ';';
+    esTrans + '; ' + faTrans + '; ' + fiTrans + '; ' + frTrans + '; ' + heTrans + '; ' + hiTrans + '; ' + hrTrans + '; ' + huTrans + '; ' + hyTrans + '; ' + idTrans + '; ' +
+    itTrans + '; ' + jaTrans + '; ' + koTrans + '; ' + msTrans + '; ' + nlTrans + '; ' + nnTrans + '; ' + plTrans + '; ' + ptTrans + '; ' + roTrans + '; ' + ruTrans + '; ' +
+    skTrans + '; ' + slTrans + '; ' + srTrans + '; ' + svTrans + '; ' + thTrans + '; ' + trTrans + '; ' + ukTrans + '; ' + viTrans + '; ' + zhTrans + '; ' + chTrans + ';';
 
   id("feature1").textContent = feature1;
   id("feature2").textContent = feature2;
@@ -1501,6 +1502,7 @@ function creditsLoad() {
   id("slTrans").textContent = slTrans;
   id("hrTrans").textContent = hrTrans;
   id("msTrans").textContent = msTrans;
+  id("hyTrans").textContent = msTrans;
 }
 
 function printablesLoad() {
@@ -2391,7 +2393,7 @@ function elementLoad() {
   id("labelCrustMain").textContent = labelCrustMain;
   id("labelUniverseMain").textContent = labelUniverseMain;
   id("labelCASMain").textContent = labelCASMain;
-  id("labelCIDMain").textContent = "PubChem CID Number";
+  id("labelCIDMain").textContent = labelCIDMain;
 
   id("labelLinksMain").textContent = labelLinksMain;
   id("isotopes").textContent = isotopes;

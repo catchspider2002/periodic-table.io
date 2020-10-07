@@ -214,6 +214,7 @@ var languageList =  [
   { id: 'el', url: 'el'}, 
   { id: 'hi', url: 'hi'}, 
   { id: 'hu', url: 'hu'}, 
+  { id: 'hy', url: 'hy'}, 
   { id: 'id', url: 'id'}, 
   { id: 'it', url: 'it'}, 
   { id: 'ja', url: 'ja'}, 
@@ -316,6 +317,10 @@ function setLangFile(inLang) {
     case "ja":
       regularFont = "NotoSansJP-Regular";
       heavyFont = "NotoSansJP-Bold";
+      break;
+    case "hy":
+      regularFont = "NotoSansArmenian-Regular";
+      heavyFont = "NotoSansArmenian-Bold";
       break;
     case "zs":
       regularFont = "NotoSansSC-Regular";

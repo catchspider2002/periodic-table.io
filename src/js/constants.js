@@ -135,10 +135,10 @@ var pc9 = "×10<sup>-9</sup>%";
 
 if (langValue === "sq" || langValue === "az" || langValue === "be" || langValue === "bg" || langValue === "ca" || langValue === "hr" ||
 langValue === "cs" || langValue === "da" || langValue === "nl" || langValue === "et" || langValue === "fi" || langValue === "fr" ||
-langValue === "de" || langValue === "el" || langValue === "hu" || langValue === "id" || langValue === "it" || langValue === "kk" ||
-langValue === "lv" || langValue === "lt" || langValue === "mk" || langValue === "nn" || langValue === "ph" || langValue === "pt" ||
-langValue === "ro" || langValue === "ru" || langValue === "sr" || langValue === "sk" || langValue === "sl" || langValue === "es" ||
-langValue === "sv" || langValue === "tr" || langValue === "uk" || langValue === "uz" || langValue === "vi")
+langValue === "de" || langValue === "el" || langValue === "hu" || langValue === "hy" || langValue === "id" || langValue === "it" ||
+langValue === "kk" || langValue === "lv" || langValue === "lt" || langValue === "mk" || langValue === "nn" || langValue === "ph" ||
+langValue === "pt" || langValue === "ro" || langValue === "ru" || langValue === "sr" || langValue === "sk" || langValue === "sl" ||
+langValue === "es" || langValue === "sv" || langValue === "tr" || langValue === "uk" || langValue === "uz" || langValue === "vi")
   defaultPunc = "comma";
 else
   defaultPunc = "dot";

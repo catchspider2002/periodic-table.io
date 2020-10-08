@@ -27,6 +27,7 @@
   --sign: 1;
   --slider-right: unset;
   --slider-left: 0.25rem;
+  --wordBreak: normal;
 }
 
 [data-direction="rtl"] {
@@ -51,6 +52,10 @@
   --style1Image: url(../../images/dark-style1.png);
   --style2Image: url(../../images/dark-style2.png);
   --style3Image: url(../../images/dark-style3.png);
+}
+
+[lang="hy"] {
+  --wordBreak: break-word;
 }
 
 @font-face {
@@ -1252,11 +1257,11 @@ canvas {
 .groups,
 .periods {
   font-size: 0.742em;
-  word-break: break-word;
+  word-break: var(--wordBreak);
 }
 
-#period{
-  word-break: break-word;
+#period {
+  word-break: var(--wordBreak); 
 }
 
 .eleNum {
@@ -1391,7 +1396,7 @@ canvas {
 .category {
   font-size: 0.88em;
   padding: 3px 0 2px;
-  word-break: break-word;
+  word-break: var(--wordBreak);
 }
 
 .unselectable {
@@ -1579,7 +1584,7 @@ input:focus + .slider {
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
-  word-break: break-word;
+  word-break: var(--wordBreak);
 }
 
 .box-content,

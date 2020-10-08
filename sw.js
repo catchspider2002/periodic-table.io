@@ -24,7 +24,7 @@ const fileManifest = [
   },
   {
     "url": "about.html",
-    "revision": "43992bedea0bd66d79efeb95baf8290e"
+    "revision": "edd91d6591561a217e59c2c5c777adc7"
   },
   {
     "url": "browserconfig.xml",
@@ -32,7 +32,7 @@ const fileManifest = [
   },
   {
     "url": "btstrp.list.iso.min.js",
-    "revision": "aac6def789f48d15a3376a9bcec4a0c7"
+    "revision": "4b4d98f2a32d43387dfe9bd38f99abef"
   },
   {
     "url": "compare.html",
@@ -40,11 +40,11 @@ const fileManifest = [
   },
   {
     "url": "constants.min.js",
-    "revision": "f297af596812c82e65e6b9ba2ebbbef2"
+    "revision": "c27b2e5626ac824ec70b360a25b9e4af"
   },
   {
     "url": "credits.html",
-    "revision": "967c21f78a6d7856db276f6e38173007"
+    "revision": "941bc9748710b545ff929781fb673d4f"
   },
   {
     "url": "element.html",
@@ -69,6 +69,14 @@ const fileManifest = [
   {
     "url": "fonts/LatoLatin-Regular.woff2",
     "revision": "3cd36578026d6c12eddf9a5c671a251d"
+  },
+  {
+    "url": "fonts/NotoSansArmenian-Bold.woff2",
+    "revision": "bcc1a6cf48b2b219867e0d487fad10f0"
+  },
+  {
+    "url": "fonts/NotoSansArmenian-Regular.woff2",
+    "revision": "9619c60a96e565ca2cd6d5eddaacc817"
   },
   {
     "url": "fonts/NotoSansHebrew-Bold.woff2",
@@ -100,159 +108,163 @@ const fileManifest = [
   },
   {
     "url": "locales/locale.ar.js",
-    "revision": "3b0d220bade361ee8724d833e6529de8"
+    "revision": "9aa9df266d2d215b1e03aa37c089a628"
   },
   {
     "url": "locales/locale.bg.js",
-    "revision": "73c94164b85f03b39683d1eca892eef9"
+    "revision": "da6315a5aaffd4b5b95316ae9476e562"
   },
   {
     "url": "locales/locale.ca.js",
-    "revision": "63b15da63de7b91bc8c14fcff22b3a86"
+    "revision": "ac3b9006c8dc6c7dc759ec5cf0456fb9"
   },
   {
     "url": "locales/locale.cs.js",
-    "revision": "42c19be7784d21ae2efcfcea31a23c62"
+    "revision": "891c734818dbc99771dd9d2e3c92cb6b"
   },
   {
     "url": "locales/locale.da.js",
-    "revision": "08f1674d1e50470527b73dd48c17fed1"
+    "revision": "12bb46345f40c3d81504777cd9f4a1ec"
   },
   {
     "url": "locales/locale.de.js",
-    "revision": "e664562f6a958fcdac48eeb479d9b4b1"
+    "revision": "8d0a9d237ae987b57dd547ef73b10720"
   },
   {
     "url": "locales/locale.el.js",
-    "revision": "60fb4605f6c2b434999f358e8a2e6773"
+    "revision": "52b3579c4559d2cacde1b07b0ea72b8c"
   },
   {
     "url": "locales/locale.en.js",
-    "revision": "5e54fccd8fcf0e07aaf14a66af04c3e2"
+    "revision": "f997a9bc4f5cf85b10724471c0a111b9"
   },
   {
     "url": "locales/locale.es.js",
-    "revision": "6fbcfcc629cb4bb02f5ecfb1faedc3f5"
+    "revision": "0cfe4319892230fd58f6d1779b5e4642"
   },
   {
     "url": "locales/locale.fa.js",
-    "revision": "f40f069792cb08725b201fc742fe851d"
+    "revision": "655d7f872ad5b814eafbf7c693249205"
   },
   {
     "url": "locales/locale.fi.js",
-    "revision": "8ef42a74d0a05d563e838fbfbb116c3e"
+    "revision": "503148a8a85b7ef0318a4ad72e30675c"
   },
   {
     "url": "locales/locale.fr.js",
-    "revision": "fefee7c2dab19b2cca8cb69eb55c3e7f"
+    "revision": "ff03cf2022c980b172670ae0d8664f02"
   },
   {
     "url": "locales/locale.gb.js",
-    "revision": "e33224e8794ffd05a1f7b2d6b6c49484"
+    "revision": "371188ee6c26edafd99345dc8b989af4"
   },
   {
     "url": "locales/locale.he.js",
-    "revision": "530323feb0600c6dc4abcb387181e16e"
+    "revision": "ed90a2e765e8eb3343a1c5d61d0b6121"
   },
   {
     "url": "locales/locale.hi.js",
-    "revision": "88391f0c2ef1ce5678f7acaae635cdd8"
+    "revision": "24383e53b451bf3517da9d68a7bc74f2"
   },
   {
     "url": "locales/locale.hr.js",
-    "revision": "9fe9abfacc33bddb85eb2fd22fe67437"
+    "revision": "8ca537306760d8794b866fd4cfc2ed55"
   },
   {
     "url": "locales/locale.hu.js",
-    "revision": "60d1b8bc2465ae8297dad99735c80efb"
+    "revision": "141b623ce22a73d37814d9cf8b82e1d0"
+  },
+  {
+    "url": "locales/locale.hy.js",
+    "revision": "e020f9188eb899b836f345c1b9a8c3d1"
   },
   {
     "url": "locales/locale.id.js",
-    "revision": "e2bac4bdd08f3e9301cf62ff9b8ebcfb"
+    "revision": "c83203bb2c4448cd3502b54288d4bb14"
   },
   {
     "url": "locales/locale.it.js",
-    "revision": "a7ffcce238856e13f74ce32ea6d2c5aa"
+    "revision": "320e5d701f250fece3ee1d63c2271cec"
   },
   {
     "url": "locales/locale.ja.js",
-    "revision": "2c4d7cfcce420f6cce7e9c04f595c250"
+    "revision": "7bf4099a5864ab5d8ed6556a4959e206"
   },
   {
     "url": "locales/locale.ko.js",
-    "revision": "a9587394d7f814a73702f4544d02066a"
+    "revision": "91c93dd5face1baa456ff67020f4d9ed"
   },
   {
     "url": "locales/locale.ms.js",
-    "revision": "f47293acddcb7decfc5ff1ad921807b4"
+    "revision": "f7ed0d16883444d74434e0602dec2c14"
   },
   {
     "url": "locales/locale.nb.js",
-    "revision": "7e7f4e0fdd7908e59b85d7e645717648"
+    "revision": "0e8cdca3c54d51449d95259892624a49"
   },
   {
     "url": "locales/locale.nl.js",
-    "revision": "de8fc1925efe9e479060f949a043650c"
+    "revision": "8d9d92485cc84b2c7f167b737cf4d889"
   },
   {
     "url": "locales/locale.nn.js",
-    "revision": "b3a7e452dc5fcff037eb182ea429bf8e"
+    "revision": "05ac8897cf3c56cd3c6227c2b72cdb70"
   },
   {
     "url": "locales/locale.ph.js",
-    "revision": "30aece2a4ca1838bf80032abe6fb7c7a"
+    "revision": "315c3ad12ccf690e3991f14818815a8f"
   },
   {
     "url": "locales/locale.pt.js",
-    "revision": "353c3d79d43e2fe1161406b1ad59146c"
+    "revision": "e77265f8c90ab962b3106129f0f618d2"
   },
   {
     "url": "locales/locale.ro.js",
-    "revision": "a7eb3e8dd008ac13f3fd60abeebd78b4"
+    "revision": "e1389a9bebaaa67ab7c9343fdbc181fe"
   },
   {
     "url": "locales/locale.ru.js",
-    "revision": "8f1f29593a0e3f264bd82d6700f84705"
+    "revision": "2789543b3c00a64dbe6fe61a7fd0e8bc"
   },
   {
     "url": "locales/locale.sk.js",
-    "revision": "b98cc7e815d1f6164299cd4fc9cf3266"
+    "revision": "464fdcafb74a13981480a15ba4a19ecf"
   },
   {
     "url": "locales/locale.sl.js",
-    "revision": "d689ac0ce7f34d190f94c2ddfbe86764"
+    "revision": "b9bed68d42aec76795ad159088a4396f"
   },
   {
     "url": "locales/locale.sr.js",
-    "revision": "9ec6b5775801c038c273ecb4afd48089"
+    "revision": "fa96d188b9f0a4e3e566163fffd325e0"
   },
   {
     "url": "locales/locale.sv.js",
-    "revision": "0cabd97e885c43fdf9437a0bc511f470"
+    "revision": "8611532c3057ba23f31dfdfe5172ed11"
   },
   {
     "url": "locales/locale.th.js",
-    "revision": "9a6666330c0c3ad33809aab5c2185565"
+    "revision": "df2d3c61f479ea03d4744c0ab1d721de"
   },
   {
     "url": "locales/locale.tr.js",
-    "revision": "4b77a6af0f46ac49600d3757fa00883c"
+    "revision": "29a772e56445446beeffbcc90ccfbf0f"
   },
   {
     "url": "locales/locale.uk.js",
-    "revision": "82292643c47a38a54284bf285bb03f56"
+    "revision": "2460455e617348fea9a285a42f837765"
   },
   {
     "url": "locales/locale.vi.js",
-    "revision": "866149719a0bed884bd34093445da62a"
+    "revision": "bf16f5a09497afa04c517aba40667a4d"
   },
   {
     "url": "locales/locale.zs.js",
-    "revision": "f56854c0620422c8dc11c5f96580599c"
+    "revision": "493f75c275bcdfa4fb34b538c81deaaa"
   },
   {
     "url": "locales/locale.zt.js",
-    "revision": "c23d1493ef38450b09e64ef36b601aa6"
+    "revision": "4129d10335b25b0253be22e3104d7de2"
   },
   {
     "url": "package-lock.json",
@@ -292,7 +304,7 @@ const fileManifest = [
   },
   {
     "url": "style.min.css",
-    "revision": "d63921a54bea7525fd97b68dedb4348d"
+    "revision": "cfc36fafc3f8f54704a18754eef06da5"
   },
   {
     "url": "svelte-bundle.css",
@@ -300,11 +312,11 @@ const fileManifest = [
   },
   {
     "url": "svelte-bundle.js",
-    "revision": "a9966ac29253478ee5c59e69f7941cdc"
+    "revision": "278b1bed2a4662207766cdfc51473017"
   },
   {
     "url": "translation.html",
-    "revision": "5ab6a54dc84e9760ff40b8a42e70d344"
+    "revision": "799060a43a530d0b58a42a41b2dccac1"
   },
   {
     "url": "images/placeholder.png",

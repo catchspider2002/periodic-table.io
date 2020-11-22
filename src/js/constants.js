@@ -1394,9 +1394,9 @@ function aboutLoad() {
   id("line2").textContent = line2;
   id("versionHist").textContent = changelog;
   id("suppLang").textContent = languages;
-  id("langList").textContent = enTrans + '; ' + arTrans + '; ' + bgTrans + '; ' + caTrans + '; ' + csTrans + '; ' + daTrans + '; ' + deTrans + '; ' + elTrans + '; ' +
-    esTrans + '; ' + faTrans + '; ' + fiTrans + '; ' + frTrans + '; ' + heTrans + '; ' + hiTrans + '; ' + hrTrans + '; ' + huTrans + '; ' + hyTrans + '; ' + idTrans + '; ' +
-    itTrans + '; ' + jaTrans + '; ' + koTrans + '; ' + msTrans + '; ' + nlTrans + '; ' + nnTrans + '; ' + plTrans + '; ' + ptTrans + '; ' + roTrans + '; ' + ruTrans + '; ' +
+  id("langList").textContent = enTrans + '; ' + arTrans + '; ' + bgTrans + '; ' + caTrans + '; ' + csTrans + '; ' + daTrans + '; ' + deTrans + '; ' + elTrans + '; ' + esTrans + '; ' +
+  faTrans + '; ' + fiTrans + '; ' + frTrans + '; ' + heTrans + '; ' + hiTrans + '; ' + hrTrans + '; ' + huTrans + '; ' + hyTrans + '; ' + idTrans + '; ' + itTrans + '; ' +
+  jaTrans + '; ' + koTrans + '; ' + mkTrans + '; ' + msTrans + '; ' + nlTrans + '; ' + nnTrans + '; ' + plTrans + '; ' + ptTrans + '; ' + roTrans + '; ' + ruTrans + '; ' +
     skTrans + '; ' + slTrans + '; ' + srTrans + '; ' + svTrans + '; ' + thTrans + '; ' + trTrans + '; ' + ukTrans + '; ' + viTrans + '; ' + zhTrans + '; ' + chTrans + ';';
 
   id("feature1").textContent = feature1;
@@ -1502,7 +1502,8 @@ function creditsLoad() {
   id("slTrans").textContent = slTrans;
   id("hrTrans").textContent = hrTrans;
   id("msTrans").textContent = msTrans;
-  id("hyTrans").textContent = msTrans;
+  id("hyTrans").textContent = hyTrans;
+  id("mkTrans").textContent = mkTrans;
 }
 
 function printablesLoad() {

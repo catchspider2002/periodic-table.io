@@ -5,6 +5,7 @@
   --alt-text-color: rgb(234, 234, 234);
   --form-bg-color: rgba(255, 255, 255, 0.9);
   --blockquote-color: 103, 106, 109;
+  --gray-color: 172, 172, 172;
   --color1: 253, 58, 74; /* Red */
   --color2: 245, 128, 37; /* Orange */
   --color3: 255, 167, 0; /* Yellow */
@@ -47,6 +48,7 @@
   --alt-text-color: rgb(0, 0, 0);
   --form-bg-color: rgba(0, 0, 0, 0.9);
   --blockquote-color: 148, 146, 143;
+  --gray-color: 72, 72, 72;
   --fg-color: linear-gradient(to right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
     linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
   --style1Image: url(../../images/dark-style1.png);
@@ -1261,7 +1263,7 @@ canvas {
 }
 
 #period {
-  word-break: var(--wordBreak); 
+  word-break: var(--wordBreak);
 }
 
 .eleNum {
@@ -2150,6 +2152,41 @@ blockquote,
 
 .unavailable {
   color: rgb(var(--color9));
+}
+
+.crystalDiagram {
+  margin: 2rem 4rem 0;
+  stroke-width: 0.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.strokeVisible {
+  stroke: rgb(var(--text-color));
+  fill: none;
+}
+.fillVisible {
+  stroke: rgb(var(--text-color));
+  fill: rgb(var(--text-color));
+  stroke-width: 0.75;
+}
+.strokeHidden {
+  stroke: rgb(var(--gray-color));
+  fill: none;
+}
+.fillHidden {
+  stroke: rgb(var(--gray-color));
+  fill: rgb(var(--gray-color));
+  stroke-width: 0.75;
+}
+/* .strokeInter {
+  stroke: rgb(var(--blockquote-color));
+  fill: none;
+} */
+.fillInter {
+  stroke: rgb(var(--blockquote-color));
+  fill: rgb(var(--blockquote-color));
+  stroke-width: 0.75;
 }
 
 @media print {

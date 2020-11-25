@@ -2155,10 +2155,16 @@ blockquote,
 }
 
 .crystalDiagram {
-  margin: 2rem 4rem 0;
+  margin: 1.5rem 4rem 0;
   stroke-width: 0.4;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+@media (min-width: 1200px) {
+  .crystalDiagram {
+    margin: 2rem 4rem 0;
+  }
 }
 
 .strokeVisible {

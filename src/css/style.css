@@ -2185,10 +2185,6 @@ blockquote,
   fill: rgb(var(--gray-color));
   stroke-width: 0.75;
 }
-/* .strokeInter {
-  stroke: rgb(var(--blockquote-color));
-  fill: none;
-} */
 .fillInter {
   stroke: rgb(var(--blockquote-color));
   fill: rgb(var(--blockquote-color));

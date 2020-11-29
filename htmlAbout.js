@@ -26,7 +26,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultFooter)
 
   // the finish event is emitted when all data has been flushed from the stream
   writeStream.on("finish", () => {
-    console.log("wrote all data to file " + lang);
+    console.log("wrote all data to " + page + "-" + lang);
   });
 
   // close the stream

@@ -60,6 +60,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
 
       return o;
     }
+    let pages = ["about", "privacy-policy"];
 
     let defaultHead = [
       "<!DOCTYPE html>",
@@ -111,34 +112,44 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "</div>",
     ];
 
-    let keywords =
-      "Periodic Table, chemical, elements, interactive, PWA, properties, history, name origin, images, applications, hazards, electron shell, diagram, chemistry, electron configuration, isotopes, information";
-    let description =
-      "Interactive periodic table of the chemical elements in 39 languages - Includes properties, history, name origin, facts, applications, hazards, isotopes and more.";
-    let website = "https://periodic-table.io";
-    let image = website + "/images/icons/android-chrome-256x256.png";
-    let title = langValues.privacy + " - Periodic Table";
-    let page = "privacy-policy";
-    let link = website + "/" + lang + "/" + page + "/";
+    pages.forEach((pageValue) => {
+      let keywords =
+        "Periodic Table, chemical, elements, interactive, PWA, properties, history, name origin, images, applications, hazards, electron shell, diagram, chemistry, electron configuration, isotopes, information";
+      let description =
+        "Interactive periodic table of the chemical elements in 39 languages - Includes properties, history, name origin, facts, applications, hazards, isotopes and more.";
+      let website = "https://periodic-table.io";
+      let image = website + "/images/icons/android-chrome-256x256.png";
+      let title = langValues.privacy + " - Periodic Table";
+      let page = pageValue;
+      let link = website + "/" + lang + "/" + pageValue + "/";
 
-    let metaTags = [
-      "<meta name='keywords' content='" + keywords + "' />",
-      "<meta name='description' content='" + description + "' />",
-      "<meta property='og:description' content='" + description + "' />",
-      "<meta name='twitter:description' content='" + description + "' />",
-      "<meta property='og:title' content='" + title + "' />",
-      "<meta name='twitter:title' content='" + title + "' />",
-      "<title id='homeTitle'>" + title + "</title>",
-      "<meta property='og:image' content='" + image + "' />",
-      "<meta name='twitter:image' content='" + image + "' />",
-      "<meta name='twitter:image:src' content='" + image + "' />",
-      "<meta property='og:url' content='" + link + "' />",
-      "<link rel='canonical' href='" + link + "' />",
-      "<link rel='stylesheet' href='../../style.min.css' />",
-      "</head>",
-    ];
+      let metaTags = [
+        "<meta name='keywords' content='" + keywords + "' />",
+        "<meta name='description' content='" + description + "' />",
+        "<meta property='og:description' content='" + description + "' />",
+        "<meta name='twitter:description' content='" + description + "' />",
+        "<meta property='og:title' content='" + title + "' />",
+        "<meta name='twitter:title' content='" + title + "' />",
+        "<title id='homeTitle'>" + title + "</title>",
+        "<meta property='og:image' content='" + image + "' />",
+        "<meta name='twitter:image' content='" + image + "' />",
+        "<meta name='twitter:image:src' content='" + image + "' />",
+        "<meta property='og:url' content='" + link + "' />",
+        "<link rel='canonical' href='" + link + "' />",
+        "<link rel='stylesheet' href='../../style.min.css' />",
+        "</head>",
+      ];
 
-    htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultFooter);
-    htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultFooter);
+      switch (page) {
+        case "privacy-policy":
+          htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultFooter);
+          break;
+        case "about":
+          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultFooter);
+          break;
+      }
+      // if (page === "privacy-policy") htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultFooter);
+      // else htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultFooter);
+    });
   });
 });

@@ -1,7 +1,6 @@
 const fs = require("fs");
 
-const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultFooter) => {
-
+const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter) => {
   let writeStream = fs.createWriteStream("htmlGenerator/" + lang + "/" + page + ".html");
 
   defaultHead.forEach((heads) => {
@@ -10,6 +9,10 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultFooter)
 
   metaTags.forEach((tags) => {
     writeStream.write(tags);
+  });
+
+  defaultNav.forEach((navs) => {
+    writeStream.write(navs);
   });
 
   writeStream.write("<div class='content-wrapper'>");
@@ -26,7 +29,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultFooter)
 
   // the finish event is emitted when all data has been flushed from the stream
   writeStream.on("finish", () => {
-    console.log("wrote all data to " + page + "-" + lang);
+    console.log("Created " + lang + "-" + page);
   });
 
   // close the stream

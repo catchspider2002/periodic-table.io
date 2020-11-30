@@ -2,6 +2,45 @@
 const xlsxFile = require("read-excel-file/node");
 const htmlPrivacy = require("./htmlPrivacy.js");
 const htmlAbout = require("./htmlAbout.js");
+const htmlStore = require("./htmlStore.js");
+const htmlPrintables = require("./htmlPrintables.js");
+
+let svgHeader =
+  "<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 512 512' stroke='currentColor' fill='currentColor'><path d='";
+let svgFooter = "' /></svg>";
+
+let logoIcon =
+  '<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 10.054 10.054" class="periodic-table-logo" fill="#fff"><path d="M3.146 1.905a1.301 1.301 0 00-1.301 1.301 1.301 1.301 0 001.009 1.266 1.596 1.596 0 011.553-1.581 1.301 1.301 0 00-1.261-.986zm4.841 1.581a1.508 1.508 0 00-1.47 1.178l-.824-.1a.126.126 0 00-.14.11.126.126 0 00.11.14l.821.1a1.508 1.508 0 00-.004.081 1.508 1.508 0 001.508 1.508 1.508 1.508 0 001.508-1.508 1.508 1.508 0 00-1.508-1.508zm-4.331 1.69a.126.126 0 00-.078.028l-.843.683a1.301 1.301 0 00-.874-.34A1.301 1.301 0 00.56 6.848a1.301 1.301 0 001.301 1.301 1.301 1.301 0 001.301-1.301 1.301 1.301 0 00-.257-.774l.832-.674a.126.126 0 00.019-.177.126.126 0 00-.099-.047z"/><path d="M4.45 2.978a1.508 1.508 0 00-1.508 1.508 1.508 1.508 0 00.297.895l.292-.237a.201.201 0 01.283.03.201.201 0 01-.03.283l-.265.215a1.508 1.508 0 00.931.322 1.508 1.508 0 001.444-1.077l-.241-.029a.201.201 0 01-.175-.224.201.201 0 01.224-.175l.255.031a1.508 1.508 0 00.002-.034 1.508 1.508 0 00-1.508-1.508z" opacity=".7"/></svg>';
+
+let listIcon =
+  svgHeader +
+  "M23 358v-87h87v87zm29-58v29h29v-29zm-29-59v-87h87v87zm29-58v29h29v-29zm-29-58V37h87v88zm29-58v29h29V67zm117 145v-29h262v29zm204 88v29H169v-29zM169 67h320v29H169zM23 475v-88h87v88zm29-59v29h29v-29zm117 29v-29h262v29z" +
+  svgFooter;
+
+let compareIcon =
+  svgHeader +
+  "M508 276l-70-70c-3-2-7-4-11-4H322c-22 0-40 18-40 40v230c0 22 18 40 40 40h150c22 0 40-18 40-40V287c0-4-2-8-4-11zm-66-23l19 19h-19zm30 229H322c-6 0-10-4-10-10V242c0-6 4-10 10-10h90v55c0 8 7 15 15 15h55v170c0 6-4 10-10 10zM156 4c-3-2-7-4-11-4H40C18 0 0 18 0 40v230c0 22 18 40 40 40h150c22 0 40-18 40-40V85c0-4-2-8-4-11zm4 47l19 19h-19zm30 229H40c-6 0-10-4-10-10V40c0-6 4-10 10-10h90v55c0 8 7 15 15 15h55v170c0 6-4 10-10 10zm136-174c3 3 7 4 11 4s8-1 11-4c5-6 5-16 0-22l-15-14h4c47 0 85 38 85 85 0 8 7 15 15 15s15-7 15-15c0-63-52-115-115-115h-4l15-14c5-6 5-16 0-22-6-5-16-5-22 0l-40 40c-5 6-5 16 0 22zM186 406c-6-5-16-5-22 0-5 6-5 16 0 22l15 14h-4c-47 0-85-38-85-85 0-8-7-15-15-15s-15 7-15 15c0 63 52 115 115 115h4l-15 14c-5 6-5 16 0 22 3 3 7 4 11 4s8-1 11-4l40-40c5-6 5-16 0-22zm251-74h-80c-8 0-15 7-15 15s7 15 15 15h80c8 0 15-7 15-15s-7-15-15-15zm0 60h-80c-8 0-15 7-15 15s7 15 15 15h80c8 0 15-7 15-15s-7-15-15-15zM155 130H75c-8 0-15 7-15 15s7 15 15 15h80c8 0 15-7 15-15s-7-15-15-15zm0 60H75c-8 0-15 7-15 15s7 15 15 15h80c8 0 15-7 15-15s-7-15-15-15z" +
+  svgFooter;
+
+let tablesIcon =
+  svgHeader +
+  "M195.75 15v482M15 195.75h482M75.25 15h361.5C470.128 15 497 41.872 497 75.25v361.5c0 33.378-26.872 60.25-60.25 60.25H75.25C41.872 497 15 470.128 15 436.75V75.25C15 41.872 41.872 15 75.25 15z' fill='none' stroke-width='30" +
+  svgFooter;
+
+let printablesIcon =
+  svgHeader +
+  "M480 113h-32l-35-57c-3-4-8-7-13-7h-41V15c0-8-7-15-15-15H168c-8 0-15 7-15 15v34h-41c-5 0-10 3-13 7l-35 57H32c-8 0-15 7-15 15v256c0 8 7 15 15 15h97v98c0 8 7 15 15 15h224c8 0 15-7 15-15v-98h97c8 0 15-7 15-15V128c0-8-7-15-15-15zm-88-34l21 34h-54V79zM183 30h146v83H183zm-63 49h33v34H99zm233 403H159V335h194zm112-113h-82v-34h17c8 0 15-7 15-15s-7-15-15-15H112c-8 0-15 7-15 15s7 15 15 15h17v34H47V143h418zm-50-180c-2-8-11-14-19-11-8 2-13 10-10 18 2 9 11 13 18 10 8-2 12-10 11-17z" +
+  svgFooter;
+
+let storeIcon =
+  svgHeader +
+  "M.659 233.105c0-1 42-112 43-117 0 0 0 0 0 0 9-22 23-40 42-54 25-18 118-45 178-43 52 2 136 24 162 43 19 14 34 32 42 54 46 123 43 116 44 118 0 3 0 7-2 10-2 4-5 7-9 8l-95 24v199c0 9-7 16-15 16h-269c-9 0-15-7-15-16v-199l-95-24c-5-1-8-4-10-8-2-3-2-7-1-11zm106 12v-16l-67-15c-1 4-3 9-4 13 24 6 53 13 71 18zm97-190c1 27 24 50 52 50s51-23 53-50c-39-7-64-8-105 0zm235 72c-6-16-16-30-30-40-9-7-37-17-70-26-5 42-40 74-83 74s-78-32-82-74c-34 9-62 19-70 26-14 10-25 24-31 40v0c-1 3-12 31-22 58l56 13v-55c0-8 6-15 15-15 8 0 15 7 15 15v263h238v-263c0-8 7-15 15-15 9 0 16 7 16 15v55l55-13zm33 87l-66 15v16l71-18zm-335 246h238v-24h-238z" +
+  svgFooter;
+
+let translationIcon =
+  svgHeader +
+  "M511 347l-25-69c17-27 26-59 26-92 0-95-77-172-172-172-88 0-160 65-171 149H15c-8 0-15 7-15 15v305c0 5 3 10 8 13 2 1 4 2 7 2s5-1 8-2l90-52h198c8 0 15-7 15-15v-71c4 1 9 1 14 1 27 0 55-7 79-20l73 27c1 1 3 1 5 1 4 0 8-1 11-4 4-4 5-11 3-16zm-215 67H109c-3 0-6 1-8 2l-71 41V193h137c1 24 7 47 16 67h-17v-5c0-9-7-15-15-15s-15 6-15 15v5H93c-8 0-15 7-15 15s7 15 15 15h70l-11 14-3-4c-5-7-15-8-21-3-7 5-8 15-3 21l7 10-30 37c-5 6-4 15 2 21 3 2 7 3 10 3 4 0 9-2 12-6l25-31 16 21c3 3 8 5 12 5 3 0 7-1 9-3 7-5 8-14 3-21l-20-26 29-36 2-2v0c23 31 56 53 94 63zm159-133l17 46-49-18c-4-2-8-1-12 1-22 12-46 19-71 19-79 0-143-64-143-143 0-78 64-142 143-142 78 0 142 64 142 142 0 30-9 58-25 82-3 4-4 9-2 13zM353 108c-3-5-8-9-14-9 0 0 0 0 0 0-6 0-11 4-14 9l-60 133c-4 7-1 16 7 20 8 3 16 0 20-8l16-36h62l16 37c3 5 8 9 14 9 2 0 4-1 6-2 8-3 11-12 8-20zm-31 79l17-37 17 37z" +
+  svgFooter;
 
 xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
   let languages = [
@@ -63,6 +102,8 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     let pages = [
       { page: "about", keywords: "about", title: langValues.about },
       { page: "privacy-policy", keywords: "privacy policy", title: langValues.privacy },
+      { page: "store", keywords: "store, tees", title: langValues.store },
+      { page: "printables", keywords: "printables, poster, flash cards", title: langValues.printables },
     ];
 
     let defaultHead = [
@@ -72,18 +113,18 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<meta charset='utf-8'/>",
       "<meta http-equiv='X-UA-Compatible' content='IE=edge'/>",
       "<meta name='viewport' content='width=device-width,initial-scale=1'/>",
-      "<link rel='apple-touch-icon' sizes='180x180' href='/images/icons/apple-touch-icon.png'/>",
-      "<link rel='icon' type='image/png' sizes='32x32' href='favicon-32x32.png'/>",
-      "<link rel='icon' type='image/png' sizes='16x16' href='favicon-16x16.png'/>",
-      "<link rel='manifest' href='manifest.json'/>",
+      "<link rel='apple-touch-icon' sizes='180x180' href='../images/icons/apple-touch-icon.png'/>",
+      "<link rel='icon' type='image/png' sizes='32x32' href='../favicon-32x32.png'/>",
+      "<link rel='icon' type='image/png' sizes='16x16' href='../favicon-16x16.png'/>",
+      "<link rel='manifest' href='../manifest.json'/>",
       "<link rel='mask-icon' href='safari-pinned-tab.svg' color='#0078d7'/>",
 
       "<meta name='msapplication-TileColor' content='#0078d7'/>",
-      "<meta name='msapplication-TileImage' content='/images/icons/mstile-144x144.png'/>",
-      "<meta name='msapplication-square70x70logo' content='/images/icons/mstile-70x70.png'/>",
-      "<meta name='msapplication-square150x150logo' content='/images/icons/mstile-150x150.png'/>",
-      "<meta name='msapplication-wide310x150logo' content='/images/icons/mstile-310x150.png'/>",
-      "<meta name='msapplication-square310x310logo' content='/images/icons/mstile-310x310.png'/>",
+      "<meta name='msapplication-TileImage' content='../images/icons/mstile-144x144.png'/>",
+      "<meta name='msapplication-square70x70logo' content='../images/icons/mstile-70x70.png'/>",
+      "<meta name='msapplication-square150x150logo' content='../images/icons/mstile-150x150.png'/>",
+      "<meta name='msapplication-wide310x150logo' content='../images/icons/mstile-310x150.png'/>",
+      "<meta name='msapplication-square310x310logo' content='../images/icons/mstile-310x310.png'/>",
       "<meta name='theme-color' content='#003c6c'/>",
       "<meta name='google' content='notranslate'/>",
       "<meta name='robots' content='index,follow'/>",
@@ -99,10 +140,9 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
 
     let defaultNav = [
       "<nav>",
-      "<a id=logo class='navbar-brand' href={langValue} aria-label='Home>",
-      "{@html logoIcon}PERIODIC-TABLE.IO",
+      "<a id=logo class='navbar-brand' href='.' aria-label='Home'>",
+      logoIcon + "PERIODIC-TABLE.IO",
       "</a>",
-
       "<label for='drop' class='toggle burger'><svg http://www.w3.org/2000/svg'",
       "width='22' height='22' viewBox='0 0 24 24'",
       "stroke-width='1.5, stroke='currentColor', fill='none'",
@@ -112,45 +152,46 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<line x1='4' y1='12' x2='20' y2='12' />",
       "<line x1='4' y1='18'x2='20' y2='18' />",
       "</svg></label>",
-
-      "<input type='checkbox' id='drop' /><ul ",
+      "<input type='checkbox' id='drop' /><ul>",
       "<li>",
-      // "<a href="+ lang + }"/list">",
-      // "{@html listIcon}{Lang.list}</a>",
-      // "</li>
-      // "<li>",
-      // "<a href="{langValue}/compare">
-      // "{@html compareIcon}{Lang.compare}</a>
-      // "</li>
-      // "<li>
-      // "<label for="drop-1" class="toggle">
-      // "{@html tablesIcon}Tables +</label>
-      // "<a>
-      // "{@html tablesIcon}Tables ▼</a>
-      // "<input type="checkbox" id="drop-1" />
-      // "<ul>
-      // "<li><a href="#a">Solubility Chart</a></li>
-      // "<li><a href="#a">Reactivity Series</a></li>
-      // "</ul","
-      // ""</li>","
-      // ","<li>
-      // ","<a href="{langValue}/printables">
-      // ","{@html printablesIcon}{Lang.printables}</a>
-      // ","</li>
-      // ","<li>
-      // ","<a href="{langValue}/store">
-      // ","{@html storeIcon}{Lang.store}</a>
-      // ","</li>
-      // ","<li>
-      // ","<a href="{langValue}/translation">
-      // ","{@html translationIcon}{Lang.translation}</a>
-      // ","</li>
-      // ","<li>
-      // ","<Modal>
-      // ","<Content name={Lang.settings} />
-      // ","</Modal>
-      // ","</li>
-      // ","<li>
+      "<a href='" + lang + "/list/'>",
+      listIcon + langValues.list + "</a>",
+      "</li>",
+      "<li>",
+      "<a href='" + lang + "/compare/'>" + compareIcon + langValues.compare + "</a>",
+      "</li>",
+      "<li>",
+      "<label for='drop-1' class='toggle'>",
+      tablesIcon + "Tables +</label>",
+      "<a>",
+      tablesIcon + "Tables ▼</a>",
+      "<input type='checkbox' id='drop-1' />",
+      "<ul>",
+      "<li><a href='#a'>Solubility Chart</a></li>",
+      "<li><a href='#a'>Reactivity Series</a></li>",
+      "</ul>",
+      "</li>",
+      "<li>",
+      "<a href='" + lang + "/printables/'>",
+      printablesIcon + langValues.printables + "</a>",
+      "</li>",
+      "<li>",
+      "<a href='" + lang + "/store/'>",
+      storeIcon + langValues.store + "</a>",
+      "</li>",
+      "<li>",
+      "<a href='" + lang + "/translation'>",
+      translationIcon + langValues.translation + "</a>",
+      "</li>",
+      "<li>",
+      "<a href='" + lang + "/translation'>",
+      translationIcon + langValues.settings + "</a>",
+      "</li>",
+      "<li>",
+      "<a href='" + lang + "/translation'>",
+      translationIcon + langValues.theme + "</a>",
+      "</li>",
+      "<li>",
       // ","<a on:click={() => changeTheme()}>
       // ","<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 512 512" stroke="currentColor" fill="currentColor">
       //           {#if theme === light}
@@ -237,7 +278,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         "<meta name='twitter:image:src' content='" + image + "' />",
         "<meta property='og:url' content='" + link + "' />",
         "<link rel='canonical' href='" + link + "' />",
-        "<link rel='stylesheet' href='../../style.min.css' />",
+        "<link rel='stylesheet' href='../global.css' />",
         "</head>",
       ];
 
@@ -247,6 +288,12 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
           break;
         case "about":
           htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "store":
+          htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "printables":
+          htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
           break;
       }
     });

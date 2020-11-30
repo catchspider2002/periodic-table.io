@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter) => {
-  let writeStream = fs.createWriteStream("htmlGenerator/" + lang + "/" + page + ".html");
+  let writeStream = fs.createWriteStream(lang + "/" + page + ".html");
 
   defaultHead.forEach((heads) => {
     writeStream.write(heads);

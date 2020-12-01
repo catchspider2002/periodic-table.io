@@ -4,6 +4,8 @@ const htmlPrivacy = require("./htmlPrivacy.js");
 const htmlAbout = require("./htmlAbout.js");
 const htmlStore = require("./htmlStore.js");
 const htmlPrintables = require("./htmlPrintables.js");
+const htmlCompare = require("./htmlCompare.js");
+const htmlList = require("./htmlList.js");
 
 let svgHeader =
   "<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 512 512' stroke='currentColor' fill='currentColor'><path d='";
@@ -104,11 +106,13 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       { page: "privacy-policy", keywords: "privacy policy", title: langValues.privacy },
       { page: "store", keywords: "store, tees", title: langValues.store },
       { page: "printables", keywords: "printables, poster, flash cards", title: langValues.printables },
+      { page: "list", keywords: "list", title: langValues.list },
+      { page: "compare", keywords: "compare, comparison", title: langValues.compare },
     ];
 
     let defaultHead = [
       "<!DOCTYPE html>",
-      "<html lang='en' class='normalFont' data-direction='ltr' data-theme='dark' data-style='1'>",
+      "<html lang='" + lang + "' class='normalFont' data-direction='ltr' data-theme='dark' data-style='1'>",
       "<head>",
       "<meta charset='utf-8'/>",
       "<meta http-equiv='X-UA-Compatible' content='IE=edge'/>",
@@ -154,11 +158,11 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "</svg></label>",
       "<input type='checkbox' id='drop' /><ul>",
       "<li>",
-      "<a href='" + lang + "/list/'>",
+      "<a href='list.html'>",
       listIcon + langValues.list + "</a>",
       "</li>",
       "<li>",
-      "<a href='" + lang + "/compare/'>" + compareIcon + langValues.compare + "</a>",
+      "<a href='compare.html'>" + compareIcon + langValues.compare + "</a>",
       "</li>",
       "<li>",
       "<label for='drop-1' class='toggle'>",
@@ -172,15 +176,15 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "</ul>",
       "</li>",
       "<li>",
-      "<a href='" + lang + "/printables/'>",
+      "<a href='printables.html'>",
       printablesIcon + langValues.printables + "</a>",
       "</li>",
       "<li>",
-      "<a href='" + lang + "/store/'>",
+      "<a href='store.html'>",
       storeIcon + langValues.store + "</a>",
       "</li>",
       "<li>",
-      "<a href='" + lang + "/translation'>",
+      "<a href='translation.html'>",
       translationIcon + langValues.translation + "</a>",
       "</li>",
       "<li>",
@@ -212,20 +216,14 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<a target='_blank' href='https://feedback.periodic-table.io/' rel='noopener noreferrer' class='m-1 p-2'>",
       "<span id='suggestionLink' class='linkText'>" + langValues.suggestions + "</span>",
       "</a>",
-      "<a id='translationFooter' href='" + lang + "/translation' class='m-1 p-2 flex'>",
+      "<a id='translationFooter' href='translation.html' class='m-1 p-2 flex'>",
       "<span id='translate2Link' class='linkText'>" + langValues.translate + "</span>",
       "</a>",
-      "<a id='aboutFooter' href='" + lang + "/about' class='m-1 p-2'> <span id='aboutLink' class='linkText'>" + langValues.about + "</span> </a>",
-      "<a id='creditsFooter' href='" +
-        lang +
-        "/credits' class='m-1 p-2'> <span id='creditsLink' class='linkText'>" +
-        langValues.credits +
-        "</span> </a>",
-      "<a id='privacyFooter' href='" +
-        lang +
-        "/privacy-policy' class='m-1 p-2'> <span id='privacyLink' class='linkText'>" +
-        langValues.privacy +
-        "</span> </a>",
+      "<a id='aboutFooter' href='about.html' class='m-1 p-2'> <span id='aboutLink' class='linkText'>" + langValues.about + "</span> </a>",
+      "<a id='creditsFooter' href='credits.html' class='m-1 p-2'>",
+      "<span id='creditsLink' class='linkText'>" + langValues.credits + "</span> </a>",
+      "<a id='privacyFooter' href='privacy-policy.html' class='m-1 p-2'>",
+      "<span id='privacyLink' class='linkText'>" + langValues.privacy + "</span> </a>",
       "</div>",
       "<div class='flex flex-wrap justify-center pt-2 py-4'>",
       "<a target='_blank' href='https://github.com/catchspider2002/periodic-table.io' rel='noopener noreferrer' class='flex m-1 p-2' title='Github'>",
@@ -249,7 +247,9 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "</svg>",
       "</a>",
       "</div>",
-      "<div class='flex flex-wrap justify-center p-2 pb-8 self-center'>Made with&nbsp; <span style='color:#e25555'>❤</span> &nbsp;by Naveen CS</div>",
+      "<div class='flex flex-wrap justify-center p-2 pb-8 self-center'>Made with&nbsp; <span style='color:#e25555'>❤</span> &nbsp;by <a target='_blank' href='https://twitter.com/MrNaveenCS/' rel='noopener noreferrer'>",
+      "<span class='linkText'>Naveen CS</span>",
+      "</a></div>",
       "</div>",
     ];
 
@@ -279,22 +279,29 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         "<meta property='og:url' content='" + link + "' />",
         "<link rel='canonical' href='" + link + "' />",
         "<link rel='stylesheet' href='../global.css' />",
+        "<script defer src='../htmlJs.js'></script>",
         "</head>",
       ];
 
       switch (page) {
-        case "privacy-policy":
-          htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        // case "privacy-policy":
+        //   htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        //   break;
+        // case "about":
+        //   htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        //   break;
+        // case "store":
+        //   htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        //   break;
+        // case "printables":
+        //   htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        //   break;
+        case "compare":
+          htmlCompare.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
           break;
-        case "about":
-          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-          break;
-        case "store":
-          htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-          break;
-        case "printables":
-          htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-          break;
+        // case "list":
+        //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        //   break;
       }
     });
   });

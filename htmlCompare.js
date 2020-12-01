@@ -2,6 +2,8 @@ const fs = require("fs");
 const Constants = require("./htmlConstants.js");
 
 let newRawData = Constants.rawData;
+let defaultTemp = "celsius";
+let defaultPunc = "comma";
 
 const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter) => {
   let writeStream = fs.createWriteStream(lang + "/" + page + ".html");
@@ -36,6 +38,28 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
     } else return value;
   }
 
+  function getTemp(tempValue) {
+    var newTemp;
+
+    if (tempValue == "-") newTemp = "-";
+    else {
+      if (lang === "ar" || lang === "fa" || lang === "he")
+        newTemp =
+          getNum(Math.round((tempValue + 273.15) * 100) / 100) +
+          " K " +
+          (defaultTemp == "celsius" ? getNum(tempValue) + " | °C" : getNum(Math.round((tempValue * 1.8 + 32) * 100) / 100) + " °F");
+      else
+        newTemp =
+          Math.round((tempValue + 273.15) * 100) / 100 +
+          " K | " +
+          (defaultTemp == "celsius" ? tempValue + " °C" : Math.round((tempValue * 1.8 + 32) * 100) / 100 + " °F");
+    }
+
+    if (defaultPunc === "comma") newTemp = newTemp.replace(/\./g, ",");
+
+    return newTemp;
+  }
+
   newRawData.sort(function (a, b) {
     if (langValues[a.nme] < langValues[b.nme]) return -1;
     else if (langValues[a.nme] > langValues[b.nme]) return 1;
@@ -49,7 +73,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("<div id='mainCompare'>");
   writeStream.write("<div id='topRowCompare'>");
   writeStream.write("<div id='compareTop' class='square'>");
-  writeStream.write("<div class='col-xs-4 new-table'></div");
+  writeStream.write("<div class='col-xs-4 new-table'></div>");
   writeStream.write("<div class='col-xs-4 new-table padding-10'>");
   // writeStream.write("<select aria-label='First Element' bind:value={firstElement} on:change={() => (firstEle = getElement(firstElement))}>");
   writeStream.write("<select id='firstElement' aria-label='First Element'>");
@@ -71,16 +95,27 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("</div>");
 
   let element = newRawData[0];
-  let compareLinks = [
+  writeStream.write("<div class='row'>");
+  writeStream.write("<div class='col-xs-4 new-table heavyFont'>" + langValues.labelName + "</div>");
+  writeStream.write("<a href='" + element.nme + "'>");
+  writeStream.write("<div class='col-xs-4 new-table compareLink'><span class='underlineLink'>" + langValues[element.nme] + "</span></div>");
+  writeStream.write("</a>");
+  writeStream.write("<a href='" + element.nme + "'>");
+  writeStream.write("<div class='col-xs-4 new-table compareLink'><span class='underlineLink'>" + langValues[element.nme] + "</span></div>");
+  writeStream.write("</a>");
+  writeStream.write("</div>");
+
+  let compare1Links = [
     { label: "labelSymbol", id: "symbol", value: element.sym },
     { label: "labelAtmNoMain", id: "atmNo", value: getNum(element.num) },
     { label: "group", id: "groups", value: element.grp === "na" ? langValues.na : getNum(element.grp) },
     { label: "period", id: "periods", value: getNum(element.prd) },
     { label: "block", id: "block", value: element.blk },
     { label: "labelCrustMain", id: "crust", value: element.crt === "na" ? langValues.na : getNum(element.crt) },
+    { label: "labelUniverseMain", id: "universe", value: element.uni === "na" ? langValues.na : getNum(element.uni) },
   ];
 
-  compareLinks.forEach((compareLink) => {
+  compare1Links.forEach((compareLink) => {
     writeStream.write("<div class='row'>");
     writeStream.write("<div class='col-xs-4 new-table heavyFont'>" + langValues[compareLink.label] + "</div>");
     writeStream.write("<div id='" + compareLink.id + "1' class='col-xs-4 new-table'>" + compareLink.value + "</div>");
@@ -88,216 +123,80 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
     writeStream.write("</div>");
   });
 
-  //               writeStream.write("<div class='row'>
-  //               writeStream.write("<div class='col-xs-4 new-table heavyFont'>" + langValues.labelName}</div>
-  //             <a href='{langValue}/{firstEle.nme}'>
-  //               <div class='col-xs-4 new-table compareLink'><span class='underlineLink'>{Lang[firstEle.nme]}</span></div>
-  //             </a>
-  //             <a href='{langValue}/{secondEle.nme}'>
-  //               <div class='col-xs-4 new-table compareLink'><span class='underlineLink'>{Lang[secondEle.nme]}</span></div>
-  //             </a>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont'>" + langValues.labelSymbol}</div>
-  //             <div class='col-xs-4 new-table'>{firstEle.sym}</div>
-  //             <div class='col-xs-4 new-table'>{secondEle.sym}</div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont'>" + langValues.labelAtmNoMain}</div>
-  //             <div class='col-xs-4 new-table'>{getNum(firstEle.num)}</div>
-  //             <div class='col-xs-4 new-table'>{getNum(secondEle.num)}</div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont'>{Lang.group}</div>
-  //             <div class='col-xs-4 new-table'>
-  //               {#if firstEle.grp === 'na'}{Lang.na}{:else}{getNum(firstEle.grp)}{/if}
-  //             </div>
-  //             <div class='col-xs-4 new-table'>
-  //               {#if secondEle.grp === 'na'}{Lang.na}{:else}{getNum(secondEle.grp)}{/if}
-  //             </div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont'>{Lang.period}</div>
-  //             <div class='col-xs-4 new-table'>{getNum(firstEle.prd)}</div>
-  //             <div class='col-xs-4 new-table'>{getNum(secondEle.prd)}</div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont'>{Lang.block}</div>
-  //             <div class='col-xs-4 new-table'>{firstEle.blk}</div>
-  //             <div class='col-xs-4 new-table'>{secondEle.blk}</div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont hyphen'>{Lang.labelCrustMain}</div>
-  //             <div class='col-xs-4 new-table'>
-  //               {#if firstEle.crt === 'na'}
-  //                 {Lang.na}
-  //               {:else}
-  //                 {@html getNum(firstEle.crt)}
-  //               {/if}
-  //             </div>
-  //             <div class='col-xs-4 new-table'>
-  //               {#if secondEle.crt === 'na'}
-  //                 {Lang.na}
-  //               {:else}
-  //                 {@html getNum(secondEle.crt)}
-  //               {/if}
-  //             </div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont hyphen'>{Lang.labelUniverseMain}</div>
-  //             <div class='col-xs-4 new-table'>
-  //               {#if firstEle.uni === 'na'}
-  //                 {Lang.na}
-  //               {:else}
-  //                 {@html getNum(firstEle.uni)}
-  //               {/if}
-  //             </div>
-  //             <div class='col-xs-4 new-table'>
-  //               {#if secondEle.uni === 'na'}
-  //                 {Lang.na}
-  //               {:else}
-  //                 {@html getNum(secondEle.uni)}
-  //               {/if}
-  //             </div>
-  //           </div>
-  //           <div class='padding-top-42'>
-  //             <div class='headerOutline text-upper heavyFont'>{Lang.labelGeneralProp}</div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont'>{Lang.labelAtmWtMain}</div>
-  //             <div class='col-xs-4 new-table'>{getNum(firstEle.aWt)}</div>
-  //             <div class='col-xs-4 new-table'>{getNum(secondEle.aWt)}</div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont'>{Lang.labelCategoryMain}</div>
-  //             <div class='col-xs-4 new-table'>{Lang[firstEle.ctg]}</div>
-  //             <div class='col-xs-4 new-table'>{Lang[secondEle.ctg]}</div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont'>{Lang.labelColorMain}</div>
-  //             <div class='col-xs-4 new-table'>{Lang[firstEle.clr]}</div>
-  //             <div class='col-xs-4 new-table'>{Lang[secondEle.clr]}</div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont'>{Lang.labelRadioMain}</div>
-  //             <div class='col-xs-4 new-table'>{Lang[firstEle.rdo]}</div>
-  //             <div class='col-xs-4 new-table'>{Lang[secondEle.rdo]}</div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont'>{Lang.labelStructureMain}</div>
-  //             <div class='col-xs-4 new-table'>{Lang[firstEle.stc]}</div>
-  //             <div class='col-xs-4 new-table'>{Lang[secondEle.stc]}</div>
-  //           </div>
-  //           <div class='padding-top-42'>
-  //             <div class='headerOutline text-upper heavyFont'>{Lang.labelPhysicalProp}</div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont'>
-  //               <span>{Lang.labelDensityMain}</span> (<span>{@html Lang.labelDensity}</span>)
-  //             </div>
-  //             <div class='col-xs-4 new-table'>{getNum(firstEle.dns)}</div>
-  //             <div class='col-xs-4 new-table'>{getNum(secondEle.dns)}</div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont'>{Lang.labelPhaseMain}</div>
-  //             <div class='col-xs-4 new-table'>{Lang[firstEle.phs]}</div>
-  //             <div class='col-xs-4 new-table'>{Lang[secondEle.phs]}</div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont'>{Lang.labelMeltingMain}</div>
-  //             <div id='meltPoint1' class='col-xs-4 new-table' />
-  //             <div id='meltPoint2' class='col-xs-4 new-table' />
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont'>{Lang.labelBoilingMain}</div>
-  //             <div id='boilPoint1' class='col-xs-4 new-table' />
-  //             <div id='boilPoint2' class='col-xs-4 new-table' />
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont'><span>{Lang.labelFusionMain}</span> (<span>{Lang.labelFusion}</span>)</div>
-  //             <div class='col-xs-4 new-table'>
-  //               {#if firstEle.fsn === 'na'}{Lang.na}{:else}{getNum(firstEle.fsn)}{/if}
-  //             </div>
-  //             <div class='col-xs-4 new-table'>
-  //               {#if secondEle.fsn === 'na'}{Lang.na}{:else}{getNum(secondEle.fsn)}{/if}
-  //             </div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont hyphen'><span>{Lang.labelVaporizationMain}</span> (<span>{Lang.labelFusion}</span>)</div>
-  //             <div class='col-xs-4 new-table'>
-  //               {#if firstEle.vpn === 'na'}{Lang.na}{:else}{getNum(firstEle.vpn)}{/if}
-  //             </div>
-  //             <div class='col-xs-4 new-table'>
-  //               {#if secondEle.vpn === 'na'}{Lang.na}{:else}{getNum(secondEle.vpn)}{/if}
-  //             </div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont hyphen'><span>{Lang.labelSpecificMain}</span> (<span>{Lang.labelSpecific}</span>)</div>
-  //             <div class='col-xs-4 new-table'>{getNum(firstEle.spc)}</div>
-  //             <div class='col-xs-4 new-table'>{getNum(secondEle.spc)}</div>
-  //           </div>
-  //           <div class='padding-top-42'>
-  //             <div class='headerOutline text-upper heavyFont'>{Lang.labelAtomicProp}</div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont'>{Lang.labelRadiusMain}</div>
-  //             <div class='col-xs-4 new-table'>
-  //               {#if firstEle.aRd === '-'}-{:else}{getNum(firstEle.aRd)} pm{/if}
-  //             </div>
-  //             <div class='col-xs-4 new-table'>
-  //               {#if secondEle.aRd === '-'}-{:else}{getNum(secondEle.aRd)} pm{/if}
-  //             </div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont'>{Lang.labelCovalentMain}</div>
-  //             <div class='col-xs-4 new-table'>
-  //               {#if firstEle.cRd === '-'}-{:else}{getNum(firstEle.cRd)} pm{/if}
-  //             </div>
-  //             <div class='col-xs-4 new-table'>
-  //               {#if secondEle.cRd === '-'}-{:else}{getNum(secondEle.cRd)} pm{/if}
-  //             </div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont hyphen'><span>{Lang.labelElectronegativityMain}</span> (<span>{Lang.pauling}</span>)</div>
-  //             <div class='col-xs-4 new-table'>{getNum(firstEle.eNg)}</div>
-  //             <div class='col-xs-4 new-table'>{getNum(secondEle.eNg)}</div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont hyphen'><span>{Lang.labelIonizationMain}</span> (<span>{Lang.labelIonization}</span>)</div>
-  //             <div class='col-xs-4 new-table'>{getNum(firstEle.ion)}</div>
-  //             <div class='col-xs-4 new-table'>{getNum(secondEle.ion)}</div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont'>
-  //               <span>{Lang.labelVolumeMain}</span> (<span>{@html Lang.labelVolume}</span>)
-  //             </div>
-  //             <div class='col-xs-4 new-table'>{getNum(firstEle.vol)}</div>
-  //             <div class='col-xs-4 new-table'>{getNum(secondEle.vol)}</div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont hyphen'><span>{Lang.labelThermalMain}</span> (<span>{Lang.labelThermal}</span>)</div>
-  //             <div class='col-xs-4 new-table'>{getNum(firstEle.trm)}</div>
-  //             <div class='col-xs-4 new-table'>{getNum(secondEle.trm)}</div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont hyphen'>{Lang.labelOxidationMain}</div>
-  //             <div class='col-xs-4 new-table ltrText text-left'>{getNum(firstEle.oxi)}</div>
-  //             <div class='col-xs-4 new-table ltrText text-left'>{getNum(secondEle.oxi)}</div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont hyphen'>{Lang.labelConfigMain}</div>
-  //             <div class='col-xs-4 new-table ltrText text-left'>
-  //               {@html firstEle.cnf}
-  //             </div>
-  //             <div class='col-xs-4 new-table ltrText text-left'>
-  //               {@html secondEle.cnf}
-  //             </div>
-  //           </div>
-  //           <div class='row'>
-  //             <div class='col-xs-4 new-table heavyFont'>{Lang.labelElectronsMain}</div>
-  //             <div class='col-xs-4 new-table ltrText text-left'>{getNum(firstEle.elc)}</div>
-  //             <div class='col-xs-4 new-table ltrText text-left'>{getNum(secondEle.elc)}</div>
-  //           </div>
+  writeStream.write("<div class='padding-top-42'>");
+  writeStream.write("<div class='headerOutline text-upper heavyFont'>" + langValues.labelGeneralProp + "</div>");
+  writeStream.write("</div>");
+
+  let compare2Links = [
+    { label: "labelAtmWtMain", id: "atmWeight", value: getNum(element.aWt) },
+    { label: "labelCategoryMain", id: "category", value: langValues[element.ctg] },
+    { label: "labelColorMain", id: "eleColor", value: langValues[element.clr] },
+    { label: "labelRadioMain", id: "radioactive", value: langValues[element.rdo] },
+    { label: "labelStructureMain", id: "structure", value: langValues[element.stc] },
+  ];
+
+  compare2Links.forEach((compareLink) => {
+    writeStream.write("<div class='row'>");
+    writeStream.write("<div class='col-xs-4 new-table heavyFont'>" + langValues[compareLink.label] + "</div>");
+    writeStream.write("<div id='" + compareLink.id + "1' class='col-xs-4 new-table'>" + compareLink.value + "</div>");
+    writeStream.write("<div id='" + compareLink.id + "2' class='col-xs-4 new-table'>" + compareLink.value + "</div>");
+    writeStream.write("</div>");
+  });
+
+  writeStream.write("<div class='padding-top-42'>");
+  writeStream.write("<div class='headerOutline text-upper heavyFont'>" + langValues.labelPhysicalProp + "</div>");
+  writeStream.write("</div>");
+
+  let compare3Links = [
+    { label: langValues["labelDensityMain"] + " (" + langValues["labelDensity"] + ")", id: "density", value: getNum(element.dns) },
+    { label: langValues["labelPhaseMain"], id: "phase", value: langValues[element.phs] },
+    { label: langValues["labelMeltingMain"], id: "meltPoint", value: getTemp(element.mlt) },
+    { label: langValues["labelBoilingMain"], id: "boilPoint", value: getTemp(element.bln) },
+    {
+      label: langValues["labelFusionMain"] + " (" + langValues["labelFusion"] + ")",
+      id: "fusion",
+      value: element.fsn === "na" ? langValues.na : getNum(element.fsn),
+    },
+    {
+      label: langValues["labelVaporizationMain"] + " (" + langValues["labelFusion"] + ")",
+      id: "vaporization",
+      value: element.vpn === "na" ? langValues.na : getNum(element.vpn),
+    },
+    { label: langValues["labelSpecificMain"] + " (" + langValues["labelSpecific"] + ")", id: "spHeat", value: getNum(element.spc) },
+  ];
+
+  compare3Links.forEach((compareLink) => {
+    writeStream.write("<div class='row'>");
+    writeStream.write("<div class='col-xs-4 new-table heavyFont'>" + compareLink.label + "</div>");
+    writeStream.write("<div id='" + compareLink.id + "1' class='col-xs-4 new-table'>" + compareLink.value + "</div>");
+    writeStream.write("<div id='" + compareLink.id + "2' class='col-xs-4 new-table'>" + compareLink.value + "</div>");
+    writeStream.write("</div>");
+  });
+
+  writeStream.write("<div class='padding-top-42'>");
+  writeStream.write("<div class='headerOutline text-upper heavyFont'>" + langValues.labelAtomicProp + "</div>");
+  writeStream.write("</div>");
+
+  let compare4Links = [
+    { label: langValues["labelRadiusMain"], id: "atmRadius", value: element.aRd === "-" ? "-" : getNum(element.aRd) + " pm" },
+    { label: langValues["labelCovalentMain"], id: "covRadius", value: element.cRd === "-" ? "-" : getNum(element.cRd) + " pm" },
+    { label: langValues["labelElectronegativityMain"] + " (" + langValues["pauling"] + ")", id: "eleNeg", value: getNum(element.eNg) },
+    { label: langValues["labelIonizationMain"] + " (" + langValues["labelIonization"] + ")", id: "ionization", value: getNum(element.ion) },
+    { label: langValues["labelVolumeMain"] + " (" + langValues["labelVolume"] + ")", id: "volume", value: getNum(element.vol) },
+    { label: langValues["labelThermalMain"] + " (" + langValues["labelThermal"] + ")", id: "theCond", value: getNum(element.trm) },
+    { label: langValues["labelOxidationMain"], id: "oxidation", value: getNum(element.oxi) },
+    { label: langValues["labelConfigMain"], id: "elecConfig", value: element.cnf },
+    { label: langValues["labelElectronsMain"], id: "electrons", value: getNum(element.elc) },
+  ];
+
+  compare4Links.forEach((compareLink) => {
+    writeStream.write("<div class='row'>");
+    writeStream.write("<div class='col-xs-4 new-table heavyFont'>" + compareLink.label + "</div>");
+    writeStream.write("<div id='" + compareLink.id + "1' class='col-xs-4 new-table'>" + compareLink.value + "</div>");
+    writeStream.write("<div id='" + compareLink.id + "2' class='col-xs-4 new-table'>" + compareLink.value + "</div>");
+    writeStream.write("</div>");
+  });
+
   writeStream.write("</div>");
   writeStream.write("</div>");
   writeStream.write("</div>");

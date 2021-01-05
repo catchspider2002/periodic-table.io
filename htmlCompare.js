@@ -98,10 +98,10 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("<div class='row'>");
   writeStream.write("<div class='col-xs-4 new-table heavyFont'>" + langValues.labelName + "</div>");
   writeStream.write("<a href='" + element.nme + "'>");
-  writeStream.write("<div class='col-xs-4 new-table compareLink'><span class='underlineLink'>" + langValues[element.nme] + "</span></div>");
+  writeStream.write("<div id='name1' class='col-xs-4 new-table compareLink'><span class='underlineLink'>" + langValues[element.nme] + "</span></div>");
   writeStream.write("</a>");
   writeStream.write("<a href='" + element.nme + "'>");
-  writeStream.write("<div class='col-xs-4 new-table compareLink'><span class='underlineLink'>" + langValues[element.nme] + "</span></div>");
+  writeStream.write("<div id='name2' class='col-xs-4 new-table compareLink'><span class='underlineLink'>" + langValues[element.nme] + "</span></div>");
   writeStream.write("</a>");
   writeStream.write("</div>");
 
@@ -206,6 +206,110 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   defaultFooter.forEach((footers) => {
     writeStream.write(footers);
   });
+  writeStream.write("<script>");
+  writeStream.write(
+    "let colorsList = {colorLess: '" +
+      langValues["colorLess"] +
+      "', colorSilver: '" +
+      langValues["colorSilver"] +
+      "', colorGold: '" +
+      langValues["colorGold"] +
+      "', colorRed: '" +
+      langValues["colorRed"] +
+      "', colorCopper: '" +
+      langValues["colorCopper"] +
+      "', colorBlack: '" +
+      langValues["colorBlack"] +
+      "', colorYellow: '" +
+      langValues["colorYellow"] +
+      "', colorSlateGray: '" +
+      langValues["colorSlateGray"] +
+      "', colorGray: '" +
+      langValues["colorGray"] +
+      "', na: '" +
+      langValues["na"] +
+      "'};"
+  );
+  writeStream.write(
+    "let structureList = {crystalSH: '" +
+      langValues["crystalSH"] +
+      "', crystalFCC: '" +
+      langValues["crystalFCC"] +
+      "', crystalBCC: '" +
+      langValues["crystalBCC"] +
+      "', crystalBCM: '" +
+      langValues["crystalBCM"] +
+      "', crystalFCO: '" +
+      langValues["crystalFCO"] +
+      "', crystalBCO: '" +
+      langValues["crystalBCO"] +
+      "', crystalSTG: '" +
+      langValues["crystalSTG"] +
+      "', crystalTP: '" +
+      langValues["crystalTP"] +
+      "', crystalSTC: '" +
+      langValues["crystalSTC"] +
+      "', crystalSC: '" +
+      langValues["crystalSC"] +
+      "', crystalSO: '" +
+      langValues["crystalSO"] +
+      "', crystalSM: '" +
+      langValues["crystalSM"] +
+      "', crystalCT: '" +
+      langValues["crystalCT"] +
+      "', na: '" +
+      langValues["na"] +
+      "'};"
+  );
+  writeStream.write(
+    "let categoriesList = {cat1: '" +
+      langValues["cat1"] +
+      "', cat2: '" +
+      langValues["cat2"] +
+      "', cat3: '" +
+      langValues["cat3"] +
+      "', cat4: '" +
+      langValues["cat4"] +
+      "', cat5: '" +
+      langValues["cat5"] +
+      "', cat6: '" +
+      langValues["cat6"] +
+      "', cat7: '" +
+      langValues["cat7"] +
+      "', cat8: '" +
+      langValues["cat8"] +
+      "', lanthanides: '" +
+      langValues["lanthanides"] +
+      "', actinides: '" +
+      langValues["actinides"] +
+      "', na: '" +
+      langValues["na"] +
+      "'};"
+  );
+  writeStream.write(
+    "let phaseList = {phaseGas: '" +
+      langValues["phaseGas"] +
+      "', phaseSolid: '" +
+      langValues["phaseSolid"] +
+      "', phaseLiquid: '" +
+      langValues["phaseLiquid"] +
+      "', unknown: '" +
+      langValues["unknown"] +
+      "', na: '" +
+      langValues["na"] +
+      "'};"
+  );
+  writeStream.write(
+    "let radioactiveList = {yes: '" +
+      langValues["yes"] +
+      "', no: '" +
+      langValues["no"] +
+      "', na: '" +
+      langValues["na"] +
+      "'};"
+  );
+  writeStream.write("let na= '" + langValues["na"] + "';");
+  writeStream.write("</script>");
 
   // the finish event is emitted when all data has been flushed from the stream
   writeStream.on("finish", () => {

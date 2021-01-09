@@ -2,7 +2,7 @@ const xlsxFile = require("read-excel-file/node");
 const fs = require("fs");
 const Constants = require("./htmlConstants.js");
 
-let eleNum = 2;
+let eleNum = 1;
 
 let newRawData = Constants.rawData;
 let defaultTemp = "celsius";

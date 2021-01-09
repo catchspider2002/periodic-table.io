@@ -393,7 +393,9 @@ function getTemp(tempValue) {
   return newTemp;
 }
 
+if(id("firstElement"))
 id("firstElement").addEventListener("change", firstChanged, false);
+if(id("secondElement"))
 id("secondElement").addEventListener("change", secondChanged, false);
 
 
@@ -406,17 +408,11 @@ function returnItem(itemId) {
 
 function firstChanged() {
   let firstElement = id("firstElement").value;
-  // console.log(id("firstElement").innerHTML)
-  // console.log(id("firstElement").label)
-  
-  // let selectedIndex = id("firstElement").selectedIndex
-  // console.log(selectedIndex)
   let firstDetails = returnItem(firstElement);
-  // console.log(selectedIndex)
 
   id("atmNo1").textContent = getNum(firstDetails.num);
   id("name1").textContent = id("firstElement").options[id("firstElement").selectedIndex].innerHTML;
-  // id("compEle1").href = "element.html?num=" + firstDetails.num + (urlLang === "en" ? "" : "&lang=" + urlLang);
+  id("compEle1").href = firstElement; //"element.html?num=" + firstDetails.num + (urlLang === "en" ? "" : "&lang=" + urlLang);
   id("symbol1").textContent = firstDetails.sym;
   id("periods1").textContent = getNum(firstDetails.prd);
   id("block1").textContent = firstDetails.blk;
@@ -429,9 +425,6 @@ function firstChanged() {
   id("phase1").textContent = phaseList[firstDetails.phs];
   id("meltPoint1").textContent = getTemp(firstDetails.mlt);
   id("boilPoint1").textContent = getTemp(firstDetails.bln);
-  // mlt1 = firstDetails.mlt;
-  // bln1 = firstDetails.bln;
-  // setDegreesFirst();
   id("spHeat1").textContent = getNum(firstDetails.spc);
   id("atmRadius1").textContent = (firstDetails.aRd === "-") ? "-" : getNum(firstDetails.aRd) + " pm";
   id("covRadius1").textContent = (firstDetails.cRd === "-") ? "-" : getNum(firstDetails.cRd) + " pm";
@@ -451,15 +444,12 @@ function firstChanged() {
 }
 
 function secondChanged() {
-  // let na = "NA"
-  
   var secondElement = id("secondElement").value;
-  // var secondDetails = returnItem("ele" + secondElement);
   var secondDetails = returnItem(secondElement);
 
   id("atmNo2").textContent = getNum(secondDetails.num);
   id("name2").textContent = id("secondElement").options[id("secondElement").selectedIndex].text;
-  // id("compEle2").href = "element.html?num=" + secondDetails.num + (urlLang === "en" ? "" : "&lang=" + urlLang);
+  id("compEle2").href = secondElement //"element.html?num=" + secondDetails.num + (urlLang === "en" ? "" : "&lang=" + urlLang);
   id("symbol2").textContent = secondDetails.sym;
   id("periods2").textContent = getNum(secondDetails.prd);
   id("block2").textContent = secondDetails.blk;
@@ -472,9 +462,6 @@ function secondChanged() {
   id("phase2").textContent = phaseList[secondDetails.phs];
   id("meltPoint2").textContent = getTemp(secondDetails.mlt);
   id("boilPoint2").textContent = getTemp(secondDetails.bln);
-  // mlt2 = secondDetails.mlt;
-  // bln2 = secondDetails.bln;
-  // setDegreesSecond();
   id("spHeat2").textContent = getNum(secondDetails.spc);
   id("atmRadius2").textContent = (secondDetails.aRd === "-") ? "-" : getNum(secondDetails.aRd) + " pm";
   id("covRadius2").textContent = (secondDetails.cRd === "-") ? "-" : getNum(secondDetails.cRd) + " pm";

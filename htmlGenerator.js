@@ -6,6 +6,7 @@ const htmlStore = require("./htmlStore.js");
 const htmlPrintables = require("./htmlPrintables.js");
 const htmlCompare = require("./htmlCompare.js");
 const htmlList = require("./htmlList.js");
+const htmlElement = require("./htmlElement.js");
 
 let svgHeader =
   "<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 512 512' stroke='currentColor' fill='currentColor'><path d='";
@@ -107,6 +108,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       { page: "store", keywords: "store, tees", title: langValues.store },
       { page: "printables", keywords: "printables, poster, flash cards", title: langValues.printables },
       { page: "list", keywords: "list", title: langValues.list },
+      { page: "element", keywords: "element", title: langValues.helium },
       { page: "compare", keywords: "compare, comparison", title: langValues.compare },
     ];
 
@@ -296,8 +298,11 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         // case "printables":
         //   htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
         //   break;
-        case "compare":
-          htmlCompare.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        // case "compare":
+        //   htmlCompare.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        //   break;
+        case "element":
+          htmlElement.writeFile(lang, langValues, language.col, page, defaultHead, metaTags, defaultNav, defaultFooter);
           break;
         // case "list":
         //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);

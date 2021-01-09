@@ -258,7 +258,23 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     pages.forEach((pageValue) => {
       let keywords =
         pageValue.keywords +
-        "Periodic Table, chemical, elements, interactive, PWA, properties, history, name origin, images, applications, hazards, electron shell, diagram, chemistry, electron configuration, isotopes, information";
+        ", " +
+        langValues.homeHeader +
+        ", chemical, " +
+        langValues.elements +
+        ", interactive, PWA, " +
+        langValues.properties +
+        ", " +
+        langValues.uses +
+        ", " +
+        langValues.hist +
+        ", " +
+        langValues.isotopes +
+        ", " +
+        langValues.labelConfigMain +
+        ", " +
+        langValues.labelElectronsMain +
+        ", name origin, images, hazards, diagram, chemistry, information";
       let description =
         "Interactive periodic table of the chemical elements in 39 languages - Includes properties, history, name origin, facts, applications, hazards, isotopes and more.";
       let website = "https://periodic-table.io";
@@ -302,7 +318,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         //   htmlCompare.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
         //   break;
         case "element":
-          htmlElement.writeFile(lang, langValues, language.col, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          htmlElement.writeFile(lang, langValues, language.col, page, defaultHead, defaultNav, defaultFooter);
           break;
         // case "list":
         //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);

@@ -5,6 +5,8 @@ const Constants = require("./htmlConstants.js");
 let eleNum = 2;
 
 let newRawData = Constants.rawData;
+let defaultTemp = "celsius";
+let defaultPunc = "comma";
 let element = newRawData[eleNum - 1];
 
 const writeFile = (lang, langValues, column, page, defaultHead, metaTags, defaultNav, defaultFooter) => {
@@ -916,6 +918,32 @@ const writeFile = (lang, langValues, column, page, defaultHead, metaTags, defaul
         eleCredits = preLink + "'http://commons.wikimedia.org/wiki/File:Dubna.house_of_scientiests.jpg'>Wikimedia Commons (Hrustov)</a>";
         break;
     }
+    let link2url = eleNum === 113 || eleNum === 115 || eleNum === 117 || eleNum === 118 ? "element-" + eleNum : element.nme;
+    let link4url = element.nme;
+
+    if (eleNum === 13) link2url = link4url = "aluminum";
+    else if (eleNum === 55) link2url = link4url = "cesium";
+
+    if (
+      eleNum === 2 ||
+      eleNum === 3 ||
+      eleNum === 5 ||
+      eleNum === 6 ||
+      eleNum === 10 ||
+      eleNum === 15 ||
+      eleNum === 18 ||
+      eleNum === 26 ||
+      eleNum === 27 ||
+      eleNum === 28 ||
+      eleNum === 36 ||
+      eleNum === 46 ||
+      eleNum === 74 ||
+      eleNum === 79 ||
+      eleNum === 80 ||
+      eleNum === 82 ||
+      eleNum === 96
+    )
+      link2url = link2url + "-chemical-element";
 
     writeStream.write("<div class='content'>");
     writeStream.write("<div class='content-wrapper'>");
@@ -924,7 +952,7 @@ const writeFile = (lang, langValues, column, page, defaultHead, metaTags, defaul
 
     writeStream.write("<div id='elementName' class='box-content masonry-col text-center'>");
     writeStream.write("<div class='line-height-2'>");
-    writeStream.write("<h1>" + element.nme + "</h1>");
+    writeStream.write("<h1>" + langValues[element.nme] + "</h1>");
     writeStream.write("</div>");
     writeStream.write("</div>");
 
@@ -941,9 +969,8 @@ const writeFile = (lang, langValues, column, page, defaultHead, metaTags, defaul
     writeStream.write("<div id='secondSquare' class='flex-item masonry-col grid'>");
     writeStream.write("<div class='heavyFont'>" + langValues.group + "</div>");
     writeStream.write("<div>");
-    // if (element.grp === "na") writeStream.write(langValues.na);
-    // else writeStream.write(getNum(element.grp));
-    //  }" + langValues.na}{:else}{getNum(element.grp)}{/if}
+    if (element.grp === "na") writeStream.write(langValues.na);
+    else writeStream.write(getNum(element.grp.toString()));
     writeStream.write("</div>");
     writeStream.write("<div class='heavyFont'>" + langValues.period + "</div>");
     writeStream.write("<div>" + element.prd + "</div>");
@@ -1033,78 +1060,97 @@ const writeFile = (lang, langValues, column, page, defaultHead, metaTags, defaul
     else writeStream.write(getNum(element.dns) + " " + langValues.labelDensity);
     writeStream.write("</div>");
     writeStream.write("<div class='new-table heavyFont'>" + langValues.labelMeltingMain + "</div>");
-    writeStream.write("<div id='outputMeltingMain' class='new-table'></div>");
+    writeStream.write("<div id='outputMeltingMain' class='new-table'>" + getTemp(element.mlt) + "</div>");
     writeStream.write("<div class='new-table heavyFont'>" + langValues.labelBoilingMain + "</div>");
-    writeStream.write("<div id='outputBoilingMain' class='new-table'></div>");
+    writeStream.write("<div id='outputBoilingMain' class='new-table'>" + getTemp(element.bln) + "</div>");
     writeStream.write("<div class='new-table heavyFont'>" + langValues.labelFusionMain + "</div>");
     writeStream.write("<div class='new-table'>");
-    // writeStream.write("{#if element.fsn === 'na'}");
-    // writeStream.write("" + langValues.na + "");
-    // writeStream.write("{:else}");
-    // writeStream.write("{getNum(element.fsn)}");
-    // writeStream.write("{@html langValues.labelFusion}");
-    // writeStream.write("{/if}");
+    if (element.fsn === "na") writeStream.write(langValues.na);
+    else writeStream.write(getNum(element.fsn) + " " + langValues.labelFusion);
     writeStream.write("</div>");
     writeStream.write("<div class='new-table heavyFont'>" + langValues.labelVaporizationMain + "</div>");
     writeStream.write("<div class='new-table'>");
-    // writeStream.write("{#if element.vpn === 'na'}");
-    // writeStream.write("" + langValues.na + "");
-    // writeStream.write("{:else}");
-    // writeStream.write("{getNum(element.vpn)}");
-    // writeStream.write("{@html langValues.labelFusion}");
-    // writeStream.write("{/if}");
+    if (element.vpn === "na") writeStream.write(langValues.na);
+    else writeStream.write(getNum(element.vpn) + " " + langValues.labelFusion);
     writeStream.write("</div>");
     writeStream.write("<div class='new-table heavyFont hyphen'>" + langValues.labelSpecificMain + "</div>");
     writeStream.write("<div class='new-table'>");
-    // writeStream.write("{#if element.spc === '-'}");
-    // writeStream.write("-");
-    // writeStream.write("{:else}");
-    // writeStream.write("{getNum(element.spc)}");
-    // writeStream.write("{@html langValues.labelSpecific}");
-    // writeStream.write("{/if}");
+    if (element.spc === "na") writeStream.write(langValues.na);
+    else writeStream.write(getNum(element.spc) + " " + langValues.labelSpecific);
     writeStream.write("</div>");
     writeStream.write("</div>");
     writeStream.write("</div>");
-    // writeStream.write("</div>");
+
     // Abundance
     writeStream.write("<div class='box-content masonry-col'>");
     writeStream.write("<div class='grid'>");
     writeStream.write("<div class='new-table heavyFont'>" + langValues.labelCrustMain + "</div>");
     writeStream.write("<div class='new-table'>");
-    // writeStream.write("{#if element.crt === 'na'}");
-    // writeStream.write("" + langValues.na + "");
-    // writeStream.write("{:else}");
-    // writeStream.write("{@html getNum(element.crt)}");
-    // writeStream.write("{/if}");
+    if (element.crt === "na") writeStream.write(langValues.na);
+    else writeStream.write(getNum(element.crt));
     writeStream.write("</div>");
     writeStream.write("<div class='new-table heavyFont'>" + langValues.labelUniverseMain + "</div>");
     writeStream.write("<div class='new-table'>");
-    // writeStream.write("{#if element.uni === 'na'}");
-    // writeStream.write("" + langValues.na + "");
-    // writeStream.write("{:else}");
-    // writeStream.write("{@html getNum(element.uni)}");
-    // writeStream.write("{/if}");
+    if (element.uni === "na") writeStream.write(langValues.na);
+    else writeStream.write(getNum(element.uni));
     writeStream.write("</div>");
     writeStream.write("</div>");
     writeStream.write("</div>");
+
+    let imageSrc = element.sym;
+    switch (imageSrc) {
+      case "Db":
+      case "Fl":
+      case "Lv":
+      case "Mc":
+      case "Ts":
+      case "Og":
+      case "Nh":
+        imageSrc = "Db";
+        break;
+      case "At":
+      case "Tc":
+        imageSrc = "At";
+        break;
+      case "Po":
+      case "Ra":
+        imageSrc = "Po";
+        break;
+      case "Es":
+      case "Fm":
+        imageSrc = "Es";
+        break;
+      case "Cn":
+      case "Ds":
+      case "Hs":
+      case "Mt":
+      case "Rg":
+        imageSrc = "Cn";
+        break;
+    }
+
     // Image
     writeStream.write("<div class='masonry-col'>");
     writeStream.write("<div class='blog-thumb'>");
     writeStream.write(
-      "<img id='elementPic' src='images/{imageSrc}.jpg' alt=" + post["ele" + eleNum + "Desc"] + " data-toggle='modal' data-target='#exampleModal' />"
+      "<img id='elementPic' src='../images/" +
+        imageSrc +
+        ".jpg' alt=" +
+        post["ele" + eleNum + "Desc"] +
+        " data-toggle='modal' data-target='#exampleModal' />"
     );
     writeStream.write("</div>");
     writeStream.write("<div class='box-content bottom-rounded line-height-2'>");
     writeStream.write("<span id='imgCredits' class='heavyFont'>" + langValues.imgCredits + ": </span>");
     writeStream.write("<span id='imgCreditsLink'>");
-    // writeStream.write(eleCredits);
-    console.log(eleCredits);
+    writeStream.write(eleCredits);
     writeStream.write("</span>");
     writeStream.write("<div>");
     writeStream.write(post["ele" + eleNum + "Desc"]);
     writeStream.write("</div>");
     writeStream.write("</div>");
     writeStream.write("</div>");
+
     // Identifiers
     writeStream.write("<div class='box-content masonry-col'>");
     writeStream.write("<div class='grid'>");
@@ -1112,10 +1158,12 @@ const writeFile = (lang, langValues, column, page, defaultHead, metaTags, defaul
     writeStream.write("<div class='new-table'>" + element.cas + "</div>");
     writeStream.write("<div class='new-table heavyFont'>" + langValues.labelCIDMain + "</div>");
     writeStream.write("<div class='new-table'>");
-    // writeStream.write("{#if element.cid === 'na'}" + langValues.na}{:else}{getNum(element.cid)}{/if}");
+    if (element.cid === "na") writeStream.write(langValues.na);
+    else writeStream.write(getNum(element.cid));
     writeStream.write("</div>");
     writeStream.write("</div>");
     writeStream.write("</div>");
+
     // Atomic Properties
     writeStream.write("<div class='box-content masonry-col'>");
     writeStream.write("<span class='headerOutline text-upper heavyFont'>" + langValues.labelAtomicProp + "</span>");
@@ -1161,7 +1209,6 @@ const writeFile = (lang, langValues, column, page, defaultHead, metaTags, defaul
     writeStream.write("<div class='line-height-2'>");
     writeStream.write(post["ele" + eleNum + "Uses"]);
     writeStream.write("</div>");
-    writeStream.write("<div />");
     writeStream.write("</div>");
 
     // Hazards
@@ -1192,19 +1239,42 @@ const writeFile = (lang, langValues, column, page, defaultHead, metaTags, defaul
         langValues.wiki +
         "</a>"
     );
+
+    // id("link2").href = "https://www.britannica.com/science/" + link2url;
+    // id("link3").href = "http://www.wolframalpha.com/input/?i=" + item.nme + "+element";
+    // id("link4").href = "http://www.chemicool.com/elements/" + link4url + ".html";
+    // id("link5").href = "http://www.rsc.org/periodic-table/element/" + num + "/" + item.nme;
+    // id("link6").href = "http://www.webelements.com/" + item.nme + "/";
+
     writeStream.write("</div>");
     writeStream.write("");
     writeStream.write(
-      "<a href={link2} class='webLink' target='_blank' rel='noopener noreferrer'><span class='underlineLink'>Encyclopaedia Britannica</span></a>"
+      "<a href='https://www.britannica.com/science/" +
+        link2url +
+        "' class='webLink' target='_blank' rel='noopener noreferrer'><span class='underlineLink'>Encyclopaedia Britannica</span></a>"
     );
     writeStream.write(
-      "<a href={link3} class='webLink' target='_blank' rel='noopener noreferrer'><span class='underlineLink'>Wolfram Alpha</span></a>"
+      "<a href='http://www.wolframalpha.com/input/?i=" +
+        element.nme +
+        "+element' class='webLink' target='_blank' rel='noopener noreferrer'><span class='underlineLink'>Wolfram Alpha</span></a>"
     );
-    writeStream.write("<a href={link4} class='webLink' target='_blank' rel='noopener noreferrer'><span class='underlineLink'>Chemicool</span></a>");
     writeStream.write(
-      "<a href={link5} class='webLink' target='_blank' rel='noopener noreferrer'><span class='underlineLink'>RSC Visual Elements</span></a>"
+      "<a href='http://www.chemicool.com/elements/" +
+        link4url +
+        ".html' class='webLink' target='_blank' rel='noopener noreferrer'><span class='underlineLink'>Chemicool</span></a>"
     );
-    writeStream.write("<a href={link6} class='webLink' target='_blank' rel='noopener noreferrer'><span class='underlineLink'>WebElements</span></a>");
+    writeStream.write(
+      "<a href='http://www.rsc.org/periodic-table/element/" +
+        eleNum +
+        "/" +
+        element.nme +
+        "' class='webLink' target='_blank' rel='noopener noreferrer'><span class='underlineLink'>RSC Visual Elements</span></a>"
+    );
+    writeStream.write(
+      "<a href='http://www.webelements.com/" +
+        element.nme +
+        "/' class='webLink' target='_blank' rel='noopener noreferrer'><span class='underlineLink'>WebElements</span></a>"
+    );
     writeStream.write("</div>");
 
     // Small Table
@@ -1238,7 +1308,7 @@ const writeFile = (lang, langValues, column, page, defaultHead, metaTags, defaul
     );
     writeStream.write("style='fill: #808080;' />");
     writeStream.write("</g>");
-    writeStream.write("<g id='highlight'>");
+    writeStream.write("<g id='highlight' transform='translate(" + eleHighlight + ")'>");
     writeStream.write("<path style='fill: #ffffff;' d='m 2.5,1039.8622 10,0 0,10 -10,0 z' />");
     writeStream.write("<path");
     writeStream.write(
@@ -1248,10 +1318,51 @@ const writeFile = (lang, langValues, column, page, defaultHead, metaTags, defaul
     writeStream.write("</g>");
     writeStream.write("</g>");
     writeStream.write("</svg>");
+
+    // function returnItem(itemId) {
+    //   for (var j = 0; j < newRawData.length; j++) {
+    //     if (newRawData[j].id === itemId) return newRawData[j];
+    //   }
+    // }
+
+    let previousNum = eleNum - 2;
+    var nextNum = eleNum;
+    let previousHTML, nextHTML;
+
+    if (eleNum === 1) {
+      // id("previousElement").innerHTML = "&mdash;";
+      // id("previousElement").style.textDecoration = "none";
+      previousHTML = "-";
+    } else {
+      var previousElement = newRawData[previousNum];
+      previousHTML =
+        "<a href='" +
+        langValues[previousElement.nme].toLowerCase() +
+        "' class='underlineLink' id='previousElement'>" +
+        langValues[previousElement.nme] +
+        "</a>";
+      // id("previousElement").innerHTML = window[previousElement.nme];
+      // id("previousElement").href = "element.html?num=" + previousNum + (urlLang === "en" ? "" : "&lang=" + urlLang);
+    }
+    console.log(previousHTML);
+
+    if (eleNum === 118) {
+      // id("nextElement").innerHTML = "&mdash;";
+      // id("nextElement").style.textDecoration = "none";
+      nextHTML = "-";
+    } else {
+      var nextElement = newRawData[nextNum];
+      nextHTML =
+        "<a href='" + langValues[nextElement.nme].toLowerCase() + "' class='underlineLink' id='nextElement'>" + langValues[nextElement.nme] + "</a>";
+      // id("nextElement").innerHTML = window[nextElement.nme];
+      // id("nextElement").href = "element.html?num=" + nextNum + (urlLang === "en" ? "" : "&lang=" + urlLang);
+    }
+    console.log(nextHTML);
+
     writeStream.write("<div id='elementNav' class='row text-center'>");
-    writeStream.write("<a href='#a' class='underlineLink' id='previousElement'>{previousElement}</a>&nbsp;&nbsp;←&nbsp;");
+    writeStream.write(previousHTML + "&nbsp;&nbsp;←&nbsp;");
     writeStream.write("<span id='currentElement'>" + element.sym + "</span>&nbsp;&nbsp;→&nbsp;");
-    writeStream.write("<a class='underlineLink' id='nextElement'>{nextElement}</a>");
+    writeStream.write(nextHTML);
     writeStream.write("</div>");
     writeStream.write("</div>");
 

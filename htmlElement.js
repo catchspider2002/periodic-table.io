@@ -12,7 +12,7 @@ const writeFile = (lang, langValues, column, page, defaultHead, defaultNav, defa
       let eleNum = i;
       let element = newRawData[eleNum - 1];
 
-      let writeStream = fs.createWriteStream(lang + "/" + langValues[element.nme].toLowerCase() + ".html");
+      let writeStream = fs.createWriteStream(lang + "/" + element.num + '-' + langValues[element.nme].toLowerCase() + ".html");
 
       defaultHead.forEach((heads) => {
         writeStream.write(heads);

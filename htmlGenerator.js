@@ -65,7 +65,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     // { lang: "hu", col: 11 },
     // { lang: "id", col: 21 },
     // { lang: "it", col: 8 },
-    // { lang: "ja", col: 23 },
+    { lang: "ja", col: 23 },
     // { lang: "ko", col: 10 },
     // { lang: "ms", col: 41 },
     // { lang: "nb-no", col: 27 },

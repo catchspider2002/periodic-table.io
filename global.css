@@ -600,7 +600,7 @@ body {
   }
   
   .content-center {
-    align-content: center;
+    align-items: center;
   }
   
   .self-center {

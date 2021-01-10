@@ -11,13 +11,15 @@ const htmlElement = require("./htmlElement.js");
 let svgHeader =
   "<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 512 512' stroke='currentColor' fill='currentColor'><path d='";
 let svgFooter = "' /></svg>";
+let svgHdr =
+  "<svg xmlns='http://www.w3.org/2000/svg' width='2em' height='2em' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'>";
 
 let logoIcon =
   '<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 10.054 10.054" class="periodic-table-logo" fill="#fff"><path d="M3.146 1.905a1.301 1.301 0 00-1.301 1.301 1.301 1.301 0 001.009 1.266 1.596 1.596 0 011.553-1.581 1.301 1.301 0 00-1.261-.986zm4.841 1.581a1.508 1.508 0 00-1.47 1.178l-.824-.1a.126.126 0 00-.14.11.126.126 0 00.11.14l.821.1a1.508 1.508 0 00-.004.081 1.508 1.508 0 001.508 1.508 1.508 1.508 0 001.508-1.508 1.508 1.508 0 00-1.508-1.508zm-4.331 1.69a.126.126 0 00-.078.028l-.843.683a1.301 1.301 0 00-.874-.34A1.301 1.301 0 00.56 6.848a1.301 1.301 0 001.301 1.301 1.301 1.301 0 001.301-1.301 1.301 1.301 0 00-.257-.774l.832-.674a.126.126 0 00.019-.177.126.126 0 00-.099-.047z"/><path d="M4.45 2.978a1.508 1.508 0 00-1.508 1.508 1.508 1.508 0 00.297.895l.292-.237a.201.201 0 01.283.03.201.201 0 01-.03.283l-.265.215a1.508 1.508 0 00.931.322 1.508 1.508 0 001.444-1.077l-.241-.029a.201.201 0 01-.175-.224.201.201 0 01.224-.175l.255.031a1.508 1.508 0 00.002-.034 1.508 1.508 0 00-1.508-1.508z" opacity=".7"/></svg>';
 
 let listIcon =
-  svgHeader +
-  "M23 358v-87h87v87zm29-58v29h29v-29zm-29-59v-87h87v87zm29-58v29h29v-29zm-29-58V37h87v88zm29-58v29h29V67zm117 145v-29h262v29zm204 88v29H169v-29zM169 67h320v29H169zM23 475v-88h87v88zm29-59v29h29v-29zm117 29v-29h262v29z" +
+  svgHdr +
+  "<line x1='9' y1='6' x2='20' y2='6' /><line x1='9' y1='12' x2='20' y2='12' /><line x1='9' y1='18' x2='20' y2='18' /><line x1='5' y1='6' x2='5' y2='6.01' /><line x1='5' y1='12' x2='5' y2='12.01' /><line x1='5' y1='18' x2='5' y2='18.01' />" +
   svgFooter;
 
 let compareIcon =
@@ -26,23 +28,30 @@ let compareIcon =
   svgFooter;
 
 let tablesIcon =
-  svgHeader +
-  "M195.75 15v482M15 195.75h482M75.25 15h361.5C470.128 15 497 41.872 497 75.25v361.5c0 33.378-26.872 60.25-60.25 60.25H75.25C41.872 497 15 470.128 15 436.75V75.25C15 41.872 41.872 15 75.25 15z' fill='none' stroke-width='30" +
+  svgHdr +
+  "<rect x='4' y='4' width='16' height='16' rx='2' /><line x1='4' y1='10' x2='20' y2='10' /><line x1='10' y1='4' x2='10' y2='20' />" +
   svgFooter;
 
 let printablesIcon =
-  svgHeader +
-  "M480 113h-32l-35-57c-3-4-8-7-13-7h-41V15c0-8-7-15-15-15H168c-8 0-15 7-15 15v34h-41c-5 0-10 3-13 7l-35 57H32c-8 0-15 7-15 15v256c0 8 7 15 15 15h97v98c0 8 7 15 15 15h224c8 0 15-7 15-15v-98h97c8 0 15-7 15-15V128c0-8-7-15-15-15zm-88-34l21 34h-54V79zM183 30h146v83H183zm-63 49h33v34H99zm233 403H159V335h194zm112-113h-82v-34h17c8 0 15-7 15-15s-7-15-15-15H112c-8 0-15 7-15 15s7 15 15 15h17v34H47V143h418zm-50-180c-2-8-11-14-19-11-8 2-13 10-10 18 2 9 11 13 18 10 8-2 12-10 11-17z" +
+  svgHdr +
+  "<path d='M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2' /><path d='M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4' /><rect x='7' y='13' width='10' height='8' rx='2' />" +
   svgFooter;
 
-let storeIcon =
-  svgHeader +
-  "M.659 233.105c0-1 42-112 43-117 0 0 0 0 0 0 9-22 23-40 42-54 25-18 118-45 178-43 52 2 136 24 162 43 19 14 34 32 42 54 46 123 43 116 44 118 0 3 0 7-2 10-2 4-5 7-9 8l-95 24v199c0 9-7 16-15 16h-269c-9 0-15-7-15-16v-199l-95-24c-5-1-8-4-10-8-2-3-2-7-1-11zm106 12v-16l-67-15c-1 4-3 9-4 13 24 6 53 13 71 18zm97-190c1 27 24 50 52 50s51-23 53-50c-39-7-64-8-105 0zm235 72c-6-16-16-30-30-40-9-7-37-17-70-26-5 42-40 74-83 74s-78-32-82-74c-34 9-62 19-70 26-14 10-25 24-31 40v0c-1 3-12 31-22 58l56 13v-55c0-8 6-15 15-15 8 0 15 7 15 15v263h238v-263c0-8 7-15 15-15 9 0 16 7 16 15v55l55-13zm33 87l-66 15v16l71-18zm-335 246h238v-24h-238z" +
-  svgFooter;
+let storeIcon = svgHdr + "<path d='M15 4l6 2v5h-3v8a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1v-8h-3v-5l6 -2a3 3 0 0 0 6 0' />" + svgFooter;
 
 let translationIcon =
   svgHeader +
   "M511 347l-25-69c17-27 26-59 26-92 0-95-77-172-172-172-88 0-160 65-171 149H15c-8 0-15 7-15 15v305c0 5 3 10 8 13 2 1 4 2 7 2s5-1 8-2l90-52h198c8 0 15-7 15-15v-71c4 1 9 1 14 1 27 0 55-7 79-20l73 27c1 1 3 1 5 1 4 0 8-1 11-4 4-4 5-11 3-16zm-215 67H109c-3 0-6 1-8 2l-71 41V193h137c1 24 7 47 16 67h-17v-5c0-9-7-15-15-15s-15 6-15 15v5H93c-8 0-15 7-15 15s7 15 15 15h70l-11 14-3-4c-5-7-15-8-21-3-7 5-8 15-3 21l7 10-30 37c-5 6-4 15 2 21 3 2 7 3 10 3 4 0 9-2 12-6l25-31 16 21c3 3 8 5 12 5 3 0 7-1 9-3 7-5 8-14 3-21l-20-26 29-36 2-2v0c23 31 56 53 94 63zm159-133l17 46-49-18c-4-2-8-1-12 1-22 12-46 19-71 19-79 0-143-64-143-143 0-78 64-142 143-142 78 0 142 64 142 142 0 30-9 58-25 82-3 4-4 9-2 13zM353 108c-3-5-8-9-14-9 0 0 0 0 0 0-6 0-11 4-14 9l-60 133c-4 7-1 16 7 20 8 3 16 0 20-8l16-36h62l16 37c3 5 8 9 14 9 2 0 4-1 6-2 8-3 11-12 8-20zm-31 79l17-37 17 37z" +
+  svgFooter;
+
+let settingsIcon =
+  svgHdr +
+  "<path d='M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z' /><circle cx='12' cy='12' r='3' />" +
+  svgFooter;
+
+let lightIcon =
+  svgHdr +
+  "<circle cx='12' cy='12' r='4' /><path d='M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7' />" +
   svgFooter;
 
 xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
@@ -149,9 +158,9 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<a id=logo class='navbar-brand' href='.' aria-label='Home'>",
       logoIcon + "PERIODIC-TABLE.IO",
       "</a>",
-      "<label for='drop' class='toggle burger'><svg http://www.w3.org/2000/svg'",
-      "width='22' height='22' viewBox='0 0 24 24'",
-      "stroke-width='1.5, stroke='currentColor', fill='none'",
+      "<label for='drop' class='toggle burger'><svg xmlns='http://www.w3.org/2000/svg' ",
+      "width='22' height='22' viewBox='0 0 24 24' ",
+      "stroke-width='1.5' stroke='currentColor' fill='none' ",
       "stroke-linecap='round' stroke-linejoin='round'>",
       "<path stroke='none' d='M0 0h24v24H0z' fill='none' />",
       "<line x1='4' y1='6' x2='20' y2='6' />",
@@ -191,11 +200,11 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "</li>",
       "<li>",
       "<a href='" + lang + "/translation'>",
-      translationIcon + langValues.settings + "</a>",
+      settingsIcon + langValues.settings + "</a>",
       "</li>",
       "<li>",
       "<a href='" + lang + "/translation'>",
-      translationIcon + langValues.theme + "</a>",
+      lightIcon + langValues.theme + "</a>",
       "</li>",
       "<li>",
       // ","<a on:click={() => changeTheme()}>
@@ -302,9 +311,9 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       ];
 
       switch (page) {
-        // case "privacy-policy":
-        //   htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
+        case "privacy-policy":
+          htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
         // case "about":
         //   htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
         //   break;
@@ -317,9 +326,9 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         // case "compare":
         //   htmlCompare.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
         //   break;
-        case "element":
-          htmlElement.writeFile(lang, langValues, language.col, page, defaultHead, defaultNav, defaultFooter);
-          break;
+        // case "element":
+        //   htmlElement.writeFile(lang, langValues, language.col, page, defaultHead, defaultNav, defaultFooter);
+        //   break;
         // case "list":
         //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
         //   break;

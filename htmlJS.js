@@ -314,26 +314,6 @@ else {
 ];
 }
 
-// import Lang from "./locale.js";
-// import Footer from "./_Footer.svelte";
-// import Constants from "../../components/constants.js";
-// import Nav from "./_Nav.svelte";
-// import { onMount } from "svelte";
-
-// let langValue = Lang.lang;
-// let newRawData = Constants;
-let firstElement = 0,
-  secondElement = 0;
-
-// onMount(async () => {
-//   // console.log("On Mount");
-//   setDegreesFirst();
-//   setDegreesSecond();
-// });
-
-// let firstEle = getElement(firstElement);
-// let secondEle = getElement(firstElement);
-
 function id(text) {
   return document.getElementById(text);
 }

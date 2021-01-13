@@ -490,28 +490,32 @@ function secondChanged() {
 
 // Navbar and dropdowns
 // let toggle = document.getElementsByClassName("navbar-toggle")[0]
-  let collapse = document.getElementsByClassName("burger")[0];
+  // let collapse = document.getElementsByClassName("burger")[0];
 
-document.addEventListener("click", function(evt) {
-  var targetElement = evt.target;  // clicked element
+// document.addEventListener("click", function(evt) {
+//   var targetElement = evt.target;  // clicked element
 
-do {
-  if (targetElement.id === "topNavbar") {
-      return;
-  }
-  // Go up the DOM
-  targetElement = targetElement.parentNode;
-} while (targetElement);
-closeMenu();
-});
+// do {
+//   if (targetElement.id === "topNavbar") {
+//       return;
+//   }
+//   // Go up the DOM
+//   targetElement = targetElement.parentNode;
+// } while (targetElement);
+// closeMenu();
+// });
 
-// Toggle if navbar menu is open or closed
-function toggleMenu() {
-  collapse.classList.toggle("collapse");
-  collapse.classList.toggle("in");
-}
+// // Toggle if navbar menu is open or closed
+// function toggleMenu() {
+//   collapse.classList.toggle("collapse");
+//   collapse.classList.toggle("in");
+// }
 
-function closeMenu() {
-  collapse.classList.add("collapse");
-  collapse.classList.remove("in");
+// function closeMenu() {
+//   collapse.classList.add("collapse");
+//   collapse.classList.remove("in");
+// }
+
+function toggleMenu(){
+  console.log("Toggle Menu")
 }

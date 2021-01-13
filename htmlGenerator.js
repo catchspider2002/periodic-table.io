@@ -155,7 +155,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<a id=logo class='navbar-brand' href='.' aria-label='Home'>",
       logoIcon + "PERIODIC-TABLE.IO",
       "</a>",
-      "<label for='drop' class='toggle burger'><svg xmlns='http://www.w3.org/2000/svg' ",
+      "<label for='drop' onclick='toggleMenu()' class='toggle burger'><svg xmlns='http://www.w3.org/2000/svg' ",
       "width='22' height='22' viewBox='0 0 24 24' ",
       "stroke-width='1.5' stroke='currentColor' fill='none' ",
       "stroke-linecap='round' stroke-linejoin='round'>",
@@ -311,24 +311,24 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         case "privacy-policy":
           htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
           break;
-        // case "about":
-        //   htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
-        // case "store":
-        //   htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
-        // case "printables":
-        //   htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
-        // case "compare":
-        //   htmlCompare.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
+        case "about":
+          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "store":
+          htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "printables":
+          htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "compare":
+          htmlCompare.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
         // case "element":
         //   htmlElement.writeFile(lang, langValues, language.col, page, defaultHead, defaultNav, defaultFooter);
         //   break;
-        // case "list":
-        //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
+        case "list":
+          htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
       }
     });
   });

@@ -7,6 +7,7 @@ const htmlPrintables = require("./htmlPrintables.js");
 const htmlCompare = require("./htmlCompare.js");
 const htmlList = require("./htmlList.js");
 const htmlElement = require("./htmlElement.js");
+const htmlIndex = require("./htmlIndex.js");
 
 let svgHeader =
   "<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 512 512' stroke='currentColor' fill='currentColor'><path d='";
@@ -110,6 +111,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     }
     let pages = [
       { page: "about", keywords: "about", title: langValues.about },
+      { page: "index", keywords: "periodic table", title: langValues.homeHeader },
       { page: "privacy-policy", keywords: "privacy policy", title: langValues.privacy },
       { page: "store", keywords: "store, tees", title: langValues.store },
       { page: "printables", keywords: "printables, poster, flash cards", title: langValues.printables },
@@ -308,27 +310,30 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       ];
 
       switch (page) {
-        case "privacy-policy":
-          htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        case "index":
+          htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
           break;
-        case "about":
-          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-          break;
-        case "store":
-          htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-          break;
-        case "printables":
-          htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-          break;
-        case "compare":
-          htmlCompare.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-          break;
+        // case "privacy-policy":
+        //   htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        //   break;
+        // case "about":
+        //   htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        //   break;
+        // case "store":
+        //   htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        //   break;
+        // case "printables":
+        //   htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        //   break;
+        // case "compare":
+        //   htmlCompare.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        //   break;
         // case "element":
         //   htmlElement.writeFile(lang, langValues, language.col, page, defaultHead, defaultNav, defaultFooter);
         //   break;
-        case "list":
-          htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-          break;
+        // case "list":
+        //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          // break;
       }
     });
   });

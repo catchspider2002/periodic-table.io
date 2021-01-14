@@ -12,7 +12,7 @@ const writeFile = (lang, langValues, column, page, defaultHead, defaultNav, defa
       let eleNum = i;
       let element = newRawData[eleNum - 1];
 
-      let writeStream = fs.createWriteStream(lang + "/" + element.num + '-' + langValues[element.nme].toLowerCase() + ".html");
+      let writeStream = fs.createWriteStream(lang + "/" + element.num + "-" + langValues[element.nme].toLowerCase() + ".html");
 
       defaultHead.forEach((heads) => {
         writeStream.write(heads);
@@ -1367,6 +1367,8 @@ const writeFile = (lang, langValues, column, page, defaultHead, defaultNav, defa
         let previousElement = newRawData[previousNum];
         previousHTML =
           "<a href='" +
+          previousElement.num +
+          "-" +
           langValues[previousElement.nme].toLowerCase() +
           "' class='underlineLink' id='previousElement'>" +
           langValues[previousElement.nme] +
@@ -1378,6 +1380,8 @@ const writeFile = (lang, langValues, column, page, defaultHead, defaultNav, defa
         let nextElement = newRawData[nextNum];
         nextHTML =
           "<a href='" +
+          nextElement.num +
+          "-" +
           langValues[nextElement.nme].toLowerCase() +
           "' class='underlineLink' id='nextElement'>" +
           langValues[nextElement.nme] +

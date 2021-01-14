@@ -362,7 +362,7 @@ select:focus {
 #topRowCompare {
   position: fixed;
   top: 50px;
-  z-index: 2;
+  z-index: 1;
   width: calc(100% - 17px);
   height: 80px;
   background-color: var(--body-bg-color);
@@ -1190,7 +1190,7 @@ canvas {
 
 #headerwrap {
   padding-top: 60px;
-  overflow-x: auto;
+  /* overflow-x: auto; */
 }
 
 .text-upper {

@@ -279,6 +279,9 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   defaultFooter.forEach((footers) => {
     writeStream.write(footers);
   });
+  writeStream.write("<script>");
+  writeStream.write("let bc= '" + langValues["BC"] + "';");
+  writeStream.write("</script>");
 
   // the finish event is emitted when all data has been flushed from the stream
   writeStream.on("finish", () => {

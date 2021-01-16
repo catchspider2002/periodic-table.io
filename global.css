@@ -269,7 +269,7 @@ button {
   padding: 10px 12px;
   color: #fff;
   border: 1px solid transparent;
-  float: var(--direction-rev);
+  /* float: var(--direction-rev); */
 }
 
 input,
@@ -2273,10 +2273,10 @@ nav {
  * we need to add a clear after the container. */
 
 /* nav:after { */
-  /* content: ""; */
-  /* display: table; */
-  /* clear: both; */
-  /* 		float: left; */
+/* content: ""; */
+/* display: table; */
+/* clear: both; */
+/* 		float: left; */
 /* } */
 
 /* Removing padding, margin and "list-style" from the "ul",
@@ -2477,4 +2477,51 @@ nav ul ul ul li {
     display: block;
     width: 94%;
   }
+}
+
+/* Settings sidebar */
+
+#sidebar,
+#content {
+  height: 100%;
+  overflow: auto;
+}
+
+#sidebar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  background: white;
+  width: 30%;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.5);
+  transition: width 0.35s;
+}
+
+#sidebar.collapsed {
+  width: 0;
+}
+
+#content {
+  background: gray;
+  width: 100%;
+}
+
+#closeButton {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background: black;
+  margin: 20px;
+  cursor: pointer;
+}
+
+#closeButton {
+  float: right;
+}
+
+nav > ul > li> button {
+  background-color: transparent;
 }

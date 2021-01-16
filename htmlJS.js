@@ -741,3 +741,8 @@ function removeOutline() {
     id(element).style.opacity = "1";
   }
 }
+
+
+function sideBar(){
+  id("sidebar").classList.toggle("collapsed");
+}

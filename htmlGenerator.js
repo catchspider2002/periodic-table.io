@@ -150,7 +150,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     ];
 
     let defaultNav = [
-      "<nav>",
+      "<div id='sidebar' class='collapsed'><button id='closeButton' title='Close sidebar'></button></div><nav>",
       "<a id=logo class='navbar-brand' href='.' aria-label='Home'>",
       logoIcon + "PERIODIC-TABLE.IO",
       "</a>",
@@ -195,12 +195,12 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       translationIcon + langValues.translation + "</a>",
       "</li>",
       "<li>",
-      "<a href='" + lang + "/translation'>",
-      settingsIcon + langValues.settings + "</a>",
+      "<button onclick='sideBar()' title='" + langValues.settings + "'>",
+      settingsIcon + "</button>",
       "</li>",
       "<li>",
-      "<a href='" + lang + "/translation'>",
-      lightIcon + langValues.theme + "</a>",
+      "<button onclick='changeTheme()' title='" + langValues.theme + "'>",
+      lightIcon + "</button>",
       "</li>",
       "<li>",
       // ","<a on:click={() => changeTheme()}>
@@ -310,9 +310,9 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         case "index":
           htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
           break;
-        // case "privacy-policy":
-        //   htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
+        case "privacy-policy":
+          htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
         // case "about":
         //   htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
         //   break;

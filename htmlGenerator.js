@@ -154,6 +154,10 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<a id=logo class='navbar-brand' href='.' aria-label='Home'>",
       logoIcon + "PERIODIC-TABLE.IO",
       "</a>",
+      "<button onclick='sideBar()' title='" + langValues.settings + "'>",
+      settingsIcon + "</button>",
+      "<button onclick='changeTheme()' title='" + langValues.theme + "'>",
+      lightIcon + "</button>",
       "<label for='drop' onclick='toggleMenu()' class='toggle burger'><svg xmlns='http://www.w3.org/2000/svg' ",
       "width='22' height='22' viewBox='0 0 24 24' ",
       "stroke-width='1.5' stroke='currentColor' fill='none' ",
@@ -193,16 +197,12 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<li>",
       "<a href='translation.html'>",
       translationIcon + langValues.translation + "</a>",
+      // "</li>",
+      // "<li>",
+      // "</li>",
+      // "<li>",
       "</li>",
-      "<li>",
-      "<button onclick='sideBar()' title='" + langValues.settings + "'>",
-      settingsIcon + "</button>",
-      "</li>",
-      "<li>",
-      "<button onclick='changeTheme()' title='" + langValues.theme + "'>",
-      lightIcon + "</button>",
-      "</li>",
-      "<li>",
+      // "<li>",
       // ","<a on:click={() => changeTheme()}>
       // ","<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 512 512" stroke="currentColor" fill="currentColor">
       //           {#if theme === light}
@@ -212,7 +212,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       //           {/if}","
       //         </svg>{Lang.theme}","
       //       </a>","
-      "</li>",
+      // "</li>",
       "</ul>",
       "</nav>",
     ];

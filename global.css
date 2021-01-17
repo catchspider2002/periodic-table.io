@@ -2258,6 +2258,8 @@ nav {
   text-transform: uppercase;
   z-index: 5;
   /* height: 52px; */
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
 }
 
 #logo {
@@ -2362,7 +2364,7 @@ nav ul ul ul li {
   nav {
     /*       margin: 0; */
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr auto auto auto ;
     z-index: 2;
   }
 

@@ -9,9 +9,9 @@ const htmlList = require("./htmlList.js");
 const htmlElement = require("./htmlElement.js");
 const htmlIndex = require("./htmlIndex.js");
 
-let svgHeader =
-  "<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 512 512' stroke='currentColor' fill='currentColor'><path d='";
-let svgFooter = "' /></svg>";
+// let svgHeader =
+//   "<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 512 512' stroke='currentColor' fill='currentColor'><path d='";
+let svgFooter = "'</svg>";
 let svgHdr =
   "<svg xmlns='http://www.w3.org/2000/svg' width='1.75em' height='1.75em' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'>";
 
@@ -44,10 +44,18 @@ let settingsIcon =
   "<path d='M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z' /><circle cx='12' cy='12' r='3' />" +
   svgFooter;
 
+// let lightIcon =
+//   svgHdr +
+//   "<circle cx='12' cy='12' r='4' /><path d='M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7' />" +
+//   svgFooter;
+
+// let darkIcon = svgHdr + "<path d='M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z' />" + svgFooter;
+
 let lightIcon =
-  svgHdr +
-  "<circle cx='12' cy='12' r='4' /><path d='M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7' />" +
-  svgFooter;
+  "<svg xmlns='http://www.w3.org/2000/svg' width='1.75em' height='1.75em' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='4' /><path d='M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7' /></svg>";
+
+let darkIcon =
+  "<svg xmlns='http://www.w3.org/2000/svg' width='1.75em' height='1.75em' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z' /></svg>";
 
 xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
   let languages = [
@@ -150,13 +158,122 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     ];
 
     let defaultNav = [
-      "<div id='sidebar' class='collapsed'><button id='closeButton' title='Close sidebar'></button></div><nav>",
+      "<div id='sidebar' class='collapsed'><button id='closeButton' title='Close sidebar'></button>",
+      "<div class='grid grid-row-gap-10 items-center'>",
+      "<div class='new-table heavyFont text-left' id='language'></div>",
+      "<div class='new-table'>",
+      "<select id='languageSelectSetting' aria-label='Language'>",
+      "<option value='en'>English</option>",
+      "<option value='gb'>English (UK)</option>",
+      "<option value='ar'>العربية</option>",
+      "<option value='bg'>Български</option>",
+      "<option value='ca'>Català</option>",
+      "<option value='cs'>Čeština</option>",
+      "<option value='da'>Dansk</option>",
+      "<option value='de'>Deutsch</option>",
+      "<option value='el'>Ελληνικά</option>",
+      "<option value='es'>Español</option>",
+      "<option value='fa'>فارسی</option>",
+      "<option value='fi'>Suomi</option>",
+      "<option value='fr'>Français</option>",
+      "<option value='he'>עברית</option>",
+      "<option value='hi'>हिंदी</option>",
+      "<option value='hr'>Hrvatski</option>",
+      "<option value='hu'>Magyar</option>",
+      "<option value='hy'>Հայերեն</option>",
+      "<option value='id'>Bahasa Indonesia</option>",
+      "<option value='it'>Italiano</option>",
+      "<option value='ja'>日本語</option>",
+      "<option value='ko'>한국어</option>",
+      "<option value='mk'>Македонски</option>",
+      "<option value='ms'>Bahasa Melayu</option>",
+      "<option value='nb'>Norsk Bokmål</option>",
+      "<option value='nn'>Norsk Nynorsk</option>",
+      "<option value='nl'>Nederlands</option>",
+      "<option value='ph'>Polski</option>",
+      "<option value='pt'>Português</option>",
+      "<option value='ro'>Română</option>",
+      "<option value='ru'>Русский</option>",
+      "<option value='sk'>Slovenčina</option>",
+      "<option value='sl'>Slovenščina</option>",
+      "<option value='sr'>Српски</option>",
+      "<option value='sv'>Svenska</option>",
+      "<option value='th'>ไทย</option>",
+      "<option value='tr'>Türkçe</option>",
+      "<option value='uk'>Українська</option>",
+      "<option value='vi'>Tiếng Việt</option>",
+      "<option value='zs'>中文(简体)</option>",
+      "<option value='zt'>中文(繁體)</option>",
+      "</select>",
+      "</div>",
+      "<div class='new-table heavyFont text-left self-start' id='temperature' ></div>",
+      "<div class='radio-toolbar padding-top-5'>",
+      "<input type='radio' id='tempcelsius' name='temperature' value='celsius' onchange='setTemp()' />",
+      "<label class='disable-select' for='tempcelsius' /><input type='radio' id='tempfahrenheit' name='temperature' value='fahrenheit' onchange='setTemp()' />",
+      "<label class='disable-select' for='tempfahrenheit' />",
+      "</div>",
+      "<div class='new-table heavyFont padding-top-5 text-left self-start' id='themeColor' ></div>",
+      "<div class='new-table'>",
+      "<table id='colorTable'>",
+      "<tbody>",
+      "<tr>",
+      "<td id='color1' class='colorClass' title='Red' />",
+      "<td id='color2' class='colorClass' title='Orange' />",
+      "<td id='color3' class='colorClass' title='Yellow' />",
+      "<td id='color4' class='colorClass' title='Brown' />",
+      "<td id='color5' class='colorClass' title='Lime' />",
+      "</tr>",
+      "<tr>",
+      "<td id='color6' class='colorClass' title='Green' />",
+      "<td id='color7' class='colorClass' title='Cyan' />",
+      "<td id='color8' class='colorClass' title='Blue' />",
+      "<td id='color9' class='colorClass' title='Purple' />",
+      "<td id='color10' class='colorClass' title='Pink' />",
+      "</tr>",
+      "</tbody>",
+      "</table>",
+      "</div>",
+      "<div id='settingPeriodicTable' class='new-table span-2'></div>",
+      "<div class='new-table heavyFont text-left' id='tableWidth' ></div>",
+      "<div class='new-table'>",
+      "<select id='marginSetting' aria-label='Table Width'>",
+      "<option value='1'>100%</option>",
+      "<option value='0.95'>95%</option>",
+      "<option value='0.9'>90%</option>",
+      "<option value='0.85'>85%</option>",
+      "<option value='0.8'>80%</option>",
+      "</select>",
+      "</div>",
+      "<div class='new-table heavyFont text-left' id='settingsName'></div>",
+      "< class='new-table text-left padding-top-5'>",
+      "<label class='switch'>",
+      "<input id='nameSelectSetting' type='checkbox' >",
+      "<span class='slider round' ></span>",
+      "</label>",
+      "<div class='new-table heavyFont text-left' id='settingsAtmWtMain' ></div>",
+      "<div class='new-table text-left padding-top-5'>",
+      "<label class='switch'>",
+      "<input id='atmNoSelectSetting' type='checkbox' >",
+      "<span class='slider round' ></span>",
+      "</label>",
+      "</div>",
+      "<div class='new-table heavyFont text-left self-start' id='tableStyle'>Style</div>",
+      "<div class='radio-toolbar radio-style padding-top-5'>",
+      "<input type='radio' id='style1' name='tableStyle' value='1' onchange='setStyle()' ></div>",
+      "<label id='style1Label' class='disable-select' for='style1'></label>",
+      "<input type='radio' id='style2' name='tableStyle' value='2' onchange='setStyle()' >",
+      "<label id='style2Label' class='disable-select' for='style2'></label>",
+      "<input type='radio' id='style3' name='tableStyle' value='3' onchange='setStyle()' >",
+      "<label id='style3Label' class='disable-select' for='style3'></label>",
+      "</div>",
+      "</div>",
+      "</div><nav>",
       "<a id=logo class='navbar-brand' href='.' aria-label='Home'>",
       logoIcon + "PERIODIC-TABLE.IO",
       "</a>",
       "<button onclick='sideBar()' title='" + langValues.settings + "'>",
       settingsIcon + "</button>",
-      "<button onclick='changeTheme()' title='" + langValues.theme + "'>",
+      "<button id='themeIcon' onclick='changeTheme()' data-theme='light' title='" + langValues.theme + "'>",
       lightIcon + "</button>",
       "<label for='drop' onclick='toggleMenu()' class='toggle burger'><svg xmlns='http://www.w3.org/2000/svg' ",
       "width='22' height='22' viewBox='0 0 24 24' ",
@@ -307,9 +424,9 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       ];
 
       switch (page) {
-        case "index":
-          htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-          break;
+        // case "index":
+        //   htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        //   break;
         case "privacy-policy":
           htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
           break;

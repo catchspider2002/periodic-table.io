@@ -160,9 +160,9 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     let defaultNav = [
       "<div id='sidebar' class='collapsed'><button id='closeButton' title='Close sidebar'></button>",
       "<div class='grid grid-row-gap-10 items-center'>",
-      "<div class='new-table heavyFont text-left' id='language'></div>",
+      "<div class='new-table heavyFont text-left'>" + langValues.language + "</div>",
       "<div class='new-table'>",
-      "<select id='languageSelectSetting' aria-label='Language'>",
+      "<select id='languageSelectSetting' class='select-css' aria-label='" + langValues.language + "'>",
       "<option value='en'>English</option>",
       "<option value='gb'>English (UK)</option>",
       "<option value='ar'>العربية</option>",
@@ -206,13 +206,15 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<option value='zt'>中文(繁體)</option>",
       "</select>",
       "</div>",
-      "<div class='new-table heavyFont text-left self-start' id='temperature' ></div>",
+      "<div class='new-table heavyFont text-left self-start'>" + langValues.temperature + "</div>",
       "<div class='radio-toolbar padding-top-5'>",
       "<input type='radio' id='tempcelsius' name='temperature' value='celsius' onchange='setTemp()' />",
-      "<label class='disable-select' for='tempcelsius' /><input type='radio' id='tempfahrenheit' name='temperature' value='fahrenheit' onchange='setTemp()' />",
-      "<label class='disable-select' for='tempfahrenheit' />",
+      "<label class='disable-select' for='tempcelsius'>" +
+        langValues.tempCelsius +
+        "</label><input type='radio' id='tempfahrenheit' name='temperature' value='fahrenheit' onchange='setTemp()' />",
+      "<label class='disable-select' for='tempfahrenheit'>" + langValues.tempFahrenheit + "</label>",
       "</div>",
-      "<div class='new-table heavyFont padding-top-5 text-left self-start' id='themeColor' ></div>",
+      "<div class='new-table heavyFont padding-top-5 text-left self-start'>" + langValues.labelColorMain + "</div>",
       "<div class='new-table'>",
       "<table id='colorTable'>",
       "<tbody>",
@@ -234,9 +236,9 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "</table>",
       "</div>",
       "<div id='settingPeriodicTable' class='new-table span-2'></div>",
-      "<div class='new-table heavyFont text-left' id='tableWidth' ></div>",
+      "<div class='new-table heavyFont text-left'>" + langValues.tableWidth + "</div>",
       "<div class='new-table'>",
-      "<select id='marginSetting' aria-label='Table Width'>",
+      "<select id='marginSetting' class='select-css' aria-label='" + langValues.tableWidth + "'>",
       "<option value='1'>100%</option>",
       "<option value='0.95'>95%</option>",
       "<option value='0.9'>90%</option>",
@@ -244,22 +246,23 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<option value='0.8'>80%</option>",
       "</select>",
       "</div>",
-      "<div class='new-table heavyFont text-left' id='settingsName'></div>",
-      "< class='new-table text-left padding-top-5'>",
+      "<div class='new-table heavyFont text-left'>" + langValues.labelName + "</div>",
+      "<div class='new-table text-left padding-top-5'>",
       "<label class='switch'>",
       "<input id='nameSelectSetting' type='checkbox' >",
       "<span class='slider round' ></span>",
       "</label>",
-      "<div class='new-table heavyFont text-left' id='settingsAtmWtMain' ></div>",
+      "</div>",
+      "<div class='new-table heavyFont text-left'>" + langValues.labelAtmWtMain + "</div>",
       "<div class='new-table text-left padding-top-5'>",
       "<label class='switch'>",
       "<input id='atmNoSelectSetting' type='checkbox' >",
       "<span class='slider round' ></span>",
       "</label>",
       "</div>",
-      "<div class='new-table heavyFont text-left self-start' id='tableStyle'>Style</div>",
+      "<div class='new-table heavyFont text-left self-start' id='tableStyle'>" + langValues.style + "</div>",
       "<div class='radio-toolbar radio-style padding-top-5'>",
-      "<input type='radio' id='style1' name='tableStyle' value='1' onchange='setStyle()' ></div>",
+      "<input type='radio' id='style1' name='tableStyle' value='1' onchange='setStyle()' >",
       "<label id='style1Label' class='disable-select' for='style1'></label>",
       "<input type='radio' id='style2' name='tableStyle' value='2' onchange='setStyle()' >",
       "<label id='style2Label' class='disable-select' for='style2'></label>",
@@ -439,9 +442,9 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         // case "printables":
         //   htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
         //   break;
-        // case "compare":
-        //   htmlCompare.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
+        case "compare":
+          htmlCompare.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
         // case "element":
         //   htmlElement.writeFile(lang, langValues, language.col, page, defaultHead, defaultNav, defaultFooter);
         //   break;

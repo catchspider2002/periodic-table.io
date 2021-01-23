@@ -57,9 +57,9 @@ a {
   --direction-rev: right;
   --fg-color: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
     linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
-  --style1Image: url(../../images/light-style1.png);
-  --style2Image: url(../../images/light-style2.png);
-  --style3Image: url(../../images/light-style3.png);
+  --style1Image: url(./images/light-style1.png);
+  --style2Image: url(./images/light-style2.png);
+  --style3Image: url(./images/light-style3.png);
   --border-radius: 0.25rem;
   --icon-padding: 0 0.5em 0 0;
   --sign: 1;
@@ -67,7 +67,11 @@ a {
   --slider-left: 0.25rem;
   --dropdown-arrow: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" stroke-width="1.5" stroke="%23000000" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath stroke="none" d="M0 0h24v24H0z" fill="none"/%3E%3Cpolyline points="6 9 12 15 18 9" /%3E%3C/svg%3E'),
     linear-gradient(to bottom, transparent 0%, transparent 100%);
-}
+    --circle: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" transform="translate(0,7)" viewBox="0 0 24 31" stroke-width="2" stroke="rgb(0, 0, 0)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="12" r="9" /%3E%3C/svg%3E');
+    --circle-check: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" transform="translate(0,7)" viewBox="0 0 24 31" stroke-width="2" stroke="rgb(0, 0, 0)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="12" r="9" /%3E%3Cpath d="M9 12l2 2l4 -4" /%3E%3C/svg%3E');
+    --star: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" transform="translate(0,7)" viewBox="0 0 24 31" stroke-width="2" stroke="rgb(0, 0, 0)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /%3E%3C/svg%3E');
+    --white-check: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" transform="translate(0,7)" viewBox="0 0 24 31" stroke-width="2" stroke="rgb(234, 234, 234)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="12" r="9" /%3E%3Cpath d="M9 12l2 2l4 -4" /%3E%3C/svg%3E');
+  }
 
 [data-direction="rtl"] {
   --text-direction: rtl;
@@ -88,11 +92,14 @@ a {
   --blockquote-color: 148, 146, 143;
   --fg-color: linear-gradient(to right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
     linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
-  --style1Image: url(../images/dark-style1.png);
-  --style2Image: url(../images/dark-style2.png);
-  --style3Image: url(../images/dark-style3.png);
+  --style1Image: url(./images/dark-style1.png);
+  --style2Image: url(./images/dark-style2.png);
+  --style3Image: url(./images/dark-style3.png);
   --dropdown-arrow: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" stroke-width="1.5" stroke="%23ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath stroke="none" d="M0 0h24v24H0z" fill="none"/%3E%3Cpolyline points="6 9 12 15 18 9" /%3E%3C/svg%3E'),
     linear-gradient(to bottom, transparent 0%, transparent 100%);
+  --circle: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" transform="translate(0,7)" viewBox="0 0 24 31" stroke-width="2" stroke="rgb(234, 234, 234)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="12" r="9" /%3E%3C/svg%3E');
+  --circle-check: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" transform="translate(0,7)" viewBox="0 0 24 31" stroke-width="2" stroke="rgb(234, 234, 234)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="12" r="9" /%3E%3Cpath d="M9 12l2 2l4 -4" /%3E%3C/svg%3E');
+  --star: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" transform="translate(0,7)" viewBox="0 0 24 31" stroke-width="2" stroke="rgb(234, 234, 234)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /%3E%3C/svg%3E');
 }
 
 /* @font-face {
@@ -115,7 +122,7 @@ a {
       font-display: block;
     } */
 
-@font-face {
+/* @font-face {
   font-family: "periodic-table";
   src: url("../../fonts/periodic-table.woff") format("woff");
   font-weight: normal;
@@ -129,7 +136,7 @@ a {
   font-size: 1.5rem;
   padding-left: 5px;
   padding-right: 5px;
-}
+} */
 
 .text-left {
   text-align: var(--direction);
@@ -306,8 +313,7 @@ select:focus {
 
 .sort {
   font-size: 0.94em;
-  /* background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-        linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color))); */
+  border-radius: var(--border-radius);
   background-color: var(--darker-color-50);
 }
 
@@ -823,20 +829,22 @@ table,
 
 #logs > li:not(.versionHeader),
 #features > li {
-  text-indent: -1.5rem;
+  text-indent: -1.6rem;
   padding-left: 1.5rem;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
   list-style-type: none;
 }
 
 #logs > li:not(.versionHeader)::before {
-  content: "J";
+  content: var(--circle-check);
   /* font-family: "periodic-table"; */
   padding: 0 7px 0 0;
 }
 
 #features > li::before {
-  content: "c";
-  font-family: "periodic-table";
+  content: var(--star);
+  /* font-family: "periodic-table"; */
   padding: var(--icon-padding);
 }
 
@@ -909,8 +917,7 @@ table,
   } */
 
 .navbar-default,
-button,
-.downloadButton {
+button {
   background-color: rgb(var(--theme-color));
 }
 
@@ -1072,7 +1079,7 @@ ul {
   padding: 0;
   border: 0;
   font-size: 100%;
-  vertical-align: baseline;
+  /* vertical-align: baseline; */
 }
 
 *,
@@ -1534,8 +1541,9 @@ input:checked + .slider:before {
 }
 
 input:checked + .slider {
-  background-color: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.35)),
-    linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
+  background-color: var(--darker-color-50);
+  /* linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.35)),
+    linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color))); */
 }
 
 input:focus + .slider {
@@ -1823,43 +1831,53 @@ input:focus + .slider {
   color: rgb(var(--color4));
 }
 
-#color1, #color1Label {
+#color1,
+#color1Label {
   background-color: rgb(var(--color1));
 }
 
-#color2, #color2Label {
+#color2,
+#color2Label {
   background-color: rgb(var(--color2));
 }
 
-#color3, #color3Label {
+#color3,
+#color3Label {
   background-color: rgb(var(--color3));
 }
 
-#color4, #color4Label {
+#color4,
+#color4Label {
   background-color: rgb(var(--color4));
 }
 
-#color5, #color5Label {
+#color5,
+#color5Label {
   background-color: rgb(var(--color5));
 }
 
-#color6, #color6Label {
+#color6,
+#color6Label {
   background-color: rgb(var(--color6));
 }
 
-#color7, #color7Label {
+#color7,
+#color7Label {
   background-color: rgb(var(--color7));
 }
 
-#color8, #color8Label {
+#color8,
+#color8Label {
   background-color: rgb(var(--color8));
 }
 
-#color9, #color9Label {
+#color9,
+#color9Label {
   background-color: rgb(var(--color9));
 }
 
-#color10, #color10Label {
+#color10,
+#color10Label {
   background-color: rgb(var(--color10));
 }
 
@@ -1928,7 +1946,7 @@ blockquote,
 }
 
 .radio-toolbar label::before {
-  content: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="12" r="9" /%3E%3C/svg%3E');
+  content: var(--circle);
   /* font-family: "periodic-table"; */
   padding: var(--icon-padding);
   line-height: 0;
@@ -1946,13 +1964,15 @@ blockquote,
 
 .radio-toolbar input[type="radio"]:checked + label {
   color: rgb(255, 255, 255);
-  background-color: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-    linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
+  background-color: var(--darker-color-50);
+  
+  /* linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color))); */
 }
 
 .radio-toolbar input[type="radio"]:checked + label::before {
-  content: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24" stroke-width="2" stroke="%23ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="12" r="9" /%3E%3Cpath d="M9 12l2 2l4 -4" /%3E%3C/svg%3E');
-  font-family: "periodic-table";
+  content: var(--white-check);
+  /* font-family: "periodic-table"; */
   padding: var(--icon-padding);
   line-height: 0;
   color: var(--fg-color);
@@ -2228,10 +2248,13 @@ blockquote,
 }
 
 .downloadButton {
-  display: flex;
+  display: inline-flex;
   column-gap: 1em;
   /* min-width: 100px; */
   height: 45px;
+  border-radius: var(--border-radius);
+  padding: 1.5em 1em;
+  background-color: var(--darker-color-50);
 }
 
 .downloadButton:hover {
@@ -2530,8 +2553,13 @@ nav ul ul ul li {
   float: right;
 }
 
-nav > ul > li > button {
+nav > ul > li > button, nav > button {
   background-color: transparent;
+}
+
+nav > button{
+  padding-top: 8px;
+  padding-bottom: 0;
 }
 
 /* Dropdown */

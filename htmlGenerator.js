@@ -108,7 +108,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
 
     function printObject(col) {
       let o = {};
-      for (var j = 1; j < rows.length; j++) {
+      for (let j = 1; j < rows.length; j++) {
         o[rows[j][2]] = rows[j][col] === "" || !rows[j][col] ? rows[j][3] : rows[j][col];
       }
 
@@ -214,39 +214,50 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         "</label><input type='radio' id='tempfahrenheit' name='temperature' value='fahrenheit' onchange='setTemp()' />",
       "<label class='disable-select' for='tempfahrenheit'>" + langValues.tempFahrenheit + "</label>",
       "</div>",
-      "<div class='radio-toolbar radio-color padding-top-5'>",
-      "<input type='radio' id='c1' name='tableColor' value='Red' onchange='setStyle()' >",
-      "<label id='color1Label' class='disable-select' for='style1'></label>",
-      "<input type='radio' id='style2' name='tableColor' value='Orange' onchange='setStyle()' >",
-      "<label id='color2Label' class='disable-select' for='style2'></label>",
-      "<input type='radio' id='style3' name='tableColor' value='Yellow' onchange='setStyle()' >",
-      "<label id='color3Label' class='disable-select' for='style3'></label>",
-      "<input type='radio' id='style4' name='tableColor' value='Orange' onchange='setStyle()' >",
-      "<label id='color2Label' class='disable-select' for='style2'></label>",
-      "<input type='radio' id='style5' name='tableColor' value='Yellow' onchange='setStyle()' >",
-      "<label id='color3Label' class='disable-select' for='style3'></label>",
-      "</div>",
       "<div class='new-table heavyFont padding-top-5 text-left self-start'>" + langValues.labelColorMain + "</div>",
-      "<div class='new-table'>",
-      "<table id='colorTable'>",
-      "<tbody>",
-      "<tr>",
-      "<td id='color1' class='colorClass' title='Red' />",
-      "<td id='color2' class='colorClass' title='Orange' />",
-      "<td id='color3' class='colorClass' title='Yellow' />",
-      "<td id='color4' class='colorClass' title='Brown' />",
-      "<td id='color5' class='colorClass' title='Lime' />",
-      "</tr>",
-      "<tr>",
-      "<td id='color6' class='colorClass' title='Green' />",
-      "<td id='color7' class='colorClass' title='Cyan' />",
-      "<td id='color8' class='colorClass' title='Blue' />",
-      "<td id='color9' class='colorClass' title='Purple' />",
-      "<td id='color10' class='colorClass' title='Pink' />",
-      "</tr>",
-      "</tbody>",
-      "</table>",
+      "<div class='radio-toolbar radio-color padding-top-5'>",
+      "<input type='radio' id='color1' name='tableColor' value='253, 58, 74' onchange='setColorSettings()' >",
+      "<label id='color1Label' class='disable-select' title='Red' for='color1'></label>",
+      "<input type='radio' id='color2' name='tableColor' value='245, 128, 37' onchange='setColorSettings()' >",
+      "<label id='color2Label' class='disable-select' title='Orange' for='color2'></label>",
+      "<input type='radio' id='color3' name='tableColor' value='255, 167, 0' onchange='setColorSettings()' >",
+      "<label id='color3Label' class='disable-select' title='Yellow' for='color3'></label>",
+      "<input type='radio' id='color4' name='tableColor' value='123, 113, 81' onchange='setColorSettings()' >",
+      "<label id='color4Label' class='disable-select' title='Brown' for='color4'></label>",
+      "<input type='radio' id='color5' name='tableColor' value='91, 170, 9' onchange='setColorSettings()' >",
+      "<label id='color5Label' class='disable-select' title='Lime' for='color5'></label>",
+      "<input type='radio' id='color6' name='tableColor' value='26, 152, 90' onchange='setColorSettings()' >",
+      "<label id='color6Label' class='disable-select' title='Green' for='color6'></label>",
+      "<input type='radio' id='color7' name='tableColor' value='59, 168, 221' onchange='setColorSettings()' >",
+      "<label id='color7Label' class='disable-select' title='Cyan' for='color7'></label>",
+      "<input type='radio' id='color8' name='tableColor' value='0, 120, 215' onchange='setColorSettings()' >",
+      "<label id='color8Label' class='disable-select' title='Blue' for='color8'></label>",
+      "<input type='radio' id='color9' name='tableColor' value='139, 102, 204' onchange='setColorSettings()' >",
+      "<label id='color9Label' class='disable-select' title='Purple' for='color9'></label>",
+      "<input type='radio' id='color10' name='tableColor' value='228, 27, 144' onchange='setColorSettings()' >",
+      "<label id='color10Label' class='disable-select' title='Pink' for='color10'></label>",
       "</div>",
+      // "<div class='new-table heavyFont padding-top-5 text-left self-start'>" + langValues.labelColorMain + "</div>",
+      // "<div class='new-table'>",
+      // "<table id='colorTable'>",
+      // "<tbody>",
+      // "<tr>",
+      // "<td id='color1' class='colorClass' title='Red' />",
+      // "<td id='color2' class='colorClass' title='Orange' />",
+      // "<td id='color3' class='colorClass' title='Yellow' />",
+      // "<td id='color4' class='colorClass' title='Brown' />",
+      // "<td id='color5' class='colorClass' title='Lime' />",
+      // "</tr>",
+      // "<tr>",
+      // "<td id='color6' class='colorClass' title='Green' />",
+      // "<td id='color7' class='colorClass' title='Cyan' />",
+      // "<td id='color8' class='colorClass' title='Blue' />",
+      // "<td id='color9' class='colorClass' title='Purple' />",
+      // "<td id='color10' class='colorClass' title='Pink' />",
+      // "</tr>",
+      // "</tbody>",
+      // "</table>",
+      // "</div>",
       "<div id='settingPeriodicTable' class='new-table span-2'></div>",
       "<div class='new-table heavyFont text-left'>" + langValues.tableWidth + "</div>",
       "<div class='new-table'>",
@@ -439,30 +450,30 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       ];
 
       switch (page) {
-        // case "index":
-        //   htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
+        case "index":
+          htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
         case "privacy-policy":
           htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
           break;
-        // case "about":
-        //   htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
-        // case "store":
-        //   htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
-        // case "printables":
-        //   htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
+        case "about":
+          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "store":
+          htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "printables":
+          htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
         case "compare":
           htmlCompare.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
           break;
-        // case "element":
-        //   htmlElement.writeFile(lang, langValues, language.col, page, defaultHead, defaultNav, defaultFooter);
-        //   break;
-        // case "list":
-        //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        // break;
+        case "element":
+          htmlElement.writeFile(lang, langValues, language.col, page, defaultHead, defaultNav, defaultFooter);
+          break;
+        case "list":
+          htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        break;
       }
     });
   });

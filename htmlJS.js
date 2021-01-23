@@ -24,61 +24,61 @@ let color8 = "0, 120, 215";
 let color9 = "139, 102, 204";
 let color10 = "228, 27, 144";
 
-var c1 = "cat1";
-var c2 = "cat2";
-var c3 = "cat3";
-var c4 = "cat4";
-var c5 = "cat5";
-var c6 = "cat6";
-var c7 = "cat7";
-var c8 = "cat8";
-var c9 = "lanthanides";
-var c10 = "actinides";
-var naVal = "na";
-var yesVal = "yes";
-var noVal = "no";
-var gas = "phaseGas";
-var sld = "phaseSolid";
-var lqd = "phaseLiquid";
-var unw = "unknown";
-var crsSH = "crystalSH";
-var crsFCC = "crystalFCC";
-var crsBCC = "crystalBCC";
-var crsBCM = "crystalBCM";
-var crsFCO = "crystalFCO";
-var crsBCO = "crystalBCO";
-var crsSTG = "crystalSTG";
-var crsTP = "crystalTP";
-var crsSTC = "crystalSTC";
-var crsSC = "crystalSC";
-var crsSO = "crystalSO";
-var crsSM = "crystalSM";
-var crsCT = "crystalCT";
+let c1 = "cat1";
+let c2 = "cat2";
+let c3 = "cat3";
+let c4 = "cat4";
+let c5 = "cat5";
+let c6 = "cat6";
+let c7 = "cat7";
+let c8 = "cat8";
+let c9 = "lanthanides";
+let c10 = "actinides";
+let naVal = "na";
+let yesVal = "yes";
+let noVal = "no";
+let gas = "phaseGas";
+let sld = "phaseSolid";
+let lqd = "phaseLiquid";
+let unw = "unknown";
+let crsSH = "crystalSH";
+let crsFCC = "crystalFCC";
+let crsBCC = "crystalBCC";
+let crsBCM = "crystalBCM";
+let crsFCO = "crystalFCO";
+let crsBCO = "crystalBCO";
+let crsSTG = "crystalSTG";
+let crsTP = "crystalTP";
+let crsSTC = "crystalSTC";
+let crsSC = "crystalSC";
+let crsSO = "crystalSO";
+let crsSM = "crystalSM";
+let crsCT = "crystalCT";
 
-var s1 = "<sup>1</sup>";
-var s2 = "<sup>2</sup>";
-var s3 = "<sup>3</sup>";
-var s4 = "<sup>4</sup>";
-var s5 = "<sup>5</sup>";
-var s6 = "<sup>6</sup>";
-var s7 = "<sup>7</sup>";
-var s8 = "<sup>8</sup>";
-var s9 = "<sup>9</sup>";
-var s10 = "<sup>10</sup>";
-var s11 = "<sup>11</sup>";
-var s12 = "<sup>12</sup>";
-var s13 = "<sup>13</sup>";
-var s14 = "<sup>14</sup>";
-var l3 = "2, 8, 18";
-var l4 = "2, 8, 18, 32";
-var l5 = "2, 8, 18, 32, 32";
-var l6 = "2, 8, 18, 32, 32, 18";
-var pc6 = "×10<sup>-6</sup>%";
-var pc7 = "×10<sup>-7</sup>%";
-var pc8 = "×10<sup>-8</sup>%";
-var pc9 = "×10<sup>-9</sup>%";
+let s1 = "<sup>1</sup>";
+let s2 = "<sup>2</sup>";
+let s3 = "<sup>3</sup>";
+let s4 = "<sup>4</sup>";
+let s5 = "<sup>5</sup>";
+let s6 = "<sup>6</sup>";
+let s7 = "<sup>7</sup>";
+let s8 = "<sup>8</sup>";
+let s9 = "<sup>9</sup>";
+let s10 = "<sup>10</sup>";
+let s11 = "<sup>11</sup>";
+let s12 = "<sup>12</sup>";
+let s13 = "<sup>13</sup>";
+let s14 = "<sup>14</sup>";
+let l3 = "2, 8, 18";
+let l4 = "2, 8, 18, 32";
+let l5 = "2, 8, 18, 32, 32";
+let l6 = "2, 8, 18, 32, 32, 18";
+let pc6 = "×10<sup>-6</sup>%";
+let pc7 = "×10<sup>-7</sup>%";
+let pc8 = "×10<sup>-8</sup>%";
+let pc9 = "×10<sup>-9</sup>%";
 
-var langValue = document.documentElement.getAttribute('lang'), defaultPunc
+let langValue = document.documentElement.getAttribute('lang'), defaultPunc
 
 if (langValue === "sq" || langValue === "az" || langValue === "be" || langValue === "bg" || langValue === "ca" || langValue === "hr" ||
 langValue === "cs" || langValue === "da" || langValue === "nl" || langValue === "et" || langValue === "fi" || langValue === "fr" ||
@@ -367,14 +367,14 @@ function getNum(value) {
   if (langValue === "ar") {
     // Arabic
     value = value.toString().replace(/\./g, "٫");
-    var id = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
+    let id = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
     return value.toString().replace(/[0-9]/g, function (w) {
       return id[+w];
     });
   } else if (langValue === "fa") {
     // Persian
     value = value.toString().replace(/\./g, "٫");
-    var id = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+    let id = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
     return value.toString().replace(/[0-9]/g, function (w) {
       return id[+w];
     });
@@ -382,7 +382,7 @@ function getNum(value) {
 }
 
 function getTemp(tempValue) {
-  var newTemp;
+  let newTemp;
   let defaultTemp = localStorage.getItem("defaultTemp");
   let defaultPunc = "dot";
 
@@ -406,8 +406,8 @@ function getTemp(tempValue) {
 }
 
 function sortFunc(var1, var2, var3) {
-  var sortUp = "&nbsp;&nbsp;↑";
-  var sortDown = "&nbsp;&nbsp;↓";
+  let sortUp = "&nbsp;&nbsp;↑";
+  let sortDown = "&nbsp;&nbsp;↓";
 
   id(var1).innerHTML = id(var1).innerHTML === sortUp ? sortDown : sortUp;
   id(var2).innerHTML = "";
@@ -425,14 +425,15 @@ function sortByName() {
 function sortBySymbol() {
   sortFunc("sortSym", "sortNm", "sortNum");
 }
-var options = {
+
+let options = {
   valueNames: ["listName", "listNum", "listSym"],
 };
 
-var userList = new List("mainList", options);
+let userList = new List("mainList", options);
 
 function returnItem(itemId) {
-  for (var j = 0; j < rawData.length; j++) {
+  for (let j = 0; j < rawData.length; j++) {
     if (rawData[j].id === itemId) return rawData[j];
   }
 }
@@ -478,8 +479,8 @@ function firstChanged() {
 }
 
 function secondChanged() {
-  var secondElement = id("secondElement").value;
-  var secondDetails = returnItem(secondElement);
+  let secondElement = id("secondElement").value;
+  let secondDetails = returnItem(secondElement);
 
   let el = id("secondElement");
   let link = el.options[el.selectedIndex].innerHTML;
@@ -549,6 +550,57 @@ function toggleMenu() {
   console.log("Toggle Menu");
 }
 
+
+
+function setColor(color) {
+  let hexValue = rgbToHex(color);
+
+  let darkerColor50 = colorLuminance(hexValue, -0.5);
+  let darkerColor0 = colorLuminance(hexValue, -0.6);
+
+  let metaThemeColor = document.querySelector("meta[name=theme-color]");
+  metaThemeColor.setAttribute("content", darkerColor50);
+
+  let metaTileColor = document.querySelector("meta[name=msapplication-TileColor]");
+  metaTileColor.setAttribute("content", hexValue);
+  
+  let root = document.documentElement;
+  root.style.setProperty("--theme-color", color);
+  root.style.setProperty("--darker-color-50", darkerColor50);
+  root.style.setProperty("--darker-color-0", darkerColor0);
+}
+
+function rgbToHex(rgb) {
+  console.log(rgb)
+  let r = rgb.split(",")[0];
+  g = rgb.split(",")[1];
+  b = rgb.split(",")[2];
+
+  let rgbNew = b | (g << 8) | (r << 16);
+  return "#" + (0x1000000 + rgbNew).toString(16).slice(1);
+}
+
+function colorLuminance(hex, lum) {
+
+	// validate hex string
+	hex = String(hex).replace(/[^0-9a-f]/gi, '');
+	if (hex.length < 6) {
+		hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+	}
+	lum = lum || 0;
+
+	// convert to decimal and change luminosity
+	let rgb = "#", c, i;
+	for (i = 0; i < 3; i++) {
+		c = parseInt(hex.substr(i*2,2), 16);
+		c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+		rgb += ("00"+c).substr(c.length);
+	}
+
+	return rgb;
+}
+
+
 // Index
 
 
@@ -566,11 +618,11 @@ let defaultNewTheme, defaultColor, defaultTemp, defaultStyle, defaultMargin;
 let outerElement = cls("outerElement");
 
 function setSize(tablePercent) {
-  var pageWidth = id("headerwrap").clientWidth; //(document.body.scrollWidth || document.documentElement.clientWidth || document.body.clientWidth);
+  let pageWidth = id("headerwrap").clientWidth; //(document.body.scrollWidth || document.documentElement.clientWidth || document.body.clientWidth);
 
-  var pageHeight = (window.innerHeight || document.documentElement.clientHeight) - 70;
+  let pageHeight = (window.innerHeight || document.documentElement.clientHeight) - 70;
 
-  var clientWidth, individualWidth;
+  let clientWidth, individualWidth;
 
   clientWidth = (pageHeight < pageWidth) ? (pageWidth * tablePercent) : (pageHeight * 1.8);
 
@@ -579,22 +631,22 @@ function setSize(tablePercent) {
 
   individualWidth = (clientWidth / 21);
 
-  for (var i = 0; i < singleGroup.length; i++) {
+  for (let i = 0; i < singleGroup.length; i++) {
     singleGroup[i].style.width = individualWidth + "px";
     singleGroup[i].style.height = individualWidth + "px";
   }
-  for (var i = 0; i < singlePeriod.length; i++) {
+  for (let i = 0; i < singlePeriod.length; i++) {
     singlePeriod[i].style.width = individualWidth + "px";
     singlePeriod[i].style.height = individualWidth + "px";
   }
-  for (var i = 0; i < outerElement.length; i++) {
+  for (let i = 0; i < outerElement.length; i++) {
     outerElement[i].style.width = individualWidth + "px";
     outerElement[i].style.height = individualWidth + "px";
   }
 
-  var newWidth = individualWidth - (clientWidth * 0.003);
+  let newWidth = individualWidth - (clientWidth * 0.003);
 
-  for (var i = 0; i < singleElement.length; i++) {
+  for (let i = 0; i < singleElement.length; i++) {
     singleElement[i].style.width = newWidth + "px";
     singleElement[i].style.height = newWidth + "px";
   }
@@ -620,41 +672,41 @@ if (id("ptable")) {
   periodLength = singlePeriod.length;
   groupLength = singleGroup.length;
 
-  for (var i = 0; i < elementLength; i++) {
+  for (let i = 0; i < elementLength; i++) {
     singleElement[i].addEventListener("mouseenter", setOutline, false);
     singleElement[i].addEventListener("mouseleave", removeOutline, false);
   }
 
-  for (var i = 0; i < categoryLength; i++) {
+  for (let i = 0; i < categoryLength; i++) {
     singleCategory[i].addEventListener("mouseenter", setOpacity15, false);
     singleCategory[i].addEventListener("mouseleave", setOpacity100, false);
   }
 
-  for (var i = 0; i < periodLength; i++) {
+  for (let i = 0; i < periodLength; i++) {
     if (langValue === "ar" || langValue === "fa" || langValue === "he") singlePeriod[i].textContent = getNum(singlePeriod[i].textContent);
     singlePeriod[i].addEventListener("mouseenter", setOpacity15, false);
     singlePeriod[i].addEventListener("mouseleave", setOpacity100, false);
   }
 
-  for (var i = 0; i < groupLength; i++) {
+  for (let i = 0; i < groupLength; i++) {
     if (langValue === "ar" || langValue === "fa" || langValue === "he") singleGroup[i].textContent = getNum(singleGroup[i].textContent);
     singleGroup[i].addEventListener("mouseenter", setOpacity15, false);
     singleGroup[i].addEventListener("mouseleave", setOpacity100, false);
   }
 
   if (langValue === "ar" || langValue === "fa" || langValue === "he") {
-    for (var i = 0; i < singleNum.length; i++) singleNum[i].textContent = getNum(singleNum[i].textContent);
+    for (let i = 0; i < singleNum.length; i++) singleNum[i].textContent = getNum(singleNum[i].textContent);
 
-    for (var i = 0; i < singleWt.length; i++) singleWt[i].textContent = getNum(singleWt[i].textContent);
+    for (let i = 0; i < singleWt.length; i++) singleWt[i].textContent = getNum(singleWt[i].textContent);
   }
   resizeEvent()
 }
 
 function setOpacity(percent) {
-  for (var i = 0; i < singleElement.length; i++) singleElement[i].style.opacity = percent;
-  for (var i = 0; i < singleCategory.length; i++) singleCategory[i].style.opacity = percent;
-  for (var i = 0; i < singleGroup.length; i++) singleGroup[i].style.opacity = percent;
-  for (var i = 0; i < singlePeriod.length; i++) singlePeriod[i].style.opacity = percent;
+  for (let i = 0; i < singleElement.length; i++) singleElement[i].style.opacity = percent;
+  for (let i = 0; i < singleCategory.length; i++) singleCategory[i].style.opacity = percent;
+  for (let i = 0; i < singleGroup.length; i++) singleGroup[i].style.opacity = percent;
+  for (let i = 0; i < singlePeriod.length; i++) singlePeriod[i].style.opacity = percent;
   id("lanthanidesMain").style.opacity = percent;
   id("actinidesMain").style.opacity = percent;
   id("star1").style.opacity = percent;
@@ -668,11 +720,11 @@ function setOpacity100() {
 }
 
 function setOpacity15() {
-  var className = this.id;
+  let className = this.id;
   let classVal = className;
   let classes = cls(classVal);
   setOpacity(0.15);
-  for (var i = 0; i < classes.length; i++) classes[i].style.opacity = 1;
+  for (let i = 0; i < classes.length; i++) classes[i].style.opacity = 1;
   if (
     className === "r1" ||
     className === "r2" ||
@@ -707,10 +759,10 @@ function setOpacity15() {
 }
 
 function setOutline() {
-  var element = this.id;
-  var tempClass = id(element).className.replace("elements ", "");
-  var colClass = tempClass.substring(0, tempClass.indexOf(" "));
-  var elementColor;
+  let element = this.id;
+  let tempClass = id(element).className.replace("elements ", "");
+  let colClass = tempClass.substring(0, tempClass.indexOf(" "));
+  let elementColor;
 
   switch (colClass) {
     case "alkaliMetals":
@@ -763,7 +815,7 @@ function setOutline() {
     id("snippet").style.border = "none";
     id("details").style.border = "none";
   }
-  var eleId = rawData[element.replace("element", "") - 1];
+  let eleId = rawData[element.replace("element", "") - 1];
 
   id("snippetNum").innerHTML = getNum(eleId.num);
   id("snippetSym").innerHTML = eleId.sym;
@@ -771,7 +823,7 @@ function setOutline() {
 
   const divs = [...document.querySelector("#element" + eleId.num).children];
   id("detailRow1").innerHTML = divs[2].textContent;
-  var eleYear = eleId.yr + "";
+  let eleYear = eleId.yr + "";
 
   if (eleYear.indexOf(" ") > 0) {
     if (langValue === "zs") eleYear = "公元前" + eleYear.substring(0, eleYear.indexOf(" ")) + "年";
@@ -796,7 +848,7 @@ function setOutline() {
 }
 
 function removeOutline() {
-  var element = this.id;
+  let element = this.id;
   if (id("snippet")) {
     id(element).style.outline = "none";
     id("snippetDetails").style.visibility = "hidden";
@@ -812,6 +864,15 @@ function setStyle() {
   defaultStyle = document.querySelector('input[name="tableStyle"]:checked').value;
   document.documentElement.setAttribute("data-style", defaultStyle);
   localStorage.setItem("defaultStyle", defaultStyle);
+}
+
+function setColorSettings() {
+  // defaultColor = document.querySelector('input[name="tableColor"]:checked').value;
+  defaultColor = document.querySelector('input[name="tableColor"]:checked').id;
+  // console.log(document.querySelector('input[name="tableColor"]:checked').value)
+  // console.log(this.id)
+  setColor(document.querySelector('input[name="tableColor"]:checked').value);
+  localStorage.setItem("defaultColor", defaultColor);
 }
 
 function setTemp() {
@@ -880,7 +941,7 @@ function initializePage() {
 
   defaultColor = localStorage.getItem("defaultColor");
 
-  var invalidColors = [
+  let invalidColors = [
     "color11",
     "color12",
     "color13",
@@ -908,6 +969,8 @@ function initializePage() {
       defaultColor = "color10";
     }
   }
+
+  setColor(window[defaultColor].value);
 
   defaultTemp = localStorage.getItem("defaultTemp");
 

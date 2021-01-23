@@ -551,11 +551,65 @@ function toggleMenu() {
 
 // Index
 
+
+function resizeEvent() {
+  
+  console.log("resizeEvent");
+  setSize(defaultMargin);
+}
+
 let singleElement, singleGroup, singlePeriod, singleCategory;
 
 let elementLength, categoryLength, periodLength, groupLength;
+let defaultNewTheme, defaultColor, defaultTemp, defaultStyle, defaultMargin;
+
+let outerElement = cls("outerElement");
+
+function setSize(tablePercent) {
+  var pageWidth = id("headerwrap").clientWidth; //(document.body.scrollWidth || document.documentElement.clientWidth || document.body.clientWidth);
+
+  var pageHeight = (window.innerHeight || document.documentElement.clientHeight) - 70;
+
+  var clientWidth, individualWidth;
+
+  clientWidth = (pageHeight < pageWidth) ? (pageWidth * tablePercent) : (pageHeight * 1.8);
+
+  id("ptable").style.marginLeft = (pageHeight < pageWidth) ? ((pageWidth * (1 - tablePercent)) / 2 + "px") : "0px";
+  id("ptable").style.width = clientWidth + "px";
+
+  individualWidth = (clientWidth / 21);
+
+  for (var i = 0; i < singleGroup.length; i++) {
+    singleGroup[i].style.width = individualWidth + "px";
+    singleGroup[i].style.height = individualWidth + "px";
+  }
+  for (var i = 0; i < singlePeriod.length; i++) {
+    singlePeriod[i].style.width = individualWidth + "px";
+    singlePeriod[i].style.height = individualWidth + "px";
+  }
+  for (var i = 0; i < outerElement.length; i++) {
+    outerElement[i].style.width = individualWidth + "px";
+    outerElement[i].style.height = individualWidth + "px";
+  }
+
+  var newWidth = individualWidth - (clientWidth * 0.003);
+
+  for (var i = 0; i < singleElement.length; i++) {
+    singleElement[i].style.width = newWidth + "px";
+    singleElement[i].style.height = newWidth + "px";
+  }
+
+  id("groupPeriod").style.width = (individualWidth * 2) + "px";
+  id("ptable").style.fontSize = (individualWidth / 4) + "px";
+}
+
 
 if (id("ptable")) {
+
+  id("snippetDetails").style.visibility = "hidden";
+  
+  window.addEventListener("resize", resizeEvent);
+  id("snippetDetails").style.visibility = "hidden";
   singleElement = cls("elements");
   singleGroup = cls("groups");
   singlePeriod = cls("periods");
@@ -593,6 +647,7 @@ if (id("ptable")) {
 
     for (var i = 0; i < singleWt.length; i++) singleWt[i].textContent = getNum(singleWt[i].textContent);
   }
+  resizeEvent()
 }
 
 function setOpacity(percent) {
@@ -801,7 +856,6 @@ function changeTheme() {
   // setTheme()
 }
 
-let defaultNewTheme, defaultColor, defaultTemp, defaultStyle, defaultMargin;
 
 initializePage();
 

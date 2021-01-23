@@ -830,7 +830,7 @@ table,
 
 #logs > li:not(.versionHeader)::before {
   content: "J";
-  font-family: "periodic-table";
+  /* font-family: "periodic-table"; */
   padding: 0 7px 0 0;
 }
 
@@ -1823,43 +1823,43 @@ input:focus + .slider {
   color: rgb(var(--color4));
 }
 
-#color1 {
+#color1, #color1Label {
   background-color: rgb(var(--color1));
 }
 
-#color2 {
+#color2, #color2Label {
   background-color: rgb(var(--color2));
 }
 
-#color3 {
+#color3, #color3Label {
   background-color: rgb(var(--color3));
 }
 
-#color4 {
+#color4, #color4Label {
   background-color: rgb(var(--color4));
 }
 
-#color5 {
+#color5, #color5Label {
   background-color: rgb(var(--color5));
 }
 
-#color6 {
+#color6, #color6Label {
   background-color: rgb(var(--color6));
 }
 
-#color7 {
+#color7, #color7Label {
   background-color: rgb(var(--color7));
 }
 
-#color8 {
+#color8, #color8Label {
   background-color: rgb(var(--color8));
 }
 
-#color9 {
+#color9, #color9Label {
   background-color: rgb(var(--color9));
 }
 
-#color10 {
+#color10, #color10Label {
   background-color: rgb(var(--color10));
 }
 
@@ -1903,6 +1903,7 @@ blockquote,
 
 .radio-toolbar {
   margin: 0 1rem;
+  color: pink;
 }
 
 .radio-toolbar input[type="radio"] {
@@ -1927,8 +1928,8 @@ blockquote,
 }
 
 .radio-toolbar label::before {
-  content: "L";
-  font-family: "periodic-table";
+  content: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="12" r="9" /%3E%3C/svg%3E');
+  /* font-family: "periodic-table"; */
   padding: var(--icon-padding);
   line-height: 0;
   color: currentColor;
@@ -1950,7 +1951,7 @@ blockquote,
 }
 
 .radio-toolbar input[type="radio"]:checked + label::before {
-  content: "J";
+  content: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24" stroke-width="2" stroke="%23ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="12" r="9" /%3E%3Cpath d="M9 12l2 2l4 -4" /%3E%3C/svg%3E');
   font-family: "periodic-table";
   padding: var(--icon-padding);
   line-height: 0;
@@ -2499,7 +2500,7 @@ nav ul ul ul li {
   top: 0;
   z-index: 1;
   background-color: var(--card-bg-color);
-  width: 30%;
+  width: 520px;
   box-shadow: 2px 0 4px rgba(0, 0, 0, 0.5);
   transition: width 0.35s;
   padding-top: 90px;

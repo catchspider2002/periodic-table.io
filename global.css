@@ -67,11 +67,11 @@ a {
   --slider-left: 0.25rem;
   --dropdown-arrow: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" stroke-width="1.5" stroke="%23000000" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath stroke="none" d="M0 0h24v24H0z" fill="none"/%3E%3Cpolyline points="6 9 12 15 18 9" /%3E%3C/svg%3E'),
     linear-gradient(to bottom, transparent 0%, transparent 100%);
-    --circle: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" transform="translate(0,7)" viewBox="0 0 24 31" stroke-width="2" stroke="rgb(0, 0, 0)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="12" r="9" /%3E%3C/svg%3E');
-    --circle-check: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" transform="translate(0,7)" viewBox="0 0 24 31" stroke-width="2" stroke="rgb(0, 0, 0)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="12" r="9" /%3E%3Cpath d="M9 12l2 2l4 -4" /%3E%3C/svg%3E');
-    --star: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" transform="translate(0,7)" viewBox="0 0 24 31" stroke-width="2" stroke="rgb(0, 0, 0)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /%3E%3C/svg%3E');
-    --white-check: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" transform="translate(0,7)" viewBox="0 0 24 31" stroke-width="2" stroke="rgb(234, 234, 234)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="12" r="9" /%3E%3Cpath d="M9 12l2 2l4 -4" /%3E%3C/svg%3E');
-  }
+  --circle: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" transform="translate(0,7)" viewBox="0 0 24 31" stroke-width="2" stroke="rgb(0, 0, 0)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="12" r="9" /%3E%3C/svg%3E');
+  --circle-check: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" transform="translate(0,7)" viewBox="0 0 24 31" stroke-width="2" stroke="rgb(0, 0, 0)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="12" r="9" /%3E%3Cpath d="M9 12l2 2l4 -4" /%3E%3C/svg%3E');
+  --star: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" transform="translate(0,7)" viewBox="0 0 24 31" stroke-width="2" stroke="rgb(0, 0, 0)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /%3E%3C/svg%3E');
+  --white-check: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" transform="translate(0,7)" viewBox="0 0 24 31" stroke-width="2" stroke="rgb(234, 234, 234)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="12" r="9" /%3E%3Cpath d="M9 12l2 2l4 -4" /%3E%3C/svg%3E');
+}
 
 [data-direction="rtl"] {
   --text-direction: rtl;
@@ -831,8 +831,8 @@ table,
 #features > li {
   text-indent: -1.6rem;
   padding-left: 1.5rem;
-  padding-top: .25rem;
-  padding-bottom: .25rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
   list-style-type: none;
 }
 
@@ -1219,7 +1219,7 @@ canvas {
   border-radius: 1rem;
   margin: 0 -2.25rem 1rem;
   color: var(--alt-text-color);
-  background-color: var(--fg-color);
+  background-image: var(--fg-color);
 }
 
 #elementDiagram {
@@ -1965,7 +1965,7 @@ blockquote,
 .radio-toolbar input[type="radio"]:checked + label {
   color: rgb(255, 255, 255);
   background-color: var(--darker-color-50);
-  
+
   /* linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
     linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color))); */
 }
@@ -2349,6 +2349,11 @@ nav ul li ul li:hover {
 
 /* Background color change on Hover */
 nav a:hover {
+  background-color: rgb(255, 255, 255, 0.05);
+  color: rgb(255, 255, 255, 0.75);
+}
+
+nav ul ul ul a {
   background-color: #000000;
 }
 
@@ -2383,6 +2388,21 @@ nav ul ul ul li {
   position: relative;
   top: -60px;
   left: 170px;
+}
+
+nav > ul > li > button,
+nav > button {
+  background-color: transparent;
+}
+
+nav > ul > li > button:hover,
+nav > button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+nav > button {
+  padding-top: 8px;
+  padding-bottom: 0;
 }
 
 /* Media Queries
@@ -2456,11 +2476,6 @@ nav ul ul ul li {
 
   nav ul ul ul a {
     padding: 0 80px;
-  }
-
-  nav a:hover,
-  nav ul ul ul a {
-    background-color: #000000;
   }
 
   nav ul li ul li .toggle,
@@ -2551,15 +2566,6 @@ nav ul ul ul li {
 
 #closeButton {
   float: right;
-}
-
-nav > ul > li > button, nav > button {
-  background-color: transparent;
-}
-
-nav > button{
-  padding-top: 8px;
-  padding-bottom: 0;
 }
 
 /* Dropdown */

@@ -59,47 +59,47 @@ let darkIcon =
 
 xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
   let languages = [
-    // { lang: "en", col: 3 },
-    // { lang: "en-gb", col: 40 },
-    // { lang: "bg", col: 20 },
-    // { lang: "ca", col: 25 },
-    // { lang: "zh-cn", col: 6 },
-    // { lang: "zh-tw", col: 28 },
-    // { lang: "hr", col: 39 },
-    // { lang: "cs", col: 24 },
-    // { lang: "da", col: 33 },
-    // { lang: "nl", col: 7 },
-    // { lang: "fi", col: 19 },
-    { lang: "fr", col: 5 },
-    // { lang: "de", col: 12 },
-    // { lang: "el", col: 35 },
-    // { lang: "hi", col: 29 },
-    // { lang: "hu", col: 11 },
-    // { lang: "id", col: 21 },
-    // { lang: "it", col: 8 },
-    { lang: "ja", col: 23 },
-    // { lang: "ko", col: 10 },
-    // { lang: "ms", col: 41 },
-    // { lang: "nb-no", col: 27 },
-    // { lang: "nn-no", col: 38 },
-    // { lang: "pl", col: 30 },
-    // { lang: "pt", col: 18 },
-    // { lang: "ro", col: 17 },
-    // { lang: "ru", col: 9 },
-    // { lang: "sr", col: 26 },
-    // { lang: "sk", col: 13 },
-    // { lang: "sl", col: 37 },
-    { lang: "es", col: 4 },
-    // { lang: "sv", col: 32 },
-    // { lang: "th", col: 34 },
-    // { lang: "tr", col: 22 },
-    // { lang: "uk", col: 14 },
-    // { lang: "vi", col: 15 },
-    // { lang: "ar", col: 31 },
-    // { lang: "he", col: 36 },
-    // { lang: "fa", col: 16 },
-    // { lang: "hy", col: 42 },
-    // { lang: "mk", col: 43 },
+    // { lang: 'en', name: 'English', col: 3},
+    // { lang: 'en-gb', name: 'English (UK)', col: 40},
+    // { lang: 'bg', name: 'Български', col: 20},
+    // { lang: 'ca', name: 'Català', col: 25},
+    // { lang: 'zh-cn', name: '中文(简体)', col: 6},
+    // { lang: 'zh-tw', name: '中文(繁體)', col: 28},
+    // { lang: 'hr', name: 'Hrvatski', col: 39},
+    // { lang: 'cs', name: 'Čeština', col: 24},
+    // { lang: 'da', name: 'Dansk', col: 33},
+    // { lang: 'nl', name: 'Nederlands', col: 7},
+    // { lang: 'fi', name: 'Suomi', col: 19},
+    { lang: "fr", name: "Français", col: 5 },
+    // { lang: 'de', name: 'Deutsch', col: 12},
+    // { lang: 'el', name: 'Ελληνικά', col: 35},
+    // { lang: 'hi', name: 'हिंदी', col: 29},
+    // { lang: 'hu', name: 'Magyar', col: 11},
+    // { lang: 'id', name: 'Bahasa Indonesia', col: 21},
+    // { lang: 'it', name: 'Italiano', col: 8},
+    { lang: "ja", name: "日本語", col: 23 },
+    // { lang: 'ko', name: '한국어', col: 10},
+    // { lang: 'ms', name: 'Bahasa Melayu', col: 41},
+    // { lang: 'nb-no', name: 'Norsk Bokmål', col: 27},
+    // { lang: 'nn-no', name: 'Norsk Nynorsk', col: 38},
+    // { lang: 'pl', name: 'Polski', col: 30},
+    // { lang: 'pt', name: 'Português', col: 18},
+    // { lang: 'ro', name: 'Română', col: 17},
+    // { lang: 'ru', name: 'Русский', col: 9},
+    // { lang: 'sr', name: 'Српски', col: 26},
+    // { lang: 'sk', name: 'Slovenčina', col: 13},
+    // { lang: 'sl', name: 'Slovenščina', col: 37},
+    { lang: "es", name: "Español", col: 4 },
+    // { lang: 'sv', name: 'Svenska', col: 32},
+    // { lang: 'th', name: 'ไทย', col: 34},
+    // { lang: 'tr', name: 'Türkçe', col: 22},
+    // { lang: 'uk', name: 'Українська', col: 14},
+    // { lang: 'vi', name: 'Tiếng Việt', col: 15},
+    // { lang: 'ar', name: 'العربية', col: 31},
+    // { lang: 'he', name: 'עברית', col: 36},
+    // { lang: 'fa', name: 'فارسی', col: 16},
+    // { lang: 'hy', name: 'Հայերեն', col: 42},
+    // { lang: 'mk', name: 'Македонски', col: 43},
   ];
 
   languages.forEach((language) => {
@@ -157,53 +157,34 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<meta property='og:type' content='website'/>",
     ];
 
-    let defaultNav = [
+    let colorList = [
+      { id: "color1", value: "253, 58, 74", title: "Red" },
+      { id: "color2", value: "245, 128, 37", title: "Orange" },
+      { id: "color3", value: "255, 167, 0", title: "Yellow" },
+      { id: "color4", value: "123, 113, 81", title: "Brown" },
+      { id: "color5", value: "91, 170, 9", title: "Lime" },
+      { id: "color6", value: "26, 152, 90", title: "Green" },
+      { id: "color7", value: "59, 168, 221", title: "Cyan" },
+      { id: "color8", value: "0, 120, 215", title: "Blue" },
+      { id: "color9", value: "139, 102, 204", title: "Purple" },
+      { id: "color10", value: "228, 27, 144", title: "Pink" },
+    ];
+
+    let nav1 = [
       "<div id='sidebar' class='collapsed'><button id='closeButton' title='Close sidebar'></button>",
       "<div class='grid grid-row-gap-10 items-center'>",
       "<div class='new-table heavyFont text-left'>" + langValues.language + "</div>",
       "<div class='new-table'>",
       "<select id='languageSelectSetting' class='select-css' aria-label='" + langValues.language + "'>",
-      "<option value='en'>English</option>",
-      "<option value='gb'>English (UK)</option>",
-      "<option value='ar'>العربية</option>",
-      "<option value='bg'>Български</option>",
-      "<option value='ca'>Català</option>",
-      "<option value='cs'>Čeština</option>",
-      "<option value='da'>Dansk</option>",
-      "<option value='de'>Deutsch</option>",
-      "<option value='el'>Ελληνικά</option>",
-      "<option value='es'>Español</option>",
-      "<option value='fa'>فارسی</option>",
-      "<option value='fi'>Suomi</option>",
-      "<option value='fr'>Français</option>",
-      "<option value='he'>עברית</option>",
-      "<option value='hi'>हिंदी</option>",
-      "<option value='hr'>Hrvatski</option>",
-      "<option value='hu'>Magyar</option>",
-      "<option value='hy'>Հայերեն</option>",
-      "<option value='id'>Bahasa Indonesia</option>",
-      "<option value='it'>Italiano</option>",
-      "<option value='ja'>日本語</option>",
-      "<option value='ko'>한국어</option>",
-      "<option value='mk'>Македонски</option>",
-      "<option value='ms'>Bahasa Melayu</option>",
-      "<option value='nb'>Norsk Bokmål</option>",
-      "<option value='nn'>Norsk Nynorsk</option>",
-      "<option value='nl'>Nederlands</option>",
-      "<option value='ph'>Polski</option>",
-      "<option value='pt'>Português</option>",
-      "<option value='ro'>Română</option>",
-      "<option value='ru'>Русский</option>",
-      "<option value='sk'>Slovenčina</option>",
-      "<option value='sl'>Slovenščina</option>",
-      "<option value='sr'>Српски</option>",
-      "<option value='sv'>Svenska</option>",
-      "<option value='th'>ไทย</option>",
-      "<option value='tr'>Türkçe</option>",
-      "<option value='uk'>Українська</option>",
-      "<option value='vi'>Tiếng Việt</option>",
-      "<option value='zs'>中文(简体)</option>",
-      "<option value='zt'>中文(繁體)</option>",
+    ];
+
+    let langNav = [];
+
+    languages.forEach((langVal) => {
+      langNav.push("<option value='" + langVal.lang + "'>" + langVal.name + "</option>");
+    });
+
+    let nav2 = [
       "</select>",
       "</div>",
       "<div class='new-table heavyFont text-left self-start'>" + langValues.temperature + "</div>",
@@ -216,48 +197,27 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "</div>",
       "<div class='new-table heavyFont padding-top-5 text-left self-start'>" + langValues.labelColorMain + "</div>",
       "<div class='radio-toolbar radio-color padding-top-5'>",
-      "<input type='radio' id='color1' name='tableColor' value='253, 58, 74' onchange='setColorSettings()' >",
-      "<label id='color1Label' class='disable-select' title='Red' for='color1'></label>",
-      "<input type='radio' id='color2' name='tableColor' value='245, 128, 37' onchange='setColorSettings()' >",
-      "<label id='color2Label' class='disable-select' title='Orange' for='color2'></label>",
-      "<input type='radio' id='color3' name='tableColor' value='255, 167, 0' onchange='setColorSettings()' >",
-      "<label id='color3Label' class='disable-select' title='Yellow' for='color3'></label>",
-      "<input type='radio' id='color4' name='tableColor' value='123, 113, 81' onchange='setColorSettings()' >",
-      "<label id='color4Label' class='disable-select' title='Brown' for='color4'></label>",
-      "<input type='radio' id='color5' name='tableColor' value='91, 170, 9' onchange='setColorSettings()' >",
-      "<label id='color5Label' class='disable-select' title='Lime' for='color5'></label>",
-      "<input type='radio' id='color6' name='tableColor' value='26, 152, 90' onchange='setColorSettings()' >",
-      "<label id='color6Label' class='disable-select' title='Green' for='color6'></label>",
-      "<input type='radio' id='color7' name='tableColor' value='59, 168, 221' onchange='setColorSettings()' >",
-      "<label id='color7Label' class='disable-select' title='Cyan' for='color7'></label>",
-      "<input type='radio' id='color8' name='tableColor' value='0, 120, 215' onchange='setColorSettings()' >",
-      "<label id='color8Label' class='disable-select' title='Blue' for='color8'></label>",
-      "<input type='radio' id='color9' name='tableColor' value='139, 102, 204' onchange='setColorSettings()' >",
-      "<label id='color9Label' class='disable-select' title='Purple' for='color9'></label>",
-      "<input type='radio' id='color10' name='tableColor' value='228, 27, 144' onchange='setColorSettings()' >",
-      "<label id='color10Label' class='disable-select' title='Pink' for='color10'></label>",
+    ];
+
+    let colorNav = [];
+    colorList.forEach((color) => {
+      colorNav.push(
+        "<input type='radio' id='" +
+          color.id +
+          "' name='tableColor' value='" +
+          color.value +
+          "' onchange='setColorSettings()'><label id='" +
+          color.id +
+          "Label' class='disable-select' title='" +
+          color.title +
+          "' for='" +
+          color.id +
+          "'></label>"
+      );
+    });
+
+    let nav3 = [
       "</div>",
-      // "<div class='new-table heavyFont padding-top-5 text-left self-start'>" + langValues.labelColorMain + "</div>",
-      // "<div class='new-table'>",
-      // "<table id='colorTable'>",
-      // "<tbody>",
-      // "<tr>",
-      // "<td id='color1' class='colorClass' title='Red' />",
-      // "<td id='color2' class='colorClass' title='Orange' />",
-      // "<td id='color3' class='colorClass' title='Yellow' />",
-      // "<td id='color4' class='colorClass' title='Brown' />",
-      // "<td id='color5' class='colorClass' title='Lime' />",
-      // "</tr>",
-      // "<tr>",
-      // "<td id='color6' class='colorClass' title='Green' />",
-      // "<td id='color7' class='colorClass' title='Cyan' />",
-      // "<td id='color8' class='colorClass' title='Blue' />",
-      // "<td id='color9' class='colorClass' title='Purple' />",
-      // "<td id='color10' class='colorClass' title='Pink' />",
-      // "</tr>",
-      // "</tbody>",
-      // "</table>",
-      // "</div>",
       "<div id='settingPeriodicTable' class='new-table span-2'></div>",
       "<div class='new-table heavyFont text-left'>" + langValues.tableWidth + "</div>",
       "<div class='new-table'>",
@@ -340,25 +300,12 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<li>",
       "<a href='translation.html'>",
       translationIcon + langValues.translation + "</a>",
-      // "</li>",
-      // "<li>",
-      // "</li>",
-      // "<li>",
       "</li>",
-      // "<li>",
-      // ","<a on:click={() => changeTheme()}>
-      // ","<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 512 512" stroke="currentColor" fill="currentColor">
-      //           {#if theme === light}
-      //             <path transition:fly={{ y: 200, duration: 600 }} d={theme} />
-      //           {:else}
-      //           ","            <path transition:fly={{ y: -200, duration: 600 }} d={theme} />
-      //           {/if}","
-      //         </svg>{Lang.theme}","
-      //       </a>","
-      // "</li>",
       "</ul>",
       "</nav>",
     ];
+
+    let defaultNav = nav1.concat(langNav).concat(nav2).concat(colorNav).concat(nav3);
 
     let defaultFooter = [
       "<div class='footer'>",
@@ -400,7 +347,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<div class='flex flex-wrap justify-center p-2 pb-8 self-center'>Made with&nbsp; <span style='color:#e25555'>❤</span> &nbsp;by <a target='_blank' href='https://twitter.com/MrNaveenCS/' rel='noopener noreferrer'>",
       "<span class='linkText'>Naveen CS</span>",
       "</a></div>",
-      "</div>",
+      "</div></body>",
     ];
 
     pages.forEach((pageValue) => {
@@ -431,7 +378,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       let page = pageValue.page;
       let link = website + "/" + lang + "/" + pageValue.page + "/";
 
-      let metaTags = [
+      let metaTags1 = [
         "<meta name='keywords' content='" + keywords + "' />",
         "<meta name='description' content='" + description + "' />",
         "<meta property='og:description' content='" + description + "' />",
@@ -444,10 +391,19 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         "<meta name='twitter:image:src' content='" + image + "' />",
         "<meta property='og:url' content='" + link + "' />",
         "<link rel='canonical' href='" + link + "' />",
-        "<link rel='stylesheet' href='../global.css' />",
-        "<script defer src='../htmlJs.js'></script>",
-        "</head>",
       ];
+
+      let metaAlternate = [];
+
+      languages.forEach((langVal) => {
+        metaAlternate.push(
+          "<link rel='alternate' hreflang='" + langVal.lang + "' href='" + website + "/" + langVal.lang + "/" + pageValue.page + "'></link>"
+        );
+      });
+
+      let metaTags2 = ["<link rel='stylesheet' href='../global.css' />", "<script defer src='../htmlJs.js'></script>", "</head><body>"];
+
+      let metaTags = metaTags1.concat(metaAlternate).concat(metaTags2);
 
       switch (page) {
         case "index":

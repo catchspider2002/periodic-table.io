@@ -565,6 +565,7 @@ function setColor(color) {
   metaTileColor.setAttribute("content", hexValue);
   
   let root = document.documentElement;
+  console.log("color: " + color)
   root.style.setProperty("--theme-color", color);
   root.style.setProperty("--darker-color-50", darkerColor50);
   root.style.setProperty("--darker-color-0", darkerColor0);
@@ -601,6 +602,9 @@ function colorLuminance(hex, lum) {
 }
 
 
+
+
+
 // Index
 
 
@@ -616,6 +620,10 @@ let elementLength, categoryLength, periodLength, groupLength;
 let defaultNewTheme, defaultColor, defaultTemp, defaultStyle, defaultMargin;
 
 let outerElement = cls("outerElement");
+let singleNum = cls("eleNum");
+let singleWt = cls("eleWt");
+
+initializePage();
 
 function setSize(tablePercent) {
   let pageWidth = id("headerwrap").clientWidth; //(document.body.scrollWidth || document.documentElement.clientWidth || document.body.clientWidth);
@@ -699,7 +707,33 @@ if (id("ptable")) {
 
     for (let i = 0; i < singleWt.length; i++) singleWt[i].textContent = getNum(singleWt[i].textContent);
   }
+
+  defaultName = localStorage.getItem("defaultName");
+
+  if (!defaultName) {
+    localStorage.setItem("defaultName", "off");
+    defaultName = "off";
+  }
+
+  defaultAtmNo = localStorage.getItem("defaultAtmNo");
+
+  if (!defaultAtmNo) {
+    localStorage.setItem("defaultAtmNo", "off");
+    defaultAtmNo = "off";
+  }
+
+  id("nameSelectSetting").checked = (defaultName === "on") ? true : false;
+  id("nameSelectSetting").addEventListener("change", setNm, false);
+
+  id("atmNoSelectSetting").checked = (defaultAtmNo === "on") ? true : false;
+  id("atmNoSelectSetting").addEventListener("change", setAtmNo, false);
+
+  id("marginSetting").addEventListener("change", setMargin, false);
+  id("marginSetting").value = defaultMargin;
+
   resizeEvent()
+
+
 }
 
 function setOpacity(percent) {
@@ -756,6 +790,88 @@ function setOpacity15() {
     className === "c18"
   )
     id("groupHeader").style.opacity = 1;
+}
+
+function setNm() {
+  defaultName = id("nameSelectSetting").checked ? "on" : "off";
+  localStorage.setItem("defaultName", defaultName);
+  setScenarios();
+}
+
+function setAtmNo() {
+  defaultAtmNo = id("atmNoSelectSetting").checked ? "on" : "off";
+  localStorage.setItem("defaultAtmNo", defaultAtmNo);
+  setScenarios();
+}
+
+function setMargin() {
+  defaultMargin = id("marginSetting").value;
+  localStorage.setItem("defaultMargin", defaultMargin);
+  setSize(defaultMargin);
+}
+
+function setScenarios() {
+  // scenario 1 - Name and AtmNo off
+  // scenario 2 - Name off, AtmNo on
+  // scenario 3 - Name on, AtmNo off
+  // scenario 4 - Name and AtmNo on
+
+  defaultAtmNo = localStorage.getItem("defaultAtmNo");
+  defaultName = localStorage.getItem("defaultName");
+  var scenario;
+  var singleSym = cls("eleSym");
+  var singleNm = cls("eleNm");
+
+  if (defaultName === "off")
+    scenario = (defaultAtmNo === "off") ? "scenario1" : "scenario2";
+  else
+    scenario = (defaultAtmNo === "off") ? "scenario3" : "scenario4";
+
+  for (var i = 0; i < singleNum.length; i++) {
+    if (scenario === "scenario1")
+      singleNum[i].style.fontSize = "0.84em";
+    else if (scenario === "scenario4")
+      singleNum[i].style.fontSize = "0.78em";
+    else
+      singleNum[i].style.fontSize = "0.8em";
+  }
+
+  for (var i = 0; i < singleSym.length; i++) {
+    if (scenario === "scenario1") {
+      singleSym[i].style.fontSize = "1.33em";
+      singleSym[i].style.paddingTop = "10%";
+    } else if (scenario === "scenario4") {
+      singleSym[i].style.fontSize = "1.14em";
+      singleSym[i].style.paddingTop = "0%";
+    } else {
+      singleSym[i].style.fontSize = "1.21em";
+      singleSym[i].style.paddingTop = "2%";
+    }
+  }
+
+  for (var i = 0; i < singleWt.length; i++) {
+    if (defaultAtmNo === "off")
+      singleWt[i].style.display = "none";
+    else {
+      singleWt[i].style.display = "block";
+      singleWt[i].style.fontSize = (scenario === "scenario4") ? "0.56em" : "0.64em";
+      singleWt[i].style.paddingTop = (scenario === "scenario4") ? "0%" : "15%";
+      if (defaultPunc === "comma")
+        singleWt[i].textContent = singleWt[i].textContent.replace(/\./g, ",");
+    }
+  }
+
+  for (var i = 0; i < singleNm.length; i++) {
+    if (defaultName === "off")
+      singleNm[i].style.display = "none";
+    else {
+      singleNm[i].style.display = "block";
+      singleNm[i].style.fontSize = (scenario === "scenario4") ? "0.56em" : "0.64em";
+      singleNm[i].style.paddingTop = (scenario === "scenario4") ? "0%" : "15%";
+    }
+  }
+
+  setSize(defaultMargin);
 }
 
 function setOutline() {
@@ -916,9 +1032,6 @@ function changeTheme() {
   localStorage.setItem("defaultNewTheme", defaultNewTheme);
   // setTheme()
 }
-
-
-initializePage();
 
 function initializePage() {
   console.log("initializePage");

@@ -175,7 +175,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<div class='grid grid-row-gap-10 items-center'>",
       "<div class='new-table heavyFont text-left'>" + langValues.language + "</div>",
       "<div class='new-table'>",
-      "<select id='languageSelectSetting' class='select-css' aria-label='" + langValues.language + "'>",
+      "<select id='languageSelectSetting' class='select-css' aria-label='" + langValues.language + "' onchange='setLanguage()'>",
     ];
 
     let langNav = [];
@@ -280,9 +280,9 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "</li>",
       "<li>",
       "<label for='drop-1' class='toggle'>",
-      tablesIcon + "Tables +</label>",
-      "<a>",
-      tablesIcon + "Tables ▼</a>",
+      tablesIcon + "Tables <svg xmlns='http://www.w3.org/2000/svg' width='1.5em' height='1.5em' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9' /></svg></label>",
+      "<a id='tablesLink'>",
+      tablesIcon + "Tables <svg xmlns='http://www.w3.org/2000/svg' width='1.5em' height='1.5em' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9' /></svg></a>",
       "<input type='checkbox' id='drop-1' />",
       "<ul>",
       "<li><a href='#a'>Solubility Chart</a></li>",

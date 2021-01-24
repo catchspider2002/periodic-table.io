@@ -1033,6 +1033,28 @@ function changeTheme() {
   // setTheme()
 }
 
+function setLanguage() {
+  langValue = id("languageSelectSetting").value;
+  location.href= '../' + langValue
+
+
+  // localStorage.setItem("langValue", langValue);
+
+  // urlLang = getUrlLang(langValue)
+  // setLangFile(langValue);
+  // document.documentElement.setAttribute('lang', urlLang)
+
+  // loadjs(["locales/locale." + langValue + ".js"], {
+  //   success: loaderFunc
+  // });
+  
+  // // console.log("urlLang: " + urlLang)
+  // if (id("outputConfigMain"))
+  //   history.pushState({page: 2}, "title 2", "?num=" + num + "&lang=" + urlLang);
+  // else
+  //   history.pushState({page: 2}, "title 2", "?lang=" + urlLang);
+}
+
 function initializePage() {
   console.log("initializePage");
   defaultNewTheme = localStorage.getItem("defaultNewTheme");

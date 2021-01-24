@@ -2346,7 +2346,7 @@ nav ul li a {
   cursor: pointer;
 }
 
-#tablesLink{
+#tablesLink {
   grid-template-columns: auto 1fr auto;
 }
 
@@ -2421,7 +2421,12 @@ nav > button {
 
   nav ul {
     display: none;
+    grid-row-start: 2;
   }
+
+  /* #sidebar > div {
+    grid-template-columns: 1fr;
+  } */
 
   /* Hide the navigation menu by default */
   /* Also hide the  */
@@ -2459,7 +2464,7 @@ nav > button {
   /* Display Dropdown when clicked on Parent Lable */
   [id^="drop"]:checked + ul {
     display: block;
-    grid-column: 1/3;
+    grid-column: 1/5;
   }
 
   /* Change menu item's width to 100% */

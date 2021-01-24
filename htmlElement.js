@@ -3,6 +3,15 @@ const fs = require("fs");
 const Constants = require("./htmlConstants.js");
 
 let newRawData = Constants.rawData;
+
+newRawData.sort(function(a, b) {
+  if (a.num < b.num)
+    return -1;
+  else if (a.num > b.num)
+    return 1;
+  return 0;
+});
+
 // let defaultTemp = "celsius";
 let defaultPunc = "comma";
 

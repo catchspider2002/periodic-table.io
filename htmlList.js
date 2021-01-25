@@ -2,6 +2,13 @@ const fs = require("fs");
 const Constants = require("./htmlConstants.js");
 let newRawData = Constants.rawData;
 
+newRawData.sort(function (a, b) {
+  if (parseInt(a.num) < parseInt(b.num)) return -1;
+  else if (parseInt(a.num) > parseInt(b.num)) return 1;
+  return 0;
+});
+
+
 const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter) => {
   let writeStream = fs.createWriteStream(lang + "/" + page + ".html");
 

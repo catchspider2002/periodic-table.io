@@ -731,9 +731,8 @@ if (id("ptable")) {
   id("marginSetting").addEventListener("change", setMargin, false);
   id("marginSetting").value = defaultMargin;
 
-  resizeEvent()
-
-
+  setScenarios();
+  resizeEvent();
 }
 
 function setOpacity(percent) {
@@ -1004,6 +1003,14 @@ function setTemp() {
   }
 }
 
+function setSettings() {
+  // id("languageSelectSetting").addEventListener("change", setLanguage, false);
+  id("languageSelectSetting").value = langValue;
+  id("temp"+ defaultTemp).checked = true;
+  id("style"+ defaultStyle).checked = true;
+  id(defaultColor).checked = true;
+}
+
 function changeTheme() {
   let defaultNewTheme = document.documentElement.getAttribute("data-theme");
 
@@ -1056,7 +1063,6 @@ function setLanguage() {
 }
 
 function initializePage() {
-  console.log("initializePage");
   defaultNewTheme = localStorage.getItem("defaultNewTheme");
 
   if (!defaultNewTheme) {
@@ -1130,9 +1136,11 @@ function initializePage() {
 
   document.documentElement.setAttribute("data-style", defaultStyle);
 
-  console.log(defaultNewTheme);
-  console.log(defaultColor);
-  console.log(defaultTemp);
-  console.log(defaultStyle);
-  console.log(defaultMargin);
+
+  setSettings();
+  // console.log(defaultNewTheme);
+  // console.log(defaultColor);
+  // console.log(defaultTemp);
+  // console.log(defaultStyle);
+  // console.log(defaultMargin);
 }

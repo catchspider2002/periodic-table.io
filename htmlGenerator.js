@@ -172,9 +172,9 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
 
     let nav1 = [
       "<div id='sidebar' class='collapsed'>",
-      "<div class='grid grid-row-gap-10 items-center'>",
-      "<div class='new-table heavyFont text-left'>" + langValues.language + "</div>",
-      "<div class='new-table'>",
+      "<div class='settingsGrid items-center'>",
+      "<div class='heavyFont text-left'>" + langValues.language + "</div>",
+      "<div>",
       "<select id='languageSelectSetting' class='select-css' aria-label='" + langValues.language + "' onchange='setLanguage()'>",
     ];
 
@@ -187,16 +187,16 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     let nav2 = [
       "</select>",
       "</div>",
-      "<div class='new-table heavyFont text-left self-start'>" + langValues.temperature + "</div>",
-      "<div class='radio-toolbar padding-top-5'>",
+      "<div class='heavyFont text-left self-start'>" + langValues.temperature + "</div>",
+      "<div class='radio-toolbar radio-temp'>",
       "<input type='radio' id='tempcelsius' name='temperature' value='celsius' onchange='setTemp()' />",
       "<label class='disable-select' for='tempcelsius'>" +
         langValues.tempCelsius +
         "</label><input type='radio' id='tempfahrenheit' name='temperature' value='fahrenheit' onchange='setTemp()' />",
       "<label class='disable-select' for='tempfahrenheit'>" + langValues.tempFahrenheit + "</label>",
       "</div>",
-      "<div class='new-table heavyFont padding-top-5 text-left self-start'>" + langValues.labelColorMain + "</div>",
-      "<div class='radio-toolbar radio-color padding-top-5'>",
+      "<div class='heavyFont text-left self-start'>" + langValues.labelColorMain + "</div>",
+      "<div class='radio-toolbar radio-color'>",
     ];
 
     let colorNav = [];
@@ -218,9 +218,9 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
 
     let nav3 = [
       "</div>",
-      "<div id='settingPeriodicTable' class='new-table span-2'>" + langValues.homeHeader + "</div>",
-      "<div class='new-table heavyFont text-left'>" + langValues.tableWidth + "</div>",
-      "<div class='new-table'>",
+      "<div id='settingPeriodicTable' class='span-2'>" + langValues.homeHeader + "</div>",
+      "<div class='heavyFont text-left'>" + langValues.tableWidth + "</div>",
+      "<div>",
       "<select id='marginSetting' class='select-css' aria-label='" + langValues.tableWidth + "'>",
       "<option value='1'>100%</option>",
       "<option value='0.95'>95%</option>",
@@ -229,22 +229,22 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<option value='0.8'>80%</option>",
       "</select>",
       "</div>",
-      "<div class='new-table heavyFont text-left'>" + langValues.labelName + "</div>",
-      "<div class='new-table text-left padding-top-5'>",
+      "<div class='heavyFont text-left'>" + langValues.labelName + "</div>",
+      "<div class='text-left'>",
       "<label class='switch'>",
       "<input id='nameSelectSetting' type='checkbox' >",
       "<span class='slider round' ></span>",
       "</label>",
       "</div>",
-      "<div class='new-table heavyFont text-left'>" + langValues.labelAtmWtMain + "</div>",
-      "<div class='new-table text-left padding-top-5'>",
+      "<div class='heavyFont text-left'>" + langValues.labelAtmWtMain + "</div>",
+      "<div class='text-left'>",
       "<label class='switch'>",
       "<input id='atmNoSelectSetting' type='checkbox' >",
       "<span class='slider round' ></span>",
       "</label>",
       "</div>",
-      "<div class='new-table heavyFont text-left self-start' id='tableStyle'>" + langValues.style + "</div>",
-      "<div class='radio-toolbar radio-style padding-top-5'>",
+      "<div class='heavyFont text-left self-start' id='tableStyle'>" + langValues.style + "</div>",
+      "<div class='radio-toolbar radio-style'>",
       "<input type='radio' id='style1' name='tableStyle' value='1' onchange='setStyle()' >",
       "<label id='style1Label' class='disable-select' for='style1'></label>",
       "<input type='radio' id='style2' name='tableStyle' value='2' onchange='setStyle()' >",

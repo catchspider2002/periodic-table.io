@@ -1,6 +1,10 @@
+html {
+  font-family: "Noto Sans", sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
   font-size: 14px;
   line-height: 1.5;
   color: #333;
@@ -216,7 +220,6 @@ body {
   -ms-transition: 0.1s opacity;
   background-color: var(--body-bg-color);
   color: rgb(var(--text-color));
-  font-family: "Noto Sans", sans-serif;
 }
 
 body.fade-out {
@@ -271,7 +274,7 @@ select {
   width: 100%;
   font: inherit;
   outline: 0;
-  line-height: inherit;
+  line-height: normal;
 }
 
 button {
@@ -653,14 +656,17 @@ table,
   margin: 0 -1rem;
 }
 
-.grid-row-gap-10 {
-  grid-row-gap: 10px;
+.settingsGrid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 2.5rem;
+  padding: 5rem 2rem 2rem;
 }
 
 #settingPeriodicTable {
   grid-column: 1 / span 2;
   border-bottom: 2px solid rgba(var(--theme-color));
-  margin: 1rem;
+  margin: 1rem 0;
   padding: 0;
 }
 .items-center {
@@ -921,9 +927,10 @@ button {
   background-color: rgb(var(--theme-color));
 }
 
-.navbar-default,
+.navbar-default
   /* .navbar-collapse.in, */
-  .modal-header {
+  /* .modal-header  */
+  {
   /* background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.35)),
         linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color))); */
   background-color: var(--darker-color-50);
@@ -958,12 +965,12 @@ button {
     transform: translate(0, 0);
   } */
 
-.modal-dialog {
+/* .modal-dialog {
   position: relative;
   width: auto;
-  margin: 10px;
+  margin: 10px; */
   /* background-color: red; */
-  z-index: 4;
+  /* z-index: 4;
 }
 
 .modal-content {
@@ -971,7 +978,7 @@ button {
   background-clip: padding-box;
   outline: 0;
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-}
+} */
 
 /* .modal-backdrop {
     position: fixed;
@@ -993,7 +1000,7 @@ button {
     opacity: 0.75;
   } */
 
-.modal-header {
+/* .modal-header {
   min-height: 16.42857143px;
   padding: 1rem;
   color: #fff;
@@ -1011,23 +1018,21 @@ button {
   padding: 20px;
   border-bottom-left-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
-}
+} */
 
 .bottom-rounded {
   border-bottom-left-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .modal-dialog {
-    /* width: 600px; */
-    /* margin: 30px auto; */
     margin: 0 auto;
   }
   .modal-content {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   }
-}
+} */
 
 .container:after,
 .container:before,
@@ -1241,8 +1246,7 @@ canvas {
 .listGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  column-gap: 2rem;
-  row-gap: 2rem;
+  gap: 2rem;
 }
 
 .listSym,
@@ -1436,11 +1440,11 @@ canvas {
   width: 40%;
 }
 
-#modalImage,
+/* #modalImage,
 #modalSettings {
   padding-left: 5px;
   display: block;
-}
+} */
 
 .padding-10 {
   padding: 0 10px;
@@ -1653,8 +1657,9 @@ input:focus + .slider {
 
 .box-content,
 .list-content,
-.flex-item,
-.modal-body {
+.flex-item
+/* ,.modal-body  */
+{
   background-color: var(--card-bg-color);
 }
 
@@ -1920,10 +1925,12 @@ blockquote,
 }
 
 .radio-toolbar {
-  /* display: flex; */
+  display: grid;
+  gap: 0.5em;
+  grid-template-columns: repeat(3, auto);
   /* grid-auto-flow: column; */
-  margin: 0 1rem;
-  color: pink;
+  /* margin: 0 1rem;
+  color: pink;*/
 }
 
 .radio-toolbar input[type="radio"] {
@@ -1938,9 +1945,9 @@ blockquote,
   grid-auto-flow: column;
   padding: 0.5rem 0.75rem;
   place-items: center;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-family: sans-serif, Arial;
+  /* margin-right: 0.5rem; */
+  /* margin-bottom: 0.5rem; */
+  /* font-family: sans-serif, Arial; */
   font-size: 1rem;
   background-color: rgba(var(--blockquote-color), 0.3);
   color: rgba(var(--blockquote-color), 0.5);
@@ -1948,6 +1955,10 @@ blockquote,
   /* line-height: 1.5rem; */
   cursor: pointer;
   /* font-weight: 600; */
+}
+
+.radio-temp label{
+justify-self: start;
 }
 
 .radio-toolbar label::before {
@@ -2011,8 +2022,8 @@ blockquote,
 #style2Label,
 #style3Label {
   /* background-size: contain; */
-  width: 44%;
-  padding-top: 19.5%;
+  /* width: 44%; */
+  padding-top: 50%;
   background-repeat: no-repeat;
   /* position: relative; */
   /* justify-content: center; */
@@ -2028,6 +2039,14 @@ blockquote,
 
 #style3Label {
   background-image: var(--style3Image);
+}
+
+.radio-color {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.radio-temp {
+  grid-template-columns: auto;
 }
 
 .twitter-share-button {
@@ -2322,7 +2341,7 @@ nav {
   line-height: 1;
   gap: 0.5em;
   /*     padding: 0 30px; */
-  margin-right: auto;
+  /* margin-right: auto; */
 }
 
 /* Since we'll have the "ul li" "float:left"
@@ -2546,7 +2565,23 @@ nav > button {
   }
 }
 
-@media all and (max-width: 330px) {
+@media all and (max-width: 640px) {
+  #sidebar {
+    min-width: 320px;
+  }
+
+  .settingsGrid {
+    grid-template-columns: auto;
+    padding: 5rem 1rem 1rem;
+    gap: 1.5rem;
+  }
+
+  #settingPeriodicTable {
+    grid-column: 1;
+  }
+}
+
+@media all and (max-width: 320px) {
   nav ul li {
     display: block;
     width: 94%;
@@ -2555,7 +2590,11 @@ nav > button {
 
 /* Settings sidebar */
 
-#sidebar,
+#sidebar {
+  height: 100%;
+  overflow: auto;
+}
+
 #content {
   height: 100%;
   overflow: auto;
@@ -2567,15 +2606,14 @@ nav > button {
   top: 0;
   z-index: 2;
   background-color: var(--card-bg-color);
-  width: 520px;
+  max-width: 520px;
   box-shadow: 2px 0 4px rgba(0, 0, 0, 0.5);
   transition: width 0.35s;
-  padding: 90px 30px 30px;
 }
 
 #sidebar.collapsed {
   width: 0;
-  padding: 0;
+  /* padding: 0; */
 }
 
 #content {

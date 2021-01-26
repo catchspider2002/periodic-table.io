@@ -1201,7 +1201,7 @@ canvas {
 
 #headerwrap {
   padding-top: 60px;
-  /* overflow-x: auto; */
+  overflow-x: auto;
 }
 
 .text-upper {
@@ -2091,6 +2091,27 @@ blockquote,
   }
 }
 
+body {
+  scrollbar-width: auto;
+  scrollbar-color: rgba(var(--blockquote-color), 0.5) #1f2229;
+}
+
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #1f2229;
+}
+
+::-webkit-scrollbar-thumb {
+  /* background-color: #15181f;
+	border: 3px solid #1f2229; */
+  background-color: rgba(var(--blockquote-color), 0.5);
+  /* border: 3px solid green; */
+  /* border-radius: 10px; */
+}
+
 /* Scrollbar */
 /* 
     @media (hover: hover) {
@@ -2593,7 +2614,7 @@ nav > button {
   margin: 0;
   border: 1px solid #aaa;
   box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
-  border-radius: 0.5em;
+  border-radius: var(--border-radius);
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;

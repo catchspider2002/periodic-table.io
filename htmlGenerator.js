@@ -171,7 +171,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     ];
 
     let nav1 = [
-      "<div id='sidebar' class='collapsed'><button id='closeButton' title='Close sidebar'></button>",
+      "<div id='sidebar' class='collapsed'>",
       "<div class='grid grid-row-gap-10 items-center'>",
       "<div class='new-table heavyFont text-left'>" + langValues.language + "</div>",
       "<div class='new-table'>",
@@ -218,7 +218,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
 
     let nav3 = [
       "</div>",
-      "<div id='settingPeriodicTable' class='new-table span-2'></div>",
+      "<div id='settingPeriodicTable' class='new-table span-2'>" + langValues.homeHeader + "</div>",
       "<div class='new-table heavyFont text-left'>" + langValues.tableWidth + "</div>",
       "<div class='new-table'>",
       "<select id='marginSetting' class='select-css' aria-label='" + langValues.tableWidth + "'>",
@@ -267,9 +267,11 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "</li>",
       "<li>",
       "<label for='drop-1' class='toggle'>",
-      tablesIcon + "Tables <svg xmlns='http://www.w3.org/2000/svg' width='1.5em' height='1.5em' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9' /></svg></label>",
+      tablesIcon +
+        "Tables <svg xmlns='http://www.w3.org/2000/svg' width='1.5em' height='1.5em' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9' /></svg></label>",
       "<a id='tablesLink'>",
-      tablesIcon + "Tables <svg xmlns='http://www.w3.org/2000/svg' width='1.5em' height='1.5em' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9' /></svg></a>",
+      tablesIcon +
+        "Tables <svg xmlns='http://www.w3.org/2000/svg' width='1.5em' height='1.5em' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9' /></svg></a>",
       "<input type='checkbox' id='drop-1' />",
       "<ul>",
       "<li><a href='#a'>Solubility Chart</a></li>",
@@ -412,24 +414,24 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         case "privacy-policy":
           htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
           break;
-        // case "about":
-        //   htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
-        // case "store":
-        //   htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
-        // case "printables":
-        //   htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
-        // case "compare":
-        //   htmlCompare.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
-        // case "element":
-        //   htmlElement.writeFile(lang, langValues, language.col, page, defaultHead, defaultNav, defaultFooter);
-        //   break;
+        case "about":
+          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "store":
+          htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "printables":
+          htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "compare":
+          htmlCompare.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "element":
+          htmlElement.writeFile(lang, langValues, language.col, page, defaultHead, defaultNav, defaultFooter);
+          break;
         case "list":
           htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        break;
+          break;
       }
     });
   });

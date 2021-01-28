@@ -399,7 +399,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
 
       languages.forEach((langVal) => {
         metaAlternate.push(
-          "<link rel='alternate' hreflang='" + langVal.lang + "' href='" + website + "/" + langVal.lang + "/" + pageValue.page + "'></link>"
+          "<link rel='alternate' hreflang='" + langVal.lang + "' href='" + website + "/" + langVal.lang + "/" + pageValue.page + "'/>"
         );
       });
 

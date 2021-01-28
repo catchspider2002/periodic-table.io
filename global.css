@@ -2575,6 +2575,12 @@ nav > button {
     min-width: 320px;
   }
 
+  #sidebar.collapsed,
+  #overlap.collapsed {
+    min-width: 0;
+    /* padding: 0; */
+  }
+
   .settingsGrid {
     grid-template-columns: auto;
     padding: 5rem 1rem 1rem;
@@ -2595,17 +2601,17 @@ nav > button {
 
 /* Settings sidebar */
 
+/* #sidebar {
+} */
+
+/* #content {
+  height: 100%;
+  overflow: auto;
+} */
+
 #sidebar {
   height: 100%;
   overflow: auto;
-}
-
-#content {
-  height: 100%;
-  overflow: auto;
-}
-
-#sidebar {
   position: absolute;
   right: 0;
   top: 0;
@@ -2616,9 +2622,17 @@ nav > button {
   transition: width 0.35s;
 }
 
-#sidebar.collapsed {
+#sidebar.collapsed,
+#overlap.collapsed {
   width: 0;
   /* padding: 0; */
+}
+
+#overlap{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0,0,0,0.4);
 }
 
 #content {
@@ -2694,8 +2708,3 @@ nav > button {
 }
 
 
-
-.overlap{
-  width: 100%;
-  height: 100%;
-}

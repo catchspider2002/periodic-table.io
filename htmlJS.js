@@ -973,6 +973,7 @@ function removeOutline() {
 
 function sideBar() {
   id("sidebar").classList.toggle("collapsed");
+  id("overlap").classList.toggle("collapsed");
 }
 
 function setStyle() {
@@ -1144,3 +1145,15 @@ function initializePage() {
   // console.log(defaultStyle);
   // console.log(defaultMargin);
 }
+
+
+document.onkeydown = function(evt) {
+  evt = evt || window.event;
+  var isEscape = false;
+  if ("key" in evt) 
+      isEscape = (evt.key === "Escape" || evt.key === "Esc");
+   else
+      isEscape = (evt.keyCode === 27);
+  if (isEscape && !id("sidebar").classList.contains("collapsed"))
+      sideBar();
+};

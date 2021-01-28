@@ -171,6 +171,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     ];
 
     let nav1 = [
+      "<div id='overlap' class='collapsed' onclick='sideBar()'></div>",
       "<div id='sidebar' class='collapsed'>",
       "<div class='settingsGrid items-center'>",
       "<div class='heavyFont text-left'>" + langValues.language + "</div>",

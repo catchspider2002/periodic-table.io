@@ -447,7 +447,7 @@ function firstChanged() {
 
   id("atmNo1").textContent = getNum(firstDetails.num);
   id("name1").textContent = id("firstElement").options[id("firstElement").selectedIndex].innerHTML;
-  id("compEle1").href = firstDetails.num + "-" + link.toLowerCase();
+  id("compEle1").href = "element-" + firstDetails.num
   id("symbol1").textContent = firstDetails.sym;
   id("periods1").textContent = getNum(firstDetails.prd);
   id("block1").textContent = firstDetails.blk;
@@ -487,7 +487,7 @@ function secondChanged() {
 
   id("atmNo2").textContent = getNum(secondDetails.num);
   id("name2").textContent = id("secondElement").options[id("secondElement").selectedIndex].text;
-  id("compEle2").href = secondDetails.num + "-" + link.toLowerCase();
+  id("compEle2").href = "element-" + secondDetails.num;
   id("symbol2").textContent = secondDetails.sym;
   id("periods2").textContent = getNum(secondDetails.prd);
   id("block2").textContent = secondDetails.blk;

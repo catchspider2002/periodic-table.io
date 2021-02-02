@@ -30,10 +30,8 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
     return (
       "<td id='ele" +
       (num - -1) +
-      "' class='eleTD'><a href='" +
+      "' class='eleTD'><a href='element-" +
       element.num +
-      "-" +
-      langValues[element.nme].toLowerCase() +
       "' id='element" +
       element.num +
       "' class='elements " +

@@ -19,7 +19,7 @@ const writeFile = (lang, langValues, column, page, defaultHead, defaultNav, defa
       let eleNum = i;
       let element = newRawData[eleNum - 1];
 
-      let writeStream = fs.createWriteStream(lang + "/" + element.num + "-" + langValues[element.nme].toLowerCase() + ".html");
+      let writeStream = fs.createWriteStream(lang + "/element-" + element.num + ".html");
 
       defaultHead.forEach((heads) => {
         writeStream.write(heads);
@@ -50,7 +50,7 @@ const writeFile = (lang, langValues, column, page, defaultHead, defaultNav, defa
       let website = "https://periodic-table.io";
       let image = website + "/images/icons/android-chrome-256x256.png";
       let title = langValues[element.nme] + " - " + langValues.homeHeader;
-      let link = website + "/" + lang + "/" + langValues[element.nme].toLowerCase() + "/";
+      let link = website + "/" + lang + "/element-" + element.num + "/";
 
       let metaTags = [
         "<meta name='keywords' content='" + keywords + "' />",
@@ -1373,10 +1373,8 @@ const writeFile = (lang, langValues, column, page, defaultHead, defaultNav, defa
       else {
         let previousElement = newRawData[previousNum];
         previousHTML =
-          "<a href='" +
+          "<a href='element-" +
           previousElement.num +
-          "-" +
-          langValues[previousElement.nme].toLowerCase() +
           "' class='underlineLink' id='previousElement'>" +
           langValues[previousElement.nme] +
           "</a>";
@@ -1386,10 +1384,8 @@ const writeFile = (lang, langValues, column, page, defaultHead, defaultNav, defa
       else {
         let nextElement = newRawData[nextNum];
         nextHTML =
-          "<a href='" +
+          "<a href='element-" +
           nextElement.num +
-          "-" +
-          langValues[nextElement.nme].toLowerCase() +
           "' class='underlineLink' id='nextElement'>" +
           langValues[nextElement.nme] +
           "</a>";

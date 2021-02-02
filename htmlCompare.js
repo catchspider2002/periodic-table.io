@@ -97,12 +97,12 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   let element = newRawData[0];
   writeStream.write("<div class='row'>");
   writeStream.write("<div class='col-xs-4 new-table heavyFont'>" + langValues.labelName + "</div>");
-  writeStream.write("<a id='compEle1' href='" + element.num + "-" + langValues[element.nme].toLowerCase() + "'>");
+  writeStream.write("<a id='compEle1' href='element-" + element.num + "'>");
   writeStream.write(
     "<div class='col-xs-4 new-table compareLink'><span id='name1' class='underlineLink'>" + langValues[element.nme] + "</span></div>"
   );
   writeStream.write("</a>");
-  writeStream.write("<a id='compEle2' href='" + element.num + "-" + langValues[element.nme].toLowerCase() + "'>");
+  writeStream.write("<a id='compEle2' href='element-" + element.num + "'>");
   writeStream.write(
     "<div class='col-xs-4 new-table compareLink'><span id='name2' class='underlineLink'>" + langValues[element.nme] + "</span></div>"
   );

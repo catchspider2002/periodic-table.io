@@ -76,7 +76,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
                     langValues.ptTrans + '; ' + langValues.roTrans + '; ' + langValues.ruTrans + '; ' + langValues.skTrans + '; ' + langValues.slTrans + '; ' + 
                     langValues.srTrans + '; ' + langValues.svTrans + '; ' + langValues.thTrans + '; ' + langValues.trTrans + '; ' + langValues.ukTrans + '; ' + 
                     langValues.viTrans + '; ' + langValues.zhTrans + '; ' + langValues.chTrans,
-    image:'Periodic Table Flashcards 1',
+    image:'Periodic-Table-Flashcards-1',
     link:'https://gumroad.com/l/periodictableflashcards1/'}
   ];
 

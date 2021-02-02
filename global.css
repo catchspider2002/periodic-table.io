@@ -1589,15 +1589,15 @@ input:focus + .slider {
 
 .aboutHeader {
   font-size: 1.5em;
-  padding: 0em 1em 1em;
+  padding: 2em 1em 1em;
   color: var(--fg-color);
 }
 
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) {
   .aboutHeader {
     padding: 2em 1em 1em;
   }
-}
+} */
 
 #about {
   padding: 0 1em 1em;
@@ -2149,8 +2149,8 @@ blockquote,
   }
 
   ::-webkit-scrollbar {
-    height: 7px;
-    width: 7px;
+    height: 6px;
+    width: 6px;
   }
 }
 

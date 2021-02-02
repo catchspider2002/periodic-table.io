@@ -406,7 +406,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
 
       let metaTags2 = [
         "<link rel='stylesheet' href='../global.css' />",
-        "<script defer src='../htmlJs.js'></script>",
+        "<script defer src='../htmlJS.js'></script>",
         "<link rel='preload' href='../fonts2/" + language.regular + ".woff2' as='font' crossorigin='anonymous' />",
         "<link rel='preload' href='../fonts2/" + language.heavy + ".woff2' as='font' crossorigin='anonymous' />",
         "<style>@font-face {font-family: SpecialRegular; src: url(../fonts2/" + language.regular + ".woff2) format('woff2'); }",

@@ -66,7 +66,7 @@ const writeFile = (lang, langValues, column, page, defaultHead, defaultNav, defa
         "<meta property='og:url' content='" + link + "' />",
         "<link rel='canonical' href='" + link + "' />",
         "<link rel='stylesheet' href='../global.css' />",
-        "<script defer src='../htmlJs.js'></script>",
+        "<script defer src='../htmlJS.js'></script>",
         "</head>",
       ];
 

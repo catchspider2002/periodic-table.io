@@ -1,4 +1,4 @@
-// const fs = require("fs");
+const fs = require("fs");
 const xlsxFile = require("read-excel-file/node");
 const htmlPrivacy = require("./htmlPrivacy.js");
 const htmlAbout = require("./htmlAbout.js");
@@ -105,6 +105,34 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
   languages.forEach((language) => {
     let langValues = printObject(language.col); // es
     let lang = language.lang;
+
+    var cssDir = lang + "/css";
+    var jsDir = lang + "/js";
+    var fontDir = lang + "/fonts";
+
+    if (!fs.existsSync(cssDir)) fs.mkdirSync(cssDir);
+    if (!fs.existsSync(jsDir)) fs.mkdirSync(jsDir);
+    if (!fs.existsSync(fontDir)) fs.mkdirSync(fontDir);
+
+    fs.copyFile("global.css", lang + "/css/global.css", (err) => {
+      if (err) throw err;
+      // console.log("source.txt was copied to destination.txt");
+    });
+
+    fs.copyFile("htmlJS.js", lang + "/js/htmlJS.js", (err) => {
+      if (err) throw err;
+      // console.log("source.txt was copied to destination.txt");
+    });
+
+    fs.copyFile("fonts2/" + language.regular + ".woff2", lang + "/fonts/" + language.regular + ".woff2", (err) => {
+      if (err) throw err;
+      // console.log("source.txt was copied to destination.txt");
+    });
+
+    fs.copyFile("fonts2/" + language.heavy + ".woff2", lang + "/fonts/" + language.heavy + ".woff2", (err) => {
+      if (err) throw err;
+      // console.log("source.txt was copied to destination.txt");
+    });
 
     function printObject(col) {
       let o = {};
@@ -405,42 +433,42 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       });
 
       let metaTags2 = [
-        "<link rel='stylesheet' href='../global.css' />",
-        "<script defer src='../htmlJS.js'></script>",
-        "<link rel='preload' href='../fonts2/" + language.regular + ".woff2' as='font' crossorigin='anonymous' />",
-        "<link rel='preload' href='../fonts2/" + language.heavy + ".woff2' as='font' crossorigin='anonymous' />",
-        "<style>@font-face {font-family: SpecialRegular; src: url(../fonts2/" + language.regular + ".woff2) format('woff2'); }",
-        "@font-face {font-family: SpecialHeavy;src: url(../fonts2/" + language.heavy + ".woff2) format('woff2');}</style>",
+        "<link rel='stylesheet' href='css/global.css' />",
+        "<script defer src='js/htmlJS.js'></script>",
+        "<link rel='preload' href='fonts/" + language.regular + ".woff2' as='font' crossorigin='anonymous' />",
+        "<link rel='preload' href='fonts/" + language.heavy + ".woff2' as='font' crossorigin='anonymous' />",
+        "<style>@font-face {font-family: SpecialRegular; src: url(fonts/" + language.regular + ".woff2) format('woff2'); font-display: swap;}",
+        "@font-face {font-family: SpecialHeavy;src: url(fonts/" + language.heavy + ".woff2) format('woff2'); font-display: swap;}</style>",
         "</head><body>",
       ];
 
       let metaTags = metaTags1.concat(metaAlternate).concat(metaTags2);
 
       switch (page) {
-        // case "index":
-        //   htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
-        // case "privacy-policy":
-        //   htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
-        // case "about":
-        //   htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
-        // case "store":
-        //   htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
+        case "index":
+          htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "privacy-policy":
+          htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "about":
+          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "store":
+          htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
         case "printables":
           htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
           break;
-        // case "compare":
-        //   htmlCompare.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
-        // case "element":
-        //   htmlElement.writeFile(lang, langValues, language.col, page, defaultHead, defaultNav, defaultFooter);
-        //   break;
-        // case "list":
-        //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
+        case "compare":
+          htmlCompare.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "element":
+          htmlElement.writeFile(lang, langValues, language.col, page, defaultHead, defaultNav, defaultFooter);
+          break;
+        case "list":
+          htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
       }
     });
   });

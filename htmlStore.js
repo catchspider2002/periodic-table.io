@@ -39,7 +39,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("<div class='margin-bottom-20'>");
   writeStream.write("<div id='lightTeeHeader' class='text-upper text-center heavyFont aboutHeader'>T-shirt (" + langValues.themeLight + ")</div>");
   writeStream.write("<div class='padding-10'>");
-  writeStream.write("<img class='table teeImage' alt='Periodic table t-shirt in light background' src='../images/LightTee.png' /></div>");
+  writeStream.write("<img class='table teeImage' alt='Periodic table t-shirt in light background' src='images/LightTee.png' /></div>");
   writeStream.write("<div class='text-center'>");
 
   lightLinks.forEach((lightLink) => {
@@ -51,7 +51,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("<div class='margin-bottom-20'>");
   writeStream.write("<div id='darkTeeHeader' class='text-upper text-center heavyFont aboutHeader'>T-shirt (" + langValues.themeDark + ")</div>");
   writeStream.write("<div class='padding-10'>");
-  writeStream.write("<img class='table teeImage' alt='Periodic table t-shirt in dark background' src='../images/DarkTee.png' /></div>");
+  writeStream.write("<img class='table teeImage' alt='Periodic table t-shirt in dark background' src='images/DarkTee.png' /></div>");
   writeStream.write("<div class='text-center'>");
 
   darkLinks.forEach((darkLink) => {

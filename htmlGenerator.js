@@ -1,4 +1,6 @@
 const fs = require("fs");
+const fsextra = require("fs-extra");
+
 const xlsxFile = require("read-excel-file/node");
 const htmlPrivacy = require("./htmlPrivacy.js");
 const htmlAbout = require("./htmlAbout.js");
@@ -109,6 +111,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     var cssDir = lang + "/css";
     var jsDir = lang + "/js";
     var fontDir = lang + "/fonts";
+    // var fontDir = lang + "/fonts";
 
     if (!fs.existsSync(cssDir)) fs.mkdirSync(cssDir);
     if (!fs.existsSync(jsDir)) fs.mkdirSync(jsDir);
@@ -133,6 +136,11 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       if (err) throw err;
       // console.log("source.txt was copied to destination.txt");
     });
+
+    fsextra
+      .copy("images", lang + "/images")
+      .then(() => console.log("Files copied successfully!"))
+      .catch((err) => console.error(err));
 
     function printObject(col) {
       let o = {};

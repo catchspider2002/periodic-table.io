@@ -50,6 +50,7 @@
     "homepage": "https://github.com/catchspider2002/periodic-table.io#readme",
     "dependencies": {
         "@brainly/onesky-utils": "^1.4.1",
+        "fs-extra": "^9.1.0",
         "read-excel-file": "^4.1.0",
         "watch": "^1.0.2"
     },

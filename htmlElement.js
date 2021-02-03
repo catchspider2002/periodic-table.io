@@ -1185,7 +1185,7 @@ const writeFile = (lang, langValues, column, page, defaultHead, defaultNav, defa
       writeStream.write("<div class='masonry-col'>");
       writeStream.write("<div class='blog-thumb'>");
       writeStream.write(
-        "<img id='elementPic' src='../images/" +
+        "<img id='elementPic' src='images/" +
           imageSrc +
           ".jpg' alt=" +
           post["ele" + eleNum + "Desc"] +

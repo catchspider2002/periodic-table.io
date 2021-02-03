@@ -124,21 +124,28 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
 
     fs.copyFile("htmlJS.js", lang + "/js/htmlJS.js", (err) => {
       if (err) throw err;
-      // console.log("source.txt was copied to destination.txt");
     });
 
     fs.copyFile("fonts2/" + language.regular + ".woff2", lang + "/fonts/" + language.regular + ".woff2", (err) => {
       if (err) throw err;
-      // console.log("source.txt was copied to destination.txt");
     });
 
     fs.copyFile("fonts2/" + language.heavy + ".woff2", lang + "/fonts/" + language.heavy + ".woff2", (err) => {
       if (err) throw err;
-      // console.log("source.txt was copied to destination.txt");
     });
 
+    fs.copyFile("favicon-32x32.png", lang + "/favicon-32x32.png", (err) => {
+      if (err) throw err;
+    });
+
+    fs.copyFile("favicon-16x16.png", lang + "/favicon-16x16.png", (err) => {
+      if (err) throw err;
+    });
+
+    
+
     fsextra
-      .copy("images", lang + "/images")
+      .copy("images2", lang + "/images")
       .then(() => console.log("Files copied successfully!"))
       .catch((err) => console.error(err));
 
@@ -168,18 +175,18 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<meta charset='utf-8'/>",
       "<meta http-equiv='X-UA-Compatible' content='IE=edge'/>",
       "<meta name='viewport' content='width=device-width,initial-scale=1'/>",
-      "<link rel='apple-touch-icon' sizes='180x180' href='../images/icons/apple-touch-icon.png'/>",
-      "<link rel='icon' type='image/png' sizes='32x32' href='../favicon-32x32.png'/>",
-      "<link rel='icon' type='image/png' sizes='16x16' href='../favicon-16x16.png'/>",
+      "<link rel='apple-touch-icon' sizes='180x180' href='images/icons/apple-touch-icon.png'/>",
+      "<link rel='icon' type='image/png' sizes='32x32' href='./favicon-32x32.png'/>",
+      "<link rel='icon' type='image/png' sizes='16x16' href='./favicon-16x16.png'/>",
       "<link rel='manifest' href='../manifest.json'/>",
       "<link rel='mask-icon' href='safari-pinned-tab.svg' color='#0078d7'/>",
 
       "<meta name='msapplication-TileColor' content='#0078d7'/>",
-      "<meta name='msapplication-TileImage' content='../images/icons/mstile-144x144.png'/>",
-      "<meta name='msapplication-square70x70logo' content='../images/icons/mstile-70x70.png'/>",
-      "<meta name='msapplication-square150x150logo' content='../images/icons/mstile-150x150.png'/>",
-      "<meta name='msapplication-wide310x150logo' content='../images/icons/mstile-310x150.png'/>",
-      "<meta name='msapplication-square310x310logo' content='../images/icons/mstile-310x310.png'/>",
+      "<meta name='msapplication-TileImage' content='images/icons/mstile-144x144.png'/>",
+      "<meta name='msapplication-square70x70logo' content='images/icons/mstile-70x70.png'/>",
+      "<meta name='msapplication-square150x150logo' content='images/icons/mstile-150x150.png'/>",
+      "<meta name='msapplication-wide310x150logo' content='images/icons/mstile-310x150.png'/>",
+      "<meta name='msapplication-square310x310logo' content='images/icons/mstile-310x310.png'/>",
       "<meta name='theme-color' content='#003c6c'/>",
       "<meta name='google' content='notranslate'/>",
       "<meta name='robots' content='index,follow'/>",
@@ -472,7 +479,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
           htmlCompare.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
           break;
         case "element":
-          htmlElement.writeFile(lang, langValues, language.col, page, defaultHead, defaultNav, defaultFooter);
+          htmlElement.writeFile(lang, langValues, language.col, language.regular, language.heavy, page, defaultHead, defaultNav, defaultFooter);
           break;
         case "list":
           htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);

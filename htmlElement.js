@@ -13,7 +13,7 @@ newRawData.sort(function (a, b) {
 // let defaultTemp = "celsius";
 let defaultPunc = "comma";
 
-const writeFile = (lang, langValues, column, page, defaultHead, defaultNav, defaultFooter) => {
+const writeFile = (lang, langValues, column, regularFont, heavyFont, page, defaultHead, defaultNav, defaultFooter) => {
   xlsxFile("../Translation/Periodic Table others.xlsm", { sheet: 2 }).then((rows) => {
     for (let i = 1; i < 5; i++) {
       let eleNum = i;
@@ -65,8 +65,12 @@ const writeFile = (lang, langValues, column, page, defaultHead, defaultNav, defa
         "<meta name='twitter:image:src' content='" + image + "' />",
         "<meta property='og:url' content='" + link + "' />",
         "<link rel='canonical' href='" + link + "' />",
-        "<link rel='stylesheet' href='../global.css' />",
-        "<script defer src='../htmlJS.js'></script>",
+        "<link rel='stylesheet' href='css/global.css' />",
+        "<script defer src='js/htmlJS.js'></script>",
+        "<link rel='preload' href='fonts/" + regularFont + ".woff2' as='font' crossorigin='anonymous' />",
+        "<link rel='preload' href='fonts/" + heavyFont + ".woff2' as='font' crossorigin='anonymous' />",
+        "<style>@font-face {font-family: SpecialRegular; src: url(fonts/" + regularFont + ".woff2) format('woff2'); font-display: swap;}",
+        "@font-face {font-family: SpecialHeavy;src: url(fonts/" + heavyFont + ".woff2) format('woff2'); font-display: swap;}</style>",
         "</head>",
       ];
 
@@ -1185,7 +1189,7 @@ const writeFile = (lang, langValues, column, page, defaultHead, defaultNav, defa
       writeStream.write("<div class='masonry-col'>");
       writeStream.write("<div class='blog-thumb'>");
       writeStream.write(
-        "<img id='elementPic' src='images/" +
+        "<img id='elementPic' src='images/elements/" +
           imageSrc +
           ".jpg' alt=" +
           post["ele" + eleNum + "Desc"] +
@@ -1373,22 +1377,13 @@ const writeFile = (lang, langValues, column, page, defaultHead, defaultNav, defa
       else {
         let previousElement = newRawData[previousNum];
         previousHTML =
-          "<a href='element-" +
-          previousElement.num +
-          "' class='underlineLink' id='previousElement'>" +
-          langValues[previousElement.nme] +
-          "</a>";
+          "<a href='element-" + previousElement.num + "' class='underlineLink' id='previousElement'>" + langValues[previousElement.nme] + "</a>";
       }
 
       if (eleNum === 118) nextHTML = "-";
       else {
         let nextElement = newRawData[nextNum];
-        nextHTML =
-          "<a href='element-" +
-          nextElement.num +
-          "' class='underlineLink' id='nextElement'>" +
-          langValues[nextElement.nme] +
-          "</a>";
+        nextHTML = "<a href='element-" + nextElement.num + "' class='underlineLink' id='nextElement'>" + langValues[nextElement.nme] + "</a>";
       }
 
       writeStream.write("<div id='elementNav' class='row text-center'>");

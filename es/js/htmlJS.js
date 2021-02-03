@@ -443,7 +443,7 @@ function firstChanged() {
   let firstDetails = returnItem(firstElement);
 
   let el = id("firstElement");
-  let link = el.options[el.selectedIndex].innerHTML;
+  // let link = el.options[el.selectedIndex].innerHTML;
 
   id("atmNo1").textContent = getNum(firstDetails.num);
   id("name1").textContent = id("firstElement").options[id("firstElement").selectedIndex].innerHTML;
@@ -483,7 +483,7 @@ function secondChanged() {
   let secondDetails = returnItem(secondElement);
 
   let el = id("secondElement");
-  let link = el.options[el.selectedIndex].innerHTML;
+  // let link = el.options[el.selectedIndex].innerHTML;
 
   id("atmNo2").textContent = getNum(secondDetails.num);
   id("name2").textContent = id("secondElement").options[id("secondElement").selectedIndex].text;

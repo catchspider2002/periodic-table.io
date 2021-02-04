@@ -1340,29 +1340,24 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
       writeStream.write("<path d='m 22.5,1029.8622 150,0 0,10 -150,0 z' style='fill: #a97942;' />");
       writeStream.write("<path d='m 22.5,1039.8622 150,0 0,10 -150,0 z' style='fill: #857d61;' />");
       writeStream.write("<path d='m 312.5,979.8622 10,0 0,70 -10,0 z' style='fill: #529311;' />");
-      writeStream.write("<path");
-      writeStream.write("transform='translate(0,977.3622)'");
+      writeStream.write("<path transform='translate(0,977.3622)' ");
       writeStream.write("d='m 262.5,22.5 0,50 10,0 10,0 10,0 10,0 0,-10 -10,0 0,-10 -10,0 0,-10 -10,0 0,-20 -10,0 z'");
       writeStream.write("style='fill: #8b77c6;' />");
-      writeStream.write("<path");
-      writeStream.write("transform='translate(0,977.3622)'");
+      writeStream.write("<path transform='translate(0,977.3622)' ");
       writeStream.write("d='m 272.5,12.5 0,10 10,0 0,10 10,0 0,10 10,0 0,-30 -10,0 -10,0 -10,0 z'");
       writeStream.write("style='fill: #3f8f67;' />");
       writeStream.write("<path d='m 302.5,989.8622 10,0 0,60 -10,0 z' style='fill: #498dad;' />");
       writeStream.write("<path d='m 2.5,979.86218 10,0 0,10 -10,0 z' style='fill: #3f8f67;' />");
-      writeStream.write("<path");
-      writeStream.write("transform='translate(0,977.3622)'");
+      writeStream.write("<path transform='translate(0,977.3622)' ");
       writeStream.write("d='m 262.5,12.5 0,10 10,0 0,-10 -10,0 z m 10,10 0,20 10,0 0,10 10,0 0,10 10,0 0,-20 -10,0 0,-10 -10,0 0,-10 -10,0 z'");
       writeStream.write("style='fill: #d1744b;' />");
-      writeStream.write("<path");
-      writeStream.write(
-        "d='m 0,977.3622 0,2.5 0,70 0,2.5 325,0 0,-2.5 0,-70 0,-2.5 -15,0 0,2.5 0,7.5 -50,0 0,2.5 0,17.5 -100,0 0,2.5 0,17.5 -135,0 0,-37.5 0,-2.5 -10,0 0,-7.49805 -2.5,0 0,7.49805 0,0.002 0,2.498 10,0 0,40 2.5,0 135,0 2.5,0 0,-20 97.5,0 2.5,0 0,-20 50,0 0,-2.5 0,-7.5 10,0 0,70 -320,0 0,-70 12.5,0 0,-2.5 -15,0 z'"
+      writeStream.write("<path d='m 0,977.3622 0,2.5 0,70 0,2.5 325,0 0,-2.5 0,-70 0,-2.5 -15,0 0,2.5 0,7.5 -50,0 0,2.5 0,17.5 -100,0 0,2.5 0,17.5 -135,0 0,-37.5 0,-2.5 -10,0 0,-7.49805 -2.5,0 0,7.49805 0,0.002 0,2.498 10,0 0,40 2.5,0 135,0 2.5,0 0,-20 97.5,0 2.5,0 0,-20 50,0 0,-2.5 0,-7.5 10,0 0,70 -320,0 0,-70 12.5,0 0,-2.5 -15,0 z'"
       );
       writeStream.write("style='fill: #808080;' />");
       writeStream.write("</g>");
       writeStream.write("<g id='highlight' transform='translate(" + eleHighlight + ")'>");
       writeStream.write("<path style='fill: #ffffff;' d='m 2.5,1039.8622 10,0 0,10 -10,0 z' />");
-      writeStream.write("<path");
+      writeStream.write("<path ");
       writeStream.write(
         "d='m 2.5,1039.8622 0,2.9199 2.919922,-2.9199 -2.919922,0 z m 6.455078,0 -6.455078,6.4551 0,3.5371 9.990234,-9.9922 -3.535156,0 z m 3.544922,3.5273 -6.472656,6.4727 3.535156,0 2.9375,-2.9375 0,-3.5352 z'"
       );
@@ -1379,13 +1374,13 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
       else {
         let previousElement = newRawData[previousNum];
         previousHTML =
-          "<a href='element-" + previousElement.num + "' class='underlineLink' id='previousElement'>" + langValues[previousElement.nme] + "</a>";
+          "<a href='element-" + previousElement.num + ".html' class='underlineLink' id='previousElement'>" + langValues[previousElement.nme] + "</a>";
       }
 
       if (eleNum === 118) nextHTML = "-";
       else {
         let nextElement = newRawData[nextNum];
-        nextHTML = "<a href='element-" + nextElement.num + "' class='underlineLink' id='nextElement'>" + langValues[nextElement.nme] + "</a>";
+        nextHTML = "<a href='element-" + nextElement.num + ".html' class='underlineLink' id='nextElement'>" + langValues[nextElement.nme] + "</a>";
       }
 
       writeStream.write("<div id='elementNav' class='row text-center'>");

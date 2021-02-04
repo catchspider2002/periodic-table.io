@@ -68,7 +68,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   // writeStream.write("{#each Constants as ele}");
 
   newRawData.forEach((element) => {
-    writeStream.write("<a class='elementList' href='element-" + element.num + "'>");
+    writeStream.write("<a class='elementList' href='element-" + element.num + ".html'>");
     writeStream.write("<div class='list-content flex'>");
     writeStream.write("<div class='listSym heavyFont'>" + element.sym + "</div>");
     writeStream.write("<div class='listName'>" + langValues[element.nme] + "</div>");

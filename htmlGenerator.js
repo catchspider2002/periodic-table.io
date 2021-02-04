@@ -496,7 +496,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
           break;
         case "list":
           htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        break;
+          break;
       }
     });
   });

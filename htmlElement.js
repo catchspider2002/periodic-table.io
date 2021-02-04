@@ -11,9 +11,9 @@ newRawData.sort(function (a, b) {
 });
 
 // let defaultTemp = "celsius";
-let defaultPunc = "comma";
+// let defaultPunc = "comma";
 
-const writeFile = (lang, langValues, column, regularFont, heavyFont, page, defaultHead, defaultNav, defaultFooter) => {
+const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page, defaultHead, defaultNav, defaultFooter) => {
   xlsxFile("../Translation/Periodic Table others.xlsm", { sheet: 2 }).then((rows) => {
     for (let i = 1; i < 5; i++) {
       let eleNum = i;
@@ -83,6 +83,8 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, page, defau
       });
 
       function getNum(value) {
+        if (punc === "comma") value = value.toString().replace(/\./g, ",");
+
         if (lang === "ar") {
           // Arabic
           value = value.toString().replace(/\./g, "٫");
@@ -118,7 +120,7 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, page, defau
               Math.round((tempValue + 273.15) * 100) / 100 + " K | " + tempValue + " °C | " + Math.round((tempValue * 1.8 + 32) * 100) / 100 + " °F";
         }
 
-        if (defaultPunc === "comma") newTemp = newTemp.replace(/\./g, ",");
+        if (punc === "comma") newTemp = newTemp.replace(/\./g, ",");
 
         return newTemp;
       }

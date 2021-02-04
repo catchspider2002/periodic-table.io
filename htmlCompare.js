@@ -3,9 +3,9 @@ const Constants = require("./htmlConstants.js");
 
 let newRawData = Constants.rawData;
 let defaultTemp = "celsius";
-let defaultPunc = "comma";
+// let defaultPunc = "comma";
 
-const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter) => {
+const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultNav, defaultFooter) => {
   let writeStream = fs.createWriteStream(lang + "/" + page + ".html");
 
   defaultHead.forEach((heads) => {
@@ -21,6 +21,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   });
 
   function getNum(value) {
+    if (punc === "comma") value = value.toString().replace(/\./g, ",");
     if (lang === "ar") {
       // Arabic
       value = value.toString().replace(/\./g, "٫");
@@ -55,7 +56,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
           (defaultTemp == "celsius" ? tempValue + " °C" : Math.round((tempValue * 1.8 + 32) * 100) / 100 + " °F");
     }
 
-    if (defaultPunc === "comma") newTemp = newTemp.replace(/\./g, ",");
+    if (punc === "comma") newTemp = newTemp.replace(/\./g, ",");
 
     return newTemp;
   }

@@ -130,11 +130,11 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       if (err) throw err;
     });
 
-    fs.copyFile("fonts2/" + language.regular + ".woff2", lang + "/fonts/" + language.regular + ".woff2", (err) => {
+    fs.copyFile("fonts3/" + language.regular + ".woff2", lang + "/fonts/" + language.regular + ".woff2", (err) => {
       if (err) throw err;
     });
 
-    fs.copyFile("fonts2/" + language.heavy + ".woff2", lang + "/fonts/" + language.heavy + ".woff2", (err) => {
+    fs.copyFile("fonts3/" + language.heavy + ".woff2", lang + "/fonts/" + language.heavy + ".woff2", (err) => {
       if (err) throw err;
     });
 
@@ -299,7 +299,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<label id='style3Label' class='disable-select' for='style3'></label>",
       "</div>",
       "</div>",
-      "</div><nav>",
+      "</div><nav class='boldFont'>",
       "<a id=logo class='navbar-brand' href='.' aria-label='Home'>",
       logoIcon + "PERIODIC-TABLE.IO",
       "</a><input type='checkbox' id='drop' />",

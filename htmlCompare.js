@@ -48,12 +48,13 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
         newTemp =
           getNum(Math.round((tempValue + 273.15) * 100) / 100) +
           " K " +
-          (defaultTemp == "celsius" ? getNum(tempValue) + " | °C" : getNum(Math.round((tempValue * 1.8 + 32) * 100) / 100) + " °F");
+          getNum(tempValue) +
+          " | °C " +
+          getNum(Math.round((tempValue * 1.8 + 32) * 100) / 100) +
+          " °F";
       else
         newTemp =
-          Math.round((tempValue + 273.15) * 100) / 100 +
-          " K | " +
-          (defaultTemp == "celsius" ? tempValue + " °C" : Math.round((tempValue * 1.8 + 32) * 100) / 100 + " °F");
+          Math.round((tempValue + 273.15) * 100) / 100 + " K | " + tempValue + " °C | " + Math.round((tempValue * 1.8 + 32) * 100) / 100 + " °F";
     }
 
     if (punc === "comma") newTemp = newTemp.replace(/\./g, ",");
@@ -129,7 +130,7 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   });
 
   writeStream.write("<div class='padding-top-42'>");
-  writeStream.write("<div class='headerOutline text-upper heavyFont'>" + langValues.labelGeneralProp + "</div>");
+  writeStream.write("<div class='headerOutline text-upper boldFont'>" + langValues.labelGeneralProp + "</div>");
   writeStream.write("</div>");
 
   let compare2Links = [
@@ -149,7 +150,7 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   });
 
   writeStream.write("<div class='padding-top-42'>");
-  writeStream.write("<div class='headerOutline text-upper heavyFont'>" + langValues.labelPhysicalProp + "</div>");
+  writeStream.write("<div class='headerOutline text-upper boldFont'>" + langValues.labelPhysicalProp + "</div>");
   writeStream.write("</div>");
 
   let compare3Links = [
@@ -173,13 +174,21 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   compare3Links.forEach((compareLink) => {
     writeStream.write("<div class='row'>");
     writeStream.write("<div class='col-xs-4 new-table heavyFont'>" + compareLink.label + "</div>");
-    writeStream.write("<div id='" + compareLink.id + "1' class='col-xs-4 new-table'>" + compareLink.value + "</div>");
+    if (compareLink.id === "meltPoint")
+      writeStream.write(
+        "<div id='" + compareLink.id + "1' class='col-xs-4 new-table'><div id='outputMeltingMain'>" + compareLink.value + "</div></div>"
+      );
+    else if (compareLink.id === "boilPoint")
+      writeStream.write(
+        "<div id='" + compareLink.id + "1' class='col-xs-4 new-table'><div id='outputBoilingMain'>" + compareLink.value + "</div></div>"
+      );
+    else writeStream.write("<div id='" + compareLink.id + "1' class='col-xs-4 new-table'>" + compareLink.value + "</div>");
     writeStream.write("<div id='" + compareLink.id + "2' class='col-xs-4 new-table'>" + compareLink.value + "</div>");
     writeStream.write("</div>");
   });
 
   writeStream.write("<div class='padding-top-42'>");
-  writeStream.write("<div class='headerOutline text-upper heavyFont'>" + langValues.labelAtomicProp + "</div>");
+  writeStream.write("<div class='headerOutline text-upper boldFont'>" + langValues.labelAtomicProp + "</div>");
   writeStream.write("</div>");
 
   let compare4Links = [

@@ -1052,7 +1052,7 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
 
       // General Properties
       writeStream.write("<div class='box-content masonry-col'>");
-      writeStream.write("<span class='headerOutline text-upper heavyFont'>" + langValues.labelGeneralProp + "</span>");
+      writeStream.write("<span class='headerOutline text-upper boldFont'>" + langValues.labelGeneralProp + "</span>");
       writeStream.write("  <div class='grid'>");
       writeStream.write("<div class='new-table heavyFont'>" + langValues.labelAtmNoMain + "</div>");
       writeStream.write("<div class='new-table'>" + element.num + "</div>");
@@ -1080,7 +1080,7 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
 
       // History
       writeStream.write("<div class='box-content masonry-col'>");
-      writeStream.write("<span class='headerOutline text-upper heavyFont'>" + langValues.hist + "</span>");
+      writeStream.write("<span class='headerOutline text-upper boldFont'>" + langValues.hist + "</span>");
       writeStream.write("<div class='line-height-2'>");
       writeStream.write(post["ele" + eleNum + "History"]);
       writeStream.write("</div>");
@@ -1108,7 +1108,7 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
 
       // Physical Properties
       writeStream.write("<div class='box-content masonry-col'>");
-      writeStream.write("<span class='headerOutline text-upper heavyFont'>" + langValues.labelPhysicalProp + "</span>");
+      writeStream.write("<span class='headerOutline text-upper boldFont'>" + langValues.labelPhysicalProp + "</span>");
       writeStream.write("<div class='grid'>");
       writeStream.write("<div class='new-table heavyFont'>" + langValues.labelPhaseMain + "</div>");
       writeStream.write("<div class='new-table'>" + langValues[element.phs] + "</div>");
@@ -1224,7 +1224,7 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
 
       // Atomic Properties
       writeStream.write("<div class='box-content masonry-col'>");
-      writeStream.write("<span class='headerOutline text-upper heavyFont'>" + langValues.labelAtomicProp + "</span>");
+      writeStream.write("<span class='headerOutline text-upper boldFont'>" + langValues.labelAtomicProp + "</span>");
       writeStream.write("<div class='grid'>");
       writeStream.write("<div class='new-table heavyFont'>" + langValues.labelRadiusMain + "</div>");
       writeStream.write("<div class='new-table'>");
@@ -1263,7 +1263,7 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
 
       // Uses
       writeStream.write("<div class='box-content masonry-col'>");
-      writeStream.write("<span class='headerOutline text-upper heavyFont'>" + langValues.uses + "</span>");
+      writeStream.write("<span class='headerOutline text-upper boldFont'>" + langValues.uses + "</span>");
       writeStream.write("<div class='line-height-2'>");
       writeStream.write(post["ele" + eleNum + "Uses"]);
       writeStream.write("</div>");
@@ -1278,7 +1278,7 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
 
       // Isotopes
       writeStream.write("<div class='box-content masonry-col'>");
-      writeStream.write("<span class='headerOutline text-upper heavyFont'>" + langValues.isotopes + "</span>");
+      writeStream.write("<span class='headerOutline text-upper boldFont'>" + langValues.isotopes + "</span>");
       writeStream.write("<div class='heavyFont padding-0 margin-y-10'>" + langValues.stableIsotopes + "</div>");
       writeStream.write("<span class='isotopeLine'>" + eleStable + "</span>");
       writeStream.write("<div class='heavyFont padding-0 margin-y-10'>" + langValues.unstableIsotopes + "</div>");
@@ -1287,7 +1287,7 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
 
       // Important Links
       writeStream.write("<div class='box-content masonry-col'>");
-      writeStream.write("<span class='headerOutline text-upper heavyFont'>" + langValues.labelLinksMain + "</span>");
+      writeStream.write("<span class='headerOutline text-upper boldFont'>" + langValues.labelLinksMain + "</span>");
       writeStream.write("<div class='webLink'>");
       writeStream.write(
         "<a id='link1' href='" +
@@ -1351,7 +1351,8 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
       writeStream.write("<path transform='translate(0,977.3622)' ");
       writeStream.write("d='m 262.5,12.5 0,10 10,0 0,-10 -10,0 z m 10,10 0,20 10,0 0,10 10,0 0,10 10,0 0,-20 -10,0 0,-10 -10,0 0,-10 -10,0 z'");
       writeStream.write("style='fill: #d1744b;' />");
-      writeStream.write("<path d='m 0,977.3622 0,2.5 0,70 0,2.5 325,0 0,-2.5 0,-70 0,-2.5 -15,0 0,2.5 0,7.5 -50,0 0,2.5 0,17.5 -100,0 0,2.5 0,17.5 -135,0 0,-37.5 0,-2.5 -10,0 0,-7.49805 -2.5,0 0,7.49805 0,0.002 0,2.498 10,0 0,40 2.5,0 135,0 2.5,0 0,-20 97.5,0 2.5,0 0,-20 50,0 0,-2.5 0,-7.5 10,0 0,70 -320,0 0,-70 12.5,0 0,-2.5 -15,0 z'"
+      writeStream.write(
+        "<path d='m 0,977.3622 0,2.5 0,70 0,2.5 325,0 0,-2.5 0,-70 0,-2.5 -15,0 0,2.5 0,7.5 -50,0 0,2.5 0,17.5 -100,0 0,2.5 0,17.5 -135,0 0,-37.5 0,-2.5 -10,0 0,-7.49805 -2.5,0 0,7.49805 0,0.002 0,2.498 10,0 0,40 2.5,0 135,0 2.5,0 0,-20 97.5,0 2.5,0 0,-20 50,0 0,-2.5 0,-7.5 10,0 0,70 -320,0 0,-70 12.5,0 0,-2.5 -15,0 z'"
       );
       writeStream.write("style='fill: #808080;' />");
       writeStream.write("</g>");

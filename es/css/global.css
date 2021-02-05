@@ -71,12 +71,12 @@
 
 /* @font-face {
   font-family: SpecialRegular;
-  src: url(fonts2/noto-sans-v11-latin-regular.woff2) format("woff2");
+  src: url(fonts/noto-sans-v11-latin-regular.woff2) format("woff2");
 }
 
 @font-face {
   font-family: SpecialHeavy;
-  src: url(fonts2/noto-sans-v11-latin-700.woff2) format("woff2");
+  src: url(fonts/noto-sans-v11-latin-700.woff2) format("woff2");
 } */
 
 html {
@@ -99,7 +99,16 @@ html {
   /* font-family: "Lato Heavy", "Special Heavy", sans-serif; */
   /* font-family: "Noto Sans", sans-serif; */
   /* font-weight: 600; */
+  /* font-weight: 700; */
+}
+
+.boldFont {
+  /* font-family: SpecialHeavy; */
+  /* font-family: "Lato Heavy", "Special Heavy", sans-serif; */
+  /* font-family: "Noto Sans", sans-serif; */
+  /* font-weight: 600; */
   font-weight: 700;
+  /* letter-spacing: 1px; */
 }
 
 body {
@@ -117,7 +126,7 @@ h4,
 h5,
 h6 {
   /* margin: 0 0 0.5em 0; */
-  font-weight: 400;
+  /* font-weight: 400; */
   line-height: 1.2;
 }
 
@@ -1242,6 +1251,7 @@ canvas {
   margin: 0 -2.25rem 1rem;
   color: var(--alt-text-color);
   background-image: var(--fg-color);
+  letter-spacing: 1px;
 }
 
 #elementDiagram {
@@ -1445,12 +1455,12 @@ canvas {
 #detailRow4,
 #detailRow5,
 #detailRow6 {
-  font-weight: 600;
+  /* font-weight: 600; */
   /* padding: 0 5%; */
 }
 
 .font-weight-600 {
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 
 #valueRow2 {
@@ -1637,7 +1647,7 @@ input:focus + .slider {
   margin: -11px 0 17px 0;
   font-size: 0.7em;
   color: #eaeaea;
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 
 .newHeader {
@@ -2088,7 +2098,7 @@ blockquote,
 
 .font-fam {
   font-size: 5em;
-  font-weight: 500;
+  /* font-weight: 500; */
 }
 
 .one {
@@ -2361,13 +2371,16 @@ nav {
   /* height: 52px; */
   display: grid;
   grid-template-columns: 1fr auto auto auto;
+  letter-spacing: 1.5px;
+  font-size: 0.9em;
 }
 
 #logo {
-  display: inline-flex;
+  display: inline-grid;
   place-items: center;
+  grid-auto-flow: column;
   line-height: 1;
-  gap: 0.5em;
+  gap: 1em;
   justify-self: start;
   /*     padding: 0 30px; */
   /* margin-right: auto; */

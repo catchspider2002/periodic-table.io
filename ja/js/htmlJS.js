@@ -347,6 +347,11 @@ function cls(classId) {
   return document.getElementsByClassName(classId);
 }
 
+// function setDegrees() {
+//   id("outputMeltingMain").textContent = getTemp(melting);
+//   id("outputBoilingMain").textContent = getTemp(boiling);
+// }
+
 function setDegreesFirst() {
   id("meltPoint1").textContent = getTemp(firstEle.mlt);
   id("boilPoint1").textContent = getTemp(firstEle.bln);
@@ -381,7 +386,7 @@ function getNum(value) {
   } else return value;
 }
 
-function getTemp(tempValue) {
+function getTempHome(tempValue) {
   let newTemp;
   let defaultTemp = localStorage.getItem("defaultTemp");
   // let defaultPunc = "dot";
@@ -398,6 +403,28 @@ function getTemp(tempValue) {
         Math.round((tempValue + 273.15) * 100) / 100 +
         " K | " +
         (defaultTemp == "celsius" ? tempValue + " °C" : Math.round((tempValue * 1.8 + 32) * 100) / 100 + " °F");
+  }
+
+  if (defaultPunc === "comma") newTemp = newTemp.replace(/\./g, ",");
+
+  return newTemp;
+}
+function getTemp(tempValue) {
+  var newTemp;
+
+  if (tempValue == "-") newTemp = "-";
+  else {
+    if (langValue === "ar" || langValue === "fa" || langValue === "he")
+      newTemp =
+        getNum(Math.round((tempValue + 273.15) * 100) / 100) +
+        " K " +
+        getNum(tempValue) +
+        " | °C " +
+        getNum(Math.round((tempValue * 1.8 + 32) * 100) / 100) +
+        " °F";
+    else
+      newTemp =
+        Math.round((tempValue + 273.15) * 100) / 100 + " K | " + tempValue + " °C | " + Math.round((tempValue * 1.8 + 32) * 100) / 100 + " °F";
   }
 
   if (defaultPunc === "comma") newTemp = newTemp.replace(/\./g, ",");
@@ -447,7 +474,7 @@ function firstChanged() {
 
   id("atmNo1").textContent = getNum(firstDetails.num);
   id("name1").textContent = id("firstElement").options[id("firstElement").selectedIndex].innerHTML;
-  id("compEle1").href = "element-" + firstDetails.num
+  id("compEle1").href = "element-" + firstDetails.num + ".html"
   id("symbol1").textContent = firstDetails.sym;
   id("periods1").textContent = getNum(firstDetails.prd);
   id("block1").textContent = firstDetails.blk;
@@ -487,7 +514,7 @@ function secondChanged() {
 
   id("atmNo2").textContent = getNum(secondDetails.num);
   id("name2").textContent = id("secondElement").options[id("secondElement").selectedIndex].text;
-  id("compEle2").href = "element-" + secondDetails.num;
+  id("compEle2").href = "element-" + secondDetails.num + ".html";
   id("symbol2").textContent = secondDetails.sym;
   id("periods2").textContent = getNum(secondDetails.prd);
   id("block2").textContent = secondDetails.blk;
@@ -953,8 +980,8 @@ function setOutline() {
   }
 
   id("valueRow2").innerHTML = eleYear;
-  id("valueRow3").innerHTML = getTemp(eleId.mlt);
-  id("valueRow4").innerHTML = getTemp(eleId.bln);
+  id("valueRow3").innerHTML = getTempHome(eleId.mlt);
+  id("valueRow4").innerHTML = getTempHome(eleId.bln);
   id("valueRow5").innerHTML = getNum(eleId.elc);
   id("valueRow6").innerHTML = eleId.cnf;
   id(element).style.outline = "2px solid #505050";
@@ -995,8 +1022,8 @@ function setTemp() {
   defaultTemp = document.querySelector('input[name="temperature"]:checked').value;
   localStorage.setItem("defaultTemp", defaultTemp);
 
-  if (id("outputConfigMain"))
-    setDegrees(); 
+  // if (id("outputConfigMain"))
+  //   setDegrees(); 
 
   if (id("firstElement")) {
     setDegreesFirst();

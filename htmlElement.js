@@ -4,11 +4,67 @@ const Constants = require("./htmlConstants.js");
 
 let newRawDataElement = Constants.rawData;
 
-// newRawDataElement.sort(function (a, b) {
-//   if (parseInt(a.num) < parseInt(b.num)) return -1;
-//   else if (parseInt(a.num) > parseInt(b.num)) return 1;
-//   return 0;
-// });
+let r = 25;
+let A45 = 0.7071;
+let A90sin = 1;
+let A90cos = 0;
+let A0sin = 0;
+let A0cos = 1;
+let A10sin = 0.173648178;
+let A10cos = 0.984807753;
+let A30sin = 0.5;
+let A30cos = 0.8660254;
+let A50sin = 0.766044443;
+let A50cos = 0.6427876;
+let A70sin = 0.93969262;
+let A70cos = 0.34202;
+let A11sin = 0.19509032201612826784828486847702;
+let A11cos = 0.98078528040323044912618223613424;
+let A22sin = 0.3826834323650897717284599840304;
+let A22cos = 0.92387953251128675612818318939679;
+let A33sin = 0.55557023301960222474283081394853;
+let A33cos = 0.83146961230254523707878837761791;
+let fontcolor,
+  strokecolor,
+  val1 = -800,
+  val2 = 1600;
+
+let rad1 = 230;
+let rad2 = 320;
+let rad3 = 410;
+let rad4 = 500;
+let rad5 = 590;
+let rad6 = 680;
+let rad7 = 770;
+let ringSize = 8,
+  multiplier = 0;
+
+var crsSHSVG =
+  "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 36 40.488'><path class='strokeHidden' d='M29.5 8.869l-.002 16.745-14.5 8.373L.5 25.617M15.002.499l-.004 33.488M29.5 8.869L.5 25.617M.502 8.873L15 17.243l14.498 8.37 4 4m-18.5 4.374l4 4'/><path class='fillHidden' d='M15.002 16.744a.5.5 0 100 1 .5.5 0 000-1zM29.5 25.117a.5.5 0 100 1 .5.5 0 000-1zm-14.498 8.371a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M.502 8.873l4 4m14.496 25.114L4.5 29.617l.002-16.744 14.5-8.374 14.498 8.37-.002 16.745zM15.002.5l4 4-.004 33.488M4.5 29.617l-4-4L.502 8.873l14.5-8.374L29.5 8.869l4 4zm.002-16.744l14.5 8.372 14.496 8.369'/><path class='fillVisible' d='M15.002 0a.5.5 0 100 1 .5.5 0 000-1zm4 4a.5.5 0 100 1 .5.5 0 000-1zM.5 8.373a.5.5 0 100 1 .5.5 0 000-1zm29 0a.5.5 0 100 1 .5.5 0 000-1zm-25 4a.5.5 0 100 1 .5.5 0 000-1zm29 0a.5.5 0 100 1 .5.5 0 000-1zm-14.498 8.371a.5.5 0 100 1 .5.5 0 000-1zM.5 25.117a.5.5 0 100 1 .5.5 0 000-1zm4 4a.5.5 0 100 1 .5.5 0 000-1zm29 0a.5.5 0 100 1 .5.5 0 000-1zm-14.498 8.371a.5.5 0 100 1 .5.5 0 000-1z'/></svg>";
+var crsSCSVG =
+  "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 31.41 37.411'><path class='strokeHidden'd='M24.91.5l-.003 24.407L.5 24.91m24.407-.004l4 10'/><path class='fillHidden' d='M24.906 24.407a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M.5 24.911L.503.506 24.91.5m0 0l4 10M.503.506l4 10M4.5 34.911l.003-24.405L28.91 10.5l-.003 24.407zm-4-10l4 10' /><path class='fillVisible' d='M24.91 0a.5.5 0 100 1 .5.5 0 000-1zM.502.006a.5.5 0 100 1 .5.5 0 000-1zM28.91 10a.5.5 0 100 1 .5.5 0 000-1zm-24.408.006a.5.5 0 100 1 .5.5 0 000-1zM.5 24.411a.5.5 0 100 1 .5.5 0 000-1zm28.406 9.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 34.41a.5.5 0 100 1 .5.5 0 000-1z'/></svg>";
+var crsFCCSVG =
+  "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 31.41 37.411'><path class='strokeHidden' d='M24.907 24.907l-12.202-12.2L.503.507M24.91.5L.5 24.912m28.407 9.993L24.91.5m3.997 34.407L.5 24.912M28.91 10.5l-2.001 7.203-2.002 7.202m0 .002L14.704 29.91 4.5 34.912m20.407-10.005l4 10M24.91.5l-.003 24.407L.5 24.912'/><path class='fillHidden' d='M12.205 12.706a.5.5 0 101 0 .5.5 0 00-1 0zm1.999 17.203a.5.5 0 101 0 .5.5 0 00-1 0zm12.205-12.2a.5.5 0 101 0 .5.5 0 00-1 0zm-2.002 7.198a.5.5 0 101 0 .5.5 0 00-1 0z' /><path class='strokeVisible' d='M.5 24.912L.503.507 24.91.5m0 0L14.707 5.502 4.503 10.505M28.91 10.5L.503.505M4.5 34.912L.503.507M28.91 10.5L4.5 34.912m0 0l.003-24.405L28.91 10.5l-.003 24.407zM24.91.5l4 10M.5 24.912l4 10M.503.507l4 10m24.404 24.4l-12.202-12.2-12.202-12.2m0 0l-2.001 7.202L.5 24.912' /><path class='fillVisible' d='M16.205 22.706a.5.5 0 101 0 .5.5 0 00-1 0zM14.204 5.502a.5.5 0 101 0 .5.5 0 00-1 0zM2.002 17.71a.5.5 0 101 0 .5.5 0 00-1 0zM28.41 10.5a.5.5 0 101 0 .5.5 0 00-1 0zm-.003 24.408a.5.5 0 101 0 .5.5 0 00-1 0zM4 34.91a.5.5 0 101 0 .5.5 0 00-1 0zm.003-24.405a.5.5 0 101 0 .5.5 0 00-1 0zM24.41.5a.5.5 0 101 0 .5.5 0 00-1 0zM0 24.91a.5.5 0 101 0 .5.5 0 00-1 0zM.003.506a.5.5 0 101 0 .5.5 0 00-1 0z'/></svg>";
+var crsBCCSVG =
+  "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 31.41 37.41'><path class='strokeHidden' d='M24.907 24.906l-20.404-14.4m24.407-.007l-14.206 7.206L.5 24.91M24.91.499L4.5 34.911m24.407-.005L.503.506M24.91.499l-.003 24.407L.5 24.911m24.407-.005l4 10'/><path class='fillHidden' d='M14.705 17.205a.5.5 0 100 1 .5.5 0 000-1zm10.201 7.201a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M.5 24.91L.503.507 24.91.499m0 0l4 10M.503.506l4 10M4.5 34.91l.003-24.405 24.407-.007-.003 24.407zm-4-10l4 10'/><path class='fillVisible' d='M24.91 0a.5.5 0 100 1 .5.5 0 000-1zM.502.006a.5.5 0 100 1 .5.5 0 000-1zM28.91 10a.5.5 0 100 1 .5.5 0 000-1zm-24.408.006a.5.5 0 100 1 .5.5 0 000-1zM.5 24.41a.5.5 0 100 1 .5.5 0 000-1zm28.406 9.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 34.41a.5.5 0 100 1 .5.5 0 000-1z'/></svg>";
+var crsSMSVG =
+  "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 37.41 37.41'><path class='strokeHidden' d='M30.91.5l-6.003 24.406L.5 24.911m24.407-.005l4 10'/><path class='fillHidden' d='M24.906 24.406a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M.5 24.91L6.503.507 30.91.499m0 0l4 10M6.503.506l4 10M4.5 34.91l6.003-24.405 24.407-.007-6.003 24.407zm-4-10l4 10'/><path class='fillVisible' d='M30.91 0a.5.5 0 100 1 .5.5 0 000-1zM6.502.006a.5.5 0 100 1 .5.5 0 000-1zM34.91 10a.5.5 0 100 1 .5.5 0 000-1zm-24.408.006a.5.5 0 100 1 .5.5 0 000-1zM.5 24.41a.5.5 0 100 1 .5.5 0 000-1zm28.406 9.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 34.41a.5.5 0 100 1 .5.5 0 000-1z'/></svg>";
+var crsBCMSVG =
+  "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 37.41 37.41'><path class='strokeHidden' d='M4.5 34.91l20.407-10.006M.5 24.911l14.203 4.996 14.204 4.997M30.91.5l-6.003 24.407L.5 24.911m24.407-.005l4 10'/><path class='fillHidden' d='M24.906 24.406a.5.5 0 100 1 .5.5 0 000-1zm-10.203 5.002a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M10.503 10.506L30.91.499M6.503.506l14.203 4.997 14.204 4.996M.5 24.911L6.503.506 30.91.499m0 0l4 10M6.503.506l4 10M4.5 34.91l6.003-24.405 24.407-.007-6.003 24.407zm-4-10l4 10'/><path class='fillVisible' d='M20.206 5.503a.5.5 0 101 0 .5.5 0 00-1 0zM30.91 0a.5.5 0 100 1 .5.5 0 000-1zM6.502.006a.5.5 0 100 1 .5.5 0 000-1zM34.91 10a.5.5 0 100 1 .5.5 0 000-1zm-24.408.006a.5.5 0 100 1 .5.5 0 000-1zM.5 24.41a.5.5 0 100 1 .5.5 0 000-1zm28.406 9.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 34.41a.5.5 0 100 1 .5.5 0 000-1z'/></svg>";
+var crsSOSVG =
+  "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 31.41 41.41'><path class='strokeHidden' d='M24.91.5l-.003 26.406L.5 26.911m24.407-.005l4 12'/><path class='fillHidden' d='M24.906 26.406a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M.5 26.91L.503.507 24.91.499m0 0l4 12M.503.506l4 12M4.5 38.91l.003-26.405 24.407-.007-.003 26.407zm-4-12l4 12'/><path class='fillVisible' d='M24.91 0a.5.5 0 100 1 .5.5 0 000-1zM.502.006a.5.5 0 100 1 .5.5 0 000-1zM28.91 12a.5.5 0 100 1 .5.5 0 000-1zm-24.408.006a.5.5 0 100 1 .5.5 0 000-1zM.5 26.41a.5.5 0 100 1 .5.5 0 000-1zm28.406 11.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 38.41a.5.5 0 100 1 .5.5 0 000-1z'/></svg>";
+var crsFCOSVG =
+  "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 31.41 41.41'><path class='strokeHidden' d='M24.907 26.904l2.001-7.202 2.002-7.203m-.003 26.405L24.91.5m0 0L12.705 13.705.5 26.911m24.407-.004L.503.507M4.5 38.91l10.203-6.004 10.204-6.003M.5 26.911l28.407 11.993M24.91.5l-.003 26.408L.5 26.91m24.407-.004l4 12'/><path class='fillHidden' d='M12.705 13.205a.5.5 0 100 1 .5.5 0 000-1zm14.203 5.996a.5.5 0 100 1 .5.5 0 000-1zm-2.002 7.205a.5.5 0 100 1 .5.5 0 000-1zm-10.203 6a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M28.91 12.5L16.705 25.704 4.5 38.911m24.407-.004l-24.404-26.4M.5 26.91L2.5 19.709l2.002-7.203M4.5 38.911L.503.506m4 12l10.203-6.003L24.91.5M.503.506L28.91 12.5M.5 26.911L.503.506 24.91.5m0 0l4 12M.503.506l4 12M4.5 38.911l.003-26.405L28.91 12.5l-.003 26.408zm-4-12l4 12'/><path class='fillVisible' d='M24.91 0a.5.5 0 100 1 .5.5 0 000-1zM.502.006a.5.5 0 100 1 .5.5 0 000-1zm14.203 5.998a.5.5 0 100 1 .5.5 0 000-1zM28.91 12a.5.5 0 100 1 .5.5 0 000-1zm-24.408.006a.5.5 0 100 1 .5.5 0 000-1zm-2 7.203a.5.5 0 100 1 .5.5 0 000-1zM.5 26.41a.5.5 0 100 1 .5.5 0 000-1zm28.406 11.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 38.41a.5.5 0 100 1 .5.5 0 000-1zm11.704-12.704a.5.5 0 101 0 .5.5 0 00-1 0z'/></svg>";
+var crsBCOSVG =
+  "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 31.41 41.41'><path class='strokeHidden' d='M4.5 38.91l10.203-6.003 10.204-6.003M.5 26.911l28.407 11.993M24.91.5l-.003 26.407L.5 26.911m24.407-.005l4 12'/><path class='fillHidden' d='M24.906 26.406a.5.5 0 100 1 .5.5 0 000-1zm-10.203 6a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M4.503 12.506l10.203-6.003L24.91.499M.503.506L28.91 12.499M.5 26.911L.503.506 24.91.499m0 0l4 12M.503.506l4 12M4.5 38.91l.003-26.405 24.407-.007-.003 26.407zm-4-12l4 12'/><path class='fillVisible' d='M14.706 6.003a.5.5 0 100 1 .5.5 0 000-1zM24.91 0a.5.5 0 100 1 .5.5 0 000-1zM.502.006a.5.5 0 100 1 .5.5 0 000-1zM28.91 12a.5.5 0 100 1 .5.5 0 000-1zm-24.408.006a.5.5 0 100 1 .5.5 0 000-1zM.5 26.41a.5.5 0 100 1 .5.5 0 000-1zm28.406 11.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 38.41a.5.5 0 100 1 .5.5 0 000-1z'/></svg>";
+var crsSTGSVG =
+  "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 37.41 37.41'><path class='strokeHidden'd='M30.91.5l-6.003 24.406L.5 24.911m24.407-.005l4 10'/><path class='fillHidden' d='M24.906 24.406a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M.5 24.91L6.503.507 30.91.499m0 0l4 10M6.503.506l4 10M4.5 34.91l6.003-24.405 24.407-.007-6.003 24.407zm-4-10l4 10' /><path class='fillVisible' d='M30.91 0a.5.5 0 100 1 .5.5 0 000-1zM6.502.006a.5.5 0 100 1 .5.5 0 000-1zM34.91 10a.5.5 0 100 1 .5.5 0 000-1zm-24.408.006a.5.5 0 100 1 .5.5 0 000-1zM.5 24.41a.5.5 0 100 1 .5.5 0 000-1zm28.406 9.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 34.41a.5.5 0 100 1 .5.5 0 000-1z' /></svg>";
+var crsSTCSVG =
+  "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 37.41 39.41'><path class='strokeHidden'd='M30.91.5l-6.003 26.406L.5 26.911m24.407-.005l4 10'/><path class='fillHidden' d='M24.906 26.406a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M.5 26.91L6.503.507 30.91.499m0 0l4 10M6.503.506l4 10M4.5 36.91l6.003-26.405 24.407-.007-6.003 26.407zm-4-10l4 10' /><path class='fillVisible' d='M30.91 0a.5.5 0 100 1 .5.5 0 000-1zM6.502.006a.5.5 0 100 1 .5.5 0 000-1zM34.91 10a.5.5 0 100 1 .5.5 0 000-1zm-24.408.006a.5.5 0 100 1 .5.5 0 000-1zM.5 26.41a.5.5 0 100 1 .5.5 0 000-1zm28.406 9.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 36.41a.5.5 0 100 1 .5.5 0 000-1z' /></svg>";
+var crsCTSVG =
+  "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 29.41 45.41'><path class='strokeHidden'd='M22.91.5l-.003 30.406L.5 30.911m22.407-.005l4 12'/><path class='fillHidden' d='M22.906 30.406a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M.5 30.91L.503.507 22.91.499m0 0l4 12M.503.506l4 12M4.5 42.91l.003-30.405 22.407-.007-.003 30.407zm-4-12l4 12' /><path class='fillVisible' d='M22.91 0a.5.5 0 100 1 .5.5 0 000-1zM.502.006a.5.5 0 100 1 .5.5 0 000-1zM26.91 12a.5.5 0 100 1 .5.5 0 000-1zm-22.408.006a.5.5 0 100 1 .5.5 0 000-1zM.5 30.41a.5.5 0 100 1 .5.5 0 000-1zm26.406 11.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 42.41a.5.5 0 100 1 .5.5 0 000-1z' /></svg>";
+var crsTPSVG =
+  "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 31.41 37.411'><path class='strokeHidden' d='M7.604 9.106l5.101 3.6 9.102 1.396M9.603 26.308l7.102-3.602 3.101-1.399m2.001-7.205l5.102 3.607-7.103 3.598M7.604 9.107l-5.102 8.602 7.101 8.599M7.604 9.106l7.1-3.604 7.103 8.6M9.603 26.308l5.101 3.601 5.102-8.602m5.101 3.6l-5.101-3.6M28.91 10.5l-7.103 3.602M9.603 26.308L4.5 34.911M7.604 9.106L.503.506M24.91.5l-.003 24.407L.5 24.91m24.407-.004l4 10' /><path class='fillHidden' d='M12.205 12.706a.5.5 0 101 0 .5.5 0 00-1 0zm1.999 17.203a.5.5 0 101 0 .5.5 0 00-1 0zm12.205-12.2a.5.5 0 101 0 .5.5 0 00-1 0zm-2.002 7.198a.5.5 0 101 0 .5.5 0 00-1 0z'/><path class='fillInter' d='M7.604 8.605a.5.5 0 100 1 .5.5 0 000-1zm14.203 4.997a.5.5 0 100 1 .5.5 0 000-1zm-2 7.205a.5.5 0 100 1 .5.5 0 000-1zM9.604 25.809a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M.5 24.911L.503.506 24.91.5m0 0l4 10M.503.506l4 10M4.5 34.911l.003-24.405L28.91 10.5l-.003 24.407zm-4-10l4 10'/><path class='fillVisible' d='M16.205 22.706a.5.5 0 101 0 .5.5 0 00-1 0zM14.204 5.502a.5.5 0 101 0 .5.5 0 00-1 0zM2.002 17.709a.5.5 0 101 0 .5.5 0 00-1 0zm26.408-7.21a.5.5 0 101 0 .5.5 0 00-1 0zm-.003 24.408a.5.5 0 101 0 .5.5 0 00-1 0zM4 34.91a.5.5 0 101 0 .5.5 0 00-1 0zm.003-24.405a.5.5 0 101 0 .5.5 0 00-1 0zM24.41.5a.5.5 0 101 0 .5.5 0 00-1 0zM0 24.91a.5.5 0 101 0 .5.5 0 00-1 0zM.003.506a.5.5 0 101 0 .5.5 0 00-1 0z'/></svg>";
 
 // let defaultTemp = "celsius";
 // let defaultPunc = "comma";
@@ -18,6 +74,20 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
     for (let i = 1; i < 5; i++) {
       let eleNum = i;
       let element = newRawDataElement[eleNum - 1];
+
+      let num = element.num;
+      let sym = element.sym;
+
+      if (num > 86) multiplier = 0;
+      else if (num > 54) multiplier = 1;
+      else if (num > 36 && num != 46) multiplier = 2;
+      else if (num > 18) multiplier = 3;
+      else if (num > 10) multiplier = 4;
+      else if (num > 2) multiplier = 5;
+      else multiplier = 6;
+
+      val1 = -800 + multiplier * 80;
+      val2 = 1600 - multiplier * 80 * 2;
 
       let writeStream = fs.createWriteStream(lang + "/element-" + element.num + ".html");
 
@@ -1039,8 +1109,8 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       writeStream.write("</div>");
       writeStream.write("</div>");
 
-      writeStream.write("<div class='flex-container row'>");
-      writeStream.write("<div class='flex-cell'>");
+      writeStream.write("<div class='elementSqr'>");
+      writeStream.write("<div class='flex'>");
       writeStream.write("<div id='firstSquare' class='flex-item masonry-col flex flex-col'>");
       writeStream.write("<div id='resultNumber' class='flex line-height-normal'>" + element.num + "</div>");
       writeStream.write("<div id='resultSymbol' class='text-center flex content-center justify-center line-height-normal'>");
@@ -1048,7 +1118,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       writeStream.write("</div>");
       writeStream.write("</div>");
       writeStream.write("</div>");
-      writeStream.write("<div class='flex-cell'>");
+      writeStream.write("<div class='flex'>");
       writeStream.write("<div id='secondSquare' class='flex-item masonry-col grid'>");
       writeStream.write("<div class='grayText'>" + langValues.group + "</div>");
       writeStream.write("<div>");
@@ -1091,8 +1161,8 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       writeStream.write("<div class='new-table'>" + langValues[element.clr] + "</div>");
       writeStream.write("<div class='new-table grayText'>" + langValues.labelRadioMain + "</div>");
       writeStream.write("<div class='new-table'>" + langValues[element.rdo] + "</div>");
-      writeStream.write("<div class='new-table grayText'>" + langValues.labelStructureMain + "</div>");
-      writeStream.write("<div class='new-table'>" + langValues[element.stc] + "</div>");
+      // writeStream.write("<div class='new-table grayText'>" + langValues.labelStructureMain + "</div>");
+      // writeStream.write("<div class='new-table'>" + langValues[element.stc] + "</div>");
       writeStream.write("</div>");
       writeStream.write("</div>");
 
@@ -1100,6 +1170,61 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       writeStream.write("<div class='box-content text-center masonry-col'>");
       writeStream.write("<div class='line-height-2'>");
       writeStream.write(post["ele" + eleNum + "Reason"]);
+      writeStream.write("</div>");
+      writeStream.write("</div>");
+
+      // Crystal Structure
+      writeStream.write("<div class='box-content masonry-col'>");
+      writeStream.write("<div class='grid'>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelStructureMain + "</div>");
+      writeStream.write("<div class='new-table'>" + langValues[element.stc] + "</div>");
+      writeStream.write("</div>");
+      writeStream.write("<div>");
+
+      // console.log(element.stc.replace("crystal", "crs") + "SVG");
+
+      switch (element.stc) {
+        case "crystalSH":
+          writeStream.write(crsSHSVG);
+          break;
+        case "crystalFCC":
+          writeStream.write(crsFCCSVG);
+          break;
+        case "crystalBCC":
+          writeStream.write(crsBCCSVG);
+          break;
+        case "crystalBCM":
+          writeStream.write(crsBCMSVG);
+          break;
+        case "crystalFCO":
+          writeStream.write(crsFCOSVG);
+          break;
+        case "crystalBCO":
+          writeStream.write(crsBCOSVG);
+          break;
+        case "crystalSTG":
+          writeStream.write(crsSTGSVG);
+          break;
+        case "crystalTP":
+          writeStream.write(crsTPSVG);
+          break;
+        case "crystalSTC":
+          writeStream.write(crsSTCSVG);
+          break;
+        case "crystalSC":
+          writeStream.write(crsSCSVG);
+          break;
+        case "crystalSO":
+          writeStream.write(crsSOSVG);
+          break;
+        case "crystalSM":
+          writeStream.write(crsSMSVG);
+          break;
+        case "crystalCT":
+          writeStream.write(crsCTSVG);
+          break;
+      }
+
       writeStream.write("</div>");
       writeStream.write("</div>");
 
@@ -1122,11 +1247,414 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       writeStream.write("</div>");
       writeStream.write("</div>");
       // writeStream.write("<Electron num={element.num} sym={element.sym} />");
+
+      writeStream.write("<svg version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='-800 " + val1 + " 1600 " + val2 + "' class='atom'>");
+      writeStream.write("<g class='g'>");
+      writeStream.write("<circle class='nucleus' r='130' />");
+      writeStream.write(
+        "<text class='font-fam' x='0' y='0' fill='#ffffff' alignment-baseline='middle' dominant-baseline='middle' text-anchor='middle'>" +
+          sym +
+          "</text>"
+      );
+      if (num > 0) {
+        writeStream.write("<g class='one' fill='currentColor'>");
+        writeStream.write("<circle r=" + rad1 + " fill='none' stroke='currentColor' stroke-width=" + ringSize + " />");
+        writeStream.write("<circle class='electron' cx=" + -A0sin * rad1 + " cy=" + -A0cos * rad1 + " r=" + r + " />");
+        if (num > 1) {
+          writeStream.write("<circle class='electron' cx=" + A0sin * rad1 + " cy=" + A0cos * rad1 + " r=" + r + " />");
+        }
+        writeStream.write("</g>");
+      }
+
+      if (num > 2) {
+        writeStream.write("<g class='two' fill='currentColor'>");
+        writeStream.write("<circle r=" + rad2 + " fill='none' stroke='currentColor' stroke-width=" + ringSize + " />");
+        writeStream.write("<circle class='electron' cx=" + -A0sin * rad2 + " cy=" + -A0cos * rad2 + " r=" + r + " />");
+        if (num > 3) {
+          writeStream.write("<circle class='electron' cx=" + A0sin * rad2 + " cy=" + A0cos * rad2 + " r=" + r + " />");
+        }
+        if (num > 4) {
+          writeStream.write("<circle class='electron' cx=" + -A90sin * rad2 + " cy=" + A90cos * rad2 + " r=" + r + " />");
+        }
+        if (num > 5) {
+          writeStream.write("<circle class='electron' cx=" + A90sin * rad2 + " cy=" + A90cos * rad2 + " r=" + r + " />");
+        }
+        if (num > 6) {
+          writeStream.write("<circle class='electron' cx=" + -A45 * rad2 + " cy=" + -A45 * rad2 + " r=" + r + " />");
+        }
+        if (num > 7) {
+          writeStream.write("<circle class='electron' cx=" + A45 * rad2 + " cy=" + -A45 * rad2 + " r=" + r + " />");
+        }
+        if (num > 8) {
+          writeStream.write("<circle class='electron' cx=" + -A45 * rad2 + " cy=" + A45 * rad2 + " r=" + r + " />");
+        }
+        if (num > 9) {
+          writeStream.write("<circle class='electron' cx=" + A45 * rad2 + " cy=" + A45 * rad2 + " r=" + r + " />");
+        }
+        writeStream.write("</g>");
+      }
+
+      if (num > 10) {
+        writeStream.write("<g class='three' fill='currentColor'>");
+        writeStream.write("<circle r=" + rad3 + " fill='none' stroke='currentColor' stroke-width=" + ringSize + " />");
+        writeStream.write("<circle class='electron' cx=" + -A0sin * rad3 + " cy=" + -A0cos * rad3 + " r=" + r + " />");
+        if (num > 11) {
+          writeStream.write("<circle class='electron' cx=" + A0sin * rad3 + " cy=" + A0cos * rad3 + " r=" + r + " />");
+        }
+        if (num > 12) {
+          writeStream.write("<circle class='electron' cx=" + -A10cos * rad3 + " cy=" + -A10sin * rad3 + " r=" + r + " />");
+        }
+        if (num > 13) {
+          writeStream.write("<circle class='electron' cx=" + A10cos * rad3 + " cy=" + -A10sin * rad3 + " r=" + r + " />");
+        }
+        if (num > 14) {
+          writeStream.write("<circle class='electron' cx=" + -A30cos * rad3 + " cy=" + A30sin * rad3 + " r=" + r + " />");
+        }
+        if (num > 15) {
+          writeStream.write("<circle class='electron' cx=" + A30cos * rad3 + " cy=" + A30sin * rad3 + " r=" + r + " />");
+        }
+        if (num > 16) {
+          writeStream.write("<circle class='electron' cx=" + -A50cos * rad3 + " cy=" + -A50sin * rad3 + " r=" + r + " />");
+        }
+        if (num > 17) {
+          writeStream.write("<circle class='electron' cx=" + A50cos * rad3 + " cy=" + -A50sin * rad3 + " r=" + r + " />");
+        }
+
+        if (num > 20) {
+          writeStream.write("<circle class='electron' cx=" + -A50cos * rad3 + " cy=" + A50sin * rad3 + " r=" + r + " />");
+        }
+        if (num > 21) {
+          writeStream.write("<circle class='electron' cx=" + A50cos * rad3 + " cy=" + A50sin * rad3 + " r=" + r + " />");
+        }
+        if (num > 22) {
+          writeStream.write("<circle class='electron' cx=" + -A30cos * rad3 + " cy=" + -A30sin * rad3 + " r=" + r + " />");
+        }
+        if (num > 23) {
+          writeStream.write("<circle class='electron' cx=" + A30cos * rad3 + " cy=" + -A30sin * rad3 + " r=" + r + " />");
+          writeStream.write("<circle class='electron' cx=" + -A10cos * rad3 + " cy=" + A10sin * rad3 + " r=" + r + " />");
+        }
+
+        if (num > 25) {
+          writeStream.write("<circle class='electron' cx=" + A10cos * rad3 + " cy=" + A10sin * rad3 + " r=" + r + " />");
+        }
+        if (num > 26) {
+          writeStream.write("<circle class='electron' cx=" + -A70cos * rad3 + " cy=" + -A70sin * rad3 + " r=" + r + " />");
+        }
+        if (num > 27) {
+          writeStream.write("<circle class='electron' cx=" + A70cos * rad3 + " cy=" + -A70sin * rad3 + " r=" + r + " />");
+        }
+        if (num > 28) {
+          writeStream.write("<circle class='electron' cx=" + -A70cos * rad3 + " cy=" + A70sin * rad3 + " r=" + r + " />");
+          writeStream.write("<circle class='electron' cx=" + A70cos * rad3 + " cy=" + A70sin * rad3 + " r=" + r + " />");
+        }
+        writeStream.write("</g>");
+      }
+
+      if (num > 18) {
+        writeStream.write("<g class='four' fill='currentColor'>");
+        writeStream.write("<circle r=" + rad4 + " fill='none' stroke='currentColor' stroke-width=" + ringSize + " />");
+        writeStream.write("<circle class='electron' cx=" + -A0sin * rad4 + " cy=" + -A0cos * rad4 + " r=" + r + " />");
+        if (num > 19 && num != 24 && num != 29) {
+          writeStream.write("<circle class='electron' cx=" + -A0sin * rad4 + " cy=" + A0cos * rad4 + " r=" + r + " />");
+        }
+        if (num > 30) {
+          writeStream.write("<circle class='electron' cx=" + -A90sin * rad4 + " cy=" + A90cos * rad4 + " r=" + r + " />");
+        }
+        if (num > 31) {
+          writeStream.write("<circle class='electron' cx=" + A90sin * rad4 + " cy=" + A90cos * rad4 + " r=" + r + " />");
+        }
+        if (num > 32) {
+          writeStream.write("<circle class='electron' cx=" + -A45 * rad4 + " cy=" + -A45 * rad4 + " r=" + r + " />");
+        }
+        if (num > 33) {
+          writeStream.write("<circle class='electron' cx=" + A45 * rad4 + " cy=" + -A45 * rad4 + " r=" + r + " />");
+        }
+        if (num > 34) {
+          writeStream.write("<circle class='electron' cx=" + -A45 * rad4 + " cy=" + A45 * rad4 + " r=" + r + " />");
+        }
+        if (num > 35) {
+          writeStream.write("<circle class='electron' cx=" + A45 * rad4 + " cy=" + A45 * rad4 + " r=" + r + " />");
+        }
+        if (num > 38) {
+          writeStream.write("<circle class='electron' cx=" + -A22cos * rad4 + " cy=" + -A22sin * rad4 + " r=" + r + " />");
+        }
+        if (num > 39) {
+          writeStream.write("<circle class='electron' cx=" + A22cos * rad4 + " cy=" + -A22sin * rad4 + " r=" + r + " />");
+        }
+        if (num > 40) {
+          writeStream.write("<circle class='electron' cx=" + A22cos * rad4 + " cy=" + A22sin * rad4 + " r=" + r + " />");
+          writeStream.write("<circle class='electron' cx=" + -A22cos * rad4 + " cy=" + A22sin * rad4 + " r=" + r + " />");
+        }
+        if (num > 41) {
+          writeStream.write("<circle class='electron' cx=" + -A22sin * rad4 + " cy=" + -A22cos * rad4 + " r=" + r + " />");
+        }
+        if (num > 43) {
+          writeStream.write("<circle class='electron' cx=" + A22sin * rad4 + " cy=" + -A22cos * rad4 + " r=" + r + " />");
+          writeStream.write("<circle class='electron' cx=" + -A22sin * rad4 + " cy=" + A22cos * rad4 + " r=" + r + " />");
+        }
+        if (num > 44) {
+          writeStream.write("<circle class='electron' cx=" + A22sin * rad4 + " cy=" + A22cos * rad4 + " r=" + r + " />");
+        }
+        if (num > 45) {
+          writeStream.write("<circle class='electron' cx=" + -A11cos * rad4 + " cy=" + -A11sin * rad4 + " r=" + r + " />");
+          writeStream.write("<circle class='electron' cx=" + A11cos * rad4 + " cy=" + -A11sin * rad4 + " r=" + r + " />");
+        }
+        if (num > 57) {
+          writeStream.write("<circle class='electron' cx=" + -A11sin * rad4 + " cy=" + A11cos * rad4 + " r=" + r + " />");
+        }
+        if (num > 58) {
+          writeStream.write("<circle class='electron' cx=" + A33cos * rad4 + " cy=" + A33sin * rad4 + " r=" + r + " />");
+          writeStream.write("<circle class='electron' cx=" + -A11sin * rad4 + " cy=" + -A11cos * rad4 + " r=" + r + " />");
+        }
+        if (num > 59) {
+          writeStream.write("<circle class='electron' cx=" + A33sin * rad4 + " cy=" + -A33cos * rad4 + " r=" + r + " />");
+        }
+        if (num > 60) {
+          writeStream.write("<circle class='electron' cx=" + -A33cos * rad4 + " cy=" + A33sin * rad4 + " r=" + r + " />");
+        }
+        if (num > 61) {
+          writeStream.write("<circle class='electron' cx=" + -A33sin * rad4 + " cy=" + -A33cos * rad4 + " r=" + r + " />");
+        }
+        if (num > 62) {
+          writeStream.write("<circle class='electron' cx=" + A11sin * rad4 + " cy=" + A11cos * rad4 + " r=" + r + " />");
+        }
+        if (num > 64) {
+          writeStream.write("<circle class='electron' cx=" + -A11cos * rad4 + " cy=" + A11sin * rad4 + " r=" + r + " />");
+          writeStream.write("<circle class='electron' cx=" + A11cos * rad4 + " cy=" + A11sin * rad4 + " r=" + r + " />");
+        }
+        if (num > 65) {
+          writeStream.write("<circle class='electron' cx=" + A11sin * rad4 + " cy=" + -A11cos * rad4 + " r=" + r + " />");
+        }
+        if (num > 66) {
+          writeStream.write("<circle class='electron' cx=" + -A33cos * rad4 + " cy=" + -A33sin * rad4 + " r=" + r + " />");
+        }
+        if (num > 67) {
+          writeStream.write("<circle class='electron' cx=" + A33sin * rad4 + " cy=" + A33cos * rad4 + " r=" + r + " />");
+        }
+        if (num > 68) {
+          writeStream.write("<circle class='electron' cx=" + A33cos * rad4 + " cy=" + -A33sin * rad4 + " r=" + r + " />");
+        }
+        if (num > 69) {
+          writeStream.write("<circle class='electron' cx=" + -A33sin * rad4 + " cy=" + A33cos * rad4 + " r=" + r + " />");
+        }
+        writeStream.write("</g>");
+      }
+
+      if (num > 36 && num != 46) {
+        writeStream.write("<g class='five' fill='currentColor'>");
+        writeStream.write("<circle r=" + rad5 + " fill='none' stroke='currentColor' stroke-width=" + ringSize + " />");
+        writeStream.write("<circle class='electron' cx=" + -A0sin * rad5 + " cy=" + -A0cos * rad5 + " r=" + r + " />");
+        if (num > 37 && num != 41 && num != 42 && num != 44 && num != 45 && num != 46 && num != 47) {
+          writeStream.write("<circle class='electron' cx=" + A0sin * rad5 + " cy=" + A0cos * rad5 + " r=" + r + " />");
+        }
+        if (num > 48) {
+          writeStream.write("<circle class='electron' cx=" + -A90sin * rad5 + " cy=" + A90cos * rad5 + " r=" + r + " />");
+        }
+        if (num > 49) {
+          writeStream.write("<circle class='electron' cx=" + A90sin * rad5 + " cy=" + A90cos * rad5 + " r=" + r + " />");
+        }
+        if (num > 50) {
+          writeStream.write("<circle class='electron' cx=" + -A45 * rad5 + " cy=" + -A45 * rad5 + " r=" + r + " />");
+        }
+        if (num > 51) {
+          writeStream.write("<circle class='electron' cx=" + A45 * rad5 + " cy=" + -A45 * rad5 + " r=" + r + " />");
+        }
+        if (num > 52) {
+          writeStream.write("<circle class='electron' cx=" + -A45 * rad5 + " cy=" + A45 * rad5 + " r=" + r + " />");
+        }
+        if (num > 53) {
+          writeStream.write("<circle class='electron' cx=" + A45 * rad5 + " cy=" + A45 * rad5 + " r=" + r + " />");
+        }
+        if (
+          num > 56 &&
+          num != 59 &&
+          num != 60 &&
+          num != 61 &&
+          num != 62 &&
+          num != 63 &&
+          num != 65 &&
+          num != 66 &&
+          num != 67 &&
+          num != 68 &&
+          num != 69 &&
+          num != 70
+        ) {
+          writeStream.write("<circle class='electron' cx=" + -A22cos * rad5 + " cy=" + -A22sin * rad5 + " r=" + r + " />");
+        }
+        if (num > 71) {
+          writeStream.write("<circle class='electron' cx=" + A22cos * rad5 + " cy=" + -A22sin * rad5 + " r=" + r + " />");
+        }
+        if (num > 72) {
+          writeStream.write("<circle class='electron' cx=" + A22cos * rad5 + " cy=" + A22sin * rad5 + " r=" + r + " />");
+        }
+        if (num > 73) {
+          writeStream.write("<circle class='electron' cx=" + -A22cos * rad5 + " cy=" + A22sin * rad5 + " r=" + r + " />");
+        }
+        if (num > 74) {
+          writeStream.write("<circle class='electron' cx=" + -A22sin * rad5 + " cy=" + -A22cos * rad5 + " r=" + r + " />");
+        }
+        if (num > 75) {
+          writeStream.write("<circle class='electron' cx=" + A22sin * rad5 + " cy=" + -A22cos * rad5 + " r=" + r + " />");
+        }
+        if (num > 76) {
+          writeStream.write("<circle class='electron' cx=" + -A22sin * rad5 + " cy=" + A22cos * rad5 + " r=" + r + " />");
+        }
+        if (num > 77) {
+          writeStream.write("<circle class='electron' cx=" + A22sin * rad5 + " cy=" + A22cos * rad5 + " r=" + r + " />");
+          writeStream.write("<circle class='electron' cx=" + -A11cos * rad5 + " cy=" + -A11sin * rad5 + " r=" + r + " />");
+        }
+        if (num > 78) {
+          writeStream.write("<circle class='electron' cx=" + A11cos * rad5 + " cy=" + -A11sin * rad5 + " r=" + r + " />");
+        }
+        if (num > 90) {
+          writeStream.write("<circle class='electron' cx=" + -A11sin * rad5 + " cy=" + A11cos * rad5 + " r=" + r + " />");
+          writeStream.write("<circle class='electron' cx=" + A33cos * rad5 + " cy=" + A33sin * rad5 + " r=" + r + " />");
+        }
+        if (num > 91) {
+          writeStream.write("<circle class='electron' cx=" + -A11sin * rad5 + " cy=" + -A11cos * rad5 + " r=" + r + " />");
+        }
+        if (num > 92) {
+          writeStream.write("<circle class='electron' cx=" + A33sin * rad5 + " cy=" + -A33cos * rad5 + " r=" + r + " />");
+        }
+        if (num > 93) {
+          writeStream.write("<circle class='electron' cx=" + -A33cos * rad5 + " cy=" + A33sin * rad5 + " r=" + r + " />");
+          writeStream.write("<circle class='electron' cx=" + -A33sin * rad5 + " cy=" + -A33cos * rad5 + " r=" + r + " />");
+        }
+        if (num > 94) {
+          writeStream.write("<circle class='electron' cx=" + A11sin * rad5 + " cy=" + A11cos * rad5 + " r=" + r + " />");
+        }
+        if (num > 96) {
+          writeStream.write("<circle class='electron' cx=" + -A11cos * rad5 + " cy=" + A11sin * rad5 + " r=" + r + " />");
+        }
+        if (num > 96) {
+          writeStream.write("<circle class='electron' cx=" + A11cos * rad5 + " cy=" + A11sin * rad5 + " r=" + r + " />");
+        }
+        if (num > 97) {
+          writeStream.write("<circle class='electron' cx=" + A11sin * rad5 + " cy=" + -A11cos * rad5 + " r=" + r + " />");
+        }
+        if (num > 98) {
+          writeStream.write("<circle class='electron' cx=" + -A33cos * rad5 + " cy=" + -A33sin * rad5 + " r=" + r + " />");
+        }
+        if (num > 99) {
+          writeStream.write("<circle class='electron' cx=" + A33sin * rad5 + " cy=" + A33cos * rad5 + " r=" + r + " />");
+        }
+        if (num > 100) {
+          writeStream.write("<circle class='electron' cx=" + A33cos * rad5 + " cy=" + -A33sin * rad5 + " r=" + r + " />");
+        }
+        if (num > 101) {
+          writeStream.write("<circle class='electron' cx=" + -A33sin * rad5 + " cy=" + A33cos * rad5 + " r=" + r + " />");
+        }
+        writeStream.write("</g>");
+      }
+
+      if (num > 54) {
+        writeStream.write("<g class='six' fill='currentColor'>");
+        writeStream.write("<circle r=" + rad6 + " fill='none' stroke='currentColor' stroke-width=" + ringSize + " />");
+        writeStream.write("<circle class='electron' cx=" + -A0sin * rad6 + " cy=" + -A0cos * rad6 + " r=" + r + " />");
+        if (num > 55 && num != 78 && num != 79) {
+          writeStream.write("<circle class='electron' cx=" + A0sin * rad6 + " cy=" + A0cos * rad6 + " r=" + r + " />");
+        }
+        if (num > 80) {
+          writeStream.write("<circle class='electron' cx=" + -A10cos * rad6 + " cy=" + -A10sin * rad6 + " r=" + r + " />");
+        }
+        if (num > 81) {
+          writeStream.write("<circle class='electron' cx=" + A10cos * rad6 + " cy=" + -A10sin * rad6 + " r=" + r + " />");
+        }
+        if (num > 82) {
+          writeStream.write("<circle class='electron' cx=" + -A30cos * rad6 + " cy=" + A30sin * rad6 + " r=" + r + " />");
+        }
+        if (num > 83) {
+          writeStream.write("<circle class='electron' cx=" + A30cos * rad6 + " cy=" + A30sin * rad6 + " r=" + r + " />");
+        }
+        if (num > 84) {
+          writeStream.write("<circle class='electron' cx=" + -A50cos * rad6 + " cy=" + -A50sin * rad6 + " r=" + r + " />");
+        }
+        if (num > 85) {
+          writeStream.write("<circle class='electron' cx=" + A50cos * rad6 + " cy=" + -A50sin * rad6 + " r=" + r + " />");
+        }
+        if (num > 88 && num != 94 && num != 95 && num != 97 && num != 98 && num != 99 && num != 100 && num != 101 && num != 102 && num != 103) {
+          writeStream.write("<circle class='electron' cx=" + -A50cos * rad6 + " cy=" + A50sin * rad6 + " r=" + r + " />");
+        }
+        if (
+          num > 89 &&
+          num != 91 &&
+          num != 92 &&
+          num != 93 &&
+          num != 94 &&
+          num != 95 &&
+          num != 96 &&
+          num != 97 &&
+          num != 98 &&
+          num != 99 &&
+          num != 100 &&
+          num != 101 &&
+          num != 102 &&
+          num != 103
+        ) {
+          writeStream.write("<circle class='electron' cx=" + A50cos * rad6 + " cy=" + A50sin * rad6 + " r=" + r + " />");
+        }
+        if (num > 104) {
+          writeStream.write("<circle class='electron' cx=" + -A30cos * rad6 + " cy=" + -A30sin * rad6 + " r=" + r + " />");
+        }
+        if (num > 105) {
+          writeStream.write("<circle class='electron' cx=" + A30cos * rad6 + " cy=" + -A30sin * rad6 + " r=" + r + " />");
+        }
+        if (num > 106) {
+          writeStream.write("<circle class='electron' cx=" + -A10cos * rad6 + " cy=" + A10sin * rad6 + " r=" + r + " />");
+        }
+        if (num > 107) {
+          writeStream.write("<circle class='electron' cx=" + A10cos * rad6 + " cy=" + A10sin * rad6 + " r=" + r + " />");
+        }
+        if (num > 108) {
+          writeStream.write("<circle class='electron' cx=" + -A70cos * rad6 + " cy=" + -A70sin * rad6 + " r=" + r + " />");
+        }
+        if (num > 109) {
+          writeStream.write("<circle class='electron' cx=" + A70cos * rad6 + " cy=" + -A70sin * rad6 + " r=" + r + " />");
+        }
+        if (num > 110) {
+          writeStream.write("<circle class='electron' cx=" + -A70cos * rad6 + " cy=" + A70sin * rad6 + " r=" + r + " />");
+        }
+        if (num > 111) {
+          writeStream.write("<circle class='electron' cx=" + A70cos * rad6 + " cy=" + A70sin * rad6 + " r=" + r + " />");
+        }
+        writeStream.write("</g>");
+      }
+
+      if (num > 86) {
+        writeStream.write("<g class='seven' fill='currentColor'>");
+        writeStream.write("<circle r=" + rad7 + " fill='none' stroke='currentColor' stroke-width=" + ringSize + " />");
+        writeStream.write("<circle class='electron' cx=" + -A0sin * rad7 + " cy=" + -A0cos * rad7 + " r=" + r + " />");
+        if (num > 87) {
+          writeStream.write("<circle class='electron' cx=" + A0sin * rad7 + " cy=" + A0cos * rad7 + " r=" + r + " />");
+        }
+        if (num > 102 && num != 104 && num != 105 && num != 106 && num != 107 && num != 108 && num != 109 && num != 110 && num != 111 && num != 112) {
+          writeStream.write("<circle class='electron' cx=" + -A90sin * rad7 + " cy=" + A90cos * rad7 + " r=" + r + " />");
+        }
+        if (num > 113) {
+          writeStream.write("<circle class='electron' cx=" + A90sin * rad7 + " cy=" + A90cos * rad7 + " r=" + r + " />");
+        }
+        if (num > 114) {
+          writeStream.write("<circle class='electron' cx=" + -A45 * rad7 + " cy=" + -A45 * rad7 + " r=" + r + " />");
+        }
+        if (num > 115) {
+          writeStream.write("<circle class='electron' cx=" + A45 * rad7 + " cy=" + -A45 * rad7 + " r=" + r + " />");
+        }
+        if (num > 116) {
+          writeStream.write("<circle class='electron' cx=" + -A45 * rad7 + " cy=" + A45 * rad7 + " r=" + r + " />");
+        }
+        if (num > 117) {
+          writeStream.write("<circle class='electron' cx=" + A45 * rad7 + " cy=" + A45 * rad7 + " r=" + r + " />");
+        }
+        writeStream.write("</g>");
+      }
+
+      writeStream.write("</g>");
+      writeStream.write("</svg>");
       writeStream.write("</div>");
 
       // Facts
       writeStream.write("<div class='box-content masonry-col text-center'>");
-      writeStream.write("<div id='elementFactsMain' class='line-height-2'>");
+      writeStream.write("<div class='line-height-2'>");
       writeStream.write(post["ele" + eleNum + "Facts"]);
       writeStream.write("</div>");
       writeStream.write("</div>");
@@ -1224,11 +1752,11 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       );
       writeStream.write("</div>");
       writeStream.write("<div class='box-content bottom-rounded line-height-2'>");
-      writeStream.write("<span id='imgCredits' class='grayText'>" + langValues.imgCredits + ": </span>");
-      writeStream.write("<span id='imgCreditsLink'>");
+      writeStream.write("<span class='grayText'>" + langValues.imgCredits + ": </span>");
+      writeStream.write("<span>");
       writeStream.write(eleCredits);
       writeStream.write("</span>");
-      writeStream.write("<div>");
+      writeStream.write("<div class='pt-4'>");
       writeStream.write(post["ele" + eleNum + "Desc"]);
       writeStream.write("</div>");
       writeStream.write("</div>");
@@ -1315,7 +1843,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       writeStream.write("<span class='headerOutline text-upper'>" + langValues.labelLinksMain + "</span>");
       writeStream.write("<div class='webLink'>");
       writeStream.write(
-        "<a id='link1' href='" +
+        "<a href='" +
           langValues.wikiLink +
           element.nme +
           "' class='underlineLink' target='_blank' rel='noopener noreferrer'>" +
@@ -1400,18 +1928,18 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       else {
         let previousElement = newRawDataElement[previousNum];
         previousHTML =
-          "<a href='element-" + previousElement.num + ".html' class='underlineLink' id='previousElement'>" + langValues[previousElement.nme] + "</a>";
+          "<a href='element-" + previousElement.num + ".html' class='underlineLink'>" + langValues[previousElement.nme] + "</a>";
       }
 
       if (eleNum === 118) nextHTML = "-";
       else {
         let nextElement = newRawDataElement[nextNum];
-        nextHTML = "<a href='element-" + nextElement.num + ".html' class='underlineLink' id='nextElement'>" + langValues[nextElement.nme] + "</a>";
+        nextHTML = "<a href='element-" + nextElement.num + ".html' class='underlineLink'>" + langValues[nextElement.nme] + "</a>";
       }
 
       writeStream.write("<div id='elementNav' class='row text-center'>");
       writeStream.write(previousHTML + "&nbsp;&nbsp;←&nbsp;");
-      writeStream.write("<span id='currentElement'>" + element.sym + "</span>&nbsp;&nbsp;→&nbsp;");
+      writeStream.write("<span>" + element.sym + "</span>&nbsp;&nbsp;→&nbsp;");
       writeStream.write(nextHTML);
       writeStream.write("</div>");
       writeStream.write("</div>");

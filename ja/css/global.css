@@ -9,6 +9,7 @@
   --alt-text-color: rgb(234, 234, 234);
   --form-bg-color: rgba(255, 255, 255, 0.9);
   --blockquote-color: 103, 106, 109;
+  --gray-color: 172, 172, 172;
   --color1: 253, 58, 74; /* Red */
   --color2: 245, 128, 37; /* Orange */
   --color3: 255, 167, 0; /* Yellow */
@@ -60,6 +61,7 @@
   --alt-text-color: rgb(0, 0, 0);
   --form-bg-color: rgba(0, 0, 0, 0.9);
   --blockquote-color: 148, 146, 143;
+  --gray-color: 72, 72, 72;
   --fg-color: linear-gradient(to right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
     linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
   --dropdown-arrow: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" stroke-width="1.5" stroke="%23ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath stroke="none" d="M0 0h24v24H0z" fill="none"/%3E%3Cpolyline points="6 9 12 15 18 9" /%3E%3C/svg%3E'),
@@ -139,42 +141,6 @@ a {
     font-size: 16px;
   }
 }
-
-/* @font-face {
-  font-family: "Lato Regular";
-  src: url(../../fonts/Lato-Regular.woff2) format("woff2"), url(../../fonts/Lato-Regular.woff) format("woff");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Lato Heavy";
-  src: url(../../fonts/Lato-Heavy.woff2) format("woff2"), url(../../fonts/Lato-Heavy.woff) format("woff");
-  font-display: swap;
-} */
-
-/* @font-face {
-      font-family: "pt-icons";
-      src: url("../../fonts/pt-icons.woff?31kazk") format("woff");
-      font-weight: normal;
-      font-style: normal;
-      font-display: block;
-    } */
-
-/* @font-face {
-  font-family: "periodic-table";
-  src: url("../../fonts/periodic-table.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
-}
-
-.iconFont {
-  font-family: "periodic-table";
-  text-transform: none;
-  font-size: 1.5rem;
-  padding-left: 5px;
-  padding-right: 5px;
-} */
 
 .text-left {
   text-align: var(--direction);
@@ -387,10 +353,6 @@ select:focus {
   padding-top: 42px;
 }
 
-.margin-top-30 {
-  margin-top: 30px;
-}
-
 .padding-bottom-25 {
   padding-bottom: 25px;
 }
@@ -475,10 +437,6 @@ table,
   flex: 1 1 auto;
 }
 
-.flex-1 {
-  flex: 1 1 0%;
-}
-
 .flex-col {
   flex-direction: column;
 }
@@ -504,17 +462,13 @@ table,
   }
 }
 
-.flex-all-wrap {
-  flex-wrap: wrap;
-}
-
-.flex-container {
+/* .flex-container {
   display: flex;
   justify-content: start;
   flex-wrap: nowrap;
-}
+} */
 
-.flex-cell {
+/* .flex-cell {
   flex: 0 0 50%;
   display: flex;
   justify-content: center;
@@ -527,12 +481,26 @@ table,
   content: "";
   display: table;
   padding-top: 100%;
-}
+} */
 
 .flex-item {
   flex-grow: 1;
   justify-content: center;
   align-items: center;
+}
+
+.elementSqr {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+  gap: 2rem;
+}
+
+.elementSqr > div:before {
+  content: "";
+  display: block;
+  height: 0;
+  width: 0;
+  padding-bottom: 100%;
 }
 
 #elementName {
@@ -596,24 +564,20 @@ table,
   padding-top: 0.25rem;
 }
 
+.pt-4 {
+  padding-top: 1rem;
+}
+
 .pt-2 {
   padding-top: 0.5rem;
 }
 
-.pb-3 {
-  padding-bottom: 0.75rem;
+.pt-12 {
+  padding-top: 3rem;
 }
 
-.pb-1 {
-  padding-bottom: 0.25rem;
-}
-
-.pb-2 {
-  padding-bottom: 0.5rem;
-}
-
-.pb-3 {
-  padding-bottom: 0.75rem;
+.pt-16 {
+  padding-top: 4rem;
 }
 
 .pb-4 {
@@ -627,10 +591,6 @@ table,
 .m-2 {
   margin: 0.5rem;
 }
-
-/* #footer > div > a {
-      text-decoration: none;
-    } */
 
 .justify-center {
   justify-content: center;
@@ -783,14 +743,14 @@ table,
 }
 
 #resultNumber {
-  font-size: 1em;
-  height: 30%;
+  font-size: 1.4em;
+  /* height: 30%; */
   width: 100%;
-  padding: 0.75em 0.75em 0;
+  padding: 0.5em 0.75em 0;
 }
 
 #resultSymbol {
-  font-size: 2.7em;
+  font-size: 3.7em;
   height: 70%;
   width: 100%;
 }
@@ -881,6 +841,7 @@ table,
 .versionHeader {
   margin-left: -1rem;
   margin-right: -1rem;
+  margin-top: 2rem;
   list-style-type: none;
 }
 
@@ -1185,9 +1146,9 @@ canvas {
   border-radius: var(--border-radius);
 }
 
-#elementPicture {
+/* #elementPicture {
   border-radius: var(--border-radius);
-}
+} */
 
 #elementPic {
   border-radius: 0.125rem;
@@ -1455,10 +1416,6 @@ canvas {
   /* padding: 0 5%; */
 }
 
-.font-weight-600 {
-  /* font-weight: 600; */
-}
-
 #valueRow2 {
   width: 40%;
 }
@@ -1585,18 +1542,9 @@ input:focus + .slider {
   border-radius: 50%;
 }
 
-.eleTD {
-  /* cursor: pointer; */
-  /* border: 2px solid transparent; */
-}
-
-.eleTD:hover {
-  /* border: 2px solid red; */
-}
-
 .aboutHeader {
   font-size: 1.5em;
-  padding: 2em 1em 1em;
+  /* padding: 2em 1em 1em; */
   color: var(--fg-color);
 }
 
@@ -1606,9 +1554,9 @@ input:focus + .slider {
   }
 } */
 
-#about {
+/* #about {
   padding: 0 1em 1em;
-}
+} */
 
 #versionHist {
   padding: 2em 1em 0em;
@@ -2097,6 +2045,16 @@ blockquote,
   /* font-weight: 500; */
 }
 
+.nucleus {
+  fill: rgb(var(--text-color));
+  stroke: rgb(var(--text-color));
+}
+
+.font-fam {
+  font-size: 5em;
+  /* font-weight: 500; */
+  fill: var(--alt-text-color);
+}
 .one {
   animation: rotate 10s infinite linear;
 }
@@ -2134,6 +2092,45 @@ blockquote,
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* Crystal Structure */
+
+.crystalDiagram {
+  margin: 1.5rem 4rem 0;
+  stroke-width: 0.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (min-width: 1200px) {
+  .crystalDiagram {
+    margin: 2rem 4rem 0;
+  }
+}
+
+.strokeVisible {
+  stroke: rgb(var(--text-color));
+  fill: none;
+}
+.fillVisible {
+  stroke: rgb(var(--text-color));
+  fill: rgb(var(--text-color));
+  stroke-width: 0.75;
+}
+.strokeHidden {
+  stroke: rgb(var(--gray-color));
+  fill: none;
+}
+.fillHidden {
+  stroke: rgb(var(--gray-color));
+  fill: rgb(var(--gray-color));
+  stroke-width: 0.75;
+}
+.fillInter {
+  stroke: rgb(var(--blockquote-color));
+  fill: rgb(var(--blockquote-color));
+  stroke-width: 0.75;
 }
 
 * {
@@ -2311,7 +2308,7 @@ blockquote,
 .grid-print {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 4em;
+  gap: 4em;
 }
 
 @media (min-width: 992px) {
@@ -2327,13 +2324,14 @@ blockquote,
 }
 
 .downloadButton {
-  display: inline-flex;
-  column-gap: 1em;
+  display: grid;
+  gap: 1em;
   /* min-width: 100px; */
   height: 45px;
   border-radius: var(--border-radius);
   padding: 1.5em 1em;
   background-color: var(--darker-color-50);
+  color: #fff;
 }
 
 .downloadButton:hover {
@@ -2558,7 +2556,6 @@ nav > button {
   }
   nav ul li a {
     margin: 0;
-    /*     gap: 0.75em; */
   }
 
   nav ul ul .toggle,

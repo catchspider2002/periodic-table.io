@@ -2,13 +2,13 @@ const xlsxFile = require("read-excel-file/node");
 const fs = require("fs");
 const Constants = require("./htmlConstants.js");
 
-let newRawData = Constants.rawData;
+let newRawDataElement = Constants.rawData;
 
-newRawData.sort(function (a, b) {
-  if (parseInt(a.num) < parseInt(b.num)) return -1;
-  else if (parseInt(a.num) > parseInt(b.num)) return 1;
-  return 0;
-});
+// newRawDataElement.sort(function (a, b) {
+//   if (parseInt(a.num) < parseInt(b.num)) return -1;
+//   else if (parseInt(a.num) > parseInt(b.num)) return 1;
+//   return 0;
+// });
 
 // let defaultTemp = "celsius";
 // let defaultPunc = "comma";
@@ -17,7 +17,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
   xlsxFile("../Translation/Periodic Table others.xlsm", { sheet: 2 }).then((rows) => {
     for (let i = 1; i < 5; i++) {
       let eleNum = i;
-      let element = newRawData[eleNum - 1];
+      let element = newRawDataElement[eleNum - 1];
 
       let writeStream = fs.createWriteStream(lang + "/element-" + element.num + ".html");
 
@@ -68,7 +68,9 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
         "<link rel='stylesheet' href='css/global.css' />",
         "<script defer src='js/htmlJS.js'></script>",
         "<link rel='preload' href='fonts/" + regularFont + ".woff2' as='font' crossorigin='anonymous' />",
+        "<link rel='preload' href='fonts/NotoSans.woff2' as='font' crossorigin='anonymous' />",
         "<style>@font-face {font-family: SpecialRegular; src: url(fonts/" + regularFont + ".woff2) format('woff2'); font-display: swap;}",
+        "@font-face {font-family: Regular; src: url(fonts/NotoSans.woff2) format('woff2'); font-display: swap;}",
         "</style></head>",
       ];
 
@@ -1371,14 +1373,14 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
 
       if (eleNum === 1) previousHTML = "-";
       else {
-        let previousElement = newRawData[previousNum];
+        let previousElement = newRawDataElement[previousNum];
         previousHTML =
           "<a href='element-" + previousElement.num + ".html' class='underlineLink' id='previousElement'>" + langValues[previousElement.nme] + "</a>";
       }
 
       if (eleNum === 118) nextHTML = "-";
       else {
-        let nextElement = newRawData[nextNum];
+        let nextElement = newRawDataElement[nextNum];
         nextHTML = "<a href='element-" + nextElement.num + ".html' class='underlineLink' id='nextElement'>" + langValues[nextElement.nme] + "</a>";
       }
 

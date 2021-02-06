@@ -80,7 +80,8 @@
 } */
 
 html {
-  font-family: SpecialRegular;
+  font-family: Regular, SpecialRegular, sans-serif;
+    /* font-family: ; */
   /* font-family: "Noto Sans", sans-serif; */
 }
 
@@ -94,13 +95,13 @@ html {
 /* font-family: "Noto Sans", sans-serif; */
 /* } */
 
-.heavyFont {
-  /* font-family: SpecialHeavy; */
-  /* font-family: "Lato Heavy", "Special Heavy", sans-serif; */
-  /* font-family: "Noto Sans", sans-serif; */
-  /* font-weight: 600; */
-  font-weight: 700;
-}
+/* .heavyFont { */
+/* font-family: SpecialHeavy; */
+/* font-family: "Lato Heavy", "Special Heavy", sans-serif; */
+/* font-family: "Noto Sans", sans-serif; */
+/* font-weight: 600; */
+/* font-weight: 700;
+} */
 
 .grayText {
   color: rgba(var(--text-color), 0.7);

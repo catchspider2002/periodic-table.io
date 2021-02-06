@@ -1,8 +1,8 @@
 const fs = require("fs");
-const Constants = require("./htmlConstants.js");
+const ConstantsCompare = require("./htmlConstantsCompare.js");
 
-let newRawData = Constants.rawData;
-let defaultTemp = "celsius";
+let newRawDataCompare = ConstantsCompare.rawData;
+// let defaultTemp = "celsius";
 // let defaultPunc = "comma";
 
 const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultNav, defaultFooter) => {
@@ -62,7 +62,7 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
     return newTemp;
   }
 
-  newRawData.sort(function (a, b) {
+  newRawDataCompare.sort(function (a, b) {
     if (langValues[a.nme] < langValues[b.nme]) return -1;
     else if (langValues[a.nme] > langValues[b.nme]) return 1;
     return 0;
@@ -79,7 +79,7 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   writeStream.write("<div class='col-xs-4 new-table padding-10'>");
   // writeStream.write("<select aria-label='First Element' bind:value={firstElement} on:change={() => (firstEle = getElement(firstElement))}>");
   writeStream.write("<select id='firstElement' class='select-css' onchange='firstChanged()' aria-label='First Element'>");
-  newRawData.forEach((ele) => {
+  newRawDataCompare.forEach((ele) => {
     writeStream.write(" <option value=" + ele.id + ">" + langValues[ele.nme] + "</option>");
   });
   writeStream.write("</select>");
@@ -88,7 +88,7 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   writeStream.write("<div class='col-xs-4 new-table padding-10'>");
   // writeStream.write("<select aria-label='Second Element' bind:value={secondElement} on:change={() => (secondEle = getElement(secondElement))}>");
   writeStream.write("<select id='secondElement' class='select-css' onchange='secondChanged()' aria-label='Second Element'>");
-  newRawData.forEach((ele) => {
+  newRawDataCompare.forEach((ele) => {
     writeStream.write(" <option value=" + ele.id + ">" + langValues[ele.nme] + "</option>");
   });
   writeStream.write("</select>");
@@ -96,7 +96,7 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   writeStream.write("</div>");
   writeStream.write("</div>");
 
-  let element = newRawData[0];
+  let element = newRawDataCompare[0];
   writeStream.write("<div class='row'>");
   writeStream.write("<div class='col-xs-4 new-table grayText'>" + langValues.labelName + "</div>");
   writeStream.write("<a id='compEle1' href='element-" + element.num + ".html'>");

@@ -134,6 +134,10 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       if (err) throw err;
     });
 
+    fs.copyFile("fonts3/NotoSans.woff2", lang + "/fonts/NotoSans.woff2", (err) => {
+      if (err) throw err;
+    });
+
     // fs.copyFile("fonts3/" + language.heavy + ".woff2", lang + "/fonts/" + language.heavy + ".woff2", (err) => {
     //   if (err) throw err;
     // });
@@ -453,9 +457,9 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         "<link rel='stylesheet' href='css/global.css' />",
         "<script defer src='js/htmlJS.js'></script>",
         "<link rel='preload' href='fonts/" + language.regular + ".woff2' as='font' crossorigin='anonymous' />",
-        // "<link rel='preload' href='fonts/" + language.heavy + ".woff2' as='font' crossorigin='anonymous' />",
+        "<link rel='preload' href='fonts/NotoSans.woff2' as='font' crossorigin='anonymous' />",
         "<style>@font-face {font-family: SpecialRegular; src: url(fonts/" + language.regular + ".woff2) format('woff2'); font-display: swap;}",
-        // "@font-face {font-family: SpecialHeavy;src: url(fonts/" + language.heavy + ".woff2) format('woff2'); font-display: swap;}",
+        "@font-face {font-family: Regular;src: url(fonts/NotoSans.woff2) format('woff2'); font-display: swap;}",
         "</style></head><body>",
       ];
 

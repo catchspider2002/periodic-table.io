@@ -453,43 +453,48 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         );
       });
 
-      let metaTags2 = [
-        "<link rel='stylesheet' href='css/global.css' />",
-        "<script defer src='js/htmlJS.js'></script>",
+      let metaTags2 = ["<link rel='stylesheet' href='css/global.css' />", "<script defer src='js/htmlJS.js'></script>"];
+
+      let metaTagsFonts = [
         "<link rel='preload' href='fonts/" + language.regular + ".woff2' as='font' crossorigin='anonymous' />",
         "<link rel='preload' href='fonts/NotoSans.woff2' as='font' crossorigin='anonymous' />",
+      ];
+
+      if (language.regular === "NotoSans") metaTagsFonts = ["<link rel='preload' href='fonts/NotoSans.woff2' as='font' crossorigin='anonymous' />"];
+
+      let metaTags3 = [
         "<style>@font-face {font-family: SpecialRegular; src: url(fonts/" + language.regular + ".woff2) format('woff2'); font-display: swap;}",
         "@font-face {font-family: Regular;src: url(fonts/NotoSans.woff2) format('woff2'); font-display: swap;}",
         "</style></head><body>",
       ];
 
-      let metaTags = metaTags1.concat(metaAlternate).concat(metaTags2);
+      let metaTags = metaTags1.concat(metaAlternate).concat(metaTags2).concat(metaTagsFonts).concat(metaTags3);
 
       switch (page) {
-        case "index":
-          htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-          break;
-        case "privacy-policy":
-          htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-          break;
-        case "about":
-          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-          break;
-        case "store":
-          htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-          break;
-        case "printables":
-          htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-          break;
-        case "compare":
-          htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, defaultFooter);
-          break;
+        // case "index":
+        //   htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        //   break;
+        // case "privacy-policy":
+        //   htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        //   break;
+        // case "about":
+        //   htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        //   break;
+        // case "store":
+        //   htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        //   break;
+        // case "printables":
+        //   htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        //   break;
+        // case "compare":
+        //   htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, defaultFooter);
+        //   break;
         case "element":
-          htmlElement.writeFile(lang, langValues, language.col, language.regular, language.punc, page, defaultHead, defaultNav, defaultFooter);
+          htmlElement.writeFile(lang, langValues, language.col, language.regular, language.punc, page, defaultHead, defaultNav, defaultFooter, languages);
           break;
-        case "list":
-          htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-          break;
+        // case "list":
+        //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+        //   break;
       }
     });
   });

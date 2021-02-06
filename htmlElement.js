@@ -13,7 +13,7 @@ let newRawDataElement = Constants.rawData;
 // let defaultTemp = "celsius";
 // let defaultPunc = "comma";
 
-const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHead, defaultNav, defaultFooter) => {
+const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHead, defaultNav, defaultFooter, languages) => {
   xlsxFile("../Translation/Periodic Table others.xlsm", { sheet: 2 }).then((rows) => {
     for (let i = 1; i < 5; i++) {
       let eleNum = i;
@@ -52,7 +52,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       let title = langValues[element.nme] + " - " + langValues.homeHeader;
       let link = website + "/" + lang + "/element-" + element.num + "/";
 
-      let metaTags = [
+      let metaTags1 = [
         "<meta name='keywords' content='" + keywords + "' />",
         "<meta name='description' content='" + description + "' />",
         "<meta property='og:description' content='" + description + "' />",
@@ -65,14 +65,39 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
         "<meta name='twitter:image:src' content='" + image + "' />",
         "<meta property='og:url' content='" + link + "' />",
         "<link rel='canonical' href='" + link + "' />",
-        "<link rel='stylesheet' href='css/global.css' />",
-        "<script defer src='js/htmlJS.js'></script>",
+        // "<link rel='stylesheet' href='css/global.css' />",
+        // "<script defer src='js/htmlJS.js'></script>",
+        // "<link rel='preload' href='fonts/" + regularFont + ".woff2' as='font' crossorigin='anonymous' />",
+        // "<link rel='preload' href='fonts/NotoSans.woff2' as='font' crossorigin='anonymous' />",
+        // "<style>@font-face {font-family: SpecialRegular; src: url(fonts/" + regularFont + ".woff2) format('woff2'); font-display: swap;}",
+        // "@font-face {font-family: Regular; src: url(fonts/NotoSans.woff2) format('woff2'); font-display: swap;}",
+        // "</style></head>",
+      ];
+
+      let metaAlternate = [];
+
+      languages.forEach((langVal) => {
+        metaAlternate.push(
+          "<link rel='alternate' hreflang='" + langVal.lang + "' href='https://" + langVal.lang + ".periodic-table.io/element-" + element.num + "'/>"
+        );
+      });
+
+      let metaTags2 = ["<link rel='stylesheet' href='css/global.css' />", "<script defer src='js/htmlJS.js'></script>"];
+
+      let metaTagsFonts = [
         "<link rel='preload' href='fonts/" + regularFont + ".woff2' as='font' crossorigin='anonymous' />",
         "<link rel='preload' href='fonts/NotoSans.woff2' as='font' crossorigin='anonymous' />",
+      ];
+
+      if (regularFont === "NotoSans") metaTagsFonts = ["<link rel='preload' href='fonts/NotoSans.woff2' as='font' crossorigin='anonymous' />"];
+
+      let metaTags3 = [
         "<style>@font-face {font-family: SpecialRegular; src: url(fonts/" + regularFont + ".woff2) format('woff2'); font-display: swap;}",
-        "@font-face {font-family: Regular; src: url(fonts/NotoSans.woff2) format('woff2'); font-display: swap;}",
+        "@font-face {font-family: Regular;src: url(fonts/NotoSans.woff2) format('woff2'); font-display: swap;}",
         "</style></head>",
       ];
+
+      let metaTags = metaTags1.concat(metaAlternate).concat(metaTags2).concat(metaTagsFonts).concat(metaTags3);
 
       metaTags.forEach((tags) => {
         writeStream.write(tags);

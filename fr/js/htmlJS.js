@@ -583,7 +583,7 @@ function setColor(color) {
   let hexValue = rgbToHex(color);
 
   let darkerColor50 = colorLuminance(hexValue, -0.5);
-  let darkerColor0 = colorLuminance(hexValue, -0.6);
+  // let darkerColor0 = colorLuminance(hexValue, -0.6);
 
   let metaThemeColor = document.querySelector("meta[name=theme-color]");
   metaThemeColor.setAttribute("content", darkerColor50);
@@ -592,14 +592,14 @@ function setColor(color) {
   metaTileColor.setAttribute("content", hexValue);
   
   let root = document.documentElement;
-  console.log("color: " + color)
+  // console.log("color: " + color)
   root.style.setProperty("--theme-color", color);
   root.style.setProperty("--darker-color-50", darkerColor50);
-  root.style.setProperty("--darker-color-0", darkerColor0);
+  // root.style.setProperty("--darker-color-0", darkerColor0);
 }
 
 function rgbToHex(rgb) {
-  console.log(rgb)
+  // console.log(rgb)
   let r = rgb.split(",")[0];
   g = rgb.split(",")[1];
   b = rgb.split(",")[2];
@@ -1069,8 +1069,11 @@ function changeTheme() {
 }
 
 function setLanguage() {
+  let currentPage = window.location.href
+  let currentLang = document.documentElement.lang
   langValue = id("languageSelectSetting").value;
-  location.href= '../' + langValue
+  // location.href= '../' + langValue 
+  location.href= currentPage.replace(currentLang, langValue)
 
 
   // localStorage.setItem("langValue", langValue);

@@ -81,7 +81,7 @@
 
 html {
   font-family: Regular, SpecialRegular, sans-serif;
-    /* font-family: ; */
+  /* font-family: ; */
   /* font-family: "Noto Sans", sans-serif; */
 }
 
@@ -1242,7 +1242,7 @@ canvas {
 .headerOutline {
   display: inline-block;
   text-transform: uppercase;
-  padding: 0.25rem 1.5rem 2px 1.5rem;
+  padding: 0.25rem 1.5rem 0.25rem 1.5rem;
   border-radius: 1rem;
   margin: 0 -2.25rem 1rem;
   color: var(--alt-text-color);
@@ -2367,8 +2367,8 @@ nav {
   /* height: 52px; */
   display: grid;
   grid-template-columns: 1fr auto auto auto;
-  letter-spacing: 1.5px;
-  font-size: 0.9em;
+  letter-spacing: 1px;
+  /* font-size: 0.9em; */
 }
 
 #logo {
@@ -2422,8 +2422,9 @@ nav a {
 }
 nav ul li a {
   display: grid;
-  grid-template-columns: auto 1fr;
-  padding: 13px 15px;
+  /* grid-template-columns: auto 1fr; */
+  grid-auto-flow: column;
+  padding: 12px 15px;
   /* margin: 0 0.25em; */
   gap: 0.75em;
   cursor: pointer;

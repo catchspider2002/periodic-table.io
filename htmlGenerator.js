@@ -134,9 +134,9 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       if (err) throw err;
     });
 
-    fs.copyFile("fonts3/" + language.heavy + ".woff2", lang + "/fonts/" + language.heavy + ".woff2", (err) => {
-      if (err) throw err;
-    });
+    // fs.copyFile("fonts3/" + language.heavy + ".woff2", lang + "/fonts/" + language.heavy + ".woff2", (err) => {
+    //   if (err) throw err;
+    // });
 
     fs.copyFile("favicon-32x32.png", lang + "/favicon-32x32.png", (err) => {
       if (err) throw err;
@@ -219,7 +219,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<div id='overlap' class='collapsed' onclick='sideBar()'></div>",
       "<div id='sidebar' class='collapsed'>",
       "<div class='settingsGrid items-center'>",
-      "<div class='heavyFont text-left'>" + langValues.language + "</div>",
+      "<div class='grayText text-left'>" + langValues.language + "</div>",
       "<div>",
       "<select id='languageSelectSetting' class='select-css' aria-label='" + langValues.language + "' onchange='setLanguage()'>",
     ];
@@ -233,7 +233,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     let nav2 = [
       "</select>",
       "</div>",
-      "<div class='heavyFont text-left self-start'>" + langValues.temperature + "</div>",
+      "<div class='grayText text-left self-start'>" + langValues.temperature + "</div>",
       "<div class='radio-toolbar radio-temp'>",
       "<input type='radio' id='tempcelsius' name='temperature' value='celsius' onchange='setTemp()' />",
       "<label class='disable-select' for='tempcelsius'>" +
@@ -241,7 +241,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         "</label><input type='radio' id='tempfahrenheit' name='temperature' value='fahrenheit' onchange='setTemp()' />",
       "<label class='disable-select' for='tempfahrenheit'>" + langValues.tempFahrenheit + "</label>",
       "</div>",
-      "<div class='heavyFont text-left self-start'>" + langValues.labelColorMain + "</div>",
+      "<div class='grayText text-left self-start'>" + langValues.labelColorMain + "</div>",
       "<div class='radio-toolbar radio-color'>",
     ];
 
@@ -265,7 +265,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     let nav3 = [
       "</div>",
       "<div id='settingPeriodicTable' class='span-2'>" + langValues.homeHeader + "</div>",
-      "<div class='heavyFont text-left'>" + langValues.tableWidth + "</div>",
+      "<div class='grayText text-left'>" + langValues.tableWidth + "</div>",
       "<div>",
       "<select id='marginSetting' class='select-css' aria-label='" + langValues.tableWidth + "'>",
       "<option value='1'>100%</option>",
@@ -275,21 +275,21 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<option value='0.8'>80%</option>",
       "</select>",
       "</div>",
-      "<div class='heavyFont text-left'>" + langValues.labelName + "</div>",
+      "<div class='grayText text-left'>" + langValues.labelName + "</div>",
       "<div class='text-left'>",
       "<label class='switch'>",
       "<input id='nameSelectSetting' type='checkbox' >",
       "<span class='slider round' ></span>",
       "</label>",
       "</div>",
-      "<div class='heavyFont text-left'>" + langValues.labelAtmWtMain + "</div>",
+      "<div class='grayText text-left'>" + langValues.labelAtmWtMain + "</div>",
       "<div class='text-left'>",
       "<label class='switch'>",
       "<input id='atmNoSelectSetting' type='checkbox' >",
       "<span class='slider round' ></span>",
       "</label>",
       "</div>",
-      "<div class='heavyFont text-left self-start' id='tableStyle'>" + langValues.style + "</div>",
+      "<div class='grayText text-left self-start' id='tableStyle'>" + langValues.style + "</div>",
       "<div class='radio-toolbar radio-style'>",
       "<input type='radio' id='style1' name='tableStyle' value='1' onchange='setStyle()' >",
       "<label id='style1Label' class='disable-select' for='style1'></label>",
@@ -299,7 +299,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<label id='style3Label' class='disable-select' for='style3'></label>",
       "</div>",
       "</div>",
-      "</div><nav class='boldFont'>",
+      "</div><nav>",
       "<a id=logo class='navbar-brand' href='.' aria-label='Home'>",
       logoIcon + "PERIODIC-TABLE.IO",
       "</a><input type='checkbox' id='drop' />",
@@ -453,10 +453,10 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         "<link rel='stylesheet' href='css/global.css' />",
         "<script defer src='js/htmlJS.js'></script>",
         "<link rel='preload' href='fonts/" + language.regular + ".woff2' as='font' crossorigin='anonymous' />",
-        "<link rel='preload' href='fonts/" + language.heavy + ".woff2' as='font' crossorigin='anonymous' />",
+        // "<link rel='preload' href='fonts/" + language.heavy + ".woff2' as='font' crossorigin='anonymous' />",
         "<style>@font-face {font-family: SpecialRegular; src: url(fonts/" + language.regular + ".woff2) format('woff2'); font-display: swap;}",
-        "@font-face {font-family: SpecialHeavy;src: url(fonts/" + language.heavy + ".woff2) format('woff2'); font-display: swap;}</style>",
-        "</head><body>",
+        // "@font-face {font-family: SpecialHeavy;src: url(fonts/" + language.heavy + ".woff2) format('woff2'); font-display: swap;}",
+        "</style></head><body>",
       ];
 
       let metaTags = metaTags1.concat(metaAlternate).concat(metaTags2);
@@ -481,18 +481,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
           htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, defaultFooter);
           break;
         case "element":
-          htmlElement.writeFile(
-            lang,
-            langValues,
-            language.col,
-            language.regular,
-            language.heavy,
-            language.punc,
-            page,
-            defaultHead,
-            defaultNav,
-            defaultFooter
-          );
+          htmlElement.writeFile(lang, langValues, language.col, language.regular, language.punc, page, defaultHead, defaultNav, defaultFooter);
           break;
         case "list":
           htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);

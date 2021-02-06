@@ -38,7 +38,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
       className +
       "'><div class='eleNum'>" +
       element.num +
-      "</div><div class='eleSym heavyFont'>" +
+      "</div><div class='eleSym'>" +
       element.sym +
       "</div><div class='eleNm'>" +
       langValues[element.nme] +
@@ -53,7 +53,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("<tbody class='text-left'>");
   writeStream.write("<tr class='text-center'>");
   writeStream.write(
-    "<td id='groupPeriod' class='heavyFont'><span id='groupHeader'>" +
+    "<td id='groupPeriod'><span id='groupHeader'>" +
       langValues.group +
       " →</span> <br /><span id='periodHeader'>↓ " +
       langValues.period +
@@ -91,7 +91,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("<div id='snippetWt' class='text-right'></div>");
   writeStream.write("</div>");
   writeStream.write("<div id='details' class='square text-left'>");
-  writeStream.write("<div id='detailRow1' class='heavyFont text-upper detailRow1' colspan='2'></div>");
+  writeStream.write("<div id='detailRow1' class='grayText text-upper detailRow1' colspan='2'></div>");
   writeStream.write("<div id='detailRow2'>" + langValues.discovered + "</div>");
   writeStream.write("<div id='valueRow2'></div>");
   writeStream.write("<div id='detailRow3'>" + langValues.labelMeltingMain + "</div>");

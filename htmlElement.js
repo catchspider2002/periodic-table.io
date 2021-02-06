@@ -13,7 +13,7 @@ newRawData.sort(function (a, b) {
 // let defaultTemp = "celsius";
 // let defaultPunc = "comma";
 
-const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page, defaultHead, defaultNav, defaultFooter) => {
+const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHead, defaultNav, defaultFooter) => {
   xlsxFile("../Translation/Periodic Table others.xlsm", { sheet: 2 }).then((rows) => {
     for (let i = 1; i < 5; i++) {
       let eleNum = i;
@@ -68,10 +68,8 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
         "<link rel='stylesheet' href='css/global.css' />",
         "<script defer src='js/htmlJS.js'></script>",
         "<link rel='preload' href='fonts/" + regularFont + ".woff2' as='font' crossorigin='anonymous' />",
-        "<link rel='preload' href='fonts/" + heavyFont + ".woff2' as='font' crossorigin='anonymous' />",
         "<style>@font-face {font-family: SpecialRegular; src: url(fonts/" + regularFont + ".woff2) format('woff2'); font-display: swap;}",
-        "@font-face {font-family: SpecialHeavy;src: url(fonts/" + heavyFont + ".woff2) format('woff2'); font-display: swap;}</style>",
-        "</head>",
+        "</style></head>",
       ];
 
       metaTags.forEach((tags) => {
@@ -1025,14 +1023,14 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
       writeStream.write("</div>");
       writeStream.write("<div class='flex-cell'>");
       writeStream.write("<div id='secondSquare' class='flex-item masonry-col grid'>");
-      writeStream.write("<div class='heavyFont'>" + langValues.group + "</div>");
+      writeStream.write("<div class='grayText'>" + langValues.group + "</div>");
       writeStream.write("<div>");
       if (element.grp === "na") writeStream.write(langValues.na);
       else writeStream.write(getNum(element.grp.toString()));
       writeStream.write("</div>");
-      writeStream.write("<div class='heavyFont'>" + langValues.period + "</div>");
+      writeStream.write("<div class='grayText'>" + langValues.period + "</div>");
       writeStream.write("<div>" + element.prd + "</div>");
-      writeStream.write("<div class='heavyFont'>" + langValues.block + "</div>");
+      writeStream.write("<div class='grayText'>" + langValues.block + "</div>");
       writeStream.write("<div>" + element.blk + "</div>");
       writeStream.write("</div>");
       writeStream.write("</div>");
@@ -1041,9 +1039,9 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
       // Protons, Electrons, Neutrons
       writeStream.write("<div class='box-content masonry-col'>");
       writeStream.write("<div class='grid-3'>");
-      writeStream.write("<div class='new-table text-center heavyFont truncate'>" + langValues.protons + "</div>");
-      writeStream.write("<div class='new-table text-center heavyFont truncate'>" + langValues.electrons + "</div>");
-      writeStream.write("<div class='new-table text-center heavyFont truncate'>" + langValues.neutrons + "</div>");
+      writeStream.write("<div class='new-table text-center grayText truncate'>" + langValues.protons + "</div>");
+      writeStream.write("<div class='new-table text-center grayText truncate'>" + langValues.electrons + "</div>");
+      writeStream.write("<div class='new-table text-center grayText truncate'>" + langValues.neutrons + "</div>");
       writeStream.write("<div class='text-center new-table font-size-1-5'>" + element.p + "</div>");
       writeStream.write("<div class='text-center new-table font-size-1-5'>" + element.e + "</div>");
       writeStream.write("<div class='text-center new-table font-size-1-5'>" + element.n + "</div>");
@@ -1052,21 +1050,21 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
 
       // General Properties
       writeStream.write("<div class='box-content masonry-col'>");
-      writeStream.write("<span class='headerOutline text-upper boldFont'>" + langValues.labelGeneralProp + "</span>");
+      writeStream.write("<span class='headerOutline text-upper'>" + langValues.labelGeneralProp + "</span>");
       writeStream.write("  <div class='grid'>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelAtmNoMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelAtmNoMain + "</div>");
       writeStream.write("<div class='new-table'>" + element.num + "</div>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelAtmWtMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelAtmWtMain + "</div>");
       writeStream.write("<div class='new-table'>" + element.aWt + "</div>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelMassNum + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelMassNum + "</div>");
       writeStream.write("<div class='new-table'>" + element.mNo + "</div>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelCategoryMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelCategoryMain + "</div>");
       writeStream.write("<div class='new-table'>" + langValues[element.ctg] + "</div>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelColorMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelColorMain + "</div>");
       writeStream.write("<div class='new-table'>" + langValues[element.clr] + "</div>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelRadioMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelRadioMain + "</div>");
       writeStream.write("<div class='new-table'>" + langValues[element.rdo] + "</div>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelStructureMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelStructureMain + "</div>");
       writeStream.write("<div class='new-table'>" + langValues[element.stc] + "</div>");
       writeStream.write("</div>");
       writeStream.write("</div>");
@@ -1080,7 +1078,7 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
 
       // History
       writeStream.write("<div class='box-content masonry-col'>");
-      writeStream.write("<span class='headerOutline text-upper boldFont'>" + langValues.hist + "</span>");
+      writeStream.write("<span class='headerOutline text-upper'>" + langValues.hist + "</span>");
       writeStream.write("<div class='line-height-2'>");
       writeStream.write(post["ele" + eleNum + "History"]);
       writeStream.write("</div>");
@@ -1089,9 +1087,9 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
       // Electron Configuration
       writeStream.write("<div id='electronConf' class='box-content masonry-col'>");
       writeStream.write("<div class='grid padding-bottom-25'>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelElectronsMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelElectronsMain + "</div>");
       writeStream.write("<div class='new-table ltrText text-left'>" + element.elc + "</div>");
-      writeStream.write("<div class='new-table heavyFont hyphen'>" + langValues.labelConfigMain + "</div>");
+      writeStream.write("<div class='new-table grayText hyphen'>" + langValues.labelConfigMain + "</div>");
       writeStream.write("<div class='new-table ltrText text-left'>");
       writeStream.write(element.cnf);
       writeStream.write("</div>");
@@ -1108,30 +1106,30 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
 
       // Physical Properties
       writeStream.write("<div class='box-content masonry-col'>");
-      writeStream.write("<span class='headerOutline text-upper boldFont'>" + langValues.labelPhysicalProp + "</span>");
+      writeStream.write("<span class='headerOutline text-upper'>" + langValues.labelPhysicalProp + "</span>");
       writeStream.write("<div class='grid'>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelPhaseMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelPhaseMain + "</div>");
       writeStream.write("<div class='new-table'>" + langValues[element.phs] + "</div>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelDensityMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelDensityMain + "</div>");
       writeStream.write("<div class='new-table'>");
       if (element.dns === "-") writeStream.write("-");
       else writeStream.write(getNum(element.dns) + " " + langValues.labelDensity);
       writeStream.write("</div>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelMeltingMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelMeltingMain + "</div>");
       writeStream.write("<div id='outputMeltingMain' class='new-table'>" + getTemp(element.mlt) + "</div>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelBoilingMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelBoilingMain + "</div>");
       writeStream.write("<div id='outputBoilingMain' class='new-table'>" + getTemp(element.bln) + "</div>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelFusionMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelFusionMain + "</div>");
       writeStream.write("<div class='new-table'>");
       if (element.fsn === "na") writeStream.write(langValues.na);
       else writeStream.write(getNum(element.fsn) + " " + langValues.labelFusion);
       writeStream.write("</div>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelVaporizationMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelVaporizationMain + "</div>");
       writeStream.write("<div class='new-table'>");
       if (element.vpn === "na") writeStream.write(langValues.na);
       else writeStream.write(getNum(element.vpn) + " " + langValues.labelFusion);
       writeStream.write("</div>");
-      writeStream.write("<div class='new-table heavyFont hyphen'>" + langValues.labelSpecificMain + "</div>");
+      writeStream.write("<div class='new-table grayText hyphen'>" + langValues.labelSpecificMain + "</div>");
       writeStream.write("<div class='new-table'>");
       if (element.spc === "na") writeStream.write(langValues.na);
       else writeStream.write(getNum(element.spc) + " " + langValues.labelSpecific);
@@ -1142,12 +1140,12 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
       // Abundance
       writeStream.write("<div class='box-content masonry-col'>");
       writeStream.write("<div class='grid'>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelCrustMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelCrustMain + "</div>");
       writeStream.write("<div class='new-table'>");
       if (element.crt === "na") writeStream.write(langValues.na);
       else writeStream.write(getNum(element.crt));
       writeStream.write("</div>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelUniverseMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelUniverseMain + "</div>");
       writeStream.write("<div class='new-table'>");
       if (element.uni === "na") writeStream.write(langValues.na);
       else writeStream.write(getNum(element.uni));
@@ -1199,7 +1197,7 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
       );
       writeStream.write("</div>");
       writeStream.write("<div class='box-content bottom-rounded line-height-2'>");
-      writeStream.write("<span id='imgCredits' class='heavyFont'>" + langValues.imgCredits + ": </span>");
+      writeStream.write("<span id='imgCredits' class='grayText'>" + langValues.imgCredits + ": </span>");
       writeStream.write("<span id='imgCreditsLink'>");
       writeStream.write(eleCredits);
       writeStream.write("</span>");
@@ -1212,9 +1210,9 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
       // Identifiers
       writeStream.write("<div class='box-content masonry-col'>");
       writeStream.write("<div class='grid'>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelCASMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelCASMain + "</div>");
       writeStream.write("<div class='new-table'>" + element.cas + "</div>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelCIDMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelCIDMain + "</div>");
       writeStream.write("<div class='new-table'>");
       if (element.cid === "na") writeStream.write(langValues.na);
       else writeStream.write(getNum(element.cid));
@@ -1224,46 +1222,46 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
 
       // Atomic Properties
       writeStream.write("<div class='box-content masonry-col'>");
-      writeStream.write("<span class='headerOutline text-upper boldFont'>" + langValues.labelAtomicProp + "</span>");
+      writeStream.write("<span class='headerOutline text-upper'>" + langValues.labelAtomicProp + "</span>");
       writeStream.write("<div class='grid'>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelRadiusMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelRadiusMain + "</div>");
       writeStream.write("<div class='new-table'>");
       if (element.aRd === "-") writeStream.write("-");
       else writeStream.write(getNum(element.aRd) + " pm");
       writeStream.write("</div>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelCovalentMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelCovalentMain + "</div>");
       writeStream.write("<div class='new-table'>");
       if (element.cRd === "-") writeStream.write("-");
       else writeStream.write(getNum(element.cRd) + " pm");
       writeStream.write("</div>");
-      writeStream.write("<div class='new-table heavyFont hyphen'>" + langValues.labelElectronegativityMain + "</div>");
+      writeStream.write("<div class='new-table grayText hyphen'>" + langValues.labelElectronegativityMain + "</div>");
       writeStream.write("<div class='new-table'>");
       if (element.eNg === "-") writeStream.write("-");
       else writeStream.write(getNum(element.eNg) + " (" + langValues.pauling + ")");
       writeStream.write("</div>");
-      writeStream.write("<div class='new-table heavyFont hyphen'>" + langValues.labelIonizationMain + "</div>");
+      writeStream.write("<div class='new-table grayText hyphen'>" + langValues.labelIonizationMain + "</div>");
       writeStream.write("<div class='new-table'>");
       if (element.ion === "-") writeStream.write("-");
       else writeStream.write(getNum(element.ion) + " " + langValues.labelIonization);
       writeStream.write("</div>");
-      writeStream.write("<div class='new-table heavyFont'>" + langValues.labelVolumeMain + "</div>");
+      writeStream.write("<div class='new-table grayText'>" + langValues.labelVolumeMain + "</div>");
       writeStream.write("<div class='new-table'>");
       if (element.vol === "-") writeStream.write("-");
       else writeStream.write(getNum(element.vol) + " " + langValues.labelVolume);
       writeStream.write("</div>");
-      writeStream.write("<div class='new-table heavyFont hyphen'>" + langValues.labelThermalMain + "</div>");
+      writeStream.write("<div class='new-table grayText hyphen'>" + langValues.labelThermalMain + "</div>");
       writeStream.write("<div class='new-table'>");
       if (element.trm === "-") writeStream.write("-");
       else writeStream.write(getNum(element.trm) + " " + langValues.labelThermal);
       writeStream.write("</div>");
-      writeStream.write("<div class='new-table heavyFont hyphen'>" + langValues.labelOxidationMain + "</div>");
+      writeStream.write("<div class='new-table grayText hyphen'>" + langValues.labelOxidationMain + "</div>");
       writeStream.write("<div class='new-table ltrText text-left'>" + element.oxi + "</div>");
       writeStream.write("</div>");
       writeStream.write("</div>");
 
       // Uses
       writeStream.write("<div class='box-content masonry-col'>");
-      writeStream.write("<span class='headerOutline text-upper boldFont'>" + langValues.uses + "</span>");
+      writeStream.write("<span class='headerOutline text-upper grayText'>" + langValues.uses + "</span>");
       writeStream.write("<div class='line-height-2'>");
       writeStream.write(post["ele" + eleNum + "Uses"]);
       writeStream.write("</div>");
@@ -1278,16 +1276,16 @@ const writeFile = (lang, langValues, column, regularFont, heavyFont, punc, page,
 
       // Isotopes
       writeStream.write("<div class='box-content masonry-col'>");
-      writeStream.write("<span class='headerOutline text-upper boldFont'>" + langValues.isotopes + "</span>");
-      writeStream.write("<div class='heavyFont padding-0 margin-y-10'>" + langValues.stableIsotopes + "</div>");
+      writeStream.write("<span class='headerOutline text-upper'>" + langValues.isotopes + "</span>");
+      writeStream.write("<div class='grayText padding-0 margin-y-10'>" + langValues.stableIsotopes + "</div>");
       writeStream.write("<span class='isotopeLine'>" + eleStable + "</span>");
-      writeStream.write("<div class='heavyFont padding-0 margin-y-10'>" + langValues.unstableIsotopes + "</div>");
+      writeStream.write("<div class='grayText padding-0 margin-y-10'>" + langValues.unstableIsotopes + "</div>");
       writeStream.write("<span class='isotopeLine'>" + eleUnstable + "</span>");
       writeStream.write("</div>");
 
       // Important Links
       writeStream.write("<div class='box-content masonry-col'>");
-      writeStream.write("<span class='headerOutline text-upper boldFont'>" + langValues.labelLinksMain + "</span>");
+      writeStream.write("<span class='headerOutline text-upper'>" + langValues.labelLinksMain + "</span>");
       writeStream.write("<div class='webLink'>");
       writeStream.write(
         "<a id='link1' href='" +

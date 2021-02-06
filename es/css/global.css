@@ -95,20 +95,15 @@ html {
 /* } */
 
 .heavyFont {
-  font-family: SpecialHeavy;
-  /* font-family: "Lato Heavy", "Special Heavy", sans-serif; */
-  /* font-family: "Noto Sans", sans-serif; */
-  /* font-weight: 600; */
-  /* font-weight: 700; */
-}
-
-.boldFont {
   /* font-family: SpecialHeavy; */
   /* font-family: "Lato Heavy", "Special Heavy", sans-serif; */
   /* font-family: "Noto Sans", sans-serif; */
   /* font-weight: 600; */
   font-weight: 700;
-  /* letter-spacing: 1px; */
+}
+
+.grayText {
+  color: rgba(var(--text-color), 0.7);
 }
 
 body {

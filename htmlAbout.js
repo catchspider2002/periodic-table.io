@@ -17,7 +17,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
 
   writeStream.write("<div class='content-wrapper'>");
   writeStream.write("<div class='container'>");
-  writeStream.write("<div id='about' class='row text-upper aboutHeader text-center heavyFont'>" + langValues.about + "</div>");
+  writeStream.write("<div id='about' class='row text-upper aboutHeader text-center'>" + langValues.about + "</div>");
   writeStream.write("<div>");
   writeStream.write("<span>" + langValues.line1 + "</span>");
   writeStream.write("<span>" + langValues.line2 + "</span>");
@@ -31,15 +31,15 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("<li>" + langValues.feature7 + "</li>");
   writeStream.write("<li>" + langValues.feature9 + "</li>");
   writeStream.write("</ul>");
-  writeStream.write("<span class='heavyFont'>" + langValues.contact + "</span>: ");
+  writeStream.write("<span class='grayText'>" + langValues.contact + "</span>: ");
   writeStream.write("<a class='underlineLink' href='mailto:naveen@periodic-table.io?subject=Periodic-Table.io'>naveen@periodic-table.io</a>");
   writeStream.write("<br />");
-  writeStream.write("<span class='heavyFont'>Github</span>: ");
+  writeStream.write("<span class='grayText'>Github</span>: ");
   writeStream.write(
     "<a class='underlineLink' href='https://github.com/catchspider2002/periodic-table.io'>https://github.com/catchspider2002/periodic-table.io</a>"
   );
   writeStream.write("</div>");
-  writeStream.write("<div class='row text-upper aboutHeader text-center heavyFont'>" + langValues.changelog + "</div>");
+  writeStream.write("<div class='row text-upper aboutHeader text-center'>" + langValues.changelog + "</div>");
   writeStream.write("<div>");
   writeStream.write("<ul id='logs'>");
   writeStream.write("<li class='font-weight-600 versionHeader margin-top-30'>November 26, 2020</li>");
@@ -119,7 +119,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("<li>Updated Japanese and Dutch translations</li>");
   writeStream.write("</ul>");
   writeStream.write("</div>");
-  writeStream.write("<div class='row text-upper aboutHeader text-center heavyFont'>" + langValues.languages + "</div>");
+  writeStream.write("<div class='row text-upper aboutHeader text-center'>" + langValues.languages + "</div>");
   writeStream.write("<div>");
   writeStream.write("<div class='pb-8'>");
   writeStream.write(langValues.enTrans + "; " + langValues.arTrans + "; " + langValues.bgTrans + "; " + langValues.caTrans + "; ");

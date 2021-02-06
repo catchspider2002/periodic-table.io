@@ -98,7 +98,7 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
 
   let element = newRawData[0];
   writeStream.write("<div class='row'>");
-  writeStream.write("<div class='col-xs-4 new-table heavyFont'>" + langValues.labelName + "</div>");
+  writeStream.write("<div class='col-xs-4 new-table grayText'>" + langValues.labelName + "</div>");
   writeStream.write("<a id='compEle1' href='element-" + element.num + ".html'>");
   writeStream.write(
     "<div class='col-xs-4 new-table compareLink'><span id='name1' class='underlineLink'>" + langValues[element.nme] + "</span></div>"
@@ -123,14 +123,14 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
 
   compare1Links.forEach((compareLink) => {
     writeStream.write("<div class='row'>");
-    writeStream.write("<div class='col-xs-4 new-table heavyFont'>" + langValues[compareLink.label] + "</div>");
+    writeStream.write("<div class='col-xs-4 new-table grayText'>" + langValues[compareLink.label] + "</div>");
     writeStream.write("<div id='" + compareLink.id + "1' class='col-xs-4 new-table'>" + compareLink.value + "</div>");
     writeStream.write("<div id='" + compareLink.id + "2' class='col-xs-4 new-table'>" + compareLink.value + "</div>");
     writeStream.write("</div>");
   });
 
   writeStream.write("<div class='padding-top-42'>");
-  writeStream.write("<div class='headerOutline text-upper boldFont'>" + langValues.labelGeneralProp + "</div>");
+  writeStream.write("<div class='headerOutline text-upper'>" + langValues.labelGeneralProp + "</div>");
   writeStream.write("</div>");
 
   let compare2Links = [
@@ -143,14 +143,14 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
 
   compare2Links.forEach((compareLink) => {
     writeStream.write("<div class='row'>");
-    writeStream.write("<div class='col-xs-4 new-table heavyFont'>" + langValues[compareLink.label] + "</div>");
+    writeStream.write("<div class='col-xs-4 new-table grayText'>" + langValues[compareLink.label] + "</div>");
     writeStream.write("<div id='" + compareLink.id + "1' class='col-xs-4 new-table'>" + compareLink.value + "</div>");
     writeStream.write("<div id='" + compareLink.id + "2' class='col-xs-4 new-table'>" + compareLink.value + "</div>");
     writeStream.write("</div>");
   });
 
   writeStream.write("<div class='padding-top-42'>");
-  writeStream.write("<div class='headerOutline text-upper boldFont'>" + langValues.labelPhysicalProp + "</div>");
+  writeStream.write("<div class='headerOutline text-upper'>" + langValues.labelPhysicalProp + "</div>");
   writeStream.write("</div>");
 
   let compare3Links = [
@@ -173,7 +173,7 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
 
   compare3Links.forEach((compareLink) => {
     writeStream.write("<div class='row'>");
-    writeStream.write("<div class='col-xs-4 new-table heavyFont'>" + compareLink.label + "</div>");
+    writeStream.write("<div class='col-xs-4 new-table grayText'>" + compareLink.label + "</div>");
     if (compareLink.id === "meltPoint")
       writeStream.write(
         "<div id='" + compareLink.id + "1' class='col-xs-4 new-table'><div id='outputMeltingMain'>" + compareLink.value + "</div></div>"
@@ -188,7 +188,7 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   });
 
   writeStream.write("<div class='padding-top-42'>");
-  writeStream.write("<div class='headerOutline text-upper boldFont'>" + langValues.labelAtomicProp + "</div>");
+  writeStream.write("<div class='headerOutline text-upper'>" + langValues.labelAtomicProp + "</div>");
   writeStream.write("</div>");
 
   let compare4Links = [
@@ -205,7 +205,7 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
 
   compare4Links.forEach((compareLink) => {
     writeStream.write("<div class='row'>");
-    writeStream.write("<div class='col-xs-4 new-table heavyFont'>" + compareLink.label + "</div>");
+    writeStream.write("<div class='col-xs-4 new-table grayText'>" + compareLink.label + "</div>");
     writeStream.write("<div id='" + compareLink.id + "1' class='col-xs-4 new-table'>" + compareLink.value + "</div>");
     writeStream.write("<div id='" + compareLink.id + "2' class='col-xs-4 new-table'>" + compareLink.value + "</div>");
     writeStream.write("</div>");

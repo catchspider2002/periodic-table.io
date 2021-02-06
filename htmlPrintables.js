@@ -84,7 +84,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
 
   writeStream.write("<div class='content-wrapper'>");
   writeStream.write("<div class='container'>");
-  writeStream.write("<div id='printablesHeader' class='row text-upper aboutHeader text-center heavyFont'></div>");
+  writeStream.write("<div id='printablesHeader' class='row text-upper aboutHeader text-center grayText'></div>");
   writeStream.write("<div id='printablesLayout'>");
   writeStream.write("<div class='grid-print'>");
 

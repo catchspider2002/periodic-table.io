@@ -37,7 +37,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("<div class='container'>");
   writeStream.write("<div class='flex flex-wrap'>");
   writeStream.write("<div class='margin-bottom-20'>");
-  writeStream.write("<div id='lightTeeHeader' class='text-upper text-center heavyFont aboutHeader'>T-shirt (" + langValues.themeLight + ")</div>");
+  writeStream.write("<div id='lightTeeHeader' class='text-upper text-center grayText aboutHeader'>T-shirt (" + langValues.themeLight + ")</div>");
   writeStream.write("<div class='padding-10'>");
   writeStream.write("<img class='table teeImage' alt='Periodic table t-shirt in light background' src='images/store/LightTee.png' /></div>");
   writeStream.write("<div class='text-center'>");
@@ -49,7 +49,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("</div>");
   writeStream.write("</div>");
   writeStream.write("<div class='margin-bottom-20'>");
-  writeStream.write("<div id='darkTeeHeader' class='text-upper text-center heavyFont aboutHeader'>T-shirt (" + langValues.themeDark + ")</div>");
+  writeStream.write("<div id='darkTeeHeader' class='text-upper text-center grayText aboutHeader'>T-shirt (" + langValues.themeDark + ")</div>");
   writeStream.write("<div class='padding-10'>");
   writeStream.write("<img class='table teeImage' alt='Periodic table t-shirt in dark background' src='images/store/DarkTee.png' /></div>");
   writeStream.write("<div class='text-center'>");

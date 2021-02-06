@@ -17,7 +17,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
 
   writeStream.write("<div class='content-wrapper'>");
   writeStream.write("<div class='container'>");
-  writeStream.write("<div class='row text-upper aboutHeader text-center heavyFont'>");
+  writeStream.write("<div class='row text-upper aboutHeader text-center grayText'>");
   writeStream.write(langValues.privacy + "</div>");
   writeStream.write("<div><span>" + langValues.privacyFull + "</span></div>");
   writeStream.write("</div>");

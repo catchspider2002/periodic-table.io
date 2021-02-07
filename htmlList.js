@@ -50,17 +50,17 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("<div class='m-b-30 flex-auto m-x-15'><input class='search' id='searchText' aria-label='Search' /></div>");
   writeStream.write("<div class='m-b-30 flex-auto m-x-15'>");
   writeStream.write(
-    "<button class='sort' data-sort='listNum' onclick='sortByNumber()'><span>" + langValues.sortNumber + "</span><span id='sortNum' /></button>"
+    "<button class='sort' data-sort='listNum' onclick='sortByNumber()'>" + langValues.sortNumber + "<span id='sortNum' /></button>"
   );
   writeStream.write("</div>");
   writeStream.write("<div class='m-b-30 flex-auto m-x-15'>");
   writeStream.write(
-    "<button class='sort' data-sort='listName' onclick='sortByName()'><span>" + langValues.sortName + "</span><span id='sortNm' /></button>"
+    "<button class='sort' data-sort='listName' onclick='sortByName()'>" + langValues.sortName + "<span id='sortNm' /></button>"
   );
   writeStream.write("</div>");
   writeStream.write("<div class='m-b-30 flex-auto m-x-15'>");
   writeStream.write(
-    "<button class='sort' data-sort='listSym' onclick='sortBySymbol()'><span>" + langValues.sortSymbol + "</span><span id='sortSym' /></button>"
+    "<button class='sort' data-sort='listSym' onclick='sortBySymbol()'>" + langValues.sortSymbol + "<span id='sortSym' /></button>"
   );
   writeStream.write("</div>");
   writeStream.write("</div>");
@@ -72,7 +72,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
     writeStream.write("<div class='list-content flex'>");
     writeStream.write("<div class='listSym'>" + element.sym + "</div>");
     writeStream.write("<div class='listName'>" + langValues[element.nme] + "</div>");
-    writeStream.write("<div class='listNum'><span>" + getNum(element.num) + "</span></div>");
+    writeStream.write("<div class='listNum'>" + getNum(element.num) + "</div>");
     writeStream.write("</div>");
     writeStream.write("</a>");
   });

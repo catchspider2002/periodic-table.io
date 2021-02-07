@@ -1753,9 +1753,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       writeStream.write("</div>");
       writeStream.write("<div class='box-content bottom-rounded line-height-2'>");
       writeStream.write("<span class='grayText'>" + langValues.imgCredits + ": </span>");
-      writeStream.write("<span>");
       writeStream.write(eleCredits);
-      writeStream.write("</span>");
       writeStream.write("<div class='pt-4'>");
       writeStream.write(post["ele" + eleNum + "Desc"]);
       writeStream.write("</div>");
@@ -1939,7 +1937,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
 
       writeStream.write("<div id='elementNav' class='row text-center'>");
       writeStream.write(previousHTML + "&nbsp;&nbsp;←&nbsp;");
-      writeStream.write("<span>" + element.sym + "</span>&nbsp;&nbsp;→&nbsp;");
+      writeStream.write(element.sym + "&nbsp;&nbsp;→&nbsp;");
       writeStream.write(nextHTML);
       writeStream.write("</div>");
       writeStream.write("</div>");

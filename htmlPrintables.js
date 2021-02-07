@@ -93,7 +93,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
     writeStream.write("<h1>"+printableLink.title+"</h1>");
     writeStream.write("<img class='py-4 image' draggable='false' src='images/printables/"+printableLink.image+".png' alt='"+printableLink.title+"' />");
     writeStream.write("<div class='py-4'>"+printableLink.description+"</div>");
-    writeStream.write("<div class='pt-2 font-weight-600'>"+langValues.languages+"</div>");
+    writeStream.write("<div class='pt-4 grayText'>"+langValues.languages+"</div>");
     writeStream.write("<div class='py-4'>"+printableLink.languages+"</div>");
   // writeStream.write("{#if rating > 0}
   //   <div class='py-2'>⭐⭐⭐⭐⭐ ({rating} rating{rating > 1 ? 's' : ''})</div>

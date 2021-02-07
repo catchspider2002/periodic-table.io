@@ -61,47 +61,47 @@ let darkIcon =
 
 xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
   let languages = [
-    // { lang: 'en', name: 'English', col: 3, punc: 'dot', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'en-gb', name: 'English (UK)', col: 40, punc: 'dot', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'bg', name: 'Български', col: 20, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'ca', name: 'Català', col: 25, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'zh-cn', name: '中文(简体)', col: 6, punc: 'dot', regular: 'NotoSansSC-Regular', heavy: 'NotoSansSC-Bold'},
-    // { lang: 'zh-tw', name: '中文(繁體)', col: 28, punc: 'dot', regular: 'NotoSansTC-Regular', heavy: 'NotoSansTC-Bold'},
-    // { lang: 'hr', name: 'Hrvatski', col: 39, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'cs', name: 'Čeština', col: 24, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'da', name: 'Dansk', col: 33, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'nl', name: 'Nederlands', col: 7, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'fi', name: 'Suomi', col: 19, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    { lang: "fr", name: "Français", col: 5, punc: "comma", regular: "NotoSans", heavy: "NotoSansBold" },
-    // { lang: 'de', name: 'Deutsch', col: 12, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'el', name: 'Ελληνικά', col: 35, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'hi', name: 'हिंदी', col: 29, punc: 'dot', regular: 'NotoSansDevanagari-Regular', heavy: 'NotoSansDevanagari-Bold'},
-    // { lang: 'hu', name: 'Magyar', col: 11, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'id', name: 'Bahasa Indonesia', col: 21, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'it', name: 'Italiano', col: 8, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular", heavy: "NotoSansJP-Bold" },
-    // { lang: 'ko', name: '한국어', col: 10, punc: 'dot', regular: 'NotoSansKR-Regular', heavy: 'NotoSansKR-Bold'},
-    // { lang: 'ms', name: 'Bahasa Melayu', col: 41, punc: 'dot', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'nb-no', name: 'Norsk Bokmål', col: 27, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'nn-no', name: 'Norsk Nynorsk', col: 38, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'pl', name: 'Polski', col: 30, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'pt', name: 'Português', col: 18, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'ro', name: 'Română', col: 17, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'ru', name: 'Русский', col: 9, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'sr', name: 'Српски', col: 26, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'sk', name: 'Slovenčina', col: 13, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'sl', name: 'Slovenščina', col: 37, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans", heavy: "NotoSansBold" },
-    // { lang: 'sv', name: 'Svenska', col: 32, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'th', name: 'ไทย', col: 34, punc: 'dot', regular: 'NotoSansThai-Regular', heavy: 'NotoSansThai-Bold'},
-    // { lang: 'tr', name: 'Türkçe', col: 22, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'uk', name: 'Українська', col: 14, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'vi', name: 'Tiếng Việt', col: 15, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
-    // { lang: 'ar', name: 'العربية', col: 31, punc: 'dot', regular: 'NotoSansKufiArabic-Regular', heavy: 'NotoSansKufiArabic-Bold'},
-    // { lang: 'he', name: 'עברית', col: 36, punc: 'dot', regular: 'NotoSansHebrew-Regular', heavy: 'NotoSansHebrew-Bold'},
-    // { lang: 'fa', name: 'فارسی', col: 16, punc: 'dot', regular: 'NotoSansKufiArabic-Regular', heavy: 'NotoSansKufiArabic-Bold'},
-    // { lang: 'hy', name: 'Հայերեն', col: 42, punc: 'comma', regular: 'NotoSansArmenian-Regular', heavy: 'NotoSansArmenian-Bold'},
-    // { lang: 'mk', name: 'Македонски', col: 43, punc: 'comma', regular: 'NotoSans', heavy: 'NotoSansBold'},
+    { lang: 'en', name: 'English', col: 3, punc: 'dot', regular: 'NotoSans'}, 
+    // { lang: 'en-gb', name: 'English (UK)', col: 40, punc: 'dot', regular: 'NotoSans'}, 
+    // { lang: 'bg', name: 'Български', col: 20, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'ca', name: 'Català', col: 25, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'zh-cn', name: '中文(简体)', col: 6, punc: 'dot', regular: 'NotoSansSC-Regular'}, 
+    // { lang: 'zh-tw', name: '中文(繁體)', col: 28, punc: 'dot', regular: 'NotoSansTC-Regular'}, 
+    // { lang: 'hr', name: 'Hrvatski', col: 39, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'cs', name: 'Čeština', col: 24, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'da', name: 'Dansk', col: 33, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'nl', name: 'Nederlands', col: 7, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'fi', name: 'Suomi', col: 19, punc: 'comma', regular: 'NotoSans'}, 
+    { lang: 'fr', name: 'Français', col: 5, punc: 'comma', regular: 'NotoSans'}, 
+    { lang: 'de', name: 'Deutsch', col: 12, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'el', name: 'Ελληνικά', col: 35, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'hi', name: 'हिंदी', col: 29, punc: 'dot', regular: 'NotoSansDevanagari-Regular'}, 
+    // { lang: 'hu', name: 'Magyar', col: 11, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'id', name: 'Bahasa Indonesia', col: 21, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'it', name: 'Italiano', col: 8, punc: 'comma', regular: 'NotoSans'}, 
+    { lang: 'ja', name: '日本語', col: 23, punc: 'dot', regular: 'NotoSansJP-Regular'}, 
+    // { lang: 'ko', name: '한국어', col: 10, punc: 'dot', regular: 'NotoSansKR-Regular'}, 
+    // { lang: 'ms', name: 'Bahasa Melayu', col: 41, punc: 'dot', regular: 'NotoSans'}, 
+    // { lang: 'nb-no', name: 'Norsk Bokmål', col: 27, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'nn-no', name: 'Norsk Nynorsk', col: 38, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'pl', name: 'Polski', col: 30, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'pt', name: 'Português', col: 18, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'ro', name: 'Română', col: 17, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'ru', name: 'Русский', col: 9, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'sr', name: 'Српски', col: 26, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'sk', name: 'Slovenčina', col: 13, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'sl', name: 'Slovenščina', col: 37, punc: 'comma', regular: 'NotoSans'}, 
+    { lang: 'es', name: 'Español', col: 4, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'sv', name: 'Svenska', col: 32, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'th', name: 'ไทย', col: 34, punc: 'dot', regular: 'NotoSansThai-Regular'}, 
+    // { lang: 'tr', name: 'Türkçe', col: 22, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'uk', name: 'Українська', col: 14, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'vi', name: 'Tiếng Việt', col: 15, punc: 'comma', regular: 'NotoSans'}, 
+    // { lang: 'ar', name: 'العربية', col: 31, punc: 'dot', regular: 'NotoSansKufiArabic-Regular'}, 
+    // { lang: 'he', name: 'עברית', col: 36, punc: 'dot', regular: 'NotoSansHebrew-Regular'}, 
+    // { lang: 'fa', name: 'فارسی', col: 16, punc: 'dot', regular: 'NotoSansKufiArabic-Regular'}, 
+    // { lang: 'hy', name: 'Հայերեն', col: 42, punc: 'comma', regular: 'NotoSansArmenian-Regular'}, 
+    // { lang: 'mk', name: 'Македонски', col: 43, punc: 'comma', regular: 'NotoSans'},     
   ];
 
   languages.forEach((language) => {
@@ -111,7 +111,8 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     var cssDir = lang + "/css";
     var jsDir = lang + "/js";
     var fontDir = lang + "/fonts";
-    // var fontDir = lang + "/fonts";
+
+    if (!fs.existsSync(lang)) fs.mkdirSync(lang);
 
     if (!fs.existsSync(cssDir)) fs.mkdirSync(cssDir);
     if (!fs.existsSync(jsDir)) fs.mkdirSync(jsDir);
@@ -119,7 +120,6 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
 
     fs.copyFile("global.css", lang + "/css/global.css", (err) => {
       if (err) throw err;
-      // console.log("source.txt was copied to destination.txt");
     });
 
     fs.copyFile("vercel.json", lang + "/vercel.json", (err) => {

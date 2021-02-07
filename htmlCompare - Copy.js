@@ -72,10 +72,11 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   writeStream.write("<div class='container'>");
   writeStream.write("<div class='row'>");
   writeStream.write("<div id='compareBg' class='box-content'>");
+  writeStream.write("<div id='mainCompare'>");
   writeStream.write("<div id='topRowCompare'>");
   writeStream.write("<div id='compareTop' class='square'>");
-  writeStream.write("<div></div>");
-  writeStream.write("<div class='padding-10'>");
+  writeStream.write("<div class='col-xs-4'></div>");
+  writeStream.write("<div class='col-xs-4 padding-10'>");
   // writeStream.write("<select aria-label='First Element' bind:value={firstElement} on:change={() => (firstEle = getElement(firstElement))}>");
   writeStream.write("<select id='firstElement' class='select-css' onchange='firstChanged()' aria-label='First Element'>");
   newRawDataCompare.forEach((ele) => {
@@ -84,7 +85,7 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   writeStream.write("</select>");
   writeStream.write("</div>");
   // writeStream.write("</div>");
-  writeStream.write("<div class='padding-10'>");
+  writeStream.write("<div class='col-xs-4 padding-10'>");
   // writeStream.write("<select aria-label='Second Element' bind:value={secondElement} on:change={() => (secondEle = getElement(secondElement))}>");
   writeStream.write("<select id='secondElement' class='select-css' onchange='secondChanged()' aria-label='Second Element'>");
   newRawDataCompare.forEach((ele) => {
@@ -94,22 +95,21 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   writeStream.write("</div>");
   writeStream.write("</div>");
   writeStream.write("</div>");
-  writeStream.write("<div id='mainCompare'>");
 
   let element = newRawDataCompare[0];
-  // writeStream.write("<div class='row'>");
-  writeStream.write("<div class='grayText'>" + langValues.labelName + "</div>");
+  writeStream.write("<div class='row'>");
+  writeStream.write("<div class='col-xs-4 grayText'>" + langValues.labelName + "</div>");
   writeStream.write("<a id='compEle1' href='element-" + element.num + ".html'>");
   writeStream.write(
-    "<div class='compareLink'><span id='name1' class='underlineLink'>" + langValues[element.nme] + "</span></div>"
+    "<div class='col-xs-4 compareLink'><span id='name1' class='underlineLink'>" + langValues[element.nme] + "</span></div>"
   );
   writeStream.write("</a>");
   writeStream.write("<a id='compEle2' href='element-" + element.num + ".html'>");
   writeStream.write(
-    "<div class='compareLink'><span id='name2' class='underlineLink'>" + langValues[element.nme] + "</span></div>"
+    "<div class='col-xs-4 compareLink'><span id='name2' class='underlineLink'>" + langValues[element.nme] + "</span></div>"
   );
   writeStream.write("</a>");
-  // writeStream.write("</div>");
+  writeStream.write("</div>");
 
   let compare1Links = [
     { label: "labelSymbol", id: "symbol", value: element.sym },
@@ -122,14 +122,14 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   ];
 
   compare1Links.forEach((compareLink) => {
-    // writeStream.write("<div class='row'>");
-    writeStream.write("<div class='grayText'>" + langValues[compareLink.label] + "</div>");
-    writeStream.write("<div id='" + compareLink.id + "1'>" + compareLink.value + "</div>");
-    writeStream.write("<div id='" + compareLink.id + "2'>" + compareLink.value + "</div>");
-    // writeStream.write("</div>");
+    writeStream.write("<div class='row'>");
+    writeStream.write("<div class='col-xs-4 grayText'>" + langValues[compareLink.label] + "</div>");
+    writeStream.write("<div id='" + compareLink.id + "1' class='col-xs-4'>" + compareLink.value + "</div>");
+    writeStream.write("<div id='" + compareLink.id + "2' class='col-xs-4'>" + compareLink.value + "</div>");
+    writeStream.write("</div>");
   });
 
-  writeStream.write("<div class='span-3 padding-top-42'>");
+  writeStream.write("<div class='padding-top-42'>");
   writeStream.write("<div class='headerOutline text-upper'>" + langValues.labelGeneralProp + "</div>");
   writeStream.write("</div>");
 
@@ -142,14 +142,14 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   ];
 
   compare2Links.forEach((compareLink) => {
-    // writeStream.write("<div class='row'>");
-    writeStream.write("<div class='grayText'>" + langValues[compareLink.label] + "</div>");
-    writeStream.write("<div id='" + compareLink.id + "1'>" + compareLink.value + "</div>");
-    writeStream.write("<div id='" + compareLink.id + "2'>" + compareLink.value + "</div>");
-    // writeStream.write("</div>");
+    writeStream.write("<div class='row'>");
+    writeStream.write("<div class='col-xs-4 grayText'>" + langValues[compareLink.label] + "</div>");
+    writeStream.write("<div id='" + compareLink.id + "1' class='col-xs-4'>" + compareLink.value + "</div>");
+    writeStream.write("<div id='" + compareLink.id + "2' class='col-xs-4'>" + compareLink.value + "</div>");
+    writeStream.write("</div>");
   });
 
-  writeStream.write("<div class='span-3 padding-top-42'>");
+  writeStream.write("<div class='padding-top-42'>");
   writeStream.write("<div class='headerOutline text-upper'>" + langValues.labelPhysicalProp + "</div>");
   writeStream.write("</div>");
 
@@ -172,22 +172,22 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   ];
 
   compare3Links.forEach((compareLink) => {
-    // writeStream.write("<div class='row'>");
-    writeStream.write("<div class='grayText'>" + compareLink.label + "</div>");
+    writeStream.write("<div class='row'>");
+    writeStream.write("<div class='col-xs-4 grayText'>" + compareLink.label + "</div>");
     if (compareLink.id === "meltPoint")
       writeStream.write(
-        "<div id='" + compareLink.id + "1'><div id='outputMeltingMain'>" + compareLink.value + "</div></div>"
+        "<div id='" + compareLink.id + "1' class='col-xs-4'><div id='outputMeltingMain'>" + compareLink.value + "</div></div>"
       );
     else if (compareLink.id === "boilPoint")
       writeStream.write(
-        "<div id='" + compareLink.id + "1'><div id='outputBoilingMain'>" + compareLink.value + "</div></div>"
+        "<div id='" + compareLink.id + "1' class='col-xs-4'><div id='outputBoilingMain'>" + compareLink.value + "</div></div>"
       );
-    else writeStream.write("<div id='" + compareLink.id + "1'>" + compareLink.value + "</div>");
-    writeStream.write("<div id='" + compareLink.id + "2'>" + compareLink.value + "</div>");
-    // writeStream.write("</div>");
+    else writeStream.write("<div id='" + compareLink.id + "1' class='col-xs-4'>" + compareLink.value + "</div>");
+    writeStream.write("<div id='" + compareLink.id + "2' class='col-xs-4'>" + compareLink.value + "</div>");
+    writeStream.write("</div>");
   });
 
-  writeStream.write("<div class='span-3 padding-top-42'>");
+  writeStream.write("<div class='padding-top-42'>");
   writeStream.write("<div class='headerOutline text-upper'>" + langValues.labelAtomicProp + "</div>");
   writeStream.write("</div>");
 
@@ -204,11 +204,11 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   ];
 
   compare4Links.forEach((compareLink) => {
-    // writeStream.write("<div class='row'>");
-    writeStream.write("<div class='grayText'>" + compareLink.label + "</div>");
-    writeStream.write("<div id='" + compareLink.id + "1'>" + compareLink.value + "</div>");
-    writeStream.write("<div id='" + compareLink.id + "2'>" + compareLink.value + "</div>");
-    // writeStream.write("</div>");
+    writeStream.write("<div class='row'>");
+    writeStream.write("<div class='col-xs-4 grayText'>" + compareLink.label + "</div>");
+    writeStream.write("<div id='" + compareLink.id + "1' class='col-xs-4'>" + compareLink.value + "</div>");
+    writeStream.write("<div id='" + compareLink.id + "2' class='col-xs-4'>" + compareLink.value + "</div>");
+    writeStream.write("</div>");
   });
 
   writeStream.write("</div>");

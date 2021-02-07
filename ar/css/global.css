@@ -1,8 +1,6 @@
 :root {
-  /* --theme-color: 0, 120, 215; */
   --theme-color: 253, 58, 74;
   --darker-color-50: rgb(0, 60, 108);
-  /* --darker-color-0: #003056; */
   --body-bg-color: rgb(235, 235, 235);
   --card-bg-color: rgb(245, 245, 245);
   --text-color: 0, 0, 0;
@@ -21,7 +19,6 @@
   --color9: 139, 102, 204; /* Purple */
   --color10: 228, 27, 144; /* Pink */
   --text-direction: ltr;
-  /* --direction: left; */
   --direction-rev: right;
   --fg-color: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
     linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
@@ -40,7 +37,6 @@
 
 [data-direction="rtl"] {
   --text-direction: rtl;
-  /* --direction: right; */
   --direction-rev: left;
   --icon-padding: 0 0 0 0.5em;
   --sign: -1;
@@ -106,10 +102,6 @@ a {
   }
 }
 
-/* .text-left {
-  text-align: var(--direction);
-} */
-
 .text-right {
   text-align: var(--direction-rev);
 }
@@ -123,35 +115,55 @@ a {
 }
 
 #storeLink,
-#settingsLink,
 #translateLink,
-#printableLink,
-#themeLink {
+#printableLink {
   display: block;
 }
 
 @media (min-width: 768px) {
+  #listLink,
+  #compareLink,
   #storeLink,
-  #settingsLink,
   #translateLink,
-  #printableLink,
-  #themeLink,
-  .newHeader {
+  #printableLink {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  #listLink,
+  #compareLink {
+    display: block;
+  }
+  #storeLink,
+  #translateLink,
+  #printableLink {
     display: none;
   }
 }
 @media (min-width: 1200px) {
+  #printableLink {
+    display: block;
+  }
   #storeLink,
-  #settingsLink,
+  #translateLink {
+    display: none;
+  }
+  .solShort {
+    display: none;
+  }
+  .grid-item {
+    height: 66px;
+  }
+}
+@media (min-width: 1440px) {
+  #storeLink,
   #translateLink,
-  #printableLink,
-  #themeLink,
   .solName,
   .slightlySolName,
   .solubleName,
   .insolubleName,
-  .unavailableName,
-  .newHeader {
+  .unavailableName {
     display: block;
   }
 
@@ -1147,7 +1159,6 @@ canvas {
 }
 
 .switch input {
-  /*display: none;*/
   opacity: 0;
 }
 
@@ -1214,33 +1225,6 @@ input:focus + .slider {
 
 .footer {
   background-color: var(--body-bg-color);
-}
-
-.newHeader,
-.newFooter {
-  background-color: #b50000;
-  line-height: normal;
-  border-radius: var(--border-radius);
-  padding: 0.25rem 6px 0;
-  text-transform: uppercase;
-}
-
-.newFooter {
-  margin: -11px 0 17px 0;
-  font-size: 0.7em;
-  color: #eaeaea;
-  /* font-weight: 600; */
-}
-
-.newHeader {
-  margin: -1px 0 2px 6px;
-  font-size: 0.9em;
-}
-
-@media (min-width: 768px) {
-  .newHeader {
-    margin: -10px 0 10px 2px;
-  }
 }
 
 #colorTable {

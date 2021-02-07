@@ -75,7 +75,7 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   writeStream.write("<div id='topRowCompare'>");
   writeStream.write("<div id='compareTop' class='square'>");
   writeStream.write("<div></div>");
-  writeStream.write("<div class='padding-10'>");
+  writeStream.write("<div>");
   // writeStream.write("<select aria-label='First Element' bind:value={firstElement} on:change={() => (firstEle = getElement(firstElement))}>");
   writeStream.write("<select id='firstElement' class='select-css' onchange='firstChanged()' aria-label='First Element'>");
   newRawDataCompare.forEach((ele) => {
@@ -84,7 +84,7 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   writeStream.write("</select>");
   writeStream.write("</div>");
   // writeStream.write("</div>");
-  writeStream.write("<div class='padding-10'>");
+  writeStream.write("<div>");
   // writeStream.write("<select aria-label='Second Element' bind:value={secondElement} on:change={() => (secondEle = getElement(secondElement))}>");
   writeStream.write("<select id='secondElement' class='select-css' onchange='secondChanged()' aria-label='Second Element'>");
   newRawDataCompare.forEach((ele) => {
@@ -129,7 +129,7 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
     // writeStream.write("</div>");
   });
 
-  writeStream.write("<div class='span-3 padding-top-42'>");
+  writeStream.write("<div class='span-3 pt-8'>");
   writeStream.write("<div class='headerOutline text-upper'>" + langValues.labelGeneralProp + "</div>");
   writeStream.write("</div>");
 
@@ -149,7 +149,7 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
     // writeStream.write("</div>");
   });
 
-  writeStream.write("<div class='span-3 padding-top-42'>");
+  writeStream.write("<div class='span-3 pt-8'>");
   writeStream.write("<div class='headerOutline text-upper'>" + langValues.labelPhysicalProp + "</div>");
   writeStream.write("</div>");
 
@@ -187,7 +187,7 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
     // writeStream.write("</div>");
   });
 
-  writeStream.write("<div class='span-3 padding-top-42'>");
+  writeStream.write("<div class='span-3 pt-8'>");
   writeStream.write("<div class='headerOutline text-upper'>" + langValues.labelAtomicProp + "</div>");
   writeStream.write("</div>");
 

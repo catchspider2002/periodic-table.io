@@ -50,7 +50,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
 
   writeStream.write("<div id='headerwrap'>");
   writeStream.write("<table id='ptable' class='table square margin-bottom-20'>");
-  writeStream.write("<tbody class='text-left'>");
+  writeStream.write("<tbody class='justify-start'>");
   writeStream.write("<tr class='text-center'>");
   writeStream.write(
     "<td id='groupPeriod'><span id='groupHeader'>" +
@@ -90,7 +90,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("<div id='snippetSym' class='text-center'></div>");
   writeStream.write("<div id='snippetWt' class='text-right'></div>");
   writeStream.write("</div>");
-  writeStream.write("<div id='details' class='square text-left'>");
+  writeStream.write("<div id='details' class='square justify-start'>");
   writeStream.write("<div id='detailRow1' class='grayText text-upper detailRow1' colspan='2'></div>");
   writeStream.write("<div id='detailRow2'>" + langValues.discovered + "</div>");
   writeStream.write("<div id='valueRow2'></div>");
@@ -99,9 +99,9 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("<div id='detailRow4'>" + langValues.labelBoilingMain + "</div>");
   writeStream.write("<div id='valueRow4'></div>");
   writeStream.write("<div id='detailRow5'>" + langValues.labelElectronsMain + "</div>");
-  writeStream.write("<div id='valueRow5' class='ltrText text-left'></div>");
+  writeStream.write("<div id='valueRow5' class='ltrText justify-start'></div>");
   writeStream.write("<div id='detailRow6'>" + langValues.labelConfigMain + "</div>");
-  writeStream.write("<div id='valueRow6' class='ltrText text-left'></div>");
+  writeStream.write("<div id='valueRow6' class='ltrText justify-start'></div>");
   writeStream.write("</div>");
   writeStream.write("</div>");
   writeStream.write("</td>");
@@ -221,7 +221,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("</tr>");
   writeStream.write("<tr>");
   writeStream.write("<td />");
-  writeStream.write("<td colspan='2' id='lanthanidesMain' class='text-left'>* " + langValues.lanthanides + "</td>");
+  writeStream.write("<td colspan='2' id='lanthanidesMain' class='justify-start'>* " + langValues.lanthanides + "</td>");
   writeStream.write(getElement(56, "lanthanides r6"));
   writeStream.write(getElement(57, "lanthanides r6"));
   writeStream.write(getElement(58, "lanthanides r6"));
@@ -240,7 +240,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("</tr>");
   writeStream.write("<tr>");
   writeStream.write("<td />");
-  writeStream.write("<td colspan='2' id='actinidesMain' class='text-left'>** " + langValues.actinides + "</td>");
+  writeStream.write("<td colspan='2' id='actinidesMain' class='justify-start'>** " + langValues.actinides + "</td>");
   writeStream.write(getElement(88, "actinides r7"));
   writeStream.write(getElement(89, "actinides r7"));
   writeStream.write(getElement(90, "actinides r7"));

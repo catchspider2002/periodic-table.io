@@ -1135,20 +1135,20 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
 
       // Protons, Electrons, Neutrons
       writeStream.write("<div class='box-content masonry-col'>");
-      writeStream.write("<div class='grid-3'>");
-      writeStream.write("<div class='text-center grayText truncate'>" + langValues.protons + "</div>");
-      writeStream.write("<div class='text-center grayText truncate'>" + langValues.electrons + "</div>");
-      writeStream.write("<div class='text-center grayText truncate'>" + langValues.neutrons + "</div>");
-      writeStream.write("<div class='text-center font-size-1-5'>" + element.p + "</div>");
-      writeStream.write("<div class='text-center font-size-1-5'>" + element.e + "</div>");
-      writeStream.write("<div class='text-center font-size-1-5'>" + element.n + "</div>");
+      writeStream.write("<div class='grid-3 text-center'>");
+      writeStream.write("<div class='grayText truncate'>" + langValues.protons + "</div>");
+      writeStream.write("<div class='grayText truncate'>" + langValues.electrons + "</div>");
+      writeStream.write("<div class='grayText truncate'>" + langValues.neutrons + "</div>");
+      writeStream.write("<div class='font-size-1-5'>" + element.p + "</div>");
+      writeStream.write("<div class='font-size-1-5'>" + element.e + "</div>");
+      writeStream.write("<div class='font-size-1-5'>" + element.n + "</div>");
       writeStream.write("</div>");
       writeStream.write("</div>");
 
       // General Properties
       writeStream.write("<div class='box-content masonry-col'>");
       writeStream.write("<span class='headerOutline text-upper'>" + langValues.labelGeneralProp + "</span>");
-      writeStream.write("  <div class='grid'>");
+      writeStream.write("<div class='grid'>");
       writeStream.write("<div class='grayText'>" + langValues.labelAtmNoMain + "</div>");
       writeStream.write("<div>" + element.num + "</div>");
       writeStream.write("<div class='grayText'>" + langValues.labelAtmWtMain + "</div>");
@@ -1238,15 +1238,15 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       writeStream.write("<div id='electronConf' class='box-content masonry-col'>");
       writeStream.write("<div class='grid padding-bottom-25'>");
       writeStream.write("<div class='grayText'>" + langValues.labelElectronsMain + "</div>");
-      writeStream.write("<div class='ltrText text-left'>" + element.elc + "</div>");
+      writeStream.write("<div class='ltrText justify-start'>" + element.elc + "</div>");
       writeStream.write("<div class='grayText hyphen'>" + langValues.labelConfigMain + "</div>");
-      writeStream.write("<div class='ltrText text-left'>");
+      writeStream.write("<div class='ltrText justify-start'>");
       writeStream.write(element.cnf);
       writeStream.write("</div>");
       writeStream.write("</div>");
       // writeStream.write("<Electron num={element.num} sym={element.sym} />");
 
-      writeStream.write("<svg version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='-800 " + val1 + " 1600 " + val2 + "' class='atom'>");
+      writeStream.write("<svg version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='-800 " + val1 + " 1600 " + val2 + "' class='atom pt-6'>");
       writeStream.write("<g class='g'>");
       writeStream.write("<circle class='nucleus' r='130' />");
       writeStream.write(
@@ -1806,7 +1806,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       else writeStream.write(getNum(element.trm) + " " + langValues.labelThermal);
       writeStream.write("</div>");
       writeStream.write("<div class='grayText hyphen'>" + langValues.labelOxidationMain + "</div>");
-      writeStream.write("<div class='ltrText text-left'>" + element.oxi + "</div>");
+      writeStream.write("<div class='ltrText justify-start'>" + element.oxi + "</div>");
       writeStream.write("</div>");
       writeStream.write("</div>");
 
@@ -1828,10 +1828,10 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       // Isotopes
       writeStream.write("<div class='box-content masonry-col'>");
       writeStream.write("<span class='headerOutline text-upper'>" + langValues.isotopes + "</span>");
-      writeStream.write("<div class='grayText padding-0 margin-y-10'>" + langValues.stableIsotopes + "</div>");
-      writeStream.write("<span class='isotopeLine'>" + eleStable + "</span>");
-      writeStream.write("<div class='grayText padding-0 margin-y-10'>" + langValues.unstableIsotopes + "</div>");
-      writeStream.write("<span class='isotopeLine'>" + eleUnstable + "</span>");
+      writeStream.write("<div class='grayText py-4'>" + langValues.stableIsotopes + "</div>");
+      writeStream.write("<span>" + eleStable + "</span>");
+      writeStream.write("<div class='grayText py-4'>" + langValues.unstableIsotopes + "</div>");
+      writeStream.write("<span>" + eleUnstable + "</span>");
       writeStream.write("</div>");
 
       // Important Links

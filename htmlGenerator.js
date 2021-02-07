@@ -61,47 +61,47 @@ let darkIcon =
 
 xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
   let languages = [
-    { lang: 'en', name: 'English', col: 3, punc: 'dot', regular: 'NotoSans'}, 
-    // { lang: 'en-gb', name: 'English (UK)', col: 40, punc: 'dot', regular: 'NotoSans'}, 
-    // { lang: 'bg', name: 'Български', col: 20, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'ca', name: 'Català', col: 25, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'zh-cn', name: '中文(简体)', col: 6, punc: 'dot', regular: 'NotoSansSC-Regular'}, 
-    // { lang: 'zh-tw', name: '中文(繁體)', col: 28, punc: 'dot', regular: 'NotoSansTC-Regular'}, 
-    // { lang: 'hr', name: 'Hrvatski', col: 39, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'cs', name: 'Čeština', col: 24, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'da', name: 'Dansk', col: 33, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'nl', name: 'Nederlands', col: 7, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'fi', name: 'Suomi', col: 19, punc: 'comma', regular: 'NotoSans'}, 
-    { lang: 'fr', name: 'Français', col: 5, punc: 'comma', regular: 'NotoSans'}, 
-    { lang: 'de', name: 'Deutsch', col: 12, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'el', name: 'Ελληνικά', col: 35, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'hi', name: 'हिंदी', col: 29, punc: 'dot', regular: 'NotoSansDevanagari-Regular'}, 
-    // { lang: 'hu', name: 'Magyar', col: 11, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'id', name: 'Bahasa Indonesia', col: 21, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'it', name: 'Italiano', col: 8, punc: 'comma', regular: 'NotoSans'}, 
-    { lang: 'ja', name: '日本語', col: 23, punc: 'dot', regular: 'NotoSansJP-Regular'}, 
-    // { lang: 'ko', name: '한국어', col: 10, punc: 'dot', regular: 'NotoSansKR-Regular'}, 
-    // { lang: 'ms', name: 'Bahasa Melayu', col: 41, punc: 'dot', regular: 'NotoSans'}, 
-    // { lang: 'nb-no', name: 'Norsk Bokmål', col: 27, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'nn-no', name: 'Norsk Nynorsk', col: 38, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'pl', name: 'Polski', col: 30, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'pt', name: 'Português', col: 18, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'ro', name: 'Română', col: 17, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'ru', name: 'Русский', col: 9, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'sr', name: 'Српски', col: 26, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'sk', name: 'Slovenčina', col: 13, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'sl', name: 'Slovenščina', col: 37, punc: 'comma', regular: 'NotoSans'}, 
-    { lang: 'es', name: 'Español', col: 4, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'sv', name: 'Svenska', col: 32, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'th', name: 'ไทย', col: 34, punc: 'dot', regular: 'NotoSansThai-Regular'}, 
-    // { lang: 'tr', name: 'Türkçe', col: 22, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'uk', name: 'Українська', col: 14, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'vi', name: 'Tiếng Việt', col: 15, punc: 'comma', regular: 'NotoSans'}, 
-    // { lang: 'ar', name: 'العربية', col: 31, punc: 'dot', regular: 'NotoSansKufiArabic-Regular'}, 
-    // { lang: 'he', name: 'עברית', col: 36, punc: 'dot', regular: 'NotoSansHebrew-Regular'}, 
-    // { lang: 'fa', name: 'فارسی', col: 16, punc: 'dot', regular: 'NotoSansKufiArabic-Regular'}, 
-    // { lang: 'hy', name: 'Հայերեն', col: 42, punc: 'comma', regular: 'NotoSansArmenian-Regular'}, 
-    // { lang: 'mk', name: 'Македонски', col: 43, punc: 'comma', regular: 'NotoSans'},     
+    // { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans" },
+    // { lang: 'en-gb', name: 'English (UK)', col: 40, punc: 'dot', regular: 'NotoSans'},
+    // { lang: 'bg', name: 'Български', col: 20, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'ca', name: 'Català', col: 25, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'zh-cn', name: '中文(简体)', col: 6, punc: 'dot', regular: 'NotoSansSC-Regular'},
+    // { lang: 'zh-tw', name: '中文(繁體)', col: 28, punc: 'dot', regular: 'NotoSansTC-Regular'},
+    // { lang: 'hr', name: 'Hrvatski', col: 39, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'cs', name: 'Čeština', col: 24, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'da', name: 'Dansk', col: 33, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'nl', name: 'Nederlands', col: 7, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'fi', name: 'Suomi', col: 19, punc: 'comma', regular: 'NotoSans'},
+    // { lang: "fr", name: "Français", col: 5, punc: "comma", regular: "NotoSans" },
+    { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans" },
+    // { lang: 'el', name: 'Ελληνικά', col: 35, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'hi', name: 'हिंदी', col: 29, punc: 'dot', regular: 'NotoSansDevanagari-Regular'},
+    // { lang: 'hu', name: 'Magyar', col: 11, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'id', name: 'Bahasa Indonesia', col: 21, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'it', name: 'Italiano', col: 8, punc: 'comma', regular: 'NotoSans'},
+    // { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular" },
+    // { lang: 'ko', name: '한국어', col: 10, punc: 'dot', regular: 'NotoSansKR-Regular'},
+    // { lang: 'ms', name: 'Bahasa Melayu', col: 41, punc: 'dot', regular: 'NotoSans'},
+    // { lang: 'nb-no', name: 'Norsk Bokmål', col: 27, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'nn-no', name: 'Norsk Nynorsk', col: 38, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'pl', name: 'Polski', col: 30, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'pt', name: 'Português', col: 18, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'ro', name: 'Română', col: 17, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'ru', name: 'Русский', col: 9, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'sr', name: 'Српски', col: 26, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'sk', name: 'Slovenčina', col: 13, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'sl', name: 'Slovenščina', col: 37, punc: 'comma', regular: 'NotoSans'},
+    { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans" },
+    // { lang: 'sv', name: 'Svenska', col: 32, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'th', name: 'ไทย', col: 34, punc: 'dot', regular: 'NotoSansThai-Regular'},
+    // { lang: 'tr', name: 'Türkçe', col: 22, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'uk', name: 'Українська', col: 14, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'vi', name: 'Tiếng Việt', col: 15, punc: 'comma', regular: 'NotoSans'},
+    { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular" },
+    // { lang: 'he', name: 'עברית', col: 36, punc: 'dot', regular: 'NotoSansHebrew-Regular'},
+    // { lang: 'fa', name: 'فارسی', col: 16, punc: 'dot', regular: 'NotoSansKufiArabic-Regular'},
+    // { lang: 'hy', name: 'Հայերեն', col: 42, punc: 'comma', regular: 'NotoSansArmenian-Regular'},
+    // { lang: 'mk', name: 'Македонски', col: 43, punc: 'comma', regular: 'NotoSans'},
   ];
 
   languages.forEach((language) => {
@@ -176,7 +176,11 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
 
     let defaultHead = [
       "<!DOCTYPE html>",
-      "<html lang='" + lang + "' class='normalFont' data-direction='ltr' data-theme='dark' data-style='1'>",
+      "<html lang='" +
+        lang +
+        "' class='normalFont' data-direction='" +
+        (lang === "ar" || lang === "fa" || lang === "he" ? "rtl" : "ltr") +
+        "' data-theme='dark' data-style='1'>",
       "<head>",
       "<meta charset='utf-8'/>",
       "<meta http-equiv='X-UA-Compatible' content='IE=edge'/>",
@@ -223,7 +227,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<div id='overlap' class='collapsed' onclick='sideBar()'></div>",
       "<div id='sidebar' class='collapsed'>",
       "<div class='settingsGrid items-center'>",
-      "<div class='grayText text-left'>" + langValues.language + "</div>",
+      "<div class='grayText'>" + langValues.language + "</div>",
       "<div>",
       "<select id='languageSelectSetting' class='select-css' aria-label='" + langValues.language + "' onchange='setLanguage()'>",
     ];
@@ -237,7 +241,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     let nav2 = [
       "</select>",
       "</div>",
-      "<div class='grayText text-left self-start'>" + langValues.temperature + "</div>",
+      "<div class='grayText self-start'>" + langValues.temperature + "</div>",
       "<div class='radio-toolbar radio-temp'>",
       "<input type='radio' id='tempcelsius' name='temperature' value='celsius' onchange='setTemp()' />",
       "<label class='disable-select' for='tempcelsius'>" +
@@ -245,7 +249,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         "</label><input type='radio' id='tempfahrenheit' name='temperature' value='fahrenheit' onchange='setTemp()' />",
       "<label class='disable-select' for='tempfahrenheit'>" + langValues.tempFahrenheit + "</label>",
       "</div>",
-      "<div class='grayText text-left self-start'>" + langValues.labelColorMain + "</div>",
+      "<div class='grayText self-start'>" + langValues.labelColorMain + "</div>",
       "<div class='radio-toolbar radio-color'>",
     ];
 
@@ -269,7 +273,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     let nav3 = [
       "</div>",
       "<div id='settingPeriodicTable' class='span-2'>" + langValues.homeHeader + "</div>",
-      "<div class='grayText text-left'>" + langValues.tableWidth + "</div>",
+      "<div class='grayText'>" + langValues.tableWidth + "</div>",
       "<div>",
       "<select id='marginSetting' class='select-css' aria-label='" + langValues.tableWidth + "'>",
       "<option value='1'>100%</option>",
@@ -279,21 +283,21 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<option value='0.8'>80%</option>",
       "</select>",
       "</div>",
-      "<div class='grayText text-left'>" + langValues.labelName + "</div>",
-      "<div class='text-left'>",
+      "<div class='grayText'>" + langValues.labelName + "</div>",
+      "<div>",
       "<label class='switch'>",
       "<input id='nameSelectSetting' type='checkbox' >",
       "<span class='slider round' ></span>",
       "</label>",
       "</div>",
-      "<div class='grayText text-left'>" + langValues.labelAtmWtMain + "</div>",
-      "<div class='text-left'>",
+      "<div class='grayText'>" + langValues.labelAtmWtMain + "</div>",
+      "<div>",
       "<label class='switch'>",
       "<input id='atmNoSelectSetting' type='checkbox' >",
       "<span class='slider round' ></span>",
       "</label>",
       "</div>",
-      "<div class='grayText text-left self-start' id='tableStyle'>" + langValues.style + "</div>",
+      "<div class='grayText self-start' id='tableStyle'>" + langValues.style + "</div>",
       "<div class='radio-toolbar radio-style'>",
       "<input type='radio' id='style1' name='tableStyle' value='1' onchange='setStyle()' >",
       "<label id='style1Label' class='disable-select' for='style1'></label>",
@@ -362,17 +366,13 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     let defaultFooter = [
       "<div class='footer'>",
       "<div class='flex flex-wrap justify-center pt-2'>",
-      "<a target='_blank' href='https://feedback.periodic-table.io/' rel='noopener noreferrer' class='m-1 p-2'>",
-      "<span id='suggestionLink' class='linkText'>" + langValues.suggestions + "</span>",
+      "<a target='_blank' href='https://feedback.periodic-table.io/' rel='noopener noreferrer' class='m-1 px-4 py-2'>",
+      langValues.suggestions,
       "</a>",
-      "<a id='translationFooter' href='translation.html' class='m-1 p-2 flex'>",
-      "<span id='translate2Link' class='linkText'>" + langValues.translate + "</span>",
-      "</a>",
-      "<a id='aboutFooter' href='about.html' class='m-1 p-2'> <span id='aboutLink' class='linkText'>" + langValues.about + "</span> </a>",
-      "<a id='creditsFooter' href='credits.html' class='m-1 p-2'>",
-      "<span id='creditsLink' class='linkText'>" + langValues.credits + "</span> </a>",
-      "<a id='privacyFooter' href='privacy-policy.html' class='m-1 p-2'>",
-      "<span id='privacyLink' class='linkText'>" + langValues.privacy + "</span> </a>",
+      "<a href='translation.html' class='m-1 px-4 py-2'>" + langValues.translate + "</a>",
+      "<a href='about.html' class='m-1 px-4 py-2'>" + langValues.about + "</a>",
+      "<a href='credits.html' class='m-1 px-4 py-2'>" + langValues.credits + "</a>",
+      "<a href='privacy-policy.html' class='m-1 px-4 py-2'>" + langValues.privacy + "</a>",
       "</div>",
       "<div class='flex flex-wrap justify-center pt-2 py-4'>",
       "<a target='_blank' href='https://github.com/catchspider2002/periodic-table.io' rel='noopener noreferrer' class='flex m-1 p-2' title='Github'>",
@@ -471,41 +471,41 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       let metaTags = metaTags1.concat(metaAlternate).concat(metaTags2).concat(metaTagsFonts).concat(metaTags3);
 
       switch (page) {
-        // case "index":
-        //   htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
-        // case "privacy-policy":
-        //   htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
-        // case "about":
-        //   htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
-        // case "store":
-        //   htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
-        // case "printables":
-        //   htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
+        case "index":
+          htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "privacy-policy":
+          htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "about":
+          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "store":
+          htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "printables":
+          htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
         case "compare":
           htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, defaultFooter);
           break;
-        // case "element":
-        //   htmlElement.writeFile(
-        //     lang,
-        //     langValues,
-        //     language.col,
-        //     language.regular,
-        //     language.punc,
-        //     page,
-        //     defaultHead,
-        //     defaultNav,
-        //     defaultFooter,
-        //     languages
-        //   );
-        //   break;
-        // case "list":
-        //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
-        //   break;
+        case "list":
+          htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          break;
+        case "element":
+          htmlElement.writeFile(
+            lang,
+            langValues,
+            language.col,
+            language.regular,
+            language.punc,
+            page,
+            defaultHead,
+            defaultNav,
+            defaultFooter,
+            languages
+          );
+          break;
       }
     });
   });

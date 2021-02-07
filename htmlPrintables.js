@@ -80,8 +80,6 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
     link:'https://gumroad.com/l/periodictableflashcards1/'}
   ];
 
-
-
   writeStream.write("<div class='content-wrapper'>");
   writeStream.write("<div class='container'>");
   writeStream.write("<div id='printablesHeader' class='row text-upper aboutHeader text-center grayText'></div>");

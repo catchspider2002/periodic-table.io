@@ -445,31 +445,13 @@ table,
   padding: 25px;
 }
 
-.m-1 {
-  margin: 0.25rem;
-}
-
-.m-2 {
-  margin: 0.5rem;
-}
-
 .p-2 {
   padding: 0.5rem;
-}
-
-.px-2 {
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
 }
 
 .px-4 {
   padding-right: 1rem;
   padding-left: 1rem;
-}
-
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
 }
 
 .py-2 {
@@ -480,15 +462,6 @@ table,
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-.pt-1 {
-  padding-top: 0.25rem;
 }
 
 .pt-2 {
@@ -507,24 +480,12 @@ table,
   padding-top: 3rem;
 }
 
-.pt-12 {
-  padding-top: 3rem;
-}
-
 .pt-16 {
   padding-top: 4rem;
 }
 
-.pb-4 {
-  padding-bottom: 1rem;
-}
-
 .pb-8 {
   padding-bottom: 2rem;
-}
-
-.m-2 {
-  margin: 0.5rem;
 }
 
 .justify-center {
@@ -874,10 +835,6 @@ canvas {
   text-transform: uppercase;
 }
 
-.padding-top-5 {
-  padding-top: 5px;
-}
-
 .headerOutline {
   display: inline-block;
   text-transform: uppercase;
@@ -886,7 +843,7 @@ canvas {
   margin: 0 -2.25rem 1.5rem;
   color: var(--alt-text-color);
   background-image: var(--fg-color);
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 #elementDiagram {
@@ -1607,8 +1564,6 @@ blockquote,
   padding-top: 50%;
   padding-bottom: 25%;
   background-repeat: no-repeat;
-  /* position: relative; */
-  /* justify-content: center; */
 }
 
 #style1Label {
@@ -1961,11 +1916,11 @@ nav {
   top: 0;
   text-transform: uppercase;
   z-index: 3;
-  /* height: 52px; */
   display: grid;
-  grid-template-columns: 1fr auto auto auto;
-  letter-spacing: 1px;
-  /* font-size: 0.9em; */
+  grid-template-columns: auto 1fr auto auto auto;
+  letter-spacing: 0.5px;
+  align-items: center;
+  color: #fff;
 }
 
 #logo {
@@ -2001,8 +1956,6 @@ nav ul li {
 nav a {
   display: block;
   padding: 0.5em 1em;
-  color: #fff;
-  font-size: 0.9em;
   text-decoration: none;
 }
 nav ul li a {
@@ -2014,11 +1967,15 @@ nav ul li a {
   gap: 0.75em;
   cursor: pointer;
   place-content: start;
+  align-items: center;
+}
+nav ul li a span {
+  font-size: 0.9em;
 }
 
 #tablesLink {
   grid-template-columns: auto 1fr auto;
-grid-auto-rows: c;
+  grid-auto-rows: c;
 }
 
 /* Background color change on Hover */
@@ -2086,7 +2043,7 @@ nav > button {
   nav {
     /*       margin: 0; */
     display: grid;
-    grid-template-columns: 1fr auto auto auto;
+    grid-template-columns: auto 1fr auto auto auto;
     z-index: 3;
   }
 
@@ -2114,6 +2071,7 @@ nav > button {
     color: #fff;
     font-size: 0.9em;
     margin-left: auto;
+    align-items: center;
   }
 
   .burger {
@@ -2123,7 +2081,7 @@ nav > button {
   /* Display Dropdown when clicked on Parent Label */
   [id^="drop"]:checked + ul {
     display: block;
-    grid-column: 1/5;
+    grid-column: 1/6;
   }
 
   /* Change menu item's width to 100% */

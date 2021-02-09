@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter) => {
+const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter) => {
   let writeStream = fs.createWriteStream(lang + "/" + page + ".html");
 
   defaultHead.forEach((heads) => {
@@ -15,9 +15,15 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
     writeStream.write(navs);
   });
 
+  writeStream.write("<span class='truncate'>" + langValues.privacy + "</span>");
+
+  nav4.forEach((navs) => {
+    writeStream.write(navs);
+  });
+
   writeStream.write("<div class='content-wrapper'>");
   writeStream.write("<div class='container'>");
-  writeStream.write("<div class='row text-upper aboutHeader text-center grayText'>");
+  writeStream.write("<div class='text-upper aboutHeader text-center grayText'>");
   writeStream.write(langValues.privacy + "</div>");
   writeStream.write("<div class='pt-4'>" + langValues.privacyFull + "</div>");
   writeStream.write("</div>");

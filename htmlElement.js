@@ -69,7 +69,7 @@ var crsTPSVG =
 // let defaultTemp = "celsius";
 // let defaultPunc = "comma";
 
-const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHead, defaultNav, defaultFooter, languages) => {
+const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHead, defaultNav, nav4, defaultFooter, languages) => {
   xlsxFile("../Translation/Periodic Table others.xlsm", { sheet: 2 }).then((rows) => {
     for (let i = 1; i < 5; i++) {
       let eleNum = i;
@@ -174,6 +174,12 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       });
 
       defaultNav.forEach((navs) => {
+        writeStream.write(navs);
+      });
+
+      writeStream.write("<span class='truncate'>" + langValues[element.nme] + "</span>");
+
+      nav4.forEach((navs) => {
         writeStream.write(navs);
       });
 
@@ -1152,7 +1158,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       writeStream.write("<div class='grayText'>" + langValues.labelAtmNoMain + "</div>");
       writeStream.write("<div>" + element.num + "</div>");
       writeStream.write("<div class='grayText'>" + langValues.labelAtmWtMain + "</div>");
-      writeStream.write("<div>" + element.aWt + "</div>");
+      writeStream.write("<div>" + getNum(element.aWt) + "</div>");
       writeStream.write("<div class='grayText'>" + langValues.labelMassNum + "</div>");
       writeStream.write("<div>" + element.mNo + "</div>");
       writeStream.write("<div class='grayText'>" + langValues.labelCategoryMain + "</div>");
@@ -1923,8 +1929,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       if (eleNum === 1) previousHTML = "-";
       else {
         let previousElement = newRawDataElement[previousNum];
-        previousHTML =
-          "<a href='element-" + previousElement.num + ".html' class='underlineLink'>" + langValues[previousElement.nme] + "</a>";
+        previousHTML = "<a href='element-" + previousElement.num + ".html' class='underlineLink'>" + langValues[previousElement.nme] + "</a>";
       }
 
       if (eleNum === 118) nextHTML = "-";
@@ -1933,7 +1938,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
         nextHTML = "<a href='element-" + nextElement.num + ".html' class='underlineLink'>" + langValues[nextElement.nme] + "</a>";
       }
 
-      writeStream.write("<div id='elementNav' class='row text-center'>");
+      writeStream.write("<div id='elementNav' class='text-center'>");
       writeStream.write(previousHTML + "&nbsp;&nbsp;←&nbsp;");
       writeStream.write(element.sym + "&nbsp;&nbsp;→&nbsp;");
       writeStream.write(nextHTML);

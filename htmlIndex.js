@@ -9,7 +9,7 @@ let newRawDataIndex = Constants.rawData;
 //   return 0;
 // });
 
-const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter) => {
+const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter) => {
   let writeStream = fs.createWriteStream(lang + "/" + page + ".html");
 
   defaultHead.forEach((heads) => {
@@ -21,6 +21,12 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   });
 
   defaultNav.forEach((navs) => {
+    writeStream.write(navs);
+  });
+
+  writeStream.write("<span class='truncate'>" + langValues["home"] + "</span>");
+
+  nav4.forEach((navs) => {
     writeStream.write(navs);
   });
 

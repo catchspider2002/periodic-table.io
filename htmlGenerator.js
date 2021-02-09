@@ -11,11 +11,11 @@ const htmlList = require("./htmlList.js");
 const htmlElement = require("./htmlElement.js");
 const htmlIndex = require("./htmlIndex.js");
 
-// let svgHeader =
-//   "<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 512 512' stroke='currentColor' fill='currentColor'><path d='";
 let svgFooter = "'</svg>";
 let svgHdr =
   "<svg xmlns='http://www.w3.org/2000/svg' width='1.75em' height='1.75em' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'>";
+let svgHdr2 =
+  "<svg xmlns='http://www.w3.org/2000/svg' width='1.75em' height='1.75em' viewBox='1 1 22 22' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'>";
 
 let logoIcon =
   '<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 10.054 10.054" class="periodic-table-logo" fill="#fff"><path d="M3.146 1.905a1.301 1.301 0 00-1.301 1.301 1.301 1.301 0 001.009 1.266 1.596 1.596 0 011.553-1.581 1.301 1.301 0 00-1.261-.986zm4.841 1.581a1.508 1.508 0 00-1.47 1.178l-.824-.1a.126.126 0 00-.14.11.126.126 0 00.11.14l.821.1a1.508 1.508 0 00-.004.081 1.508 1.508 0 001.508 1.508 1.508 1.508 0 001.508-1.508 1.508 1.508 0 00-1.508-1.508zm-4.331 1.69a.126.126 0 00-.078.028l-.843.683a1.301 1.301 0 00-.874-.34A1.301 1.301 0 00.56 6.848a1.301 1.301 0 001.301 1.301 1.301 1.301 0 001.301-1.301 1.301 1.301 0 00-.257-.774l.832-.674a.126.126 0 00.019-.177.126.126 0 00-.099-.047z"/><path d="M4.45 2.978a1.508 1.508 0 00-1.508 1.508 1.508 1.508 0 00.297.895l.292-.237a.201.201 0 01.283.03.201.201 0 01-.03.283l-.265.215a1.508 1.508 0 00.931.322 1.508 1.508 0 001.444-1.077l-.241-.029a.201.201 0 01-.175-.224.201.201 0 01.224-.175l.255.031a1.508 1.508 0 00.002-.034 1.508 1.508 0 00-1.508-1.508z" opacity=".7"/></svg>';
@@ -39,12 +39,15 @@ let printablesIcon =
 
 let storeIcon = svgHdr + "<path d='M15 4l6 2v5h-3v8a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1v-8h-3v-5l6 -2a3 3 0 0 0 6 0' />" + svgFooter;
 
-let translationIcon = svgHdr + "<path d='M5 7h7m-2 -2v2a5 8 0 0 1 -5 8m1 -4a7 4 0 0 0 6.7 4' /><path d='M11 19l4 -9l4 9m-.9 -2h-6.2' />" + svgFooter;
+let translationIcon = svgHdr2 + "<path d='M5 7h7m-2 -2v2a5 8 0 0 1 -5 8m1 -4a7 4 0 0 0 6.7 4' /><path d='M11 19l4 -9l4 9m-.9 -2h-6.2' />" + svgFooter;
 
 let settingsIcon =
   svgHdr +
   "<path d='M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z' /><circle cx='12' cy='12' r='3' />" +
   svgFooter;
+
+let toggleIcon =
+  svgHdr + "<line x1='4' y1='6' x2='20' y2='6' /><line x1='4' y1='12' x2='20' y2='12' /><line x1='4' y1='18'x2='20' y2='18' />" + svgFooter;
 
 // let lightIcon =
 //   svgHdr +
@@ -73,7 +76,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     // { lang: 'nl', name: 'Nederlands', col: 7, punc: 'comma', regular: 'NotoSans'},
     // { lang: 'fi', name: 'Suomi', col: 19, punc: 'comma', regular: 'NotoSans'},
     // { lang: "fr", name: "Français", col: 5, punc: "comma", regular: "NotoSans" },
-    { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans" },
+    // { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans" },
     // { lang: 'el', name: 'Ελληνικά', col: 35, punc: 'comma', regular: 'NotoSans'},
     // { lang: 'hi', name: 'हिंदी', col: 29, punc: 'dot', regular: 'NotoSansDevanagari-Regular'},
     // { lang: 'hu', name: 'Magyar', col: 11, punc: 'comma', regular: 'NotoSans'},
@@ -138,10 +141,6 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       if (err) throw err;
     });
 
-    // fs.copyFile("fonts3/" + language.heavy + ".woff2", lang + "/fonts/" + language.heavy + ".woff2", (err) => {
-    //   if (err) throw err;
-    // });
-
     fs.copyFile("favicon-32x32.png", lang + "/favicon-32x32.png", (err) => {
       if (err) throw err;
     });
@@ -188,7 +187,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<link rel='apple-touch-icon' sizes='180x180' href='images/icons/apple-touch-icon.png'/>",
       "<link rel='icon' type='image/png' sizes='32x32' href='./favicon-32x32.png'/>",
       "<link rel='icon' type='image/png' sizes='16x16' href='./favicon-16x16.png'/>",
-      "<link rel='manifest' href='../manifest.json'/>",
+      "<link rel='manifest' href='manifest.json'/>",
       "<link rel='mask-icon' href='safari-pinned-tab.svg' color='#0078d7'/>",
 
       "<meta name='msapplication-TileColor' content='#0078d7'/>",
@@ -309,23 +308,27 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "</div>",
       "</div><nav>",
       "<a id=logo class='navbar-brand' href='.' aria-label='Home'>",
-      logoIcon + "PERIODIC-TABLE.IO",
-      "</a><input type='checkbox' id='drop' />",
+      logoIcon,
+      "</a>",
+    ];
+
+    let nav4 = [
+      "<input type='checkbox' id='drop' />",
       "<ul>",
       "<li>",
-      "<a href='list.html'>",
+      "<a title=" + langValues.list + " href='list.html'>",
       listIcon + "<span id='listLink'>" + langValues.list + "</span></a>",
       "</li>",
       "<li>",
-      "<a href='compare.html'>" + compareIcon + "<span id='compareLink'>" + langValues.compare  + "</span></a>",
+      "<a title=" + langValues.compare + " href='compare.html'>" + compareIcon + "<span id='compareLink'>" + langValues.compare + "</span></a>",
       "</li>",
       "<li>",
       "<label for='drop-1' class='toggle'>",
       tablesIcon +
-        "Tables <svg xmlns='http://www.w3.org/2000/svg' width='1.5em' height='1.5em' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9' /></svg></label>",
+        "Tables <svg xmlns='http://www.w3.org/2000/svg' width='1.2em' height='1.2em' viewBox='5 5 15 15' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9' /></svg></label>",
       "<a id='tablesLink'>",
       tablesIcon +
-        "Tables <svg xmlns='http://www.w3.org/2000/svg' width='1.5em' height='1.5em' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9' /></svg></a>",
+        "Tables <svg xmlns='http://www.w3.org/2000/svg' width='1.2em' height='1.2em' viewBox='5 5 15 15' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9' /></svg></a>",
       "<input type='checkbox' id='drop-1' />",
       "<ul>",
       "<li><a href='#a'>Solubility Chart</a></li>",
@@ -333,15 +336,15 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "</ul>",
       "</li>",
       "<li>",
-      "<a href='printables.html'>",
+      "<a title=" + langValues.printables + " href='printables.html'>",
       printablesIcon + "<span id='printableLink'>" + langValues.printables + "</span></a>",
       "</li>",
       "<li>",
-      "<a href='store.html'>",
+      "<a title=" + langValues.store + " href='store.html'>",
       storeIcon + "<span id='storeLink'>" + langValues.store + "</span></a>",
       "</li>",
       "<li>",
-      "<a href='translation.html'>",
+      "<a title=" + langValues.translation + " href='translation.html'>",
       translationIcon + "<span id='translateLink'>" + langValues.translation + "</span></a>",
       "</li>",
       "</ul>",
@@ -349,15 +352,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       settingsIcon + "</button>",
       "<button id='themeIcon' onclick='changeTheme()' data-theme='light' title='" + langValues.theme + "'>",
       lightIcon + "</button>",
-      "<label for='drop' onclick='toggleMenu()' class='toggle burger'><svg xmlns='http://www.w3.org/2000/svg' ",
-      "width='22' height='22' viewBox='0 0 24 24' ",
-      "stroke-width='1.5' stroke='currentColor' fill='none' ",
-      "stroke-linecap='round' stroke-linejoin='round'>",
-      "<path stroke='none' d='M0 0h24v24H0z' fill='none' />",
-      "<line x1='4' y1='6' x2='20' y2='6' />",
-      "<line x1='4' y1='12' x2='20' y2='12' />",
-      "<line x1='4' y1='18'x2='20' y2='18' />",
-      "</svg></label>",
+      "<label for='drop' onclick='toggleMenu()' class='toggle burger'>" + toggleIcon + "</label>",
       "</nav>",
     ];
 
@@ -472,25 +467,25 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
 
       switch (page) {
         case "index":
-          htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
         case "privacy-policy":
-          htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
         case "about":
-          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
         case "store":
-          htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
         case "printables":
-          htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
         case "compare":
-          htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, defaultFooter);
+          htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
         case "list":
-          htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter);
+          htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
         case "element":
           htmlElement.writeFile(
@@ -502,6 +497,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
             page,
             defaultHead,
             defaultNav,
+            nav4,
             defaultFooter,
             languages
           );

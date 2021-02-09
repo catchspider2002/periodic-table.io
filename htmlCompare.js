@@ -4,8 +4,7 @@ const ConstantsCompare = require("./htmlConstantsCompare.js");
 let newRawDataCompare = ConstantsCompare.rawData;
 // let defaultTemp = "celsius";
 // let defaultPunc = "comma";
-
-const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultNav, defaultFooter) => {
+const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter) => {
   let writeStream = fs.createWriteStream(lang + "/" + page + ".html");
 
   defaultHead.forEach((heads) => {
@@ -17,6 +16,12 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   });
 
   defaultNav.forEach((navs) => {
+    writeStream.write(navs);
+  });
+
+  writeStream.write("<span class='truncate'>" + langValues[page] + "</span>");
+
+  nav4.forEach((navs) => {
     writeStream.write(navs);
   });
 
@@ -100,14 +105,10 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   // writeStream.write("<div class='row'>");
   writeStream.write("<div class='grayText'>" + langValues.labelName + "</div>");
   writeStream.write("<a id='compEle1' href='element-" + element.num + ".html'>");
-  writeStream.write(
-    "<div class='compareLink'><span id='name1' class='underlineLink'>" + langValues[element.nme] + "</span></div>"
-  );
+  writeStream.write("<div class='compareLink'><span id='name1' class='underlineLink'>" + langValues[element.nme] + "</span></div>");
   writeStream.write("</a>");
   writeStream.write("<a id='compEle2' href='element-" + element.num + ".html'>");
-  writeStream.write(
-    "<div class='compareLink'><span id='name2' class='underlineLink'>" + langValues[element.nme] + "</span></div>"
-  );
+  writeStream.write("<div class='compareLink'><span id='name2' class='underlineLink'>" + langValues[element.nme] + "</span></div>");
   writeStream.write("</a>");
   // writeStream.write("</div>");
 
@@ -175,13 +176,9 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
     // writeStream.write("<div class='row'>");
     writeStream.write("<div class='grayText'>" + compareLink.label + "</div>");
     if (compareLink.id === "meltPoint")
-      writeStream.write(
-        "<div id='" + compareLink.id + "1'><div id='outputMeltingMain'>" + compareLink.value + "</div></div>"
-      );
+      writeStream.write("<div id='" + compareLink.id + "1'><div id='outputMeltingMain'>" + compareLink.value + "</div></div>");
     else if (compareLink.id === "boilPoint")
-      writeStream.write(
-        "<div id='" + compareLink.id + "1'><div id='outputBoilingMain'>" + compareLink.value + "</div></div>"
-      );
+      writeStream.write("<div id='" + compareLink.id + "1'><div id='outputBoilingMain'>" + compareLink.value + "</div></div>");
     else writeStream.write("<div id='" + compareLink.id + "1'>" + compareLink.value + "</div>");
     writeStream.write("<div id='" + compareLink.id + "2'>" + compareLink.value + "</div>");
     // writeStream.write("</div>");

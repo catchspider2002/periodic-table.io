@@ -18,7 +18,7 @@ let darkLinks = [
   { name: "Teespring", link: "https://teespring.com/periodic-table-t-shirt-dark" },
 ];
 
-const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter) => {
+const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter) => {
   let writeStream = fs.createWriteStream(lang + "/" + page + ".html");
 
   defaultHead.forEach((heads) => {
@@ -30,6 +30,12 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   });
 
   defaultNav.forEach((navs) => {
+    writeStream.write(navs);
+  });
+
+  writeStream.write("<span class='truncate'>" + langValues[page] + "</span>");
+
+  nav4.forEach((navs) => {
     writeStream.write(navs);
   });
 

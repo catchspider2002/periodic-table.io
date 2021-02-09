@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, defaultFooter) => {
+const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter) => {
   let writeStream = fs.createWriteStream(lang + "/" + page + ".html");
 
   defaultHead.forEach((heads) => {
@@ -15,9 +15,15 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
     writeStream.write(navs);
   });
 
+  writeStream.write("<span class='truncate'>" + langValues[page] + "</span>");
+
+  nav4.forEach((navs) => {
+    writeStream.write(navs);
+  });
+
   writeStream.write("<div class='content-wrapper'>");
   writeStream.write("<div class='container'>");
-  writeStream.write("<div class='row text-upper aboutHeader text-center pb-8'>" + langValues.about + "</div>");
+  writeStream.write("<div class='text-upper aboutHeader text-center pb-8'>" + langValues.about + "</div>");
   writeStream.write("<div>");
   writeStream.write(langValues.line1 + " ");
   writeStream.write(langValues.line2);
@@ -39,13 +45,15 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
     "<a class='underlineLink' href='https://github.com/catchspider2002/periodic-table.io'>https://github.com/catchspider2002/periodic-table.io</a>"
   );
   writeStream.write("</div>");
-  writeStream.write("<div class='row text-upper aboutHeader text-center pt-16'>" + langValues.changelog + "</div>");
+  writeStream.write("<div class='text-upper aboutHeader text-center pt-16'>" + langValues.changelog + "</div>");
   writeStream.write("<div>");
   writeStream.write("<ul id='logs'>");
   writeStream.write("<li class='versionHeader'>November 26, 2020</li>");
   writeStream.write("<li>Added Crystal Structure image to the element page</li>");
   writeStream.write("<li>Added Macedonian translation</li>");
-  writeStream.write("<li>Updated Armenian, Greek, Spanish, Italian, Portuguese, Slovenian, Thai, Vietnamese and Chinese(Simplified) translations</li>");
+  writeStream.write(
+    "<li>Updated Armenian, Greek, Spanish, Italian, Portuguese, Slovenian, Thai, Vietnamese and Chinese(Simplified) translations</li>"
+  );
   writeStream.write("<li class='versionHeader'>October 2020</li>");
   writeStream.write("<li>Added Armenian and Malay translations</li>");
   writeStream.write("<li>Added a new printable - Flash Cards in <a class='underlineLink' href='printables.html'>Printables</a> page</li>");
@@ -57,10 +65,14 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("<li>Added a new printable in <a class='underlineLink' href='printables.html'>Printables</a> page</li>");
   writeStream.write("<li>Added CAS Number and PubChem CID Number</li>");
   writeStream.write("<li>Fixed electron configuration rendering issues in Edge and Chrome</li>");
-  writeStream.write("<li>Updated Arabic, Persian, Hindi, Italian, Indonesian, Vietnamese, German, Greek, Polish, Dutch, Slovak, Chinese (Simplified) and Chinese (Traditional) translations</li>");
+  writeStream.write(
+    "<li>Updated Arabic, Persian, Hindi, Italian, Indonesian, Vietnamese, German, Greek, Polish, Dutch, Slovak, Chinese (Simplified) and Chinese (Traditional) translations</li>"
+  );
   writeStream.write("<li class='versionHeader'>July 2020</li>");
   writeStream.write("<li>Added a new printable in <a class='underlineLink' href='printables.html'>Printables</a> page</li>");
-  writeStream.write("<li>Added a new page - <a class='underlineLink' href='translation.html'>Translation</a> where you can check the status of each language and contribute translations</li>");
+  writeStream.write(
+    "<li>Added a new page - <a class='underlineLink' href='translation.html'>Translation</a> where you can check the status of each language and contribute translations</li>"
+  );
   writeStream.write("<li>Added mass number, number of protons, electrons and neutrons</li>");
   writeStream.write("<li>The line height for the Elements page is increased and the text is easily readable</li>");
   writeStream.write("<li>Updated Polish, Croatian, Chinese Simplified, Croatian and Korean translation</li>");
@@ -72,14 +84,20 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("<li>Modified the colors of the Settings popup for both light and dark themes</li>");
   writeStream.write("<li>Added Instagram page link to the footer</li>");
   writeStream.write("<li>Added a new printable in <a class='underlineLink' href='printables.html'>Printables</a> page</li>");
-  writeStream.write("<li>Added <a class='underlineLink' target='_blank' href='https://feedback.periodic-table.io/' rel='noopener noreferrer'>Suggestions</a> where new suggestions or feature requests can be provided</li>");
+  writeStream.write(
+    "<li>Added <a class='underlineLink' target='_blank' href='https://feedback.periodic-table.io/' rel='noopener noreferrer'>Suggestions</a> where new suggestions or feature requests can be provided</li>"
+  );
   writeStream.write("<li>Fonts for Thai and Hebrew are updated</li>");
   writeStream.write("<li>Reduced extra spacing on top and bottom sides of the electronic configuration</li>");
   writeStream.write("<li>Updated Chinese Simplified, Croatian, Portuguese and Danish translations</li>");
   writeStream.write("<li class='versionHeader'>May 2020</li>");
   writeStream.write("<li>Updated Polish, Russian, Vietnamese, Slovenian, Chinese Simplified translations</li>");
-  writeStream.write("<li>Added a new page - <a class='underlineLink' href='printables.html'>Printables</a> which provides a printable version of the periodic table which will be updated regularly</li>");
-  writeStream.write("<li>Added a new page - <a class='underlineLink' href='credits.html'>Credits</a> for translations which was earlier appearing in About page</li>");
+  writeStream.write(
+    "<li>Added a new page - <a class='underlineLink' href='printables.html'>Printables</a> which provides a printable version of the periodic table which will be updated regularly</li>"
+  );
+  writeStream.write(
+    "<li>Added a new page - <a class='underlineLink' href='credits.html'>Credits</a> for translations which was earlier appearing in About page</li>"
+  );
   writeStream.write("<li>Added icons to the navigation bar at the top</li>");
   writeStream.write("<li>Added footer component on all pages which includes quick links not available in the top navigation bar</li>");
   writeStream.write("<li>Updated link colors to match the theme color</li>");
@@ -87,12 +105,16 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("<li>Fixed the layout bug where the 2nd and 3rd row were appearing with a huge space on iOS devices</li>");
   writeStream.write("<li>Fixed scrollbar styles for all browsers</li>");
   writeStream.write("<li>Added an open-source license on Github</li>");
-  writeStream.write("<li>Removed theme switching to enable light or dark mode from Settings and a dedicated button is available in the top navigation bar</li>");
+  writeStream.write(
+    "<li>Removed theme switching to enable light or dark mode from Settings and a dedicated button is available in the top navigation bar</li>"
+  );
   writeStream.write("<li>Replaced the existing static image of electronic configuration with an animated version</li>");
   writeStream.write("<li>Please contact me at naveen@periodic-table.io if you have any suggestions or issues with the website</li>");
   writeStream.write("<li class='versionHeader'>Feb 2020</li>");
   writeStream.write("<li>Modified colors at the navigation bar for better accessibility</li>");
-  writeStream.write("<li>Updated Persian, Croatian, Hungarian, Polish, Greek, Hebrew, Portuguese, German, Spanish, Chinese (Traditional), Russian, Thai, French, Italian, Chinese (Simplified) and Turkish translations</li>");
+  writeStream.write(
+    "<li>Updated Persian, Croatian, Hungarian, Polish, Greek, Hebrew, Portuguese, German, Spanish, Chinese (Traditional), Russian, Thai, French, Italian, Chinese (Simplified) and Turkish translations</li>"
+  );
   writeStream.write("<li class='versionHeader'>May 2019</li>");
   writeStream.write("<li>Added Store page for t-shirts and other merchandise</li>");
   writeStream.write("<li>Added English (UK) translation</li>");
@@ -119,7 +141,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, de
   writeStream.write("<li>Updated Japanese and Dutch translations</li>");
   writeStream.write("</ul>");
   writeStream.write("</div>");
-  writeStream.write("<div class='row text-upper aboutHeader text-center pt-16 pb-8'>" + langValues.languages + "</div>");
+  writeStream.write("<div class='text-upper aboutHeader text-center pt-16 pb-8'>" + langValues.languages + "</div>");
   writeStream.write("<div>");
   writeStream.write("<div class='pb-8'>");
   writeStream.write(langValues.enTrans + "; " + langValues.arTrans + "; " + langValues.bgTrans + "; " + langValues.caTrans + "; ");

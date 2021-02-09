@@ -449,10 +449,6 @@ table,
   margin: 0.25rem;
 }
 
-.m-2 {
-  margin: 0.5rem;
-}
-
 .p-2 {
   padding: 0.5rem;
 }
@@ -874,10 +870,6 @@ canvas {
   text-transform: uppercase;
 }
 
-.padding-top-5 {
-  padding-top: 5px;
-}
-
 .headerOutline {
   display: inline-block;
   text-transform: uppercase;
@@ -886,7 +878,7 @@ canvas {
   margin: 0 -2.25rem 1.5rem;
   color: var(--alt-text-color);
   background-image: var(--fg-color);
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 #elementDiagram {
@@ -1964,7 +1956,7 @@ nav {
   /* height: 52px; */
   display: grid;
   grid-template-columns: 1fr auto auto auto;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   /* font-size: 0.9em; */
 }
 
@@ -2014,6 +2006,7 @@ nav ul li a {
   gap: 0.75em;
   cursor: pointer;
   place-content: start;
+  align-items: center;
 }
 
 #tablesLink {

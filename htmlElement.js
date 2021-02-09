@@ -1742,7 +1742,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       writeStream.write("<div class='masonry-col'>");
       writeStream.write("<div class='blog-thumb'>");
       writeStream.write(
-        "<img id='elementPic' src='images/elements/" +
+        "<img id='elementPic' src='https://periodic-table-io.pages.dev/images/elements/" +
           imageSrc +
           ".jpg' alt=" +
           post["ele" + eleNum + "Desc"] +

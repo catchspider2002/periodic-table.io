@@ -2018,6 +2018,7 @@ nav ul li a {
 
 #tablesLink {
   grid-template-columns: auto 1fr auto;
+grid-auto-rows: c;
 }
 
 /* Background color change on Hover */

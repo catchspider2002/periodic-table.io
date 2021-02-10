@@ -425,7 +425,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
     //   <div class='py-2'>⭐⭐⭐⭐⭐ ({rating} rating{rating > 1 ? 's' : ''})</div>
     // {/if}
     writeStream.write("<div class='py-4'>");
-    writeStream.write("<a href=" + printableLink.link + " class='mx-auto downloadButton justify-center content-center'>");
+    writeStream.write("<a href=" + printableLink.link + " class='mx-auto downloadButton justify-center items-center'>");
     writeStream.write(
       "<svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 512 512' stroke='currentColor' fill='currentColor'>"
     );

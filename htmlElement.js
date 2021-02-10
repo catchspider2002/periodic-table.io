@@ -1119,7 +1119,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       writeStream.write("<div class='flex'>");
       writeStream.write("<div id='firstSquare' class='flex-item masonry-col flex flex-col'>");
       writeStream.write("<div id='resultNumber' class='flex line-height-normal'>" + element.num + "</div>");
-      writeStream.write("<div id='resultSymbol' class='text-center flex content-center justify-center line-height-normal'>");
+      writeStream.write("<div id='resultSymbol' class='flex justify-center line-height-normal'>");
       writeStream.write("<span class='self-center'>" + element.sym + "</span>");
       writeStream.write("</div>");
       writeStream.write("</div>");

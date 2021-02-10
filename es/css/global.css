@@ -23,7 +23,7 @@
   --fg-color: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
     linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
   --border-radius: 0.25rem;
-  --icon-padding: 0 0.5em 0 0;
+  /* --icon-padding: 0 0.5em 0 0; */
   --sign: 1;
   --slider-right: unset;
   --slider-left: 0.25rem;
@@ -38,7 +38,7 @@
 [data-direction="rtl"] {
   --text-direction: rtl;
   --direction-rev: left;
-  --icon-padding: 0 0 0 0.5em;
+  /* --icon-padding: 0 0 0 0.5em; */
   --sign: -1;
   --slider-right: 0.25rem;
   --slider-left: unset;
@@ -496,8 +496,11 @@ table,
   justify-self: start;
 }
 
-.content-center {
+.items-center {
   align-items: center;
+}
+.self-start {
+  align-self: flex-start;
 }
 
 .self-center {
@@ -547,16 +550,6 @@ table,
   margin: 1rem 0;
   padding: 0;
 }
-.items-center {
-  align-items: center;
-}
-.self-start {
-  align-self: flex-start;
-}
-
-/* .padding-0 {
-  padding: 0;
-} */
 
 .span-3 {
   grid-column: 1/4;
@@ -622,8 +615,8 @@ table,
 
 #logs > li:not(.versionHeader),
 #features > li {
-  text-indent: -1.6rem;
-  padding-left: 1.5rem;
+  /* text-indent: -1.6rem;
+  padding-left: 1.5rem; */
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   list-style-type: none;
@@ -631,12 +624,12 @@ table,
 
 #logs > li:not(.versionHeader)::before {
   content: var(--circle-check);
-  padding: 0 7px 0 0;
+  padding: 0 0.5em;
 }
 
 #features > li::before {
   content: var(--star);
-  padding: var(--icon-padding);
+  padding: 0 0.5em;
 }
 
 .versionHeader {

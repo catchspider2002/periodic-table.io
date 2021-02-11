@@ -1082,7 +1082,15 @@ canvas {
 }
 
 #elementNav {
-  padding-top: 25px;
+  display: grid;
+  grid-auto-flow: column;
+  place-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+#elementNav > span {
+  padding-bottom: 0.125rem;
 }
 
 ::-webkit-input-placeholder {
@@ -2025,8 +2033,8 @@ nav ul li a:hover,
 }
 
 nav > button {
-  padding-top: 4px;
-  padding-bottom: 0;
+  padding-top: 10px;
+  padding-bottom: 8px;
 }
 
 /* Media Queries

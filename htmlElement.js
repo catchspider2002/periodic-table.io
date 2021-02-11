@@ -1938,9 +1938,15 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
         nextHTML = "<a href='element-" + nextElement.num + ".html' class='underlineLink'>" + langValues[nextElement.nme] + "</a>";
       }
 
-      writeStream.write("<div id='elementNav' class='text-center'>");
-      writeStream.write(previousHTML + "&nbsp;&nbsp;←&nbsp;");
-      writeStream.write(element.sym + "&nbsp;&nbsp;→&nbsp;");
+      writeStream.write("<div id='elementNav' class='pt-4'>");
+      writeStream.write(previousHTML);
+      writeStream.write(
+        "<svg xmlns='http://www.w3.org/2000/svg' width='1.5em' height='1.5em' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12' /><line x1='5' y1='12' x2='9' y2='16' /><line x1='5' y1='12' x2='9' y2='8' /></svg>"
+      );
+      writeStream.write("<span>" + element.sym + "</span>");
+      writeStream.write(
+        "<svg xmlns='http://www.w3.org/2000/svg' width='1.5em' height='1.5em' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12' /><line x1='15' y1='16' x2='19' y2='12' /><line x1='15' y1='8' x2='19' y2='12' /></svg>"
+      );
       writeStream.write(nextHTML);
       writeStream.write("</div>");
       writeStream.write("</div>");

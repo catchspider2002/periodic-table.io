@@ -10,6 +10,7 @@ const htmlCompare = require("./htmlCompare.js");
 const htmlList = require("./htmlList.js");
 const htmlElement = require("./htmlElement.js");
 const htmlIndex = require("./htmlIndex.js");
+const htmlCredits = require("./htmlCredits.js");
 
 let svgFooter = "'</svg>";
 let svgHdr =
@@ -100,7 +101,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     // { lang: 'tr', name: 'Türkçe', col: 22, punc: 'comma', regular: 'NotoSans'},
     // { lang: 'uk', name: 'Українська', col: 14, punc: 'comma', regular: 'NotoSans'},
     // { lang: 'vi', name: 'Tiếng Việt', col: 15, punc: 'comma', regular: 'NotoSans'},
-    { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular" },
+    // { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular" },
     // { lang: 'he', name: 'עברית', col: 36, punc: 'dot', regular: 'NotoSansHebrew-Regular'},
     // { lang: 'fa', name: 'فارسی', col: 16, punc: 'dot', regular: 'NotoSansKufiArabic-Regular'},
     // { lang: 'hy', name: 'Հայերեն', col: 42, punc: 'comma', regular: 'NotoSansArmenian-Regular'},
@@ -171,6 +172,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       { page: "list", keywords: "list", title: langValues.list },
       { page: "element", keywords: "element", title: langValues.helium },
       { page: "compare", keywords: "compare, comparison", title: langValues.compare },
+      { page: "credits", keywords: "credits, translators, translation", title: langValues.credits },
     ];
 
     let defaultHead = [
@@ -466,42 +468,45 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       let metaTags = metaTags1.concat(metaAlternate).concat(metaTags2).concat(metaTagsFonts).concat(metaTags3);
 
       switch (page) {
-        case "index":
-          htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        // case "index":
+        //   htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "privacy-policy":
+        //   htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "about":
+        //   htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "store":
+        //   htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "printables":
+        //   htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "compare":
+        //   htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "list":
+        //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        case "credits":
+          htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
-        case "privacy-policy":
-          htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "about":
-          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "store":
-          htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "printables":
-          htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "compare":
-          htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "list":
-          htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "element":
-          htmlElement.writeFile(
-            lang,
-            langValues,
-            language.col,
-            language.regular,
-            language.punc,
-            page,
-            defaultHead,
-            defaultNav,
-            nav4,
-            defaultFooter,
-            languages
-          );
-          break;
+        // case "element":
+        //   htmlElement.writeFile(
+        //     lang,
+        //     langValues,
+        //     language.col,
+        //     language.regular,
+        //     language.punc,
+        //     page,
+        //     defaultHead,
+        //     defaultNav,
+        //     nav4,
+        //     defaultFooter,
+        //     languages
+        //   );
+        //   break;
       }
     });
   });

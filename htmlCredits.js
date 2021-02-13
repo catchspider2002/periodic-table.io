@@ -10,9 +10,8 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
 
     for (let j = 0; j < rows.length; j++) {
       let listing = {
-        id: rows[j][0],
-        name: rows[j][1],
-        language: rows[j][4],
+        name: rows[j][0],
+        language: rows[j][2],
       };
       translators.push(listing);
     }
@@ -66,7 +65,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       var translatorArr = translator.split(",");
 
       writeStream.write("<div class='box-content masonry-col'" + (i === 1 ? " id='zhTrans'>" : ">"));
-      writeStream.write("<p class='headerOutline heavyFont'>" + langValues[prop] + "</p>");
+      writeStream.write("<p class='headerOutline heavyFont'>" + langValues[prop + "Trans"] + "</p>");
 
       translatorArr.forEach((navs) => {
         writeStream.write("<p>" + navs + "</p>");

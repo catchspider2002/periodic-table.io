@@ -6,3 +6,4 @@ zohoverify
 svelte-components
 *.map
 onesky*
+.env

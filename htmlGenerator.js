@@ -66,48 +66,48 @@ let darkIcon =
 
 xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
   let languages = [
-    // { lang: 'en', name: 'English', col: 3, punc: 'dot', regular: 'NotoSans'},
-    // { lang: 'en-gb', name: 'English (UK)', col: 40, punc: 'dot', regular: 'NotoSans'},
-    // { lang: 'bg', name: 'Български', col: 20, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'ca', name: 'Català', col: 25, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'zh-cn', name: '中文(简体)', col: 6, punc: 'dot', regular: 'NotoSansSC-Regular'},
-    // { lang: 'zh-tw', name: '中文(繁體)', col: 28, punc: 'dot', regular: 'NotoSansTC-Regular'},
-    // { lang: 'hr', name: 'Hrvatski', col: 39, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'cs', name: 'Čeština', col: 24, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'da', name: 'Dansk', col: 33, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'nl', name: 'Nederlands', col: 7, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'fi', name: 'Suomi', col: 19, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'fr', name: 'Français', col: 5, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'de', name: 'Deutsch', col: 12, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'el', name: 'Ελληνικά', col: 35, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'hi', name: 'हिंदी', col: 29, punc: 'dot', regular: 'NotoSansDevanagari-Regular'},
-    // { lang: 'hu', name: 'Magyar', col: 11, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'id', name: 'Bahasa Indonesia', col: 21, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'it', name: 'Italiano', col: 8, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'ja', name: '日本語', col: 23, punc: 'dot', regular: 'NotoSansJP-Regular'},
-    // { lang: 'ko', name: '한국어', col: 10, punc: 'dot', regular: 'NotoSansKR-Regular'},
-    // { lang: 'ms', name: 'Bahasa Melayu', col: 41, punc: 'dot', regular: 'NotoSans'},
-    // { lang: 'nb-no', name: 'Norsk Bokmål', col: 27, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'nn-no', name: 'Norsk Nynorsk', col: 38, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'pl', name: 'Polski', col: 30, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'pt', name: 'Português', col: 18, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'ro', name: 'Română', col: 17, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'ru', name: 'Русский', col: 9, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'sr', name: 'Српски', col: 26, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'sk', name: 'Slovenčina', col: 13, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'sl', name: 'Slovenščina', col: 37, punc: 'comma', regular: 'NotoSans'},
-    { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans" },
-    // { lang: 'sv', name: 'Svenska', col: 32, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'th', name: 'ไทย', col: 34, punc: 'dot', regular: 'NotoSansThai-Regular'},
-    // { lang: 'tr', name: 'Türkçe', col: 22, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'uk', name: 'Українська', col: 14, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'vi', name: 'Tiếng Việt', col: 15, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'ar', name: 'العربية', col: 31, punc: 'dot', regular: 'NotoSansKufiArabic-Regular'},
-    // { lang: 'he', name: 'עברית', col: 36, punc: 'dot', regular: 'NotoSansHebrew-Regular'},
-    // { lang: 'fa', name: 'فارسی', col: 16, punc: 'dot', regular: 'NotoSansKufiArabic-Regular'},
-    // { lang: 'hy', name: 'Հայերեն', col: 42, punc: 'comma', regular: 'NotoSansArmenian-Regular'},
-    // { lang: 'mk', name: 'Македонски', col: 43, punc: 'comma', regular: 'NotoSans'},
-    // { lang: 'af', name: 'Afrikaans', col: 43, punc: 'comma', regular: 'NotoSans'},
+    // { lang: 'en', name: 'English', col: 3, punc: 'dot', regular: 'NotoSans', code: '1'},
+    // { lang: 'en-gb', name: 'English (UK)', col: 40, punc: 'dot', regular: 'NotoSans', code: '45'},
+    // { lang: 'bg', name: 'Български', col: 20, punc: 'comma', regular: 'NotoSans', code: '576'},
+    // { lang: 'ca', name: 'Català', col: 25, punc: 'comma', regular: 'NotoSans', code: '23'},
+    // { lang: 'zh-cn', name: '中文(简体)', col: 6, punc: 'dot', regular: 'NotoSansSC-Regular', code: '3'},
+    // { lang: 'zh-tw', name: '中文(繁體)', col: 28, punc: 'dot', regular: 'NotoSansTC-Regular', code: '2'},
+    // { lang: 'hr', name: 'Hrvatski', col: 39, punc: 'comma', regular: 'NotoSans', code: '22'},
+    // { lang: 'cs', name: 'Čeština', col: 24, punc: 'comma', regular: 'NotoSans', code: '13'},
+    // { lang: 'da', name: 'Dansk', col: 33, punc: 'comma', regular: 'NotoSans', code: '27'},
+    // { lang: 'nl', name: 'Nederlands', col: 7, punc: 'comma', regular: 'NotoSans', code: '12'},
+    // { lang: 'fi', name: 'Suomi', col: 19, punc: 'comma', regular: 'NotoSans', code: '18'},
+    // { lang: 'fr', name: 'Français', col: 5, punc: 'comma', regular: 'NotoSans', code: '5'},
+    // { lang: 'de', name: 'Deutsch', col: 12, punc: 'comma', regular: 'NotoSans', code: '6'},
+    // { lang: 'el', name: 'Ελληνικά', col: 35, punc: 'comma', regular: 'NotoSans', code: '20'},
+    // { lang: 'hi', name: 'हिंदी', col: 29, punc: 'dot', regular: 'NotoSansDevanagari-Regular', code: '587'},
+    // { lang: 'hu', name: 'Magyar', col: 11, punc: 'comma', regular: 'NotoSans', code: '21'},
+    // { lang: 'id', name: 'Bahasa Indonesia', col: 21, punc: 'comma', regular: 'NotoSans', code: '54'},
+    // { lang: 'it', name: 'Italiano', col: 8, punc: 'comma', regular: 'NotoSans', code: '10'},
+    // { lang: 'ja', name: '日本語', col: 23, punc: 'dot', regular: 'NotoSansJP-Regular', code: '4'},
+    // { lang: 'ko', name: '한국어', col: 10, punc: 'dot', regular: 'NotoSansKR-Regular', code: '9'},
+    // { lang: 'ms', name: 'Bahasa Melayu', col: 41, punc: 'dot', regular: 'NotoSans', code: '55'},
+    // { lang: 'nb-no', name: 'Norsk Bokmål', col: 27, punc: 'comma', regular: 'NotoSans', code: '77'},
+    // { lang: 'nn-no', name: 'Norsk Nynorsk', col: 38, punc: 'comma', regular: 'NotoSans', code: '15'},
+    // { lang: 'pl', name: 'Polski', col: 30, punc: 'comma', regular: 'NotoSans', code: '16'},
+    // { lang: 'pt', name: 'Português', col: 18, punc: 'comma', regular: 'NotoSans', code: '563'},
+    // { lang: 'ro', name: 'Română', col: 17, punc: 'comma', regular: 'NotoSans', code: '19'},
+    // { lang: 'ru', name: 'Русский', col: 9, punc: 'comma', regular: 'NotoSans', code: '11'},
+    // { lang: 'sr', name: 'Српски', col: 26, punc: 'comma', regular: 'NotoSans', code: '462'},
+    // { lang: 'sk', name: 'Slovenčina', col: 13, punc: 'comma', regular: 'NotoSans', code: '34'},
+    // { lang: 'sl', name: 'Slovenščina', col: 37, punc: 'comma', regular: 'NotoSans', code: '659'},
+    { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans", code: "79" },
+    // { lang: 'sv', name: 'Svenska', col: 32, punc: 'comma', regular: 'NotoSans', code: '17'},
+    // { lang: 'th', name: 'ไทย', col: 34, punc: 'dot', regular: 'NotoSansThai-Regular', code: '56'},
+    // { lang: 'tr', name: 'Türkçe', col: 22, punc: 'comma', regular: 'NotoSans', code: '14'},
+    // { lang: 'uk', name: 'Українська', col: 14, punc: 'comma', regular: 'NotoSans', code: '36'},
+    // { lang: 'vi', name: 'Tiếng Việt', col: 15, punc: 'comma', regular: 'NotoSans', code: '50'},
+    // { lang: 'ar', name: 'العربية', col: 31, punc: 'dot', regular: 'NotoSansKufiArabic-Regular', code: '28'},
+    // { lang: 'he', name: 'עברית', col: 36, punc: 'dot', regular: 'NotoSansHebrew-Regular', code: '42'},
+    // { lang: 'fa', name: 'فارسی', col: 16, punc: 'dot', regular: 'NotoSansKufiArabic-Regular', code: '29'},
+    // { lang: 'hy', name: 'Հայերեն', col: 42, punc: 'comma', regular: 'NotoSansArmenian-Regular', code: '62'},
+    // { lang: 'mk', name: 'Македонски', col: 43, punc: 'comma', regular: 'NotoSans', code: '644'},
+    // { lang: 'af', name: 'Afrikaans', col: 43, punc: 'comma', regular: 'NotoSans', code: '60'},
   ];
 
   languages.forEach((language) => {
@@ -124,23 +124,19 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     if (!fs.existsSync(jsDir)) fs.mkdirSync(jsDir);
     if (!fs.existsSync(fontDir)) fs.mkdirSync(fontDir);
 
+    fs.access(lang + "/fonts/" + language.regular + ".woff2", (err) => {
+      if (err) {
+        fs.copyFile("fonts3/" + language.regular + ".woff2", lang + "/fonts/" + language.regular + ".woff2", (err) => {
+          if (err) throw err;
+        });
+      }
+    });
+
     fs.copyFile("global.css", lang + "/css/global.css", (err) => {
       if (err) throw err;
     });
 
-    // fs.copyFile("vercel.json", lang + "/vercel.json", (err) => {
-    //   if (err) throw err;
-    // });
-
     fs.copyFile("htmlJS.js", lang + "/js/htmlJS.js", (err) => {
-      if (err) throw err;
-    });
-
-    fs.copyFile("fonts3/" + language.regular + ".woff2", lang + "/fonts/" + language.regular + ".woff2", (err) => {
-      if (err) throw err;
-    });
-
-    fs.copyFile("fonts3/NotoSans.woff2", lang + "/fonts/NotoSans.woff2", (err) => {
       if (err) throw err;
     });
 
@@ -492,9 +488,9 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         // case "list":
         //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
         //   break;
-        case "credits":
-          htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
+        // case "credits":
+        //   htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
         case "translation":
           htmlTranslation.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;

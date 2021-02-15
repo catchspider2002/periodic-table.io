@@ -173,6 +173,8 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
         writeStream.write(tags);
       });
 
+      writeStream.write("<body>");
+
       defaultNav.forEach((navs) => {
         writeStream.write(navs);
       });
@@ -1929,13 +1931,13 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       if (eleNum === 1) previousHTML = "-";
       else {
         let previousElement = newRawDataElement[previousNum];
-        previousHTML = "<a href='element-" + previousElement.num + ".html' class='underlineLink'>" + langValues[previousElement.nme] + "</a>";
+        previousHTML = "<a href='element-" + previousElement.num + "' class='underlineLink'>" + langValues[previousElement.nme] + "</a>";
       }
 
       if (eleNum === 118) nextHTML = "-";
       else {
         let nextElement = newRawDataElement[nextNum];
-        nextHTML = "<a href='element-" + nextElement.num + ".html' class='underlineLink'>" + langValues[nextElement.nme] + "</a>";
+        nextHTML = "<a href='element-" + nextElement.num + "' class='underlineLink'>" + langValues[nextElement.nme] + "</a>";
       }
 
       writeStream.write("<div id='elementNav' class='pt-4'>");

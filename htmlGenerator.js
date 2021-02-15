@@ -15,7 +15,7 @@ const htmlTranslation = require("./htmlTranslation.js");
 const html404 = require("./html404.js");
 const htmlSitemap = require("./htmlSitemap.js");
 
-let svgFooter = "'</svg>";
+let svgFooter = "</svg>";
 let svgHdr =
   "<svg xmlns='http://www.w3.org/2000/svg' width='1.75em' height='1.75em' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'>";
 let svgHdr2 =
@@ -366,11 +366,11 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<input type='checkbox' id='drop' />",
       "<ul>",
       "<li>",
-      "<a title=" + langValues.list + " href='list.html'>",
+      "<a title=" + langValues.list + " href='list'>",
       listIcon + "<span id='listLink'>" + langValues.list + "</span></a>",
       "</li>",
       "<li>",
-      "<a title=" + langValues.compare + " href='compare.html'>" + compareIcon + "<span id='compareLink'>" + langValues.compare + "</span></a>",
+      "<a title=" + langValues.compare + " href='compare'>" + compareIcon + "<span id='compareLink'>" + langValues.compare + "</span></a>",
       "</li>",
       // "<li>",
       // "<label for='drop-1' class='toggle'>",
@@ -386,15 +386,15 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       // "</ul>",
       // "</li>",
       "<li>",
-      "<a title=" + langValues.printables + " href='printables.html'>",
+      "<a title=" + langValues.printables + " href='printables'>",
       printablesIcon + "<span id='printableLink'>" + langValues.printables + "</span></a>",
       "</li>",
       "<li>",
-      "<a title=" + langValues.store + " href='store.html'>",
+      "<a title=" + langValues.store + " href='store'>",
       storeIcon + "<span id='storeLink'>" + langValues.store + "</span></a>",
       "</li>",
       "<li>",
-      "<a title=" + langValues.translation + " href='translation.html'>",
+      "<a title=" + langValues.translation + " href='translation'>",
       translationIcon + "<span id='translateLink'>" + langValues.translation + "</span></a>",
       "</li>",
       "</ul>",
@@ -414,10 +414,10 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<a target='_blank' href='https://feedback.periodic-table.io/' rel='noopener noreferrer' class='m-1 px-4 py-2'>",
       langValues.suggestions,
       "</a>",
-      "<a href='translation.html' class='m-1 px-4 py-2'>" + langValues.translate + "</a>",
-      "<a href='about.html' class='m-1 px-4 py-2'>" + langValues.about + "</a>",
-      "<a href='credits.html' class='m-1 px-4 py-2'>" + langValues.credits + "</a>",
-      "<a href='privacy-policy.html' class='m-1 px-4 py-2'>" + langValues.privacy + "</a>",
+      "<a href='translation' class='m-1 px-4 py-2'>" + langValues.translate + "</a>",
+      "<a href='about' class='m-1 px-4 py-2'>" + langValues.about + "</a>",
+      "<a href='credits' class='m-1 px-4 py-2'>" + langValues.credits + "</a>",
+      "<a href='privacy-policy' class='m-1 px-4 py-2'>" + langValues.privacy + "</a>",
       "</div>",
       "<div class='flex flex-wrap justify-center pt-2 py-4'>",
       "<a target='_blank' href='https://github.com/catchspider2002/periodic-table.io' rel='noopener noreferrer' class='flex m-1 p-2' title='Github'>",
@@ -444,7 +444,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<div class='flex flex-wrap justify-center p-2 pb-8 self-center'>Made with&nbsp; <span style='color:#e25555'>❤</span> &nbsp;by <a target='_blank' href='https://twitter.com/MrNaveenCS/' rel='noopener noreferrer'>",
       "<span class='linkText'>Naveen CS</span>",
       "</a></div>",
-      "</section></body>",
+      "</section></body></html>",
     ];
 
     pages.forEach((pageValue) => {
@@ -470,10 +470,13 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       let description =
         "Interactive periodic table of the chemical elements in 39 languages - Includes properties, history, name origin, facts, applications, hazards, isotopes and more.";
       let website = "https://periodic-table.io";
+      if (lang !== "en") {
+        website = "https://" + lang + ".periodic-table.io";
+      }
       let image = website + "/images/icons/android-chrome-256x256.png";
       let title = pageValue.title + " - " + langValues.homeHeader;
       let page = pageValue.page;
-      let link = website + "/" + lang + "/" + pageValue.page + "/";
+      let link = website + "/" + pageValue.page + "/";
 
       let metaTags1 = [
         "<meta name='keywords' content='" + keywords + "' />",
@@ -493,9 +496,12 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       let metaAlternate = [];
 
       languagesForSelect.forEach((langVal) => {
-        metaAlternate.push(
-          "<link rel='alternate' hreflang='" + langVal.lang + "' href='" + website + "/" + langVal.lang + "/" + pageValue.page + "'/>"
-        );
+        if (langVal.lang === "en")
+          metaAlternate.push("<link rel='alternate' hreflang='" + langVal.lang + "' href='https://periodic-table.io/" + pageValue.page + "'/>");
+        else
+          metaAlternate.push(
+            "<link rel='alternate' hreflang='" + langVal.lang + "' href='https://" + langVal.lang + ".periodic-table.io/" + pageValue.page + "'/>"
+          );
       });
 
       let metaTags2 = ["<link rel='stylesheet' href='css/global.css' />", "<script defer src='js/htmlJS.js'></script>"];
@@ -519,51 +525,51 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         case "sitemap":
           htmlSitemap.writeFile(lang, langValues, page, pages);
           break;
-        // case "404":
-        //   html404.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "index":
-        //   htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "privacy-policy":
-        //   htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "about":
-        //   htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "store":
-        //   htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "printables":
-        //   htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "compare":
-        //   htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "list":
-        //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "credits":
-        //   htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "translation":
-        //   htmlTranslation.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "element":
-        //   htmlElement.writeFile(
-        //     lang,
-        //     langValues,
-        //     language.col,
-        //     language.regular,
-        //     language.punc,
-        //     page,
-        //     defaultHead,
-        //     defaultNav,
-        //     nav4,
-        //     defaultFooter,
-        //     languagesForSelect
-        //   );
-        //   break;
+        case "404":
+          html404.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "index":
+          htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "privacy-policy":
+          htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "about":
+          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "store":
+          htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "printables":
+          htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "compare":
+          htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "list":
+          htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "credits":
+          htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "translation":
+          htmlTranslation.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "element":
+          htmlElement.writeFile(
+            lang,
+            langValues,
+            language.col,
+            language.regular,
+            language.punc,
+            page,
+            defaultHead,
+            defaultNav,
+            nav4,
+            defaultFooter,
+            languagesForSelect
+          );
+          break;
       }
     });
   });

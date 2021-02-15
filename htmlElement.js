@@ -71,7 +71,7 @@ var crsTPSVG =
 
 const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHead, defaultNav, nav4, defaultFooter, languages) => {
   xlsxFile("../Translation/Periodic Table others.xlsm", { sheet: 2 }).then((rows) => {
-    for (let i = 1; i < 5; i++) {
+    for (let i = 1; i <= 118; i++) {
       let eleNum = i;
       let element = newRawDataElement[eleNum - 1];
 

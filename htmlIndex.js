@@ -38,7 +38,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       (num - -1) +
       "' class='eleTD'><a href='element-" +
       element.num +
-      ".html' id='element" +
+      "' id='element" +
       element.num +
       "' class='elements " +
       className +

@@ -41,7 +41,7 @@ This contains the text for the labels used in all the pages except for the eleme
 [![Danish](https://img.shields.io/badge/Danish-82.3%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/27)
 [![Dutch](https://img.shields.io/badge/Dutch-98.7%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/12)
 [![Finnish](https://img.shields.io/badge/Finnish-93.1%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/18)
-[![French](https://img.shields.io/badge/French-94.7%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/5)
+[![French](https://img.shields.io/badge/French-99.7%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/5)
 [![German](https://img.shields.io/badge/German-97.9%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/6)
 [![Greek](https://img.shields.io/badge/Greek-75.1%25-yellow)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/20)
 [![Hebrew](https://img.shields.io/badge/Hebrew-91.8%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/42)

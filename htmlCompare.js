@@ -104,10 +104,10 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   let element = newRawDataCompare[0];
   // writeStream.write("<div class='row'>");
   writeStream.write("<div class='grayText'>" + langValues.labelName + "</div>");
-  writeStream.write("<a id='compEle1' href='element-" + element.num + ".html'>");
+  writeStream.write("<a id='compEle1' href='element-" + element.num + "'>");
   writeStream.write("<div class='compareLink'><span id='name1' class='underlineLink'>" + langValues[element.nme] + "</span></div>");
   writeStream.write("</a>");
-  writeStream.write("<a id='compEle2' href='element-" + element.num + ".html'>");
+  writeStream.write("<a id='compEle2' href='element-" + element.num + "'>");
   writeStream.write("<div class='compareLink'><span id='name2' class='underlineLink'>" + langValues[element.nme] + "</span></div>");
   writeStream.write("</a>");
   // writeStream.write("</div>");

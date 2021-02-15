@@ -1,10 +1,11 @@
-const { table } = require("console");
 const fs = require("fs");
 
 const writeFile = (lang, langValues, page, pages) => {
   let writeStream = fs.createWriteStream(lang + "/sitemap.xml");
 
-  let site = "https://es.periodic-table.io/";
+  let site = "https://" + lang + ".periodic-table.io/";
+
+  if (lang === "en") site = "https://periodic-table.io/";
 
   const yesterday = new Date();
   yesterday.setDate(yesterday.getDate() - 1);
@@ -21,7 +22,7 @@ const writeFile = (lang, langValues, page, pages) => {
   writeStream.write("    </url>\n");
 
   pages.forEach((pageValue) => {
-    if (pageValue.page !== "sitemap" && pageValue.page !== "404" && pageValue.page !== "index" && pageValue.page !== "element") {
+    if (pageValue.page !== "sitemap" && pageValue.page !== "manifest" && pageValue.page !== "404" && pageValue.page !== "index" && pageValue.page !== "element") {
       writeStream.write("    <url>\n");
       writeStream.write("        <loc>" + site + pageValue.page + "/</loc>\n");
       writeStream.write("        <lastmod>" + date + "</lastmod>\n");

@@ -1,20 +1,42 @@
+const { table } = require("console");
 const fs = require("fs");
 
-const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter) => {
+const writeFile = (lang, langValues, page, pages) => {
   let writeStream = fs.createWriteStream(lang + "/sitemap.xml");
 
-  writeStream.write("<?xml version='1.0' encoding='UTF-8'?>");
-  writeStream.write("<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>");
-  writeStream.write("<url>");
-  writeStream.write("<loc>https://pattern.monster</loc>");
-  writeStream.write("<lastmod>2021-2-8T01:01:01+01:00</lastmod>");
-  writeStream.write("<priority>1.0</priority>");
-  writeStream.write("</url>");
-  writeStream.write("<url>");
-  writeStream.write("<loc>https://pattern.monster/features/</loc>");
-  writeStream.write("<lastmod>2021-2-8T01:01:01+01:00</lastmod>");
-  writeStream.write("<priority>0.8</priority>");
-  writeStream.write("</url>");
+  let site = "https://es.periodic-table.io/";
+
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  yesterday.toDateString();
+
+  let date = yesterday.getFullYear() + "-" + (yesterday.getMonth() + 1) + "-" + yesterday.getDate() + "T01:01:01+01:00";
+
+  writeStream.write("<?xml version='1.0' encoding='UTF-8'?>\n");
+  writeStream.write("<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>\n");
+  writeStream.write("    <url>\n");
+  writeStream.write("        <loc>" + site + "</loc>\n");
+  writeStream.write("        <lastmod>" + date + "</lastmod>\n");
+  writeStream.write("        <priority>1.0</priority>\n");
+  writeStream.write("    </url>\n");
+
+  pages.forEach((pageValue) => {
+    if (pageValue.page !== "sitemap" && pageValue.page !== "404" && pageValue.page !== "index" && pageValue.page !== "element") {
+      writeStream.write("    <url>\n");
+      writeStream.write("        <loc>" + site + pageValue.page + "/</loc>\n");
+      writeStream.write("        <lastmod>" + date + "</lastmod>\n");
+      writeStream.write("        <priority>0.8</priority>\n");
+      writeStream.write("    </url>\n");
+    }
+  });
+
+  for (let i = 1; i <= 118; i++) {
+    writeStream.write("    <url>\n");
+    writeStream.write("        <loc>" + site + "element-" + i + "/</loc>\n");
+    writeStream.write("        <lastmod>" + date + "</lastmod>\n");
+    writeStream.write("        <priority>0.8</priority>\n");
+    writeStream.write("    </url>\n");
+  }
   writeStream.write("</urlset>");
 
   // the finish event is emitted when all data has been flushed from the stream

@@ -517,7 +517,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
 
       switch (page) {
         case "sitemap":
-          htmlSitemap.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          htmlSitemap.writeFile(lang, langValues, page, pages);
           break;
         // case "404":
         //   html404.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);

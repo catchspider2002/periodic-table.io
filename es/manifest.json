@@ -13,21 +13,21 @@
       "short_name": "Lista",
       "description": "Visualice todos los elementos listados en orden alfabético",
       "url": "/list",
-      "icons": [{ "src": "/icons/list.png", "sizes": "192x192" }]
+      "icons": [{ "src": "/images/icons/list.png", "sizes": "192x192" }]
     },
     {
       "name": "Comparar",
       "short_name": "Comparar",
       "description": "Compare las propiedades de 2 elementos",
       "url": "/compare",
-      "icons": [{ "src": "/icons/compare.png", "sizes": "192x192" }]
+      "icons": [{ "src": "/images/icons/compare.png", "sizes": "192x192" }]
     },
     {
       "name": "Imprimibles",
       "short_name": "Imprimibles",
       "description": "Imprimibles",
       "url": "/printables",
-      "icons": [{ "src": "/icons/printables.png", "sizes": "192x192" }]
+      "icons": [{ "src": "/images/icons/printables.png", "sizes": "192x192" }]
     }
   ],
   "icons": [

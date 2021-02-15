@@ -19,21 +19,21 @@ const writeFile = (lang, langValues, page) => {
   writeStream.write('      "short_name": "' + langValues.list + '",\n');
   writeStream.write('      "description": "' + langValues.feature4 + '",\n');
   writeStream.write('      "url": "/list",\n');
-  writeStream.write('      "icons": [{ "src": "/icons/list.png", "sizes": "192x192" }]\n');
+  writeStream.write('      "icons": [{ "src": "/images/icons/list.png", "sizes": "192x192" }]\n');
   writeStream.write("    },\n");
   writeStream.write("    {\n");
   writeStream.write('      "name": "' + langValues.compare + '",\n');
   writeStream.write('      "short_name": "' + langValues.compare + '",\n');
   writeStream.write('      "description": "' + langValues.feature6 + '",\n');
   writeStream.write('      "url": "/compare",\n');
-  writeStream.write('      "icons": [{ "src": "/icons/compare.png", "sizes": "192x192" }]\n');
+  writeStream.write('      "icons": [{ "src": "/images/icons/compare.png", "sizes": "192x192" }]\n');
   writeStream.write("    },\n");
   writeStream.write("    {\n");
   writeStream.write('      "name": "' + langValues.printables + '",\n');
   writeStream.write('      "short_name": "' + langValues.printables + '",\n');
   writeStream.write('      "description": "' + langValues.printables + '",\n');
   writeStream.write('      "url": "/printables",\n');
-  writeStream.write('      "icons": [{ "src": "/icons/printables.png", "sizes": "192x192" }]\n');
+  writeStream.write('      "icons": [{ "src": "/images/icons/printables.png", "sizes": "192x192" }]\n');
   writeStream.write("    }\n");
   writeStream.write("  ],\n");
 

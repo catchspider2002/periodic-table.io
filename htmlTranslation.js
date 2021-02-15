@@ -87,8 +87,6 @@ let today = new Date();
 let date = today.toLocaleString("default", { month: "long" }) + " " + today.getDate() + ", " + today.getFullYear();
 
 const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter) => {
-  // function run_onesky(project_id) {
-  console.log("run_onesky");
   let available1Markup = "";
   let unavailable1Markup = "";
   let unavailable1HTML = "";

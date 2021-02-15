@@ -530,51 +530,51 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         case "manifest":
           htmlManifest.writeFile(lang, langValues, page);
           break;
-        case "404":
-          html404.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "index":
-          htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "privacy-policy":
-          htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "about":
-          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "store":
-          htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "printables":
-          htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "compare":
-          htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "list":
-          htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "credits":
-          htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "translation":
-          htmlTranslation.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "element":
-          htmlElement.writeFile(
-            lang,
-            langValues,
-            language.col,
-            language.regular,
-            language.punc,
-            page,
-            defaultHead,
-            defaultNav,
-            nav4,
-            defaultFooter,
-            languagesForSelect
-          );
-          break;
+        // case "404":
+        //   html404.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "index":
+        //   htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "privacy-policy":
+        //   htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "about":
+        //   htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "store":
+        //   htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "printables":
+        //   htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "compare":
+        //   htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "list":
+        //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "credits":
+        //   htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "translation":
+        //   htmlTranslation.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "element":
+        //   htmlElement.writeFile(
+        //     lang,
+        //     langValues,
+        //     language.col,
+        //     language.regular,
+        //     language.punc,
+        //     page,
+        //     defaultHead,
+        //     defaultNav,
+        //     nav4,
+        //     defaultFooter,
+        //     languagesForSelect
+        //   );
+        //   break;
       }
     });
   });

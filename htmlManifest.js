@@ -9,6 +9,10 @@ const writeFile = (lang, langValues, page) => {
   writeStream.write('  "background_color": "#0078d7",\n');
   writeStream.write('  "theme_color": "#0078d7",\n');
   writeStream.write('  "display": "standalone",\n');
+  writeStream.write('  "dir": "' + (lang === "ar" || lang === "fa" || lang === "he" ? "rtl" : "ltr") + '",\n');
+  writeStream.write('  "lang": "' + lang + '",\n');
+  writeStream.write('  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",\n');
+
   writeStream.write('  "orientation": "any",\n');
   writeStream.write('  "categories": ["education", "books"],\n');
   writeStream.write('  "description": "' + langValues.line1 + " " + langValues.line2 + '",\n');
@@ -105,7 +109,7 @@ const writeFile = (lang, langValues, page) => {
   writeStream.write('      "purpose": "maskable"\n');
   writeStream.write("    }\n");
   writeStream.write("  ],\n");
-  
+
   writeStream.write('  "screenshots": [\n');
   writeStream.write("    {\n");
   writeStream.write('      "src": "/screenshots/Phone-1.png",\n');

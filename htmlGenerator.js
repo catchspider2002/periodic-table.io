@@ -188,6 +188,10 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       if (err) throw err;
     });
 
+    fs.copyFile("service-worker.js", lang + "/service-worker.js", (err) => {
+      if (err) throw err;
+    });
+
     fs.copyFile("favicon-32x32.png", lang + "/favicon-32x32.png", (err) => {
       if (err) throw err;
     });
@@ -518,7 +522,16 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       let metaTags3 = [
         "<style>@font-face {font-family: SpecialRegular; src: url(fonts/" + language.regular + ".woff2) format('woff2'); font-display: swap;}",
         "@font-face {font-family: Regular;src: url(fonts/NotoSans.woff2) format('woff2'); font-display: swap;}",
-        "</style></head><body>",
+        "</style>",
+        "<script>",
+
+        "if ('serviceWorker' in navigator) {",
+        "window.addEventListener('load', () => {",
+        "navigator.serviceWorker.register('/service-worker.js');",
+        "});",
+        "}",
+        "</script>",
+        "</head><body>",
       ];
 
       let metaTags = metaTags1.concat(metaAlternate).concat(metaTags2).concat(metaTagsFonts).concat(metaTags3);
@@ -530,36 +543,36 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         case "manifest":
           htmlManifest.writeFile(lang, langValues, page);
           break;
-        // case "404":
-        //   html404.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "index":
-        //   htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "privacy-policy":
-        //   htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "about":
-        //   htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "store":
-        //   htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "printables":
-        //   htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "compare":
-        //   htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "list":
-        //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "credits":
-        //   htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "translation":
-        //   htmlTranslation.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
+        case "404":
+          html404.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "index":
+          htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "privacy-policy":
+          htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "about":
+          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "store":
+          htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "printables":
+          htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "compare":
+          htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "list":
+          htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "credits":
+          htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "translation":
+          htmlTranslation.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
         // case "element":
         //   htmlElement.writeFile(
         //     lang,

@@ -1,0 +1,147 @@
+{
+  "short_name": "원소 주기율표",
+  "name": "원소 주기율표",
+  "background_color": "#0078d7",
+  "theme_color": "#0078d7",
+  "display": "standalone",
+  "dir": "ltr",
+  "lang": "ko",
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+  "orientation": "any",
+  "categories": ["education", "books"],
+  "description": "원소 주기율표: 118 원소'는 주기율표 속 모든 원소들에 대한 유용한 정보를 종합적으로 한 번에 보여줍니다. 각각의 원소를 클릭하여 원소의 특성, 역사, 원소명의 유래, 모습, 용도, 위험성, 전자껍질 모형을 볼 수 있습니다.",
+  "shortcuts": [
+    {
+      "name": "목록",
+      "short_name": "목록",
+      "description": "모든 원소들을 가나다 순서대로 볼 수도 있습니다",
+      "url": "/list",
+      "icons": [{ "src": "/images/icons/list.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "비교",
+      "short_name": "비교",
+      "description": "두 원소의 특징을 비교할 수 있습니다",
+      "url": "/compare",
+      "icons": [{ "src": "/images/icons/compare.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "인쇄하기",
+      "short_name": "인쇄하기",
+      "description": "인쇄하기",
+      "url": "/printables",
+      "icons": [{ "src": "/images/icons/printables.png", "sizes": "192x192" }]
+    }
+  ],
+  "icons": [
+    {
+      "src": "/images/icons/android-chrome-36x36.png",
+      "sizes": "36x36",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/apple-touch-icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/maskable_icon_x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/Phone-1.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-2.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-3.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-4.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-5.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-6.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-7.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-8.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "index.html"
+}

@@ -1,6 +1,6 @@
 {
-  "short_name": "Периоден Систем",
-  "name": "Периоден Систем",
+  "short_name": "Periodieke tabel",
+  "name": "Periodieke tabel",
   "background_color": "#0078d7",
   "theme_color": "#0078d7",
   "display": "standalone",
@@ -9,26 +9,26 @@
   "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
   "orientation": "any",
   "categories": ["education", "books"],
-  "description": "Елементи: Периодичната табела обезбедува сеопфатни и корисни информации за хемиските елементи сите на едно место. Кликнете на елемент за да дознаете повеќе за својствата, историјата, потеклото на името, сликите, апликациите, опасностите и дијаграмот со електронска обвивка на секој елемент.",
+  "description": "Elemente: Die Periodieke Tabel bied omvattende en nuttige inligting oor die chemiese elemente op een plek. Klik op 'n element om meer uit te vind oor die eienskappe, geskiedenis, oorsprong van die naam, beelde, toepassings, gevare en elektrondopdiagram van elke element.",
   "shortcuts": [
     {
-      "name": "Лист",
-      "short_name": "Лист",
-      "description": "Види го листот на сите елементи во азбучен ред",
+      "name": "Lys",
+      "short_name": "Lys",
+      "description": "Vertoon lys van al die elemente in alfabetiese volgorde",
       "url": "/list",
       "icons": [{ "src": "/images/icons/list.png", "sizes": "192x192" }]
     },
     {
-      "name": "Спореди",
-      "short_name": "Спореди",
-      "description": "Спореди ги карактеристиките на 2 елементи",
+      "name": "Vergelyk",
+      "short_name": "Vergelyk",
+      "description": "Vergelyk die eienskappe van 2 elemente",
       "url": "/compare",
       "icons": [{ "src": "/images/icons/compare.png", "sizes": "192x192" }]
     },
     {
-      "name": "Принтено",
-      "short_name": "Принтено",
-      "description": "Принтено",
+      "name": "Drukbare",
+      "short_name": "Drukbare",
+      "description": "Drukbare",
       "url": "/printables",
       "icons": [{ "src": "/images/icons/printables.png", "sizes": "192x192" }]
     }

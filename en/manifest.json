@@ -1,0 +1,147 @@
+{
+  "short_name": "Periodic Table",
+  "name": "Periodic Table",
+  "background_color": "#0078d7",
+  "theme_color": "#0078d7",
+  "display": "standalone",
+  "dir": "ltr",
+  "lang": "en",
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+  "orientation": "any",
+  "categories": ["education", "books"],
+  "description": "Elements: The Periodic Table provides comprehensive and useful information about the chemical elements all in one place. Click on an element to know more about the properties, history, name origin, images, applications, hazards and electron shell diagram of each element.",
+  "shortcuts": [
+    {
+      "name": "List",
+      "short_name": "List",
+      "description": "View the list of all elements in the alphabetical order",
+      "url": "/list",
+      "icons": [{ "src": "/images/icons/list.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Compare",
+      "short_name": "Compare",
+      "description": "Compare the properties of 2 elements",
+      "url": "/compare",
+      "icons": [{ "src": "/images/icons/compare.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Printables",
+      "short_name": "Printables",
+      "description": "Printables",
+      "url": "/printables",
+      "icons": [{ "src": "/images/icons/printables.png", "sizes": "192x192" }]
+    }
+  ],
+  "icons": [
+    {
+      "src": "/images/icons/android-chrome-36x36.png",
+      "sizes": "36x36",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/apple-touch-icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/maskable_icon_x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/Phone-1.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-2.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-3.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-4.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-5.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-6.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-7.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-8.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "index.html"
+}

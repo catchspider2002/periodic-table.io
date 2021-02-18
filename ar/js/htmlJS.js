@@ -474,7 +474,7 @@ function firstChanged() {
 
   id("atmNo1").textContent = getNum(firstDetails.num);
   id("name1").textContent = id("firstElement").options[id("firstElement").selectedIndex].innerHTML;
-  id("compEle1").href = "element-" + firstDetails.num + ".html"
+  id("compEle1").href = "element-" + firstDetails.num
   id("symbol1").textContent = firstDetails.sym;
   id("periods1").textContent = getNum(firstDetails.prd);
   id("block1").textContent = firstDetails.blk;
@@ -514,7 +514,7 @@ function secondChanged() {
 
   id("atmNo2").textContent = getNum(secondDetails.num);
   id("name2").textContent = id("secondElement").options[id("secondElement").selectedIndex].text;
-  id("compEle2").href = "element-" + secondDetails.num + ".html";
+  id("compEle2").href = "element-" + secondDetails.num
   id("symbol2").textContent = secondDetails.sym;
   id("periods2").textContent = getNum(secondDetails.prd);
   id("block2").textContent = secondDetails.blk;
@@ -1073,7 +1073,10 @@ function setLanguage() {
   let currentLang = document.documentElement.lang
   langValue = id("languageSelectSetting").value;
   // location.href= '../' + langValue 
-  location.href= currentPage.replace(currentLang, langValue)
+  if(langValue==="en")
+    location.href= currentPage.replace(currentLang + '.', '')
+  else
+    location.href= currentPage.replace(currentLang, langValue)
 
 
   // localStorage.setItem("langValue", langValue);

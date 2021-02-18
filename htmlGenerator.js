@@ -77,9 +77,9 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     // { lang: "ca", name: "Català", col: 25, punc: "comma", regular: "NotoSans", code: "23" },
     // { lang: "cs", name: "Čeština", col: 24, punc: "comma", regular: "NotoSans", code: "13" },
     // { lang: "da", name: "Dansk", col: 33, punc: "comma", regular: "NotoSans", code: "27" },
-    // { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans", code: "6" },
+    { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans", code: "6" },
     { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans", code: "79" },
-    // { lang: "fr", name: "Français", col: 5, punc: "comma", regular: "NotoSans", code: "5" },
+    { lang: "fr", name: "Français", col: 5, punc: "comma", regular: "NotoSans", code: "5" },
     // { lang: "hr", name: "Hrvatski", col: 39, punc: "comma", regular: "NotoSans", code: "22" },
     // { lang: "it", name: "Italiano", col: 8, punc: "comma", regular: "NotoSans", code: "10" },
     // { lang: "hu", name: "Magyar", col: 11, punc: "comma", regular: "NotoSans", code: "21" },
@@ -103,14 +103,14 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     // { lang: "uk", name: "Українська", col: 14, punc: "comma", regular: "NotoSans", code: "36" },
     // { lang: "hy", name: "Հայերեն", col: 42, punc: "comma", regular: "NotoSansArmenian-Regular", code: "62" },
     // { lang: "he", name: "עברית", col: 36, punc: "dot", regular: "NotoSansHebrew-Regular", code: "42" },
-    // { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular", code: "28" },
+    { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular", code: "28" },
     // { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular", code: "29" },
     // { lang: "hi", name: "हिंदी", col: 29, punc: "dot", regular: "NotoSansDevanagari-Regular", code: "587" },
     // { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular", code: "56" },
+    { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular", code: "4" },
     // { lang: "ko", name: "한국어", col: 10, punc: "dot", regular: "NotoSansKR-Regular", code: "9" },
     // { lang: "zh-cn", name: "中文(简体)", col: 6, punc: "dot", regular: "NotoSansSC-Regular", code: "3" },
     // { lang: "zh-tw", name: "中文(繁體)", col: 28, punc: "dot", regular: "NotoSansTC-Regular", code: "2" },
-    // { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular", code: "4" },
   ];
 
   let languagesForSelect = [
@@ -505,7 +505,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
 
       languagesForSelect.forEach((langVal) => {
         if (langVal.lang === "en")
-          metaAlternate.push("<link rel='alternate' hreflang='" + langVal.lang + "' href='https://periodic-table.io/" + pageValue.page + "'/>");
+          metaAlternate.push("<link rel='alternate' hreflang='en' href='https://periodic-table.io/" + pageValue.page + "'/>");
         else
           metaAlternate.push(
             "<link rel='alternate' hreflang='" + langVal.lang + "' href='https://" + langVal.lang + ".periodic-table.io/" + pageValue.page + "'/>"

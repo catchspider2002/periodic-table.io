@@ -138,9 +138,18 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       let metaAlternate = [];
 
       languages.forEach((langVal) => {
-        metaAlternate.push(
-          "<link rel='alternate' hreflang='" + langVal.lang + "' href='https://" + langVal.lang + ".periodic-table.io/element-" + element.num + "'/>"
-        );
+        if (langVal.lang === "en")
+          metaAlternate.push("<link rel='alternate' hreflang='en' href='https://periodic-table.io/element-" + element.num + "'/>");
+        else
+          metaAlternate.push(
+            "<link rel='alternate' hreflang='" +
+              langVal.lang +
+              "' href='https://" +
+              langVal.lang +
+              ".periodic-table.io/element-" +
+              element.num +
+              "'/>"
+          );
       });
 
       let metaTags2 = ["<link rel='stylesheet' href='css/global.css' />", "<script defer src='js/htmlJS.js'></script>"];

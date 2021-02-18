@@ -570,21 +570,21 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         case "translation":
           htmlTranslation.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
-        // case "element":
-        //   htmlElement.writeFile(
-        //     lang,
-        //     langValues,
-        //     language.col,
-        //     language.regular,
-        //     language.punc,
-        //     page,
-        //     defaultHead,
-        //     defaultNav,
-        //     nav4,
-        //     defaultFooter,
-        //     languagesForSelect
-        //   );
-        //   break;
+        case "element":
+          htmlElement.writeFile(
+            lang,
+            langValues,
+            language.col,
+            language.regular,
+            language.punc,
+            page,
+            defaultHead,
+            defaultNav,
+            nav4,
+            defaultFooter,
+            languagesForSelect
+          );
+          break;
       }
     });
   });

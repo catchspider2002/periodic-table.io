@@ -24,9 +24,7 @@ let A22sin = 0.3826834323650897717284599840304;
 let A22cos = 0.92387953251128675612818318939679;
 let A33sin = 0.55557023301960222474283081394853;
 let A33cos = 0.83146961230254523707878837761791;
-let fontcolor,
-  strokecolor,
-  val1 = -800,
+let val1 = -800,
   val2 = 1600;
 
 let rad1 = 230;
@@ -135,13 +133,6 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
         "<meta name='twitter:image:src' content='" + image + "' />",
         "<meta property='og:url' content='" + link + "' />",
         "<link rel='canonical' href='" + link + "' />",
-        // "<link rel='stylesheet' href='css/global.css' />",
-        // "<script defer src='js/htmlJS.js'></script>",
-        // "<link rel='preload' href='fonts/" + regularFont + ".woff2' as='font' crossorigin='anonymous' />",
-        // "<link rel='preload' href='fonts/NotoSans.woff2' as='font' crossorigin='anonymous' />",
-        // "<style>@font-face {font-family: SpecialRegular; src: url(fonts/" + regularFont + ".woff2) format('woff2'); font-display: swap;}",
-        // "@font-face {font-family: Regular; src: url(fonts/NotoSans.woff2) format('woff2'); font-display: swap;}",
-        // "</style></head>",
       ];
 
       let metaAlternate = [];
@@ -1698,7 +1689,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       writeStream.write("</div>");
       writeStream.write("<div class='grayText hyphen'>" + langValues.labelSpecificMain + "</div>");
       writeStream.write("<div>");
-      if (element.spc === "na") writeStream.write(langValues.na);
+      if (element.spc === "-") writeStream.write("-");
       else writeStream.write(getNum(element.spc) + " " + langValues.labelSpecific);
       writeStream.write("</div>");
       writeStream.write("</div>");

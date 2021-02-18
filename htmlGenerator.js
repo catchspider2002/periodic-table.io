@@ -188,7 +188,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       if (err) throw err;
     });
 
-    fs.copyFile("service-worker.js", lang + "/service-worker.js", (err) => {
+    fs.copyFile("pwabuilder-sw.js", lang + "/pwabuilder-sw.js", (err) => {
       if (err) throw err;
     });
 
@@ -530,6 +530,11 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         "navigator.serviceWorker.register('/service-worker.js');",
         "});",
         "}",
+        "</script>",
+        "<script type='module'>",
+        "import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';",
+        "const el = document.createElement('pwa-update');",
+        "document.body.appendChild(el);",
         "</script>",
         "</head><body>",
       ];

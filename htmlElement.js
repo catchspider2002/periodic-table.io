@@ -164,7 +164,13 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       let metaTags3 = [
         "<style>@font-face {font-family: SpecialRegular; src: url(fonts/" + regularFont + ".woff2) format('woff2'); font-display: swap;}",
         "@font-face {font-family: Regular;src: url(fonts/NotoSans.woff2) format('woff2'); font-display: swap;}",
-        "</style></head>",
+        "</style>",
+        "<script type='module'>",
+        "import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';",
+        "const el = document.createElement('pwa-update');",
+        "document.body.appendChild(el);",
+        "</script>",
+        "</head>",
       ];
 
       let metaTags = metaTags1.concat(metaAlternate).concat(metaTags2).concat(metaTagsFonts).concat(metaTags3);

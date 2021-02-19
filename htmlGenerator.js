@@ -71,46 +71,46 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
   let languages = [
     { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans", code: "1" },
     { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans", code: "45" },
-    // { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans", code: "60" },
-    // { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans", code: "54" },
-    // { lang: "ms", name: "Bahasa Melayu", col: 41, punc: "dot", regular: "NotoSans", code: "55" },
-    // { lang: "ca", name: "Català", col: 25, punc: "comma", regular: "NotoSans", code: "23" },
-    // { lang: "cs", name: "Čeština", col: 24, punc: "comma", regular: "NotoSans", code: "13" },
-    // { lang: "da", name: "Dansk", col: 33, punc: "comma", regular: "NotoSans", code: "27" },
-    // { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans", code: "6" },
-    // { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans", code: "79" },
-    // { lang: "fr", name: "Français", col: 5, punc: "comma", regular: "NotoSans", code: "5" },
-    // { lang: "hr", name: "Hrvatski", col: 39, punc: "comma", regular: "NotoSans", code: "22" },
-    // { lang: "it", name: "Italiano", col: 8, punc: "comma", regular: "NotoSans", code: "10" },
-    // { lang: "hu", name: "Magyar", col: 11, punc: "comma", regular: "NotoSans", code: "21" },
-    // { lang: "nl", name: "Nederlands", col: 7, punc: "comma", regular: "NotoSans", code: "12" },
-    // { lang: "nb-no", name: "Norsk Bokmål", col: 27, punc: "comma", regular: "NotoSans", code: "77" },
-    // { lang: "nn-no", name: "Norsk Nynorsk", col: 38, punc: "comma", regular: "NotoSans", code: "15" },
-    // { lang: "pl", name: "Polski", col: 30, punc: "comma", regular: "NotoSans", code: "16" },
-    // { lang: "pt", name: "Português", col: 18, punc: "comma", regular: "NotoSans", code: "563" },
-    // { lang: "ro", name: "Română", col: 17, punc: "comma", regular: "NotoSans", code: "19" },
-    // { lang: "sk", name: "Slovenčina", col: 13, punc: "comma", regular: "NotoSans", code: "34" },
-    // { lang: "sl", name: "Slovenščina", col: 37, punc: "comma", regular: "NotoSans", code: "659" },
-    // { lang: "fi", name: "Suomi", col: 19, punc: "comma", regular: "NotoSans", code: "18" },
-    // { lang: "sv", name: "Svenska", col: 32, punc: "comma", regular: "NotoSans", code: "17" },
-    // { lang: "vi", name: "Tiếng Việt", col: 15, punc: "comma", regular: "NotoSans", code: "50" },
-    // { lang: "tr", name: "Türkçe", col: 22, punc: "comma", regular: "NotoSans", code: "14" },
-    // { lang: "el", name: "Ελληνικά", col: 35, punc: "comma", regular: "NotoSans", code: "20" },
-    // { lang: "bg", name: "Български", col: 20, punc: "comma", regular: "NotoSans", code: "576" },
-    // { lang: "mk", name: "Македонски", col: 43, punc: "comma", regular: "NotoSans", code: "644" },
-    // { lang: "ru", name: "Русский", col: 9, punc: "comma", regular: "NotoSans", code: "11" },
-    // { lang: "sr", name: "Српски", col: 26, punc: "comma", regular: "NotoSans", code: "462" },
-    // { lang: "uk", name: "Українська", col: 14, punc: "comma", regular: "NotoSans", code: "36" },
-    // { lang: "hy", name: "Հայերեն", col: 42, punc: "comma", regular: "NotoSansArmenian-Regular", code: "62" },
-    // { lang: "he", name: "עברית", col: 36, punc: "dot", regular: "NotoSansHebrew-Regular", code: "42" },
-    // { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular", code: "28" },
-    // { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular", code: "29" },
-    // { lang: "hi", name: "हिंदी", col: 29, punc: "dot", regular: "NotoSansDevanagari-Regular", code: "587" },
-    // { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular", code: "56" },
-    // { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular", code: "4" },
-    // { lang: "ko", name: "한국어", col: 10, punc: "dot", regular: "NotoSansKR-Regular", code: "9" },
-    // { lang: "zh-cn", name: "中文(简体)", col: 6, punc: "dot", regular: "NotoSansSC-Regular", code: "3" },
-    // { lang: "zh-tw", name: "中文(繁體)", col: 28, punc: "dot", regular: "NotoSansTC-Regular", code: "2" },
+    { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans", code: "60" },
+    { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans", code: "54" },
+    { lang: "ms", name: "Bahasa Melayu", col: 41, punc: "dot", regular: "NotoSans", code: "55" },
+    { lang: "ca", name: "Català", col: 25, punc: "comma", regular: "NotoSans", code: "23" },
+    { lang: "cs", name: "Čeština", col: 24, punc: "comma", regular: "NotoSans", code: "13" },
+    { lang: "da", name: "Dansk", col: 33, punc: "comma", regular: "NotoSans", code: "27" },
+    { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans", code: "6" },
+    { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans", code: "79" },
+    { lang: "fr", name: "Français", col: 5, punc: "comma", regular: "NotoSans", code: "5" },
+    { lang: "hr", name: "Hrvatski", col: 39, punc: "comma", regular: "NotoSans", code: "22" },
+    { lang: "it", name: "Italiano", col: 8, punc: "comma", regular: "NotoSans", code: "10" },
+    { lang: "hu", name: "Magyar", col: 11, punc: "comma", regular: "NotoSans", code: "21" },
+    { lang: "nl", name: "Nederlands", col: 7, punc: "comma", regular: "NotoSans", code: "12" },
+    { lang: "nb-no", name: "Norsk Bokmål", col: 27, punc: "comma", regular: "NotoSans", code: "77" },
+    { lang: "nn-no", name: "Norsk Nynorsk", col: 38, punc: "comma", regular: "NotoSans", code: "15" },
+    { lang: "pl", name: "Polski", col: 30, punc: "comma", regular: "NotoSans", code: "16" },
+    { lang: "pt", name: "Português", col: 18, punc: "comma", regular: "NotoSans", code: "563" },
+    { lang: "ro", name: "Română", col: 17, punc: "comma", regular: "NotoSans", code: "19" },
+    { lang: "sk", name: "Slovenčina", col: 13, punc: "comma", regular: "NotoSans", code: "34" },
+    { lang: "sl", name: "Slovenščina", col: 37, punc: "comma", regular: "NotoSans", code: "659" },
+    { lang: "fi", name: "Suomi", col: 19, punc: "comma", regular: "NotoSans", code: "18" },
+    { lang: "sv", name: "Svenska", col: 32, punc: "comma", regular: "NotoSans", code: "17" },
+    { lang: "vi", name: "Tiếng Việt", col: 15, punc: "comma", regular: "NotoSans", code: "50" },
+    { lang: "tr", name: "Türkçe", col: 22, punc: "comma", regular: "NotoSans", code: "14" },
+    { lang: "el", name: "Ελληνικά", col: 35, punc: "comma", regular: "NotoSans", code: "20" },
+    { lang: "bg", name: "Български", col: 20, punc: "comma", regular: "NotoSans", code: "576" },
+    { lang: "mk", name: "Македонски", col: 43, punc: "comma", regular: "NotoSans", code: "644" },
+    { lang: "ru", name: "Русский", col: 9, punc: "comma", regular: "NotoSans", code: "11" },
+    { lang: "sr", name: "Српски", col: 26, punc: "comma", regular: "NotoSans", code: "462" },
+    { lang: "uk", name: "Українська", col: 14, punc: "comma", regular: "NotoSans", code: "36" },
+    { lang: "hy", name: "Հայերեն", col: 42, punc: "comma", regular: "NotoSansArmenian-Regular", code: "62" },
+    { lang: "he", name: "עברית", col: 36, punc: "dot", regular: "NotoSansHebrew-Regular", code: "42" },
+    { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular", code: "28" },
+    { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular", code: "29" },
+    { lang: "hi", name: "हिंदी", col: 29, punc: "dot", regular: "NotoSansDevanagari-Regular", code: "587" },
+    { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular", code: "56" },
+    { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular", code: "4" },
+    { lang: "ko", name: "한국어", col: 10, punc: "dot", regular: "NotoSansKR-Regular", code: "9" },
+    { lang: "zh-cn", name: "中文(简体)", col: 6, punc: "dot", regular: "NotoSansSC-Regular", code: "3" },
+    { lang: "zh-tw", name: "中文(繁體)", col: 28, punc: "dot", regular: "NotoSansTC-Regular", code: "2" },
   ];
 
   let languagesForSelect = [
@@ -152,10 +152,10 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular", code: "29" },
     { lang: "hi", name: "हिंदी", col: 29, punc: "dot", regular: "NotoSansDevanagari-Regular", code: "587" },
     { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular", code: "56" },
+    { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular", code: "4" },
     { lang: "ko", name: "한국어", col: 10, punc: "dot", regular: "NotoSansKR-Regular", code: "9" },
     { lang: "zh-cn", name: "中文(简体)", col: 6, punc: "dot", regular: "NotoSansSC-Regular", code: "3" },
     { lang: "zh-tw", name: "中文(繁體)", col: 28, punc: "dot", regular: "NotoSansTC-Regular", code: "2" },
-    { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular", code: "4" },
   ];
 
   languages.forEach((language) => {
@@ -536,57 +536,57 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       let metaTags = metaTags1.concat(metaAlternate).concat(metaTags2).concat(metaTagsFonts).concat(metaTags3);
 
       switch (page) {
-        case "sitemap":
-          htmlSitemap.writeFile(lang, langValues, page, pages);
-          break;
-        case "manifest":
-          htmlManifest.writeFile(lang, langValues, page);
-          break;
-        case "404":
-          html404.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
+        // case "sitemap":
+        //   htmlSitemap.writeFile(lang, langValues, page, pages);
+        //   break;
+        // case "manifest":
+        //   htmlManifest.writeFile(lang, langValues, page);
+        //   break;
+        // case "404":
+        //   html404.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
         case "index":
           htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
-        case "privacy-policy":
-          htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "about":
-          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
+        // case "privacy-policy":
+        //   htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "about":
+        //   htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
         case "store":
           htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
         case "printables":
           htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
-        case "compare":
-          htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "list":
-          htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "credits":
-          htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "translation":
-          htmlTranslation.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "element":
-          htmlElement.writeFile(
-            lang,
-            langValues,
-            language.col,
-            language.regular,
-            language.punc,
-            page,
-            defaultHead,
-            defaultNav,
-            nav4,
-            defaultFooter,
-            languagesForSelect
-          );
-          break;
+        // case "compare":
+        //   htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "list":
+        //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "credits":
+        //   htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "translation":
+        //   htmlTranslation.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "element":
+        //   htmlElement.writeFile(
+        //     lang,
+        //     langValues,
+        //     language.col,
+        //     language.regular,
+        //     language.punc,
+        //     page,
+        //     defaultHead,
+        //     defaultNav,
+        //     nav4,
+        //     defaultFooter,
+        //     languagesForSelect
+        //   );
+        //   break;
       }
     });
   });

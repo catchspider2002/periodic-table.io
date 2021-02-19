@@ -1070,14 +1070,25 @@ function changeTheme() {
 
 function setLanguage() {
   let currentPage = window.location.href
-  let currentLang = document.documentElement.lang
-  langValue = id("languageSelectSetting").value;
+  let currentLang = document.documentElement.lang // old language
+  langValue = id("languageSelectSetting").value; // new language
   // location.href= '../' + langValue 
-  if(langValue==="en")
-    location.href= currentPage.replace(currentLang + '.', '')
-  else
-    location.href= currentPage.replace(currentLang, langValue)
 
+  if(currentLang==="en"){
+    if(langValue==="en")
+      location.href= currentPage.replace(currentLang + '.', '')
+    else
+      // location.href= currentPage.replace(currentLang, langValue)
+      location.href= currentPage.replace("periodic", langValue + ".periodic")
+
+  }
+  else
+  {
+    if(langValue==="en")
+      location.href= currentPage.replace(currentLang + '.', '')
+    else
+      location.href= currentPage.replace(currentLang, langValue)
+  }
 
   // localStorage.setItem("langValue", langValue);
 

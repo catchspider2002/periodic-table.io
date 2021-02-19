@@ -416,7 +416,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
     writeStream.write("<div class='flex flex-col overflow-auto'>");
     writeStream.write("<h1>" + printableLink.title + "</h1>");
     writeStream.write(
-      "<img class='py-4 image' draggable='false' src='images/printables/" + printableLink.image + ".png' alt='" + printableLink.title + "' />"
+      "<img class='py-4 image' draggable='false' src='https://periodic-table-io.pages.dev/images/printables/" + printableLink.image + ".png' alt='" + printableLink.title + "' />"
     );
     writeStream.write("<div class='py-4'>" + printableLink.description + "</div>");
     writeStream.write("<div class='pt-4 grayText'>" + langValues.languages + "</div>");

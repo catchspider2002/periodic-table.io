@@ -97,7 +97,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div id='snippetWt' class='text-right'></div>");
   writeStream.write("</div>");
   writeStream.write("<div id='details' class='square justify-start'>");
-  writeStream.write("<div id='detailRow1' class='grayText text-upper detailRow1' colspan='2'></div>");
+  writeStream.write("<div id='detailRow1' class='text-upper detailRow1' colspan='2'></div>");
   writeStream.write("<div id='detailRow2'>" + langValues.discovered + "</div>");
   writeStream.write("<div id='valueRow2'></div>");
   writeStream.write("<div id='detailRow3'>" + langValues.labelMeltingMain + "</div>");

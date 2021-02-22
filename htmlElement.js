@@ -185,7 +185,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
         writeStream.write(navs);
       });
 
-      writeStream.write("<span class='truncate'>" + langValues[element.nme] + "</span>");
+      writeStream.write("<h1 class='truncate'>" + langValues[element.nme] + "</h1>");
 
       nav4.forEach((navs) => {
         writeStream.write(navs);

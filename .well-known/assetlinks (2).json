@@ -1,0 +1,5 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target" : { "namespace": "android_app", "package_name": "io.periodic_table.twa",
+                   "sha256_cert_fingerprints": ["EF:02:B3:A8:79:37:B1:FF:78:5F:54:A3:9F:3F:6D:51:38:8B:80:01:DB:69:88:01:E0:4D:15:28:21:9E:4B:EB"] }
+    }]

@@ -17,7 +17,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
     writeStream.write(navs);
   });
 
-  writeStream.write("<span class='truncate'>" + langValues[page] + "</span>");
+  writeStream.write("<h1 class='truncate'>" + langValues[page] + "</h1>");
 
   nav4.forEach((navs) => {
     writeStream.write(navs);
@@ -45,25 +45,13 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div class='container'>");
   writeStream.write("<div class='row'>");
   writeStream.write("<div id='mainList'>");
-  writeStream.write("<div class='flex flex-wrap'>");
-  writeStream.write(
-    "<div class='m-b-30 flex-auto m-x-15'><input class='search' id='searchText' placeholder='" +
-      langValues.search +
-      "' aria-label='" +
-      langValues.search +
-      "' /></div>"
-  );
-  writeStream.write("<div class='m-b-30 flex-auto m-x-15'>");
+  writeStream.write("<div class='listButtons'>");
+  writeStream.write("<input class='search' id='searchText' placeholder='" + langValues.search + "' aria-label='" + langValues.search + "' />");
   writeStream.write("<button class='sort' data-sort='listNum' onclick='sortByNumber()'>" + langValues.sortNumber + "<span id='sortNum' /></button>");
-  writeStream.write("</div>");
-  writeStream.write("<div class='m-b-30 flex-auto m-x-15'>");
   writeStream.write("<button class='sort' data-sort='listName' onclick='sortByName()'>" + langValues.sortName + "<span id='sortNm' /></button>");
-  writeStream.write("</div>");
-  writeStream.write("<div class='m-b-30 flex-auto m-x-15'>");
   writeStream.write("<button class='sort' data-sort='listSym' onclick='sortBySymbol()'>" + langValues.sortSymbol + "<span id='sortSym' /></button>");
   writeStream.write("</div>");
-  writeStream.write("</div>");
-  writeStream.write("<div class='list text-center listGrid m-x-15'>");
+  writeStream.write("<div class='list text-center listGrid'>");
 
   newRawData.forEach((element) => {
     writeStream.write("<a class='elementList list-content flex' href='element-" + element.num + "'>");

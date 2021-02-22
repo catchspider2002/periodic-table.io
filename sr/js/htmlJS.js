@@ -433,12 +433,19 @@ function getTemp(tempValue) {
 }
 
 function sortFunc(var1, var2, var3) {
-  let sortUp = "&nbsp;&nbsp;↑";
-  let sortDown = "&nbsp;&nbsp;↓";
+  let sortDown="<svg xmlns='http://www.w3.org/2000/svg' class='icon' transform='translate(4,2)' viewBox='0 0 24 24'><line x1='12' y1='5' x2='12' y2='19'/><line x1='18' y1='13' x2='12' y2='19'/><line x1='6' y1='13' x2='12' y2='19'/></svg>"
+  // let sortUp = "&nbsp;&nbsp;↑";
+  let sortUp="<svg xmlns='http://www.w3.org/2000/svg' class='icon' transform='translate(4,2)' viewBox='0 0 24 24'><line x1='12' y1='5' x2='12' y2='19'/><line x1='18' y1='11' x2='12' y2='5'/><line x1='6' y1='11' x2='12' y2='5'/></svg>"
+  // let sortDown = "&nbsp;&nbsp;↓";
 
-  id(var1).innerHTML = id(var1).innerHTML === sortUp ? sortDown : sortUp;
+  id(var1).setAttribute("data-sort", id(var1).getAttribute("data-sort") === "up" ? "down" : "up");
+  id(var2).setAttribute("data-sort", "")
+  id(var3).setAttribute("data-sort", "")
+
+  id(var1).innerHTML = id(var1).getAttribute("data-sort") === "up" ? sortDown : sortUp;
   id(var2).innerHTML = "";
   id(var3).innerHTML = "";
+
 }
 
 function sortByNumber() {

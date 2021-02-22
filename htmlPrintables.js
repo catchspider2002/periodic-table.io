@@ -15,7 +15,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
     writeStream.write(navs);
   });
 
-  writeStream.write("<span class='truncate'>" + langValues[page] + "</span>");
+  writeStream.write("<h1 class='truncate'>" + langValues[page] + "</h1>");
 
   nav4.forEach((navs) => {
     writeStream.write(navs);

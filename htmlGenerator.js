@@ -14,6 +14,7 @@ const htmlCredits = require("./htmlCredits.js");
 const htmlTranslation = require("./htmlTranslation.js");
 const html404 = require("./html404.js");
 const htmlSitemap = require("./htmlSitemap.js");
+const htmlRobots = require("./htmlRobots.js");
 const htmlManifest = require("./htmlManifest.js");
 
 let svgFooter = "</svg>";
@@ -69,26 +70,26 @@ let darkIcon =
 
 xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
   let languages = [
-    { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans", code: "1" },
-    { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans", code: "45" },
-    { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans", code: "60" },
-    { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans", code: "54" },
-    { lang: "ms", name: "Bahasa Melayu", col: 41, punc: "dot", regular: "NotoSans", code: "55" },
-    { lang: "ca", name: "Català", col: 25, punc: "comma", regular: "NotoSans", code: "23" },
-    { lang: "cs", name: "Čeština", col: 24, punc: "comma", regular: "NotoSans", code: "13" },
-    { lang: "da", name: "Dansk", col: 33, punc: "comma", regular: "NotoSans", code: "27" },
-    { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans", code: "6" },
-    { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans", code: "79" },
-    { lang: "fr", name: "Français", col: 5, punc: "comma", regular: "NotoSans", code: "5" },
-    { lang: "hr", name: "Hrvatski", col: 39, punc: "comma", regular: "NotoSans", code: "22" },
-    { lang: "it", name: "Italiano", col: 8, punc: "comma", regular: "NotoSans", code: "10" },
-    { lang: "hu", name: "Magyar", col: 11, punc: "comma", regular: "NotoSans", code: "21" },
-    { lang: "nl", name: "Nederlands", col: 7, punc: "comma", regular: "NotoSans", code: "12" },
-    { lang: "nb-no", name: "Norsk Bokmål", col: 27, punc: "comma", regular: "NotoSans", code: "77" },
-    { lang: "nn-no", name: "Norsk Nynorsk", col: 38, punc: "comma", regular: "NotoSans", code: "15" },
-    { lang: "pl", name: "Polski", col: 30, punc: "comma", regular: "NotoSans", code: "16" },
-    { lang: "pt", name: "Português", col: 18, punc: "comma", regular: "NotoSans", code: "563" },
-    { lang: "ro", name: "Română", col: 17, punc: "comma", regular: "NotoSans", code: "19" },
+    // { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans", code: "1" },
+    // { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans", code: "45" },
+    // { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans", code: "60" },
+    // { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans", code: "54" },
+    // { lang: "ms", name: "Bahasa Melayu", col: 41, punc: "dot", regular: "NotoSans", code: "55" },
+    // { lang: "ca", name: "Català", col: 25, punc: "comma", regular: "NotoSans", code: "23" },
+    // { lang: "cs", name: "Čeština", col: 24, punc: "comma", regular: "NotoSans", code: "13" },
+    // { lang: "da", name: "Dansk", col: 33, punc: "comma", regular: "NotoSans", code: "27" },
+    // { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans", code: "6" },
+    // { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans", code: "79" },
+    // { lang: "fr", name: "Français", col: 5, punc: "comma", regular: "NotoSans", code: "5" },
+    // { lang: "hr", name: "Hrvatski", col: 39, punc: "comma", regular: "NotoSans", code: "22" },
+    // { lang: "it", name: "Italiano", col: 8, punc: "comma", regular: "NotoSans", code: "10" },
+    // { lang: "hu", name: "Magyar", col: 11, punc: "comma", regular: "NotoSans", code: "21" },
+    // { lang: "nl", name: "Nederlands", col: 7, punc: "comma", regular: "NotoSans", code: "12" },
+    // { lang: "nb-no", name: "Norsk Bokmål", col: 27, punc: "comma", regular: "NotoSans", code: "77" },
+    // { lang: "nn-no", name: "Norsk Nynorsk", col: 38, punc: "comma", regular: "NotoSans", code: "15" },
+    // { lang: "pl", name: "Polski", col: 30, punc: "comma", regular: "NotoSans", code: "16" },
+    // { lang: "pt", name: "Português", col: 18, punc: "comma", regular: "NotoSans", code: "563" },
+    // { lang: "ro", name: "Română", col: 17, punc: "comma", regular: "NotoSans", code: "19" },
     { lang: "sk", name: "Slovenčina", col: 13, punc: "comma", regular: "NotoSans", code: "34" },
     { lang: "sl", name: "Slovenščina", col: 37, punc: "comma", regular: "NotoSans", code: "659" },
     { lang: "fi", name: "Suomi", col: 19, punc: "comma", regular: "NotoSans", code: "18" },
@@ -215,6 +216,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     }
     let pages = [
       { page: "manifest", keywords: "manifest", title: "manifest" },
+      { page: "robots", keywords: "robots", title: "robots" },
       { page: "sitemap", keywords: "sitemap", title: "sitemap" },
       { page: "404", keywords: "404", title: "Page Not Found" },
       { page: "about", keywords: langValues.about, title: langValues.about },
@@ -485,6 +487,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       let title = pageValue.title + " - " + langValues.homeHeader;
       let page = pageValue.page;
       let link = website + "/" + pageValue.page + "/";
+      if (pageValue.page === "index") link = website + "/";
 
       let metaTags1 = [
         "<meta name='keywords' content='" + keywords + "' />",
@@ -504,12 +507,17 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       let metaAlternate = [];
 
       languagesForSelect.forEach((langVal) => {
-        if (langVal.lang === "en")
-          metaAlternate.push("<link rel='alternate' hreflang='en' href='https://periodic-table.io/" + pageValue.page + "'/>");
-        else
-          metaAlternate.push(
-            "<link rel='alternate' hreflang='" + langVal.lang + "' href='https://" + langVal.lang + ".periodic-table.io/" + pageValue.page + "'/>"
-          );
+        if (langVal.lang === "en") {
+          if (pageValue.page === "index") metaAlternate.push("<link rel='alternate' hreflang='en' href='https://periodic-table.io/'/>");
+          else metaAlternate.push("<link rel='alternate' hreflang='en' href='https://periodic-table.io/" + pageValue.page + "'/>");
+        } else {
+          if (pageValue.page === "index")
+            metaAlternate.push("<link rel='alternate' hreflang='" + langVal.lang + "' href='https://" + langVal.lang + ".periodic-table.io/'/>");
+          else
+            metaAlternate.push(
+              "<link rel='alternate' hreflang='" + langVal.lang + "' href='https://" + langVal.lang + ".periodic-table.io/" + pageValue.page + "'/>"
+            );
+        }
       });
 
       let metaTags2 = ["<link rel='stylesheet' href='css/global.css' />", "<script defer src='js/htmlJS.js'></script>"];
@@ -536,42 +544,45 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       let metaTags = metaTags1.concat(metaAlternate).concat(metaTags2).concat(metaTagsFonts).concat(metaTags3);
 
       switch (page) {
-        // case "sitemap":
-        //   htmlSitemap.writeFile(lang, langValues, page, pages);
-        //   break;
-        // case "manifest":
-        //   htmlManifest.writeFile(lang, langValues, page);
-        //   break;
-        // case "404":
-        //   html404.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
+        case "sitemap":
+          htmlSitemap.writeFile(lang, langValues, page, pages);
+          break;
+        case "robots":
+          htmlRobots.writeFile(lang, page);
+          break;
+        case "manifest":
+          htmlManifest.writeFile(lang, langValues, page);
+          break;
+        case "404":
+          html404.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
         case "index":
           htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
-        // case "privacy-policy":
-        //   htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "about":
-        //   htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
+        case "privacy-policy":
+          htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "about":
+          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
         case "store":
           htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
         case "printables":
           htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
-        // case "compare":
-        //   htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "list":
-        //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "credits":
-        //   htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "translation":
-        //   htmlTranslation.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
+        case "compare":
+          htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "list":
+          htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "credits":
+          htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "translation":
+          htmlTranslation.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
         // case "element":
         //   htmlElement.writeFile(
         //     lang,

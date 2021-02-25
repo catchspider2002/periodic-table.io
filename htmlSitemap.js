@@ -7,11 +7,12 @@ const writeFile = (lang, langValues, page, pages) => {
 
   if (lang === "en") site = "https://periodic-table.io/";
 
-  const yesterday = new Date();
-  yesterday.setDate(yesterday.getDate() - 1);
-  yesterday.toDateString();
+  // const yesterday = new Date();
+  // yesterday.setDate(yesterday.getDate() - 1);
+  // yesterday.toDateString();
 
-  let date = yesterday.getFullYear() + "-" + (yesterday.getMonth() + 1) + "-" + yesterday.getDate() + "T01:01:01+01:00";
+  // let date = yesterday.getFullYear() + "-" + (yesterday.getMonth() + 1) + "-" + yesterday.getDate() + "T01:01:01+01:00";
+  let date = new Date().toISOString();
 
   writeStream.write("<?xml version='1.0' encoding='UTF-8'?>\n");
   writeStream.write("<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>\n");
@@ -22,9 +23,9 @@ const writeFile = (lang, langValues, page, pages) => {
   writeStream.write("    </url>\n");
 
   pages.forEach((pageValue) => {
-    if (pageValue.page !== "sitemap" && pageValue.page !== "manifest" && pageValue.page !== "404" && pageValue.page !== "index" && pageValue.page !== "element") {
+    if (pageValue.page !== "sitemap" && pageValue.page !== "manifest" && pageValue.page !== "robots" && pageValue.page !== "404" && pageValue.page !== "index" && pageValue.page !== "element") {
       writeStream.write("    <url>\n");
-      writeStream.write("        <loc>" + site + pageValue.page + "/</loc>\n");
+      writeStream.write("        <loc>" + site + pageValue.page + "</loc>\n");
       writeStream.write("        <lastmod>" + date + "</lastmod>\n");
       writeStream.write("        <priority>0.8</priority>\n");
       writeStream.write("    </url>\n");
@@ -33,7 +34,7 @@ const writeFile = (lang, langValues, page, pages) => {
 
   for (let i = 1; i <= 118; i++) {
     writeStream.write("    <url>\n");
-    writeStream.write("        <loc>" + site + "element-" + i + "/</loc>\n");
+    writeStream.write("        <loc>" + site + "element-" + i + "</loc>\n");
     writeStream.write("        <lastmod>" + date + "</lastmod>\n");
     writeStream.write("        <priority>0.8</priority>\n");
     writeStream.write("    </url>\n");

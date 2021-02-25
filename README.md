@@ -20,7 +20,7 @@
 - Search for the elements using their symbol, atomic number or name
 - Links to informative websites for further study
 
-# Translations (As of February 24, 2021)
+# Translations (As of February 25, 2021)
 
 Contributions are welcome for the translations. **Click on the translation status badge below to go directly to that language translation page.** There are 2 files available for translation: General Terms and Element Details.
 
@@ -59,7 +59,7 @@ This contains the text for the labels used in all the pages except for the eleme
 [![Polish](https://img.shields.io/badge/Polish-96.3%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/16)
 [![Portuguese](https://img.shields.io/badge/Portuguese-99.2%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/563)
 [![Romanian](https://img.shields.io/badge/Romanian-96.8%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/19)
-[![Russian](https://img.shields.io/badge/Russian-94.7%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/11)
+[![Russian](https://img.shields.io/badge/Russian-100%25-brightgreen)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/11)
 [![Serbian](https://img.shields.io/badge/Serbian-92.9%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/462)
 [![Slovak](https://img.shields.io/badge/Slovak-95.2%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/34)
 [![Slovenian](https://img.shields.io/badge/Slovenian-81.2%25-green)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/190138/language/659)

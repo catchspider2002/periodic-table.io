@@ -1,5 +1,5 @@
 [{
       "relation": ["delegate_permission/common.handle_all_urls"],
-      "target" : { "namespace": "android_app", "package_name": "com.periodictable.io",
+      "target" : { "namespace": "android_app", "package_name": "icom.periodictable.io",
                    "sha256_cert_fingerprints": ["1E:5B:30:F2:07:85:C1:C8:C2:32:BF:2B:F2:37:EE:31:6F:F3:1C:E5:F0:53:95:B3:9C:50:A3:AF:1C:87:3B:6D"] }
     }]

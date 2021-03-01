@@ -87,7 +87,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       val1 = -800 + multiplier * 80;
       val2 = 1600 - multiplier * 80 * 2;
 
-      let writeStream = fs.createWriteStream(lang + "/element-" + element.num + ".html");
+      let writeStream = fs.createWriteStream(lang + "/element-" + num + ".html");
 
       defaultHead.forEach((heads) => {
         writeStream.write(heads);
@@ -119,10 +119,11 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       let website = "https://periodic-table.io";
       if (lang !== "en") website = "https://" + lang + ".periodic-table.io";
 
-      let image = website + "/images/icons/android-chrome-256x256.png";
+      // let image = website + "/images/icons/android-chrome-256x256.png";
+      let image = "https://periodic-table.io/images/og-images/" + lang + "/element-" + num + ".png";
       let title = langValues[element.nme] + " - " + langValues.homeHeader;
       // let link = website + "/" + lang + "/element-" + element.num ;
-      let link = website + "/element-" + element.num;
+      let link = website + "/element-" + num;
 
       let metaTags1 = [
         "<meta name='keywords' content='" + keywords + "' />",
@@ -1760,7 +1761,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       writeStream.write("<div class='masonry-col'>");
       writeStream.write("<div class='blog-thumb'>");
       writeStream.write(
-        "<img id='elementPic' src='https://periodic-table-io.pages.dev/images/elements/" +
+        "<img id='elementPic' src='https://periodic-table.io/images/elements/" +
           imageSrc +
           ".jpg' alt=" +
           post["ele" + eleNum + "Desc"] +

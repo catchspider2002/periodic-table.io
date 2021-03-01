@@ -13,8 +13,7 @@
         "watch-js": "watch \"npm run minify-constants-js && npm run minify-btstrp-js\" ./src/js",
         "watch-css": "watch \"npm run minify-css\" ./src/css",
         "watch-html": "watch \"npm run minify-html\" ./src/html",
-        "watch": "concurrently \"npm run watch-js\" \"npm run watch-css\" \"npm run watch-html\"",
-        "workbox": "workbox generate:sw"
+        "watch": "concurrently \"npm run watch-js\" \"npm run watch-css\" \"npm run watch-html\""
     },
     "repository": {
         "type": "git",
@@ -44,7 +43,7 @@
         "information"
     ],
     "author": "Naveen CS",
-    "license": "ISC",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/catchspider2002/periodic-table.io/issues"
     },
@@ -54,6 +53,7 @@
         "dotenv": "^8.2.0",
         "fs-extra": "^9.1.0",
         "read-excel-file": "^5.0.0",
+        "svg2img": "^0.9.1",
         "watch": "^1.0.2"
     },
     "devDependencies": {
@@ -64,6 +64,7 @@
         "html-minifier": "^4.0.0",
         "i": "^0.3.6",
         "prettier": "^2.2.1",
-        "uglify-es": "^3.3.9"
+        "uglify-es": "^3.3.9",
+        "convert-svg-to-png": "^0.5.0"
     }
 }

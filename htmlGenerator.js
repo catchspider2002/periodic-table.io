@@ -72,7 +72,7 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
   let languages = [
     // { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans", bcp: "en-US", code: "1" },
     // { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans", bcp: "en-GB", code: "45" },
-    // { lang: "af", name: "Afrikaans", col: 43, punc: "comma", regular: "NotoSans", bcp: "af-ZA", code: "60" },
+    // { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans", bcp: "af-ZA", code: "60" },
     // { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans", bcp: "id-ID", code: "54" },
     // { lang: "ms", name: "Bahasa Melayu", col: 41, punc: "dot", regular: "NotoSans", bcp: "ms-MY", code: "55" },
     // { lang: "ca", name: "Català", col: 25, punc: "comma", regular: "NotoSans", bcp: "ca-ES", code: "23" },
@@ -110,17 +110,17 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     // { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular", bcp: "ar-SA", code: "28" },
     // { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular", bcp: "fa-IR", code: "29" },
     // { lang: "hi", name: "हिंदी", col: 29, punc: "dot", regular: "NotoSansDevanagari-Regular", bcp: "hi-IN", code: "587" },
-    // { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular", bcp: "th-TH", code: "56" },
-    // { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular", bcp: "ja-JP", code: "4" },
-    // { lang: "ko", name: "한국어", col: 10, punc: "dot", regular: "NotoSansKR-Regular", bcp: "ko-KR", code: "9" },
-    // { lang: "zh-cn", name: "中文(简体)", col: 6, punc: "dot", regular: "NotoSansSC-Regular", bcp: "zh-CN", code: "3" },
-    // { lang: "zh-tw", name: "中文(繁體)", col: 28, punc: "dot", regular: "NotoSansTC-Regular", bcp: "zh-TW", code: "2" },
+    { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular", bcp: "th-TH", code: "56" },
+    { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular", bcp: "ja-JP", code: "4" },
+    { lang: "ko", name: "한국어", col: 10, punc: "dot", regular: "NotoSansKR-Regular", bcp: "ko-KR", code: "9" },
+    { lang: "zh-cn", name: "中文(简体)", col: 6, punc: "dot", regular: "NotoSansSC-Regular", bcp: "zh-CN", code: "3" },
+    { lang: "zh-tw", name: "中文(繁體)", col: 28, punc: "dot", regular: "NotoSansTC-Regular", bcp: "zh-TW", code: "2" },
   ];
 
   let languagesForSelect = [
     { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans", code: "1" },
     { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans", code: "45" },
-    { lang: "af", name: "Afrikaans", col: 43, punc: "comma", regular: "NotoSans", code: "60" },
+    { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans", code: "60" },
     { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans", code: "54" },
     { lang: "ms", name: "Bahasa Melayu", col: 41, punc: "dot", regular: "NotoSans", code: "55" },
     { lang: "ca", name: "Català", col: 25, punc: "comma", regular: "NotoSans", code: "23" },
@@ -176,13 +176,13 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
     if (!fs.existsSync(jsDir)) fs.mkdirSync(jsDir);
     if (!fs.existsSync(fontDir)) fs.mkdirSync(fontDir);
 
-    fs.access(lang + "/fonts/" + language.regular + ".woff2", (err) => {
-      if (err) {
-        fs.copyFile("fonts3/" + language.regular + ".woff2", lang + "/fonts/" + language.regular + ".woff2", (err) => {
-          if (err) throw err;
-        });
-      }
-    });
+    // fs.access(lang + "/fonts/" + language.regular + ".woff2", (err) => {
+    //   if (err) {
+    //     fs.copyFile("fonts3/" + language.regular + ".woff2", lang + "/fonts/" + language.regular + ".woff2", (err) => {
+    //       if (err) throw err;
+    //     });
+    //   }
+    // });
 
     fs.copyFile("global.css", lang + "/css/global.css", (err) => {
       if (err) throw err;
@@ -192,17 +192,17 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       if (err) throw err;
     });
 
-    fs.copyFile("pwabuilder-sw.js", lang + "/pwabuilder-sw.js", (err) => {
-      if (err) throw err;
-    });
+    // fs.copyFile("pwabuilder-sw.js", lang + "/pwabuilder-sw.js", (err) => {
+    //   if (err) throw err;
+    // });
 
-    fs.copyFile("favicon-32x32.png", lang + "/favicon-32x32.png", (err) => {
-      if (err) throw err;
-    });
+    // fs.copyFile("favicon-32x32.png", lang + "/favicon-32x32.png", (err) => {
+    //   if (err) throw err;
+    // });
 
-    fs.copyFile("favicon-16x16.png", lang + "/favicon-16x16.png", (err) => {
-      if (err) throw err;
-    });
+    // fs.copyFile("favicon-16x16.png", lang + "/favicon-16x16.png", (err) => {
+    //   if (err) throw err;
+    // });
 
     // fsextra
     //   .copy("images2", lang + "/images")

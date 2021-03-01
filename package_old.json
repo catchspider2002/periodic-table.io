@@ -1,0 +1,69 @@
+{
+    "name": "periodic-table.io",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.html",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "minify-constants-js": "uglifyjs src/js/constants.js --compress --mangle --output constants.min.js",
+        "minify-btstrp-js": "uglifyjs src/js/btstrp.list.iso.js --compress --mangle --output btstrp.list.iso.min.js",
+        "minify-css": "cleancss -o global.css global_actual.css",
+        "minify-js": "uglifyjs htmlJS_actual.js --compress --mangle --output htmlJS.js",
+        "minify-html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true --input-dir src/html --output-dir .",
+        "watch-js": "watch \"npm run minify-constants-js && npm run minify-btstrp-js\" ./src/js",
+        "watch-css": "watch \"npm run minify-css\" ./src/css",
+        "watch-html": "watch \"npm run minify-html\" ./src/html",
+        "watch": "concurrently \"npm run watch-js\" \"npm run watch-css\" \"npm run watch-html\"",
+        "workbox": "workbox generate:sw"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/catchspider2002/periodic-table.io.git"
+    },
+    "keywords": [
+        "Periodic",
+        "Table",
+        "chemical",
+        "elements",
+        "interactive",
+        "PWA",
+        "properties",
+        "history",
+        "name",
+        "origin",
+        "images",
+        "applications",
+        "hazards",
+        "electron",
+        "shell",
+        "diagram",
+        "chemistry",
+        "electron",
+        "configuration",
+        "isotopes",
+        "information"
+    ],
+    "author": "Naveen CS",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/catchspider2002/periodic-table.io/issues"
+    },
+    "homepage": "https://github.com/catchspider2002/periodic-table.io#readme",
+    "dependencies": {
+        "@brainly/onesky-utils": "^1.4.1",
+        "dotenv": "^8.2.0",
+        "fs-extra": "^9.1.0",
+        "read-excel-file": "^5.0.0",
+        "watch": "^1.0.2"
+    },
+    "devDependencies": {
+        "@prettier/plugin-xml": "^0.13.0",
+        "clean-css": "^5.1.0",
+        "clean-css-cli": "^5.2.0",
+        "concurrently": "^6.0.0",
+        "html-minifier": "^4.0.0",
+        "i": "^0.3.6",
+        "prettier": "^2.2.1",
+        "uglify-es": "^3.3.9"
+    }
+}

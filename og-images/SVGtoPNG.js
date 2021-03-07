@@ -38,10 +38,10 @@ let languages = [
   // { lang: "ru", name: "Русский", col: 9, punc: "comma", regular: "NotoSans", bcp: "ru-RU", code: "11" },
   // { lang: "sr", name: "Српски", col: 26, punc: "comma", regular: "NotoSans", bcp: "sr-Cyrl-CS", code: "462" },
   // { lang: "uk", name: "Українська", col: 14, punc: "comma", regular: "NotoSans", bcp: "uk-UA", code: "36" },
-  { lang: "hy", name: "Հայերեն", col: 42, punc: "comma", regular: "NotoSansArmenian-Regular", bcp: "hy-AM", code: "62" },
+  // { lang: "hy", name: "Հայերեն", col: 42, punc: "comma", regular: "NotoSansArmenian-Regular", bcp: "hy-AM", code: "62" },
   // { lang: "he", name: "עברית", col: 36, punc: "dot", regular: "NotoSansHebrew-Regular", bcp: "he-IL", code: "42" },
-  // { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular", bcp: "ar-SA", code: "28" },
-  // { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular", bcp: "fa-IR", code: "29" },
+  { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular", bcp: "ar-SA", code: "28" },
+  { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular", bcp: "fa-IR", code: "29" },
   // { lang: "hi", name: "हिंदी", col: 29, punc: "dot", regular: "NotoSansDevanagari-Regular", bcp: "hi-IN", code: "587" },
   // { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular", bcp: "th-TH", code: "56" },
   // { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular", bcp: "ja-JP", code: "4" },
@@ -57,14 +57,14 @@ languages.forEach((language) => {
     if (file.endsWith(".svg")) {
       fs.access(inputFilePath + file.replace(".svg", ".png"), (err) => {
         if (err) {
-          // svg2img(inputFilePath + file, { width: 1200, height: 627 }, function (error, buffer) {
-          //   fs.writeFileSync(inputFilePath + file.replace(".svg", ".png"), buffer);
-          // });
+          svg2img(inputFilePath + file, { width: 1200, height: 627 }, function (error, buffer) {
+            fs.writeFileSync(inputFilePath + file.replace(".svg", ".png"), buffer);
+          });
 
-          (async () => {
-            const outputFilePath = await convertFile(inputFilePath + file, { width: "1200px", height: "627px" });
-            console.log(outputFilePath);
-          })();
+          // (async () => {
+          //   const outputFilePath = await convertFile(inputFilePath + file, { width: "1200px", height: "627px" });
+          //   console.log(outputFilePath);
+          // })();
         }
       });
     }

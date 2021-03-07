@@ -112,9 +112,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
         ", " +
         langValues.labelElectronsMain +
         ", name origin, images, hazards, diagram, chemistry, information";
-      let description =
-        langValues[element.nme] +
-        " - Interactive periodic table of the chemical elements in 39 languages - Includes properties, history, name origin, facts, applications, hazards, isotopes and more.";
+      let description = langValues[element.nme] + " - " + langValues.desc2 + "; " + langValues.desc1 + ".";
 
       let website = "https://periodic-table.io";
       if (lang !== "en") website = "https://" + lang + ".periodic-table.io";

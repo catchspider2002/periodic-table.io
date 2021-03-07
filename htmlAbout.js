@@ -53,6 +53,10 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div class='text-upper aboutHeader text-center pt-16'>" + langValues.changelog + "</div>");
   writeStream.write("<div>");
   writeStream.write("<div id='logs'>");
+  writeStream.write("<div class='versionHeader'>March 7, 2021</div>");
+  writeStream.write(checkIcon + "<div>Added social images to all pages to show up when the pages are shared on social media</div>");
+  writeStream.write(checkIcon + "<div>Updated Japanese and Chinese (Simplified) translations</div>"
+  );
   writeStream.write("<div class='versionHeader'>February 20, 2021</div>");
   writeStream.write(checkIcon + "<div>Complete rewrite of the website to deploy the code faster; Individual language versions have their own subdomains;</div>");
   writeStream.write(checkIcon + "<div>Added Afrikaans translation</div>");

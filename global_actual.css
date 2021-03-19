@@ -108,14 +108,6 @@ a {
   text-align: var(--direction-rev);
 }
 
-.solName,
-.slightlySolName,
-.solubleName,
-.insolubleName,
-.unavailableName {
-  display: none;
-}
-
 #storeLink,
 #translateLink,
 #printableLink {
@@ -158,29 +150,12 @@ a {
   #translateLink {
     display: none;
   }
-  .solShort {
-    display: none;
-  }
-  .grid-item {
-    height: 66px;
-  }
 }
+
 @media (min-width: 1440px) {
   #storeLink,
-  #translateLink,
-  .solName,
-  .slightlySolName,
-  .solubleName,
-  .insolubleName,
-  .unavailableName {
+  #translateLink {
     display: block;
-  }
-
-  .solShort {
-    display: none;
-  }
-  .grid-item {
-    height: 66px;
   }
 }
 
@@ -1793,25 +1768,29 @@ blockquote,
   overflow: auto;
   max-height: calc(100vh - 410px);
 }
-.grid-container .grid {
-  display: flex;
-  flex-wrap: nowrap;
-  column-gap: 0;
-  margin: 0;
+
+.solubility-grid,
+.reactivity-grid {
+  display: grid;
+  /* gap: 1em; */
+  /* margin: 0;
+  padding: 0 1em 1em 0; */
 }
+
+.solubility-grid {
+  grid-template-columns: repeat(15, minmax(100px, auto));
+}
+
+.reactivity-grid {
+  grid-template-columns: repeat(4, minmax(150px, auto));
+}
+
 .grid-col {
   /* width: 150px;
       min-width: 150px; */
   text-align: center;
-}
-
-.grid-item--header {
-  height: 100px;
-  /* min-height: 100px; */
-  position: -webkit-sticky;
-  position: sticky;
-  background-color: var(--card-bg-color);
-  top: 0;
+  display: grid;
+  /* gap: 1.5em; */
 }
 
 .grid-col--fixed-left {
@@ -1823,29 +1802,123 @@ blockquote,
 }
 
 .grid-item {
-  height: 56px;
+  height: 70px;
   /* border: 1px solid gray; */
-  min-width: 50px;
-  padding: 4px 8px;
+  min-width: 80px;
+  padding: 1em 1.5em;
   place-items: center;
   display: grid;
-  margin: 0 6px 24px;
+  /* margin: 0 6px 24px; */
 }
 
-.slightlySol {
+.grid-item:nth-child(2n + 3) {
+  background-color: rgba(var(--blockquote-color), 0.1);
+}
+
+.reactivity-grid .grid-col .grid-item {
+  height: 90px;
+}
+
+.grid-item--header {
+  /* height: 100px; */
+  /* min-height: 100px; */
+  position: -webkit-sticky;
+  position: sticky;
+  background-color: var(--card-bg-color);
+  top: 0;
+}
+
+#gridTopLeft {
+  z-index: 5;
+}
+
+.slightlySol,
+.moderateReaction {
   color: rgb(var(--color3));
 }
 
-.soluble {
+.soluble,
+.verySlowReaction {
   color: rgb(var(--color6));
 }
 
-.insoluble {
+.insoluble,
+.violentReaction {
   color: rgb(var(--color1));
 }
 
 .unavailable {
   color: rgb(var(--color9));
+}
+
+.reactsWater {
+  color: rgb(var(--color8));
+}
+
+.strongReaction {
+  color: rgb(var(--color2));
+}
+
+.slowReaction {
+  color: rgb(var(--color5));
+}
+
+.noReaction {
+  color: rgb(var(--color7));
+}
+
+.nonMetal {
+  color: rgb(var(--color4));
+}
+
+.solName,
+.slightlySolName,
+.solubleName,
+.insolubleName,
+.unavailableName {
+  display: none;
+}
+
+.keyGrid {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: start;
+  gap: 1em 2em;
+}
+
+@media (min-width: 1440px) {
+  .solubility-grid {
+    grid-template-columns: repeat(15, minmax(150px, auto));
+  }
+
+  .reactivity-grid {
+    grid-template-columns: repeat(4, minmax(150px, auto));
+  }
+
+  .solName,
+  .slightlySolName,
+  .solubleName,
+  .insolubleName,
+  .unavailableName {
+    display: block;
+  }
+
+  .solShort {
+    display: none;
+  }
+
+  .grid-item {
+    height: 90px;
+    min-width: 100px;
+  }
+
+  .reactivity-grid .grid-col .grid-item {
+    height: 75px;
+  }
+
+  .keyGrid {
+    display: none;
+  }
 }
 
 .downloadButton {

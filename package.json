@@ -57,9 +57,9 @@
         "watch": "^1.0.2"
     },
     "devDependencies": {
-        "@prettier/plugin-xml": "^0.13.0",
-        "clean-css": "^5.1.0",
-        "clean-css-cli": "^5.2.0",
+        "@prettier/plugin-xml": "^0.13.1",
+        "clean-css": "^5.1.1",
+        "clean-css-cli": "^5.2.1",
         "concurrently": "^6.0.0",
         "html-minifier": "^4.0.0",
         "i": "^0.3.6",

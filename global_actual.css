@@ -1766,7 +1766,8 @@ blockquote,
 .grid-container {
   display: grid;
   overflow: auto;
-  max-height: calc(100vh - 410px);
+  /* max-height: calc(100vh - 410px); */
+  max-height: 60vh;
 }
 
 .solubility-grid,
@@ -2046,7 +2047,7 @@ nav ul li:hover > ul {
 
 /* Fisrt Tier Dropdown */
 nav ul ul li {
-  width: 170px;
+  min-width: 170px;
   float: none;
   display: list-item;
   position: relative;

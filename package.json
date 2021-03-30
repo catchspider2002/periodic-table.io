@@ -58,8 +58,8 @@
     },
     "devDependencies": {
         "@prettier/plugin-xml": "^0.13.1",
-        "clean-css": "^5.1.1",
-        "clean-css-cli": "^5.2.1",
+        "clean-css": "^5.1.2",
+        "clean-css-cli": "^5.2.2",
         "concurrently": "^6.0.0",
         "html-minifier": "^4.0.0",
         "i": "^0.3.6",

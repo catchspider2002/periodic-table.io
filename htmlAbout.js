@@ -53,6 +53,9 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div class='text-upper aboutHeader text-center pt-16'>" + langValues.changelog + "</div>");
   writeStream.write("<div>");
   writeStream.write("<div id='logs'>");
+  writeStream.write("<div class='versionHeader'>March 30, 2021</div>");
+  writeStream.write(checkIcon + "<div>Updated German, Chinese (Simplified) and Russian translations</div>"
+  );
   writeStream.write("<div class='versionHeader'>March 19, 2021</div>");
   writeStream.write(checkIcon + "<div>Added Solubility Chart and Reactivity Series under Tables menu</div>");
   writeStream.write(checkIcon + "<div>Updated Italian, Dutch, German, Portuguese, Polish, Croatian, Armenian and Chinese (Simplified) translations</div>"
@@ -61,7 +64,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write(checkIcon + "<div>Added social images to all pages to show up when the pages are shared on social media</div>");
   writeStream.write(checkIcon + "<div>Updated Japanese and Chinese (Simplified) translations</div>"
   );
-  writeStream.write("<div class='versionHeader'>February 20, 2021</div>");
+  writeStream.write("<div class='versionHeader'>February 2021</div>");
   writeStream.write(checkIcon + "<div>Complete rewrite of the website to deploy the code faster; Individual language versions have their own subdomains;</div>");
   writeStream.write(checkIcon + "<div>Added Afrikaans translation</div>");
   writeStream.write(

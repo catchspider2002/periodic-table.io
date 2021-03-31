@@ -54,21 +54,24 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div>");
   writeStream.write("<div id='logs'>");
   writeStream.write("<div class='versionHeader'>March 30, 2021</div>");
-  writeStream.write(checkIcon + "<div>Updated German, Chinese (Simplified) and Russian translations</div>"
-  );
+  writeStream.write(checkIcon + "<div>Updated German, Chinese (Simplified) and Russian translations</div>");
+  writeStream.write(checkIcon + "<div>Fixed the incorrect font sizes in the navigation bar</div>");
   writeStream.write("<div class='versionHeader'>March 19, 2021</div>");
   writeStream.write(checkIcon + "<div>Added Solubility Chart and Reactivity Series under Tables menu</div>");
-  writeStream.write(checkIcon + "<div>Updated Italian, Dutch, German, Portuguese, Polish, Croatian, Armenian and Chinese (Simplified) translations</div>"
+  writeStream.write(
+    checkIcon + "<div>Updated Italian, Dutch, German, Portuguese, Polish, Croatian, Armenian and Chinese (Simplified) translations</div>"
   );
   writeStream.write("<div class='versionHeader'>March 7, 2021</div>");
   writeStream.write(checkIcon + "<div>Added social images to all pages to show up when the pages are shared on social media</div>");
-  writeStream.write(checkIcon + "<div>Updated Japanese and Chinese (Simplified) translations</div>"
-  );
+  writeStream.write(checkIcon + "<div>Updated Japanese and Chinese (Simplified) translations</div>");
   writeStream.write("<div class='versionHeader'>February 2021</div>");
-  writeStream.write(checkIcon + "<div>Complete rewrite of the website to deploy the code faster; Individual language versions have their own subdomains;</div>");
+  writeStream.write(
+    checkIcon + "<div>Complete rewrite of the website to deploy the code faster; Individual language versions have their own subdomains;</div>"
+  );
   writeStream.write(checkIcon + "<div>Added Afrikaans translation</div>");
   writeStream.write(
-    checkIcon + "<div>Updated Norwegian Bokmal, Spanish, Vietnamese, Chinese(Simplified), Chinese(Traditional), Japanese, German, Portuguese, French and Italian translations</div>"
+    checkIcon +
+      "<div>Updated Norwegian Bokmal, Spanish, Vietnamese, Chinese(Simplified), Chinese(Traditional), Japanese, German, Portuguese, French and Italian translations</div>"
   );
   writeStream.write("<div class='versionHeader'>November 2020</div>");
   writeStream.write(checkIcon + "<div>Added Crystal Structure image to the element page</div>");

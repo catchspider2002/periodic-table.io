@@ -390,16 +390,20 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
       "<li>",
       "<label for='drop-1' class='toggle'>",
       tablesIcon +
+        "<span>" +
         langValues.tables +
+        "</span>" +
         " <svg xmlns='http://www.w3.org/2000/svg' width='1.2em' height='1.2em' viewBox='5 5 15 15' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9' /></svg></label>",
       "<a id='tablesLink'>",
       tablesIcon +
+        "<span>" +
         langValues.tables +
+        "</span>" +
         " <svg xmlns='http://www.w3.org/2000/svg' width='1.2em' height='1.2em' viewBox='5 5 15 15' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9' /></svg></a>",
       "<input type='checkbox' id='drop-1' />",
       "<ul>",
-      "<li><a href='solubility-chart'>" + langValues.solubilityChart + "</a></li>",
-      "<li><a href='reactivity-series'>" + langValues.reactivitySeries + "</a></li>",
+      "<li><a class='tablesList' href='solubility-chart'>" + langValues.solubilityChart + "</a></li>",
+      "<li><a class='tablesList' href='reactivity-series'>" + langValues.reactivitySeries + "</a></li>",
       "</ul>",
       "</li>",
       "<li>",
@@ -557,63 +561,63 @@ xlsxFile("../Translation/Periodic Table others.xlsm").then((rows) => {
         // case "robots":
         //   htmlRobots.writeFile(lang, page);
         //   break;
-        case "manifest":
-          htmlManifest.writeFile(lang, langValues, page);
-          break;
-        case "sitemap":
-          htmlSitemap.writeFile(lang, langValues, page, pages);
-          break;
-        case "404":
-          html404.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "index":
-          htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "privacy-policy":
-          htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "solubility-chart":
-          htmlSolubility.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "reactivity-series":
-          htmlReactivity.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "about":
-          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "store":
-          htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "printables":
-          htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "compare":
-          htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "list":
-          htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "credits":
-          htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "translation":
-          htmlTranslation.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        // case "element":
-        //   htmlElement.writeFile(
-        //     lang,
-        //     langValues,
-        //     language.col,
-        //     language.regular,
-        //     language.punc,
-        //     page,
-        //     defaultHead,
-        //     defaultNav,
-        //     nav4,
-        //     defaultFooter,
-        //     languagesForSelect
-        //   );
+        // case "manifest":
+        //   htmlManifest.writeFile(lang, langValues, page);
         //   break;
+        // case "sitemap":
+        //   htmlSitemap.writeFile(lang, langValues, page, pages);
+        //   break;
+        // case "404":
+        //   html404.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "index":
+        //   htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "privacy-policy":
+        //   htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "solubility-chart":
+        //   htmlSolubility.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "reactivity-series":
+        //   htmlReactivity.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "about":
+        //   htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "store":
+        //   htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "printables":
+        //   htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "compare":
+        //   htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "list":
+        //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "credits":
+        //   htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "translation":
+        //   htmlTranslation.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        case "element":
+          htmlElement.writeFile(
+            lang,
+            langValues,
+            language.col,
+            language.regular,
+            language.punc,
+            page,
+            defaultHead,
+            defaultNav,
+            nav4,
+            defaultFooter,
+            languagesForSelect
+          );
+          break;
       }
     });
   });

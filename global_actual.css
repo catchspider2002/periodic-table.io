@@ -90,7 +90,7 @@ h1 {
 }
 
 nav > h1 {
-  font-size: 1em;
+  font-size: 0.9em;
   font-weight: normal;
 }
 
@@ -2016,13 +2016,14 @@ nav ul li a {
   place-content: start;
   align-items: center;
 }
-nav ul li a span {
+nav ul li a span,
+#tablesLink span,
+.tablesList {
   font-size: 0.9em;
 }
 
 #tablesLink {
   grid-template-columns: auto 1fr auto;
-  grid-auto-rows: c;
 }
 
 /* Background color change on Hover */
@@ -2116,9 +2117,12 @@ nav > button {
     padding: 13px 15px;
     gap: 0.75em;
     color: #fff;
-    font-size: 0.9em;
     margin-left: auto;
     align-items: center;
+  }
+
+  .toggle span {
+    font-size: 0.9em;
   }
 
   .burger {
@@ -2152,9 +2156,7 @@ nav > button {
   nav ul li ul li .toggle,
   nav ul ul a,
   nav ul ul ul a {
-    padding: 14px 50px;
-    /* color: #fff; */
-    /* font-size: 0.9em; */
+    padding: 14px 70px;
   }
 
   /* Hide Dropdowns by Default */

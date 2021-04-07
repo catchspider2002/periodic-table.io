@@ -6,3 +6,4 @@ svelte-components
 *.map
 onesky*
 .env
+nodejs_testing.js

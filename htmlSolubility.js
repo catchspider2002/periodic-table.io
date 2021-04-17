@@ -145,11 +145,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("</div>");
   writeStream.write("<div class='grid-item'>");
   writeStream.write(
-    "<span class='solName'>" +
-      langValues.oxide +
-      "</span> <span class='solSym' title='" +
-      langValues.oxide +
-      "'>Cr<sub>2</sub>O<sub>7</sub><sup>2-</sup></span>"
+    "<span class='solName'>" + langValues.oxide + "</span> <span class='solSym' title='" + langValues.oxide + "'>O<sup>2-</sup></span>"
   );
   writeStream.write("</div>");
   writeStream.write("</div>");
@@ -270,7 +266,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
     "<div class='grid-item soluble'><span class='solubleName'>" + langValues.soluble + "</span><span class='solShort'>S</span></div>"
   );
   writeStream.write(
-    "<div class='grid-item soluble'><span class='solubleName'>" + langValues.reactsWater + "</span><span class='solShort'>R</span></div>"
+    "<div class='grid-item reactsWater'><span class='solubleName'>" + langValues.reactsWater + "</span><span class='solShort'>R</span></div>"
   );
   writeStream.write("</div>");
   writeStream.write("<div class='grid-col'>");
@@ -328,7 +324,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
     "<div class='grid-item soluble'><span class='solubleName'>" + langValues.soluble + "</span><span class='solShort'>S</span></div>"
   );
   writeStream.write(
-    "<div class='grid-item soluble'><span class='solubleName'>" + langValues.reactsWater + "</span><span class='solShort'>R</span></div>"
+    "<div class='grid-item reactsWater'><span class='solubleName'>" + langValues.reactsWater + "</span><span class='solShort'>R</span></div>"
   );
   writeStream.write("</div>");
 
@@ -387,7 +383,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
     "<div class='grid-item soluble'><span class='solubleName'>" + langValues.soluble + "</span><span class='solShort'>S</span></div>"
   );
   writeStream.write(
-    "<div class='grid-item soluble'><span class='solubleName'>" + langValues.reactsWater + "</span><span class='solShort'>R</span></div>"
+    "<div class='grid-item reactsWater'><span class='solubleName'>" + langValues.reactsWater + "</span><span class='solShort'>R</span></div>"
   );
   writeStream.write("</div>");
   writeStream.write("<div class='grid-col'>");
@@ -449,7 +445,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
     "<div class='grid-item soluble'><span class='solubleName'>" + langValues.soluble + "</span><span class='solShort'>S</span></div>"
   );
   writeStream.write(
-    "<div class='grid-item soluble'><span class='solubleName'>" + langValues.insoluble + "</span><span class='solShort'>I</span></div>"
+    "<div class='grid-item insoluble'><span class='insolubleName'>" + langValues.insoluble + "</span><span class='solShort'>I</span></div>"
   );
   writeStream.write("</div>");
   writeStream.write("<div class='grid-col'>");
@@ -511,7 +507,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
     "<div class='grid-item soluble'><span class='solubleName'>" + langValues.soluble + "</span><span class='solShort'>S</span></div>"
   );
   writeStream.write(
-    "<div class='grid-item soluble'><span class='solubleName'>" + langValues.reactsWater + "</span><span class='solShort'>R</span></div>"
+    "<div class='grid-item reactsWater'><span class='solubleName'>" + langValues.reactsWater + "</span><span class='solShort'>R</span></div>"
   );
   writeStream.write("</div>");
   writeStream.write("<div class='grid-col'>");
@@ -569,13 +565,17 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
     "<div class='grid-item unavailable'><span class='unavailableName'>" + langValues.unavailable + "</span><span class='solShort'>-</span></div>"
   );
   writeStream.write(
-    "<div class='grid-item soluble'><span class='solubleName'>" + langValues.reactsWater + "</span><span class='solShort'>R</span></div>"
+    "<div class='grid-item reactsWater'><span class='solubleName'>" + langValues.reactsWater + "</span><span class='solShort'>R</span></div>"
   );
   writeStream.write("</div>");
   writeStream.write("<div class='grid-col'>");
   writeStream.write("<div class='grid-item grid-item--header'>");
   writeStream.write(
-    "<span class='solName'>" + langValues.iron + " (II)</span> <span class='solSym' title='" + langValues.iron + "'>Fe<sub>2</sub><sup>+</sup></span>"
+    "<span class='solName'>" +
+      langValues.iron +
+      " (II)</span> <span class='solSym' title='" +
+      langValues.iron +
+      " (II)'>Fe<sub>2</sub><sup>+</sup></span>"
   );
   writeStream.write("</div>");
   writeStream.write(
@@ -637,7 +637,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       langValues.iron +
       " (III)</span> <span class='solSym' title='" +
       langValues.iron +
-      "'>Fe<sub>3</sub><sup>+</sup></span>"
+      " (III)'>Fe<sub>3</sub><sup>+</sup></span>"
   );
   writeStream.write("</div>");
   writeStream.write(
@@ -699,7 +699,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       langValues.copper +
       " (II)</span> <span class='solSym' title='" +
       langValues.copper +
-      "'>Cu<sub>2</sub><sup>+</sup></span>"
+      " (II)'>Cu<sub>2</sub><sup>+</sup></span>"
   );
   writeStream.write("</div>");
   writeStream.write(
@@ -873,7 +873,11 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div class='grid-col'>");
   writeStream.write("<div class='grid-item grid-item--header'>");
   writeStream.write(
-    "<span class='solName'>" + langValues.lead + " (II)</span> <span class='solSym' title='" + langValues.lead + "'>Pb<sub>2</sub><sup>+</sup></span>"
+    "<span class='solName'>" +
+      langValues.lead +
+      " (II)</span> <span class='solSym' title='" +
+      langValues.lead +
+      " (II)'>Pb<sub>2</sub><sup>+</sup></span>"
   );
   writeStream.write("</div>");
   writeStream.write(

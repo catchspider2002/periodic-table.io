@@ -53,6 +53,9 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div class='text-upper aboutHeader text-center pt-16'>" + langValues.changelog + "</div>");
   writeStream.write("<div>");
   writeStream.write("<div id='logs'>");
+  writeStream.write("<div class='versionHeader'>April 30, 2021</div>");
+  writeStream.write(checkIcon + "<div>Updated Hungarian, Persian, Russian and Portuguese translations</div>");
+  writeStream.write(checkIcon + "<div>Fixed the broken links in the <a class='underlineLink' href='store'>Store</a> page</div>");
   writeStream.write("<div class='versionHeader'>April 17, 2021</div>");
   writeStream.write(checkIcon + "<div>Updated Slovak, Portuguese and Polish translations</div>");
   writeStream.write(checkIcon + "<div>Minor corrections to the solubility table</div>");
@@ -86,7 +89,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div class='versionHeader'>October 2020</div>");
   writeStream.write(checkIcon + "<div>Added Armenian and Malay translations</div>");
   writeStream.write(
-    checkIcon + "<div>Added a new printable - Flash Cards in <a class='underlineLink' href='printables.html'>Printables</a> page</div>"
+    checkIcon + "<div>Added a new printable - Flash Cards in <a class='underlineLink' href='printables'>Printables</a> page</div>"
   );
   writeStream.write(
     checkIcon + "<div>Updated Croatian, Greek, Hebrew, Hindi, Norwegian Bokmal, Polish, Romanian, Vietnamese and Dutch translations</div>"
@@ -95,7 +98,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div class='versionHeader'>August 2020</div>");
   writeStream.write(checkIcon + "<div>Updated the icons in the navbar to outline icons</div>");
   writeStream.write(checkIcon + "<div>Simplified localisation and individual languages will now be included in the url</div>");
-  writeStream.write(checkIcon + "<div>Added a new printable in <a class='underlineLink' href='printables.html'>Printables</a> page</div>");
+  writeStream.write(checkIcon + "<div>Added a new printable in <a class='underlineLink' href='printables'>Printables</a> page</div>");
   writeStream.write(checkIcon + "<div>Added CAS Number and PubChem CID Number</div>");
   writeStream.write(checkIcon + "<div>Fixed electron configuration rendering issues in Edge and Chrome</div>");
   writeStream.write(
@@ -103,10 +106,10 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       "<div>Updated Arabic, Persian, Hindi, Italian, Indonesian, Vietnamese, German, Greek, Polish, Dutch, Slovak, Chinese (Simplified) and Chinese (Traditional) translations</div>"
   );
   writeStream.write("<div class='versionHeader'>July 2020</div>");
-  writeStream.write(checkIcon + "<div>Added a new printable in <a class='underlineLink' href='printables.html'>Printables</a> page</div>");
+  writeStream.write(checkIcon + "<div>Added a new printable in <a class='underlineLink' href='printables'>Printables</a> page</div>");
   writeStream.write(
     checkIcon +
-      "<div>Added a new page - <a class='underlineLink' href='translation.html'>Translation</a> where you can check the status of each language and contribute translations</div>"
+      "<div>Added a new page - <a class='underlineLink' href='translation'>Translation</a> where you can check the status of each language and contribute translations</div>"
   );
   writeStream.write(checkIcon + "<div>Added mass number, number of protons, electrons and neutrons</div>");
   writeStream.write(checkIcon + "<div>The line height for the Elements page is increased and the text is easily readable</div>");
@@ -120,7 +123,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write(checkIcon + "<div>Modified the style of the element page to use more shadows and less color</div>");
   writeStream.write(checkIcon + "<div>Modified the colors of the Settings popup for both light and dark themes</div>");
   writeStream.write(checkIcon + "<div>Added Instagram page link to the footer</div>");
-  writeStream.write(checkIcon + "<div>Added a new printable in <a class='underlineLink' href='printables.html'>Printables</a> page</div>");
+  writeStream.write(checkIcon + "<div>Added a new printable in <a class='underlineLink' href='printables'>Printables</a> page</div>");
   writeStream.write(
     checkIcon +
       "<div>Added <a class='underlineLink' target='_blank' href='https://feedback.periodic-table.io/' rel='noopener noreferrer'>Suggestions</a> where new suggestions or feature requests can be provided</div>"
@@ -132,11 +135,11 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write(checkIcon + "<div>Updated Polish, Russian, Vietnamese, Slovenian, Chinese Simplified translations</div>");
   writeStream.write(
     checkIcon +
-      "<div>Added a new page - <a class='underlineLink' href='printables.html'>Printables</a> which provides a printable version of the periodic table which will be updated regularly</div>"
+      "<div>Added a new page - <a class='underlineLink' href='printables'>Printables</a> which provides a printable version of the periodic table which will be updated regularly</div>"
   );
   writeStream.write(
     checkIcon +
-      "<div>Added a new page - <a class='underlineLink' href='credits.html'>Credits</a> for translations which was earlier appearing in About page</div>"
+      "<div>Added a new page - <a class='underlineLink' href='credits'>Credits</a> for translations which was earlier appearing in About page</div>"
   );
   writeStream.write(checkIcon + "<div>Added icons to the navigation bar at the top</div>");
   writeStream.write(checkIcon + "<div>Added footer component on all pages which includes quick links not available in the top navigation bar</div>");
@@ -192,16 +195,16 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div class='text-upper aboutHeader text-center pt-16 pb-8'>" + langValues.languages + "</div>");
   writeStream.write("<div>");
   writeStream.write("<div class='pb-8'>");
-  writeStream.write(langValues.enTrans + "; " + langValues.arTrans + "; " + langValues.bgTrans + "; " + langValues.caTrans + "; ");
+  writeStream.write(langValues.enTrans + "; " + langValues.afTrans + "; " + langValues.arTrans + "; " + langValues.bgTrans + "; " + langValues.caTrans + "; ");
   writeStream.write(langValues.csTrans + "; " + langValues.daTrans + "; " + langValues.deTrans + "; " + langValues.elTrans + "; ");
-  writeStream.write(langValues.esTrans + ";" + langValues.faTrans + "; " + langValues.fiTrans + "; " + langValues.frTrans + "; ");
+  writeStream.write(langValues.esTrans + "; " + langValues.faTrans + "; " + langValues.fiTrans + "; " + langValues.frTrans + "; ");
   writeStream.write(langValues.heTrans + "; " + langValues.hiTrans + "; " + langValues.hrTrans + "; " + langValues.huTrans + "; ");
-  writeStream.write(langValues.hyTrans + "; " + langValues.idTrans + "; " + langValues.itTrans + ";" + langValues.jaTrans + "; ");
+  writeStream.write(langValues.hyTrans + "; " + langValues.idTrans + "; " + langValues.itTrans + "; " + langValues.jaTrans + "; ");
   writeStream.write(langValues.koTrans + "; " + langValues.mkTrans + "; " + langValues.msTrans + "; " + langValues.nlTrans + "; ");
   writeStream.write(langValues.nnTrans + "; " + langValues.plTrans + "; " + langValues.ptTrans + "; " + langValues.roTrans + "; ");
-  writeStream.write(langValues.ruTrans + ";" + langValues.skTrans + "; " + langValues.slTrans + "; " + langValues.srTrans + "; ");
+  writeStream.write(langValues.ruTrans + "; " + langValues.skTrans + "; " + langValues.slTrans + "; " + langValues.srTrans + "; ");
   writeStream.write(langValues.svTrans + "; " + langValues.thTrans + "; " + langValues.trTrans + "; " + langValues.ukTrans + "; ");
-  writeStream.write(langValues.viTrans + "; " + langValues.zhTrans + ";" + langValues.chTrans + ";");
+  writeStream.write(langValues.viTrans + "; " + langValues.zhTrans + "; " + langValues.chTrans + "; ");
   writeStream.write("</div>");
   writeStream.write("</div>");
   writeStream.write("</div>");

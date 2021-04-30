@@ -2,7 +2,7 @@ const fs = require("fs");
 const xlsxFile = require("read-excel-file/node");
 
 const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter) => {
-  xlsxFile("../Translation/Periodic Table others.xlsm", { sheet: "Translators" }).then((rows) => {
+  xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm", { sheet: "Translators" }).then((rows) => {
     let writeStream = fs.createWriteStream(lang + "/" + page + ".html");
 
     let groupedTranslators;

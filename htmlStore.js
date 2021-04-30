@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 let lightLinks = [
-  { name: "Amazon (US)", link: "https://www.amazon.com/dp/B07RNSV37Z" },
+  { name: "Amazon (US)", link: "https://www.amazon.com/dp/B093W55PHV" },
   { name: "Amazon (UK)", link: "https://www.amazon.co.uk/dp/B07RNF8Q39" },
   { name: "Redbubble", link: "https://www.redbubble.com/people/catchspider2002/works/32731062-periodic-table-t-shirt-light?asc=u&p=classic-tee" },
   { name: "Spreadshirt", link: "https://shop.spreadshirt.com/fashion-crimson/periodic+table+t-shirt+light-A5b4cece5f937643a40d63334" },
@@ -11,7 +11,7 @@ let lightLinks = [
 
 let darkLinks = [
   { name: "Amazon (US)", link: "https://www.amazon.com/dp/B07RTCVS2Q" },
-  { name: "Amazon (UK)", link: "https://www.amazon.co.uk/dp/B07RP922V4" },
+  { name: "Amazon (UK)", link: "https://www.amazon.co.uk/dp/B093WX8P5Y" },
   { name: "Redbubble", link: "https://www.redbubble.com/people/catchspider2002/works/32731629-periodic-table-t-shirt-dark?asc=u&p=classic-tee" },
   { name: "Spreadshirt", link: "https://shop.spreadshirt.com/fashion-crimson/periodic+table+t-shirt+dark-A5b4cf4c92051760fec6d9ccc" },
   { name: "Threadless", link: "https://fashioncrimson.threadless.com/designs/periodic-table-t-shirt-dark/mens/t-shirt?color=black" },

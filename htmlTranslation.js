@@ -65,6 +65,8 @@ let languageList = [
   { id: 641, code: "lt" },
   { id: 644, code: "mk" },
   { id: 66, code: "be-BY" },
+  { id: 505, code: "ta" },
+  { id: 662, code: "te" },
 ];
 
 let unavailable = [
@@ -80,6 +82,8 @@ let unavailable = [
   "Lithuanian",
   "Swahili",
   "Uzbek",
+  "Tamil",
+  "Telugu",
 ];
 let color;
 
@@ -145,10 +149,10 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
 
         if (unavailable.indexOf(englishName) > -1) {
           unavailable1Markup = unavailable1Markup + "[![" + newName + "](" + badgeLink + ")](" + newLink + ")\n";
-          unavailable1HTML = unavailable1HTML + "<a href='" + newLink + "'><img src='" + badgeLink + "' alt='" + newName + "'></a>";
+          unavailable1HTML = unavailable1HTML + "<a target='_blank' href='" + newLink + "'><img src='" + badgeLink + "' alt='" + newName + "'></a>";
         } else {
           available1Markup = available1Markup + "[![" + newName + "](" + badgeLink + ")](" + newLink + ")\n";
-          available1HTML = available1HTML + "<a href='" + newLink + "'><img src='" + badgeLink + "' alt='" + newName + "'></a>";
+          available1HTML = available1HTML + "<a target='_blank' href='" + newLink + "'><img src='" + badgeLink + "' alt='" + newName + "'></a>";
         }
       });
     })
@@ -203,10 +207,10 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
 
             if (unavailable.indexOf(englishName) > -1) {
               unavailable2Markup = unavailable2Markup + "[![" + newName + "](" + badgeLink + ")](" + newLink + ")\n";
-              unavailable2HTML = unavailable2HTML + "<a href='" + newLink + "'><img src='" + badgeLink + "' alt='" + newName + "'></a>";
+              unavailable2HTML = unavailable2HTML + "<a target='_blank' href='" + newLink + "'><img src='" + badgeLink + "' alt='" + newName + "'></a>";
             } else {
               available2Markup = available2Markup + "[![" + newName + "](" + badgeLink + ")](" + newLink + ")\n";
-              available2HTML = available2HTML + "<a href='" + newLink + "'><img src='" + badgeLink + "' alt='" + newName + "'></a>";
+              available2HTML = available2HTML + "<a target='_blank' href='" + newLink + "'><img src='" + badgeLink + "' alt='" + newName + "'></a>";
             }
           });
         })
@@ -250,7 +254,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
           writeStream.write(available1HTML);
           writeStream.write("</p>");
 
-          writeStream.write("<h4>Below are not yet added to the website. I&#39;ll be adding new languages when it is crosses 80% translation.</h4>");
+          writeStream.write("<h4>Below are not yet added to the website. I&#39;ll be adding new languages when it is crosses 70% translation.</h4>");
 
           writeStream.write("<p>");
           writeStream.write(unavailable1HTML);
@@ -292,7 +296,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
           writeStream.write(available2HTML);
           writeStream.write("</p>");
 
-          writeStream.write("<h4>Below are not yet added to the website since the General Terms is not 80% translated</h4>");
+          writeStream.write("<h4>Below are not yet added to the website since the General Terms is not 70% translated</h4>");
           writeStream.write("<p>");
           writeStream.write(unavailable2HTML);
           writeStream.write("</p>");
@@ -354,7 +358,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
           readmeStream.write(available1Markup);
 
           readmeStream.write("\n");
-          readmeStream.write("#### Below are not yet added to the website. I'll be adding new languages when it is crosses 80% translation.\n\n");
+          readmeStream.write("#### Below are not yet added to the website. I'll be adding new languages when it is crosses 70% translation.\n\n");
 
           readmeStream.write(unavailable1Markup);
 
@@ -390,7 +394,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
           readmeStream.write(available2Markup);
 
           readmeStream.write("\n");
-          readmeStream.write("#### Below are not yet added to the website since the General Terms is not 80% translated\n\n");
+          readmeStream.write("#### Below are not yet added to the website since the General Terms is not 70% translated\n\n");
 
           readmeStream.write(unavailable2Markup);
 

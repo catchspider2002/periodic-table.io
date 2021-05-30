@@ -53,6 +53,10 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div class='text-upper aboutHeader text-center pt-16'>" + langValues.changelog + "</div>");
   writeStream.write("<div>");
   writeStream.write("<div id='logs'>");
+  writeStream.write("<div class='versionHeader'>May 30, 2021</div>");
+  writeStream.write(checkIcon + "<div>Added a new printable - Flash Cards in <a class='underlineLink' href='printables'>Printables</a> page</div>");
+  writeStream.write(checkIcon + "<div>Included Tamil and Telugu for anyone to translate as per <a class='underlineLink' target='_blank' href='https://feedback.periodic-table.io/' rel='noopener noreferrer'>Suggestions</a> by users</div>");
+  writeStream.write(checkIcon + "<div>Updated external links to be opened in new tab</div>");
   writeStream.write("<div class='versionHeader'>May 27, 2021</div>");
   writeStream.write(checkIcon + "<div>Updated Armenian, Hebrew and Chinese (Simplified) translations</div>");
   writeStream.write("<div class='versionHeader'>April 30, 2021</div>");
@@ -90,9 +94,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   );
   writeStream.write("<div class='versionHeader'>October 2020</div>");
   writeStream.write(checkIcon + "<div>Added Armenian and Malay translations</div>");
-  writeStream.write(
-    checkIcon + "<div>Added a new printable - Flash Cards in <a class='underlineLink' href='printables'>Printables</a> page</div>"
-  );
+  writeStream.write(checkIcon + "<div>Added a new printable - Flash Cards in <a class='underlineLink' href='printables'>Printables</a> page</div>");
   writeStream.write(
     checkIcon + "<div>Updated Croatian, Greek, Hebrew, Hindi, Norwegian Bokmal, Polish, Romanian, Vietnamese and Dutch translations</div>"
   );
@@ -197,7 +199,9 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div class='text-upper aboutHeader text-center pt-16 pb-8'>" + langValues.languages + "</div>");
   writeStream.write("<div>");
   writeStream.write("<div class='pb-8'>");
-  writeStream.write(langValues.enTrans + "; " + langValues.afTrans + "; " + langValues.arTrans + "; " + langValues.bgTrans + "; " + langValues.caTrans + "; ");
+  writeStream.write(
+    langValues.enTrans + "; " + langValues.afTrans + "; " + langValues.arTrans + "; " + langValues.bgTrans + "; " + langValues.caTrans + "; "
+  );
   writeStream.write(langValues.csTrans + "; " + langValues.daTrans + "; " + langValues.deTrans + "; " + langValues.elTrans + "; ");
   writeStream.write(langValues.esTrans + "; " + langValues.faTrans + "; " + langValues.fiTrans + "; " + langValues.frTrans + "; ");
   writeStream.write(langValues.heTrans + "; " + langValues.hiTrans + "; " + langValues.hrTrans + "; " + langValues.huTrans + "; ");

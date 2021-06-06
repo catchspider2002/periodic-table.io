@@ -2,8 +2,8 @@ const fs = require("fs");
 
 const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter) => {
   let writeStream = fs.createWriteStream(lang + "/" + page + ".html");
-  let imagePath = "C:/Users/Naveen/Downloads/Git Projects/periodic-table.io/images/printables/";
-  imagePath = "https://periodic-table-io.pages.dev/images/printables/";
+  let imagePath = "C:/Users/Naveen/Downloads/Git Projects/periodic-table.io/en/images/printables/";
+  imagePath = "https://periodic-table.io/images/printables/";
 
   defaultHead.forEach((heads) => {
     writeStream.write(heads);
@@ -18,153 +18,23 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   });
 
   let lang35 =
-    " " +
-    langValues.enTrans +
-    "; " +
-    langValues.bgTrans +
-    "; " +
-    langValues.caTrans +
-    "; " +
-    langValues.csTrans +
-    "; " +
-    langValues.daTrans +
-    "; " +
-    langValues.deTrans +
-    "; " +
-    langValues.elTrans +
-    "; " +
-    langValues.esTrans +
-    "; " +
-    langValues.fiTrans +
-    "; " +
-    langValues.frTrans +
-    "; " +
-    langValues.hiTrans +
-    "; " +
-    langValues.hrTrans +
-    "; " +
-    langValues.huTrans +
-    "; " +
-    langValues.idTrans +
-    "; " +
-    langValues.itTrans +
-    "; " +
-    langValues.jaTrans +
-    "; " +
-    langValues.koTrans +
-    "; " +
-    langValues.nlTrans +
-    "; " +
-    langValues.nnTrans +
-    "; " +
-    langValues.plTrans +
-    "; " +
-    langValues.ptTrans +
-    "; " +
-    langValues.roTrans +
-    "; " +
-    langValues.ruTrans +
-    "; " +
-    langValues.skTrans +
-    "; " +
-    langValues.slTrans +
-    "; " +
-    langValues.srTrans +
-    "; " +
-    langValues.svTrans +
-    "; " +
-    langValues.thTrans +
-    "; " +
-    langValues.trTrans +
-    "; " +
-    langValues.ukTrans +
-    "; " +
-    langValues.viTrans +
-    "; " +
-    langValues.zhTrans +
-    "; " +
-    langValues.chTrans;
+    ` ${langValues.enTrans}; ${langValues.bgTrans}; ${langValues.caTrans}; ${langValues.csTrans}; ${langValues.daTrans}; ${langValues.deTrans}; ${langValues.elTrans};` +
+    ` ${langValues.esTrans}; ${langValues.fiTrans}; ${langValues.frTrans}; ${langValues.hiTrans}; ${langValues.hrTrans}; ${langValues.huTrans}; ${langValues.idTrans};` +
+    ` ${langValues.itTrans}; ${langValues.jaTrans}; ${langValues.koTrans}; ${langValues.nlTrans}; ${langValues.nnTrans}; ${langValues.plTrans}; ${langValues.ptTrans};` +
+    ` ${langValues.roTrans}; ${langValues.ruTrans}; ${langValues.skTrans}; ${langValues.slTrans}; ${langValues.srTrans}; ${langValues.svTrans}; ${langValues.thTrans};` +
+    ` ${langValues.trTrans}; ${langValues.ukTrans}; ${langValues.viTrans}; ${langValues.zhTrans}; ${langValues.chTrans};`;
+
   let lang42 =
-    " " +
-    langValues.enTrans +
-    "; " +
-    langValues.afTrans +
-    "; " +
-    langValues.arTrans +
-    "; " +
-    langValues.bgTrans +
-    "; " +
-    langValues.caTrans +
-    "; " +
-    langValues.csTrans +
-    "; " +
-    langValues.daTrans +
-    "; " +
-    langValues.deTrans +
-    "; " +
-    langValues.elTrans +
-    "; " +
-    langValues.esTrans +
-    "; " +
-    langValues.faTrans +
-    "; " +
-    langValues.fiTrans +
-    "; " +
-    langValues.frTrans +
-    "; " +
-    langValues.heTrans +
-    "; " +
-    langValues.hiTrans +
-    "; " +
-    langValues.hrTrans +
-    "; " +
-    langValues.huTrans +
-    "; " +
-    langValues.hyTrans +
-    "; " +
-    langValues.idTrans +
-    "; " +
-    langValues.itTrans +
-    "; " +
-    langValues.jaTrans +
-    "; " +
-    langValues.koTrans +
-    "; " +
-    langValues.mkTrans +
-    "; " +
-    langValues.msTrans +
-    "; " +
-    langValues.nlTrans +
-    "; " +
-    langValues.nnTrans +
-    "; " +
-    langValues.plTrans +
-    "; " +
-    langValues.ptTrans +
-    "; " +
-    langValues.roTrans +
-    "; " +
-    langValues.ruTrans +
-    "; " +
-    langValues.skTrans +
-    "; " +
-    langValues.slTrans +
-    "; " +
-    langValues.srTrans +
-    "; " +
-    langValues.svTrans +
-    "; " +
-    langValues.thTrans +
-    "; " +
-    langValues.trTrans +
-    "; " +
-    langValues.ukTrans +
-    "; " +
-    langValues.viTrans +
-    "; " +
-    langValues.zhTrans +
-    "; " +
-    langValues.chTrans;
+    ` ${langValues.enTrans}; ${langValues.afTrans}; ${langValues.arTrans}; ${langValues.bgTrans}; ${langValues.caTrans}; ${langValues.csTrans}; ${langValues.daTrans};` +
+    ` ${langValues.deTrans}; ${langValues.elTrans}; ${langValues.esTrans}; ${langValues.faTrans}; ${langValues.fiTrans}; ${langValues.frTrans}; ${langValues.heTrans};` +
+    ` ${langValues.hiTrans}; ${langValues.hrTrans}; ${langValues.huTrans}; ${langValues.hyTrans}; ${langValues.idTrans}; ${langValues.itTrans}; ${langValues.jaTrans};` +
+    ` ${langValues.koTrans}; ${langValues.mkTrans}; ${langValues.msTrans}; ${langValues.nlTrans}; ${langValues.nnTrans}; ${langValues.plTrans}; ${langValues.ptTrans};` +
+    ` ${langValues.roTrans}; ${langValues.ruTrans}; ${langValues.skTrans}; ${langValues.slTrans}; ${langValues.srTrans}; ${langValues.svTrans}; ${langValues.thTrans};` +
+    ` ${langValues.trTrans}; ${langValues.ukTrans}; ${langValues.viTrans}; ${langValues.zhTrans}; ${langValues.chTrans};`;
+
+  let langReason =
+    ` ${langValues.enTrans}; ${langValues.esTrans}; ${langValues.frTrans}; ${langValues.hrTrans}; ${langValues.huTrans}; ${langValues.itTrans}; ${langValues.koTrans};` +
+    ` ${langValues.ptTrans}; ${langValues.roTrans}; ${langValues.ruTrans}; ${langValues.viTrans}; ${langValues.zhTrans};`;
 
   writeStream.write("<h1 class='truncate'>" + langValues[page] + "</h1>");
 
@@ -177,7 +47,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       title: "Periodic Table poster #1 - Available in 35 languages",
       description:
         "Periodic Table of the elements poster which shows atomic number, symbol, name and atomic weight for all 118 elements in a color-coded table.",
-      rating: 18,
+      rating: 19,
       price: 0,
       languages: lang35,
       formats: "PNG, SVG, PDF",
@@ -238,6 +108,17 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       formats: "SVG, PDF",
       image: "Periodic-Table-Flashcards-Small-2",
       link: "https://gumroad.com/l/periodictableflashcards2/",
+    },
+    {
+      title: "Periodic Table Flashcards #3 - Available in 13 languages",
+      description:
+        "Play and learn the periodic table with the printable flash cards. The set includes 118 element flash cards in high resolution PDF format and SVG formats. Download and print them on a PC or Mac.",
+      rating: 0,
+      price: 3.99,
+      languages: langReason,
+      formats: "SVG, PDF",
+      image: "Periodic-Table-Flashcards-Small-3",
+      link: "https://gumroad.com/l/periodictableflashcards3/",
     },
   ];
 

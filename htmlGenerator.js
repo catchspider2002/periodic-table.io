@@ -320,17 +320,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
     let colorNav = [];
     colorList.forEach((color) => {
       colorNav.push(
-        "<input type='radio' id='" +
-          color.id +
-          "' name='tableColor' value='" +
-          color.value +
-          "' onchange='setColorSettings()'><label id='" +
-          color.id +
-          "Label' class='disable-select' title='" +
-          color.title +
-          "' for='" +
-          color.id +
-          "'></label>"
+        `<input type='radio' id='${color.id}' name='tableColor' value='${color.value}' onchange='setColorSettings()'><label id='${color.id}Label' class='disable-select' title='${color.title}' for='${color.id}'></label>`
       );
     });
 
@@ -472,24 +462,8 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
 
     pages.forEach((pageValue) => {
       let keywords =
-        pageValue.keywords +
-        ", " +
-        langValues.homeHeader +
-        ", chemical, " +
-        langValues.elements +
-        ", interactive, PWA, " +
-        langValues.properties +
-        ", " +
-        langValues.uses +
-        ", " +
-        langValues.hist +
-        ", " +
-        langValues.isotopes +
-        ", " +
-        langValues.labelConfigMain +
-        ", " +
-        langValues.labelElectronsMain +
-        ", name origin, images, hazards, diagram, chemistry, information";
+        `${pageValue.keywords}, ${langValues.homeHeader}, chemical, ${langValues.elements}, interactive, PWA, ${langValues.properties}, ${langValues.uses}` +
+        `, ${langValues.hist}, ${langValues.isotopes}, ${langValues.labelConfigMain}, ${langValues.labelElectronsMain}, name origin, images, hazards, diagram, chemistry, information`;
       let description = langValues.desc1 + "; " + langValues.desc2 + ".";
 
       let website = "https://periodic-table.io";
@@ -585,9 +559,9 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
         case "about":
           htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
-        // case "store":
-        //   htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
+        case "store":
+          htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
         case "printables":
           htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;

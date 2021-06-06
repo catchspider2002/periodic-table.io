@@ -53,22 +53,25 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div class='text-upper aboutHeader text-center pt-16'>" + langValues.changelog + "</div>");
   writeStream.write("<div>");
   writeStream.write("<div id='logs'>");
+
+  writeStream.write("<div class='versionHeader'>June 06, 2021</div>");
+  writeStream.write(checkIcon + "<div>Added a new printable - Flash Cards in <a class='underlineLink' href='printables'>Printables</a> page</div>");
   writeStream.write("<div class='versionHeader'>May 30, 2021</div>");
   writeStream.write(checkIcon + "<div>Added a new printable - Flash Cards in <a class='underlineLink' href='printables'>Printables</a> page</div>");
-  writeStream.write(checkIcon + "<div>Included Tamil and Telugu for anyone to translate as per <a class='underlineLink' target='_blank' href='https://feedback.periodic-table.io/' rel='noopener noreferrer'>Suggestions</a> by users</div>");
+  writeStream.write(
+    checkIcon +
+      "<div>Included Tamil and Telugu for anyone to translate as per <a class='underlineLink' target='_blank' href='https://feedback.periodic-table.io/' rel='noopener noreferrer'>Suggestions</a> by users</div>"
+  );
   writeStream.write(checkIcon + "<div>Updated external links to be opened in new tab</div>");
   writeStream.write("<div class='versionHeader'>May 27, 2021</div>");
   writeStream.write(checkIcon + "<div>Updated Armenian, Hebrew and Chinese (Simplified) translations</div>");
-  writeStream.write("<div class='versionHeader'>April 30, 2021</div>");
-  writeStream.write(checkIcon + "<div>Updated Hungarian, Persian, Russian and Portuguese translations</div>");
-  writeStream.write(checkIcon + "<div>Fixed the broken links in the <a class='underlineLink' href='store'>Store</a> page</div>");
-  writeStream.write("<div class='versionHeader'>April 17, 2021</div>");
-  writeStream.write(checkIcon + "<div>Updated Slovak, Portuguese and Polish translations</div>");
-  writeStream.write(checkIcon + "<div>Minor corrections to the solubility table</div>");
-  writeStream.write("<div class='versionHeader'>April 7, 2021</div>");
-  writeStream.write(checkIcon + "<div>Updated Spanish, Portuguese and French translations</div>");
-  writeStream.write("<div class='versionHeader'>March 2021</div>");
 
+  writeStream.write("<div class='versionHeader'>April 2021</div>");
+  writeStream.write(checkIcon + "<div>Updated Spanish, Portuguese, French, Hungarian, Persian, Russian, Slovak and Polish translations</div>");
+  writeStream.write(checkIcon + "<div>Fixed the broken links in the <a class='underlineLink' href='store'>Store</a> page</div>");
+  writeStream.write(checkIcon + "<div>Minor corrections to the solubility table</div>");
+
+  writeStream.write("<div class='versionHeader'>March 2021</div>");
   writeStream.write(checkIcon + "<div>Added Solubility Chart and Reactivity Series under Tables menu</div>");
   writeStream.write(checkIcon + "<div>Added social images to all pages to show up when the pages are shared on social media</div>");
   writeStream.write(checkIcon + "<div>Fixed the incorrect font sizes in the navigation bar</div>");
@@ -86,6 +89,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
     checkIcon +
       "<div>Updated Norwegian Bokmal, Spanish, Vietnamese, Chinese(Simplified), Chinese(Traditional), Japanese, German, Portuguese, French and Italian translations</div>"
   );
+
   writeStream.write("<div class='versionHeader'>November 2020</div>");
   writeStream.write(checkIcon + "<div>Added Crystal Structure image to the element page</div>");
   writeStream.write(checkIcon + "<div>Added Macedonian translation</div>");

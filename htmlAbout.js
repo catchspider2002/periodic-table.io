@@ -54,6 +54,10 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div>");
   writeStream.write("<div id='logs'>");
 
+  writeStream.write("<div class='versionHeader'>June 24, 2021</div>");
+  writeStream.write(checkIcon + "<div>Added Tamil translation</div>");
+  writeStream.write(checkIcon + "<div>Updated French translation</div>");
+
   writeStream.write("<div class='versionHeader'>June 06, 2021</div>");
   writeStream.write(checkIcon + "<div>Added a new printable - Flash Cards in <a class='underlineLink' href='printables'>Printables</a> page</div>");
   writeStream.write("<div class='versionHeader'>May 30, 2021</div>");
@@ -213,8 +217,8 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write(langValues.koTrans + "; " + langValues.mkTrans + "; " + langValues.msTrans + "; " + langValues.nlTrans + "; ");
   writeStream.write(langValues.nnTrans + "; " + langValues.plTrans + "; " + langValues.ptTrans + "; " + langValues.roTrans + "; ");
   writeStream.write(langValues.ruTrans + "; " + langValues.skTrans + "; " + langValues.slTrans + "; " + langValues.srTrans + "; ");
-  writeStream.write(langValues.svTrans + "; " + langValues.thTrans + "; " + langValues.trTrans + "; " + langValues.ukTrans + "; ");
-  writeStream.write(langValues.viTrans + "; " + langValues.zhTrans + "; " + langValues.chTrans + "; ");
+  writeStream.write(langValues.svTrans + "; " + langValues.taTrans + "; " + langValues.thTrans + "; " + langValues.trTrans + "; ");
+  writeStream.write(langValues.ukTrans + "; " + langValues.viTrans + "; " + langValues.zhTrans + "; " + langValues.chTrans + "; ");
   writeStream.write("</div>");
   writeStream.write("</div>");
   writeStream.write("</div>");

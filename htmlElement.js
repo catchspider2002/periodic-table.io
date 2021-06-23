@@ -1137,14 +1137,14 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       writeStream.write("</div>");
       writeStream.write("<div class='flex'>");
       writeStream.write("<div id='secondSquare' class='flex-item masonry-col grid'>");
-      writeStream.write("<div class='grayText'>" + langValues.group + "</div>");
+      writeStream.write("<div class='grayText truncate' title='" + langValues.group + "'>" + langValues.group + "</div>");
       writeStream.write("<div>");
       if (element.grp === "na") writeStream.write(langValues.na);
       else writeStream.write(getNum(element.grp.toString()));
       writeStream.write("</div>");
-      writeStream.write("<div class='grayText'>" + langValues.period + "</div>");
+      writeStream.write("<div class='grayText truncate' title='" + langValues.period + "'>" + langValues.period + "</div>");
       writeStream.write("<div>" + element.prd + "</div>");
-      writeStream.write("<div class='grayText'>" + langValues.block + "</div>");
+      writeStream.write("<div class='grayText truncate' title='" + langValues.block + "'>" + langValues.block + "</div>");
       writeStream.write("<div>" + element.blk + "</div>");
       writeStream.write("</div>");
       writeStream.write("</div>");
@@ -1153,9 +1153,9 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       // Protons, Electrons, Neutrons
       writeStream.write("<div class='box-content masonry-col'>");
       writeStream.write("<div class='grid-3 text-center'>");
-      writeStream.write("<div class='grayText truncate'>" + langValues.protons + "</div>");
-      writeStream.write("<div class='grayText truncate'>" + langValues.electrons + "</div>");
-      writeStream.write("<div class='grayText truncate'>" + langValues.neutrons + "</div>");
+      writeStream.write("<div class='grayText truncate' title='" + langValues.protons + "'>" + langValues.protons + "</div>");
+      writeStream.write("<div class='grayText truncate' title='" + langValues.electrons + "'>" + langValues.electrons + "</div>");
+      writeStream.write("<div class='grayText truncate' title='" + langValues.neutrons + "'>" + langValues.neutrons + "</div>");
       writeStream.write("<div class='font-size-1-5'>" + element.p + "</div>");
       writeStream.write("<div class='font-size-1-5'>" + element.e + "</div>");
       writeStream.write("<div class='font-size-1-5'>" + element.n + "</div>");

@@ -1,0 +1,147 @@
+{
+  "short_name": "ஆவர்த்தன அட்டவணை",
+  "name": "ஆவர்த்தன அட்டவணை",
+  "background_color": "#0078d7",
+  "theme_color": "#0078d7",
+  "display": "standalone",
+  "dir": "ltr",
+  "lang": "ta",
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+  "orientation": "any",
+  "categories": ["education", "books"],
+  "description": "மூலகங்கள்: ஆவர்த்தன அட்டவணை உங்களுக்கு தேவையான இரசாயன மூலகங்கள் பற்றிய தகவல்களை வழங்குகிறது. மூலகங்கள் மேல் அழுத்துவதன் மூலம் ஒவ்வொரு மூலகத்தினதும் பண்புகள், வரலாறு, பெயரின் உருவாக்கம், படங்கள், ஆபத்துகள், இலத்திரன் நிலையமைப்பு போன்றவற்றை அறிக.",
+  "shortcuts": [
+    {
+      "name": "பட்டியல்",
+      "short_name": "பட்டியல்",
+      "description": "அனைத்து மூலகங்களையும் அரிச்சுவடி முறையில் அட்டவணை வடிவில் காண்க",
+      "url": "/list",
+      "icons": [{ "src": "/images/icons/list.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "ஒப்பிடல்",
+      "short_name": "ஒப்பிடல்",
+      "description": "இரு மூலகங்களுக்குமான பண்புகளை ஒப்பிடுக",
+      "url": "/compare",
+      "icons": [{ "src": "/images/icons/compare.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "பதிப்பிக்கக்கூடியவை",
+      "short_name": "பதிப்பிக்கக்கூடியவை",
+      "description": "பதிப்பிக்கக்கூடியவை",
+      "url": "/printables",
+      "icons": [{ "src": "/images/icons/printables.png", "sizes": "192x192" }]
+    }
+  ],
+  "icons": [
+    {
+      "src": "/images/icons/android-chrome-36x36.png",
+      "sizes": "36x36",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/apple-touch-icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icons/maskable_icon_x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/Phone-1.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-2.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-3.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-4.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-5.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-6.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-7.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    },
+    {
+      "src": "/screenshots/Phone-8.png",
+      "sizes": "1200x2400",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "index.html"
+}

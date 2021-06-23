@@ -964,7 +964,7 @@ function setOutline() {
     else if (langValue === "ko") eleYear = "기원전 " + eleYear.substring(0, eleYear.indexOf(" ")) + "년";
     else if (langValue === "ja") eleYear = "紀元前" + eleYear.substring(0, eleYear.indexOf(" ")) + "年";
     else if (langValue === "kk") eleYear = "б.з.д" + eleYear.substring(0, eleYear.indexOf(" ")) + "ж.";
-    else if (langValue === "hu" || langValue === "tr" || langValue === "ms" || langValue === "th")
+    else if (langValue === "hu" || langValue === "tr" || langValue === "ms" || langValue === "th" || langValue === "ta")
       eleYear = bc + " " + eleYear.substring(0, eleYear.indexOf(" "));
     else eleYear = eleYear.substring(0, eleYear.indexOf(" ")) + " " + bc;
   } else {

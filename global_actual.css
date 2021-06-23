@@ -66,6 +66,29 @@ html {
   color: rgb(var(--blockquote-color));
 }
 
+b,
+body,
+canvas,
+center,
+div,
+form,
+html,
+i,
+li,
+nav,
+span,
+table,
+tbody,
+td,
+tr,
+u,
+ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+}
+
 body {
   margin: 0;
   /* font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
@@ -701,30 +724,6 @@ button {
   width: device-width;
 }
 
-b,
-body,
-canvas,
-center,
-div,
-form,
-html,
-i,
-li,
-nav,
-span,
-table,
-tbody,
-td,
-tr,
-u,
-ul {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  /* vertical-align: baseline; */
-}
-
 *,
 a {
   margin: 0;
@@ -1057,9 +1056,9 @@ canvas {
   grid-column: 1/3;
 }
 
-#valueRow2 {
+/* #valueRow2 {
   width: 40%;
-}
+} */
 
 .category {
   font-size: 0.88em;
@@ -1078,6 +1077,11 @@ canvas {
 #actinides,
 #lanthanides {
   font-size: 0.9em;
+}
+
+#actinidesMain,
+#lanthanidesMain {
+  font-size: 0.8em;
 }
 
 #compareBg {

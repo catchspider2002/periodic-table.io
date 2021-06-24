@@ -2307,3 +2307,54 @@ nav > button {
   background-position: left 0.7em top 50%, 0 0;
   padding: 0.6em 0.8em 0.5em 1.4em;
 }
+
+/* Translation links */
+
+.brightgreen{
+  background-color: #34D399;
+  color: rgba(0,0,0,0.8);
+}
+.green{
+  background-color: #bef264;
+  color: rgba(0,0,0,0.8);
+}
+.yellow{
+  background-color: #FACC15;
+  color: rgba(0,0,0,0.8);
+}
+.orange{
+  background-color: #F97316;
+  color: rgba(255,255,255,0.8);
+}
+.red{
+  background-color: #EF4444;
+  color: rgba(255,255,255,0.8);
+}
+
+.langOuter {
+  display: inline-grid;
+  grid-auto-flow: column;
+  font-size: 0.85em;
+  place-content: start;
+  justify-items: center;
+  letter-spacing: 0.05em;
+  color: white;
+  font-weight: 600;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  margin: 0 0.75em 0.75em 0;
+  cursor: pointer;
+}
+.langOuter:hover,
+.langOuter:active,
+.langOuter:visited {
+  color: white;
+}
+.langOuter > span:first-child {
+  padding: 1px 6px;
+  border-radius: 4px 0 0 4px;
+  background-color: #555;
+}
+.langOuter > span:last-child {
+  padding: 1px 6px;
+  border-radius: 0 4px 4px 0;
+}

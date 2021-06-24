@@ -6,7 +6,7 @@
 ![Website](https://img.shields.io/website?up_message=online&url=https%3A%2F%2Fperiodic-table.io%2F)
 
 <div align='center'>
-<img src='images/icons/android-chrome-192x192.png' alt='periodic-table.io' />
+<img src='images2/icons/android-chrome-192x192.png' alt='periodic-table.io' />
 </div>
 
 [periodic-table.io](https://periodic-table.io) provides comprehensive and useful information about the chemical elements all in one place. Click on an element to know more about the properties, history, name origin, images, applications, hazards and electron shell diagram of each element.
@@ -20,7 +20,7 @@
 - Search for the elements using their symbol, atomic number or name
 - Links to informative websites for further study
 
-# Translations (As of June 24, 2021)
+# Translations (As of June 25, 2021)
 
 Contributions are welcome for the translations. **Click on the translation status badge below to go directly to that language translation page.** There are 2 files available for translation: General Terms and Element Details.
 

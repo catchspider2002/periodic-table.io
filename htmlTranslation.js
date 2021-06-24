@@ -148,10 +148,16 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
 
         if (unavailable.indexOf(englishName) > -1) {
           unavailable1Markup = unavailable1Markup + "[![" + newName + "](" + badgeLink + ")](" + newLink + ")\n";
-          unavailable1HTML = unavailable1HTML + "<a target='_blank' href='" + newLink + "'><img src='" + badgeLink + "' alt='" + newName + "'></a>";
+          // unavailable1HTML = unavailable1HTML + "<a target='_blank' href='" + newLink + "'><img src='" + badgeLink + "' alt='" + newName + "'></a>";
+          unavailable1HTML =
+            unavailable1HTML +
+            `<a class='langOuter' target='_blank' href='${newLink}'><span>${englishName}</span><span class='${color}'>${percent}%</span></a>`;
         } else {
           available1Markup = available1Markup + "[![" + newName + "](" + badgeLink + ")](" + newLink + ")\n";
-          available1HTML = available1HTML + "<a target='_blank' href='" + newLink + "'><img src='" + badgeLink + "' alt='" + newName + "'></a>";
+          // unavailable1HTML = unavailable1HTML + "<a target='_blank' href='" + newLink + "'><img src='" + badgeLink + "' alt='" + newName + "'></a>";
+          available1HTML =
+            available1HTML +
+            `<a class='langOuter' target='_blank' href='${newLink}'><span>${englishName}</span><span class='${color}'>${percent}%</span></a>`;
         }
       });
     })
@@ -206,10 +212,16 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
 
             if (unavailable.indexOf(englishName) > -1) {
               unavailable2Markup = unavailable2Markup + "[![" + newName + "](" + badgeLink + ")](" + newLink + ")\n";
-              unavailable2HTML = unavailable2HTML + "<a target='_blank' href='" + newLink + "'><img src='" + badgeLink + "' alt='" + newName + "'></a>";
+              // unavailable2HTML = unavailable2HTML + "<a target='_blank' href='" + newLink + "'><img src='" + badgeLink + "' alt='" + newName + "'></a>";
+              unavailable2HTML =
+                unavailable2HTML +
+                `<a class='langOuter' target='_blank' href='${newLink}'><span>${englishName}</span><span class='${color}'>${percent}%</span></a>`;
             } else {
               available2Markup = available2Markup + "[![" + newName + "](" + badgeLink + ")](" + newLink + ")\n";
-              available2HTML = available2HTML + "<a target='_blank' href='" + newLink + "'><img src='" + badgeLink + "' alt='" + newName + "'></a>";
+              // available2HTML = available2HTML + "<a target='_blank' href='" + newLink + "'><img src='" + badgeLink + "' alt='" + newName + "'></a>";
+              available2HTML =
+                available2HTML +
+                `<a class='langOuter' target='_blank' href='${newLink}'><span>${englishName}</span><span class='${color}'>${percent}%</span></a>`;
             }
           });
         })
@@ -326,7 +338,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
           readmeStream.write("![Website](https://img.shields.io/website?up_message=online&url=https%3A%2F%2Fperiodic-table.io%2F)\n\n");
 
           readmeStream.write("<div align='center'>\n");
-          readmeStream.write("<img src='images/icons/android-chrome-192x192.png' alt='periodic-table.io' />\n");
+          readmeStream.write("<img src='images2/icons/android-chrome-192x192.png' alt='periodic-table.io' />\n");
           readmeStream.write("</div>\n\n");
 
           readmeStream.write(

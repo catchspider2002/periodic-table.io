@@ -5,15 +5,8 @@
     "main": "index.html",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "minify-constants-js": "uglifyjs src/js/constants.js --compress --mangle --output constants.min.js",
-        "minify-btstrp-js": "uglifyjs src/js/btstrp.list.iso.js --compress --mangle --output btstrp.list.iso.min.js",
         "minify-css": "cleancss -o global.css global_actual.css",
-        "minify-js": "uglifyjs htmlJS_actual.js --compress --mangle --output htmlJS.js",
-        "minify-html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true --input-dir src/html --output-dir .",
-        "watch-js": "watch \"npm run minify-constants-js && npm run minify-btstrp-js\" ./src/js",
-        "watch-css": "watch \"npm run minify-css\" ./src/css",
-        "watch-html": "watch \"npm run minify-html\" ./src/html",
-        "watch": "concurrently \"npm run watch-js\" \"npm run watch-css\" \"npm run watch-html\""
+        "minify-js": "uglifyjs htmlJS_actual.js --compress --mangle --output htmlJS.js"
     },
     "repository": {
         "type": "git",
@@ -56,15 +49,12 @@
         "fs-extra": "^10.0.0",
         "jsdom": "^17.0.0",
         "read-excel-file": "^5.2.10",
-        "svg2img": "^0.9.3",
-        "watch": "^1.0.2"
+        "svg2img": "^0.9.3"
     },
     "devDependencies": {
         "@prettier/plugin-xml": "^1.0.2",
         "clean-css": "^5.1.5",
         "clean-css-cli": "^5.3.3",
-        "concurrently": "^6.2.1",
-        "html-minifier": "^4.0.0",
         "i": "^0.3.7",
         "prettier": "^2.4.1",
         "uglify-es": "^3.3.9",

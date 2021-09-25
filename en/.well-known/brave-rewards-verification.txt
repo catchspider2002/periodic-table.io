@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: periodic-table.io
+Token: 289c386cf2e8e7aa00db47f4c2c282a22217e7b418509af5966fd26dd1e06ad8

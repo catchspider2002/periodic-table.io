@@ -45,7 +45,7 @@
         "@brainly/onesky-utils": "^1.4.1",
         "d3plus-text": "^1.0.2",
         "dotenv": "^10.0.0",
-        "follow-redirects": "^1.14.4",
+        "follow-redirects": "^1.14.7",
         "fs-extra": "^10.0.0",
         "jsdom": "^17.0.0",
         "read-excel-file": "^5.2.10",

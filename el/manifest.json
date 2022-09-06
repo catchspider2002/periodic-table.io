@@ -9,26 +9,26 @@
   "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
   "orientation": "any",
   "categories": ["education", "books"],
-  "description": "Elements: The Periodic Table provides comprehensive and useful information about the chemical elements all in one place. Click on an element to know more about the properties, history, name origin, images, applications, hazards and electron shell diagram of each element.",
+  "description": "Στοιχεία: Ο Περιοδικός Πίνακας παρέχει περιεκτικές και χρήσιμες πληροφορίες για τα χημικά στοιχεία όλα σε ένα μέρος. Κάντε κλικ σε ένα στοιχείο για να μάθετε περισσότερα σχετικά με τις ιδιότητες, το ιστορικό, την προέλευση του ονόματος, τις εικόνες, τις εφαρμογές, τους κινδύνους και το διάγραμμα κελύφους ηλεκτρονίων κάθε στοιχείου.",
   "shortcuts": [
     {
       "name": "Λίστα",
       "short_name": "Λίστα",
-      "description": "View the list of all elements in the alphabetical order",
+      "description": "δείτε την λίστα των στοιχειών με αλφαβητική σειρά",
       "url": "/list",
       "icons": [{ "src": "/images/icons/list.png", "sizes": "192x192" }]
     },
     {
       "name": "Σύγκρινε",
       "short_name": "Σύγκρινε",
-      "description": "Compare the properties of 2 elements",
+      "description": "σύγκρινε τις λειτουργίες αυτων των 2 στοιχείων",
       "url": "/compare",
       "icons": [{ "src": "/images/icons/compare.png", "sizes": "192x192" }]
     },
     {
-      "name": "Printables",
-      "short_name": "Printables",
-      "description": "Printables",
+      "name": "Εκτυπώσιμα",
+      "short_name": "Εκτυπώσιμα",
+      "description": "Εκτυπώσιμα",
       "url": "/printables",
       "icons": [{ "src": "/images/icons/printables.png", "sizes": "192x192" }]
     }

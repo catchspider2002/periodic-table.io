@@ -73,7 +73,6 @@ let unavailable = [
   "Albanian",
   "Azerbaijani",
   "Belarusian",
-  "Esperanto",
   "Estonian",
   "Filipino",
   "Icelandic",
@@ -81,7 +80,6 @@ let unavailable = [
   "Latvian",
   "Lithuanian",
   "Swahili",
-  "Uzbek",
   "Telugu",
 ];
 let color;

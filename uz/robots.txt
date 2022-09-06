@@ -1,0 +1,3 @@
+Sitemap: https://uz.periodic-table.io/sitemap.xml
+User-agent: * 
+Crawl-Delay: 20

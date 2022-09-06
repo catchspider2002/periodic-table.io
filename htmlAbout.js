@@ -54,6 +54,10 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div>");
   writeStream.write("<div id='logs'>");
 
+  writeStream.write("<div class='versionHeader'>September 7, 2022</div>");
+  writeStream.write(checkIcon + "<div>Added Esperanto and Uzbek translations</div>");
+  writeStream.write(checkIcon + "<div>Updated Danish, Czech, Greek, French, Hindi, Polish, Macedonian, Ukranian, Chinese Traditional, Indonesian and Swedish translations</div>");
+
   writeStream.write("<div class='versionHeader'>September 25, 2021</div>");
   writeStream.write(checkIcon + "<div>Updated Korean, Turkish, Portuguese and French translations</div>");
 

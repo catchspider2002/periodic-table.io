@@ -56,37 +56,40 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
 
   writeStream.write("<div class='versionHeader'>September 7, 2022</div>");
   writeStream.write(checkIcon + "<div>Added Esperanto and Uzbek translations</div>");
-  writeStream.write(checkIcon + "<div>Updated Danish, Czech, Greek, French, Hindi, Polish, Macedonian, Ukranian, Chinese Traditional, Indonesian and Swedish translations</div>");
+  writeStream.write(
+    checkIcon +
+      "<div>Updated Danish, Czech, Greek, French, Hindi, Polish, Macedonian, Ukranian, Chinese Traditional, Indonesian and Swedish translations</div>"
+  );
 
-  writeStream.write("<div class='versionHeader'>September 25, 2021</div>");
+  writeStream.write("<div class='versionHeader'>Sep 2021</div>");
   writeStream.write(checkIcon + "<div>Updated Korean, Turkish, Portuguese and French translations</div>");
 
-  writeStream.write("<div class='versionHeader'>August 31, 2021</div>");
+  writeStream.write("<div class='versionHeader'>Aug 2021</div>");
   writeStream.write(checkIcon + "<div>Updated French, Spanish, Croatian, Hindi and Chinese (Traditional) translations</div>");
- 
-  writeStream.write("<div class='versionHeader'>June 24, 2021</div>");
+
+  writeStream.write("<div class='versionHeader'>Jun 2021</div>");
+  writeStream.write(checkIcon + "<div>Added a new printable - Flash Cards in <a class='underlineLink' href='printables'>Printables</a> page</div>");
   writeStream.write(checkIcon + "<div>Added Tamil translation</div>");
   writeStream.write(checkIcon + "<div>Updated French translation</div>");
-  writeStream.write(checkIcon + "<div>Updated the <a class='underlineLink' href='translation'>Translation</a> page to use links instead of images</div>");
+  writeStream.write(
+    checkIcon + "<div>Updated the <a class='underlineLink' href='translation'>Translation</a> page to use links instead of images</div>"
+  );
 
-  writeStream.write("<div class='versionHeader'>June 06, 2021</div>");
-  writeStream.write(checkIcon + "<div>Added a new printable - Flash Cards in <a class='underlineLink' href='printables'>Printables</a> page</div>");
-  writeStream.write("<div class='versionHeader'>May 30, 2021</div>");
+  writeStream.write("<div class='versionHeader'>May 2021</div>");
   writeStream.write(checkIcon + "<div>Added a new printable - Flash Cards in <a class='underlineLink' href='printables'>Printables</a> page</div>");
   writeStream.write(
     checkIcon +
       "<div>Included Tamil and Telugu for anyone to translate as per <a class='underlineLink' target='_blank' href='https://feedback.periodic-table.io/' rel='noopener noreferrer'>Suggestions</a> by users</div>"
   );
   writeStream.write(checkIcon + "<div>Updated external links to be opened in new tab</div>");
-  writeStream.write("<div class='versionHeader'>May 27, 2021</div>");
   writeStream.write(checkIcon + "<div>Updated Armenian, Hebrew and Chinese (Simplified) translations</div>");
 
-  writeStream.write("<div class='versionHeader'>April 2021</div>");
+  writeStream.write("<div class='versionHeader'>Apr 2021</div>");
   writeStream.write(checkIcon + "<div>Updated Spanish, Portuguese, French, Hungarian, Persian, Russian, Slovak and Polish translations</div>");
   writeStream.write(checkIcon + "<div>Fixed the broken links in the <a class='underlineLink' href='store'>Store</a> page</div>");
   writeStream.write(checkIcon + "<div>Minor corrections to the solubility table</div>");
 
-  writeStream.write("<div class='versionHeader'>March 2021</div>");
+  writeStream.write("<div class='versionHeader'>Mar 2021</div>");
   writeStream.write(checkIcon + "<div>Added Solubility Chart and Reactivity Series under Tables menu</div>");
   writeStream.write(checkIcon + "<div>Added social images to all pages to show up when the pages are shared on social media</div>");
   writeStream.write(checkIcon + "<div>Fixed the incorrect font sizes in the navigation bar</div>");
@@ -95,7 +98,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       "<div>Updated Italian, Dutch, German, Portuguese, Polish, Croatian, Russian, Armenian, Japanese and Chinese (Simplified) translations</div>"
   );
 
-  writeStream.write("<div class='versionHeader'>February 2021</div>");
+  writeStream.write("<div class='versionHeader'>Feb 2021</div>");
   writeStream.write(
     checkIcon + "<div>Complete rewrite of the website to deploy the code faster; Individual language versions have their own subdomains;</div>"
   );
@@ -105,20 +108,20 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       "<div>Updated Norwegian Bokmal, Spanish, Vietnamese, Chinese(Simplified), Chinese(Traditional), Japanese, German, Portuguese, French and Italian translations</div>"
   );
 
-  writeStream.write("<div class='versionHeader'>November 2020</div>");
+  writeStream.write("<div class='versionHeader'>Nov 2020</div>");
   writeStream.write(checkIcon + "<div>Added Crystal Structure image to the element page</div>");
   writeStream.write(checkIcon + "<div>Added Macedonian translation</div>");
   writeStream.write(
     checkIcon + "<div>Updated Armenian, Greek, Spanish, Italian, Portuguese, Slovenian, Thai, Vietnamese and Chinese(Simplified) translations</div>"
   );
-  writeStream.write("<div class='versionHeader'>October 2020</div>");
+  writeStream.write("<div class='versionHeader'>Oct 2020</div>");
   writeStream.write(checkIcon + "<div>Added Armenian and Malay translations</div>");
   writeStream.write(checkIcon + "<div>Added a new printable - Flash Cards in <a class='underlineLink' href='printables'>Printables</a> page</div>");
   writeStream.write(
     checkIcon + "<div>Updated Croatian, Greek, Hebrew, Hindi, Norwegian Bokmal, Polish, Romanian, Vietnamese and Dutch translations</div>"
   );
   writeStream.write(checkIcon + "<div>Fixed the top navbar so that the navbar does not overlap the scrollbar</div>");
-  writeStream.write("<div class='versionHeader'>August 2020</div>");
+  writeStream.write("<div class='versionHeader'>Aug 2020</div>");
   writeStream.write(checkIcon + "<div>Updated the icons in the navbar to outline icons</div>");
   writeStream.write(checkIcon + "<div>Simplified localisation and individual languages will now be included in the url</div>");
   writeStream.write(checkIcon + "<div>Added a new printable in <a class='underlineLink' href='printables'>Printables</a> page</div>");
@@ -128,7 +131,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
     checkIcon +
       "<div>Updated Arabic, Persian, Hindi, Italian, Indonesian, Vietnamese, German, Greek, Polish, Dutch, Slovak, Chinese (Simplified) and Chinese (Traditional) translations</div>"
   );
-  writeStream.write("<div class='versionHeader'>July 2020</div>");
+  writeStream.write("<div class='versionHeader'>Jul 2020</div>");
   writeStream.write(checkIcon + "<div>Added a new printable in <a class='underlineLink' href='printables'>Printables</a> page</div>");
   writeStream.write(
     checkIcon +
@@ -142,7 +145,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write(
     checkIcon + "<div>Updated the navbar header from a gradient to solid color which now matches with the window color when opened as PWA</div>"
   );
-  writeStream.write("<div class='versionHeader'>June 2020</div>");
+  writeStream.write("<div class='versionHeader'>Jun 2020</div>");
   writeStream.write(checkIcon + "<div>Modified the style of the element page to use more shadows and less color</div>");
   writeStream.write(checkIcon + "<div>Modified the colors of the Settings popup for both light and dark themes</div>");
   writeStream.write(checkIcon + "<div>Added Instagram page link to the footer</div>");
@@ -218,18 +221,17 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div class='text-upper aboutHeader text-center pt-16 pb-8'>" + langValues.languages + "</div>");
   writeStream.write("<div>");
   writeStream.write("<div class='pb-8'>");
-  writeStream.write(
-    langValues.enTrans + "; " + langValues.afTrans + "; " + langValues.arTrans + "; " + langValues.bgTrans + "; " + langValues.caTrans + "; "
-  );
-  writeStream.write(langValues.csTrans + "; " + langValues.daTrans + "; " + langValues.deTrans + "; " + langValues.elTrans + "; ");
-  writeStream.write(langValues.esTrans + "; " + langValues.faTrans + "; " + langValues.fiTrans + "; " + langValues.frTrans + "; ");
-  writeStream.write(langValues.heTrans + "; " + langValues.hiTrans + "; " + langValues.hrTrans + "; " + langValues.huTrans + "; ");
-  writeStream.write(langValues.hyTrans + "; " + langValues.idTrans + "; " + langValues.itTrans + "; " + langValues.jaTrans + "; ");
-  writeStream.write(langValues.koTrans + "; " + langValues.mkTrans + "; " + langValues.msTrans + "; " + langValues.nlTrans + "; ");
-  writeStream.write(langValues.nnTrans + "; " + langValues.plTrans + "; " + langValues.ptTrans + "; " + langValues.roTrans + "; ");
-  writeStream.write(langValues.ruTrans + "; " + langValues.skTrans + "; " + langValues.slTrans + "; " + langValues.srTrans + "; ");
-  writeStream.write(langValues.svTrans + "; " + langValues.taTrans + "; " + langValues.thTrans + "; " + langValues.trTrans + "; ");
-  writeStream.write(langValues.ukTrans + "; " + langValues.viTrans + "; " + langValues.zhTrans + "; " + langValues.chTrans + "; ");
+  writeStream.write(langValues.enTrans + "; " + langValues.afTrans + "; " + langValues.arTrans + "; " + langValues.bgTrans + "; ");
+  writeStream.write(langValues.caTrans + "; " + langValues.csTrans + "; " + langValues.daTrans + "; " + langValues.deTrans + "; ");
+  writeStream.write(langValues.elTrans + "; " + langValues.esTrans + "; " + langValues.eoTrans + "; " + langValues.faTrans + "; ");
+  writeStream.write(langValues.fiTrans + "; " + langValues.frTrans + "; " + langValues.heTrans + "; " + langValues.hiTrans + "; ");
+  writeStream.write(langValues.hrTrans + "; " + langValues.huTrans + "; " + langValues.hyTrans + "; " + langValues.idTrans + "; ");
+  writeStream.write(langValues.itTrans + "; " + langValues.jaTrans + "; " + langValues.koTrans + "; " + langValues.mkTrans + "; ");
+  writeStream.write(langValues.msTrans + "; " + langValues.nlTrans + "; " + langValues.nnTrans + "; " + langValues.plTrans + "; ");
+  writeStream.write(langValues.ptTrans + "; " + langValues.roTrans + "; " + langValues.ruTrans + "; " + langValues.skTrans + "; ");
+  writeStream.write(langValues.slTrans + "; " + langValues.srTrans + "; " + langValues.svTrans + "; " + langValues.taTrans + "; ");
+  writeStream.write(langValues.thTrans + "; " + langValues.trTrans + "; " + langValues.ukTrans + "; " + langValues.uzTrans + "; ");
+  writeStream.write(langValues.viTrans + "; " + langValues.zhTrans + "; " + langValues.chTrans + "; ");
   writeStream.write("</div>");
   writeStream.write("</div>");
   writeStream.write("</div>");

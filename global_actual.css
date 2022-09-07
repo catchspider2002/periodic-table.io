@@ -7,6 +7,7 @@
   --alt-text-color: rgb(234, 234, 234);
   --form-bg-color: rgba(255, 255, 255, 0.9);
   --blockquote-color: 103, 106, 109;
+  --sidebar-color: 215, 215, 215;
   --gray-color: 172, 172, 172;
   --color1: 253, 58, 74; /* Red */
   --color2: 245, 128, 37; /* Orange */
@@ -49,6 +50,7 @@
   --alt-text-color: rgb(0, 0, 0);
   --form-bg-color: rgba(0, 0, 0, 0.9);
   --blockquote-color: 148, 146, 143;
+  --sidebar-color: 40, 40, 40;
   --gray-color: 72, 72, 72;
   --fg-color: linear-gradient(to right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
     linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
@@ -1961,7 +1963,7 @@ blockquote,
 nav {
   margin: 0;
   padding: 0;
-  background-color: var(--darker-color-50);
+  /* background-color: var(--darker-color-50); */
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -1972,6 +1974,9 @@ nav {
   letter-spacing: 0.5px;
   align-items: center;
   color: #fff;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background-color: rgba(var(--darker-color-rgb), 0.85);
 }
 
 #logo {
@@ -2041,6 +2046,9 @@ nav a:hover {
 nav ul ul {
   display: none;
   position: absolute;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background-color: rgba(var(--darker-color-rgb), 0.85);
   /* has to be the same number as the "line-height" of "nav a" */
   /*     top: 60px; */
 }
@@ -2056,7 +2064,7 @@ nav ul ul li {
   float: none;
   display: list-item;
   position: relative;
-  background-color: var(--darker-color-50);
+  /* background-color: var(--darker-color-50); */
 }
 
 /* Second, Third and more Tiers	
@@ -2232,10 +2240,18 @@ nav > button {
   right: 0;
   top: 0;
   z-index: 2;
-  background-color: var(--card-bg-color);
+  /* background-color: var(--card-bg-color); */
   max-width: 520px;
   box-shadow: 2px 0 4px rgba(0, 0, 0, 0.5);
   transition: width 0.35s;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background-color: rgba(var(--sidebar-color), 0.6);
+
+  /* backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(var(--sidebar-color), 0.35); */
+  border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 #sidebar.collapsed,
@@ -2247,7 +2263,7 @@ nav > button {
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: 2;
 }
 
@@ -2310,25 +2326,25 @@ nav > button {
 
 /* Translation links */
 
-.brightgreen{
-  background-color: #34D399;
-  color: rgba(0,0,0,0.8);
+.brightgreen {
+  background-color: #34d399;
+  color: rgba(0, 0, 0, 0.8);
 }
-.green{
+.green {
   background-color: #bef264;
-  color: rgba(0,0,0,0.8);
+  color: rgba(0, 0, 0, 0.8);
 }
-.yellow{
-  background-color: #FACC15;
-  color: rgba(0,0,0,0.8);
+.yellow {
+  background-color: #facc15;
+  color: rgba(0, 0, 0, 0.8);
 }
-.orange{
-  background-color: #F97316;
-  color: rgba(255,255,255,0.8);
+.orange {
+  background-color: #f97316;
+  color: rgba(255, 255, 255, 0.8);
 }
-.red{
-  background-color: #EF4444;
-  color: rgba(255,255,255,0.8);
+.red {
+  background-color: #ef4444;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .langOuter {

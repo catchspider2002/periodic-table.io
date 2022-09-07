@@ -49,15 +49,16 @@
         "fs-extra": "^10.0.0",
         "jsdom": "^17.0.0",
         "read-excel-file": "^5.2.10",
-        "svg2img": "^0.9.3"
+        "svg2img": "^0.9.3",
+        "uglify-js": "^3.17.0"
     },
     "devDependencies": {
         "@prettier/plugin-xml": "^1.0.2",
         "clean-css": "^5.1.5",
         "clean-css-cli": "^5.3.3",
+        "convert-svg-to-png": "^0.5.0",
         "i": "^0.3.7",
         "prettier": "^2.4.1",
-        "uglify-es": "^3.3.9",
-        "convert-svg-to-png": "^0.5.0"
+        "uglify-es": "^3.3.9"
     }
 }

@@ -47,7 +47,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       title: "Periodic Table poster #1 - Available in 35 languages",
       description:
         "Periodic Table of the elements poster which shows atomic number, symbol, name and atomic weight for all 118 elements in a color-coded table.",
-      rating: 30,
+      rating: 34,
       price: 0,
       languages: lang35,
       formats: "PNG, SVG, PDF",
@@ -69,7 +69,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       title: "Periodic Table poster #3 - Available in 35 languages",
       description:
         "Periodic Table of the elements poster which shows atomic number, symbol, name and atomic weight for all 118 elements in a color-coded table.",
-      rating: 7,
+      rating: 9,
       price: 0,
       languages: lang35,
       formats: "PNG, SVG, PDF",
@@ -91,7 +91,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       title: "Periodic Table Flashcards #1 - Available in 42 languages",
       description:
         "Play and learn the periodic table with the printable flash cards. The set includes 118 element flash cards in high resolution PDF format and SVG formats. Download and print them on a PC or Mac.",
-      rating: 11,
+      rating: 15,
       price: 0,
       languages: lang42,
       formats: "SVG, PDF",
@@ -102,7 +102,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       title: "Periodic Table Flashcards #2 - Available in 42 languages",
       description:
         "Play and learn the periodic table with the printable flash cards. The set includes 118 element flash cards in high resolution PDF format and SVG formats. Download and print them on a PC or Mac.",
-      rating: 0,
+      rating: 1,
       price: 3.99,
       languages: lang42,
       formats: "SVG, PDF",

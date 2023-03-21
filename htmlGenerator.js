@@ -199,7 +199,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
     //   }
     // });
 
-    fs.copyFile("global.css", lang + "/css/global.css", (err) => {
+    fs.copyFile("global.css", lang + "/css/global2.css", (err) => {
       if (err) throw err;
     });
 
@@ -526,7 +526,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
         }
       });
 
-      let metaTags2 = ["<link rel='stylesheet' href='css/global.css' />", "<script defer src='js/htmlJS.js'></script>"];
+      let metaTags2 = ["<link rel='stylesheet' href='css/global2.css' />", "<script defer src='js/htmlJS.js'></script>"];
 
       let metaTagsFonts = [
         "<link rel='preload' href='fonts/" + language.regular + ".woff2' as='font' crossorigin='anonymous' />",

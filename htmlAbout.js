@@ -54,6 +54,13 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div>");
   writeStream.write("<div id='logs'>");
 
+  writeStream.write("<div class='versionHeader'>March 21, 2023</div>");
+  writeStream.write(checkIcon + "<div>Added <a class='underlineLink' target='_blank' href='https://www.buymeacoffee.com/naveencs' rel='noopener noreferrer'>Buy Me a Coffee</a> link at the header and footer</div>");
+  writeStream.write(
+    checkIcon +
+      "<div>Updated Czech, Esperanto, Greek, French, Vietnamese, Chinese Traditional, Indonesian, Romanian and Swedish translations</div>"
+  );
+
   writeStream.write("<div class='versionHeader'>September 7, 2022</div>");
   writeStream.write(checkIcon + "<div>Added Esperanto and Uzbek translations</div>");
   writeStream.write(

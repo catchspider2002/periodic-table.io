@@ -21,7 +21,11 @@
   --color10: 228, 27, 144; /* Pink */
   --text-direction: ltr;
   --direction-rev: right;
-  --fg-color: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+  --fg-color: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0.75)
+    ),
     linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
   --border-radius: 0.25rem;
   /* --icon-padding: 0 0.5em 0 0; */
@@ -52,7 +56,11 @@
   --blockquote-color: 148, 146, 143;
   --sidebar-color: 40, 40, 40;
   --gray-color: 72, 72, 72;
-  --fg-color: linear-gradient(to right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+  --fg-color: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0.75)
+    ),
     linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
   --dropdown-arrow: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" stroke-width="1.5" stroke="%23ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath stroke="none" d="M0 0h24v24H0z" fill="none"/%3E%3Cpolyline points="6 9 12 15 18 9" /%3E%3C/svg%3E'),
     linear-gradient(to bottom, transparent 0%, transparent 100%);
@@ -61,6 +69,14 @@
 
 html {
   font-family: Regular, SpecialRegular, sans-serif;
+}
+
+@font-face {
+  font-family: Coffee;
+  src: local("Coffee"), local("coffee"),
+    url("https://giguom.com/pattern.monster/fonts/coffeefont.ttf");
+  font-weight: normal;
+  font-display: swap;
 }
 
 .grayText {
@@ -150,6 +166,9 @@ a {
   .listButtons {
     grid-template-columns: repeat(2, 1fr);
     place-content: stretch;
+  }
+  #coffeeIcon {
+    display: none;
   }
 }
 
@@ -284,7 +303,8 @@ button:hover {
 select:focus {
   border-color: rgb(var(--theme-color));
   outline: 0;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(var(--theme-color), 0.4);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(var(--theme-color), 0.4);
 }
 
 .sort {
@@ -523,6 +543,9 @@ table,
 
 .items-center {
   align-items: center;
+}
+.place-content-center {
+  place-content: center;
 }
 .self-start {
   align-self: flex-start;
@@ -812,7 +835,8 @@ canvas {
 
 .masonry-col,
 .list-content {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .blog-thumb {
@@ -1699,7 +1723,8 @@ blockquote,
 @media (pointer: fine) {
   * {
     scrollbar-width: auto;
-    scrollbar-color: rgba(var(--blockquote-color), 0.5) rgba(var(--blockquote-color), 0.2);
+    scrollbar-color: rgba(var(--blockquote-color), 0.5)
+      rgba(var(--blockquote-color), 0.2);
   }
 
   ::-webkit-scrollbar {
@@ -2103,7 +2128,7 @@ nav > button {
   nav {
     /*       margin: 0; */
     display: grid;
-    grid-template-columns: auto 1fr auto auto auto;
+    grid-template-columns: auto 1fr auto auto auto auto;
     z-index: 3;
   }
 
@@ -2246,11 +2271,9 @@ nav > button {
   transition: width 0.35s;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  background-color: rgba(var(--sidebar-color), 0.6);
+  background-color: rgba(var(--sidebar-color), 0.7);
 
-  /* backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(var(--sidebar-color), 0.35); */
+  /* backdrop-filter: blur(16px) saturate(180%);*/
   border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
@@ -2356,7 +2379,8 @@ nav > button {
   letter-spacing: 0.05em;
   color: white;
   font-weight: 600;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
   margin: 0 0.75em 0.75em 0;
   cursor: pointer;
 }
@@ -2373,4 +2397,22 @@ nav > button {
 .langOuter > span:last-child {
   padding: 1px 6px;
   border-radius: 0 4px 4px 0;
+}
+.bmcCta {
+  margin: 0.5em 0.5em 1em;
+  justify-self: center;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.coffee {
+  font-family: Coffee, "Arial Narrow Bold", sans-serif;
+  margin-left: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
+}
+.coffee:hover {
+  color: #e6e6e6;
 }

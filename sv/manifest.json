@@ -14,7 +14,7 @@
     {
       "name": "Lista",
       "short_name": "Lista",
-      "description": "View the list of all elements in the alphabetical order",
+      "description": "Visa listan över alla element i alfabetisk ordning",
       "url": "/list",
       "icons": [{ "src": "/images/icons/list.png", "sizes": "192x192" }]
     },

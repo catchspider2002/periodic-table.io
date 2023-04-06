@@ -67,6 +67,8 @@ let languageList = [
   { id: 66, code: "be-BY" },
   { id: 505, code: "ta" },
   { id: 662, code: "te" },
+  { id: 73, code: "la-VA" },
+  { id: 70, code: "cy-GB" },
 ];
 
 let unavailable = [
@@ -81,6 +83,8 @@ let unavailable = [
   "Lithuanian",
   "Swahili",
   "Telugu",
+  "Latin",
+  "Welsh",
 ];
 let color;
 
@@ -116,6 +120,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
               .replace(" (Latvia)", "")
               .replace(" (Belarus)", "")
               .replace(" (Iceland)", "")
+              .replace(" (United Kingdom)", "")
               .replace(" / Tagalog", ""),
             translation_progress: parseFloat(language.translation_progress.replace("%", "")),
             code: returnItem(language.code),
@@ -180,6 +185,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
                   .replace(" (Latvia)", "")
                   .replace(" (Belarus)", "")
                   .replace(" (Iceland)", "")
+                  .replace(" (United Kingdom)", "")
                   .replace(" / Tagalog", ""),
                 translation_progress: parseFloat(language.translation_progress.replace("%", "")),
                 code: returnItem(language.code),

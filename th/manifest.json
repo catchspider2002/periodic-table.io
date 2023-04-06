@@ -26,9 +26,9 @@
       "icons": [{ "src": "/images/icons/compare.png", "sizes": "192x192" }]
     },
     {
-      "name": "Printables",
-      "short_name": "Printables",
-      "description": "Printables",
+      "name": "ไฟล์พิมพ์",
+      "short_name": "ไฟล์พิมพ์",
+      "description": "ไฟล์พิมพ์",
       "url": "/printables",
       "icons": [{ "src": "/images/icons/printables.png", "sizes": "192x192" }]
     }

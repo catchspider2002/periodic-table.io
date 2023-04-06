@@ -47,7 +47,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       title: "Periodic Table poster #1 - Available in 35 languages",
       description:
         "Periodic Table of the elements poster which shows atomic number, symbol, name and atomic weight for all 118 elements in a color-coded table.",
-      rating: 34,
+      rating: 35,
       price: 0,
       languages: lang35,
       formats: "PNG, SVG, PDF",
@@ -58,7 +58,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       title: "Periodic Table poster #2 - Available in 35 languages",
       description:
         "Periodic Table of the elements poster which shows atomic number, symbol, name and atomic weight for all 118 elements in a color-coded table.",
-      rating: 12,
+      rating: 13,
       price: 0,
       languages: lang35,
       formats: "PNG, SVG, PDF",

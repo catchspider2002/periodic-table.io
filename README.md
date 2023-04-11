@@ -20,7 +20,7 @@
 - Search for the elements using their symbol, atomic number or name
 - Links to informative websites for further study
 
-# Translations (As of April 6, 2023)
+# Translations (As of April 11, 2023)
 
 Contributions are welcome for the translations. **Click on the translation status badge below to go directly to that language translation page.** There are 2 files available for translation: General Terms and Element Details.
 
@@ -138,7 +138,7 @@ This contains the text for individual element details like name reason, history,
 [![Norwegian%20Nynorsk](https://img.shields.io/badge/Norwegian%20Nynorsk-0%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/15)
 [![Persian](https://img.shields.io/badge/Persian-5.8%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/29)
 [![Polish](https://img.shields.io/badge/Polish-3.9%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/16)
-[![Portuguese](https://img.shields.io/badge/Portuguese-68.3%25-yellow)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/563)
+[![Portuguese](https://img.shields.io/badge/Portuguese-69.2%25-yellow)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/563)
 [![Romanian](https://img.shields.io/badge/Romanian-24.1%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/19)
 [![Russian](https://img.shields.io/badge/Russian-100%25-brightgreen)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/11)
 [![Serbian](https://img.shields.io/badge/Serbian-0%25-red)](https://windows-uwp.oneskyapp.com/collaboration/translate/project/project/197066/language/462)

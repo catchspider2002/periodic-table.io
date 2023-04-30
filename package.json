@@ -48,7 +48,7 @@
         "follow-redirects": "^1.14.4",
         "fs-extra": "^10.0.0",
         "jsdom": "^17.0.0",
-        "read-excel-file": "^5.2.10",
+        "read-excel-file": "^5.5.0",
         "svg2img": "^0.9.3",
         "uglify-js": "^3.17.0"
     },

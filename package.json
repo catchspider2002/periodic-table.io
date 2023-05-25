@@ -43,22 +43,22 @@
     "homepage": "https://github.com/catchspider2002/periodic-table.io#readme",
     "dependencies": {
         "@brainly/onesky-utils": "^1.4.1",
-        "d3plus-text": "^1.0.2",
-        "dotenv": "^10.0.0",
-        "follow-redirects": "^1.14.4",
-        "fs-extra": "^10.0.0",
-        "jsdom": "^17.0.0",
-        "read-excel-file": "^5.2.10",
-        "svg2img": "^0.9.3",
-        "uglify-js": "^3.17.0"
+        "d3plus-text": "^1.2.3",
+        "dotenv": "^16.0.3",
+        "follow-redirects": "^1.15.2",
+        "fs-extra": "^11.1.1",
+        "jsdom": "^21.1.1",
+        "read-excel-file": "^5.6.1",
+        "svg2img": "^0.9.4",
+        "uglify-js": "^3.17.4"
     },
     "devDependencies": {
-        "@prettier/plugin-xml": "^1.0.2",
-        "clean-css": "^5.1.5",
-        "clean-css-cli": "^5.3.3",
-        "convert-svg-to-png": "^0.5.0",
+        "@prettier/plugin-xml": "^2.2.0",
+        "clean-css": "^5.3.2",
+        "clean-css-cli": "^5.6.2",
+        "convert-svg-to-png": "^0.6.4",
         "i": "^0.3.7",
-        "prettier": "^2.4.1",
+        "prettier": "^2.8.8",
         "uglify-es": "^3.3.9"
     }
 }

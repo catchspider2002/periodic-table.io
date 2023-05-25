@@ -14,14 +14,14 @@
     {
       "name": "Seznam",
       "short_name": "Seznam",
-      "description": "View the list of all elements in the alphabetical order",
+      "description": "Oglednama vseh elementov po abecednem redu",
       "url": "/list",
       "icons": [{ "src": "/images/icons/list.png", "sizes": "192x192" }]
     },
     {
       "name": "Primerjaj",
       "short_name": "Primerjaj",
-      "description": "Compare the properties of 2 elements",
+      "description": "Primerjava lastnosti 2 elementov",
       "url": "/compare",
       "icons": [{ "src": "/images/icons/compare.png", "sizes": "192x192" }]
     },

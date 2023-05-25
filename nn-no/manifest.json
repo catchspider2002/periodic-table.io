@@ -14,14 +14,14 @@
     {
       "name": "List",
       "short_name": "List",
-      "description": "View the list of all elements in the alphabetical order",
+      "description": "Se listen over alle elementene i alfabetisk rekkefølge",
       "url": "/list",
       "icons": [{ "src": "/images/icons/list.png", "sizes": "192x192" }]
     },
     {
       "name": "Compare",
       "short_name": "Compare",
-      "description": "Compare the properties of 2 elements",
+      "description": "Sammenlign egenskapene til 2 elementer",
       "url": "/compare",
       "icons": [{ "src": "/images/icons/compare.png", "sizes": "192x192" }]
     },

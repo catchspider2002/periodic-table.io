@@ -7,11 +7,6 @@ const writeFile = (lang, langValues, page, pages) => {
 
   if (lang === "en") site = "https://periodic-table.io/";
 
-  // const yesterday = new Date();
-  // yesterday.setDate(yesterday.getDate() - 1);
-  // yesterday.toDateString();
-
-  // let date = yesterday.getFullYear() + "-" + (yesterday.getMonth() + 1) + "-" + yesterday.getDate() + "T01:01:01+01:00";
   let date = new Date().toISOString();
 
   writeStream.write("<?xml version='1.0' encoding='UTF-8'?>\n");

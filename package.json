@@ -42,7 +42,7 @@
     },
     "homepage": "https://github.com/catchspider2002/periodic-table.io#readme",
     "dependencies": {
-        "@brainly/onesky-utils": "^1.4.1",
+        "@brainly/onesky-utils": "^1.4.2",
         "d3plus-text": "^1.2.3",
         "dotenv": "^16.0.3",
         "follow-redirects": "^1.15.2",

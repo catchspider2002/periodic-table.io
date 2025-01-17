@@ -532,6 +532,24 @@ table,
 .pb-8 {
   padding-bottom: 2rem;
 }
+.gap-8 {
+  gap: 2rem;
+}
+
+.max-w-3xl {
+  max-width: 48rem;
+}
+
+.max-w-4xl {
+  max-width: 56rem;
+}
+
+.w-full {
+  width: 100%;
+}
+.mx-auto {
+  margin: 0 auto;
+}
 
 .justify-center {
   justify-content: center;

@@ -20,7 +20,11 @@
   --text-direction: ltr;
   --direction: left;
   --direction-rev: right;
-  --fg-color: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+  --fg-color: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0.75)
+    ),
     linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
   --style1Image: url(../../images/light-style1.png);
   --style2Image: url(../../images/light-style2.png);
@@ -50,7 +54,11 @@
   --form-bg-color: rgba(0, 0, 0, 0.9);
   --blockquote-color: 148, 146, 143;
   --gray-color: 72, 72, 72;
-  --fg-color: linear-gradient(to right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+  --fg-color: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0.75)
+    ),
     linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
   --style1Image: url(../../images/dark-style1.png);
   --style2Image: url(../../images/dark-style2.png);
@@ -63,13 +71,15 @@
 
 @font-face {
   font-family: "Lato Regular";
-  src: url(../../fonts/Lato-Regular.woff2) format("woff2"), url(../../fonts/Lato-Regular.woff) format("woff");
+  src: url(../../fonts/Lato-Regular.woff2) format("woff2"),
+    url(../../fonts/Lato-Regular.woff) format("woff");
   font-display: swap;
 }
 
 @font-face {
   font-family: "Lato Heavy";
-  src: url(../../fonts/Lato-Heavy.woff2) format("woff2"), url(../../fonts/Lato-Heavy.woff) format("woff");
+  src: url(../../fonts/Lato-Heavy.woff2) format("woff2"),
+    url(../../fonts/Lato-Heavy.woff) format("woff");
   font-display: swap;
 }
 
@@ -262,7 +272,8 @@ button:hover {
 select:focus {
   border-color: rgb(var(--theme-color));
   outline: 0;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(var(--theme-color), 0.4);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(var(--theme-color), 0.4);
 }
 
 .sort {
@@ -599,6 +610,10 @@ table,
 
 .grid-row-gap-10 {
   grid-row-gap: 10px;
+}
+
+.gap-8 {
+  gap: 2rem;
 }
 
 #settingPeriodicTable {
@@ -1102,7 +1117,8 @@ canvas {
 
 .masonry-col,
 .list-content {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .blog-thumb {
@@ -1892,7 +1908,11 @@ blockquote,
 
 .radio-toolbar input[type="radio"]:checked + label {
   color: rgb(255, 255, 255);
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+  background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0.35)
+    ),
     linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
 }
 

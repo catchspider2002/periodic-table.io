@@ -155,7 +155,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
           );
       });
 
-      let metaTags2 = ["<link rel='stylesheet' href='css/global2.css' />", "<script defer src='js/htmlJS.js'></script>"];
+      let metaTags2 = ["<link rel='stylesheet' href='css/global3.css' />", "<script defer src='js/htmlJS.js'></script>"];
 
       let metaTagsFonts = [
         "<link rel='preload' href='fonts/" + regularFont + ".woff2' as='font' crossorigin='anonymous' />",

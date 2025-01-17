@@ -80,7 +80,7 @@ let darkIcon =
 
 xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows) => {
   let languages = [
-    { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans", bcp: "en-US", code: "1" },
+    // { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans", bcp: "en-US", code: "1" },
     // { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans", bcp: "en-GB", code: "45" },
     // { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans", bcp: "af-ZA", code: "60" },
     // { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans", bcp: "id-ID", code: "54" },
@@ -102,7 +102,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
     // { lang: "nn-no", name: "Norsk Nynorsk", col: 38, punc: "comma", regular: "NotoSans", bcp: "nn-NO", code: "15" },
     // { lang: "pl", name: "Polski", col: 30, punc: "comma", regular: "NotoSans", bcp: "pl-PL", code: "16" },
     // { lang: "pt", name: "Português", col: 18, punc: "comma", regular: "NotoSans", bcp: "pt-PT", code: "563" },
-    // { lang: "ro", name: "Română", col: 17, punc: "comma", regular: "NotoSans", bcp: "ro-RO", code: "19" },
+    { lang: "ro", name: "Română", col: 17, punc: "comma", regular: "NotoSans", bcp: "ro-RO", code: "19" },
 
     // { lang: "sk", name: "Slovenčina", col: 13, punc: "comma", regular: "NotoSans", bcp: "sk-SK", code: "34" },
     // { lang: "sl", name: "Slovenščina", col: 37, punc: "comma", regular: "NotoSans", bcp: "sl-SI", code: "659" },
@@ -126,7 +126,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
     // { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular", bcp: "ar-SA", code: "28" },
     // { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular", bcp: "fa-IR", code: "29" },
     // { lang: "hi", name: "हिंदी", col: 29, punc: "dot", regular: "NotoSansDevanagari-Regular", bcp: "hi-IN", code: "587" },
-    { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular", bcp: "th-TH", code: "56" },
+    // { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular", bcp: "th-TH", code: "56" },
     
     // { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular", bcp: "ja-JP", code: "4" },
     // { lang: "ko", name: "한국어", col: 10, punc: "dot", regular: "NotoSansKR-Regular", bcp: "ko-KR", code: "9" },
@@ -205,7 +205,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
     //   }
     // });
 
-    fs.copyFile("global.css", lang + "/css/global2.css", (err) => {
+    fs.copyFile("global.css", lang + "/css/global3.css", (err) => {
       if (err) throw err;
     });
 
@@ -540,7 +540,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
         }
       });
 
-      let metaTags2 = ["<link rel='stylesheet' href='css/global2.css' />", "<script defer src='js/htmlJS.js'></script>"];
+      let metaTags2 = ["<link rel='stylesheet' href='css/global3.css' />", "<script defer src='js/htmlJS.js'></script>"];
 
       let metaTagsFonts = [
         "<link rel='preload' href='fonts/" + language.regular + ".woff2' as='font' crossorigin='anonymous' />",
@@ -606,24 +606,24 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
         // case "credits":
         //   htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
         //   break;
-        // case "translation":
-        //   htmlTranslation.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        case "element":
-          htmlElement.writeFile(
-            lang,
-            langValues,
-            language.col,
-            language.regular,
-            language.punc,
-            page,
-            defaultHead,
-            defaultNav,
-            nav4,
-            defaultFooter,
-            languagesForSelect
-          );
+        case "translation":
+          htmlTranslation.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
+        // case "element":
+        //   htmlElement.writeFile(
+        //     lang,
+        //     langValues,
+        //     language.col,
+        //     language.regular,
+        //     language.punc,
+        //     page,
+        //     defaultHead,
+        //     defaultNav,
+        //     nav4,
+        //     defaultFooter,
+        //     languagesForSelect
+        //   );
+        //   break;
       }
     });
   });

@@ -14,6 +14,11 @@ const writeFile = (
     "C:/Users/Naveen/Downloads/Git Projects/periodic-table.io/en/images/printables/";
   imagePath = "https://periodic-table.io/images/printables/";
 
+  let website = "https://periodic-table.io";
+  if (lang !== "en") {
+    website = "https://" + lang + ".periodic-table.io";
+  }
+
   let lang35 =
     ` ${langValues.enTrans}; ${langValues.bgTrans}; ${langValues.caTrans}; ${langValues.csTrans}; ${langValues.daTrans}; ${langValues.deTrans}; ${langValues.elTrans};` +
     ` ${langValues.esTrans}; ${langValues.fiTrans}; ${langValues.frTrans}; ${langValues.hiTrans}; ${langValues.hrTrans}; ${langValues.huTrans}; ${langValues.idTrans};` +
@@ -154,6 +159,46 @@ const writeFile = (
     writeStream.write(heads);
   });
 
+  // Add structured data for the collection of products
+  writeStream.write(`<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      ${printableLinks
+        .map(
+          (item, index) => `{
+        "@type": "ListItem",
+        "position": ${index + 1},
+        "item": {
+          "@type": "Product",
+          "name": "${item.title}",
+          "description": "${item.description}",
+          "image": "${imagePath}${item.image}.png",
+          "url": "${website}/${item.slug}",
+          "offers": {
+            "@type": "Offer",
+            "price": "${item.price}",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }${
+            item.rating
+              ? `,
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "${item.rating}"
+          }`
+              : ""
+          }
+        }
+      }`
+        )
+        .join(",\n")}
+    ]
+  }
+  </script>`);
+
   metaTags.forEach((tags) => {
     writeStream.write(tags);
   });
@@ -206,9 +251,7 @@ const writeFile = (
       "<span class='buttonLabel self-center'>View Details</span></a>"
     );
     writeStream.write(
-      "<a target='_blank' href='" +
-        printableLink.link +
-        "' class='downloadButton justify-center items-center'>"
+      `<a target='_blank' href='${printableLink.link}' class='downloadButton justify-center items-center'>`
     );
     writeStream.write(
       "<svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 512 512' stroke='currentColor' fill='currentColor'>"
@@ -241,6 +284,7 @@ const writeFile = (
 
   writeStream.end();
 
+  // Create individual pages
   printableLinks.forEach((printableLink) => {
     let individualStream = fs.createWriteStream(
       lang + "/" + printableLink.slug + ".html"
@@ -249,6 +293,35 @@ const writeFile = (
     defaultHead.forEach((heads) => {
       individualStream.write(heads);
     });
+
+    // Add structured data for individual product
+    individualStream.write(`<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "${printableLink.title}",
+      "description": "${printableLink.description}",
+      "image": "${imagePath}${printableLink.image
+      .replace("Small-", "")
+      .replace(".png", ".webp")}.png",
+      "url": "${website}/${printableLink.slug}",
+      "offers": {
+        "@type": "Offer",
+        "price": "${printableLink.price}",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }${
+        printableLink.rating
+          ? `,
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "${printableLink.rating}"
+      }`
+          : ""
+      }
+    }
+    </script>`);
 
     metaTags.forEach((tags) => {
       individualStream.write(tags);

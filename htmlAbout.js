@@ -54,26 +54,30 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div>");
   writeStream.write("<div id='logs'>");
 
+  writeStream.write("<div class='versionHeader'>Jan 19, 2025</div>");
+  writeStream.write(checkIcon + "<div>Updated Vietnamese, Persian, Dutch, Romanian, Arabic, Greek, Hungarian, Indonesian, Japanese and Portuguese translations</div>"
+  );
+
   writeStream.write("<div class='versionHeader'>Jan 17, 2025</div>");
   writeStream.write(checkIcon + "<div>Updated German, Thai, Ukrainian, Russian, French and Croatian translations</div>"
   );
 
-  writeStream.write("<div class='versionHeader'>May 25, 2023</div>");
+  writeStream.write("<div class='versionHeader'>May 2023</div>");
   writeStream.write(checkIcon + "<div>Updated Afrikaans, Norwegian Bokmål, Norwegian Nynorsk, Slovenian and Portuguese translations</div>"
   );
 
-  writeStream.write("<div class='versionHeader'>April 6, 2023</div>");
+  writeStream.write("<div class='versionHeader'>Apr 2023</div>");
   writeStream.write(checkIcon + "<div>Updated Afrikaans, Bulgarian, Catalan, Czech, Danish, Dutch, Finnish, German, Hebrew, Japanese, Korean, Malay, Serbian, Solvenian, Swedish, Thai and Vietnamese translations</div>"
   );
 
-  writeStream.write("<div class='versionHeader'>March 21, 2023</div>");
+  writeStream.write("<div class='versionHeader'>Mar 2023</div>");
   writeStream.write(checkIcon + "<div>Added <a class='underlineLink' target='_blank' href='https://www.buymeacoffee.com/naveencs' rel='noopener noreferrer'>Buy Me a Coffee</a> link at the header and footer</div>");
   writeStream.write(
     checkIcon +
       "<div>Updated Czech, Esperanto, Greek, French, Vietnamese, Chinese Traditional, Indonesian, Romanian and Swedish translations</div>"
   );
 
-  writeStream.write("<div class='versionHeader'>September 7, 2022</div>");
+  writeStream.write("<div class='versionHeader'>Sep 2022</div>");
   writeStream.write(checkIcon + "<div>Added Esperanto and Uzbek translations</div>");
   writeStream.write(
     checkIcon +

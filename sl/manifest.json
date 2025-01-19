@@ -26,9 +26,9 @@
       "icons": [{ "src": "/images/icons/compare.png", "sizes": "192x192" }]
     },
     {
-      "name": "Printables",
-      "short_name": "Printables",
-      "description": "Printables",
+      "name": "Natisljivo",
+      "short_name": "Natisljivo",
+      "description": "Natisljivo",
       "url": "/printables",
       "icons": [{ "src": "/images/icons/printables.png", "sizes": "192x192" }]
     }

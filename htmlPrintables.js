@@ -8,7 +8,9 @@ const writeFile = (
   metaTags,
   defaultNav,
   nav4,
-  defaultFooter
+  defaultFooter,
+  languages,
+  regularFont
 ) => {
   let imagePath =
     "C:/Users/Naveen/Downloads/Git Projects/periodic-table.io/en/images/printables/";
@@ -165,9 +167,9 @@ const writeFile = (
     "@context": "https://schema.org",
     "@type": "ItemList",
     "itemListElement": [
-      ${printableLinks
-        .map(
-          (item, index) => `{
+    ${printableLinks
+      .map(
+        (item, index) => `{
         "@type": "ListItem",
         "position": ${index + 1},
         "item": {
@@ -193,8 +195,8 @@ const writeFile = (
           }
         }
       }`
-        )
-        .join(",\n")}
+      )
+      .join(",\n")}
     ]
   }
   </script>`);
@@ -219,7 +221,7 @@ const writeFile = (
   writeStream.write("<div class='grid-print'>");
 
   printableLinks.forEach((printableLink) => {
-    writeStream.write(`<div class='flex flex-col overflow-auto'>`);
+    writeStream.write("<div class='flex flex-col overflow-auto'>");
     writeStream.write(`<h1>${printableLink.title}</h1>`);
     writeStream.write(
       `<img class='py-4 image' draggable='false' src='${imagePath}${printableLink.image}.png' alt='${printableLink.title}' />`
@@ -290,6 +292,72 @@ const writeFile = (
       lang + "/" + printableLink.slug + ".html"
     );
 
+    // Generate meta tags for individual printable page
+    let title = printableLink.title + " - " + langValues.homeHeader;
+    let link = website + "/" + printableLink.slug;
+    let keywords = `${printableLink.title}, ${langValues.homeHeader}, periodic table, poster, printable, download, chemistry, elements`;
+    let image =
+      imagePath +
+      printableLink.image.replace("Small-", "").replace(".png", ".webp") +
+      ".png";
+
+    let individualMetaTags = [
+      "<meta name='keywords' content='" + keywords + "' />",
+      "<meta name='description' content='" + printableLink.description + "' />",
+      "<meta property='og:description' content='" +
+        printableLink.description +
+        "' />",
+      "<meta name='twitter:description' content='" +
+        printableLink.description +
+        "' />",
+      "<meta property='og:title' content='" + title + "' />",
+      "<meta name='twitter:title' content='" + title + "' />",
+      "<title id='homeTitle'>" + title + "</title>",
+      "<meta property='og:image' content='" + image + "' />",
+      "<meta name='twitter:image' content='" + image + "' />",
+      "<meta name='twitter:image:src' content='" + image + "' />",
+      "<meta property='og:url' content='" + link + "' />",
+      "<link rel='canonical' href='" + link + "' />",
+    ];
+
+    // Add alternate language links
+    if (printableLink.slug === "index") {
+      individualMetaTags.push(
+        "<link rel='alternate' hreflang='en' href='https://periodic-table.io/'/>"
+      );
+    } else {
+      individualMetaTags.push(
+        "<link rel='alternate' hreflang='en' href='https://periodic-table.io/" +
+          printableLink.slug +
+          "'/>"
+      );
+    }
+
+    // Add alternate links for other languages
+    languages.forEach((langVal) => {
+      if (langVal.lang !== "en") {
+        if (printableLink.slug === "index") {
+          individualMetaTags.push(
+            "<link rel='alternate' hreflang='" +
+              langVal.lang +
+              "' href='https://" +
+              langVal.lang +
+              ".periodic-table.io/'/>"
+          );
+        } else {
+          individualMetaTags.push(
+            "<link rel='alternate' hreflang='" +
+              langVal.lang +
+              "' href='https://" +
+              langVal.lang +
+              ".periodic-table.io/" +
+              printableLink.slug +
+              "'/>"
+          );
+        }
+      }
+    });
+
     defaultHead.forEach((heads) => {
       individualStream.write(heads);
     });
@@ -322,6 +390,44 @@ const writeFile = (
       }
     }
     </script>`);
+
+    let metaTags2 = [
+      "<link rel='stylesheet' href='css/global3.css' />",
+      "<script defer src='js/htmlJS.js'></script>",
+    ];
+
+    let metaTagsFonts = [
+      "<link rel='preload' href='fonts/" +
+        regularFont +
+        ".woff2' as='font' crossorigin='anonymous' />",
+      "<link rel='preload' href='fonts/NotoSans.woff2' as='font' crossorigin='anonymous' />",
+    ];
+
+    if (regularFont === "NotoSans")
+      metaTagsFonts = [
+        "<link rel='preload' href='fonts/NotoSans.woff2' as='font' crossorigin='anonymous' />",
+      ];
+
+    let metaTags3 = [
+      "<style>@font-face {font-family: SpecialRegular; src: url(fonts/" +
+        regularFont +
+        ".woff2) format('woff2'); font-display: swap;}",
+      "@font-face {font-family: Regular;src: url(fonts/NotoSans.woff2) format('woff2'); font-display: swap;}",
+      "</style>",
+      "<script type='module'>",
+      "import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';",
+      "const el = document.createElement('pwa-update');",
+      "document.body.appendChild(el);",
+      "</script>",
+      "</head><body>",
+    ];
+
+    let metaTags = individualMetaTags
+      .concat(metaTags2)
+      .concat(metaTagsFonts)
+      .concat(metaTags3);
+
+    // let metaTags = individualMetaTags;
 
     metaTags.forEach((tags) => {
       individualStream.write(tags);

@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter) => {
-  let writeStream = fs.createWriteStream(lang + "/" + page + ".html");
+  let writeStream = fs.createWriteStream(`${lang}/${page}.html`);
 
   defaultHead.forEach((heads) => {
     writeStream.write(heads);
@@ -15,7 +15,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
     writeStream.write(navs);
   });
 
-  writeStream.write("<h1 class='truncate'>" + langValues.privacy + "</h1>");
+  writeStream.write(`<h1 class='truncate'>${langValues.privacy}</h1>`);
 
   nav4.forEach((navs) => {
     writeStream.write(navs);
@@ -23,9 +23,8 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
 
   writeStream.write("<section class='content-wrapper'>");
   writeStream.write("<div class='container'>");
-  writeStream.write("<h1 class='pt-8 text-upper text-center grayText'>");
-  writeStream.write(langValues.privacy + "</h1>");
-  writeStream.write("<div class='py-8'>" + langValues.privacyFull + "</div>");
+  writeStream.write(`<h1 class='pt-8 text-upper text-center grayText'>${langValues.privacy}</h1>`);
+  writeStream.write(`<div class='py-8'>${langValues.privacyFull}</div>`);
   writeStream.write("</div>");
   writeStream.write("</section>");
 
@@ -35,7 +34,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
 
   // the finish event is emitted when all data has been flushed from the stream
   writeStream.on("finish", () => {
-    console.log("Created " + lang + "-" + page);
+    console.log(`Created ${lang}-${page}`);
   });
 
   // close the stream

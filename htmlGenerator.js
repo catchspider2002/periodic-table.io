@@ -28,31 +28,23 @@ let svgHdr2 =
 let logoIcon =
   '<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 10.054 10.054" class="periodic-table-logo" fill="#fff"><path d="M3.146 1.905a1.301 1.301 0 00-1.301 1.301 1.301 1.301 0 001.009 1.266 1.596 1.596 0 011.553-1.581 1.301 1.301 0 00-1.261-.986zm4.841 1.581a1.508 1.508 0 00-1.47 1.178l-.824-.1a.126.126 0 00-.14.11.126.126 0 00.11.14l.821.1a1.508 1.508 0 00-.004.081 1.508 1.508 0 001.508 1.508 1.508 1.508 0 001.508-1.508 1.508 1.508 0 00-1.508-1.508zm-4.331 1.69a.126.126 0 00-.078.028l-.843.683a1.301 1.301 0 00-.874-.34A1.301 1.301 0 00.56 6.848a1.301 1.301 0 001.301 1.301 1.301 1.301 0 001.301-1.301 1.301 1.301 0 00-.257-.774l.832-.674a.126.126 0 00.019-.177.126.126 0 00-.099-.047z"/><path d="M4.45 2.978a1.508 1.508 0 00-1.508 1.508 1.508 1.508 0 00.297.895l.292-.237a.201.201 0 01.283.03.201.201 0 01-.03.283l-.265.215a1.508 1.508 0 00.931.322 1.508 1.508 0 001.444-1.077l-.241-.029a.201.201 0 01-.175-.224.201.201 0 01.224-.175l.255.031a1.508 1.508 0 00.002-.034 1.508 1.508 0 00-1.508-1.508z" opacity=".7"/></svg>';
 
-let listIcon = svgHdr + "<rect x='4' y='4' width='16' height='6' rx='2' /><rect x='4' y='14' width='16' height='6' rx='2' />" + svgFooter;
+let listIcon = `${svgHdr}<rect x='4' y='4' width='16' height='6' rx='2' /><rect x='4' y='14' width='16' height='6' rx='2' />${svgFooter}`;
 
 let compareIcon =
-  svgHdr +
-  "<rect x='3' y='3' width='6' height='6' rx='1' /><rect x='15' y='15' width='6' height='6' rx='1' /><path d='M21 11v-3a2 2 0 0 0 -2 -2h-6l3 3m0 -6l-3 3' /><path d='M3 13v3a2 2 0 0 0 2 2h6l-3 -3m0 6l3 -3' />" +
-  svgFooter;
+  `${svgHdr}<rect x='3' y='3' width='6' height='6' rx='1' /><rect x='15' y='15' width='6' height='6' rx='1' /><path d='M21 11v-3a2 2 0 0 0 -2 -2h-6l3 3m0 -6l-3 3' /><path d='M3 13v3a2 2 0 0 0 2 2h6l-3 -3m0 6l3 -3' />${svgFooter}`;
 
 let tablesIcon =
-  svgHdr +
-  "<rect x='4' y='4' width='16' height='16' rx='2' /><line x1='4' y1='10' x2='20' y2='10' /><line x1='10' y1='4' x2='10' y2='20' />" +
-  svgFooter;
+  `${svgHdr}<rect x='4' y='4' width='16' height='16' rx='2' /><line x1='4' y1='10' x2='20' y2='10' /><line x1='10' y1='4' x2='10' y2='20' />${svgFooter}`;
 
 let printablesIcon =
-  svgHdr +
-  "<path d='M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2' /><path d='M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4' /><rect x='7' y='13' width='10' height='8' rx='2' />" +
-  svgFooter;
+  `${svgHdr}<path d='M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2' /><path d='M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4' /><rect x='7' y='13' width='10' height='8' rx='2' />${svgFooter}`;
+  
+let storeIcon = `${svgHdr}<path d='M15 4l6 2v5h-3v8a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1v-8h-3v-5l6 -2a3 3 0 0 0 6 0' />${svgFooter}`;
 
-let storeIcon = svgHdr + "<path d='M15 4l6 2v5h-3v8a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1v-8h-3v-5l6 -2a3 3 0 0 0 6 0' />" + svgFooter;
-
-let translationIcon = svgHdr2 + "<path d='M5 7h7m-2 -2v2a5 8 0 0 1 -5 8m1 -4a7 4 0 0 0 6.7 4' /><path d='M11 19l4 -9l4 9m-.9 -2h-6.2' />" + svgFooter;
+let translationIcon = `${svgHdr2}<path d='M5 7h7m-2 -2v2a5 8 0 0 1 -5 8m1 -4a7 4 0 0 0 6.7 4' /><path d='M11 19l4 -9l4 9m-.9 -2h-6.2' />${svgFooter}`;
 
 let settingsIcon =
-  svgHdr +
-  "<path d='M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z' /><circle cx='12' cy='12' r='3' />" +
-  svgFooter;
+  `${svgHdr}<path d='M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z' /><circle cx='12' cy='12' r='3' />${svgFooter}`;
 
   let coffeeIcon =
  `<svg fill="none" xmlns="http://www.w3.org/2000/svg" height='1.4em' viewBox="0 0 884 1279">
@@ -62,8 +54,7 @@ let settingsIcon =
  <path d="m879.57 341.85-7.04-35.5c-6.31-31.85-20.65-61.94-53.34-73.45-10.48-3.69-22.37-5.27-30.4-12.89-8.04-7.62-10.41-19.46-12.27-30.44-3.44-20.15-6.68-40.31-10.2-60.43-3.05-17.29-5.46-36.72-13.4-52.58-10.32-21.3-31.74-33.76-53.04-42a305.5 305.5 0 0 0-33.36-10.32C613.3 10.19 557.34 5.04 502.59 2.09a1376.27 1376.27 0 0 0-197.17 3.27c-48.8 4.44-100.2 9.8-146.56 26.69-16.95 6.17-34.42 13.59-47.3 26.68-15.82 16.1-20.98 40.97-9.43 61.04 8.2 14.24 22.1 24.3 36.86 30.97a298.95 298.95 0 0 0 59.84 19.47c57.3 12.67 116.64 17.64 175.18 19.76 64.88 2.62 129.86.5 194.43-6.35a1107 1107 0 0 0 47.82-6.32c18.74-2.87 30.76-27.37 25.24-44.44-6.6-20.4-24.37-28.32-44.45-25.24-2.95.46-5.9.9-8.86 1.32l-2.13.31a1083.06 1083.06 0 0 1-62.67 6.13 1401.5 1401.5 0 0 1-95.03 3.27c-31.14 0-62.3-.88-93.38-2.93-14.18-.93-28.32-2.1-42.43-3.54-6.42-.67-12.82-1.38-19.22-2.17l-6.09-.78-1.32-.18-6.32-.92a665.35 665.35 0 0 1-38.58-6.88 5.8 5.8 0 0 1 0-11.32h.25a626.13 626.13 0 0 1 33.4-6.13l11.21-1.72h.1c7-.46 14.05-1.72 21.01-2.54 60.63-6.31 121.62-8.46 182.55-6.44 29.57.86 59.14 2.6 88.58 5.6 6.33.65 12.63 1.34 18.92 2.11 2.41.3 4.84.64 7.26.93l4.9.7a678.06 678.06 0 0 1 42.5 7.73c20.9 4.54 47.72 6.02 57.01 28.9 2.96 7.27 4.3 15.34 5.94 22.96l2.08 9.72a153589.1 153589.1 0 0 0 14.9 69.36 12.6 12.6 0 0 1-10.6 15.13h-.13l-3.02.4-2.97.4a1829.3 1829.3 0 0 1-84.26 8.95 2005.84 2005.84 0 0 1-168.49 6.78 1975.74 1975.74 0 0 1-225.99-13.14c-8.12-.97-16.24-2-24.36-3.05 6.3.8-4.58-.62-6.78-.93-5.16-.72-10.32-1.47-15.49-2.25-17.32-2.6-34.55-5.8-51.84-8.6-20.9-3.45-40.9-1.73-59.8 8.6a87 87 0 0 0-36.02 37.34c-8.16 16.86-10.58 35.22-14.23 53.33C4 342.2-1.68 361.7.47 380.3c4.63 40.14 32.7 72.76 73.06 80.06a2071.67 2071.67 0 0 0 114.44 17.2 2114.8 2114.8 0 0 0 489.99 2.83 25.81 25.81 0 0 1 28.5 28.29l-3.83 37.13-23.09 225.07a178840.62 178840.62 0 0 1-31.12 302.87c-2.2 21.84-2.52 44.36-6.66 65.94-6.54 33.93-29.51 54.77-63.03 62.39a439.17 439.17 0 0 1-93.57 10.94c-34.91.19-69.8-1.36-104.72-1.17-37.27.21-82.92-3.23-111.68-30.97-25.28-24.36-28.77-62.51-32.22-95.5-4.58-43.67-9.13-87.33-13.64-130.99l-25.3-242.76-16.36-157.08c-.27-2.6-.55-5.16-.8-7.78-1.97-18.74-15.23-37.08-36.14-36.13-17.9.79-38.23 16-36.13 36.13l12.13 116.45 25.08 240.9c7.15 68.42 14.28 136.85 21.4 205.3 1.37 13.11 2.66 26.26 4.1 39.37 7.87 71.65 62.59 110.26 130.34 121.13 39.58 6.37 80.12 7.68 120.28 8.33 51.48.83 103.48 2.81 154.12-6.52 75.03-13.77 131.33-63.87 139.37-141.59l6.88-67.33c7.63-74.24 15.25-148.49 22.85-222.74l24.88-242.6 11.4-111.2a25.8 25.8 0 0 1 20.8-22.7c21.45-4.17 41.96-11.31 57.22-27.64 24.3-26 29.13-59.9 20.55-94.07ZM72.43 365.83c.33-.15-.28 2.65-.53 3.96-.05-1.98.05-3.73.53-3.96Zm2.08 16.11c.17-.12.69.57 1.22 1.4-.8-.76-1.32-1.33-1.24-1.4h.02Zm2.05 2.7c.74 1.26 1.14 2.05 0 0Zm4.11 3.34h.1c0 .12.2.24.26.36a2.67 2.67 0 0 0-.38-.36h.02Zm720.13-5c-7.71 7.34-19.33 10.75-30.8 12.45-128.7 19.1-259.29 28.77-389.4 24.5-93.12-3.18-185.26-13.52-277.46-26.55-9.03-1.27-18.82-2.92-25.03-9.58-11.7-12.56-5.96-37.86-2.91-53.03 2.79-13.9 8.12-32.44 24.66-34.41 25.8-3.03 55.78 7.86 81.32 11.73 30.74 4.7 61.6 8.45 92.56 11.27 132.19 12.04 266.59 10.17 398.18-7.45 23.99-3.22 47.88-6.97 71.7-11.24 21.22-3.8 44.74-10.94 57.55 11.03 8.8 14.97 9.97 35 8.6 51.92a28.94 28.94 0 0 1-9 19.37h.03Z" fill="#fff"/>
  </svg>`;
 
-let toggleIcon =
-  svgHdr + "<line x1='4' y1='6' x2='20' y2='6' /><line x1='4' y1='12' x2='20' y2='12' /><line x1='4' y1='18'x2='20' y2='18' />" + svgFooter;
+let toggleIcon = `${svgHdr}<line x1='4' y1='6' x2='20' y2='6' /><line x1='4' y1='12' x2='20' y2='12' /><line x1='4' y1='18'x2='20' y2='18' />${svgFooter}`;
 
 
 let lightIcon =
@@ -181,9 +172,9 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
     let langValues = printObject(language.col); // es
     let lang = language.lang;
 
-    var cssDir = lang + "/css";
-    var jsDir = lang + "/js";
-    var fontDir = lang + "/fonts";
+    var cssDir = `${lang}/css`;
+    var jsDir = `${lang}/js`;
+    var fontDir = `${lang}/fonts`;
 
     if (!fs.existsSync(lang)) fs.mkdirSync(lang);
 
@@ -240,13 +231,13 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
       { page: "about", keywords: langValues.about, title: langValues.about },
       { page: "index", keywords: langValues.homeHeader, title: langValues.homeHeader },
       { page: "privacy-policy", keywords: langValues.privacy, title: langValues.privacy },
-      { page: "store", keywords: langValues.store + ", tees", title: langValues.store },
-      { page: "printables", keywords: langValues.printables + ", poster, flash cards", title: langValues.printables },
+      { page: "store", keywords: `${langValues.store}, tees`, title: langValues.store },
+      { page: "printables", keywords: `${langValues.printables}, poster, flash cards`, title: langValues.printables },
       { page: "list", keywords: langValues.list, title: langValues.list },
       { page: "element", keywords: "element", title: langValues.helium },
-      { page: "compare", keywords: langValues.compare + ", comparison", title: langValues.compare },
-      { page: "credits", keywords: langValues.credits + ", translators, " + langValues.translation, title: langValues.credits },
-      { page: "translation", keywords: langValues.translation + ", translators", title: langValues.translation },
+      { page: "compare", keywords: `${langValues.compare}, comparison`, title: langValues.compare },
+      { page: "credits", keywords: `${langValues.credits}, translators, ${langValues.translation}`, title: langValues.credits },
+      { page: "translation", keywords: `${langValues.translation}, translators`, title: langValues.translation },
       { page: "solubility-chart", keywords: langValues.solubilityChart, title: langValues.solubilityChart },
       { page: "reactivity-series", keywords: langValues.reactivitySeries, title: langValues.reactivitySeries },
       { page: "periodic-table-poster-1", keywords: '', title: 'Periodic Table poster #1 - Available in 35 languages' },
@@ -260,11 +251,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
 
     let defaultHead = [
       "<!DOCTYPE html>",
-      "<html lang='" +
-        lang +
-        "' class='normalFont' data-direction='" +
-        (lang === "ar" || lang === "fa" || lang === "he" ? "rtl" : "ltr") +
-        "' data-theme='dark' data-style='1'>",
+      `<html lang='${lang}' class='normalFont' data-direction='${lang === "ar" || lang === "fa" || lang === "he" ? "rtl" : "ltr"}' data-theme='dark' data-style='1'>`,
       "<head>",
       "<meta charset='utf-8'/>",
       "<meta http-equiv='X-UA-Compatible' content='IE=edge'/>",
@@ -312,29 +299,27 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
       "<div id='overlap' class='collapsed' onclick='sideBar()'></div>",
       "<section id='sidebar' class='collapsed'>",
       "<div class='settingsGrid items-center'>",
-      "<div class='grayText'>" + langValues.language + "</div>",
+      `<div class='grayText'>${langValues.language}</div>`,
       "<div>",
-      "<select id='languageSelectSetting' class='select-css' aria-label='" + langValues.language + "' onchange='setLanguage()'>",
+      `<select id='languageSelectSetting' class='select-css' aria-label='${langValues.language}' onchange='setLanguage()'>`,
     ];
 
     let langNav = [];
 
     languagesForSelect.forEach((langVal) => {
-      langNav.push("<option value='" + langVal.lang + "'>" + langVal.name + "</option>");
+      langNav.push(`<option value='${langVal.lang}'>${langVal.name}</option>`);
     });
 
     let nav2 = [
       "</select>",
       "</div>",
-      "<div class='grayText self-start'>" + langValues.temperature + "</div>",
-      "<div class='radio-toolbar radio-temp'>",
-      "<input type='radio' id='tempcelsius' name='temperature' value='celsius' onchange='setTemp()' />",
-      "<label class='disable-select' for='tempcelsius'>" +
-        langValues.tempCelsius +
-        "</label><input type='radio' id='tempfahrenheit' name='temperature' value='fahrenheit' onchange='setTemp()' />",
-      "<label class='disable-select' for='tempfahrenheit'>" + langValues.tempFahrenheit + "</label>",
+      `<div class='grayText self-start'>${langValues.temperature}</div>`,
+      `<div class='radio-toolbar radio-temp'>`,
+      `<input type='radio' id='tempcelsius' name='temperature' value='celsius' onchange='setTemp()' />`,
+      `<label class='disable-select' for='tempcelsius'>${langValues.tempCelsius}</label><input type='radio' id='tempfahrenheit' name='temperature' value='fahrenheit' onchange='setTemp()' />`,
+      `<label class='disable-select' for='tempfahrenheit'>${langValues.tempFahrenheit}</label>`,
       "</div>",
-      "<div class='grayText self-start'>" + langValues.labelColorMain + "</div>",
+      `<div class='grayText self-start'>${langValues.labelColorMain}</div>`,
       "<div class='radio-toolbar radio-color'>",
     ];
 
@@ -347,10 +332,10 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
 
     let nav3 = [
       "</div>",
-      "<div id='settingPeriodicTable' class='span-2'>" + langValues.homeHeader + "</div>",
-      "<div class='grayText'>" + langValues.tableWidth + "</div>",
+      `<div id='settingPeriodicTable' class='span-2'>${langValues.homeHeader}</div>`,
+      `<div class='grayText'>${langValues.tableWidth}</div>`,
       "<div>",
-      "<select id='marginSetting' class='select-css' aria-label='" + langValues.tableWidth + "'>",
+      `<select id='marginSetting' class='select-css' aria-label='${langValues.tableWidth}'>`,
       "<option value='1'>100%</option>",
       "<option value='0.95'>95%</option>",
       "<option value='0.9'>90%</option>",
@@ -358,21 +343,21 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
       "<option value='0.8'>80%</option>",
       "</select>",
       "</div>",
-      "<div id='nameSettingLabel' class='grayText'>" + langValues.labelName + "</div>",
+      `<div id='nameSettingLabel' class='grayText'>${langValues.labelName}</div>`,
       "<div>",
       "<label class='switch'>",
       "<input id='nameSelectSetting' type='checkbox' aria-labelledby='nameSettingLabel'>",
       "<span class='slider round' ></span>",
       "</label>",
       "</div>",
-      "<div id='atmWtSettingLabel' class='grayText'>" + langValues.labelAtmWtMain + "</div>",
+      `<div id='atmWtSettingLabel' class='grayText'>${langValues.labelAtmWtMain}</div>`,
       "<div>",
       "<label class='switch'>",
       "<input id='atmNoSelectSetting' type='checkbox' aria-labelledby='atmWtSettingLabel'>",
       "<span class='slider round' ></span>",
       "</label>",
       "</div>",
-      "<div class='grayText self-start' id='tableStyle'>" + langValues.style + "</div>",
+      `<div class='grayText self-start' id='tableStyle'>${langValues.style}</div>`,
       "<div class='radio-toolbar radio-style'>",
       "<input type='radio' id='style1' name='tableStyle' value='1' onchange='setStyle()' >",
       "<label id='style1Label' class='disable-select' for='style1'></label>",
@@ -392,14 +377,14 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
       "<input type='checkbox' id='drop' />",
       "<ul>",
       "<li>",
-      "<a title=" + langValues.list + " href='list'>",
-      listIcon + "<span id='listLink'>" + langValues.list + "</span></a>",
+      `<a title='${langValues.list}' href='list'>`,
+      `${listIcon}<span id='listLink'>${langValues.list}</span></a>`,
       "</li>",
       "<li>",
-      "<a title=" + langValues.compare + " href='compare'>" + compareIcon + "<span id='compareLink'>" + langValues.compare + "</span></a>",
+      `<a title='${langValues.compare}' href='compare'>${compareIcon}<span id='compareLink'>${langValues.compare}</span></a>`,
       "</li>",
       "<li>",
-      "<label for='drop-1' class='toggle'>",
+      `<label for='drop-1' class='toggle'>`,
       tablesIcon +
         "<span>" +
         langValues.tables +
@@ -413,31 +398,31 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
         " <svg xmlns='http://www.w3.org/2000/svg' width='1.2em' height='1.2em' viewBox='5 5 15 15' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9' /></svg></a>",
       "<input type='checkbox' id='drop-1' />",
       "<ul>",
-      "<li><a class='tablesList' href='solubility-chart'>" + langValues.solubilityChart + "</a></li>",
-      "<li><a class='tablesList' href='reactivity-series'>" + langValues.reactivitySeries + "</a></li>",
+      `<li><a class='tablesList' href='solubility-chart'>${langValues.solubilityChart}</a></li>`,
+      `<li><a class='tablesList' href='reactivity-series'>${langValues.reactivitySeries}</a></li>`,
       "</ul>",
       "</li>",
       "<li>",
-      "<a title=" + langValues.printables + " href='printables'>",
-      printablesIcon + "<span id='printableLink'>" + langValues.printables + "</span></a>",
+      `<a title='${langValues.printables}' href='printables'>`,
+      `${printablesIcon}<span id='printableLink'>${langValues.printables}</span></a>`,
       "</li>",
       "<li>",
-      "<a title=" + langValues.store + " href='store'>",
-      storeIcon + "<span id='storeLink'>" + langValues.store + "</span></a>",
+      `<a title='${langValues.store}' href='store'>`,
+      `${storeIcon}<span id='storeLink'>${langValues.store}</span></a>`,
       "</li>",
       "<li>",
-      "<a title=" + langValues.translation + " href='translation'>",
-      translationIcon + "<span id='translateLink'>" + langValues.translation + "</span></a>",
+      `<a title='${langValues.translation}' href='translation'>`,
+      `${translationIcon}<span id='translateLink'>${langValues.translation}</span></a>`,
       "</li>",
       "</ul>",
       "<a target='_blank' href='https://www.buymeacoffee.com/naveencs' rel='noopener noreferrer' class='px-4 flex' id='coffeeIcon'>",
       coffeeIcon,
       "</a>",
-      "<button onclick='sideBar()' title='" + langValues.settings + "'>",
-      settingsIcon + "</button>",
-      "<button id='themeIcon' onclick='changeTheme()' data-theme='light' title='" + langValues.theme + "'>",
-      lightIcon + "</button>",
-      "<label for='drop' onclick='toggleMenu()' class='toggle burger'>" + toggleIcon + "</label>",
+      `<button onclick='sideBar()' title='${langValues.settings}'>`,
+      `${settingsIcon}</button>`,
+      `<button id='themeIcon' onclick='changeTheme()' data-theme='light' title='${langValues.theme}'>`,
+      `${lightIcon}</button>`,
+      `<label for='drop' onclick='toggleMenu()' class='toggle burger'>${toggleIcon}</label>`,
       "</nav>",
     ];
 
@@ -449,10 +434,10 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
       "<a target='_blank' href='https://feedback.periodic-table.io/' rel='noopener noreferrer' class='m-1 px-4 py-2'>",
       langValues.suggestions,
       "</a>",
-      "<a href='translation' class='m-1 px-4 py-2'>" + langValues.translate + "</a>",
-      "<a href='about' class='m-1 px-4 py-2'>" + langValues.about + "</a>",
-      "<a href='credits' class='m-1 px-4 py-2'>" + langValues.credits + "</a>",
-      "<a href='privacy-policy' class='m-1 px-4 py-2'>" + langValues.privacy + "</a>",
+      `<a href='translation' class='m-1 px-4 py-2'>${langValues.translate}</a>`,
+      `<a href='about' class='m-1 px-4 py-2'>${langValues.about}</a>`,
+      `<a href='credits' class='m-1 px-4 py-2'>${langValues.credits}</a>`,
+      `<a href='privacy-policy' class='m-1 px-4 py-2'>${langValues.privacy}</a>`,
       "</div>",
       "<div class='flex flex-wrap justify-center pt-2 py-4'>",
       "<a target='_blank' href='https://github.com/catchspider2002/periodic-table.io' rel='noopener noreferrer' class='flex m-1 p-2' title='Github'>",
@@ -490,48 +475,43 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
       let keywords =
         `${pageValue.keywords}, ${langValues.homeHeader}, chemical, ${langValues.elements}, interactive, PWA, ${langValues.properties}, ${langValues.uses}` +
         `, ${langValues.hist}, ${langValues.isotopes}, ${langValues.labelConfigMain}, ${langValues.labelElectronsMain}, name origin, images, hazards, diagram, chemistry, information`;
-      let description = langValues.desc1 + "; " + langValues.desc2 + ".";
+      let description = `${langValues.desc1}; ${langValues.desc2}.`;
 
       let website = "https://periodic-table.io";
-      if (lang !== "en") website = "https://" + lang + ".periodic-table.io";
+      if (lang !== "en") website = `https://${lang}.periodic-table.io`;
 
-      let title = pageValue.title + " - " + langValues.homeHeader;
+      let title = `${pageValue.title} - ${langValues.homeHeader}`;
       let page = pageValue.page;
-      let link = website + "/" + pageValue.page;
-      if (pageValue.page === "index") link = website + "/";
+      let link = `${website}/${pageValue.page}`;
+      if (pageValue.page === "index") link = website;
 
-      // let image = website + "/images/icons/android-chrome-256x256.png";
-      let image = "https://periodic-table.io/images/og-images/" + lang + "/" + pageValue.page + ".png";
+      let image = `https://periodic-table.io/images/og-images/${lang}/${pageValue.page}.png`;
 
       let metaTags1 = [
-        "<meta name='keywords' content='" + keywords + "' />",
-        "<meta name='description' content='" + description + "' />",
-        "<meta property='og:description' content='" + description + "' />",
-        "<meta name='twitter:description' content='" + description + "' />",
-        "<meta property='og:title' content='" + title + "' />",
-        "<meta name='twitter:title' content='" + title + "' />",
-        "<title id='homeTitle'>" + title + "</title>",
-        "<meta property='og:image' content='" + image + "' />",
-        "<meta name='twitter:image' content='" + image + "' />",
-        "<meta name='twitter:image:src' content='" + image + "' />",
-        "<meta property='og:url' content='" + link + "' />",
-        "<link rel='canonical' href='" + link + "' />",
+        `<meta name='keywords' content='${keywords}' />`,
+        `<meta name='description' content='${description}' />`,
+        `<meta property='og:description' content='${description}' />`,
+        `<meta name='twitter:description' content='${description}' />`,
+        `<meta property='og:title' content='${title}' />`,
+        `<meta name='twitter:title' content='${title}' />`,
+        `<title id='homeTitle'>${title}</title>`,
+        `<meta property='og:image' content='${image}' />`,
+        `<meta name='twitter:image' content='${image}' />`,
+        `<meta name='twitter:image:src' content='${image}' />`,
+        `<meta property='og:url' content='${link}' />`,
+        `<link rel='canonical' href='${link}' />`,
       ];
 
       let metaAlternate = [];
 
-      languagesForSelect.forEach((langVal) => {
-        if (langVal.lang === "en") {
-          if (pageValue.page === "index") metaAlternate.push("<link rel='alternate' hreflang='en' href='https://periodic-table.io/'/>");
-          else metaAlternate.push("<link rel='alternate' hreflang='en' href='https://periodic-table.io/" + pageValue.page + "'/>");
-        } else {
-          if (pageValue.page === "index")
-            metaAlternate.push("<link rel='alternate' hreflang='" + langVal.lang + "' href='https://" + langVal.lang + ".periodic-table.io/'/>");
-          else
-            metaAlternate.push(
-              "<link rel='alternate' hreflang='" + langVal.lang + "' href='https://" + langVal.lang + ".periodic-table.io/" + pageValue.page + "'/>"
-            );
-        }
+      languagesForSelect.forEach(({ lang }) => {
+        const isEnglish = lang === "en";
+        const domain = isEnglish ? "periodic-table.io" : `${lang}.periodic-table.io`;
+        const path = pageValue.page === "index" ? "" : `/${pageValue.page}`;
+        
+        metaAlternate.push(
+          `<link rel='alternate' hreflang='${lang}' href='https://${domain}${path}'/>`
+        );
       });
 
       let metaTags2 = ["<link rel='stylesheet' href='css/global3.css' />", "<script defer src='js/htmlJS.js'></script>"];
@@ -544,7 +524,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
       if (language.regular === "NotoSans") metaTagsFonts = ["<link rel='preload' href='fonts/NotoSans.woff2' as='font' crossorigin='anonymous' />"];
 
       let metaTags3 = [
-        "<style>@font-face {font-family: SpecialRegular; src: url(fonts/" + language.regular + ".woff2) format('woff2'); font-display: swap;}",
+        `<style>@font-face {font-family: SpecialRegular; src: url(fonts/${language.regular}.woff2) format('woff2'); font-display: swap;}`,
         "@font-face {font-family: Regular;src: url(fonts/NotoSans.woff2) format('woff2'); font-display: swap;}",
         "</style>",
         "<script type='module'>",

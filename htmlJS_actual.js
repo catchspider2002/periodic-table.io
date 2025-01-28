@@ -10986,3 +10986,184 @@ document.onkeydown = function (evt) {
   else isEscape = evt.keyCode === 27;
   if (isEscape && !id("sidebar").classList.contains("collapsed")) sideBar();
 };
+
+
+// Constants
+const STORAGE_KEY = "latestUpdate";
+
+const NOTIFICATIONS_DATA = [
+  {
+    date: "Jan 28, 2025",
+    updates: [
+      "Updated Armenian, Romanian, Bulgarian, Czech, Finnish and Tamil translations",
+      "Added notification panel to show the latest updates",
+    ],
+  },
+  {
+    date: "Jan 19, 2025",
+    updates: [
+      "Updated Vietnamese, Persian, Dutch, Romanian, Arabic, Greek, Hungarian, Indonesian, Japanese and Portuguese translations",
+    ],
+  },
+  {
+    date: "Jan 17, 2025",
+    updates: [
+      "Updated German, Thai, Ukrainian, Russian, French and Croatian translations",
+    ],
+  },
+];
+
+function convertDateFormat(dateStr) {
+  if (!dateStr) return null;
+  const months = {
+    Jan: '01', Feb: '02', Mar: '03', Apr: '04', May: '05', Jun: '06',
+    Jul: '07', Aug: '08', Sep: '09', Oct: '10', Nov: '11', Dec: '12'
+  };
+  
+  // Handle "Jan 28, 2025" format
+  const match = dateStr.match(/(\w+)\s+(\d+),\s+(\d+)/);
+  if (match) {
+    const [_, month, day, year] = match;
+    const paddedDay = day.padStart(2, '0');
+    return `${year}-${months[month]}-${paddedDay}`;
+  }
+  
+  // If already in YYYY-MM-DD format, return as is
+  if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) {
+    return dateStr;
+  }
+  
+  return null;
+}
+
+// State management
+let isOpen = false;
+let notificationsViewed = false;
+
+function getUnreadCount() {
+  const lastReadDate = localStorage.getItem(STORAGE_KEY);
+  if (!lastReadDate) {
+    return NOTIFICATIONS_DATA.length;
+  }
+
+  // Count notifications with dates more recent than lastReadDate
+  const unreadCount = NOTIFICATIONS_DATA.filter((notification) => {
+    const notificationDate = convertDateFormat(notification.date);
+    const lastRead = convertDateFormat(lastReadDate);
+    return notificationDate > lastRead;
+  }).length;
+
+  return unreadCount;
+}
+
+function updateBellCount() {
+  const countElement = document.getElementById("notificationCount");
+  if (!countElement) return;
+
+  const unreadCount = getUnreadCount();
+
+  if (unreadCount > 0 && !notificationsViewed) {
+    countElement.textContent = unreadCount > 3 ? "3+" : unreadCount.toString();
+    countElement.classList.remove("hidden");
+  } else {
+    countElement.classList.add("hidden");
+  }
+}
+
+function renderNotifications() {
+  const listElement = document.getElementById("notificationList");
+  if (!listElement) return;
+
+  const notificationsHTML = NOTIFICATIONS_DATA.slice(0, 3)
+    .map(
+      (notification) => `
+      <div class="notification-item border-t border-zinc-300 dark:border-zinc-700 cursor-pointer" onclick="window.location.href='about#versionNotes'">
+        <div class="font-semibold pt-4 grayText">${notification.date}</div>
+        ${notification.updates  // Fixed: Changed from notification.changes to notification.updates
+          .map(
+            (update) => `
+          <li class="pb-2 text-zinc-600 dark:text-zinc-400 ps-6"><span class="mx-2">-</span>${update}</li>
+        `
+          )
+          .join("")}
+      </div>
+    `
+    )
+    .join("");
+
+  listElement.innerHTML = notificationsHTML;
+}
+
+function toggleNotifications(e) {
+  if (e) {
+    e.stopPropagation();
+  }
+
+  const panel = document.getElementById("notificationPanel");
+  if (!panel) return;
+
+  isOpen = !isOpen;
+
+  if (isOpen) {
+    notificationsViewed = true;
+    localStorage.setItem(STORAGE_KEY, convertDateFormat(NOTIFICATIONS_DATA[0].date));
+    renderNotifications();
+    panel.classList.remove("hidden");
+  } else {
+    panel.classList.add("hidden");
+  }
+
+  updateBellCount();
+}
+
+// Event listeners
+function setupEventListeners() {
+  // Button click handler
+  const notificationBtn = document.getElementById("notificationBtn");
+  if (notificationBtn) {
+    notificationBtn.addEventListener("click", toggleNotifications);
+  }
+
+  // Close on outside click
+  document.addEventListener("click", (e) => {
+    const panel = document.getElementById("notificationPanel");
+    const btn = document.getElementById("notificationBtn");
+
+    if (
+      isOpen &&
+      panel &&
+      !panel.contains(e.target) &&
+      btn && // Fixed: Added null check for btn
+      !btn.contains(e.target)
+    ) {
+      toggleNotifications();
+    }
+  });
+
+  // Close on escape key
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && isOpen) {
+      toggleNotifications();
+    }
+  });
+
+  // Prevent panel clicks from bubbling
+  const panel = document.getElementById("notificationPanel");
+  if (panel) {
+    panel.addEventListener("click", (e) => e.stopPropagation());
+  }
+
+  // Initial setup
+  updateBellCount();
+}
+
+// Initialize on page load
+document.addEventListener("DOMContentLoaded", () => {
+  setupEventListeners();
+  
+  // Remove the onclick attribute from HTML and use event listener instead
+  const notificationBtn = document.getElementById("notificationBtn");
+  if (notificationBtn) {
+    notificationBtn.removeAttribute("onclick");
+  }
+});

@@ -65,59 +65,290 @@ let darkIcon =
 
 xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows) => {
   let languages = [
-    // { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans", bcp: "en-US", code: "1" },
-    // { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans", bcp: "en-GB", code: "45" },
-    // { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans", bcp: "af-ZA", code: "60" },
-    // { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans", bcp: "id-ID", code: "54" },
-    // { lang: "ms", name: "Bahasa Melayu", col: 41, punc: "dot", regular: "NotoSans", bcp: "ms-MY", code: "55" },
+    { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans", bcp: "en-US", code: "1" },
+    { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans", bcp: "en-GB", code: "45" },
+    { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans", bcp: "af-ZA", code: "60" },
+    { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans", bcp: "id-ID", code: "54" },
+    { lang: "ms", name: "Bahasa Melayu", col: 41, punc: "dot", regular: "NotoSans", bcp: "ms-MY", code: "55" },
 
-    // { lang: "ca", name: "Català", col: 25, punc: "comma", regular: "NotoSans", bcp: "ca-ES", code: "23" },
-    // { lang: "cs", name: "Čeština", col: 24, punc: "comma", regular: "NotoSans", bcp: "cs-CZ", code: "13" },
-    // { lang: "da", name: "Dansk", col: 33, punc: "comma", regular: "NotoSans", bcp: "da-DK", code: "27" },
-    // { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans", bcp: "de-DE", code: "6" },
-    // { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans", bcp: "es-ES", code: "79" },
+    { lang: "ca", name: "Català", col: 25, punc: "comma", regular: "NotoSans", bcp: "ca-ES", code: "23" },
+    { lang: "cs", name: "Čeština", col: 24, punc: "comma", regular: "NotoSans", bcp: "cs-CZ", code: "13" },
+    { lang: "da", name: "Dansk", col: 33, punc: "comma", regular: "NotoSans", bcp: "da-DK", code: "27" },
+    { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans", bcp: "de-DE", code: "6" },
+    { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans", bcp: "es-ES", code: "79" },
     
-    // { lang: "fr", name: "Français", col: 5, punc: "comma", regular: "NotoSans", bcp: "fr-FR", code: "5" },
-    // { lang: "hr", name: "Hrvatski", col: 39, punc: "comma", regular: "NotoSans", bcp: "hr-HR", code: "22" },
-    // { lang: "it", name: "Italiano", col: 8, punc: "comma", regular: "NotoSans", bcp: "it-IT", code: "10" },
-    // { lang: "hu", name: "Magyar", col: 11, punc: "comma", regular: "NotoSans", bcp: "hu-HU", code: "21" },
+    { lang: "eo", name: "Esperanto", col: 47, punc: "comma", regular: "NotoSans", bcp: "eo", code: "24" },
+    { lang: "fr", name: "Français", col: 5, punc: "comma", regular: "NotoSans", bcp: "fr-FR", code: "5" },
+    { lang: "hr", name: "Hrvatski", col: 39, punc: "comma", regular: "NotoSans", bcp: "hr-HR", code: "22" },
+    { lang: "it", name: "Italiano", col: 8, punc: "comma", regular: "NotoSans", bcp: "it-IT", code: "10" },
+    { lang: "hu", name: "Magyar", col: 11, punc: "comma", regular: "NotoSans", bcp: "hu-HU", code: "21" },
+    
     // { lang: "nl", name: "Nederlands", col: 7, punc: "comma", regular: "NotoSans", bcp: "nl-NL", code: "12" },
-    
     // { lang: "nb-no", name: "Norsk Bokmål", col: 27, punc: "comma", regular: "NotoSans", bcp: "nb-NO", code: "77" },
     // { lang: "nn-no", name: "Norsk Nynorsk", col: 38, punc: "comma", regular: "NotoSans", bcp: "nn-NO", code: "15" },
     // { lang: "pl", name: "Polski", col: 30, punc: "comma", regular: "NotoSans", bcp: "pl-PL", code: "16" },
     // { lang: "pt", name: "Português", col: 18, punc: "comma", regular: "NotoSans", bcp: "pt-PT", code: "563" },
+    
     // { lang: "ro", name: "Română", col: 17, punc: "comma", regular: "NotoSans", bcp: "ro-RO", code: "19" },
-
     // { lang: "sk", name: "Slovenčina", col: 13, punc: "comma", regular: "NotoSans", bcp: "sk-SK", code: "34" },
     // { lang: "sl", name: "Slovenščina", col: 37, punc: "comma", regular: "NotoSans", bcp: "sl-SI", code: "659" },
     // { lang: "fi", name: "Suomi", col: 19, punc: "comma", regular: "NotoSans", bcp: "fi-FI", code: "18" },
     // { lang: "sv", name: "Svenska", col: 32, punc: "comma", regular: "NotoSans", bcp: "sv-SE", code: "17" },
-    // { lang: "vi", name: "Tiếng Việt", col: 15, punc: "comma", regular: "NotoSans", bcp: "vi-VN", code: "50" },
     
+    // { lang: "vi", name: "Tiếng Việt", col: 15, punc: "comma", regular: "NotoSans", bcp: "vi-VN", code: "50" },
     // { lang: "tr", name: "Türkçe", col: 22, punc: "comma", regular: "NotoSans", bcp: "tr-TR", code: "14" },
     // { lang: "uz", name: "Oʻzbek", col: 46, punc: "comma", regular: "NotoSans", bcp: "uz-UZ", code: "213" },
     // { lang: "eo", name: "Esperanto", col: 47, punc: "comma", regular: "NotoSans", bcp: "eo", code: "24" },
     // { lang: "el", name: "Ελληνικά", col: 35, punc: "comma", regular: "NotoSans", bcp: "el-GR", code: "20" },
-    // { lang: "bg", name: "Български", col: 20, puncncu: "comma", regular: "NotoSans", bcp: "bg-BG", code: "576" },
-
-    { lang: "mk", name: "Македонски", col: 43, punc: "comma", regular: "NotoSans", bcp: "mk-MK", code: "644" },
-    { lang: "ru", name: "Русский", col: 9, punc: "comma", regular: "NotoSans", bcp: "ru-RU", code: "11" },
-    { lang: "sr", name: "Српски", col: 26, punc: "comma", regular: "NotoSans", bcp: "sr-Cyrl-CS", code: "462" },
-    { lang: "uk", name: "Українська", col: 14, punc: "comma", regular: "NotoSans", bcp: "uk-UA", code: "36" },
-    { lang: "hy", name: "Հայերեն", col: 42, punc: "comma", regular: "NotoSansArmenian-Regular", bcp: "hy-AM", code: "62" },
-
-    { lang: "he", name: "עברית", col: 36, punc: "dot", regular: "NotoSansHebrew-Regular", bcp: "he-IL", code: "42" },
-    { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular", bcp: "ar-SA", code: "28" },
-    { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular", bcp: "fa-IR", code: "29" },
-    { lang: "hi", name: "हिंदी", col: 29, punc: "dot", regular: "NotoSansDevanagari-Regular", bcp: "hi-IN", code: "587" },
-    { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular", bcp: "th-TH", code: "56" },
     
-    { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular", bcp: "ja-JP", code: "4" },
-    { lang: "ko", name: "한국어", col: 10, punc: "dot", regular: "NotoSansKR-Regular", bcp: "ko-KR", code: "9" },
-    { lang: "zh-cn", name: "中文(简体)", col: 6, punc: "dot", regular: "NotoSansSC-Regular", bcp: "zh-CN", code: "3" },
-    { lang: "zh-tw", name: "中文(繁體)", col: 28, punc: "dot", regular: "NotoSansTC-Regular", bcp: "zh-TW", code: "2" },
-    { lang: "ta", name: "தமிழ்", col: 45, punc: "dot", regular: "NotoSansTamil-Regular", bcp: "ta-IN", code: "505" },
+    // { lang: "bg", name: "Български", col: 20, puncncu: "comma", regular: "NotoSans", bcp: "bg-BG", code: "576" },
+    // { lang: "mk", name: "Македонски", col: 43, punc: "comma", regular: "NotoSans", bcp: "mk-MK", code: "644" },
+    // { lang: "ru", name: "Русский", col: 9, punc: "comma", regular: "NotoSans", bcp: "ru-RU", code: "11" },
+    // { lang: "sr", name: "Српски", col: 26, punc: "comma", regular: "NotoSans", bcp: "sr-Cyrl-CS", code: "462" },
+    // { lang: "uk", name: "Українська", col: 14, punc: "comma", regular: "NotoSans", bcp: "uk-UA", code: "36" },
+    
+    // { lang: "hy", name: "Հայերեն", col: 42, punc: "comma", regular: "NotoSansArmenian-Regular", bcp: "hy-AM", code: "62" },
+    // { lang: "he", name: "עברית", col: 36, punc: "dot", regular: "NotoSansHebrew-Regular", bcp: "he-IL", code: "42" },
+    // { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular", bcp: "ar-SA", code: "28" },
+    // { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular", bcp: "fa-IR", code: "29" },
+    // { lang: "hi", name: "हिंदी", col: 29, punc: "dot", regular: "NotoSansDevanagari-Regular", bcp: "hi-IN", code: "587" },
+    
+    // { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular", bcp: "th-TH", code: "56" },
+    // { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular", bcp: "ja-JP", code: "4" },
+    // { lang: "ko", name: "한국어", col: 10, punc: "dot", regular: "NotoSansKR-Regular", bcp: "ko-KR", code: "9" },
+    // { lang: "zh-cn", name: "中文(简体)", col: 6, punc: "dot", regular: "NotoSansSC-Regular", bcp: "zh-CN", code: "3" },
+    // { lang: "zh-tw", name: "中文(繁體)", col: 28, punc: "dot", regular: "NotoSansTC-Regular", bcp: "zh-TW", code: "2" },
+    // { lang: "ta", name: "தமிழ்", col: 45, punc: "dot", regular: "NotoSansTamil-Regular", bcp: "ta-IN", code: "505" },
+  ];
+
+  let updates = [
+    {
+      date: "Jan 28, 2025",
+      updates: [
+        "Updated Armenian, Romanian, Bulgarian, Czech, Finnish and Tamil translations",
+        "Added notification panel to show the latest updates",
+      ],
+    },
+    {
+      date: "Jan 19, 2025",
+      updates: [
+        "Updated Vietnamese, Persian, Dutch, Romanian, Arabic, Greek, Hungarian, Indonesian, Japanese and Portuguese translations",
+      ],
+    },
+    {
+      date: "Jan 17, 2025",
+      updates: [
+        "Updated German, Thai, Ukrainian, Russian, French and Croatian translations",
+      ],
+    },
+    {
+      date: "May 2023",
+      updates: [
+        "Updated Afrikaans, Norwegian Bokmål, Norwegian Nynorsk, Slovenian and Portuguese translations",
+      ],
+    },
+    {
+      date: "Apr 2023",
+      updates: [
+        "Updated Afrikaans, Bulgarian, Catalan, Czech, Danish, Dutch, Finnish, German, Hebrew, Japanese, Korean, Malay, Serbian, Solvenian, Swedish, Thai and Vietnamese translations",
+      ],
+    },
+    {
+      date: "Mar 2023",
+      updates: [
+        `Added <a class='underlineLink' target='_blank' href='https://www.buymeacoffee.com/naveencs' rel='noopener noreferrer'>Buy Me a Coffee</a> link at the header and footer`,
+        `Updated Czech, Esperanto, Greek, French, Vietnamese, Chinese Traditional, Indonesian, Romanian and Swedish translations`,
+      ],
+    },
+    {
+      date: "Sep 2022",
+      updates: [
+        `Added Esperanto and Uzbek translations`,
+        `UpdUpdated Danish, Czech, Greek, French, Hindi, Polish, Macedonian, Ukranian, Chinese Traditional, Indonesian and Swedish translations`,
+      ],
+    },
+    {
+      date: "Sep 2021",
+      updates: [`Updated Korean, Turkish, Portuguese and French translations`],
+    },
+    {
+      date: "Aug 2021",
+      updates: [
+        `Updated French, Spanish, Croatian, Hindi and Chinese (Traditional) translations`,
+      ],
+    },
+    {
+      date: "Jun 2021",
+      updates: [
+        `Added a new printable - Flash Cards in <a class='underlineLink' href='printables'>Printables</a> page`,
+        `Added Tamil translation`,
+        `Updated French translation`,
+        `Updated the <a class='underlineLink' href='translation'>Translation</a> page to use links instead of images`,
+      ],
+    },
+    {
+      date: "May 2021",
+      updates: [
+        `Added a new printable - Flash Cards in <a class='underlineLink' href='printables'>Printables</a> page`,
+        `Included Tamil and Telugu for anyone to translate as per <a class='underlineLink' target='_blank' href='https://feedback.periodic-table.io/' rel='noopener noreferrer'>Suggestions</a> by users`,
+        `Updated external links to be opened in new tab`,
+        `Updated Armenian, Hebrew and Chinese (Simplified) translations`,
+      ],
+    },
+    {
+      date: "Apr 2021",
+      updates: [
+        `Updated Spanish, Portuguese, French, Hungarian, Persian, Russian, Slovak and Polish translations`,
+        `Fixed the broken links in the <a class='underlineLink' href='store'>Store</a> page`,
+        `Minor corrections to the solubility table`,
+      ],
+    },
+    {
+      date: "Mar 2021",
+      updates: [
+        `Added Solubility Chart and Reactivity Series under Tables menu`,
+        `Added social images to all pages to show up when the pages are shared on social media`,
+        `Fixed the incorrect font sizes in the navigation bar`,
+        `Updated Italian, Dutch, German, Portuguese, Polish, Croatian, Russian, Armenian, Japanese and Chinese (Simplified) translations`,
+      ],
+    },
+    {
+      date: "Feb 2021",
+      updates: [
+        `Complete rewrite of the website to deploy the code faster; Individual language versions have their own subdomains`,
+        `Added Afrikaans translation`,
+        `Updated Norwegian Bokmal, Spanish, Vietnamese, Chinese(Simplified), Chinese(Traditional), Japanese, German, Portuguese, French and Italian translations`,
+      ],
+    },
+    {
+      date: "Nov 2020",
+      updates: [
+        `Added Crystal Structure image to the element page`,
+        `Added Macedonian translation`,
+        `Updated Armenian, Greek, Spanish, Italian, Portuguese, Slovenian, Thai, Vietnamese and Chinese(Simplified) translations`,
+      ],
+    },
+    {
+      date: "Oct 2020",
+      updates: [
+        `Added Armenian and Malay translations`,
+        `Added a new printable - Flash Cards in <a class='underlineLink' href='printables'>Printables</a> page`,
+        `Updated Croatian, Greek, Hebrew, Hindi, Norwegian Bokmal, Polish, Romanian, Vietnamese and Dutch translations`,
+        `Fixed the top navbar so that the navbar does not overlap the scrollbar`,
+      ],
+    },
+    {
+      date: "Aug 2020",
+      updates: [
+        `Updated the icons in the navbar to outline icons`,
+        `Simplified localisation and individual languages will now be included in the url`,
+        `Added a new printable in <a class='underlineLink' href='printables'>Printables</a> page`,
+        `Added CAS Number and PubChem CID Number`,
+        `Fixed electron configuration rendering issues in Edge and Chrome`,
+        `Updated Arabic, Persian, Hindi, Italian, Indonesian, Vietnamese, German, Greek, Polish, Dutch, Slovak, Chinese (Simplified) and Chinese (Traditional) translations`,
+      ],
+    },
+    {
+      date: "Jul 2020",
+      updates: [
+        `Added a new printable in <a class='underlineLink' href='printables'>Printables</a> page`,
+        `Added a new page - <a class='underlineLink' href='translation'>Translation</a> where you can check the status of each language and contribute translations`,
+        `Added mass number, number of protons, electrons and neutrons`,
+        `The line height for the Elements page is increased and the text is easily readable`,
+        `Updated Polish, Croatian, Chinese Simplified, Croatian and Korean translation`,
+        `Added an option in Settings to change the style of the periodic table from 3 options`,
+        `Replaced the dropdown for temperature in Settings with a radio select`,
+        `Updated the navbar header from a gradient to solid color which now matches with the window color when opened as PWA`,
+      ],
+    },
+    {
+      date: "Jun 2020",
+      updates: [
+        `Modified the style of the element page to use more shadows and less color`,
+        `Modified the colors of the Settings popup for both light and dark themes`,
+        `Added Instagram page link to the footer`,
+        `Added a new printable in <a class='underlineLink' href='printables'>Printables</a> page`,
+        `Added <a class='underlineLink' target='_blank' href='https://feedback.periodic-table.io/' rel='noopener noreferrer'>Suggestions</a> where new suggestions or feature requests can be provided`,
+        `Fonts for Thai and Hebrew are updated`,
+        `Reduced extra spacing on top and bottom sides of the electronic configuration`,
+        `Updated Chinese Simplified, Croatian, Portuguese and Danish translations`,
+      ],
+    },
+    {
+      date: "May 2020",
+      updates: [
+        `Updated Polish, Russian, Vietnamese, Slovenian, Chinese Simplified translations`,
+        `Added a new page - <a class='underlineLink' href='printables'>Printables</a> which provides a printable version of the periodic table which will be updated regularly`,
+        `Added a new page - <a class='underlineLink' href='credits'>Credits</a> for translations which was earlier appearing in About page`,
+        `Added icons to the navigation bar at the top`,
+        `Added footer component on all pages which includes quick links not available in the top navigation bar`,
+        `Updated link colors to match the theme color`,
+        `Reduced the number of colors in Settings from 25 to 10 which matches with the periodic table colors`,
+        `Fixed the layout bug where the 2nd and 3rd row were appearing with a huge space on iOS devices`,
+        `Fixed scrollbar styles for all browsers`,
+        `Added an open-source license on Github`,
+        `Removed theme switching to enable light or dark mode from Settings and a dedicated button is available in the top navigation bar`,
+        `Replaced the existing static image of electronic configuration with an animated version`,
+        `Please contact me at naveen@periodic-table.io if you have any suggestions or issues with the website`,
+      ],
+    },
+    {
+      date: "Feb 2020",
+      updates: [
+        `Modified colors at the navigation bar for better accessibility`,
+        `Updated Persian, Croatian, Hungarian, Polish, Greek, Hebrew, Portuguese, German, Spanish, Chinese (Traditional), Russian, Thai, French, Italian, Chinese (Simplified) and Turkish translations`,
+      ],
+    },
+    {
+      date: "May 2019",
+      updates: [
+        `Added Store page for t-shirts and other merchandise`,
+        `Added English (UK) translation`,
+        `Updated Chinese (Simplified), Portuguese, Spanish, Indonesian, Vietnamese and Chinese (Traditional) translations`,
+      ],
+    },
+    {
+      date: "Apr 2019",
+      updates: [`Updated Arabic, Italian and Croatian translations`],
+    },
+    {
+      date: "Dec 2018",
+      updates: [
+        `Added Slovenian, Norwegian (Nynorsk) and Croatian translations`,
+        `Updated Danish, Japanese and Italian translations`,
+      ],
+    },
+    {
+      date: "Nov 2018",
+      updates: [
+        `Added Danish, Greek, Thai and Hebrew translations`,
+        `Updated Arabic, Chinese (Traditional), Chinese (Simplified), Portuguese, Catalan, German and Japanese translations`,
+      ],
+    },
+    {
+      date: "Jun 2018",
+      updates: [`Updated Russian, French and Arabic translations`],
+    },
+    {
+      date: "May 2018",
+      updates: [
+        `Updated Persian, Czech, Italian, Dutch, Catalan, Vietnamese, Hungarian, Indonesian and Japanese translations`,
+      ],
+    },
+    {
+      date: "Apr 2018",
+      updates: [`Updated Dutch and Korean translations`],
+    },
+    {
+      date: "Mar 2018",
+      updates: [
+        `Released the first version of the website with Progressive Web App (PWA) features`,
+        `Updated the colors of the periodic table`,
+        `Added options for wide and large tiles when website is pinned to Start on Windows 10`,
+        `Added Hindi, Chinese (Traditional), Arabic, Polish and Swedish translations`,
+        `Updated Japanese and Dutch translations`,
+      ],
+    },
   ];
 
   let languagesForSelect = [
@@ -190,7 +421,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
     //   }
     // });
 
-    fs.copyFile("global.css", lang + "/css/global3.css", (err) => {
+    fs.copyFile("global.css", lang + "/css/global2.css", (err) => {
       if (err) throw err;
     });
 
@@ -415,6 +646,18 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
       `${translationIcon}<span id='translateLink'>${langValues.translation}</span></a>`,
       "</li>",
       "</ul>",
+      `<div class="notification-wrapper">
+        <button onclick='toggleNotifications()' id='notificationBtn' title='${langValues.notifications}' class='relative'>
+          ${svgHdr}<path d='M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6' /><path d='M9 17v1a3 3 0 0 0 6 0v-1' />${svgFooter}
+          <span id='notificationCount' class='notification-count hidden'></span>
+        </button>
+        <div id='notificationPanel' class='notification-panel hidden'>
+          <div class='notification-header'>
+            <h3>${langValues.changelog}</h3>
+          </div>
+          <div id='notificationList' class='notification-list'></div>
+        </div>
+      </div>`,
       "<a target='_blank' href='https://www.buymeacoffee.com/naveencs' rel='noopener noreferrer' class='px-4 flex' id='coffeeIcon'>",
       coffeeIcon,
       "</a>",
@@ -514,7 +757,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
         );
       });
 
-      let metaTags2 = ["<link rel='stylesheet' href='css/global3.css' />", "<script defer src='js/htmlJS.js'></script>"];
+      let metaTags2 = ["<link rel='stylesheet' href='css/global2.css' />", "<script defer src='js/htmlJS.js'></script>"];
 
       let metaTagsFonts = [
         "<link rel='preload' href='fonts/" + language.regular + ".woff2' as='font' crossorigin='anonymous' />",
@@ -538,66 +781,66 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
       let metaTags = metaTags1.concat(metaAlternate).concat(metaTags2).concat(metaTagsFonts).concat(metaTags3);
 
       switch (page) {
-        case "robots":
-          htmlRobots.writeFile(lang, page);
-          break;
-        case "manifest":
-          htmlManifest.writeFile(lang, langValues, page);
-          break;
-        case "sitemap":
-          htmlSitemap.writeFile(lang, langValues, page, pages);
-          break;
-        case "404":
-          html404.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "index":
-          htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "privacy-policy":
-          htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "solubility-chart":
-          htmlSolubility.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "reactivity-series":
-          htmlReactivity.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "about":
-          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "store":
-          htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "printables":
-          htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter,languagesForSelect,language.regular);
-          break;
-        case "compare":
-          htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "list":
-          htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
-        case "credits":
-          htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-          break;
+        // case "robots":
+        //   htmlRobots.writeFile(lang, page);
+        //   break;
+        // case "manifest":
+        //   htmlManifest.writeFile(lang, langValues, page);
+        //   break;
+        // case "sitemap":
+        //   htmlSitemap.writeFile(lang, langValues, page, pages);
+        //   break;
+        // case "404":
+        //   html404.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "index":
+        //   htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "privacy-policy":
+        //   htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "solubility-chart":
+        //   htmlSolubility.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "reactivity-series":
+        //   htmlReactivity.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "about":
+        //   htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter, updates);
+        //   break;
+        // case "store":
+        //   htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "printables":
+        //   htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter,languagesForSelect,language.regular);
+        //   break;
+        // case "compare":
+        //   htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "list":
+        //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
+        // case "credits":
+        //   htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+        //   break;
         // case "translation":
         //   htmlTranslation.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
         //   break;
-        // case "element":
-        //   htmlElement.writeFile(
-        //     lang,
-        //     langValues,
-        //     language.col,
-        //     language.regular,
-        //     language.punc,
-        //     page,
-        //     defaultHead,
-        //     defaultNav,
-        //     nav4,
-        //     defaultFooter,
-        //     languagesForSelect
-        //   );
-        //   break;
+        case "element":
+          htmlElement.writeFile(
+            lang,
+            langValues,
+            language.col,
+            language.regular,
+            language.punc,
+            page,
+            defaultHead,
+            defaultNav,
+            nav4,
+            defaultFooter,
+            languagesForSelect
+          );
+          break;
       }
     });
   });

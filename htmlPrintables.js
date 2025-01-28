@@ -42,14 +42,12 @@ const writeFile = (
 
   let printableLinks = [
     {
-      title: "Periodic Table poster #1 - Available in 35 languages",
+      title: `${langValues.poster} #1 - ${langValues.available35}`,
       slug: "periodic-table-poster-1",
-      description:
-        "Periodic Table of the elements poster which shows atomic number, symbol, name and atomic weight for all 118 elements in a color-coded table.",
+      description: `${langValues.posterPrintable}`,
       description2:
         'Decorate your wall with this high-quality poster or take a printout for study. Print from your home, visit your local photo center, or print online. Make sure to click "Fit to Page" on your printer before printing.',
-      license:
-        "Licensed for personal use only, not commercial use. The poster can be shared with friends and family but may not be resold.",
+      license: `${langValues.licensedPersonal} ${langValues.posterShared}`,
       rating: 43,
       price: 0,
       languages: lang35,
@@ -58,14 +56,12 @@ const writeFile = (
       link: "https://gumroad.com/l/periodictableposter1/",
     },
     {
-      title: "Periodic Table poster #2 - Available in 35 languages",
+      title: `${langValues.poster} #2 - ${langValues.available35}`,
       slug: "periodic-table-poster-2",
-      description:
-        "Periodic Table of the elements poster which shows atomic number, symbol, name and atomic weight for all 118 elements in a color-coded table.",
+      description: `${langValues.posterPrintable}`,
       description2:
         'Decorate your wall with this high-quality poster or take a printout for study. Print from your home, visit your local photo center, or print online. Make sure to click "Fit to Page" on your printer before printing.',
-      license:
-        "Licensed for personal use only, not commercial use. The poster can be shared with friends and family but may not be resold.",
+      license: `${langValues.licensedPersonal} ${langValues.posterShared}`,
       rating: 20,
       price: 0,
       languages: lang35,
@@ -74,14 +70,12 @@ const writeFile = (
       link: "https://gumroad.com/l/periodictableposter2/",
     },
     {
-      title: "Periodic Table poster #3 - Available in 35 languages",
+      title: `${langValues.poster} #3 - ${langValues.available35}`,
       slug: "periodic-table-poster-3",
-      description:
-        "Periodic Table of the elements poster which shows atomic number, symbol, name and atomic weight for all 118 elements in a color-coded table.",
+      description: `${langValues.posterPrintable}`,
       description2:
         'Decorate your wall with this high-quality poster or take a printout for study. Print from your home, visit your local photo center, or print online. Make sure to click "Fit to Page" on your printer before printing.',
-      license:
-        "Licensed for personal use only, not commercial use. The poster can be shared with friends and family but may not be resold.",
+      license: `${langValues.licensedPersonal} ${langValues.posterShared}`,
       rating: 14,
       price: 0,
       languages: lang35,
@@ -90,14 +84,12 @@ const writeFile = (
       link: "https://gumroad.com/l/periodictableposter3/",
     },
     {
-      title: "Periodic Table poster #4 - Available in 35 languages",
+      title: `${langValues.poster} #4 - ${langValues.available35}`,
       slug: "periodic-table-poster-4",
-      description:
-        "Periodic Table of the elements poster which shows atomic number, symbol, name and atomic weight for all 118 elements in a color-coded table.",
+      description: `${langValues.posterPrintable}`,
       description2:
         'Decorate your wall with this high-quality poster or take a printout for study. Print from your home, visit your local photo center, or print online. Make sure to click "Fit to Page" on your printer before printing.',
-      license:
-        "Licensed for personal use only, not commercial use. The poster can be shared with friends and family but may not be resold.",
+      license: `${langValues.licensedPersonal} ${langValues.posterShared}`,
       rating: 10,
       price: 0,
       languages: lang35,
@@ -106,14 +98,12 @@ const writeFile = (
       link: "https://gumroad.com/l/periodictableposter4/",
     },
     {
-      title: "Periodic Table Flashcards #1 - Available in 42 languages",
+      title: `${langValues.flashcards} #1 - ${langValues.available42}`,
       slug: "periodic-table-flashcards-1",
-      description:
-        "Play and learn the periodic table with the printable flash cards. The set includes 118 element flash cards in high resolution PDF format and SVG formats. Download and print them on a PC or Mac.",
+      description: `${langValues.flashcardsPrintable1} ${langValues.flashcardsPrintable2} ${langValues.flashcardsPrintable3}`,
       description2:
         "Flash cards helps you to commit the elements to your memory. Parents and teachers can create fun activities and use them to teach chemistry.<br><br>The PDF file has 30 pages and each page has 4 cards. Each flash card shows the atomic number, symbol, name and atomic weight of the element<br><br>Try to print the flashcards on cardstock paper for a nicer feel and longevity. Print the flash card on one side and the file 000 Cover.pdf on the other side of the flashcard.</br><br>Size: A4<br><br>Text and colors in SVG files can be edited using vector editing software such as Adobe Illustrator or Inkscape",
-      license:
-        "Licensed for personal use only, not commercial use. The flashcards can be shared with friends and family but may not be resold.",
+      license: `${langValues.licensedPersonal} ${langValues.flashcardsShared}`,
       rating: 23,
       price: 0,
       languages: lang42,
@@ -122,14 +112,12 @@ const writeFile = (
       link: "https://gumroad.com/l/periodictableflashcards1/",
     },
     {
-      title: "Periodic Table Flashcards #2 - Available in 42 languages",
+      title: `${langValues.flashcards} #2 - ${langValues.available42}`,
       slug: "periodic-table-flashcards-2",
-      description:
-        "Play and learn the periodic table with the printable flash cards. The set includes 118 element flash cards in high resolution PDF format and SVG formats. Download and print them on a PC or Mac.",
+      description: `${langValues.flashcardsPrintable1} ${langValues.flashcardsPrintable2} ${langValues.flashcardsPrintable3}`,
       description2:
         "Flash cards helps you to commit the elements to your memory. Parents and teachers can create fun activities and use them to teach chemistry.<br><br>The PDF file has 30 pages and each page has 4 cards. Each flash card shows the atomic number, symbol, name and atomic weight of the element<br><br>Try to print the flashcards on cardstock paper for a nicer feel and longevity. Print the flash card on one side and the file 000 Cover.pdf on the other side of the flashcard.</br><br>Size: A4<br><br>Text and colors in SVG files can be edited using vector editing software such as Adobe Illustrator or Inkscape",
-      license:
-        "Licensed for personal use only, not commercial use. The flashcards can be shared with friends and family but may not be resold.",
+      license: `${langValues.licensedPersonal} ${langValues.flashcardsShared}`,
       rating: 1,
       price: 3.99,
       languages: lang42,
@@ -138,14 +126,12 @@ const writeFile = (
       link: "https://gumroad.com/l/periodictableflashcards2/",
     },
     {
-      title: "Periodic Table Flashcards #3 - Available in 13 languages",
+      title: `${langValues.flashcards} #3 - ${langValues.available13}`,
       slug: "periodic-table-flashcards-3",
-      description:
-        "Play and learn the periodic table with the printable flash cards. The set includes 118 element flash cards in high resolution PDF format and SVG formats. Download and print them on a PC or Mac.",
+      description: `${langValues.flashcardsPrintable1} ${langValues.flashcardsPrintable2} ${langValues.flashcardsPrintable3}`,
       description2:
         "Flash cards helps you to commit the elements to your memory. Parents and teachers can create fun activities and use them to teach chemistry.<br><br>The PDF file has 30 pages and each page has 4 cards. Each flash card shows the atomic number, symbol, name and atomic weight of the element<br><br>Try to print the flashcards on cardstock paper for a nicer feel and longevity. Print the flash card on one side and the file 000 Cover.pdf on the other side of the flashcard.</br><br>Size: A4<br><br>Text and colors in SVG files can be edited using vector editing software such as Adobe Illustrator or Inkscape",
-      license:
-        "Licensed for personal use only, not commercial use. The flashcards can be shared with friends and family but may not be resold.",
+      license: `${langValues.licensedPersonal} ${langValues.flashcardsShared}`,
       rating: 0,
       price: 3.99,
       languages: langReason,
@@ -181,6 +167,7 @@ const writeFile = (
           "offers": {
             "@type": "Offer",
             "price": "${item.price}",
+            "priceValidUntil": "2099-12-31",
             "priceCurrency": "USD",
             "availability": "https://schema.org/InStock"
           }${
@@ -236,7 +223,7 @@ const writeFile = (
     );
     if (printableLink.rating > 0)
       writeStream.write(
-        `<div class='py-2'>⭐⭐⭐⭐⭐ (${printableLink.rating} ratings)</div>`
+        `<div class='py-2'>⭐⭐⭐⭐⭐ (${printableLink.rating} ${printableLink.rating > 1 ? langValues.ratings : langValues.rating})</div>`
       );
     writeStream.write("<div class='py-4 flex gap-8 justify-start'>");
     writeStream.write(
@@ -250,7 +237,7 @@ const writeFile = (
     );
     writeStream.write("</svg>");
     writeStream.write(
-      "<span class='buttonLabel self-center'>View Details</span></a>"
+      `<span class='buttonLabel self-center'>${langValues.viewDetails}</span></a>`
     );
     writeStream.write(
       `<a target='_blank' href='${printableLink.link}' class='downloadButton justify-center items-center'>`
@@ -370,12 +357,13 @@ const writeFile = (
       "name": "${printableLink.title}",
       "description": "${printableLink.description}",
       "image": "${imagePath}${printableLink.image
-      .replace("Small-", "")
-      .replace(".png", ".webp")}.png",
+        .replace("Small-", "")
+        .replace(".png", ".webp")}.png",
       "url": "${website}/${printableLink.slug}",
       "offers": {
         "@type": "Offer",
         "price": "${printableLink.price}",
+        "priceValidUntil": "2099-12-31",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock"
       }${
@@ -392,7 +380,7 @@ const writeFile = (
     </script>`);
 
     let metaTags2 = [
-      "<link rel='stylesheet' href='css/global3.css' />",
+      "<link rel='stylesheet' href='css/global2.css' />",
       "<script defer src='js/htmlJS.js'></script>",
     ];
 
@@ -464,17 +452,17 @@ const writeFile = (
       `<div class='py-4'>${printableLink.description2}</div>`
     );
     individualStream.write(
-      `<div class='py-4'><span class='grayText'>Formats: </span>${printableLink.formats}</div>`
+      `<div class='py-4'><span class='grayText'>${langValues.formats}: </span>${printableLink.formats}</div>`
     );
     individualStream.write(
       `<div class='pt-4 grayText'>${langValues.languages}</div><div class='py-4'>${printableLink.languages}</div>`
     );
     individualStream.write(
-      `<div class='pt-4 grayText'>License</div><div class='py-4'>${printableLink.license}</div>`
+      `<div class='pt-4 grayText'>${langValues.license}</div><div class='py-4'>${printableLink.license}</div>`
     );
     if (printableLink.rating > 0)
       individualStream.write(
-        `<div class='py-2'>⭐⭐⭐⭐⭐ (${printableLink.rating} ratings)</div>`
+        `<div class='py-2'>⭐⭐⭐⭐⭐ (${printableLink.rating} ${printableLink.rating > 1 ? langValues.ratings : langValues.rating})</div>`
       );
     individualStream.write("<div class='py-4'>");
     individualStream.write(

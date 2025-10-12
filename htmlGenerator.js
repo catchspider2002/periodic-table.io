@@ -11,7 +11,7 @@ const htmlList = require("./htmlList.js");
 const htmlElement = require("./htmlElement.js");
 const htmlIndex = require("./htmlIndex.js");
 const htmlCredits = require("./htmlCredits.js");
-const htmlTranslation = require("./htmlTranslation.js");
+// const htmlTranslation = require("./htmlTranslation.js");
 const html404 = require("./html404.js");
 const htmlSitemap = require("./htmlSitemap.js");
 const htmlRobots = require("./htmlRobots.js");
@@ -65,23 +65,23 @@ let darkIcon =
 
 xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows) => {
   let languages = [
-    { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans", bcp: "en-US", code: "1" },
-    { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans", bcp: "en-GB", code: "45" },
-    { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans", bcp: "af-ZA", code: "60" },
-    { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans", bcp: "id-ID", code: "54" },
-    { lang: "ms", name: "Bahasa Melayu", col: 41, punc: "dot", regular: "NotoSans", bcp: "ms-MY", code: "55" },
+    // { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans", bcp: "en-US", code: "1" },
+    // { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans", bcp: "en-GB", code: "45" },
+    // { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans", bcp: "af-ZA", code: "60" },
+    // { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans", bcp: "id-ID", code: "54" },
+    // { lang: "ms", name: "Bahasa Melayu", col: 41, punc: "dot", regular: "NotoSans", bcp: "ms-MY", code: "55" },
 
-    { lang: "ca", name: "Català", col: 25, punc: "comma", regular: "NotoSans", bcp: "ca-ES", code: "23" },
-    { lang: "cs", name: "Čeština", col: 24, punc: "comma", regular: "NotoSans", bcp: "cs-CZ", code: "13" },
-    { lang: "da", name: "Dansk", col: 33, punc: "comma", regular: "NotoSans", bcp: "da-DK", code: "27" },
-    { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans", bcp: "de-DE", code: "6" },
+    // { lang: "ca", name: "Català", col: 25, punc: "comma", regular: "NotoSans", bcp: "ca-ES", code: "23" },
+    // { lang: "cs", name: "Čeština", col: 24, punc: "comma", regular: "NotoSans", bcp: "cs-CZ", code: "13" },
+    // { lang: "da", name: "Dansk", col: 33, punc: "comma", regular: "NotoSans", bcp: "da-DK", code: "27" },
+    // { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans", bcp: "de-DE", code: "6" },
     { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans", bcp: "es-ES", code: "79" },
     
-    { lang: "eo", name: "Esperanto", col: 47, punc: "comma", regular: "NotoSans", bcp: "eo", code: "24" },
-    { lang: "fr", name: "Français", col: 5, punc: "comma", regular: "NotoSans", bcp: "fr-FR", code: "5" },
-    { lang: "hr", name: "Hrvatski", col: 39, punc: "comma", regular: "NotoSans", bcp: "hr-HR", code: "22" },
-    { lang: "it", name: "Italiano", col: 8, punc: "comma", regular: "NotoSans", bcp: "it-IT", code: "10" },
-    { lang: "hu", name: "Magyar", col: 11, punc: "comma", regular: "NotoSans", bcp: "hu-HU", code: "21" },
+    // { lang: "eo", name: "Esperanto", col: 47, punc: "comma", regular: "NotoSans", bcp: "eo", code: "24" },
+    // { lang: "fr", name: "Français", col: 5, punc: "comma", regular: "NotoSans", bcp: "fr-FR", code: "5" },
+    // { lang: "hr", name: "Hrvatski", col: 39, punc: "comma", regular: "NotoSans", bcp: "hr-HR", code: "22" },
+    // { lang: "it", name: "Italiano", col: 8, punc: "comma", regular: "NotoSans", bcp: "it-IT", code: "10" },
+    // { lang: "hu", name: "Magyar", col: 11, punc: "comma", regular: "NotoSans", bcp: "hu-HU", code: "21" },
     
     // { lang: "nl", name: "Nederlands", col: 7, punc: "comma", regular: "NotoSans", bcp: "nl-NL", code: "12" },
     // { lang: "nb-no", name: "Norsk Bokmål", col: 27, punc: "comma", regular: "NotoSans", bcp: "nb-NO", code: "77" },
@@ -122,6 +122,12 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
   ];
 
   let updates = [
+    {
+      date: "Oct 12, 2025",
+      updates: [
+        "Updated Czech, Portuguese, Croatian, Greek and Indonesian translations",
+      ],
+    },
     {
       date: "Jan 28, 2025",
       updates: [
@@ -468,16 +474,16 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
       { page: "element", keywords: "element", title: langValues.helium },
       { page: "compare", keywords: `${langValues.compare}, comparison`, title: langValues.compare },
       { page: "credits", keywords: `${langValues.credits}, translators, ${langValues.translation}`, title: langValues.credits },
-      { page: "translation", keywords: `${langValues.translation}, translators`, title: langValues.translation },
+      // { page: "translation", keywords: `${langValues.translation}, translators`, title: langValues.translation },
       { page: "solubility-chart", keywords: langValues.solubilityChart, title: langValues.solubilityChart },
       { page: "reactivity-series", keywords: langValues.reactivitySeries, title: langValues.reactivitySeries },
-      { page: "periodic-table-poster-1", keywords: '', title: 'Periodic Table poster #1 - Available in 35 languages' },
-      { page: "periodic-table-poster-2", keywords: '', title: 'Periodic Table poster #2 - Available in 35 languages' },
-      { page: "periodic-table-poster-3", keywords: '', title: 'Periodic Table poster #3 - Available in 35 languages' },
-      { page: "periodic-table-poster-4", keywords: '', title: 'Periodic Table poster #4 - Available in 35 languages' },
-      { page: "periodic-table-flashcards-1", keywords: '', title: 'Periodic Table Flashcards #1 - Available in 42 languages' },
-      { page: "periodic-table-flashcards-2", keywords: '', title: 'Periodic Table Flashcards #2 - Available in 42 languages' },
-      { page: "periodic-table-flashcards-2", keywords: '', title: 'Periodic Table Flashcards #3 - Available in 13 languages' },
+      { page: "periodic-table-poster-1", keywords: '', title: `${langValues.poster} #1 - ${langValues.available35}` },
+      { page: "periodic-table-poster-2", keywords: '', title: `${langValues.poster} #2 - ${langValues.available35}` },
+      { page: "periodic-table-poster-3", keywords: '', title: `${langValues.poster} #3 - ${langValues.available35}` },
+      { page: "periodic-table-poster-4", keywords: '', title: `${langValues.poster} #4 - ${langValues.available35}` },
+      { page: "periodic-table-flashcards-1", keywords: '', title: `${langValues.flashcards} #1 - ${langValues.available42}` },
+      { page: "periodic-table-flashcards-2", keywords: '', title: `${langValues.flashcards} #2 - ${langValues.available42}` },
+      { page: "periodic-table-flashcards-2", keywords: '', title: `${langValues.flashcards} #3 - ${langValues.available13}` },
     ];
 
     let defaultHead = [
@@ -641,10 +647,6 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
       `<a title='${langValues.store}' href='store'>`,
       `${storeIcon}<span id='storeLink'>${langValues.store}</span></a>`,
       "</li>",
-      "<li>",
-      `<a title='${langValues.translation}' href='translation'>`,
-      `${translationIcon}<span id='translateLink'>${langValues.translation}</span></a>`,
-      "</li>",
       "</ul>",
       `<div class="notification-wrapper">
         <button onclick='toggleNotifications()' id='notificationBtn' title='${langValues.notifications}' class='relative'>
@@ -677,7 +679,6 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
       "<a target='_blank' href='https://feedback.periodic-table.io/' rel='noopener noreferrer' class='m-1 px-4 py-2'>",
       langValues.suggestions,
       "</a>",
-      `<a href='translation' class='m-1 px-4 py-2'>${langValues.translate}</a>`,
       `<a href='about' class='m-1 px-4 py-2'>${langValues.about}</a>`,
       `<a href='credits' class='m-1 px-4 py-2'>${langValues.credits}</a>`,
       `<a href='privacy-policy' class='m-1 px-4 py-2'>${langValues.privacy}</a>`,
@@ -781,51 +782,48 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
       let metaTags = metaTags1.concat(metaAlternate).concat(metaTags2).concat(metaTagsFonts).concat(metaTags3);
 
       switch (page) {
-        // case "robots":
-        //   htmlRobots.writeFile(lang, page);
-        //   break;
-        // case "manifest":
-        //   htmlManifest.writeFile(lang, langValues, page);
-        //   break;
-        // case "sitemap":
-        //   htmlSitemap.writeFile(lang, langValues, page, pages);
-        //   break;
-        // case "404":
-        //   html404.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "index":
-        //   htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "privacy-policy":
-        //   htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "solubility-chart":
-        //   htmlSolubility.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "reactivity-series":
-        //   htmlReactivity.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "about":
-        //   htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter, updates);
-        //   break;
-        // case "store":
-        //   htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "printables":
-        //   htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter,languagesForSelect,language.regular);
-        //   break;
-        // case "compare":
-        //   htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "list":
-        //   htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "credits":
-        //   htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
-        // case "translation":
-        //   htmlTranslation.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
-        //   break;
+        case "robots":
+          htmlRobots.writeFile(lang, page);
+          break;
+        case "manifest":
+          htmlManifest.writeFile(lang, langValues, page);
+          break;
+        case "sitemap":
+          htmlSitemap.writeFile(lang, langValues, page, pages);
+          break;
+        case "404":
+          html404.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "index":
+          htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "privacy-policy":
+          htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "solubility-chart":
+          htmlSolubility.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "reactivity-series":
+          htmlReactivity.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "about":
+          htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter, updates);
+          break;
+        case "store":
+          htmlStore.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "printables":
+          htmlPrintables.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter,languagesForSelect,language.regular);
+          break;
+        case "compare":
+          htmlCompare.writeFile(lang, langValues, page, language.punc, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "list":
+          htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "credits":
+          htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
         case "element":
           htmlElement.writeFile(
             lang,

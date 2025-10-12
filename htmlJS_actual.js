@@ -10993,6 +10993,12 @@ const STORAGE_KEY = "latestUpdate";
 
 const NOTIFICATIONS_DATA = [
   {
+      date: "Oct 12, 2025",
+      updates: [
+        "Updated Czech, Portuguese, Croatian, Greek and Indonesian translations",
+      ],
+    },
+    {
     date: "Jan 28, 2025",
     updates: [
       "Updated Armenian, Romanian, Bulgarian, Czech, Finnish and Tamil translations",
@@ -11003,12 +11009,6 @@ const NOTIFICATIONS_DATA = [
     date: "Jan 19, 2025",
     updates: [
       "Updated Vietnamese, Persian, Dutch, Romanian, Arabic, Greek, Hungarian, Indonesian, Japanese and Portuguese translations",
-    ],
-  },
-  {
-    date: "Jan 17, 2025",
-    updates: [
-      "Updated German, Thai, Ukrainian, Russian, French and Croatian translations",
     ],
   },
 ];

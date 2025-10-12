@@ -48,7 +48,7 @@ const writeFile = (
       description2:
         'Decorate your wall with this high-quality poster or take a printout for study. Print from your home, visit your local photo center, or print online. Make sure to click "Fit to Page" on your printer before printing.',
       license: `${langValues.licensedPersonal} ${langValues.posterShared}`,
-      rating: 43,
+      rating: 46,
       price: 0,
       languages: lang35,
       formats: "PNG, SVG, PDF",
@@ -62,7 +62,7 @@ const writeFile = (
       description2:
         'Decorate your wall with this high-quality poster or take a printout for study. Print from your home, visit your local photo center, or print online. Make sure to click "Fit to Page" on your printer before printing.',
       license: `${langValues.licensedPersonal} ${langValues.posterShared}`,
-      rating: 20,
+      rating: 21,
       price: 0,
       languages: lang35,
       formats: "PNG, SVG, PDF",
@@ -76,7 +76,7 @@ const writeFile = (
       description2:
         'Decorate your wall with this high-quality poster or take a printout for study. Print from your home, visit your local photo center, or print online. Make sure to click "Fit to Page" on your printer before printing.',
       license: `${langValues.licensedPersonal} ${langValues.posterShared}`,
-      rating: 14,
+      rating: 15,
       price: 0,
       languages: lang35,
       formats: "PNG, SVG, PDF",
@@ -90,7 +90,7 @@ const writeFile = (
       description2:
         'Decorate your wall with this high-quality poster or take a printout for study. Print from your home, visit your local photo center, or print online. Make sure to click "Fit to Page" on your printer before printing.',
       license: `${langValues.licensedPersonal} ${langValues.posterShared}`,
-      rating: 10,
+      rating: 12,
       price: 0,
       languages: lang35,
       formats: "PNG, SVG, PDF",

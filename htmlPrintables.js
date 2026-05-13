@@ -48,7 +48,7 @@ const writeFile = (
       description2:
         'Decorate your wall with this high-quality poster or take a printout for study. Print from your home, visit your local photo center, or print online. Make sure to click "Fit to Page" on your printer before printing.',
       license: `${langValues.licensedPersonal} ${langValues.posterShared}`,
-      rating: 46,
+      rating: 51,
       price: 0,
       languages: lang35,
       formats: "PNG, SVG, PDF",
@@ -104,7 +104,7 @@ const writeFile = (
       description2:
         "Flash cards helps you to commit the elements to your memory. Parents and teachers can create fun activities and use them to teach chemistry.<br><br>The PDF file has 30 pages and each page has 4 cards. Each flash card shows the atomic number, symbol, name and atomic weight of the element<br><br>Try to print the flashcards on cardstock paper for a nicer feel and longevity. Print the flash card on one side and the file 000 Cover.pdf on the other side of the flashcard.</br><br>Size: A4<br><br>Text and colors in SVG files can be edited using vector editing software such as Adobe Illustrator or Inkscape",
       license: `${langValues.licensedPersonal} ${langValues.flashcardsShared}`,
-      rating: 23,
+      rating: 25,
       price: 0,
       languages: lang42,
       formats: "SVG, PDF",

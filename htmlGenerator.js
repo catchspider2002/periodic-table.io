@@ -483,7 +483,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
       { page: "periodic-table-poster-4", keywords: '', title: `${langValues.poster} #4 - ${langValues.available35}` },
       { page: "periodic-table-flashcards-1", keywords: '', title: `${langValues.flashcards} #1 - ${langValues.available42}` },
       { page: "periodic-table-flashcards-2", keywords: '', title: `${langValues.flashcards} #2 - ${langValues.available42}` },
-      { page: "periodic-table-flashcards-2", keywords: '', title: `${langValues.flashcards} #3 - ${langValues.available13}` },
+      { page: "periodic-table-flashcards-3", keywords: '', title: `${langValues.flashcards} #3 - ${langValues.available13}` },
     ];
 
     let defaultHead = [

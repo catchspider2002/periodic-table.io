@@ -42,18 +42,18 @@
     },
     "homepage": "https://github.com/catchspider2002/periodic-table.io#readme",
     "dependencies": {
-        "dotenv": "^17.2.3",
-        "follow-redirects": "^1.15.11",
-        "fs-extra": "^11.3.2",
-        "jsdom": "^27.0.0",
-        "read-excel-file": "^6.0.1",
+        "dotenv": "^17.4.2",
+        "follow-redirects": "^1.16.0",
+        "fs-extra": "^11.3.5",
+        "jsdom": "^29.1.1",
+        "read-excel-file": "^9.0.9",
         "svg2img": "^0.9.4",
         "uglify-js": "^3.19.3"
     },
     "devDependencies": {
         "clean-css": "^5.3.3",
         "clean-css-cli": "^5.6.3",
-        "convert-svg-to-png": "^0.6.4",
+        "convert-svg-to-png": "^0.7.1",
         "i": "^0.3.7",
         "uglify-es": "^3.3.9"
     }

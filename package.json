@@ -6,7 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "minify-css": "cleancss -o global.css global_actual.css",
-        "minify-js": "uglifyjs htmlJS_actual.js --compress --mangle --output htmlJS.js"
+        "minify-js": "uglifyjs htmlJS_actual.js --compress --mangle --output htmlJS.js",
+        "build": "npm run minify-css && npm run minify-js && node htmlGenerator.js"
     },
     "repository": {
         "type": "git",

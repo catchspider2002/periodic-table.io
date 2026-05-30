@@ -153,6 +153,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       let metaTags2 = ["<link rel='stylesheet' href='css/global2.css' />", "<script defer src='js/htmlJS.js'></script>"];
 
       let metaTagsFonts = [
+        "<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' rel='stylesheet' />",
         `<link rel='preload' href='fonts/${regularFont}.woff2' as='font' crossorigin='anonymous' />`,
         "<link rel='preload' href='fonts/NotoSans.woff2' as='font' crossorigin='anonymous' />",
       ];

@@ -48,8 +48,8 @@
 }
 
 [data-theme="dark"] {
-  --body-bg-color: rgb(24, 24, 30);
-  --card-bg-color: rgb(42, 42, 48);
+  --body-bg-color: hsl(230, 15%, 11%);
+  --card-bg-color: hsl(230, 12%, 18%);
   --text-color: 234, 234, 234;
   --alt-text-color: rgb(0, 0, 0);
   --form-bg-color: rgba(0, 0, 0, 0.9);
@@ -68,7 +68,7 @@
 }
 
 html {
-  font-family: Regular, SpecialRegular, sans-serif;
+  font-family: 'Inter', Regular, SpecialRegular, sans-serif;
 }
 
 @font-face {
@@ -110,8 +110,8 @@ ul {
 body {
   margin: 0;
   /* font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 15px;
+  line-height: 1.6;
   color: #333;
 }
 
@@ -124,6 +124,7 @@ h6 {
   /* margin: 0 0 0.5em 0; */
   /* font-weight: 400; */
   line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
 h1 {
@@ -576,6 +577,19 @@ table,
 
 .elements {
   display: block;
+  border-radius: 6px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.elements:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  color: currentColor;
+}
+
+.elements:focus-visible {
+  outline: 2px solid rgb(var(--theme-color));
+  outline-offset: 2px;
 }
 
 .list > div {
@@ -839,8 +853,8 @@ canvas {
   -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
   page-break-inside: avoid; /* Firefox */
   break-inside: avoid; /* IE 10+ */
-  border-top: 2px solid rgb(var(--theme-color));
-  border-radius: var(--border-radius);
+  border-top: 3px solid rgb(var(--theme-color));
+  border-radius: 8px;
 }
 
 /* #elementPicture {
@@ -848,7 +862,7 @@ canvas {
 } */
 
 #elementPic {
-  border-radius: 0.125rem;
+  border-radius: 8px 8px 0 0;
 }
 
 .masonry-col,
@@ -912,6 +926,7 @@ canvas {
 
 .list-content {
   overflow: hidden;
+  border-radius: 8px;
 }
 
 .line-height-normal {
@@ -946,6 +961,7 @@ canvas {
 
 .listSym {
   background-color: rgba(var(--theme-color), 0.3);
+  border-radius: 6px 0 0 6px;
 }
 
 .listNum {
@@ -1025,7 +1041,8 @@ canvas {
 .eleSym {
   height: 33%;
   text-align: center;
-  font-size: 1.14em;
+  font-size: 1.25em;
+  font-weight: 600;
 }
 
 .eleNm,
@@ -1044,12 +1061,17 @@ canvas {
 }
 
 #details {
-  font-size: 0.82em;
+  font-size: 0.88em;
   display: grid;
   grid-template-columns: auto 1fr;
   grid-column-gap: 2em;
   grid-template-rows: repeat(6, 1fr);
   padding: 0.25em 1em;
+}
+
+#details > *:nth-child(4n+1),
+#details > *:nth-child(4n+2) {
+  background-color: rgba(var(--blockquote-color), 0.06);
 }
 
 .innerSnippet {
@@ -1288,12 +1310,12 @@ input:focus + .slider {
 }
 
 .alkaliMetals {
-  background-color: rgba(var(--color10), 0.5);
+  background-color: rgba(var(--color10), 0.65);
 }
 
 [data-style="2"] .alkaliMetals,
 [data-style="3"] .alkaliMetals {
-  border-color: rgba(var(--color10), 0.5);
+  border-color: rgba(var(--color10), 0.65);
 }
 
 [data-style="2"] .alkaliMetals:hover,
@@ -1302,12 +1324,12 @@ input:focus + .slider {
 }
 
 .alkalineEarthMetals {
-  background-color: rgba(var(--color8), 0.5); /* Blue */
+  background-color: rgba(var(--color8), 0.65); /* Blue */
 }
 
 [data-style="2"] .alkalineEarthMetals,
 [data-style="3"] .alkalineEarthMetals {
-  border-color: rgba(var(--color8), 0.5);
+  border-color: rgba(var(--color8), 0.65);
 }
 
 [data-style="2"] .alkalineEarthMetals:hover,
@@ -1316,12 +1338,12 @@ input:focus + .slider {
 }
 
 .transitionMetals {
-  background-color: rgba(var(--color1), 0.5); /* Red */
+  background-color: rgba(var(--color1), 0.65); /* Red */
 }
 
 [data-style="2"] .transitionMetals,
 [data-style="3"] .transitionMetals {
-  border-color: rgba(var(--color1), 0.5);
+  border-color: rgba(var(--color1), 0.65);
 }
 
 [data-style="2"] .transitionMetals:hover,
@@ -1330,12 +1352,12 @@ input:focus + .slider {
 }
 
 .postTransitionMetals {
-  background-color: rgba(var(--color9), 0.5); /* Deep Purple */
+  background-color: rgba(var(--color9), 0.65); /* Deep Purple */
 }
 
 [data-style="2"] .postTransitionMetals,
 [data-style="3"] .postTransitionMetals {
-  border-color: rgba(var(--color9), 0.5);
+  border-color: rgba(var(--color9), 0.65);
 }
 
 [data-style="2"] .postTransitionMetals:hover,
@@ -1344,12 +1366,12 @@ input:focus + .slider {
 }
 
 .otherNonmetals {
-  background-color: rgba(var(--color6), 0.5); /* Green */
+  background-color: rgba(var(--color6), 0.65); /* Green */
 }
 
 [data-style="2"] .otherNonmetals,
 [data-style="3"] .otherNonmetals {
-  border-color: rgba(var(--color6), 0.5);
+  border-color: rgba(var(--color6), 0.65);
 }
 
 [data-style="2"] .otherNonmetals:hover,
@@ -1358,12 +1380,12 @@ input:focus + .slider {
 }
 
 .metalloids {
-  background-color: rgba(var(--color2), 0.5); /* Orange */
+  background-color: rgba(var(--color2), 0.65); /* Orange */
 }
 
 [data-style="2"] .metalloids,
 [data-style="3"] .metalloids {
-  border-color: rgba(var(--color2), 0.5);
+  border-color: rgba(var(--color2), 0.65);
 }
 
 [data-style="2"] .metalloids:hover,
@@ -1372,12 +1394,12 @@ input:focus + .slider {
 }
 
 .halogens {
-  background-color: rgba(var(--color7), 0.5); /* Cyan */
+  background-color: rgba(var(--color7), 0.65); /* Cyan */
 }
 
 [data-style="2"] .halogens,
 [data-style="3"] .halogens {
-  border-color: rgba(var(--color7), 0.5);
+  border-color: rgba(var(--color7), 0.65);
 }
 
 [data-style="2"] .halogens:hover,
@@ -1386,12 +1408,12 @@ input:focus + .slider {
 }
 
 .nobleGases {
-  background-color: rgba(var(--color5), 0.5); /* Lime */
+  background-color: rgba(var(--color5), 0.65); /* Lime */
 }
 
 [data-style="2"] .nobleGases,
 [data-style="3"] .nobleGases {
-  border-color: rgba(var(--color5), 0.5);
+  border-color: rgba(var(--color5), 0.65);
 }
 
 [data-style="2"] .nobleGases:hover,
@@ -1400,12 +1422,12 @@ input:focus + .slider {
 }
 
 .lanthanides {
-  background-color: rgba(var(--color3), 0.5); /* Yellow */
+  background-color: rgba(var(--color3), 0.65); /* Yellow */
 }
 
 [data-style="2"] .lanthanides,
 [data-style="3"] .lanthanides {
-  border-color: rgba(var(--color3), 0.5);
+  border-color: rgba(var(--color3), 0.65);
 }
 
 [data-style="2"] .lanthanides:hover,
@@ -1414,12 +1436,12 @@ input:focus + .slider {
 }
 
 .actinides {
-  background-color: rgba(var(--color4), 0.5); /* Brown */
+  background-color: rgba(var(--color4), 0.65); /* Brown */
 }
 
 [data-style="2"] .actinides,
 [data-style="3"] .actinides {
-  border-color: rgba(var(--color4), 0.5);
+  border-color: rgba(var(--color4), 0.65);
 }
 
 [data-style="2"] .actinides:hover,
@@ -2056,6 +2078,14 @@ nav {
   background-color: rgba(var(--darker-color-rgb), 0.85);
 }
 
+nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+}
+
 #logo {
   display: inline-grid;
   /* place-items: center;
@@ -2101,6 +2131,8 @@ nav ul li a, nav div button {
   cursor: pointer;
   place-content: start;
   align-items: center;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
 }
 nav ul li a span,
 #tablesLink span,
@@ -2114,8 +2146,9 @@ nav ul li a span,
 
 /* Background color change on Hover */
 nav a:hover {
-  background-color: rgb(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.1);
   color: rgb(255, 255, 255, 0.75);
+  opacity: 1;
 }
 
 /* Hide Dropdowns by Default
@@ -2166,6 +2199,7 @@ nav ul li ul li a:hover,
 nav ul li a:hover,
 .toggle:hover {
   background-color: rgba(255, 255, 255, 0.1);
+  opacity: 1;
 }
 
 nav > button {

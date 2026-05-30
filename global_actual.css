@@ -1,9 +1,9 @@
 :root {
   --theme-color: 253, 58, 74;
   /* --darker-color-50: rgb(0, 60, 108); */
-  --body-bg-color: rgb(235, 235, 235);
-  --card-bg-color: rgb(245, 245, 245);
-  --text-color: 0, 0, 0;
+  --body-bg-color: hsl(240, 5%, 96%);
+  --card-bg-color: hsl(0, 0%, 100%);
+  --text-color: 31, 41, 55;
   --alt-text-color: rgb(234, 234, 234);
   --form-bg-color: rgba(255, 255, 255, 0.9);
   --blockquote-color: 103, 106, 109;
@@ -296,6 +296,27 @@ select {
 
 button:hover {
   opacity: 0.8;
+}
+
+button:active,
+nav a:active,
+.radio-toolbar label:active,
+.switch:active {
+  transform: scale(0.96);
+}
+
+button, nav a, .radio-toolbar label, .switch {
+  transition: transform 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
+}
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+label:focus-visible {
+  outline: 2px solid rgb(var(--theme-color));
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 select:focus {
@@ -1758,7 +1779,7 @@ blockquote,
   * {
     scrollbar-width: auto;
     scrollbar-color: rgba(var(--blockquote-color), 0.5)
-      rgba(var(--blockquote-color), 0.2);
+      transparent;
   }
 
   ::-webkit-scrollbar {
@@ -1767,11 +1788,17 @@ blockquote,
   }
 
   ::-webkit-scrollbar-track {
-    background-color: rgba(var(--blockquote-color), 0.2);
+    background-color: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: rgba(var(--blockquote-color), 0.5);
+    background-color: rgba(var(--blockquote-color), 0.4);
+    border-radius: 10px;
+    border: 3px solid var(--body-bg-color);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(var(--blockquote-color), 0.6);
   }
 }
 

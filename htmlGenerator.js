@@ -19,6 +19,7 @@ const htmlManifest = require("./htmlManifest.js");
 const htmlSolubility = require("./htmlSolubility.js");
 const htmlReactivity = require("./htmlReactivity.js");
 
+
 let svgFooter = "</svg>";
 let svgHdr =
   "<svg xmlns='http://www.w3.org/2000/svg' width='1.75em' height='1.75em' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'>";
@@ -63,7 +64,8 @@ let lightIcon =
 let darkIcon =
   "<svg xmlns='http://www.w3.org/2000/svg' width='1.75em' height='1.75em' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z' /></svg>";
 
-xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows) => {
+xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((result) => {
+  let rows = result.length && result[0].sheet && result[0].data ? (result.find(s => s.sheet === 'OtherSource') || result[4]).data : result;
   let languages = [
     // { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans", bcp: "en-US", code: "1" },
     // { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans", bcp: "en-GB", code: "45" },
@@ -107,11 +109,11 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
     // { lang: "sr", name: "Српски", col: 26, punc: "comma", regular: "NotoSans", bcp: "sr-Cyrl-CS", code: "462" },
     // { lang: "uk", name: "Українська", col: 14, punc: "comma", regular: "NotoSans", bcp: "uk-UA", code: "36" },
     
-    // { lang: "hy", name: "Հայերեն", col: 42, punc: "comma", regular: "NotoSansArmenian-Regular", bcp: "hy-AM", code: "62" },
-    // { lang: "he", name: "עברית", col: 36, punc: "dot", regular: "NotoSansHebrew-Regular", bcp: "he-IL", code: "42" },
-    // { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular", bcp: "ar-SA", code: "28" },
-    // { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular", bcp: "fa-IR", code: "29" },
-    // { lang: "hi", name: "हिंदी", col: 29, punc: "dot", regular: "NotoSansDevanagari-Regular", bcp: "hi-IN", code: "587" },
+    { lang: "hy", name: "Հայերեն", col: 42, punc: "comma", regular: "NotoSansArmenian-Regular", bcp: "hy-AM", code: "62" },
+    { lang: "he", name: "עברית", col: 36, punc: "dot", regular: "NotoSansHebrew-Regular", bcp: "he-IL", code: "42" },
+    { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular", bcp: "ar-SA", code: "28" },
+    { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular", bcp: "fa-IR", code: "29" },
+    { lang: "hi", name: "हिंदी", col: 29, punc: "dot", regular: "NotoSansDevanagari-Regular", bcp: "hi-IN", code: "587" },
     
     { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular", bcp: "th-TH", code: "56" },
     { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular", bcp: "ja-JP", code: "4" },
@@ -122,6 +124,12 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
   ];
 
   let updates = [
+  {
+      date: "May 14, 2026",
+      updates: [
+        "Updated Japanese, Czech, Turkish, Greek, Polish, Hindi, Thai, Vietnamese and Indonesian translations",
+      ],
+    },
     {
       date: "Oct 12, 2025",
       updates: [
@@ -677,7 +685,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((rows)
       "<section class='footer grayText'>",
       "<div class='flex flex-wrap justify-center pt-2'>",
       "<a target='_blank' href='https://feedback.periodic-table.io/' rel='noopener noreferrer' class='m-1 px-4 py-2'>",
-      langValues.suggestions,
+      langValues.suggestions || "Suggestions",
       "</a>",
       `<a href='about' class='m-1 px-4 py-2'>${langValues.about}</a>`,
       `<a href='credits' class='m-1 px-4 py-2'>${langValues.credits}</a>`,

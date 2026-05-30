@@ -83,14 +83,16 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   writeStream.write("<div>");
   writeStream.write("<select id='firstElement' class='select-css' onchange='firstChanged()' aria-label='First Element'>");
   newRawDataCompare.forEach((ele) => {
-    writeStream.write(` <option value=${ele.id}>${langValues[ele.nme]}</option>`);
+    const selected = ele.id === 'ele1' ? " selected" : "";
+    writeStream.write(` <option value=${ele.id}${selected}>${langValues[ele.nme]}</option>`);
   });
   writeStream.write("</select>");
   writeStream.write("</div>");
   writeStream.write("<div>");
   writeStream.write("<select id='secondElement' class='select-css' onchange='secondChanged()' aria-label='Second Element'>");
   newRawDataCompare.forEach((ele) => {
-    writeStream.write(` <option value=${ele.id}>${langValues[ele.nme]}</option>`);
+    const selected = ele.id === 'ele2' ? " selected" : "";
+    writeStream.write(` <option value=${ele.id}${selected}>${langValues[ele.nme]}</option>`);
   });
   writeStream.write("</select>");
   writeStream.write("</div>");
@@ -98,112 +100,158 @@ const writeFile = (lang, langValues, page, punc, defaultHead, metaTags, defaultN
   writeStream.write("</div>");
   writeStream.write("<div id='mainCompare'>");
 
-  let element = newRawDataCompare[0];
-  // writeStream.write("<div class='row'>");
-  writeStream.write(`<div class='grayText'>${langValues.labelName}</div>`);
-  writeStream.write(`<a id='compEle1' href='element-${element.num}'>`);
-  writeStream.write(`<div class='compareLink'><span id='name1' class='underlineLink'>${langValues[element.nme]}</span></div>`);
-  writeStream.write("</a>");
-  writeStream.write(`<a id='compEle2' href='element-${element.num}'>`);
-  writeStream.write(`<div class='compareLink'><span id='name2' class='underlineLink'>${langValues[element.nme]}</span></div>`);
-  writeStream.write("</a>");
-  // writeStream.write("</div>");
+  let element1 = newRawDataCompare.find((ele) => ele.id === "ele1") || newRawDataCompare[0];
+  let element2 = newRawDataCompare.find((ele) => ele.id === "ele2") || newRawDataCompare[0];
 
-  let compare1Links = [
-    { label: "labelSymbol", id: "symbol", value: element.sym },
-    { label: "labelAtmNoMain", id: "atmNo", value: getNum(element.num) },
-    { label: "group", id: "groups", value: element.grp === "na" ? langValues.na : getNum(element.grp) },
-    { label: "period", id: "periods", value: getNum(element.prd) },
-    { label: "block", id: "block", value: element.blk },
-    { label: "labelCrustMain", id: "crust", value: element.crt === "na" ? langValues.na : getNum(element.crt) },
-    { label: "labelUniverseMain", id: "universe", value: element.uni === "na" ? langValues.na : getNum(element.uni) },
+  writeStream.write(`<div class='grayText'>${langValues.labelName}</div>`);
+  writeStream.write(`<a id='compEle1' href='element-${element1.num}'>`);
+  writeStream.write(`<div class='compareLink'><span id='name1' class='underlineLink'>${langValues[element1.nme]}</span></div>`);
+  writeStream.write("</a>");
+  writeStream.write(`<a id='compEle2' href='element-${element2.num}'>`);
+  writeStream.write(`<div class='compareLink'><span id='name2' class='underlineLink'>${langValues[element2.nme]}</span></div>`);
+  writeStream.write("</a>");
+
+  let compare1Properties = [
+    { label: "labelSymbol", id: "symbol", key: "sym" },
+    { label: "labelAtmNoMain", id: "atmNo", key: "num", isNum: true },
+    { label: "group", id: "groups", key: "grp", isGroup: true },
+    { label: "period", id: "periods", key: "prd", isNum: true },
+    { label: "block", id: "block", key: "blk" },
+    { label: "labelCrustMain", id: "crust", key: "crt", isNaNum: true },
+    { label: "labelUniverseMain", id: "universe", key: "uni", isNaNum: true },
   ];
 
-  compare1Links.forEach((compareLink) => {
-    // writeStream.write("<div class='row'>");
-    writeStream.write(`<div class='grayText'>${langValues[compareLink.label]}</div>`);
-    writeStream.write(`<div id='${compareLink.id}1'>${compareLink.value}</div>`);
-    writeStream.write(`<div id='${compareLink.id}2'>${compareLink.value}</div>`);
-    // writeStream.write("</div>");
+
+  function getNaNum(val) {
+    return val === "na" ? langValues.na : getNum(val);
+  }
+
+  compare1Properties.forEach((prop) => {
+    writeStream.write(`<div class='grayText'>${langValues[prop.label]}</div>`);
+    let val1, val2;
+    if (prop.isNum) {
+      val1 = getNum(element1[prop.key]);
+      val2 = getNum(element2[prop.key]);
+    } else if (prop.isGroup) {
+      val1 = element1[prop.key] === "na" ? langValues.na : getNum(element1[prop.key]);
+      val2 = element2[prop.key] === "na" ? langValues.na : getNum(element2[prop.key]);
+    } else if (prop.isNaNum) {
+      val1 = getNaNum(element1[prop.key]);
+      val2 = getNaNum(element2[prop.key]);
+    } else {
+      val1 = element1[prop.key];
+      val2 = element2[prop.key];
+    }
+    writeStream.write(`<div id='${prop.id}1'>${val1}</div>`);
+    writeStream.write(`<div id='${prop.id}2'>${val2}</div>`);
   });
 
   writeStream.write("<div class='span-3 pt-8'>");
   writeStream.write(`<div class='headerOutline text-upper'>${langValues.labelGeneralProp}</div>`);
   writeStream.write("</div>");
 
-  let compare2Links = [
-    { label: "labelAtmWtMain", id: "atmWeight", value: getNum(element.aWt) },
-    { label: "labelCategoryMain", id: "category", value: langValues[element.ctg] },
-    { label: "labelColorMain", id: "eleColor", value: langValues[element.clr] },
-    { label: "labelRadioMain", id: "radioactive", value: langValues[element.rdo] },
-    { label: "labelStructureMain", id: "structure", value: langValues[element.stc] },
+  let compare2Properties = [
+    { label: "labelAtmWtMain", id: "atmWeight", key: "aWt", isNum: true },
+    { label: "labelCategoryMain", id: "category", key: "ctg", isLang: true },
+    { label: "labelColorMain", id: "eleColor", key: "clr", isLang: true },
+    { label: "labelRadioMain", id: "radioactive", key: "rdo", isLang: true },
+    { label: "labelStructureMain", id: "structure", key: "stc", isLang: true },
   ];
 
-  compare2Links.forEach((compareLink) => {
-    // writeStream.write("<div class='row'>");
-    writeStream.write(`<div class='grayText'>${langValues[compareLink.label]}</div>`);
-    writeStream.write(`<div id='${compareLink.id}1'>${compareLink.value}</div>`);
-    writeStream.write(`<div id='${compareLink.id}2'>${compareLink.value}</div>`);
-    // writeStream.write("</div>");
+  compare2Properties.forEach((prop) => {
+    writeStream.write(`<div class='grayText'>${langValues[prop.label]}</div>`);
+    let val1, val2;
+    if (prop.isNum) {
+      val1 = getNum(element1[prop.key]);
+      val2 = getNum(element2[prop.key]);
+    } else if (prop.isLang) {
+      val1 = langValues[element1[prop.key]];
+      val2 = langValues[element2[prop.key]];
+    }
+    writeStream.write(`<div id='${prop.id}1'>${val1}</div>`);
+    writeStream.write(`<div id='${prop.id}2'>${val2}</div>`);
   });
 
   writeStream.write("<div class='span-3 pt-8'>");
   writeStream.write(`<div class='headerOutline text-upper'>${langValues.labelPhysicalProp}</div>`);
   writeStream.write("</div>");
 
-  let compare3Links = [
-    { label: `${langValues["labelDensityMain"]} (${langValues["labelDensity"]})`, id: "density", value: getNum(element.dns) },
-    { label: langValues["labelPhaseMain"], id: "phase", value: langValues[element.phs] },
-    { label: langValues["labelMeltingMain"], id: "meltPoint", value: getTemp(element.mlt) },
-    { label: langValues["labelBoilingMain"], id: "boilPoint", value: getTemp(element.bln) },
-    {
-      label: `${langValues["labelFusionMain"]} (${langValues["labelFusion"]})`,
-      id: "fusion",
-      value: element.fsn === "na" ? langValues.na : getNum(element.fsn),
-    },
-    {
-      label: `${langValues["labelVaporizationMain"]} (${langValues["labelFusion"]})`,
-      id: "vaporization",
-      value: element.vpn === "na" ? langValues.na : getNum(element.vpn),
-    },
-    { label: `${langValues["labelSpecificMain"]} (${langValues["labelSpecific"]})`, id: "spHeat", value: getNum(element.spc) },
+  let compare3Properties = [
+    { label: `${langValues["labelDensityMain"]} (${langValues["labelDensity"]})`, id: "density", key: "dns", isNum: true },
+    { label: langValues["labelPhaseMain"], id: "phase", key: "phs", isLang: true },
+    { label: langValues["labelMeltingMain"], id: "meltPoint", key: "mlt", isTemp: true },
+    { label: langValues["labelBoilingMain"], id: "boilPoint", key: "bln", isTemp: true },
+    { label: `${langValues["labelFusionMain"]} (${langValues["labelFusion"]})`, id: "fusion", key: "fsn", isNaNum: true },
+    { label: `${langValues["labelVaporizationMain"]} (${langValues["labelFusion"]})`, id: "vaporization", key: "vpn", isNaNum: true },
+    { label: `${langValues["labelSpecificMain"]} (${langValues["labelSpecific"]})`, id: "spHeat", key: "spc", isNum: true },
   ];
 
-  compare3Links.forEach((compareLink) => {
-    // writeStream.write("<div class='row'>");
-    writeStream.write(`<div class='grayText'>${compareLink.label}</div>`);
-    if (compareLink.id === "meltPoint")
-      writeStream.write(`<div id='${compareLink.id}1'><div id='outputMeltingMain'>${compareLink.value}</div></div>`);
-    else if (compareLink.id === "boilPoint")
-      writeStream.write(`<div id='${compareLink.id}1'><div id='outputBoilingMain'>${compareLink.value}</div></div>`);
-    else writeStream.write(`<div id='${compareLink.id}1'>${compareLink.value}</div>`);
-    writeStream.write(`<div id='${compareLink.id}2'>${compareLink.value}</div>`);
-    // writeStream.write("</div>");
+  compare3Properties.forEach((prop) => {
+    writeStream.write(`<div class='grayText'>${prop.label}</div>`);
+    let val1, val2;
+    if (prop.isNum) {
+      val1 = getNum(element1[prop.key]);
+      val2 = getNum(element2[prop.key]);
+    } else if (prop.isLang) {
+      val1 = langValues[element1[prop.key]];
+      val2 = langValues[element2[prop.key]];
+    } else if (prop.isTemp) {
+      val1 = getTemp(element1[prop.key]);
+      val2 = getTemp(element2[prop.key]);
+    } else if (prop.isNaNum) {
+      val1 = getNaNum(element1[prop.key]);
+      val2 = getNaNum(element2[prop.key]);
+    }
+
+    if (prop.id === "meltPoint") {
+      writeStream.write(`<div id='${prop.id}1'><div id='outputMeltingMain'>${val1}</div></div>`);
+      writeStream.write(`<div id='${prop.id}2'>${val2}</div>`);
+    } else if (prop.id === "boilPoint") {
+      writeStream.write(`<div id='${prop.id}1'><div id='outputBoilingMain'>${val1}</div></div>`);
+      writeStream.write(`<div id='${prop.id}2'>${val2}</div>`);
+    } else {
+      writeStream.write(`<div id='${prop.id}1'>${val1}</div>`);
+      writeStream.write(`<div id='${prop.id}2'>${val2}</div>`);
+    }
   });
 
   writeStream.write("<div class='span-3 pt-8'>");
   writeStream.write(`<div class='headerOutline text-upper'>${langValues.labelAtomicProp}</div>`);
   writeStream.write("</div>");
 
-  let compare4Links = [
-    { label: langValues["labelRadiusMain"], id: "atmRadius", value: element.aRd === "-" ? "-" : `${getNum(element.aRd)} pm` },
-    { label: langValues["labelCovalentMain"], id: "covRadius", value: element.cRd === "-" ? "-" : `${getNum(element.cRd)} pm` },
-    { label: `${langValues["labelElectronegativityMain"]} (${langValues["pauling"]})`, id: "eleNeg", value: getNum(element.eNg) },
-    { label: `${langValues["labelIonizationMain"]} (${langValues["labelIonization"]})`, id: "ionization", value: getNum(element.ion) },
-    { label: `${langValues["labelVolumeMain"]} (${langValues["labelVolume"]})`, id: "volume", value: getNum(element.vol) },
-    { label: `${langValues["labelThermalMain"]} (${langValues["labelThermal"]})`, id: "theCond", value: getNum(element.trm) },
-    { label: langValues["labelOxidationMain"], id: "oxidation", value: getNum(element.oxi) },
-    { label: langValues["labelConfigMain"], id: "elecConfig", value: element.cnf },
-    { label: langValues["labelElectronsMain"], id: "electrons", value: getNum(element.elc) },
+  function getRadius(val) {
+     return val === "-" ? "-" : `${getNum(val)} pm`;
+  }
+
+  let compare4Properties = [
+    { label: langValues["labelRadiusMain"], id: "atmRadius", key: "aRd", isRadius: true },
+    { label: langValues["labelCovalentMain"], id: "covRadius", key: "cRd", isRadius: true },
+    { label: `${langValues["labelElectronegativityMain"]} (${langValues["pauling"]})`, id: "eleNeg", key: "eNg", isNum: true },
+    { label: `${langValues["labelIonizationMain"]} (${langValues["labelIonization"]})`, id: "ionization", key: "ion", isNum: true },
+    { label: `${langValues["labelVolumeMain"]} (${langValues["labelVolume"]})`, id: "volume", key: "vol", isNum: true },
+    { label: `${langValues["labelThermalMain"]} (${langValues["labelThermal"]})`, id: "theCond", key: "trm", isNum: true },
+    { label: langValues["labelOxidationMain"], id: "oxidation", key: "oxi", isNum: true },
+    { label: langValues["labelConfigMain"], id: "elecConfig", key: "cnf" },
+    { label: langValues["labelElectronsMain"], id: "electrons", key: "elc", isNum: true },
   ];
 
-  compare4Links.forEach((compareLink) => {
-    // writeStream.write("<div class='row'>");
-    writeStream.write(`<div class='grayText'>${compareLink.label}</div>`);
-    writeStream.write(`<div id='${compareLink.id}1'>${compareLink.value}</div>`);
-    writeStream.write(`<div id='${compareLink.id}2'>${compareLink.value}</div>`);
-    // writeStream.write("</div>");
+  compare4Properties.forEach((prop) => {
+    writeStream.write(`<div class='grayText'>${prop.label}</div>`);
+    let val1, val2;
+    if (prop.isNum) {
+      val1 = getNum(element1[prop.key]);
+      val2 = getNum(element2[prop.key]);
+    } else if (prop.isRadius) {
+      val1 = getRadius(element1[prop.key]);
+      val2 = getRadius(element2[prop.key]);
+    } else {
+      val1 = element1[prop.key];
+      val2 = element2[prop.key];
+    }
+    writeStream.write(`<div id='${prop.id}1'>${val1}</div>`);
+    writeStream.write(`<div id='${prop.id}2'>${val2}</div>`);
   });
+
 
   writeStream.write("</div>");
   writeStream.write("</div>");

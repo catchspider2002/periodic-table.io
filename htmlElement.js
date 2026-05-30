@@ -68,7 +68,8 @@ var crsTPSVG =
 // let defaultPunc = "comma";
 
 const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHead, defaultNav, nav4, defaultFooter, languages) => {
-  xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm", { sheet: 2 }).then((rows) => {
+  xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm", { sheet: 2 }).then((result) => {
+    let rows = result.length && result[0].sheet && result[0].data ? (result.find(s => s.sheet === 'Details') || result[3]).data : result;
     for (let i = 1; i <= 118; i++) {
       let eleNum = i;
       let element = newRawDataElement[eleNum - 1];
@@ -1133,7 +1134,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       writeStream.write("<div id='secondSquare' class='flex-item masonry-col grid'>");
       writeStream.write(`<div class='grayText truncate' title='${langValues.group}'>${langValues.group}</div>`);
       writeStream.write("<div>");
-      if (element.grp === "na") writeStream.write(langValues.na);
+      if (element.grp === "na") writeStream.write(langValues.na || "N/A");
       else writeStream.write(getNum(element.grp.toString()));
       writeStream.write("</div>");
       writeStream.write(`<div class='grayText truncate' title='${langValues.period}'>${langValues.period}</div>`);
@@ -1178,7 +1179,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       // Name Reason
       writeStream.write("<div class='box-content text-center masonry-col'>");
       writeStream.write("<div class='line-height-2'>");
-      writeStream.write(post["ele" + eleNum + "Reason"]);
+      writeStream.write(post["ele" + eleNum + "Reason"] || "");
       writeStream.write("</div>");
       writeStream.write("</div>");
 
@@ -1241,7 +1242,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       writeStream.write("<div class='box-content masonry-col'>");
       writeStream.write("<span class='headerOutline text-upper'>" + langValues.hist + "</span>");
       writeStream.write("<div class='line-height-2'>");
-      writeStream.write(post["ele" + eleNum + "History"]);
+      writeStream.write(post["ele" + eleNum + "History"] || "");
       writeStream.write("</div>");
       writeStream.write("</div>");
 
@@ -1664,7 +1665,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       // Facts
       writeStream.write("<div class='box-content masonry-col text-center'>");
       writeStream.write("<div class='line-height-2'>");
-      writeStream.write(post["ele" + eleNum + "Facts"]);
+      writeStream.write(post["ele" + eleNum + "Facts"] || "");
       writeStream.write("</div>");
       writeStream.write("</div>");
 

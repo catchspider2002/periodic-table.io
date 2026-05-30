@@ -6,7 +6,8 @@ const Constants = require("../htmlConstants.js");
 
 let newRawDataElement = Constants.rawData;
 
-xlsxFile("../../../../OneDrive/Translation/Periodic Table others.xlsm", { sheet: 1 }).then((rows) => {
+xlsxFile("../../../../OneDrive/Translation/Periodic Table others.xlsm", { sheet: 1 }).then((result) => {
+  let rows = result.length && result[0].sheet && result[0].data ? (result.find(s => s.sheet === 'OtherSource') || result[4]).data : result;
   // xlsxFile("../../../../OneDrive/Translation/Periodic Table others.xlsm", { getSheets: true }).then((sheets) => {
   // sheets === [{ name: "Sheet1" }, { name: "Sheet2" }];
   // let rows = sheets[1];

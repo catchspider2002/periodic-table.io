@@ -208,8 +208,15 @@ const writeFile = (
   writeStream.write("<div class='grid-print'>");
 
   printableLinks.forEach((printableLink) => {
+    // Count languages by splitting on semicolons
+    const langCount = printableLink.languages.split(';').filter(s => s.trim()).length;
+    // Build the price badge
+    const priceBadge = printableLink.price > 0
+      ? `<span class='priceBadge priceBadgePaid'>$${printableLink.price}</span>`
+      : `<span class='priceBadge priceBadgeFree'>${langValues.free || 'FREE'}</span>`;
+
     writeStream.write("<div class='flex flex-col overflow-auto'>");
-    writeStream.write(`<h1>${printableLink.title}</h1>`);
+    writeStream.write(`<div class='flex items-start gap-4'>${priceBadge}<h1 class='printableTitle'>${printableLink.title}</h1></div>`);
     writeStream.write(
       `<img class='py-4 image' draggable='false' src='${imagePath}${printableLink.image}.png' alt='${printableLink.title}' />`
     );
@@ -217,7 +224,16 @@ const writeFile = (
     writeStream.write(
       `<div class='pt-4 grayText'>${langValues.languages}</div>`
     );
-    writeStream.write(`<div class='py-4'>${printableLink.languages}</div>`);
+    // Compact language count with expandable full list
+    const langId = `langList_${printableLink.slug.replace(/-/g, '_')}`;
+    const langCountStr = langValues.langCount || '{n} languages';
+    const langCountLabel = langCountStr.replace('{n}', langCount);
+    writeStream.write(`<div class='py-2'>
+      <button onclick="document.getElementById('${langId}').classList.toggle('hidden');this.querySelector('.langToggleArrow').classList.toggle('rotated');" class='langCountToggle'>
+        🌐 ${langCountLabel} <span class='langToggleArrow'>▾</span>
+      </button>
+      <div id='${langId}' class='hidden py-2'>${printableLink.languages}</div>
+    </div>`);
     writeStream.write(
       `<div class='py-4'><span class='grayText'>Formats: </span>${printableLink.formats}</div>`
     );

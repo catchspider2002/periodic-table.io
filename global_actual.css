@@ -1978,6 +1978,52 @@ blockquote,
   color: inherit;
 }
 
+.priceBadge {
+  padding: 0.1rem 0.5rem;
+  border-radius: var(--border-radius);
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.priceBadgeFree {
+  background-color: rgb(var(--color6)); /* Green */
+}
+
+.priceBadgePaid {
+  background-color: var(--darker-color-50);
+}
+
+.langCountToggle {
+  background: none;
+  border: 1px solid rgba(var(--blockquote-color), 0.5);
+  color: rgb(var(--text-color));
+  padding: 0.5em 1em;
+  border-radius: var(--border-radius);
+  font-size: 0.9em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  width: auto;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.langCountToggle:hover {
+  background-color: rgba(var(--blockquote-color), 0.1);
+  opacity: 1;
+}
+
+.langToggleArrow {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.langToggleArrow.rotated {
+  transform: rotate(180deg);
+}
+
 @media print {
   .navbar {
     display: none;
@@ -2534,4 +2580,112 @@ nav > button {
 
 .hidden {
   display: none;
+}
+
+/* Printables Page Styles */
+.priceBadge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 2rem;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.priceBadgeFree {
+  background-color: #bef264;
+  color: #000;
+  border: 1px solid #a3e635;
+}
+
+.priceBadgePaid {
+  background-color: #f59e0b;
+  color: #000;
+}
+
+[data-theme="dark"] .priceBadgePaid {
+  background-color: #fbbf24;
+}
+
+.langCountToggle {
+  background: rgba(var(--gray-color), 0.1);
+  border: 1px solid rgba(var(--gray-color), 0.2);
+  color: inherit;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: auto;
+  transition: all 0.2s ease;
+}
+
+.langCountToggle:hover {
+  background: rgba(var(--gray-color), 0.2);
+  transform: translateY(-1px);
+}
+
+.langToggleArrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  font-size: 0.7rem;
+}
+
+.langToggleArrow.rotated {
+  transform: rotate(180deg);
+}
+
+.downloadButton {
+  background-color: rgb(var(--theme-color));
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.downloadButton:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.buttonLabel {
+  margin-left: 0.5rem;
+}
+
+[data-direction="rtl"] .buttonLabel {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.printableTitle {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.priceBadge {
+  margin-top: 0.25rem; /* Align badge slightly down to center with first line of title */
+}
+
+[data-theme="dark"] .priceBadgeFree {
+  background-color: #4ade80;
+  color: #000;
+  border: 1px solid #22c55e;
 }

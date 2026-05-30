@@ -2,7 +2,8 @@ const fs = require("fs");
 const xlsxFile = require("read-excel-file/node");
 
 const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter) => {
-  xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm", { sheet: "Translators" }).then((rows) => {
+  xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm", { sheet: "Translators" }).then((result) => {
+    let rows = result.length && result[0].sheet && result[0].data ? (result.find(s => s.sheet === 'Translators') || result[2]).data : result;
     let writeStream = fs.createWriteStream(lang + "/" + page + ".html");
 
     let groupedTranslators;

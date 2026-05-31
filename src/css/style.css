@@ -49,7 +49,7 @@
 
 [data-theme="dark"] {
   --body-bg-color: rgb(24, 24, 30);
-  --body-gradient: linear-gradient(135deg, #18181e 0%, #1c1c2a 100%);
+  --body-gradient: linear-gradient(135deg, #16161e 0%, #1e1a2e 100%);
   --card-bg-color: rgb(42, 42, 48);
   --text-color: 234, 234, 234;
   --alt-text-color: rgb(0, 0, 0);
@@ -576,6 +576,7 @@ table,
 
 .elements {
   display: block;
+  position: relative;
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -777,6 +778,8 @@ table,
   top: 0;
   z-index: 1030;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .navbar-nav {
@@ -1284,6 +1287,11 @@ canvas {
   word-break: var(--wordBreak);
 }
 
+.groups,
+.periods {
+  opacity: 0.4;
+}
+
 #period {
   word-break: var(--wordBreak);
 }
@@ -1297,7 +1305,7 @@ canvas {
 .eleSym {
   height: 33%;
   text-align: center;
-  font-size: 1.14em;
+  font-size: 1.3em;
 }
 
 .eleNm,
@@ -1321,7 +1329,10 @@ canvas {
   grid-template-columns: auto 1fr;
   grid-column-gap: 2em;
   grid-template-rows: repeat(6, 1fr);
-  padding: 0.25em 1em;
+  padding: 0.5em 1em;
+  border-radius: 8px;
+  background-color: var(--card-bg-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .innerSnippet {
@@ -1353,6 +1364,8 @@ canvas {
 #lightTeeHeader,
 #darkTeeHeader {
   font-size: 1.2em;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
 }
 
 #snippetNum {
@@ -1419,8 +1432,10 @@ canvas {
 
 .category {
   font-size: 0.88em;
-  padding: 3px 0 2px;
+  padding: 4px 6px;
   word-break: var(--wordBreak);
+  border-radius: 999px;
+  margin: 0 2px;
 }
 
 .unselectable {
@@ -1623,6 +1638,7 @@ input:focus + .slider {
   color: currentColor;
   transform: scale(1.08);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+  z-index: 1;
 }
 
 [data-style="2"] .alkaliMetals,

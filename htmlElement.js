@@ -1,6 +1,7 @@
 const xlsxFile = require("read-excel-file/node");
 const fs = require("fs");
 const Constants = require("./htmlConstants.js");
+const { cssFileName, jsFileName } = require("./assetVersion.js");
 
 let newRawDataElement = Constants.rawData;
 
@@ -150,7 +151,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
           );
       });
 
-      let metaTags2 = ["<link rel='stylesheet' href='css/global2.css' />", "<script defer src='js/htmlJS.js'></script>"];
+      let metaTags2 = [`<link rel='stylesheet' href='css/${cssFileName}' />`, `<script defer src='js/${jsFileName}'></script>`];
 
       let metaTagsFonts = [
         "<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' rel='stylesheet' />",

@@ -18,6 +18,16 @@ const htmlRobots = require("./htmlRobots.js");
 const htmlManifest = require("./htmlManifest.js");
 const htmlSolubility = require("./htmlSolubility.js");
 const htmlReactivity = require("./htmlReactivity.js");
+const { cssFileName, jsFileName } = require("./assetVersion.js");
+
+// Remove previously generated assets (old hashes, legacy global2/global3) so
+// only the current hashed files remain in each language's css/js folders.
+function cleanOldAssets(dir, pattern) {
+  if (!fs.existsSync(dir)) return;
+  for (const file of fs.readdirSync(dir)) {
+    if (pattern.test(file)) fs.unlinkSync(`${dir}/${file}`);
+  }
+}
 
 
 let svgFooter = "</svg>";
@@ -433,13 +443,11 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
     //   }
     // });
 
-    fs.copyFile("global.css", lang + "/css/global2.css", (err) => {
-      if (err) throw err;
-    });
+    cleanOldAssets(cssDir, /^global.*\.css$/);
+    cleanOldAssets(jsDir, /^htmlJS.*\.js$/);
 
-    fs.copyFile("htmlJS.js", lang + "/js/htmlJS.js", (err) => {
-      if (err) throw err;
-    });
+    fs.copyFileSync("global.css", `${cssDir}/${cssFileName}`);
+    fs.copyFileSync("htmlJS.js", `${jsDir}/${jsFileName}`);
 
     // fs.copyFile("pwabuilder-sw.js", lang + "/pwabuilder-sw.js", (err) => {
     //   if (err) throw err;
@@ -764,7 +772,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
         );
       });
 
-      let metaTags2 = ["<link rel='stylesheet' href='css/global2.css' />", "<script defer src='js/htmlJS.js'></script>"];
+      let metaTags2 = [`<link rel='stylesheet' href='css/${cssFileName}' />`, `<script defer src='js/${jsFileName}'></script>`];
 
       let metaTagsFonts = [
         "<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' rel='stylesheet' />",

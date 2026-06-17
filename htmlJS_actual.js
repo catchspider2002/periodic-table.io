@@ -1,4 +1,4 @@
-﻿var List;
+var List;
 List = (function () {
   var t = {
       "./src/add-async.js": function (t) {
@@ -10597,6 +10597,14 @@ if (id("ptable")) {
 
   setScenarios();
   resizeEvent();
+
+  // Reserve the hover box's height on load. The box (#snippet/#details) is empty
+  // until the first hover, so its height is ~0 on load and jumps when filled --
+  // pushing the 3 table rows it spans (worse with Inter's taller metrics). Filling
+  // it once with element 1, then re-hiding, locks in the height so hovering never
+  // reflows the table. Content is intentionally kept (removeOutline only hides).
+  setOutline.call(id("element1"));
+  removeOutline.call(id("element1"));
 }
 
 function setOpacity(percent) {
@@ -10993,6 +11001,13 @@ const STORAGE_KEY = "latestUpdate";
 
 const NOTIFICATIONS_DATA = [
   {
+      date: "Jun 17, 2026",
+      updates: [
+        "Updated the design of the site to be more modern, introduced animations and a new font",
+        "Added a search bar to search for elements based on name or number"
+      ],
+    },
+  {
       date: "May 14, 2026",
       updates: [
         "Updated Japanese, Czech,Turkish and Indonesian translations",
@@ -11173,3 +11188,27 @@ document.addEventListener("DOMContentLoaded", () => {
     notificationBtn.removeAttribute("onclick");
   }
 });
+
+// Quick Search functionality for Periodic Table Index
+function handleQuickSearch(query) {
+  query = query.toLowerCase().trim();
+  const elements = document.querySelectorAll('#ptable .elements');
+  if (!elements.length) return;
+
+  if (query === '') {
+    elements.forEach(el => el.classList.remove('element-dimmed'));
+    return;
+  }
+
+  elements.forEach(el => {
+    const num = el.querySelector('.eleNum')?.textContent?.toLowerCase() || '';
+    const sym = el.querySelector('.eleSym')?.textContent?.toLowerCase() || '';
+    const nme = el.querySelector('.eleNm')?.textContent?.toLowerCase() || '';
+    
+    if (num.includes(query) || sym.includes(query) || nme.includes(query) || (sym === query)) {
+      el.classList.remove('element-dimmed');
+    } else {
+      el.classList.add('element-dimmed');
+    }
+  });
+}

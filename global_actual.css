@@ -6,7 +6,7 @@
   --card-bg-color: hsl(0, 0%, 100%);
   --text-color: 31, 41, 55;
   --alt-text-color: rgb(234, 234, 234);
-  --form-bg-color: rgba(255, 255, 255, 0.9);
+  --form-bg-color: var(--card-bg-color);
   --blockquote-color: 103, 106, 109;
   --sidebar-color: 215, 215, 215;
   --gray-color: 172, 172, 172;
@@ -54,7 +54,7 @@
   --card-bg-color: hsl(230, 12%, 18%);
   --text-color: 234, 234, 234;
   --alt-text-color: rgb(0, 0, 0);
-  --form-bg-color: rgba(0, 0, 0, 0.9);
+  --form-bg-color: var(--card-bg-color);
   --blockquote-color: 148, 146, 143;
   --sidebar-color: 40, 40, 40;
   --gray-color: 72, 72, 72;
@@ -225,6 +225,7 @@ body {
   transition: 0.1s opacity;
   background: var(--body-gradient);
   color: rgb(var(--text-color));
+  font-variant-numeric: tabular-nums;
 }
 
 body.fade-out {
@@ -369,7 +370,6 @@ select:focus {
   top: 48px;
   z-index: 1;
   width: calc(100% - 17px);
-  background-color: var(--body-bg-color);
   margin-right: -25px;
   margin-left: -25px;
   padding: 1.5rem;
@@ -443,8 +443,18 @@ table,
   display: grid;
   grid-template-columns: 1fr;
   gap: 4em;
-  /* grid-column-gap: 1em; */
 }
+
+.grid-print > * {
+  animation: slideUpFade 0.5s ease backwards;
+}
+.grid-print > *:nth-child(1) { animation-delay: 0.08s; }
+.grid-print > *:nth-child(2) { animation-delay: 0.16s; }
+.grid-print > *:nth-child(3) { animation-delay: 0.24s; }
+.grid-print > *:nth-child(4) { animation-delay: 0.32s; }
+.grid-print > *:nth-child(5) { animation-delay: 0.40s; }
+.grid-print > *:nth-child(6) { animation-delay: 0.48s; }
+.grid-print > *:nth-child(n+7) { animation-delay: 0.55s; }
 
 @media (min-width: 992px) {
   .grid-print {
@@ -602,8 +612,39 @@ table,
   display: block;
   position: relative;
   border-radius: 6px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.2s ease, filter 0.2s ease;
+  animation: slideUpFade 0.5s ease backwards;
 }
+
+@keyframes slideUpFade {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.element-dimmed {
+  opacity: 0.1;
+  pointer-events: none;
+  filter: grayscale(100%);
+}
+
+.c1 { animation-delay: 0.02s; }
+.c2 { animation-delay: 0.04s; }
+.c3 { animation-delay: 0.06s; }
+.c4 { animation-delay: 0.08s; }
+.c5 { animation-delay: 0.10s; }
+.c6 { animation-delay: 0.12s; }
+.c7 { animation-delay: 0.14s; }
+.c8 { animation-delay: 0.16s; }
+.c9 { animation-delay: 0.18s; }
+.c10 { animation-delay: 0.20s; }
+.c11 { animation-delay: 0.22s; }
+.c12 { animation-delay: 0.24s; }
+.c13 { animation-delay: 0.26s; }
+.c14 { animation-delay: 0.28s; }
+.c15 { animation-delay: 0.30s; }
+.c16 { animation-delay: 0.32s; }
+.c17 { animation-delay: 0.34s; }
+.c18 { animation-delay: 0.36s; }
 
 .elements:hover {
   transform: translateY(-2px);
@@ -869,6 +910,30 @@ canvas {
   overflow: hidden;
 }
 
+/* Page entry animation for all content pages */
+.content-wrapper {
+  animation: slideUpFade 0.4s ease backwards;
+  animation-delay: 0.05s;
+}
+
+/* Stagger direct section children on static pages */
+.content-wrapper > .container > * {
+  animation: slideUpFade 0.45s ease backwards;
+}
+.content-wrapper > .container > *:nth-child(1) { animation-delay: 0.08s; }
+.content-wrapper > .container > *:nth-child(2) { animation-delay: 0.14s; }
+.content-wrapper > .container > *:nth-child(3) { animation-delay: 0.20s; }
+.content-wrapper > .container > *:nth-child(4) { animation-delay: 0.26s; }
+.content-wrapper > .container > *:nth-child(n+5) { animation-delay: 0.32s; }
+
+/* The compare page has a position:fixed top bar (#topRowCompare). A transformed
+   ancestor re-anchors fixed descendants, so the entry animation makes the bar
+   slide on load. Skip the entry transform on the wrapper/row containing it. */
+.content-wrapper:has(#topRowCompare),
+.content-wrapper:has(#topRowCompare) > .container > * {
+  animation: none;
+}
+
 /* .list a {
       text-decoration: none;
     } */
@@ -885,7 +950,23 @@ canvas {
   break-inside: avoid; /* IE 10+ */
   border-top: 3px solid rgb(var(--theme-color));
   border-radius: 8px;
+  animation: slideUpFade 0.5s ease backwards;
 }
+
+/* Stagger each masonry card by index */
+.masonry-col:nth-child(1)  { animation-delay: 0.05s; }
+.masonry-col:nth-child(2)  { animation-delay: 0.10s; }
+.masonry-col:nth-child(3)  { animation-delay: 0.15s; }
+.masonry-col:nth-child(4)  { animation-delay: 0.20s; }
+.masonry-col:nth-child(5)  { animation-delay: 0.25s; }
+.masonry-col:nth-child(6)  { animation-delay: 0.30s; }
+.masonry-col:nth-child(7)  { animation-delay: 0.35s; }
+.masonry-col:nth-child(8)  { animation-delay: 0.40s; }
+.masonry-col:nth-child(9)  { animation-delay: 0.45s; }
+.masonry-col:nth-child(10) { animation-delay: 0.50s; }
+.masonry-col:nth-child(11) { animation-delay: 0.55s; }
+.masonry-col:nth-child(12) { animation-delay: 0.60s; }
+.masonry-col:nth-child(n+13) { animation-delay: 0.65s; }
 
 /* #elementPicture {
   border-radius: var(--border-radius);
@@ -1047,6 +1128,19 @@ canvas {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+/* Stagger compare page rows (every 3 children = 1 row) */
+#mainCompare > *:nth-child(3n+1) { animation: slideUpFade 0.4s ease backwards; animation-delay: calc((var(--row-index, 0)) * 0.06s); }
+#mainCompare > *:nth-child(1), #mainCompare > *:nth-child(2), #mainCompare > *:nth-child(3)   { animation: slideUpFade 0.4s ease backwards; animation-delay: 0.04s; }
+#mainCompare > *:nth-child(4), #mainCompare > *:nth-child(5), #mainCompare > *:nth-child(6)   { animation: slideUpFade 0.4s ease backwards; animation-delay: 0.08s; }
+#mainCompare > *:nth-child(7), #mainCompare > *:nth-child(8), #mainCompare > *:nth-child(9)   { animation: slideUpFade 0.4s ease backwards; animation-delay: 0.12s; }
+#mainCompare > *:nth-child(10), #mainCompare > *:nth-child(11), #mainCompare > *:nth-child(12) { animation: slideUpFade 0.4s ease backwards; animation-delay: 0.16s; }
+#mainCompare > *:nth-child(13), #mainCompare > *:nth-child(14), #mainCompare > *:nth-child(15) { animation: slideUpFade 0.4s ease backwards; animation-delay: 0.20s; }
+#mainCompare > *:nth-child(16), #mainCompare > *:nth-child(17), #mainCompare > *:nth-child(18) { animation: slideUpFade 0.4s ease backwards; animation-delay: 0.24s; }
+#mainCompare > *:nth-child(19), #mainCompare > *:nth-child(20), #mainCompare > *:nth-child(21) { animation: slideUpFade 0.4s ease backwards; animation-delay: 0.28s; }
+#mainCompare > *:nth-child(22), #mainCompare > *:nth-child(23), #mainCompare > *:nth-child(24) { animation: slideUpFade 0.4s ease backwards; animation-delay: 0.32s; }
+#mainCompare > *:nth-child(25), #mainCompare > *:nth-child(26), #mainCompare > *:nth-child(27) { animation: slideUpFade 0.4s ease backwards; animation-delay: 0.36s; }
+#mainCompare > *:nth-child(n+28) { animation: slideUpFade 0.4s ease backwards; animation-delay: 0.40s; }
+
 #ptable {
   table-layout: fixed;
   font-size: 1.5em;
@@ -1060,11 +1154,6 @@ canvas {
 .groups,
 .periods {
   font-size: 0.742em;
-}
-
-.groups,
-.periods {
-  opacity: 0.4;
 }
 
 .eleNum {
@@ -1096,20 +1185,50 @@ canvas {
 }
 
 #details {
-  font-size: 0.88em;
+  font-size: 0.8em;
   display: grid;
   grid-template-columns: auto 1fr;
   grid-column-gap: 2em;
-  grid-template-rows: repeat(6, 1fr);
-  padding: 0.5em 1em;
+  grid-template-rows: repeat(6, auto);
+  align-content: center;
+  row-gap: 0.15em;
+  line-height: 1.3;
+  padding: 1em;
   border-radius: 8px;
   background-color: var(--card-bg-color);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
-#details > *:nth-child(4n+1),
-#details > *:nth-child(4n+2) {
-  background-color: rgba(var(--blockquote-color), 0.06);
+#details > *:nth-child(n+2) {
+  border-top: 1px solid rgba(var(--blockquote-color), 0.1);
+}
+
+/* Property labels (Discovered, Melting point, ...) — muted small caps */
+#details > *:nth-child(2n+2) {
+  font-size: 0.82em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(var(--text-color), 0.6);
+  align-self: center;
+}
+
+/* Property values — emphasised */
+#details > *:nth-child(2n+3) {
+  font-weight: 600;
+  align-self: center;
+}
+
+/* The card spans periods 1-3 (rowspan=3). Pull it out of the table's height
+   calc so the element tiles alone size those rows -- otherwise a card taller
+   than 3 rows stretches them and breaks the equal element spacing. */
+#snippetDetails {
+  position: relative;
+}
+
+#snippetDetails .innerSnippet {
+  position: absolute;
+  inset: 0;
 }
 
 .innerSnippet {
@@ -1145,22 +1264,37 @@ canvas {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
 }
 
+/* Keep the number/symbol/weight tile square regardless of the row height */
+#snippet {
+  aspect-ratio: 1 / 1;
+  height: auto;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 #snippetNum {
-  padding: 4% 6%;
+  padding: 8% 6% 0;
   height: 25%;
 }
 
 #snippetSym {
   font-size: 2.8em;
+  font-weight: 700;
+  line-height: 1.1;
 }
 
 #snippetWt {
-  padding: 6% 6% 0;
+  padding: 0 6% 8%;
 }
 
 #detailRow1 {
-  font-size: 1.231em;
+  font-size: 1.2em;
+  font-weight: 700;
+  letter-spacing: 0.03em;
   grid-column: 1/3;
+  align-self: center;
 }
 
 /* #valueRow2 {
@@ -1290,7 +1424,8 @@ input:focus + .slider {
 }
 
 .footer {
-  background-color: var(--body-bg-color);
+  background-color: transparent;
+  border-top: 1px solid rgba(var(--blockquote-color), 0.15);
 }
 
 #colorTable {
@@ -2120,13 +2255,12 @@ blockquote,
 nav {
   margin: 0;
   padding: 0;
-  /* background-color: var(--darker-color-50); */
   position: sticky;
   top: 0;
   text-transform: uppercase;
   z-index: 3;
   display: grid;
-  grid-template-columns: auto 1fr auto auto auto auto;
+  grid-template-columns: auto 1fr auto auto auto auto auto;
   letter-spacing: 0.5px;
   align-items: center;
   color: #fff;
@@ -2268,9 +2402,8 @@ nav > button {
 
 @media all and (max-width: 768px) {
   nav {
-    /*       margin: 0; */
     display: grid;
-    grid-template-columns: auto 1fr auto auto auto auto auto;
+    grid-template-columns: auto 1fr auto auto auto auto auto auto;
     z-index: 3;
   }
 
@@ -2775,3 +2908,54 @@ nav > button {
   color: #000;
   border: 1px solid #22c55e;
 }
+
+/* Quick Search Styling */
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 0 1rem;
+}
+
+#quickSearch {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 0.4rem 1rem 0.4rem 2.2rem;
+  color: #fff;
+  font-size: 0.9rem;
+  width: 180px;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+#quickSearch::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+#quickSearch:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  width: 220px;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+  width: 1rem;
+  height: 1rem;
+}
+
+@media all and (max-width: 768px) {
+  #quickSearch {
+    width: 140px;
+  }
+  #quickSearch:focus {
+    width: 160px;
+  }
+}
+

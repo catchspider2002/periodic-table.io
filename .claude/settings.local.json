@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python -c ' *)"
+      "Bash(python -c ' *)",
+      "Bash(node -e \"console.log\\(require\\('./assetVersion.js'\\)\\)\")"
     ]
   }
 }

@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { cssFileName, jsFileName } = require("./assetVersion.js");
 
 const writeFile = (
   lang,
@@ -396,8 +397,8 @@ const writeFile = (
     </script>`);
 
     let metaTags2 = [
-      "<link rel='stylesheet' href='css/global2.css' />",
-      "<script defer src='js/htmlJS.js'></script>",
+      `<link rel='stylesheet' href='css/${cssFileName}' />`,
+      `<script defer src='js/${jsFileName}'></script>`,
     ];
 
     let metaTagsFonts = [

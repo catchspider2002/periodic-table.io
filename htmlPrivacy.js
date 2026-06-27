@@ -23,7 +23,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
 
   writeStream.write("<section class='content-wrapper'>");
   writeStream.write("<div class='container'>");
-  writeStream.write(`<h1 class='pt-8 text-upper text-center grayText'>${langValues.privacy}</h1>`);
+  writeStream.write(`<h2 class='pt-8 text-upper text-center grayText'>${langValues.privacy}</h2>`);
   writeStream.write(`<div class='py-8'>${langValues.privacyFull}</div>`);
   writeStream.write("</div>");
   writeStream.write("</section>");

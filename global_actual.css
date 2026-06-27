@@ -332,8 +332,30 @@ select:focus {
 
 .sort {
   font-size: 0.94em;
-  border-radius: var(--border-radius);
-  background-color: var(--darker-color-50);
+  border-radius: 8px;
+  background-color: transparent;
+  color: rgb(var(--text-color));
+  border: 1px solid rgba(var(--blockquote-color), 0.4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.sort svg {
+  margin-left: 0.4em;
+}
+
+.sort:hover {
+  opacity: 1;
+  border-color: rgba(var(--blockquote-color), 0.7);
+}
+
+/* The active (currently-sorted) button fills with the theme colour */
+.sort:has(svg) {
+  background-color: rgb(var(--theme-color));
+  border-color: rgb(var(--theme-color));
+  color: #fff;
 }
 
 /* .close {
@@ -370,6 +392,7 @@ select:focus {
   top: 48px;
   z-index: 1;
   width: calc(100% - 17px);
+  background: var(--body-gradient);
   margin-right: -25px;
   margin-left: -25px;
   padding: 1.5rem;
@@ -442,7 +465,7 @@ table,
 .grid-print {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 4em;
+  gap: 2em;
 }
 
 .grid-print > * {
@@ -703,6 +726,15 @@ table,
   font-weight: 600;
 }
 
+/* Setting row labels - quiet small caps, matching the section header.
+   align-self left untouched so the .self-start labels keep top-aligning. */
+.settingsGrid > .grayText {
+  font-size: 0.72em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
 .span-3 {
   grid-column: 1/4;
 }
@@ -948,6 +980,7 @@ canvas {
   -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
   page-break-inside: avoid; /* Firefox */
   break-inside: avoid; /* IE 10+ */
+  border: 1px solid rgba(var(--blockquote-color), 0.18);
   border-top: 3px solid rgb(var(--theme-color));
   border-radius: 8px;
   animation: slideUpFade 0.5s ease backwards;
@@ -1050,53 +1083,44 @@ canvas {
 
 .listGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
 }
 
-.listSym,
-.listNum {
-  width: 60px;
-}
-
-.listName,
-.listSym,
-.listNum {
-  height: 60px;
-  line-height: 60px;
-}
-
-.listName {
-  width: calc(100% - 120px);
-}
-
+/* Symbol badge - filled theme colour, white symbol */
 .listSym {
-  background-color: rgba(var(--theme-color), 0.3);
-  border-radius: 6px 0 0 6px;
+  flex: 0 0 auto;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background-color: rgb(var(--theme-color));
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.05em;
+  line-height: 1;
 }
 
+/* Element name - the primary label */
+.listName {
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: start;
+  font-weight: 600;
+  font-size: 1.05em;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Atomic number - muted, trailing */
 .listNum {
-  background-image: linear-gradient(
-    calc(var(--sign) * 45deg),
-    transparent 0%,
-    transparent 50%,
-    rgba(var(--theme-color), 0.3) 50%,
-    rgba(var(--theme-color), 0.3) 100%
-  );
-  position: relative;
-  font-size: 0.85em;
-}
-
-.listNum > span {
-  position: absolute;
-  top: -13px;
-  left: unset;
-  right: 10px;
-}
-
-[data-direction="rtl"] .listNum > * {
-  left: 10px;
-  right: unset;
+  flex: 0 0 auto;
+  font-size: 0.95em;
+  font-weight: 600;
+  color: rgba(var(--text-color), 0.45);
 }
 
 #pageHeader {
@@ -1121,11 +1145,60 @@ canvas {
   padding-bottom: 2em;
 }
 
+/* List element row: badge + name + muted number, with a hover lift */
+.elementList {
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.6rem 1rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.elementList:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 20px -5px rgba(0, 0, 0, 0.18),
+    0 6px 8px -4px rgba(0, 0, 0, 0.08);
+}
+
+/* List search field, consistent with the modern select styling */
+.search {
+  border: 1px solid rgba(var(--blockquote-color), 0.4);
+  border-radius: 8px;
+  padding: 0.6em 1em;
+}
+
+.search:focus {
+  border-color: rgb(var(--theme-color));
+  box-shadow: 0 0 0 3px rgba(var(--theme-color), 0.2);
+  outline: none;
+}
+
 #mainCompare {
   padding-top: 28px;
   display: grid;
-  gap: 1.5rem;
+  column-gap: 1.5rem;
+  row-gap: 0;
   grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Compare rows: a divider per row so the eye tracks across the two columns */
+#mainCompare > *:not(.span-3) {
+  padding: 0.55rem 0.25rem;
+  border-bottom: 1px solid rgba(var(--blockquote-color), 0.12);
+  align-self: center;
+}
+
+/* Property labels (first cell of each row) - muted small caps */
+#mainCompare > .grayText {
+  font-size: 0.82em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Property values - emphasised */
+#mainCompare > *:not(.grayText):not(.span-3) {
+  font-weight: 600;
 }
 
 /* Stagger compare page rows (every 3 children = 1 row) */
@@ -1203,7 +1276,7 @@ canvas {
   border-top: 1px solid rgba(var(--blockquote-color), 0.1);
 }
 
-/* Property labels (Discovered, Melting point, ...) — muted small caps */
+/* Property labels (Discovered, Melting point, ...) - muted small caps */
 #details > *:nth-child(2n+2) {
   font-size: 0.82em;
   font-weight: 500;
@@ -1213,7 +1286,7 @@ canvas {
   align-self: center;
 }
 
-/* Property values — emphasised */
+/* Property values - emphasised */
 #details > *:nth-child(2n+3) {
   font-weight: 600;
   align-self: center;
@@ -1256,9 +1329,7 @@ canvas {
   width: 100%;
 }
 
-#snippet,
-#lightTeeHeader,
-#darkTeeHeader {
+#snippet {
   font-size: 1.2em;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
@@ -1416,7 +1487,9 @@ input:focus + .slider {
 
 .aboutHeader {
   font-size: 1.5em;
-  color: var(--fg-color);
+  margin: 0;
+  line-height: 1.2;
+  color: rgb(var(--theme-color));
 }
 
 .ltrText {
@@ -1676,16 +1749,6 @@ input:focus + .slider {
   background-color: rgb(var(--color10));
 }
 
-.teeImage {
-  width: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-.teeLink {
-  padding: 10px 0;
-}
-
 blockquote {
   color: rgb(var(--blockquote-color));
   padding-left: 1.5em;
@@ -1741,7 +1804,8 @@ blockquote,
   font-size: 1rem;
   background-color: rgba(var(--blockquote-color), 0.3);
   color: rgba(var(--blockquote-color), 0.5);
-  border-radius: var(--border-radius);
+  border: 1.5px solid transparent;
+  border-radius: 8px;
   /* line-height: 1.5rem; */
   cursor: pointer;
   /* font-weight: 600; */
@@ -1761,8 +1825,9 @@ blockquote,
   color: rgba(var(--blockquote-color), 0.7);
 }
 
-.radio-toolbar input[type="radio"]:focus + label {
-  border-color: rgb(216, 216, 216);
+.radio-toolbar input[type="radio"]:focus-visible + label {
+  outline: 2px solid rgb(var(--theme-color));
+  outline-offset: 2px;
 }
 
 .radio-toolbar input[type="radio"]:checked + label {
@@ -1772,7 +1837,6 @@ blockquote,
 
 .radio-toolbar input[type="radio"]:checked + label::before {
   content: var(--white-check);
-  color: var(--fg-color);
 }
 
 .radio-style label {
@@ -1821,6 +1885,12 @@ blockquote,
 
 .radio-color {
   grid-template-columns: repeat(5, 1fr);
+}
+
+/* Clear ring on the selected colour swatch */
+.radio-color input[type="radio"]:checked + label {
+  outline: 2px solid rgb(var(--text-color));
+  outline-offset: 2px;
 }
 
 .radio-temp {
@@ -2055,11 +2125,13 @@ blockquote,
   left: 0;
   z-index: 1;
   background-color: var(--card-bg-color);
+  box-shadow: 4px 0 6px -2px rgba(0, 0, 0, 0.08);
 }
 
 .grid-item {
   height: 70px;
-  /* border: 1px solid gray; */
+  border-right: 1px solid rgba(var(--blockquote-color), 0.08);
+  border-bottom: 1px solid rgba(var(--blockquote-color), 0.08);
   min-width: 80px;
   padding: 1em 1.5em;
   place-items: center;
@@ -2079,6 +2151,8 @@ blockquote,
   position: sticky;
   background-color: var(--card-bg-color);
   top: 0;
+  font-weight: 600;
+  box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.08);
 }
 
 #gridTopLeft {
@@ -2124,6 +2198,54 @@ blockquote,
   color: rgb(var(--color4));
 }
 
+/* Heatmap cell tints - scan solubility/reactivity at a glance.
+   Higher specificity than the zebra rule so data cells keep their colour. */
+.grid-item.soluble,
+.grid-item.insoluble,
+.grid-item.slightlySol,
+.grid-item.unavailable,
+.grid-item.reactsWater,
+.grid-item.strongReaction,
+.grid-item.slowReaction,
+.grid-item.noReaction,
+.grid-item.nonMetal,
+.grid-item.moderateReaction,
+.grid-item.verySlowReaction,
+.grid-item.violentReaction {
+  font-weight: 600;
+}
+
+.grid-item.slightlySol,
+.grid-item.moderateReaction {
+  background-color: rgba(var(--color3), 0.16);
+}
+.grid-item.soluble,
+.grid-item.verySlowReaction {
+  background-color: rgba(var(--color6), 0.16);
+}
+.grid-item.insoluble,
+.grid-item.violentReaction {
+  background-color: rgba(var(--color1), 0.16);
+}
+.grid-item.unavailable {
+  background-color: rgba(var(--color9), 0.14);
+}
+.grid-item.reactsWater {
+  background-color: rgba(var(--color8), 0.16);
+}
+.grid-item.strongReaction {
+  background-color: rgba(var(--color2), 0.16);
+}
+.grid-item.slowReaction {
+  background-color: rgba(var(--color5), 0.16);
+}
+.grid-item.noReaction {
+  background-color: rgba(var(--color7), 0.16);
+}
+.grid-item.nonMetal {
+  background-color: rgba(var(--color4), 0.16);
+}
+
 .solName,
 .slightlySolName,
 .solubleName,
@@ -2136,7 +2258,33 @@ blockquote,
   display: grid;
   grid-template-columns: auto auto;
   justify-content: start;
+  align-items: center;
   gap: 1em 2em;
+}
+
+/* Legend swatches mirror the tinted heatmap cells */
+.keyGrid > div[class] {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.keyGrid > .soluble {
+  background-color: rgba(var(--color6), 0.16);
+}
+.keyGrid > .slightlySol {
+  background-color: rgba(var(--color3), 0.16);
+}
+.keyGrid > .insoluble {
+  background-color: rgba(var(--color1), 0.16);
+}
+.keyGrid > .unavailable {
+  background-color: rgba(var(--color9), 0.14);
+}
+.keyGrid > .reactsWater {
+  background-color: rgba(var(--color8), 0.16);
 }
 
 @media (min-width: 1440px) {
@@ -2172,69 +2320,6 @@ blockquote,
   .keyGrid {
     display: none;
   }
-}
-
-.downloadButton {
-  display: inline-grid;
-  gap: 1em;
-  /* min-width: 100px; */
-  /* height: 45px; */
-  border-radius: var(--border-radius);
-  padding: 0.5em 1em;
-  background-color: var(--darker-color-50);
-  color: #fff;
-  grid-auto-flow: column;
-}
-
-.downloadButton:hover {
-  opacity: 0.8;
-  color: inherit;
-}
-
-.priceBadge {
-  padding: 0.1rem 0.5rem;
-  border-radius: var(--border-radius);
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: #fff;
-  white-space: nowrap;
-}
-
-.priceBadgeFree {
-  background-color: rgb(var(--color6)); /* Green */
-}
-
-.priceBadgePaid {
-  background-color: var(--darker-color-50);
-}
-
-.langCountToggle {
-  background: none;
-  border: 1px solid rgba(var(--blockquote-color), 0.5);
-  color: rgb(var(--text-color));
-  padding: 0.5em 1em;
-  border-radius: var(--border-radius);
-  font-size: 0.9em;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  width: auto;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.langCountToggle:hover {
-  background-color: rgba(var(--blockquote-color), 0.1);
-  opacity: 1;
-}
-
-.langToggleArrow {
-  display: inline-block;
-  transition: transform 0.2s;
-}
-
-.langToggleArrow.rotated {
-  transform: rotate(180deg);
 }
 
 @media print {
@@ -2729,13 +2814,14 @@ nav > button {
   right: 0;
   left: auto;
   width: 300px;
-  background: rgba(var(--sidebar-color), 0.9);
-  backdrop-filter: blur(12px);
+  background: var(--card-bg-color);
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.25),
+    0 6px 10px -6px rgba(0, 0, 0, 0.15);
   z-index: 1000;
   margin-top: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
+  border: 1px solid rgba(var(--blockquote-color), 0.2);
   text-transform: initial;
   color: rgb(var(--text-color));
 }
@@ -2776,25 +2862,56 @@ nav > button {
 
 .notification-item {
   padding: 12px 16px;
-  border-bottom: 1px solid var(--border-color);
+  border-top: 1px solid rgba(var(--blockquote-color), 0.18);
   cursor: pointer;
+  transition: background-color 0.15s ease;
 }
 
-.notification-item:last-child {
-  border-bottom: none;
+.notification-item:first-child {
+  border-top: none;
 }
 
-.notification-item.unread {
-  background: var(--hover-color);
+.notification-item:hover {
+  background: rgba(var(--theme-color), 0.07);
 }
 
-.notification-item .date {
-  font-size: 12px;
-  margin-top: 4px;
+.notification-date {
+  font-weight: 600;
+  font-size: 0.78rem;
+  margin-bottom: 0.45rem;
 }
 
-.notification-item li {
+.notification-updates {
+  margin: 0;
+  padding: 0;
   list-style: none;
+  /* This list lives inside <nav>, which styles `nav ul` as a column grid
+     (display:grid; grid-auto-flow:column; float:right). Reset to a plain
+     block so the update lines stack in a single column. */
+  display: block;
+  float: none;
+}
+
+.notification-updates li {
+  /* Override the navbar's `nav ul li { display: inline-block }` so updates stack. */
+  display: block;
+  float: none;
+  position: relative;
+  padding-inline-start: 1rem;
+  padding-bottom: 0.35rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: rgba(var(--text-color), 0.75);
+}
+
+.notification-updates li:last-child {
+  padding-bottom: 0;
+}
+
+.notification-updates li::before {
+  content: "–";
+  position: absolute;
+  inset-inline-start: 0;
 }
 
 .hidden {
@@ -2802,6 +2919,85 @@ nav > button {
 }
 
 /* Printables Page Styles */
+
+/* Surface card shared by the printables and store pages, matching the list page treatment. */
+.printableCard,
+.storeCard {
+  background-color: var(--card-bg-color);
+  border: 1px solid rgba(var(--blockquote-color), 0.18);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.08),
+    0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.printableCard:hover,
+.storeCard:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 16px 24px -6px rgba(0, 0, 0, 0.16),
+    0 8px 10px -5px rgba(0, 0, 0, 0.08);
+}
+
+.printableCard .image {
+  border-radius: 8px;
+}
+
+/* Store page - responsive two-up card grid */
+.storeGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2em;
+}
+
+@media (min-width: 768px) {
+  .storeGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+#lightTeeHeader,
+#darkTeeHeader {
+  margin-bottom: 1rem;
+  font-size: 1.05em;
+  letter-spacing: 0.05em;
+}
+
+.teeImage {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+/* Retailer links as a tidy chip grid instead of a stacked underline list */
+.storeLinks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.storeLink {
+  display: block;
+  text-align: center;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgba(var(--blockquote-color), 0.3);
+  border-radius: 8px;
+  font-size: 0.95em;
+  transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
+}
+
+.storeLink:hover {
+  border-color: rgb(var(--theme-color));
+  background-color: rgba(var(--theme-color), 0.08);
+  transform: translateY(-1px);
+}
+
 .priceBadge {
   display: inline-block;
   padding: 0.25rem 0.6rem;
@@ -2811,22 +3007,18 @@ nav > button {
   border-radius: 2rem;
   line-height: 1;
   letter-spacing: 0.05em;
+  white-space: nowrap;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .priceBadgeFree {
-  background-color: #bef264;
-  color: #000;
-  border: 1px solid #a3e635;
+  background-color: rgb(var(--color6)); /* Green */
+  color: #fff;
 }
 
 .priceBadgePaid {
-  background-color: #f59e0b;
+  background-color: rgb(var(--color3)); /* Amber */
   color: #000;
-}
-
-[data-theme="dark"] .priceBadgePaid {
-  background-color: #fbbf24;
 }
 
 .langCountToggle {
@@ -2840,6 +3032,7 @@ nav > button {
   align-items: center;
   gap: 0.5rem;
   width: auto;
+  cursor: pointer;
   transition: all 0.2s ease;
 }
 
@@ -2896,17 +3089,12 @@ nav > button {
 .printableTitle {
   margin: 0;
   padding: 0;
+  font-size: 2em; /* keep card/detail headings at the old <h1> size after the <h2> swap */
   line-height: 1.2;
 }
 
 .priceBadge {
   margin-top: 0.25rem; /* Align badge slightly down to center with first line of title */
-}
-
-[data-theme="dark"] .priceBadgeFree {
-  background-color: #4ade80;
-  color: #000;
-  border: 1px solid #22c55e;
 }
 
 /* Quick Search Styling */

@@ -10999,40 +10999,10 @@ document.onkeydown = function (evt) {
 // Constants
 const STORAGE_KEY = "latestUpdate";
 
-const NOTIFICATIONS_DATA = [
-  {
-      date: "Jun 17, 2026",
-      updates: [
-        "Updated the design of the site to be more modern, introduced animations and a new font",
-        "Added a search bar to search for elements based on name or number"
-      ],
-    },
-  {
-      date: "May 14, 2026",
-      updates: [
-        "Updated Japanese, Czech,Turkish and Indonesian translations",
-      ],
-    },
-    {
-      date: "Oct 12, 2025",
-      updates: [
-        "Updated Czech, Portuguese, Croatian, Greek and Indonesian translations",
-      ],
-    },
-    {
-    date: "Jan 28, 2025",
-    updates: [
-      "Updated Armenian, Romanian, Bulgarian, Czech, Finnish and Tamil translations",
-      "Added notification panel to show the latest updates",
-    ],
-  },
-  {
-    date: "Jan 19, 2025",
-    updates: [
-      "Updated Vietnamese, Persian, Dutch, Romanian, Arabic, Greek, Hungarian, Indonesian, Japanese and Portuguese translations",
-    ],
-  },
-];
+// Recent changelog entries are injected per page as window.NOTIFICATIONS_DATA
+// by the build (htmlGenerator.js), sourced from the single changelog.js file.
+const NOTIFICATIONS_DATA =
+  (typeof window !== "undefined" && window["NOTIFICATIONS_DATA"]) || [];
 
 function convertDateFormat(dateStr) {
   if (!dateStr) return null;
@@ -11098,15 +11068,13 @@ function renderNotifications() {
   const notificationsHTML = NOTIFICATIONS_DATA.slice(0, 3)
     .map(
       (notification) => `
-      <div class="notification-item border-t border-zinc-300 dark:border-zinc-700 cursor-pointer" onclick="window.location.href='about#versionNotes'">
-        <div class="font-semibold pt-4 grayText">${notification.date}</div>
-        ${notification.updates  // Fixed: Changed from notification.changes to notification.updates
-          .map(
-            (update) => `
-          <li class="pb-2 text-zinc-600 dark:text-zinc-400 ps-6"><span class="mx-2">-</span>${update}</li>
-        `
-          )
-          .join("")}
+      <div class="notification-item" onclick="window.location.href='about#versionNotes'">
+        <div class="notification-date grayText">${notification.date}</div>
+        <ul class="notification-updates">
+          ${notification.updates
+            .map((update) => `<li>${update}</li>`)
+            .join("")}
+        </ul>
       </div>
     `
     )

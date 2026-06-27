@@ -216,8 +216,8 @@ const writeFile = (
       ? `<span class='priceBadge priceBadgePaid'>$${printableLink.price}</span>`
       : `<span class='priceBadge priceBadgeFree'>${langValues.free || 'FREE'}</span>`;
 
-    writeStream.write("<div class='flex flex-col overflow-auto'>");
-    writeStream.write(`<div class='flex items-start gap-4'>${priceBadge}<h1 class='printableTitle'>${printableLink.title}</h1></div>`);
+    writeStream.write("<div class='printableCard flex flex-col overflow-auto'>");
+    writeStream.write(`<div class='flex items-start gap-4'>${priceBadge}<h2 class='printableTitle'>${printableLink.title}</h2></div>`);
     writeStream.write(
       `<img class='py-4 image' draggable='false' src='${imagePath}${printableLink.image}.png' alt='${printableLink.title}' />`
     );
@@ -456,7 +456,7 @@ const writeFile = (
     individualStream.write(
       "<div class='flex flex-col overflow-auto max-w-4xl mx-auto'>"
     );
-    individualStream.write(`<h1>${printableLink.title}</h1>`);
+    individualStream.write(`<h2 class='printableTitle'>${printableLink.title}</h2>`);
     individualStream.write(
       `<img class='py-4 image' draggable='false' src='${imagePath}${printableLink.image
         .replace("Small-", "")

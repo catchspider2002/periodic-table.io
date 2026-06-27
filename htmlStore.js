@@ -41,29 +41,32 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
 
   writeStream.write("<div class='content-wrapper'>");
   writeStream.write("<div class='container'>");
-  writeStream.write("<div class='flex flex-wrap'>");
-  writeStream.write("<div class='margin-bottom-20'>");
-  writeStream.write("<div id='lightTeeHeader' class='text-upper text-center grayText'>T-shirt (" + langValues.themeLight + ")</div>");
-  writeStream.write("<img class='table teeImage' alt='Periodic table t-shirt in light background' src='https://periodic-table.io/images/store/LightTee.png' />");
-  writeStream.write("<div class='text-center'>");
+  writeStream.write("<div class='storeGrid'>");
+
+  writeStream.write("<div class='storeCard'>");
+  writeStream.write("<h2 id='lightTeeHeader' class='text-upper text-center grayText'>T-shirt (" + langValues.themeLight + ")</h2>");
+  writeStream.write("<img class='teeImage' alt='Periodic table t-shirt in light background' src='https://periodic-table.io/images/store/LightTee.png' />");
+  writeStream.write("<div class='storeLinks'>");
 
   lightLinks.forEach((lightLink) => {
-    writeStream.write("<div class='teeLink'><a class='underlineLink' href='" + lightLink.link + "'>" + lightLink.name + "</a></div>");
+    writeStream.write("<a class='storeLink' target='_blank' rel='noopener' href='" + lightLink.link + "'>" + lightLink.name + "</a>");
   });
 
   writeStream.write("</div>");
   writeStream.write("</div>");
-  writeStream.write("<div class='margin-bottom-20'>");
-  writeStream.write("<div id='darkTeeHeader' class='text-upper text-center grayText'>T-shirt (" + langValues.themeDark + ")</div>");
-  writeStream.write("<img class='table teeImage' alt='Periodic table t-shirt in dark background' src='https://periodic-table.io/images/store/DarkTee.png' />");
-  writeStream.write("<div class='text-center'>");
+
+  writeStream.write("<div class='storeCard'>");
+  writeStream.write("<h2 id='darkTeeHeader' class='text-upper text-center grayText'>T-shirt (" + langValues.themeDark + ")</h2>");
+  writeStream.write("<img class='teeImage' alt='Periodic table t-shirt in dark background' src='https://periodic-table.io/images/store/DarkTee.png' />");
+  writeStream.write("<div class='storeLinks'>");
 
   darkLinks.forEach((darkLink) => {
-    writeStream.write("<div class='teeLink'><a class='underlineLink' href='" + darkLink.link + "'>" + darkLink.name + "</a></div>");
+    writeStream.write("<a class='storeLink' target='_blank' rel='noopener' href='" + darkLink.link + "'>" + darkLink.name + "</a>");
   });
 
   writeStream.write("</div>");
   writeStream.write("</div>");
+
   writeStream.write("</div>");
   writeStream.write("</div>");
   writeStream.write("</div>");

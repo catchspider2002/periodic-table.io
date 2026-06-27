@@ -75,7 +75,7 @@ let darkIcon =
 xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((result) => {
   let rows = result.length && result[0].sheet && result[0].data ? (result.find(s => s.sheet === 'OtherSource') || result[4]).data : result;
   let languages = [
-    { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans", bcp: "en-US", code: "1" },
+    // { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans", bcp: "en-US", code: "1" },
     // { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans", bcp: "en-GB", code: "45" },
     // { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans", bcp: "af-ZA", code: "60" },
     // { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans", bcp: "id-ID", code: "54" },
@@ -123,255 +123,15 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
     // { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular", bcp: "fa-IR", code: "29" },
     // { lang: "hi", name: "हिंदी", col: 29, punc: "dot", regular: "NotoSansDevanagari-Regular", bcp: "hi-IN", code: "587" },
     
-    // { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular", bcp: "th-TH", code: "56" },
+    { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular", bcp: "th-TH", code: "56" },
     { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular", bcp: "ja-JP", code: "4" },
-    // { lang: "ko", name: "한국어", col: 10, punc: "dot", regular: "NotoSansKR-Regular", bcp: "ko-KR", code: "9" },
-    // { lang: "zh-cn", name: "中文(简体)", col: 6, punc: "dot", regular: "NotoSansSC-Regular", bcp: "zh-CN", code: "3" },
-    // { lang: "zh-tw", name: "中文(繁體)", col: 28, punc: "dot", regular: "NotoSansTC-Regular", bcp: "zh-TW", code: "2" },
-    // { lang: "ta", name: "தமிழ்", col: 45, punc: "dot", regular: "NotoSansTamil-Regular", bcp: "ta-IN", code: "505" },
+    { lang: "ko", name: "한국어", col: 10, punc: "dot", regular: "NotoSansKR-Regular", bcp: "ko-KR", code: "9" },
+    { lang: "zh-cn", name: "中文(简体)", col: 6, punc: "dot", regular: "NotoSansSC-Regular", bcp: "zh-CN", code: "3" },
+    { lang: "zh-tw", name: "中文(繁體)", col: 28, punc: "dot", regular: "NotoSansTC-Regular", bcp: "zh-TW", code: "2" },
+    { lang: "ta", name: "தமிழ்", col: 45, punc: "dot", regular: "NotoSansTamil-Regular", bcp: "ta-IN", code: "505" },
   ];
 
-  let updates = [
-  {
-      date: "May 14, 2026",
-      updates: [
-        "Updated Japanese, Czech, Turkish, Greek, Polish, Hindi, Thai, Vietnamese and Indonesian translations",
-      ],
-    },
-    {
-      date: "Oct 12, 2025",
-      updates: [
-        "Updated Czech, Portuguese, Croatian, Greek and Indonesian translations",
-      ],
-    },
-    {
-      date: "Jan 28, 2025",
-      updates: [
-        "Updated Armenian, Romanian, Bulgarian, Czech, Finnish and Tamil translations",
-        "Added notification panel to show the latest updates",
-      ],
-    },
-    {
-      date: "Jan 19, 2025",
-      updates: [
-        "Updated Vietnamese, Persian, Dutch, Romanian, Arabic, Greek, Hungarian, Indonesian, Japanese and Portuguese translations",
-      ],
-    },
-    {
-      date: "Jan 17, 2025",
-      updates: [
-        "Updated German, Thai, Ukrainian, Russian, French and Croatian translations",
-      ],
-    },
-    {
-      date: "May 2023",
-      updates: [
-        "Updated Afrikaans, Norwegian Bokmål, Norwegian Nynorsk, Slovenian and Portuguese translations",
-      ],
-    },
-    {
-      date: "Apr 2023",
-      updates: [
-        "Updated Afrikaans, Bulgarian, Catalan, Czech, Danish, Dutch, Finnish, German, Hebrew, Japanese, Korean, Malay, Serbian, Solvenian, Swedish, Thai and Vietnamese translations",
-      ],
-    },
-    {
-      date: "Mar 2023",
-      updates: [
-        `Added <a class='underlineLink' target='_blank' href='https://www.buymeacoffee.com/naveencs' rel='noopener noreferrer'>Buy Me a Coffee</a> link at the header and footer`,
-        `Updated Czech, Esperanto, Greek, French, Vietnamese, Chinese Traditional, Indonesian, Romanian and Swedish translations`,
-      ],
-    },
-    {
-      date: "Sep 2022",
-      updates: [
-        `Added Esperanto and Uzbek translations`,
-        `UpdUpdated Danish, Czech, Greek, French, Hindi, Polish, Macedonian, Ukranian, Chinese Traditional, Indonesian and Swedish translations`,
-      ],
-    },
-    {
-      date: "Sep 2021",
-      updates: [`Updated Korean, Turkish, Portuguese and French translations`],
-    },
-    {
-      date: "Aug 2021",
-      updates: [
-        `Updated French, Spanish, Croatian, Hindi and Chinese (Traditional) translations`,
-      ],
-    },
-    {
-      date: "Jun 2021",
-      updates: [
-        `Added a new printable - Flash Cards in <a class='underlineLink' href='printables'>Printables</a> page`,
-        `Added Tamil translation`,
-        `Updated French translation`,
-        `Updated the <a class='underlineLink' href='translation'>Translation</a> page to use links instead of images`,
-      ],
-    },
-    {
-      date: "May 2021",
-      updates: [
-        `Added a new printable - Flash Cards in <a class='underlineLink' href='printables'>Printables</a> page`,
-        `Included Tamil and Telugu for anyone to translate as per <a class='underlineLink' target='_blank' href='https://feedback.periodic-table.io/' rel='noopener noreferrer'>Suggestions</a> by users`,
-        `Updated external links to be opened in new tab`,
-        `Updated Armenian, Hebrew and Chinese (Simplified) translations`,
-      ],
-    },
-    {
-      date: "Apr 2021",
-      updates: [
-        `Updated Spanish, Portuguese, French, Hungarian, Persian, Russian, Slovak and Polish translations`,
-        `Fixed the broken links in the <a class='underlineLink' href='store'>Store</a> page`,
-        `Minor corrections to the solubility table`,
-      ],
-    },
-    {
-      date: "Mar 2021",
-      updates: [
-        `Added Solubility Chart and Reactivity Series under Tables menu`,
-        `Added social images to all pages to show up when the pages are shared on social media`,
-        `Fixed the incorrect font sizes in the navigation bar`,
-        `Updated Italian, Dutch, German, Portuguese, Polish, Croatian, Russian, Armenian, Japanese and Chinese (Simplified) translations`,
-      ],
-    },
-    {
-      date: "Feb 2021",
-      updates: [
-        `Complete rewrite of the website to deploy the code faster; Individual language versions have their own subdomains`,
-        `Added Afrikaans translation`,
-        `Updated Norwegian Bokmal, Spanish, Vietnamese, Chinese(Simplified), Chinese(Traditional), Japanese, German, Portuguese, French and Italian translations`,
-      ],
-    },
-    {
-      date: "Nov 2020",
-      updates: [
-        `Added Crystal Structure image to the element page`,
-        `Added Macedonian translation`,
-        `Updated Armenian, Greek, Spanish, Italian, Portuguese, Slovenian, Thai, Vietnamese and Chinese(Simplified) translations`,
-      ],
-    },
-    {
-      date: "Oct 2020",
-      updates: [
-        `Added Armenian and Malay translations`,
-        `Added a new printable - Flash Cards in <a class='underlineLink' href='printables'>Printables</a> page`,
-        `Updated Croatian, Greek, Hebrew, Hindi, Norwegian Bokmal, Polish, Romanian, Vietnamese and Dutch translations`,
-        `Fixed the top navbar so that the navbar does not overlap the scrollbar`,
-      ],
-    },
-    {
-      date: "Aug 2020",
-      updates: [
-        `Updated the icons in the navbar to outline icons`,
-        `Simplified localisation and individual languages will now be included in the url`,
-        `Added a new printable in <a class='underlineLink' href='printables'>Printables</a> page`,
-        `Added CAS Number and PubChem CID Number`,
-        `Fixed electron configuration rendering issues in Edge and Chrome`,
-        `Updated Arabic, Persian, Hindi, Italian, Indonesian, Vietnamese, German, Greek, Polish, Dutch, Slovak, Chinese (Simplified) and Chinese (Traditional) translations`,
-      ],
-    },
-    {
-      date: "Jul 2020",
-      updates: [
-        `Added a new printable in <a class='underlineLink' href='printables'>Printables</a> page`,
-        `Added a new page - <a class='underlineLink' href='translation'>Translation</a> where you can check the status of each language and contribute translations`,
-        `Added mass number, number of protons, electrons and neutrons`,
-        `The line height for the Elements page is increased and the text is easily readable`,
-        `Updated Polish, Croatian, Chinese Simplified, Croatian and Korean translation`,
-        `Added an option in Settings to change the style of the periodic table from 3 options`,
-        `Replaced the dropdown for temperature in Settings with a radio select`,
-        `Updated the navbar header from a gradient to solid color which now matches with the window color when opened as PWA`,
-      ],
-    },
-    {
-      date: "Jun 2020",
-      updates: [
-        `Modified the style of the element page to use more shadows and less color`,
-        `Modified the colors of the Settings popup for both light and dark themes`,
-        `Added Instagram page link to the footer`,
-        `Added a new printable in <a class='underlineLink' href='printables'>Printables</a> page`,
-        `Added <a class='underlineLink' target='_blank' href='https://feedback.periodic-table.io/' rel='noopener noreferrer'>Suggestions</a> where new suggestions or feature requests can be provided`,
-        `Fonts for Thai and Hebrew are updated`,
-        `Reduced extra spacing on top and bottom sides of the electronic configuration`,
-        `Updated Chinese Simplified, Croatian, Portuguese and Danish translations`,
-      ],
-    },
-    {
-      date: "May 2020",
-      updates: [
-        `Updated Polish, Russian, Vietnamese, Slovenian, Chinese Simplified translations`,
-        `Added a new page - <a class='underlineLink' href='printables'>Printables</a> which provides a printable version of the periodic table which will be updated regularly`,
-        `Added a new page - <a class='underlineLink' href='credits'>Credits</a> for translations which was earlier appearing in About page`,
-        `Added icons to the navigation bar at the top`,
-        `Added footer component on all pages which includes quick links not available in the top navigation bar`,
-        `Updated link colors to match the theme color`,
-        `Reduced the number of colors in Settings from 25 to 10 which matches with the periodic table colors`,
-        `Fixed the layout bug where the 2nd and 3rd row were appearing with a huge space on iOS devices`,
-        `Fixed scrollbar styles for all browsers`,
-        `Added an open-source license on Github`,
-        `Removed theme switching to enable light or dark mode from Settings and a dedicated button is available in the top navigation bar`,
-        `Replaced the existing static image of electronic configuration with an animated version`,
-        `Please contact me at naveen@periodic-table.io if you have any suggestions or issues with the website`,
-      ],
-    },
-    {
-      date: "Feb 2020",
-      updates: [
-        `Modified colors at the navigation bar for better accessibility`,
-        `Updated Persian, Croatian, Hungarian, Polish, Greek, Hebrew, Portuguese, German, Spanish, Chinese (Traditional), Russian, Thai, French, Italian, Chinese (Simplified) and Turkish translations`,
-      ],
-    },
-    {
-      date: "May 2019",
-      updates: [
-        `Added Store page for t-shirts and other merchandise`,
-        `Added English (UK) translation`,
-        `Updated Chinese (Simplified), Portuguese, Spanish, Indonesian, Vietnamese and Chinese (Traditional) translations`,
-      ],
-    },
-    {
-      date: "Apr 2019",
-      updates: [`Updated Arabic, Italian and Croatian translations`],
-    },
-    {
-      date: "Dec 2018",
-      updates: [
-        `Added Slovenian, Norwegian (Nynorsk) and Croatian translations`,
-        `Updated Danish, Japanese and Italian translations`,
-      ],
-    },
-    {
-      date: "Nov 2018",
-      updates: [
-        `Added Danish, Greek, Thai and Hebrew translations`,
-        `Updated Arabic, Chinese (Traditional), Chinese (Simplified), Portuguese, Catalan, German and Japanese translations`,
-      ],
-    },
-    {
-      date: "Jun 2018",
-      updates: [`Updated Russian, French and Arabic translations`],
-    },
-    {
-      date: "May 2018",
-      updates: [
-        `Updated Persian, Czech, Italian, Dutch, Catalan, Vietnamese, Hungarian, Indonesian and Japanese translations`,
-      ],
-    },
-    {
-      date: "Apr 2018",
-      updates: [`Updated Dutch and Korean translations`],
-    },
-    {
-      date: "Mar 2018",
-      updates: [
-        `Released the first version of the website with Progressive Web App (PWA) features`,
-        `Updated the colors of the periodic table`,
-        `Added options for wide and large tiles when website is pinned to Start on Windows 10`,
-        `Added Hindi, Chinese (Traditional), Arabic, Polish and Swedish translations`,
-        `Updated Japanese and Dutch translations`,
-      ],
-    },
-  ];
+  const updates = require("./changelog.js");
 
   let languagesForSelect = [
     { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans", code: "1" },
@@ -721,10 +481,14 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
       <path d="m67.34 26.17-.54-2.72c-.48-2.43-1.58-4.74-4.08-5.62-.8-.28-1.72-.4-2.33-.99-.62-.58-.8-1.49-.94-2.33l-.78-4.62c-.23-1.33-.42-2.8-1.03-4.03-.8-1.63-2.43-2.58-4.06-3.2-.83-.33-1.7-.59-2.55-.8C46.95.77 42.67.38 38.48.15c-5.03-.28-10.08-.2-15.1.25-3.73.34-7.67.75-11.22 2.04A9.5 9.5 0 0 0 8.54 4.5a3.92 3.92 0 0 0-.72 4.67 6.05 6.05 0 0 0 2.82 2.37c1.47.66 3 1.16 4.58 1.5 4.39.96 8.93 1.34 13.4 1.5 4.98.2 9.96.04 14.9-.48 1.22-.14 2.44-.3 3.66-.49 1.44-.22 2.36-2.1 1.93-3.4-.5-1.56-1.86-2.17-3.4-1.93l-.68.1-.16.02a95.5 95.5 0 0 1-4.8.47 107.24 107.24 0 0 1-19.14-.4l-.47-.07h-.1l-.48-.08a50.9 50.9 0 0 1-2.96-.53.44.44 0 0 1 0-.87h.02a47.95 47.95 0 0 1 3.42-.6c.54-.03 1.08-.13 1.6-.2a102.3 102.3 0 0 1 22.2.1l.57.08.38.05c1.09.16 2.17.36 3.25.6 1.6.34 3.66.45 4.37 2.2.22.56.33 1.18.45 1.76l.16.75v.04l1.14 5.27a.95.95 0 0 1-.15.75.97.97 0 0 1-.66.4h-.01l-.23.04-.23.03a128.48 128.48 0 0 1-6.45.68 149.64 149.64 0 0 1-12.9.52 151.25 151.25 0 0 1-19.17-1.24l-.51-.07-1.2-.17c-1.32-.2-2.63-.45-3.96-.66a6.9 6.9 0 0 0-4.58.66 6.66 6.66 0 0 0-2.76 2.86c-.62 1.3-.8 2.7-1.08 4.08-.28 1.4-.72 2.88-.55 4.3a6.87 6.87 0 0 0 5.59 6.13 161.9 161.9 0 0 0 46.27 1.53 1.98 1.98 0 0 1 2.19 2.17l-.3 2.85a1089465 1089465 0 0 1-4.15 40.42c-.17 1.67-.2 3.4-.5 5.04-.5 2.6-2.27 4.2-4.83 4.78-2.35.54-4.76.82-7.17.84-2.67.01-5.34-.1-8.01-.1-2.86.02-6.35-.24-8.55-2.36-1.94-1.87-2.2-4.79-2.47-7.3l-1.04-10.04-1.94-18.59-1.25-12.02-.07-.6c-.15-1.43-1.16-2.84-2.76-2.77-1.37.06-2.93 1.23-2.77 2.77l.93 8.92 1.92 18.44 1.64 15.72.3 3.01c.6 5.5 4.8 8.44 9.99 9.27 3.03.5 6.14.6 9.2.64 3.95.06 7.93.22 11.8-.5 5.75-1.05 10.06-4.89 10.68-10.84l.53-5.15 1.75-17.05 1.9-18.58.87-8.5a1.98 1.98 0 0 1 1.6-1.75c1.64-.32 3.2-.87 4.38-2.12 1.86-1.99 2.23-4.58 1.57-7.2zm-61.8 1.84c.03 0-.02.2-.04.3 0-.15 0-.28.05-.3zm.16 1.23c.02 0 .06.04.1.1zm.16.2c.06.1.09.16 0 0zm.32.26.02.03a.21.21 0 0 0-.03-.03zm55.13-.38c-.6.56-1.48.82-2.36.95a166.3 166.3 0 0 1-29.81 1.9A200.69 200.69 0 0 1 7.9 30.12c-.7-.1-1.44-.23-1.92-.74-.9-.96-.46-2.9-.22-4.06.2-1.06.62-2.48 1.88-2.63 1.98-.23 4.28.6 6.23.9a136.85 136.85 0 0 0 37.57.3c1.84-.26 3.67-.54 5.5-.87 1.62-.3 3.42-.84 4.4.84.67 1.15.76 2.68.66 3.98a2.2 2.2 0 0 1-.7 1.48z" fill="#0d0c22">
       </path></svg> 
       <span class="coffee text-xl">Buy me a coffee</span></div></a></div>`,
-      "<div class='flex flex-wrap justify-center p-2 pb-8 self-center'>Made with&nbsp; <span style='color:#e25555'>❤</span> &nbsp;by <a target='_blank' href='https://twitter.com/MrNaveenCS/' rel='noopener noreferrer'>",
+      "<div class='flex flex-wrap justify-center p-2 pb-8 self-center'>Made with&nbsp; <span style='color:#e25555'>❤</span> &nbsp;by <a target='_blank' href='https://x.com/MrNaveenCS/' rel='noopener noreferrer'>",
       "<span class='linkText'>Naveen CS</span>",
       "</a></div>",
       "</section>",
+      // Recent changelog entries exposed to the client for the notification bell.
+      // Single source of truth lives in changelog.js (same data drives the About page).
+      // < escaping keeps any <a> links in the text from breaking out of the script tag.
+      `<script>window.NOTIFICATIONS_DATA=${JSON.stringify(updates.slice(0, 6)).replace(/</g, "\\u003c")};</script>`,
       "<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{\"token\": \"667af63b5e7d4de992a251a834464e5d\"}'></script><!-- End Cloudflare Web Analytics -->",
       "</body></html>",
     ];

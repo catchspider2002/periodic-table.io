@@ -39,7 +39,7 @@ const writeFile = (
   writeStream.write("<div class='content-wrapper'>");
   writeStream.write("<div class='container'>");
   writeStream.write(
-    `<div class='text-upper aboutHeader text-center pb-8'>${langValues.about}</div>`
+    `<h2 class='text-upper aboutHeader text-center pb-8'>${langValues.about}</h2>`
   );
   writeStream.write("<div>");
   writeStream.write(`${langValues.line1} `);
@@ -65,7 +65,7 @@ const writeFile = (
   );
   writeStream.write("</div>");
   writeStream.write(
-    `<div id='versionNotes' class='text-upper aboutHeader text-center pt-16'>${langValues.changelog}</div>`
+    `<h2 id='versionNotes' class='text-upper aboutHeader text-center pt-16'>${langValues.changelog}</h2>`
   );
   writeStream.write("<div>");
   writeStream.write("<div id='logs'>");
@@ -80,7 +80,7 @@ const writeFile = (
   writeStream.write("</div>");
   writeStream.write("</div>");
   writeStream.write(
-    `<div class='text-upper aboutHeader text-center pt-16 pb-8'>${langValues.languages}</div>`
+    `<h2 class='text-upper aboutHeader text-center pt-16 pb-8'>${langValues.languages}</h2>`
   );
   writeStream.write("<div>");
   writeStream.write("<div class='pb-8'>");

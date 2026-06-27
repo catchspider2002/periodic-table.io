@@ -38,7 +38,7 @@ function atLeastOne(a){const b=Object.keys(a);b.some((b)=>a[b]!==void 0)||throwE
       following: ${b}`);}function isType(a,b){const c=Object.keys(a).pop(),d=typeof a[c];d!==b&&throwError(`The '${c}' parameter has the wrong type. (Expected:
       ${b}, actual: ${d})`);}function isArrayOfType(a,b){const c=Object.keys(a).pop(),d=`The '${c}' parameter should be an array containing
     one or more '${b}' elements.`;Array.isArray(a[c])||throwError(d);for(let e of a[c])typeof e!==b&&throwError(d);}function isArrayOfClass(a,b){const c=Object.keys(a).pop(),d=`The '${c}' parameter should be an array containing
-    one or more '${b.name}' instances.`;Array.isArray(a[c])||throwError(d);for(let e of a[c])e instanceof b||throwError(d);}function throwError(a){a=a.replace(/\s+/g,' ');const b=new Error(a);b.name='assertion-failed';const c=ErrorStackParser.parse(b);throw 3<=c.length&&(b.message=`Invalid call to ${c[2].functionName}() — `+a),b}
+    one or more '${b.name}' instances.`;Array.isArray(a[c])||throwError(d);for(let e of a[c])e instanceof b||throwError(d);}function throwError(a){a=a.replace(/\s+/g,' ');const b=new Error(a);b.name='assertion-failed';const c=ErrorStackParser.parse(b);throw 3<=c.length&&(b.message=`Invalid call to ${c[2].functionName}() - `+a),b}
 
 function normalizeHandler(a){return'object'==typeof a?(hasMethod({handler:a},'handle'),a):(isType({handler:a},'function'),{handle:a})}
 

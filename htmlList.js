@@ -53,8 +53,8 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("</div>");
   writeStream.write("<div class='list text-center listGrid'>");
 
-  newRawData.forEach((element, index) => {
-    writeStream.write(`<a class='elementList list-content flex' href='element-${element.num}' style='animation: slideUpFade 0.5s ease backwards; animation-delay: ${(index * 0.02)}s'>`);
+  newRawData.forEach((element) => {
+    writeStream.write(`<a class='elementList list-content flex' href='element-${element.num}'>`);
     writeStream.write(`<div class='listSym'>${element.sym}</div>`);
     writeStream.write(`<div class='listName'>${langValues[element.nme]}</div>`);
     writeStream.write(`<div class='listNum'><span>${getNum(element.num)}</span></div>`);

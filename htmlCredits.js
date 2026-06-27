@@ -50,11 +50,11 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
     writeStream.write("<div class='content-wrapper'>");
     writeStream.write("<div class='container'>");
     writeStream.write(
-      "<div class='row text-upper aboutHeader text-center py-8'><span>" +
+      "<h2 class='row text-upper aboutHeader text-center py-8'><span>" +
         langValues.credits +
         "</span> - <span>" +
         langValues.translation +
-        "</span></div>"
+        "</span></h2>"
     );
     writeStream.write("<div class='masonry'>");
 

@@ -12,6 +12,15 @@
 
 const updates = [
   {
+    date: "Jun 30, 2026",
+    updates: [
+      "Added an s/p/d/f block selector at the top of the table - hover a block to highlight its elements",
+      "The site now follows your device's light or dark mode automatically, until you choose a theme yourself",
+      "Fixed the periodic table appearing mirrored in right-to-left languages (Arabic, Persian, Hebrew)",
+      "Fixed the missing site icon (favicon) for Esperanto, Tamil and Uzbek",
+    ],
+  },
+  {
     date: "Jun 17, 2026",
     updates: [
       "Updated the design of the site to be more modern, introduced animations and a new font",

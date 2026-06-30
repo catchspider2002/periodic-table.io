@@ -10480,9 +10480,9 @@ function resizeEvent() {
   setSize(defaultMargin);
 }
 
-let singleElement, singleGroup, singlePeriod, singleCategory;
+let singleElement, singleGroup, singlePeriod, singleCategory, singleBlock;
 
-let elementLength, categoryLength, periodLength, groupLength;
+let elementLength, categoryLength, periodLength, groupLength, blockLength;
 let defaultNewTheme, defaultColor, defaultTemp, defaultStyle, defaultMargin;
 
 let outerElement = cls("outerElement");
@@ -10538,11 +10538,13 @@ if (id("ptable")) {
   singleGroup = cls("groups");
   singlePeriod = cls("periods");
   singleCategory = cls("category");
+  singleBlock = cls("blockBtn");
 
   elementLength = singleElement.length;
   categoryLength = singleCategory.length;
   periodLength = singlePeriod.length;
   groupLength = singleGroup.length;
+  blockLength = singleBlock.length;
 
   for (let i = 0; i < elementLength; i++) {
     singleElement[i].addEventListener("mouseenter", setOutline, false);
@@ -10552,6 +10554,13 @@ if (id("ptable")) {
   for (let i = 0; i < categoryLength; i++) {
     singleCategory[i].addEventListener("mouseenter", setOpacity15, false);
     singleCategory[i].addEventListener("mouseleave", setOpacity100, false);
+  }
+
+  // s/p/d/f block legend uses the same dim/highlight handlers: hovering an item
+  // (id "blkS"/"blkP"/...) un-dims elements carrying the matching block class.
+  for (let i = 0; i < blockLength; i++) {
+    singleBlock[i].addEventListener("mouseenter", setOpacity15, false);
+    singleBlock[i].addEventListener("mouseleave", setOpacity100, false);
   }
 
   for (let i = 0; i < periodLength; i++) {
@@ -10876,22 +10885,29 @@ function setSettings() {
   id(defaultColor).checked = true;
 }
 
+// Returns the OS-level colour preference, defaulting to light when unknown.
+function systemTheme() {
+  return window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
+
+// Apply a theme to the document and sync the navbar toggle icon.
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  id("themeIcon").innerHTML = theme === "dark" ? lightIcon : darkIcon;
+}
+
 function changeTheme() {
-  let defaultNewTheme = document.documentElement.getAttribute("data-theme");
-
-  if (defaultNewTheme === "dark") {
-    defaultNewTheme = "light";
-    id("themeIcon").innerHTML = darkIcon;
-  } else {
-    defaultNewTheme = "dark";
-    id("themeIcon").innerHTML = lightIcon;
-  }
-
-  document.documentElement.setAttribute("data-theme", defaultNewTheme);
-
-  // document.documentElement.setAttribute('data-theme', defaultNewTheme);
-  localStorage.setItem("defaultNewTheme", defaultNewTheme);
-  // setTheme()
+  // Explicit user choice: flip and persist so it overrides the OS preference
+  // from now on.
+  const theme =
+    document.documentElement.getAttribute("data-theme") === "dark"
+      ? "light"
+      : "dark";
+  applyTheme(theme);
+  localStorage.setItem("defaultNewTheme", theme);
 }
 
 function setLanguage() {
@@ -10913,20 +10929,22 @@ function setLanguage() {
 function initializePage() {
   defaultNewTheme = localStorage.getItem("defaultNewTheme");
 
-  if (!defaultNewTheme) {
-    defaultNewTheme = "light";
+  // No explicit choice stored -> follow the OS light/dark preference. We do NOT
+  // persist it, so the site keeps tracking the OS (including live changes via
+  // the listener below). An explicit toggle (changeTheme) stores a value that
+  // takes precedence from then on.
+  applyTheme(defaultNewTheme || systemTheme());
 
-    if (window.matchMedia("(prefers-color-scheme)").media !== "not all") {
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) defaultNewTheme = "dark";
-      else defaultNewTheme = "light";
-    }
-
-    localStorage.setItem("defaultNewTheme", defaultNewTheme);
+  // Live-update when the OS theme changes, as long as the user hasn't chosen.
+  if (window.matchMedia) {
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (event) => {
+        if (!localStorage.getItem("defaultNewTheme")) {
+          applyTheme(event.matches ? "dark" : "light");
+        }
+      });
   }
-  document.documentElement.setAttribute("data-theme", defaultNewTheme);
-
-  if (defaultNewTheme === "dark") id("themeIcon").innerHTML = lightIcon;
-  else id("themeIcon").innerHTML = darkIcon;
 
   defaultColor = localStorage.getItem("defaultColor");
 

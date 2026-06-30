@@ -1219,6 +1219,14 @@ canvas {
   font-size: 1.5em;
 }
 
+/* The periodic table is a fixed scientific diagram: groups read 1 -> 18 and
+   periodic trends run left-to-right by convention. Keep it LTR even in RTL
+   locales (ar/fa/he) so it isn't mirrored, while the rest of the page stays
+   RTL. Addresses feedback #588218. */
+[data-direction="rtl"] #ptable {
+  direction: ltr;
+}
+
 .gap {
   height: 1.5em;
 }
@@ -1377,6 +1385,45 @@ canvas {
   padding: 4px 6px;
   border-radius: 999px;
   margin: 0 2px;
+}
+
+/* s/p/d/f block selector - sits in the empty period-1 cells above B-F. */
+#blockSelector {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.blockLegend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35em;
+}
+
+.blockLabel {
+  font-size: 0.62em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.blockBtns {
+  display: flex;
+  gap: 0.3em;
+}
+
+.blockBtn {
+  font-size: 0.7em;
+  font-style: italic;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(var(--blockquote-color), 0.3);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.blockBtn:hover {
+  border-color: rgb(var(--theme-color));
+  background-color: rgba(var(--theme-color), 0.08);
 }
 
 .unselectable {

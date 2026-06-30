@@ -49,6 +49,8 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       element.num +
       "' class='elements " +
       className +
+      " blk" +
+      element.blk.toUpperCase() +
       "'><div class='eleNum'>" +
       element.num +
       "</div><div class='eleSym'>" +
@@ -118,7 +120,19 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("</div>");
   writeStream.write("</div>");
   writeStream.write("</td>");
-  writeStream.write("<td colspan='5' />");
+  // Block selector in the empty period-1 cells above B-F (groups 13-17). Always
+  // visible at the top; hovering a pill highlights that block's elements.
+  writeStream.write("<td colspan='5' id='blockSelector'>");
+  writeStream.write("<div class='blockLegend'>");
+  writeStream.write("<span class='blockLabel grayText unselectable'>" + langValues.block + "</span>");
+  writeStream.write("<div class='blockBtns'>");
+  writeStream.write("<div id='blkS' class='blockBtn unselectable'>s</div>");
+  writeStream.write("<div id='blkP' class='blockBtn unselectable'>p</div>");
+  writeStream.write("<div id='blkD' class='blockBtn unselectable'>d</div>");
+  writeStream.write("<div id='blkF' class='blockBtn unselectable'>f</div>");
+  writeStream.write("</div>");
+  writeStream.write("</div>");
+  writeStream.write("</td>");
   writeStream.write(getElement(1, "nobleGases r1 c18"));
   // console.log(getElement(1, "nobleGases r1 c18"));
   // writeStream.write("<Element {langValue} name={langValues[Constants[1].nme]} num='1' className='nobleGases r1 c18' />");

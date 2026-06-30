@@ -75,110 +75,111 @@ let darkIcon =
 xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((result) => {
   let rows = result.length && result[0].sheet && result[0].data ? (result.find(s => s.sheet === 'OtherSource') || result[4]).data : result;
   let languages = [
-    // { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans", bcp: "en-US", code: "1" },
-    // { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans", bcp: "en-GB", code: "45" },
-    // { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans", bcp: "af-ZA", code: "60" },
-    // { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans", bcp: "id-ID", code: "54" },
-    // { lang: "ms", name: "Bahasa Melayu", col: 41, punc: "dot", regular: "NotoSans", bcp: "ms-MY", code: "55" },
+    // { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans"},
+    // { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans" },
+    // { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans" },
+    // { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans" },
+    // { lang: "ms", name: "Bahasa Melayu", col: 41, punc: "dot", regular: "NotoSans" },
 
-    // { lang: "ca", name: "Català", col: 25, punc: "comma", regular: "NotoSans", bcp: "ca-ES", code: "23" },
-    // { lang: "cs", name: "Čeština", col: 24, punc: "comma", regular: "NotoSans", bcp: "cs-CZ", code: "13" },
-    // { lang: "da", name: "Dansk", col: 33, punc: "comma", regular: "NotoSans", bcp: "da-DK", code: "27" },
-    // { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans", bcp: "de-DE", code: "6" },
-    // { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans", bcp: "es-ES", code: "79" },
+    // { lang: "ca", name: "Català", col: 25, punc: "comma", regular: "NotoSans" },
+    // { lang: "cs", name: "Čeština", col: 24, punc: "comma", regular: "NotoSans" },
+    // { lang: "da", name: "Dansk", col: 33, punc: "comma", regular: "NotoSans" },
+    // { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans" },
+    // { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans" },
     
-    // { lang: "eo", name: "Esperanto", col: 47, punc: "comma", regular: "NotoSans", bcp: "eo", code: "24" },
-    // { lang: "fr", name: "Français", col: 5, punc: "comma", regular: "NotoSans", bcp: "fr-FR", code: "5" },
-    // { lang: "hr", name: "Hrvatski", col: 39, punc: "comma", regular: "NotoSans", bcp: "hr-HR", code: "22" },
-    // { lang: "it", name: "Italiano", col: 8, punc: "comma", regular: "NotoSans", bcp: "it-IT", code: "10" },
-    // { lang: "hu", name: "Magyar", col: 11, punc: "comma", regular: "NotoSans", bcp: "hu-HU", code: "21" },
+    // { lang: "eo", name: "Esperanto", col: 47, punc: "comma", regular: "NotoSans" },
+    // { lang: "fr", name: "Français", col: 5, punc: "comma", regular: "NotoSans" },
+    // { lang: "hr", name: "Hrvatski", col: 39, punc: "comma", regular: "NotoSans" },
+    // { lang: "it", name: "Italiano", col: 8, punc: "comma", regular: "NotoSans" },
+    // { lang: "hu", name: "Magyar", col: 11, punc: "comma", regular: "NotoSans" },
     
-    // { lang: "nl", name: "Nederlands", col: 7, punc: "comma", regular: "NotoSans", bcp: "nl-NL", code: "12" },
-    // { lang: "nb-no", name: "Norsk Bokmål", col: 27, punc: "comma", regular: "NotoSans", bcp: "nb-NO", code: "77" },
-    // { lang: "nn-no", name: "Norsk Nynorsk", col: 38, punc: "comma", regular: "NotoSans", bcp: "nn-NO", code: "15" },
-    // { lang: "pl", name: "Polski", col: 30, punc: "comma", regular: "NotoSans", bcp: "pl-PL", code: "16" },
-    // { lang: "pt", name: "Português", col: 18, punc: "comma", regular: "NotoSans", bcp: "pt-PT", code: "563" },
+    // { lang: "nl", name: "Nederlands", col: 7, punc: "comma", regular: "NotoSans" },
+    // { lang: "nb-no", name: "Norsk Bokmål", col: 27, punc: "comma", regular: "NotoSans" },
+    // { lang: "nn-no", name: "Norsk Nynorsk", col: 38, punc: "comma", regular: "NotoSans" },
+    // { lang: "pl", name: "Polski", col: 30, punc: "comma", regular: "NotoSans" },
+    // { lang: "pt", name: "Português", col: 18, punc: "comma", regular: "NotoSans" },
+    // { lang: "pt-br", name: "Português(BR)", col: 48, punc: "comma", regular: "NotoSans" },
     
-    // { lang: "ro", name: "Română", col: 17, punc: "comma", regular: "NotoSans", bcp: "ro-RO", code: "19" },
-    // { lang: "sk", name: "Slovenčina", col: 13, punc: "comma", regular: "NotoSans", bcp: "sk-SK", code: "34" },
-    // { lang: "sl", name: "Slovenščina", col: 37, punc: "comma", regular: "NotoSans", bcp: "sl-SI", code: "659" },
-    // { lang: "fi", name: "Suomi", col: 19, punc: "comma", regular: "NotoSans", bcp: "fi-FI", code: "18" },
-    // { lang: "sv", name: "Svenska", col: 32, punc: "comma", regular: "NotoSans", bcp: "sv-SE", code: "17" },
+    // { lang: "ro", name: "Română", col: 17, punc: "comma", regular: "NotoSans" },
+    // { lang: "sk", name: "Slovenčina", col: 13, punc: "comma", regular: "NotoSans" },
+    // { lang: "sl", name: "Slovenščina", col: 37, punc: "comma", regular: "NotoSans" },
+    // { lang: "fi", name: "Suomi", col: 19, punc: "comma", regular: "NotoSans" },
+    // { lang: "sv", name: "Svenska", col: 32, punc: "comma", regular: "NotoSans" },
     
-    // { lang: "vi", name: "Tiếng Việt", col: 15, punc: "comma", regular: "NotoSans", bcp: "vi-VN", code: "50" },
-    // { lang: "tr", name: "Türkçe", col: 22, punc: "comma", regular: "NotoSans", bcp: "tr-TR", code: "14" },
-    // { lang: "uz", name: "Oʻzbek", col: 46, punc: "comma", regular: "NotoSans", bcp: "uz-UZ", code: "213" },
-    // { lang: "eo", name: "Esperanto", col: 47, punc: "comma", regular: "NotoSans", bcp: "eo", code: "24" },
-    // { lang: "el", name: "Ελληνικά", col: 35, punc: "comma", regular: "NotoSans", bcp: "el-GR", code: "20" },
+    // { lang: "vi", name: "Tiếng Việt", col: 15, punc: "comma", regular: "NotoSans" },
+    // { lang: "tr", name: "Türkçe", col: 22, punc: "comma", regular: "NotoSans" },
+    // { lang: "uz", name: "Oʻzbek", col: 46, punc: "comma", regular: "NotoSans" },
+    // { lang: "eo", name: "Esperanto", col: 47, punc: "comma", regular: "NotoSans" },
+    // { lang: "el", name: "Ελληνικά", col: 35, punc: "comma", regular: "NotoSans" },
     
-    // { lang: "bg", name: "Български", col: 20, puncncu: "comma", regular: "NotoSans", bcp: "bg-BG", code: "576" },
-    // { lang: "mk", name: "Македонски", col: 43, punc: "comma", regular: "NotoSans", bcp: "mk-MK", code: "644" },
-    // { lang: "ru", name: "Русский", col: 9, punc: "comma", regular: "NotoSans", bcp: "ru-RU", code: "11" },
-    // { lang: "sr", name: "Српски", col: 26, punc: "comma", regular: "NotoSans", bcp: "sr-Cyrl-CS", code: "462" },
-    // { lang: "uk", name: "Українська", col: 14, punc: "comma", regular: "NotoSans", bcp: "uk-UA", code: "36" },
+    // { lang: "bg", name: "Български", col: 20, puncncu: "comma", regular: "NotoSans" },
+    // { lang: "mk", name: "Македонски", col: 43, punc: "comma", regular: "NotoSans" },
+    // { lang: "ru", name: "Русский", col: 9, punc: "comma", regular: "NotoSans" },
+    // { lang: "sr", name: "Српски", col: 26, punc: "comma", regular: "NotoSans" },
+    // { lang: "uk", name: "Українська", col: 14, punc: "comma", regular: "NotoSans" },
     
-    // { lang: "hy", name: "Հայերեն", col: 42, punc: "comma", regular: "NotoSansArmenian-Regular", bcp: "hy-AM", code: "62" },
-    // { lang: "he", name: "עברית", col: 36, punc: "dot", regular: "NotoSansHebrew-Regular", bcp: "he-IL", code: "42" },
-    // { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular", bcp: "ar-SA", code: "28" },
-    // { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular", bcp: "fa-IR", code: "29" },
-    // { lang: "hi", name: "हिंदी", col: 29, punc: "dot", regular: "NotoSansDevanagari-Regular", bcp: "hi-IN", code: "587" },
+    // { lang: "hy", name: "Հայերեն", col: 42, punc: "comma", regular: "NotoSansArmenian-Regular" },
+    // { lang: "he", name: "עברית", col: 36, punc: "dot", regular: "NotoSansHebrew-Regular" },
+    // { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular" },
+    // { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular" },
+    // { lang: "hi", name: "हिंदी", col: 29, punc: "dot", regular: "NotoSansDevanagari-Regular" },
     
-    { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular", bcp: "th-TH", code: "56" },
-    { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular", bcp: "ja-JP", code: "4" },
-    { lang: "ko", name: "한국어", col: 10, punc: "dot", regular: "NotoSansKR-Regular", bcp: "ko-KR", code: "9" },
-    { lang: "zh-cn", name: "中文(简体)", col: 6, punc: "dot", regular: "NotoSansSC-Regular", bcp: "zh-CN", code: "3" },
-    { lang: "zh-tw", name: "中文(繁體)", col: 28, punc: "dot", regular: "NotoSansTC-Regular", bcp: "zh-TW", code: "2" },
-    { lang: "ta", name: "தமிழ்", col: 45, punc: "dot", regular: "NotoSansTamil-Regular", bcp: "ta-IN", code: "505" },
+    { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular" },
+    { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular" },
+    { lang: "ko", name: "한국어", col: 10, punc: "dot", regular: "NotoSansKR-Regular" },
+    { lang: "zh-cn", name: "中文(简体)", col: 6, punc: "dot", regular: "NotoSansSC-Regular" },
+    { lang: "zh-tw", name: "中文(繁體)", col: 28, punc: "dot", regular: "NotoSansTC-Regular" },
+    { lang: "ta", name: "தமிழ்", col: 45, punc: "dot", regular: "NotoSansTamil-Regular" },
   ];
 
   const updates = require("./changelog.js");
 
   let languagesForSelect = [
-    { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans", code: "1" },
-    { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans", code: "45" },
-    { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans", code: "60" },
-    { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans", code: "54" },
-    { lang: "ms", name: "Bahasa Melayu", col: 41, punc: "dot", regular: "NotoSans", code: "55" },
-    { lang: "ca", name: "Català", col: 25, punc: "comma", regular: "NotoSans", code: "23" },
-    { lang: "cs", name: "Čeština", col: 24, punc: "comma", regular: "NotoSans", code: "13" },
-    { lang: "da", name: "Dansk", col: 33, punc: "comma", regular: "NotoSans", code: "27" },
-    { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans", code: "6" },
-    { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans", code: "79" },
-    { lang: "eo", name: "Esperanto", col: 47, punc: "comma", regular: "NotoSans", code: "24" },
-    { lang: "fr", name: "Français", col: 5, punc: "comma", regular: "NotoSans", code: "5" },
-    { lang: "hr", name: "Hrvatski", col: 39, punc: "comma", regular: "NotoSans", code: "22" },
-    { lang: "it", name: "Italiano", col: 8, punc: "comma", regular: "NotoSans", code: "10" },
-    { lang: "hu", name: "Magyar", col: 11, punc: "comma", regular: "NotoSans", code: "21" },
-    { lang: "nl", name: "Nederlands", col: 7, punc: "comma", regular: "NotoSans", code: "12" },
-    { lang: "nb-no", name: "Norsk Bokmål", col: 27, punc: "comma", regular: "NotoSans", code: "77" },
-    { lang: "nn-no", name: "Norsk Nynorsk", col: 38, punc: "comma", regular: "NotoSans", code: "15" },
-    { lang: "pl", name: "Polski", col: 30, punc: "comma", regular: "NotoSans", code: "16" },
-    { lang: "pt", name: "Português", col: 18, punc: "comma", regular: "NotoSans", code: "563" },
-    { lang: "ro", name: "Română", col: 17, punc: "comma", regular: "NotoSans", code: "19" },
-    { lang: "sk", name: "Slovenčina", col: 13, punc: "comma", regular: "NotoSans", code: "34" },
-    { lang: "sl", name: "Slovenščina", col: 37, punc: "comma", regular: "NotoSans", code: "659" },
-    { lang: "fi", name: "Suomi", col: 19, punc: "comma", regular: "NotoSans", code: "18" },
-    { lang: "sv", name: "Svenska", col: 32, punc: "comma", regular: "NotoSans", code: "17" },
-    { lang: "vi", name: "Tiếng Việt", col: 15, punc: "comma", regular: "NotoSans", code: "50" },
-    { lang: "tr", name: "Türkçe", col: 22, punc: "comma", regular: "NotoSans", code: "14" },
-    { lang: "el", name: "Ελληνικά", col: 35, punc: "comma", regular: "NotoSans", code: "20" },
-    { lang: "bg", name: "Български", col: 20, punc: "comma", regular: "NotoSans", code: "576" },
-    { lang: "mk", name: "Македонски", col: 43, punc: "comma", regular: "NotoSans", code: "644" },
-    { lang: "ru", name: "Русский", col: 9, punc: "comma", regular: "NotoSans", code: "11" },
-    { lang: "sr", name: "Српски", col: 26, punc: "comma", regular: "NotoSans", code: "462" },
-    { lang: "uz", name: "Oʻzbek", col: 46, punc: "comma", regular: "NotoSans", code: "213" },
-    { lang: "hy", name: "Հայերեն", col: 42, punc: "comma", regular: "NotoSansArmenian-Regular", code: "62" },
-    { lang: "uk", name: "Українська", col: 14, punc: "comma", regular: "NotoSans", code: "36" },
-    { lang: "he", name: "עברית", col: 36, punc: "dot", regular: "NotoSansHebrew-Regular", code: "42" },
-    { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular", code: "28" },
-    { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular", code: "29" },
-    { lang: "ta", name: "தமிழ்", col: 45, punc: "dot", regular: "NotoSansTamil-Regular", code: "505" },
-    { lang: "hi", name: "हिंदी", col: 29, punc: "dot", regular: "NotoSansDevanagari-Regular", code: "587" },
-    { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular", code: "56" },
-    { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular", code: "4" },
-    { lang: "ko", name: "한국어", col: 10, punc: "dot", regular: "NotoSansKR-Regular", code: "9" },
-    { lang: "zh-cn", name: "中文(简体)", col: 6, punc: "dot", regular: "NotoSansSC-Regular", code: "3" },
-    { lang: "zh-tw", name: "中文(繁體)", col: 28, punc: "dot", regular: "NotoSansTC-Regular", code: "2" },
+    { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans"},
+    { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans"},
+    { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans"},
+    { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans"},
+    { lang: "ms", name: "Bahasa Melayu", col: 41, punc: "dot", regular: "NotoSans"},
+    { lang: "ca", name: "Català", col: 25, punc: "comma", regular: "NotoSans"},
+    { lang: "cs", name: "Čeština", col: 24, punc: "comma", regular: "NotoSans"},
+    { lang: "da", name: "Dansk", col: 33, punc: "comma", regular: "NotoSans"},
+    { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans"},
+    { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans"},
+    { lang: "eo", name: "Esperanto", col: 47, punc: "comma", regular: "NotoSans"},
+    { lang: "fr", name: "Français", col: 5, punc: "comma", regular: "NotoSans"},
+    { lang: "hr", name: "Hrvatski", col: 39, punc: "comma", regular: "NotoSans"},
+    { lang: "it", name: "Italiano", col: 8, punc: "comma", regular: "NotoSans"},
+    { lang: "hu", name: "Magyar", col: 11, punc: "comma", regular: "NotoSans"},
+    { lang: "nl", name: "Nederlands", col: 7, punc: "comma", regular: "NotoSans"},
+    { lang: "nb-no", name: "Norsk Bokmål", col: 27, punc: "comma", regular: "NotoSans"},
+    { lang: "nn-no", name: "Norsk Nynorsk", col: 38, punc: "comma", regular: "NotoSans"},
+    { lang: "pl", name: "Polski", col: 30, punc: "comma", regular: "NotoSans"},
+    { lang: "pt", name: "Português", col: 18, punc: "comma", regular: "NotoSans"},
+    { lang: "ro", name: "Română", col: 17, punc: "comma", regular: "NotoSans"},
+    { lang: "sk", name: "Slovenčina", col: 13, punc: "comma", regular: "NotoSans"},
+    { lang: "sl", name: "Slovenščina", col: 37, punc: "comma", regular: "NotoSans"},
+    { lang: "fi", name: "Suomi", col: 19, punc: "comma", regular: "NotoSans"},
+    { lang: "sv", name: "Svenska", col: 32, punc: "comma", regular: "NotoSans"},
+    { lang: "vi", name: "Tiếng Việt", col: 15, punc: "comma", regular: "NotoSans"},
+    { lang: "tr", name: "Türkçe", col: 22, punc: "comma", regular: "NotoSans"},
+    { lang: "el", name: "Ελληνικά", col: 35, punc: "comma", regular: "NotoSans"},
+    { lang: "bg", name: "Български", col: 20, punc: "comma", regular: "NotoSans"},
+    { lang: "mk", name: "Македонски", col: 43, punc: "comma", regular: "NotoSans"},
+    { lang: "ru", name: "Русский", col: 9, punc: "comma", regular: "NotoSans"},
+    { lang: "sr", name: "Српски", col: 26, punc: "comma", regular: "NotoSans"},
+    { lang: "uz", name: "Oʻzbek", col: 46, punc: "comma", regular: "NotoSans"},
+    { lang: "hy", name: "Հայերեն", col: 42, punc: "comma", regular: "NotoSansArmenian-Regular"},
+    { lang: "uk", name: "Українська", col: 14, punc: "comma", regular: "NotoSans"},
+    { lang: "he", name: "עברית", col: 36, punc: "dot", regular: "NotoSansHebrew-Regular"},
+    { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular"},
+    { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular"},
+    { lang: "ta", name: "தமிழ்", col: 45, punc: "dot", regular: "NotoSansTamil-Regular"},
+    { lang: "hi", name: "हिंदी", col: 29, punc: "dot", regular: "NotoSansDevanagari-Regular"},
+    { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular"},
+    { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular"},
+    { lang: "ko", name: "한국어", col: 10, punc: "dot", regular: "NotoSansKR-Regular"},
+    { lang: "zh-cn", name: "中文(简体)", col: 6, punc: "dot", regular: "NotoSansSC-Regular" },
+    { lang: "zh-tw", name: "中文(繁體)", col: 28, punc: "dot", regular: "NotoSansTC-Regular" },
   ];
 
   languages.forEach((language) => {
@@ -213,13 +214,15 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
     //   if (err) throw err;
     // });
 
-    // fs.copyFile("favicon-32x32.png", lang + "/favicon-32x32.png", (err) => {
-    //   if (err) throw err;
-    // });
-
-    // fs.copyFile("favicon-16x16.png", lang + "/favicon-16x16.png", (err) => {
-    //   if (err) throw err;
-    // });
+    // Only copy favicons into a language folder that doesn't already have them.
+    // This populates newly added languages without overwriting existing files
+    // (or slowing every build by re-copying unchanged icons).
+    ["favicon-32x32.png", "favicon-16x16.png"].forEach((icon) => {
+      const dest = `${lang}/${icon}`;
+      if (!fs.existsSync(dest)) {
+        fs.copyFileSync(icon, dest);
+      }
+    });
 
     // fsextra
     //   .copy("images2", lang + "/images")
@@ -265,6 +268,10 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
       `<html lang='${lang}' class='normalFont' data-direction='${lang === "ar" || lang === "fa" || lang === "he" ? "rtl" : "ltr"}' data-theme='dark' data-style='1'>`,
       "<head>",
       "<meta charset='utf-8'/>",
+      // Apply the saved theme (or the OS preference when none is saved) before
+      // first paint, so light-mode visitors don't see a flash of the dark
+      // default. Mirrors initializePage() in htmlJS_actual.js.
+      "<script>(function(){try{var t=localStorage.getItem('defaultNewTheme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>",
       "<meta http-equiv='X-UA-Compatible' content='IE=edge'/>",
       "<meta name='viewport' content='width=device-width,initial-scale=1'/>",
       "<link rel='apple-touch-icon' sizes='180x180' href='images/icons/apple-touch-icon.png'/>",

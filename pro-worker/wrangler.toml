@@ -1,0 +1,37 @@
+name = "ptio-pro"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+# Persistent request logs (dashboard → Workers → ptio-pro → Logs), so webhook
+# deliveries are visible after the fact without a live `wrangler tail`.
+[observability]
+enabled = true
+
+# Custom domain: Cloudflare creates the `pro` DNS record automatically on
+# deploy - no manual DNS step needed (unlike a plain route).
+[[routes]]
+pattern = "pro.periodic-table.io"
+custom_domain = true
+
+# Active-subscriber store (create with: wrangler kv namespace create PRO_MEMBERS,
+# then paste the id below).
+[[kv_namespaces]]
+binding = "PRO_MEMBERS"
+id = "a9fcfba726824a2da8655e0d87fb1602"
+
+# Non-secret config. GUMROAD_CLIENT_ID is public (it appears in the OAuth URL).
+[vars]
+GUMROAD_CLIENT_ID = "DXBK18EaLO4GRSIVoz7wwPJIfF9ylorVjKQxGIrt3Yg"
+GUMROAD_PRODUCT_PERMALINK = "pro"
+# Product id from GET /v2/products ("Periodic Table Pro"). Sales/webhooks are
+# matched on this; the permalink is only a fallback for ping payloads.
+GUMROAD_PRODUCT_ID = "bNmMYXSql91Ty5bLXV3Y8w=="
+REDIRECT_URI = "https://pro.periodic-table.io/callback"
+COOKIE_DOMAIN = ".periodic-table.io"
+ALLOWED_RETURN_SUFFIX = "periodic-table.io"
+
+# Secrets - set with `wrangler secret put <NAME>` (never commit these):
+#   GUMROAD_CLIENT_SECRET   (OAuth application secret)
+#   GUMROAD_SELLER_TOKEN    (your Gumroad API access token, for backfill checks)
+#   STATE_SECRET            (any long random string)
+#   PING_KEY                (any long random string; register the Gumroad webhook as /ping?key=<PING_KEY>)

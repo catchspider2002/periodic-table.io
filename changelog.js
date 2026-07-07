@@ -12,6 +12,16 @@
 
 const updates = [
   {
+    date: "Jul 6, 2026",
+    updates: [
+      `You can now remove ads for $1/month - <a class='underlineLink' target='_blank' href='https://periodictabio.gumroad.com/l/pro' rel='noopener noreferrer'>subscribe</a> and log in with Gumroad under Settings`,
+      `Added a Brazilian Portuguese version of the site at <a class='underlineLink' target='_blank' href='https://pt-br.periodic-table.io' rel='noopener noreferrer'>pt-br.periodic-table.io</a>`,
+      "The element preview on hover now shows the crystal structure diagram in the top corner",
+      "You can now choose which 6 properties show in the hover details panel, from Settings",
+      "Added Phase (solid/liquid/gas) as a hover detail, shown by default",
+    ],
+  },
+  {
     date: "Jun 30, 2026",
     updates: [
       "Added an s/p/d/f block selector at the top of the table - hover a block to highlight its elements",

@@ -75,17 +75,17 @@ let darkIcon =
 xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((result) => {
   let rows = result.length && result[0].sheet && result[0].data ? (result.find(s => s.sheet === 'OtherSource') || result[4]).data : result;
   let languages = [
-    // { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans"},
-    // { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans" },
-    // { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans" },
-    // { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans" },
-    // { lang: "ms", name: "Bahasa Melayu", col: 41, punc: "dot", regular: "NotoSans" },
+  //   { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans"},
+  //   { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans" },
+  //   { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans" },
+  //   { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans" },
+  //   { lang: "ms", name: "Bahasa Melayu", col: 41, punc: "dot", regular: "NotoSans" },
 
-    // { lang: "ca", name: "Català", col: 25, punc: "comma", regular: "NotoSans" },
-    // { lang: "cs", name: "Čeština", col: 24, punc: "comma", regular: "NotoSans" },
-    // { lang: "da", name: "Dansk", col: 33, punc: "comma", regular: "NotoSans" },
-    // { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans" },
-    // { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans" },
+  //   { lang: "ca", name: "Català", col: 25, punc: "comma", regular: "NotoSans" },
+  //   { lang: "cs", name: "Čeština", col: 24, punc: "comma", regular: "NotoSans" },
+  //   { lang: "da", name: "Dansk", col: 33, punc: "comma", regular: "NotoSans" },
+  //   { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans" },
+  //   { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans" },
     
     // { lang: "eo", name: "Esperanto", col: 47, punc: "comma", regular: "NotoSans" },
     // { lang: "fr", name: "Français", col: 5, punc: "comma", regular: "NotoSans" },
@@ -155,6 +155,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
     { lang: "nn-no", name: "Norsk Nynorsk", col: 38, punc: "comma", regular: "NotoSans"},
     { lang: "pl", name: "Polski", col: 30, punc: "comma", regular: "NotoSans"},
     { lang: "pt", name: "Português", col: 18, punc: "comma", regular: "NotoSans"},
+    { lang: "pt-br", name: "Português (Brasil)", col: 48, punc: "comma", regular: "NotoSans"},
     { lang: "ro", name: "Română", col: 17, punc: "comma", regular: "NotoSans"},
     { lang: "sk", name: "Slovenčina", col: 13, punc: "comma", regular: "NotoSans"},
     { lang: "sl", name: "Slovenščina", col: 37, punc: "comma", regular: "NotoSans"},
@@ -297,7 +298,10 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
       "<meta name='twitter:site' content='@MrNaveenCS'/>",
       "<meta property='og:site_name' content='Periodic-Table.io'/>",
       "<meta property='og:type' content='website'/>",
-      "<script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2799761399763923' crossorigin='anonymous'></script>"
+      // AdSense (Auto Ads) loader, gated on the Pro cookie: Pro subscribers have
+      // `ptio_pro=1` (set on .periodic-table.io by the auth worker), so the ad
+      // script is never injected for them. Everyone else loads ads as before.
+      "<script>(function(){try{if(/(?:^|;\\s*)ptio_pro=1(?:;|$)/.test(document.cookie))return;}catch(e){}var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2799761399763923';document.head.appendChild(s);})();</script>"
     ];
 
     let colorList = [
@@ -328,6 +332,21 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
       langNav.push(`<option value='${langVal.lang}'>${langVal.name}</option>`);
     });
 
+    // "Remove ads (Pro)" section, placed right below the appearance controls
+    // (language / temperature / color) and above the periodic-table settings, so
+    // it's near the top of Settings without interrupting the flow. #proBox is filled client-side by
+    // initPro() from the ptio_pro cookie (subscribe / log in with Gumroad / log
+    // out). The localized strings ride along as data attributes because the
+    // built JS is one shared file across every language folder.
+    const escAttr = (s) => String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/'/g, "&#39;").replace(/</g, "&lt;");
+    let proNav = [
+      `<div class='span-2' id='settingPro'>${langValues.removeAds}</div>`,
+      `<div id='proBox' data-remove-ads='${escAttr(langValues.removeAds)}' data-price='${escAttr(langValues.price)}'` +
+        ` data-pro-active='${escAttr(langValues.proActive)}' data-logout='${escAttr(langValues.logout)}'` +
+        ` data-login='${escAttr(langValues.login)}' data-no-subscription='${escAttr(langValues.noSubscription)}'` +
+        ` data-login-failed='${escAttr(langValues.loginFailed)}'></div>`,
+    ];
+
     let nav2 = [
       "</select>",
       "</div>",
@@ -348,8 +367,49 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
       );
     });
 
+    // Configurable hover-detail rows: 6 dropdowns, each choosing one of the 12
+    // fields. Defaults = the original 5 rows + Phase. Field ids must match the
+    // DETAIL_FIELDS catalog in htmlJS_actual.js. Option text is plain (tags
+    // stripped) since it sits inside an <option>.
+    const detailFieldDefs = [
+      ["phase", langValues.labelPhaseMain],
+      ["density", langValues.labelDensityMain],
+      ["melting", langValues.labelMeltingMain],
+      ["boiling", langValues.labelBoilingMain],
+      ["electrons", langValues.labelElectronsMain],
+      ["config", langValues.labelConfigMain],
+      ["discovered", langValues.discovered],
+      ["radius", langValues.labelRadiusMain],
+      ["electronegativity", langValues.labelElectronegativityMain],
+      ["ionization", langValues.labelIonizationMain],
+      ["oxidation", langValues.labelOxidationMain],
+      ["block", langValues.block],
+      ["fusion", langValues.labelFusionMain],
+      ["vaporization", langValues.labelVaporizationMain],
+      ["specificHeat", langValues.labelSpecificMain],
+      ["covalent", langValues.labelCovalentMain],
+      ["volume", langValues.labelVolumeMain],
+      ["thermal", langValues.labelThermalMain],
+      ["crust", langValues.labelCrustMain],
+      ["universe", langValues.labelUniverseMain],
+    ];
+    const detailDefaults = ["discovered", "melting", "boiling", "electrons", "config", "phase"];
+    const stripTags = (s) => String(s == null ? "" : s).replace(/<[^>]*>/g, "");
+    let detailNav = [`<div class='span-2' id='settingDetails'>${langValues.properties || "Properties"}</div>`];
+    detailDefaults.forEach((def, i) => {
+      detailNav.push(`<div class='grayText'>${i + 1}</div>`);
+      detailNav.push("<div>");
+      detailNav.push(`<select id='detailSelect${i}' class='select-css' onchange='setDetail(${i})'>`);
+      detailFieldDefs.forEach(([fid, label]) => {
+        detailNav.push(`<option value='${fid}'${fid === def ? " selected" : ""}>${stripTags(label)}</option>`);
+      });
+      detailNav.push("</select>");
+      detailNav.push("</div>");
+    });
+
     let nav3 = [
       "</div>",
+      ...proNav,
       `<div id='settingPeriodicTable' class='span-2'>${langValues.homeHeader}</div>`,
       `<div class='grayText'>${langValues.tableWidth}</div>`,
       "<div>",
@@ -384,6 +444,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
       "<input type='radio' id='style3' name='tableStyle' value='3' onchange='setStyle()' >",
       "<label id='style3Label' class='disable-select' for='style3'></label>",
       "</div>",
+      ...detailNav,
       "</div>",
       "</section><nav>",
       "<a id='logo' href='.' aria-label='Home'>",
@@ -463,6 +524,9 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
       `<a href='about' class='m-1 px-4 py-2'>${langValues.about}</a>`,
       `<a href='credits' class='m-1 px-4 py-2'>${langValues.credits}</a>`,
       `<a href='privacy-policy' class='m-1 px-4 py-2'>${langValues.privacy}</a>`,
+      // Opens the settings sidebar, where the Pro box sits at the top.
+      // initPro() hides this for members (no point upselling what they have).
+      `<a href='#' id='removeAdsFooter' class='m-1 px-4 py-2' onclick='sideBar();return false;'>${langValues.removeAds}</a>`,
       "</div>",
       "<div class='flex flex-wrap justify-center pt-2 py-4'>",
       "<a target='_blank' href='https://github.com/catchspider2002/periodic-table.io' rel='noopener noreferrer' class='flex m-1 p-2' title='Github'>",

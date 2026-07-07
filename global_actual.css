@@ -136,6 +136,8 @@ h1 {
 nav > h1 {
   font-size: 0.9em;
   font-weight: normal;
+  /* Gap between the logo and the page title (the nav grid has no column gap). */
+  padding-inline-start: 0.5em;
 }
 
 a {
@@ -714,7 +716,9 @@ table,
   padding: 5rem 2rem 2rem;
 }
 
-#settingPeriodicTable {
+#settingPeriodicTable,
+#settingDetails,
+#settingPro {
   grid-column: 1 / span 2;
   border-bottom: 1px solid rgba(var(--blockquote-color), 0.2);
   margin: 0.5rem 0;
@@ -1270,7 +1274,7 @@ canvas {
   display: grid;
   grid-template-columns: auto 1fr;
   grid-column-gap: 2em;
-  grid-template-rows: repeat(6, auto);
+  grid-template-rows: repeat(7, auto);
   align-content: center;
   row-gap: 0.15em;
   line-height: 1.3;
@@ -1351,6 +1355,35 @@ canvas {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
+}
+
+/* Crystal-structure diagram in the snippet's top-right corner, aligned with
+   the atomic number. Filled in on hover from CRYSTAL_SVG (htmlJS_actual.js). */
+#snippetCrystal {
+  position: absolute;
+  top: 7%;
+  inset-inline-end: 7%;
+  width: 22%;
+}
+
+#snippetCrystal .crystalDiagram {
+  margin: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Back/hidden lines: a translucent version of the text color (instead of the
+   global fixed gray) so they stay visible on any element-colored snippet
+   background. Scoped to the snippet; the element detail page keeps its gray. */
+#snippetCrystal .strokeHidden {
+  stroke: rgba(var(--text-color), 0.35);
+}
+
+#snippetCrystal .fillHidden {
+  stroke: rgba(var(--text-color), 0.35);
+  fill: rgba(var(--text-color), 0.35);
 }
 
 #snippetNum {
@@ -1381,10 +1414,16 @@ canvas {
 } */
 
 .category {
-  font-size: 0.88em;
-  padding: 4px 6px;
+  font-size: 0.72em;
+  padding: 4px 8px;
   border-radius: 999px;
   margin: 0 2px;
+  /* Flex-center so wrapped (2-line) labels stay vertically centered when a pill
+     is stretched to match the tallest one in the row. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.15;
 }
 
 /* s/p/d/f block selector - sits in the empty period-1 cells above B-F. */
@@ -1434,14 +1473,46 @@ canvas {
   user-select: none;
 }
 
-#actinides,
-#lanthanides {
-  font-size: 0.9em;
-}
-
 #actinidesMain,
 #lanthanidesMain {
   font-size: 0.8em;
+}
+
+/* "Remove ads (Pro)" settings box (filled by initPro()). */
+#proBox {
+  grid-column: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.85em;
+  /* Pull the box up: the settingsGrid 2.5rem row gap otherwise reads as a
+     blank line between the "Remove ads" header and the subscribe button. */
+  margin-top: -1.75rem;
+}
+
+/* Filled accent CTA so the subscribe button stands out among the muted
+   outlined controls of the settings sidebar. */
+#proBox .proCta {
+  background-color: rgb(var(--theme-color));
+  border-color: transparent;
+  color: #fff;
+  font-weight: 600;
+}
+
+#proBox .proCta:hover {
+  background-color: rgba(var(--theme-color), 0.85);
+  border-color: transparent;
+  color: #fff;
+}
+
+#proBox .proActive {
+  color: rgb(var(--color6));
+  font-weight: 600;
+}
+
+#proBox .proNote {
+  color: rgb(var(--theme-color));
 }
 
 #compareBg {
@@ -2410,11 +2481,16 @@ nav::after {
 
 #logo {
   display: inline-grid;
-  /* place-items: center;
-  grid-auto-flow: column;
-  line-height: 1;
-  gap: 1em;
-  justify-self: start; */
+  place-items: center;
+  /* The logo is an icon-only `nav a`, so it doesn't get the `nav ul li a`
+     button styling. Override `nav a`'s wide, un-rounded padding with a snug
+     symmetric box + the same radius as the nav buttons, so the hover isn't a
+     big sharp rectangle. */
+  padding: 6px;
+  border-radius: 6px;
+  /* Margin (not padding) keeps it off the nav's left edge without enlarging the
+     snug hover box. */
+  margin-inline-start: 0.75em;
 }
 
 /* Removing padding, margin and "list-style" from the "ul",
@@ -2651,7 +2727,9 @@ nav > button {
     gap: 1.5rem;
   }
 
-  #settingPeriodicTable {
+  #settingPeriodicTable,
+  #settingDetails,
+  #settingPro {
     grid-column: 1;
   }
 }

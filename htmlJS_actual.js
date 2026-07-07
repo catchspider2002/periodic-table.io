@@ -10489,6 +10489,42 @@ let outerElement = cls("outerElement");
 let singleNum = cls("eleNum");
 let singleWt = cls("eleWt");
 
+// --- Configurable hover details ---------------------------------------------
+// Declared before the initializePage() call below, which (via setSettings ->
+// getDetailKeys) reads these at startup. Localized labels/units are injected
+// per page as window.DETAIL_I18N (htmlIndex.js). Value formatting mirrors the
+// element detail page (units, °C/°F via getTempHome, getNum).
+const DI = (typeof window !== "undefined" && window.DETAIL_I18N) || {};
+
+// All 12 selectable fields: id -> { label, value(eleId) }.
+const DETAIL_FIELDS = {
+  phase: { label: DI.labelPhaseMain, value: (e) => DI[e.phs] || e.phs },
+  density: { label: DI.labelDensityMain, value: (e) => (e.dns === "-" ? "-" : getNum(e.dns) + " " + DI.labelDensity) },
+  melting: { label: DI.labelMeltingMain, value: (e) => getTempHome(e.mlt) },
+  boiling: { label: DI.labelBoilingMain, value: (e) => getTempHome(e.bln) },
+  electrons: { label: DI.labelElectronsMain, value: (e) => getNum(e.elc) },
+  config: { label: DI.labelConfigMain, value: (e) => e.cnf },
+  discovered: { label: DI.discovered, value: (e) => getDetailYear(e) },
+  radius: { label: DI.labelRadiusMain, value: (e) => (e.aRd === "-" ? "-" : getNum(e.aRd) + " pm") },
+  electronegativity: {
+    label: DI.labelElectronegativityMain,
+    value: (e) => (e.eNg === "-" ? "-" : getNum(e.eNg) + " (" + DI.pauling + ")"),
+  },
+  ionization: { label: DI.labelIonizationMain, value: (e) => (e.ion === "-" ? "-" : getNum(e.ion) + " " + DI.labelIonization) },
+  oxidation: { label: DI.labelOxidationMain, value: (e) => e.oxi },
+  block: { label: DI.block, value: (e) => e.blk },
+  fusion: { label: DI.labelFusionMain, value: (e) => (e.fsn === "na" ? DI.na : getNum(e.fsn) + " " + DI.labelFusion) },
+  vaporization: { label: DI.labelVaporizationMain, value: (e) => (e.vpn === "na" ? DI.na : getNum(e.vpn) + " " + DI.labelFusion) },
+  specificHeat: { label: DI.labelSpecificMain, value: (e) => (e.spc === "-" ? "-" : getNum(e.spc) + " " + DI.labelSpecific) },
+  covalent: { label: DI.labelCovalentMain, value: (e) => (e.cRd === "-" ? "-" : getNum(e.cRd) + " pm") },
+  volume: { label: DI.labelVolumeMain, value: (e) => (e.vol === "-" ? "-" : getNum(e.vol) + " " + DI.labelVolume) },
+  thermal: { label: DI.labelThermalMain, value: (e) => (e.trm === "-" ? "-" : getNum(e.trm) + " " + DI.labelThermal) },
+  crust: { label: DI.labelCrustMain, value: (e) => (e.crt === "na" ? DI.na : getNum(e.crt)) },
+  universe: { label: DI.labelUniverseMain, value: (e) => (e.uni === "na" ? DI.na : getNum(e.uni)) },
+};
+
+const DETAIL_DEFAULTS = ["discovered", "melting", "boiling", "electrons", "config", "phase"];
+
 initializePage();
 
 function setSize(tablePercent) {
@@ -10746,6 +10782,107 @@ function setScenarios() {
   setSize(defaultMargin);
 }
 
+// --- Configurable hover detail helpers --------------------------------------
+// (DI / DETAIL_FIELDS / DETAIL_DEFAULTS are declared earlier, above the
+// initializePage() call, to avoid a temporal-dead-zone error at startup.)
+
+// The user's chosen 6 fields, validated: exactly 6 unique known keys, else defaults.
+function getDetailKeys() {
+  let stored;
+  try {
+    stored = JSON.parse(localStorage.getItem("defaultDetails"));
+  } catch (e) {}
+  if (
+    !Array.isArray(stored) ||
+    stored.length !== 6 ||
+    new Set(stored).size !== 6 ||
+    stored.some((k) => !DETAIL_FIELDS[k])
+  )
+    return DETAIL_DEFAULTS.slice();
+  return stored;
+}
+
+// Localized discovery year (handles the "BC" suffix per language).
+function getDetailYear(eleId) {
+  let eleYear = eleId.yr + "";
+  if (eleYear.indexOf(" ") > 0) {
+    if (langValue === "zs") eleYear = "公元前" + eleYear.substring(0, eleYear.indexOf(" ")) + "年";
+    else if (langValue === "ko") eleYear = "기원전 " + eleYear.substring(0, eleYear.indexOf(" ")) + "년";
+    else if (langValue === "ja") eleYear = "紀元前" + eleYear.substring(0, eleYear.indexOf(" ")) + "年";
+    else if (langValue === "kk") eleYear = "б.з.д" + eleYear.substring(0, eleYear.indexOf(" ")) + "ж.";
+    else if (langValue === "hu" || langValue === "tr" || langValue === "ms" || langValue === "th" || langValue === "ta")
+      eleYear = bc + " " + eleYear.substring(0, eleYear.indexOf(" "));
+    else eleYear = eleYear.substring(0, eleYear.indexOf(" ")) + " " + bc;
+  } else {
+    if (langValue === "ko") eleYear = eleYear + "년";
+  }
+  return eleYear;
+}
+
+// Update just the 6 detail row labels from the current selection (no element needed).
+function applyDetailLabels(keys) {
+  keys = keys || getDetailKeys();
+  for (let i = 0; i < 6; i++) {
+    let f = DETAIL_FIELDS[keys[i]];
+    let row = id("detailRow" + (i + 2));
+    if (f && row) row.innerHTML = f.label;
+  }
+}
+
+// Settings: a detail-row dropdown changed. Keep all 6 fields unique by swapping
+// with whichever row currently holds the newly chosen field, then persist + refresh.
+function setDetail(changedIndex) {
+  let prev = getDetailKeys();
+  let selects = [];
+  for (let i = 0; i < 6; i++) selects.push(id("detailSelect" + i));
+  let newVal = selects[changedIndex].value;
+  for (let i = 0; i < 6; i++) {
+    if (i !== changedIndex && selects[i].value === newVal) {
+      selects[i].value = prev[changedIndex];
+      break;
+    }
+  }
+  let keys = selects.map((s) => s.value);
+  localStorage.setItem("defaultDetails", JSON.stringify(keys));
+  applyDetailLabels(keys);
+}
+
+// Crystal-structure diagram for an element's `stc` value (or "" if none). Ported
+// from htmlElement.js (server-side, element pages) so the home-page hover snippet
+// can show the structure too. Static geometry; stroke/fill colors come from the
+// .strokeVisible/.fillVisible/etc. theme rules in global.css. A function (not a
+// const map) so it hoists -- the startup setOutline() call runs before this line.
+function getCrystalSvg(stc) {
+  return ({
+  crystalSH:
+    "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 36 40.488'><path class='strokeHidden' d='M29.5 8.869l-.002 16.745-14.5 8.373L.5 25.617M15.002.499l-.004 33.488M29.5 8.869L.5 25.617M.502 8.873L15 17.243l14.498 8.37 4 4m-18.5 4.374l4 4'/><path class='fillHidden' d='M15.002 16.744a.5.5 0 100 1 .5.5 0 000-1zM29.5 25.117a.5.5 0 100 1 .5.5 0 000-1zm-14.498 8.371a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M.502 8.873l4 4m14.496 25.114L4.5 29.617l.002-16.744 14.5-8.374 14.498 8.37-.002 16.745zM15.002.5l4 4-.004 33.488M4.5 29.617l-4-4L.502 8.873l14.5-8.374L29.5 8.869l4 4zm.002-16.744l14.5 8.372 14.496 8.369'/><path class='fillVisible' d='M15.002 0a.5.5 0 100 1 .5.5 0 000-1zm4 4a.5.5 0 100 1 .5.5 0 000-1zM.5 8.373a.5.5 0 100 1 .5.5 0 000-1zm29 0a.5.5 0 100 1 .5.5 0 000-1zm-25 4a.5.5 0 100 1 .5.5 0 000-1zm29 0a.5.5 0 100 1 .5.5 0 000-1zm-14.498 8.371a.5.5 0 100 1 .5.5 0 000-1zM.5 25.117a.5.5 0 100 1 .5.5 0 000-1zm4 4a.5.5 0 100 1 .5.5 0 000-1zm29 0a.5.5 0 100 1 .5.5 0 000-1zm-14.498 8.371a.5.5 0 100 1 .5.5 0 000-1z'/></svg>",
+  crystalSC:
+    "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 31.41 37.411'><path class='strokeHidden'd='M24.91.5l-.003 24.407L.5 24.91m24.407-.004l4 10'/><path class='fillHidden' d='M24.906 24.407a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M.5 24.911L.503.506 24.91.5m0 0l4 10M.503.506l4 10M4.5 34.911l.003-24.405L28.91 10.5l-.003 24.407zm-4-10l4 10' /><path class='fillVisible' d='M24.91 0a.5.5 0 100 1 .5.5 0 000-1zM.502.006a.5.5 0 100 1 .5.5 0 000-1zM28.91 10a.5.5 0 100 1 .5.5 0 000-1zm-24.408.006a.5.5 0 100 1 .5.5 0 000-1zM.5 24.411a.5.5 0 100 1 .5.5 0 000-1zm28.406 9.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 34.41a.5.5 0 100 1 .5.5 0 000-1z'/></svg>",
+  crystalFCC:
+    "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 31.41 37.411'><path class='strokeHidden' d='M24.907 24.907l-12.202-12.2L.503.507M24.91.5L.5 24.912m28.407 9.993L24.91.5m3.997 34.407L.5 24.912M28.91 10.5l-2.001 7.203-2.002 7.202m0 .002L14.704 29.91 4.5 34.912m20.407-10.005l4 10M24.91.5l-.003 24.407L.5 24.912'/><path class='fillHidden' d='M12.205 12.706a.5.5 0 101 0 .5.5 0 00-1 0zm1.999 17.203a.5.5 0 101 0 .5.5 0 00-1 0zm12.205-12.2a.5.5 0 101 0 .5.5 0 00-1 0zm-2.002 7.198a.5.5 0 101 0 .5.5 0 00-1 0z' /><path class='strokeVisible' d='M.5 24.912L.503.507 24.91.5m0 0L14.707 5.502 4.503 10.505M28.91 10.5L.503.505M4.5 34.912L.503.507M28.91 10.5L4.5 34.912m0 0l.003-24.405L28.91 10.5l-.003 24.407zM24.91.5l4 10M.5 24.912l4 10M.503.507l4 10m24.404 24.4l-12.202-12.2-12.202-12.2m0 0l-2.001 7.202L.5 24.912' /><path class='fillVisible' d='M16.205 22.706a.5.5 0 101 0 .5.5 0 00-1 0zM14.204 5.502a.5.5 0 101 0 .5.5 0 00-1 0zM2.002 17.71a.5.5 0 101 0 .5.5 0 00-1 0zM28.41 10.5a.5.5 0 101 0 .5.5 0 00-1 0zm-.003 24.408a.5.5 0 101 0 .5.5 0 00-1 0zM4 34.91a.5.5 0 101 0 .5.5 0 00-1 0zm.003-24.405a.5.5 0 101 0 .5.5 0 00-1 0zM24.41.5a.5.5 0 101 0 .5.5 0 00-1 0zM0 24.91a.5.5 0 101 0 .5.5 0 00-1 0zM.003.506a.5.5 0 101 0 .5.5 0 00-1 0z'/></svg>",
+  crystalBCC:
+    "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 31.41 37.41'><path class='strokeHidden' d='M24.907 24.906l-20.404-14.4m24.407-.007l-14.206 7.206L.5 24.91M24.91.499L4.5 34.911m24.407-.005L.503.506M24.91.499l-.003 24.407L.5 24.911m24.407-.005l4 10'/><path class='fillHidden' d='M14.705 17.205a.5.5 0 100 1 .5.5 0 000-1zm10.201 7.201a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M.5 24.91L.503.507 24.91.499m0 0l4 10M.503.506l4 10M4.5 34.91l.003-24.405 24.407-.007-.003 24.407zm-4-10l4 10'/><path class='fillVisible' d='M24.91 0a.5.5 0 100 1 .5.5 0 000-1zM.502.006a.5.5 0 100 1 .5.5 0 000-1zM28.91 10a.5.5 0 100 1 .5.5 0 000-1zm-24.408.006a.5.5 0 100 1 .5.5 0 000-1zM.5 24.41a.5.5 0 100 1 .5.5 0 000-1zm28.406 9.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 34.41a.5.5 0 100 1 .5.5 0 000-1z'/></svg>",
+  crystalSM:
+    "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 37.41 37.41'><path class='strokeHidden' d='M30.91.5l-6.003 24.406L.5 24.911m24.407-.005l4 10'/><path class='fillHidden' d='M24.906 24.406a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M.5 24.91L6.503.507 30.91.499m0 0l4 10M6.503.506l4 10M4.5 34.91l6.003-24.405 24.407-.007-6.003 24.407zm-4-10l4 10'/><path class='fillVisible' d='M30.91 0a.5.5 0 100 1 .5.5 0 000-1zM6.502.006a.5.5 0 100 1 .5.5 0 000-1zM34.91 10a.5.5 0 100 1 .5.5 0 000-1zm-24.408.006a.5.5 0 100 1 .5.5 0 000-1zM.5 24.41a.5.5 0 100 1 .5.5 0 000-1zm28.406 9.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 34.41a.5.5 0 100 1 .5.5 0 000-1z'/></svg>",
+  crystalBCM:
+    "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 37.41 37.41'><path class='strokeHidden' d='M4.5 34.91l20.407-10.006M.5 24.911l14.203 4.996 14.204 4.997M30.91.5l-6.003 24.407L.5 24.911m24.407-.005l4 10'/><path class='fillHidden' d='M24.906 24.406a.5.5 0 100 1 .5.5 0 000-1zm-10.203 5.002a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M10.503 10.506L30.91.499M6.503.506l14.203 4.997 14.204 4.996M.5 24.911L6.503.506 30.91.499m0 0l4 10M6.503.506l4 10M4.5 34.91l6.003-24.405 24.407-.007-6.003 24.407zm-4-10l4 10'/><path class='fillVisible' d='M20.206 5.503a.5.5 0 101 0 .5.5 0 00-1 0zM30.91 0a.5.5 0 100 1 .5.5 0 000-1zM6.502.006a.5.5 0 100 1 .5.5 0 000-1zM34.91 10a.5.5 0 100 1 .5.5 0 000-1zm-24.408.006a.5.5 0 100 1 .5.5 0 000-1zM.5 24.41a.5.5 0 100 1 .5.5 0 000-1zm28.406 9.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 34.41a.5.5 0 100 1 .5.5 0 000-1z'/></svg>",
+  crystalSO:
+    "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 31.41 41.41'><path class='strokeHidden' d='M24.91.5l-.003 26.406L.5 26.911m24.407-.005l4 12'/><path class='fillHidden' d='M24.906 26.406a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M.5 26.91L.503.507 24.91.499m0 0l4 12M.503.506l4 12M4.5 38.91l.003-26.405 24.407-.007-.003 26.407zm-4-12l4 12'/><path class='fillVisible' d='M24.91 0a.5.5 0 100 1 .5.5 0 000-1zM.502.006a.5.5 0 100 1 .5.5 0 000-1zM28.91 12a.5.5 0 100 1 .5.5 0 000-1zm-24.408.006a.5.5 0 100 1 .5.5 0 000-1zM.5 26.41a.5.5 0 100 1 .5.5 0 000-1zm28.406 11.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 38.41a.5.5 0 100 1 .5.5 0 000-1z'/></svg>",
+  crystalFCO:
+    "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 31.41 41.41'><path class='strokeHidden' d='M24.907 26.904l2.001-7.202 2.002-7.203m-.003 26.405L24.91.5m0 0L12.705 13.705.5 26.911m24.407-.004L.503.507M4.5 38.91l10.203-6.004 10.204-6.003M.5 26.911l28.407 11.993M24.91.5l-.003 26.408L.5 26.91m24.407-.004l4 12'/><path class='fillHidden' d='M12.705 13.205a.5.5 0 100 1 .5.5 0 000-1zm14.203 5.996a.5.5 0 100 1 .5.5 0 000-1zm-2.002 7.205a.5.5 0 100 1 .5.5 0 000-1zm-10.203 6a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M28.91 12.5L16.705 25.704 4.5 38.911m24.407-.004l-24.404-26.4M.5 26.91L2.5 19.709l2.002-7.203M4.5 38.911L.503.506m4 12l10.203-6.003L24.91.5M.503.506L28.91 12.5M.5 26.911L.503.506 24.91.5m0 0l4 12M.503.506l4 12M4.5 38.911l.003-26.405L28.91 12.5l-.003 26.408zm-4-12l4 12'/><path class='fillVisible' d='M24.91 0a.5.5 0 100 1 .5.5 0 000-1zM.502.006a.5.5 0 100 1 .5.5 0 000-1zm14.203 5.998a.5.5 0 100 1 .5.5 0 000-1zM28.91 12a.5.5 0 100 1 .5.5 0 000-1zm-24.408.006a.5.5 0 100 1 .5.5 0 000-1zm-2 7.203a.5.5 0 100 1 .5.5 0 000-1zM.5 26.41a.5.5 0 100 1 .5.5 0 000-1zm28.406 11.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 38.41a.5.5 0 100 1 .5.5 0 000-1zm11.704-12.704a.5.5 0 101 0 .5.5 0 00-1 0z'/></svg>",
+  crystalBCO:
+    "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 31.41 41.41'><path class='strokeHidden' d='M4.5 38.91l10.203-6.003 10.204-6.003M.5 26.911l28.407 11.993M24.91.5l-.003 26.407L.5 26.911m24.407-.005l4 12'/><path class='fillHidden' d='M24.906 26.406a.5.5 0 100 1 .5.5 0 000-1zm-10.203 6a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M4.503 12.506l10.203-6.003L24.91.499M.503.506L28.91 12.499M.5 26.911L.503.506 24.91.499m0 0l4 12M.503.506l4 12M4.5 38.91l.003-26.405 24.407-.007-.003 26.407zm-4-12l4 12'/><path class='fillVisible' d='M14.706 6.003a.5.5 0 100 1 .5.5 0 000-1zM24.91 0a.5.5 0 100 1 .5.5 0 000-1zM.502.006a.5.5 0 100 1 .5.5 0 000-1zM28.91 12a.5.5 0 100 1 .5.5 0 000-1zm-24.408.006a.5.5 0 100 1 .5.5 0 000-1zM.5 26.41a.5.5 0 100 1 .5.5 0 000-1zm28.406 11.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 38.41a.5.5 0 100 1 .5.5 0 000-1z'/></svg>",
+  crystalSTG:
+    "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 37.41 37.41'><path class='strokeHidden'd='M30.91.5l-6.003 24.406L.5 24.911m24.407-.005l4 10'/><path class='fillHidden' d='M24.906 24.406a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M.5 24.91L6.503.507 30.91.499m0 0l4 10M6.503.506l4 10M4.5 34.91l6.003-24.405 24.407-.007-6.003 24.407zm-4-10l4 10' /><path class='fillVisible' d='M30.91 0a.5.5 0 100 1 .5.5 0 000-1zM6.502.006a.5.5 0 100 1 .5.5 0 000-1zM34.91 10a.5.5 0 100 1 .5.5 0 000-1zm-24.408.006a.5.5 0 100 1 .5.5 0 000-1zM.5 24.41a.5.5 0 100 1 .5.5 0 000-1zm28.406 9.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 34.41a.5.5 0 100 1 .5.5 0 000-1z' /></svg>",
+  crystalSTC:
+    "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 37.41 39.41'><path class='strokeHidden'd='M30.91.5l-6.003 26.406L.5 26.911m24.407-.005l4 10'/><path class='fillHidden' d='M24.906 26.406a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M.5 26.91L6.503.507 30.91.499m0 0l4 10M6.503.506l4 10M4.5 36.91l6.003-26.405 24.407-.007-6.003 26.407zm-4-10l4 10' /><path class='fillVisible' d='M30.91 0a.5.5 0 100 1 .5.5 0 000-1zM6.502.006a.5.5 0 100 1 .5.5 0 000-1zM34.91 10a.5.5 0 100 1 .5.5 0 000-1zm-24.408.006a.5.5 0 100 1 .5.5 0 000-1zM.5 26.41a.5.5 0 100 1 .5.5 0 000-1zm28.406 9.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 36.41a.5.5 0 100 1 .5.5 0 000-1z' /></svg>",
+  crystalCT:
+    "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 29.41 45.41'><path class='strokeHidden'd='M22.91.5l-.003 30.406L.5 30.911m22.407-.005l4 12'/><path class='fillHidden' d='M22.906 30.406a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M.5 30.91L.503.507 22.91.499m0 0l4 12M.503.506l4 12M4.5 42.91l.003-30.405 22.407-.007-.003 30.407zm-4-12l4 12' /><path class='fillVisible' d='M22.91 0a.5.5 0 100 1 .5.5 0 000-1zM.502.006a.5.5 0 100 1 .5.5 0 000-1zM26.91 12a.5.5 0 100 1 .5.5 0 000-1zm-22.408.006a.5.5 0 100 1 .5.5 0 000-1zM.5 30.41a.5.5 0 100 1 .5.5 0 000-1zm26.406 11.996a.5.5 0 100 1 .5.5 0 000-1zM4.5 42.41a.5.5 0 100 1 .5.5 0 000-1z' /></svg>",
+  crystalTP:
+    "<svg xmlns='http://www.w3.org/2000/svg' class='crystalDiagram' viewBox='-1 -1 31.41 37.411'><path class='strokeHidden' d='M7.604 9.106l5.101 3.6 9.102 1.396M9.603 26.308l7.102-3.602 3.101-1.399m2.001-7.205l5.102 3.607-7.103 3.598M7.604 9.107l-5.102 8.602 7.101 8.599M7.604 9.106l7.1-3.604 7.103 8.6M9.603 26.308l5.101 3.601 5.102-8.602m5.101 3.6l-5.101-3.6M28.91 10.5l-7.103 3.602M9.603 26.308L4.5 34.911M7.604 9.106L.503.506M24.91.5l-.003 24.407L.5 24.91m24.407-.004l4 10' /><path class='fillHidden' d='M12.205 12.706a.5.5 0 101 0 .5.5 0 00-1 0zm1.999 17.203a.5.5 0 101 0 .5.5 0 00-1 0zm12.205-12.2a.5.5 0 101 0 .5.5 0 00-1 0zm-2.002 7.198a.5.5 0 101 0 .5.5 0 00-1 0z'/><path class='fillInter' d='M7.604 8.605a.5.5 0 100 1 .5.5 0 000-1zm14.203 4.997a.5.5 0 100 1 .5.5 0 000-1zm-2 7.205a.5.5 0 100 1 .5.5 0 000-1zM9.604 25.809a.5.5 0 100 1 .5.5 0 000-1z'/><path class='strokeVisible' d='M.5 24.911L.503.506 24.91.5m0 0l4 10M.503.506l4 10M4.5 34.911l.003-24.405L28.91 10.5l-.003 24.407zm-4-10l4 10'/><path class='fillVisible' d='M16.205 22.706a.5.5 0 101 0 .5.5 0 00-1 0zM14.204 5.502a.5.5 0 101 0 .5.5 0 00-1 0zM2.002 17.709a.5.5 0 101 0 .5.5 0 00-1 0zm26.408-7.21a.5.5 0 101 0 .5.5 0 00-1 0zm-.003 24.408a.5.5 0 101 0 .5.5 0 00-1 0zM4 34.91a.5.5 0 101 0 .5.5 0 00-1 0zm.003-24.405a.5.5 0 101 0 .5.5 0 00-1 0zM24.41.5a.5.5 0 101 0 .5.5 0 00-1 0zM0 24.91a.5.5 0 101 0 .5.5 0 00-1 0zM.003.506a.5.5 0 101 0 .5.5 0 00-1 0z'/></svg>",
+  })[stc] || "";
+}
+
 function setOutline() {
   let element = this.id;
   let tempClass = id(element).className.replace("elements ", "");
@@ -10808,28 +10945,17 @@ function setOutline() {
   id("snippetNum").innerHTML = getNum(eleId.num);
   id("snippetSym").innerHTML = eleId.sym;
   id("snippetWt").innerHTML = getNum(eleId.aWt).toString();
+  id("snippetCrystal").innerHTML = getCrystalSvg(eleId.stc);
 
   const divs = [...document.querySelector("#element" + eleId.num).children];
   id("detailRow1").innerHTML = divs[2].textContent;
-  let eleYear = eleId.yr + "";
-
-  if (eleYear.indexOf(" ") > 0) {
-    if (langValue === "zs") eleYear = "公元前" + eleYear.substring(0, eleYear.indexOf(" ")) + "年";
-    else if (langValue === "ko") eleYear = "기원전 " + eleYear.substring(0, eleYear.indexOf(" ")) + "년";
-    else if (langValue === "ja") eleYear = "紀元前" + eleYear.substring(0, eleYear.indexOf(" ")) + "年";
-    else if (langValue === "kk") eleYear = "б.з.д" + eleYear.substring(0, eleYear.indexOf(" ")) + "ж.";
-    else if (langValue === "hu" || langValue === "tr" || langValue === "ms" || langValue === "th" || langValue === "ta")
-      eleYear = bc + " " + eleYear.substring(0, eleYear.indexOf(" "));
-    else eleYear = eleYear.substring(0, eleYear.indexOf(" ")) + " " + bc;
-  } else {
-    if (langValue === "ko") eleYear = eleYear + "년";
+  // Fill the 6 configurable rows (label + value) from the user's chosen fields.
+  let detailKeys = getDetailKeys();
+  for (let i = 0; i < 6; i++) {
+    let f = DETAIL_FIELDS[detailKeys[i]];
+    id("detailRow" + (i + 2)).innerHTML = f.label;
+    id("valueRow" + (i + 2)).innerHTML = f.value(eleId);
   }
-
-  id("valueRow2").innerHTML = eleYear;
-  id("valueRow3").innerHTML = getTempHome(eleId.mlt);
-  id("valueRow4").innerHTML = getTempHome(eleId.bln);
-  id("valueRow5").innerHTML = getNum(eleId.elc);
-  id("valueRow6").innerHTML = eleId.cnf;
   id(element).style.outline = "2px solid #505050";
   id(element).style.opacity = "0.75";
   id("snippetDetails").style.visibility = "visible";
@@ -10883,6 +11009,63 @@ function setSettings() {
   id("temp" + defaultTemp).checked = true;
   id("style" + defaultStyle).checked = true;
   id(defaultColor).checked = true;
+
+  // Reflect the saved hover-detail field choices in the 6 dropdowns + row labels.
+  let detailKeys = getDetailKeys();
+  for (let i = 0; i < 6; i++) {
+    let sel = id("detailSelect" + i);
+    if (sel) sel.value = detailKeys[i];
+  }
+  applyDetailLabels(detailKeys);
+
+  initPro();
+}
+
+// "Remove ads (Pro)" settings box. Reads the domain-wide `ptio_pro` cookie (set
+// by the auth worker after a verified Gumroad login) to show the right state:
+// subscribe / log in when off, or "active" + log out when on.
+function initPro() {
+  let box = id("proBox");
+  if (!box) return;
+
+  const PRO_ORIGIN = "https://pro.periodic-table.io";
+  const GUMROAD_PRO = "https://periodictabio.gumroad.com/l/pro";
+  const ret = encodeURIComponent(window.location.href.split("?")[0]);
+  // Localized strings injected by the generator as data-* attributes on #proBox
+  // (this JS file is shared by every language folder, so it can't hold the text).
+  const t = (key, fallback) => box.dataset[key] || fallback;
+
+  // Show the outcome of a just-completed login/logout, then strip the ?pro= param.
+  let params = new URLSearchParams(window.location.search);
+  let outcome = params.get("pro");
+  let note = "";
+  if (outcome === "not_subscribed")
+    note = "<div class='proNote'>" + t("noSubscription", "No active subscription found for that Gumroad account.") + "</div>";
+  else if (outcome === "login_failed" || outcome === "no_email")
+    note = "<div class='proNote'>" + t("loginFailed", "Login didn't complete. Please try again.") + "</div>";
+  if (outcome) {
+    params.delete("pro");
+    let qs = params.toString();
+    history.replaceState(null, "", window.location.pathname + (qs ? "?" + qs : "") + window.location.hash);
+  }
+
+  let isPro = /(?:^|;\s*)ptio_pro=1(?:;|$)/.test(document.cookie);
+
+  // Footer "Remove ads" link: an upsell members don't need, so hide it for Pro.
+  let footerLink = id("removeAdsFooter");
+  if (footerLink) footerLink.classList.toggle("hidden", isPro);
+
+  if (isPro) {
+    box.innerHTML =
+      "<div class='proActive'>&#10003; " + t("proActive", "Pro active - ads are off.") + "</div>" +
+      "<a class='underlineLink' href='" + PRO_ORIGIN + "/logout?return=" + ret + "'>" + t("logout", "Log out") + "</a>";
+  } else {
+    box.innerHTML =
+      note +
+      "<a class='storeLink proCta' target='_blank' rel='noopener' href='" + GUMROAD_PRO + "'>" +
+      t("removeAds", "Remove ads") + " - " + t("price", "$1/month") + "</a>" +
+      "<a class='underlineLink' href='" + PRO_ORIGIN + "/login?return=" + ret + "'>" + t("login", "Already a member? Log in with Gumroad") + "</a>";
+  }
 }
 
 // Returns the OS-level colour preference, defaulting to light when unknown.
@@ -11090,7 +11273,10 @@ function renderNotifications() {
         <div class="notification-date grayText">${notification.date}</div>
         <ul class="notification-updates">
           ${notification.updates
-            .map((update) => `<li>${update}</li>`)
+            // Strip any HTML (e.g. <a> links from the changelog): the whole item
+            // already navigates to the full changelog, and a real link here would
+            // clash with the item's onclick and pick up About-page link styling.
+            .map((update) => `<li>${update.replace(/<[^>]*>/g, "")}</li>`)
             .join("")}
         </ul>
       </div>

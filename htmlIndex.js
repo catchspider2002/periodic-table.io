@@ -102,21 +102,27 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div class='innerSnippet'>");
   writeStream.write("<div id='snippet' class='square'>");
   writeStream.write("<div id='snippetNum'></div>");
+  writeStream.write("<div id='snippetCrystal'></div>");
   writeStream.write("<div id='snippetSym' class='text-center'></div>");
   writeStream.write("<div id='snippetWt' class='text-right'></div>");
   writeStream.write("</div>");
   writeStream.write("<div id='details' class='square justify-start'>");
   writeStream.write("<div id='detailRow1' class='text-upper detailRow1' colspan='2'></div>");
+  // Six configurable detail rows. Labels/values are (re)set by JS from the
+  // user's chosen fields (Settings); the markup carries the default fields so
+  // there's a sensible no-JS fallback. Value cells are ltr for numeric data.
   writeStream.write("<div id='detailRow2'>" + langValues.discovered + "</div>");
-  writeStream.write("<div id='valueRow2'></div>");
+  writeStream.write("<div id='valueRow2' class='ltrText justify-start'></div>");
   writeStream.write("<div id='detailRow3'>" + langValues.labelMeltingMain + "</div>");
-  writeStream.write("<div id='valueRow3'></div>");
+  writeStream.write("<div id='valueRow3' class='ltrText justify-start'></div>");
   writeStream.write("<div id='detailRow4'>" + langValues.labelBoilingMain + "</div>");
-  writeStream.write("<div id='valueRow4'></div>");
+  writeStream.write("<div id='valueRow4' class='ltrText justify-start'></div>");
   writeStream.write("<div id='detailRow5'>" + langValues.labelElectronsMain + "</div>");
   writeStream.write("<div id='valueRow5' class='ltrText justify-start'></div>");
   writeStream.write("<div id='detailRow6'>" + langValues.labelConfigMain + "</div>");
   writeStream.write("<div id='valueRow6' class='ltrText justify-start'></div>");
+  writeStream.write("<div id='detailRow7'>" + langValues.labelPhaseMain + "</div>");
+  writeStream.write("<div id='valueRow7' class='ltrText justify-start'></div>");
   writeStream.write("</div>");
   writeStream.write("</div>");
   writeStream.write("</td>");
@@ -312,8 +318,47 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   defaultFooter.forEach((footers) => {
     writeStream.write(footers);
   });
+  // Localized labels/units for the configurable hover-detail rows. The client
+  // bundle has no langValues object, so the strings it needs are injected here
+  // (same pattern as `bc`). < is escaped so unit markup can't break the tag.
+  const detailI18n = {
+    labelPhaseMain: langValues.labelPhaseMain,
+    labelDensityMain: langValues.labelDensityMain,
+    labelMeltingMain: langValues.labelMeltingMain,
+    labelBoilingMain: langValues.labelBoilingMain,
+    labelElectronsMain: langValues.labelElectronsMain,
+    labelConfigMain: langValues.labelConfigMain,
+    discovered: langValues.discovered,
+    labelRadiusMain: langValues.labelRadiusMain,
+    labelElectronegativityMain: langValues.labelElectronegativityMain,
+    labelIonizationMain: langValues.labelIonizationMain,
+    labelOxidationMain: langValues.labelOxidationMain,
+    block: langValues.block,
+    labelFusionMain: langValues.labelFusionMain,
+    labelVaporizationMain: langValues.labelVaporizationMain,
+    labelSpecificMain: langValues.labelSpecificMain,
+    labelCovalentMain: langValues.labelCovalentMain,
+    labelVolumeMain: langValues.labelVolumeMain,
+    labelThermalMain: langValues.labelThermalMain,
+    labelCrustMain: langValues.labelCrustMain,
+    labelUniverseMain: langValues.labelUniverseMain,
+    labelDensity: langValues.labelDensity,
+    labelIonization: langValues.labelIonization,
+    labelFusion: langValues.labelFusion,
+    labelSpecific: langValues.labelSpecific,
+    labelVolume: langValues.labelVolume,
+    labelThermal: langValues.labelThermal,
+    pauling: langValues.pauling,
+    na: langValues.na,
+    phaseGas: langValues.phaseGas,
+    phaseSolid: langValues.phaseSolid,
+    phaseLiquid: langValues.phaseLiquid,
+    unknown: langValues.unknown,
+  };
+
   writeStream.write("<script>");
   writeStream.write("let bc= '" + langValues["BC"] + "';");
+  writeStream.write("window.DETAIL_I18N=" + JSON.stringify(detailI18n).replace(/</g, "\\u003c") + ";");
   writeStream.write("</script>");
 
   // the finish event is emitted when all data has been flushed from the stream

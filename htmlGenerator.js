@@ -2,22 +2,26 @@ const fs = require("fs");
 const fsextra = require("fs-extra");
 
 const xlsxFile = require("read-excel-file/node");
+const decodeEntities = require("./decodeEntities.js");
 const htmlPrivacy = require("./htmlPrivacy.js");
 const htmlAbout = require("./htmlAbout.js");
 const htmlStore = require("./htmlStore.js");
 const htmlPrintables = require("./htmlPrintables.js");
 const htmlCompare = require("./htmlCompare.js");
 const htmlList = require("./htmlList.js");
+const htmlQuiz = require("./htmlQuiz.js");
+const htmlTool = require("./htmlTool.js");
 const htmlElement = require("./htmlElement.js");
 const htmlIndex = require("./htmlIndex.js");
 const htmlCredits = require("./htmlCredits.js");
-// const htmlTranslation = require("./htmlTranslation.js");
 const html404 = require("./html404.js");
 const htmlSitemap = require("./htmlSitemap.js");
 const htmlRobots = require("./htmlRobots.js");
 const htmlManifest = require("./htmlManifest.js");
 const htmlSolubility = require("./htmlSolubility.js");
 const htmlReactivity = require("./htmlReactivity.js");
+const htmlRefTable = require("./htmlRefTable.js");
+const htmlTrends = require("./htmlTrends.js");
 const { cssFileName, jsFileName } = require("./assetVersion.js");
 
 // Remove previously generated assets (old hashes, legacy global2/global3) so
@@ -47,6 +51,9 @@ let compareIcon =
 let tablesIcon =
   `${svgHdr}<rect x='4' y='4' width='16' height='16' rx='2' /><line x1='4' y1='10' x2='20' y2='10' /><line x1='10' y1='4' x2='10' y2='20' />${svgFooter}`;
 
+let toolsIcon =
+  `${svgHdr}<rect x='4' y='3' width='16' height='18' rx='2' /><line x1='8' y1='7' x2='16' y2='7' /><line x1='8' y1='11' x2='8.01' y2='11' /><line x1='12' y1='11' x2='12.01' y2='11' /><line x1='16' y1='11' x2='16.01' y2='11' /><line x1='8' y1='15' x2='8.01' y2='15' /><line x1='12' y1='15' x2='12.01' y2='15' /><line x1='16' y1='15' x2='16' y2='18' />${svgFooter}`;
+
 let printablesIcon =
   `${svgHdr}<path d='M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2' /><path d='M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4' /><rect x='7' y='13' width='10' height='8' rx='2' />${svgFooter}`;
   
@@ -54,14 +61,6 @@ let storeIcon = `${svgHdr}<path d='M15 4l6 2v5h-3v8a1 1 0 0 1 -1 1h-10a1 1 0 0 1
 
 let settingsIcon =
   `${svgHdr}<path d='M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z' /><circle cx='12' cy='12' r='3' />${svgFooter}`;
-
-  let coffeeIcon =
- `<svg fill="none" xmlns="http://www.w3.org/2000/svg" height='1.4em' viewBox="0 0 884 1279">
- <path d="m791.1 297.52-.87-.52-2.03-.62a4.83 4.83 0 0 0 2.9 1.14ZM803.9 388.9l-.98.27.98-.28ZM791.48 297.38a1.77 1.77 0 0 1-.36-.09v.24a.74.74 0 0 0 .36-.15Z" fill="#0D0C22"/><path d="M791.11 297.53h.13v-.08l-.13.08ZM803.11 388.73l1.48-.85.55-.3.5-.54c-.94.4-1.8.98-2.53 1.69ZM793.67 299.51l-1.45-1.37-.98-.53c.53.93 1.4 1.61 2.43 1.9ZM430.02 1186.18a7.55 7.55 0 0 0-2.94 2.27l.9-.58c.63-.57 1.5-1.24 2.04-1.69ZM641.19 1144.63c0-1.3-.64-1.06-.49 3.58 0-.37.16-.75.23-1.11.09-.83.15-1.64.26-2.47ZM619.28 1186.18a7.55 7.55 0 0 0-2.94 2.27l.91-.58c.62-.57 1.5-1.24 2.03-1.69ZM281.3 1196.06a6.3 6.3 0 0 0-3.1-1.45c.94.45 1.87.9 2.48 1.24l.62.21ZM247.84 1164.01a9.9 9.9 0 0 0-1.22-3.85c.47 1.23.87 2.5 1.19 3.78l.03.07Z" fill="#0D0C22"/>
- <path d="M472.62 590.84c-45.94 19.66-98.07 41.96-165.64 41.96a313.58 313.58 0 0 1-83.63-11.53l46.74 479.81a80.17 80.17 0 0 0 79.9 73.57s66.26 3.44 88.38 3.44c23.8 0 95.15-3.44 95.15-3.44a80.16 80.16 0 0 0 79.89-73.57l50.05-530.2c-22.37-7.64-44.94-12.72-70.4-12.72-44-.02-79.47 15.14-120.44 32.68Z" fill="#FD0"/>
- <path d="m78.69 386.13.79.74.52.31c-.4-.4-.84-.75-1.31-1.05Z" fill="#0D0C22"/>
- <path d="m879.57 341.85-7.04-35.5c-6.31-31.85-20.65-61.94-53.34-73.45-10.48-3.69-22.37-5.27-30.4-12.89-8.04-7.62-10.41-19.46-12.27-30.44-3.44-20.15-6.68-40.31-10.2-60.43-3.05-17.29-5.46-36.72-13.4-52.58-10.32-21.3-31.74-33.76-53.04-42a305.5 305.5 0 0 0-33.36-10.32C613.3 10.19 557.34 5.04 502.59 2.09a1376.27 1376.27 0 0 0-197.17 3.27c-48.8 4.44-100.2 9.8-146.56 26.69-16.95 6.17-34.42 13.59-47.3 26.68-15.82 16.1-20.98 40.97-9.43 61.04 8.2 14.24 22.1 24.3 36.86 30.97a298.95 298.95 0 0 0 59.84 19.47c57.3 12.67 116.64 17.64 175.18 19.76 64.88 2.62 129.86.5 194.43-6.35a1107 1107 0 0 0 47.82-6.32c18.74-2.87 30.76-27.37 25.24-44.44-6.6-20.4-24.37-28.32-44.45-25.24-2.95.46-5.9.9-8.86 1.32l-2.13.31a1083.06 1083.06 0 0 1-62.67 6.13 1401.5 1401.5 0 0 1-95.03 3.27c-31.14 0-62.3-.88-93.38-2.93-14.18-.93-28.32-2.1-42.43-3.54-6.42-.67-12.82-1.38-19.22-2.17l-6.09-.78-1.32-.18-6.32-.92a665.35 665.35 0 0 1-38.58-6.88 5.8 5.8 0 0 1 0-11.32h.25a626.13 626.13 0 0 1 33.4-6.13l11.21-1.72h.1c7-.46 14.05-1.72 21.01-2.54 60.63-6.31 121.62-8.46 182.55-6.44 29.57.86 59.14 2.6 88.58 5.6 6.33.65 12.63 1.34 18.92 2.11 2.41.3 4.84.64 7.26.93l4.9.7a678.06 678.06 0 0 1 42.5 7.73c20.9 4.54 47.72 6.02 57.01 28.9 2.96 7.27 4.3 15.34 5.94 22.96l2.08 9.72a153589.1 153589.1 0 0 0 14.9 69.36 12.6 12.6 0 0 1-10.6 15.13h-.13l-3.02.4-2.97.4a1829.3 1829.3 0 0 1-84.26 8.95 2005.84 2005.84 0 0 1-168.49 6.78 1975.74 1975.74 0 0 1-225.99-13.14c-8.12-.97-16.24-2-24.36-3.05 6.3.8-4.58-.62-6.78-.93-5.16-.72-10.32-1.47-15.49-2.25-17.32-2.6-34.55-5.8-51.84-8.6-20.9-3.45-40.9-1.73-59.8 8.6a87 87 0 0 0-36.02 37.34c-8.16 16.86-10.58 35.22-14.23 53.33C4 342.2-1.68 361.7.47 380.3c4.63 40.14 32.7 72.76 73.06 80.06a2071.67 2071.67 0 0 0 114.44 17.2 2114.8 2114.8 0 0 0 489.99 2.83 25.81 25.81 0 0 1 28.5 28.29l-3.83 37.13-23.09 225.07a178840.62 178840.62 0 0 1-31.12 302.87c-2.2 21.84-2.52 44.36-6.66 65.94-6.54 33.93-29.51 54.77-63.03 62.39a439.17 439.17 0 0 1-93.57 10.94c-34.91.19-69.8-1.36-104.72-1.17-37.27.21-82.92-3.23-111.68-30.97-25.28-24.36-28.77-62.51-32.22-95.5-4.58-43.67-9.13-87.33-13.64-130.99l-25.3-242.76-16.36-157.08c-.27-2.6-.55-5.16-.8-7.78-1.97-18.74-15.23-37.08-36.14-36.13-17.9.79-38.23 16-36.13 36.13l12.13 116.45 25.08 240.9c7.15 68.42 14.28 136.85 21.4 205.3 1.37 13.11 2.66 26.26 4.1 39.37 7.87 71.65 62.59 110.26 130.34 121.13 39.58 6.37 80.12 7.68 120.28 8.33 51.48.83 103.48 2.81 154.12-6.52 75.03-13.77 131.33-63.87 139.37-141.59l6.88-67.33c7.63-74.24 15.25-148.49 22.85-222.74l24.88-242.6 11.4-111.2a25.8 25.8 0 0 1 20.8-22.7c21.45-4.17 41.96-11.31 57.22-27.64 24.3-26 29.13-59.9 20.55-94.07ZM72.43 365.83c.33-.15-.28 2.65-.53 3.96-.05-1.98.05-3.73.53-3.96Zm2.08 16.11c.17-.12.69.57 1.22 1.4-.8-.76-1.32-1.33-1.24-1.4h.02Zm2.05 2.7c.74 1.26 1.14 2.05 0 0Zm4.11 3.34h.1c0 .12.2.24.26.36a2.67 2.67 0 0 0-.38-.36h.02Zm720.13-5c-7.71 7.34-19.33 10.75-30.8 12.45-128.7 19.1-259.29 28.77-389.4 24.5-93.12-3.18-185.26-13.52-277.46-26.55-9.03-1.27-18.82-2.92-25.03-9.58-11.7-12.56-5.96-37.86-2.91-53.03 2.79-13.9 8.12-32.44 24.66-34.41 25.8-3.03 55.78 7.86 81.32 11.73 30.74 4.7 61.6 8.45 92.56 11.27 132.19 12.04 266.59 10.17 398.18-7.45 23.99-3.22 47.88-6.97 71.7-11.24 21.22-3.8 44.74-10.94 57.55 11.03 8.8 14.97 9.97 35 8.6 51.92a28.94 28.94 0 0 1-9 19.37h.03Z" fill="#fff"/>
- </svg>`;
 
 let toggleIcon = `${svgHdr}<line x1='4' y1='6' x2='20' y2='6' /><line x1='4' y1='12' x2='20' y2='12' /><line x1='4' y1='18'x2='20' y2='18' />${svgFooter}`;
 
@@ -75,17 +74,17 @@ let darkIcon =
 xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((result) => {
   let rows = result.length && result[0].sheet && result[0].data ? (result.find(s => s.sheet === 'OtherSource') || result[4]).data : result;
   let languages = [
-  //   { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans"},
-  //   { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans" },
-  //   { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans" },
-  //   { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans" },
-  //   { lang: "ms", name: "Bahasa Melayu", col: 41, punc: "dot", regular: "NotoSans" },
+    { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans"},
+    // { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans" },
+    // { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans" },
+    // { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans" },
+    // { lang: "ms", name: "Bahasa Melayu", col: 41, punc: "dot", regular: "NotoSans" },
 
-  //   { lang: "ca", name: "Català", col: 25, punc: "comma", regular: "NotoSans" },
-  //   { lang: "cs", name: "Čeština", col: 24, punc: "comma", regular: "NotoSans" },
-  //   { lang: "da", name: "Dansk", col: 33, punc: "comma", regular: "NotoSans" },
-  //   { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans" },
-  //   { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans" },
+    // { lang: "ca", name: "Català", col: 25, punc: "comma", regular: "NotoSans" },
+    // { lang: "cs", name: "Čeština", col: 24, punc: "comma", regular: "NotoSans" },
+    // { lang: "da", name: "Dansk", col: 33, punc: "comma", regular: "NotoSans" },
+    // { lang: "de", name: "Deutsch", col: 12, punc: "comma", regular: "NotoSans" },
+    // { lang: "es", name: "Español", col: 4, punc: "comma", regular: "NotoSans" },
     
     // { lang: "eo", name: "Esperanto", col: 47, punc: "comma", regular: "NotoSans" },
     // { lang: "fr", name: "Français", col: 5, punc: "comma", regular: "NotoSans" },
@@ -124,12 +123,12 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
     // { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular" },
     // { lang: "hi", name: "हिंदी", col: 29, punc: "dot", regular: "NotoSansDevanagari-Regular" },
     
-    { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular" },
-    { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular" },
-    { lang: "ko", name: "한국어", col: 10, punc: "dot", regular: "NotoSansKR-Regular" },
-    { lang: "zh-cn", name: "中文(简体)", col: 6, punc: "dot", regular: "NotoSansSC-Regular" },
-    { lang: "zh-tw", name: "中文(繁體)", col: 28, punc: "dot", regular: "NotoSansTC-Regular" },
-    { lang: "ta", name: "தமிழ்", col: 45, punc: "dot", regular: "NotoSansTamil-Regular" },
+    // { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular" },
+    // { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular" },
+    // { lang: "ko", name: "한국어", col: 10, punc: "dot", regular: "NotoSansKR-Regular" },
+    // { lang: "zh-cn", name: "中文(简体)", col: 6, punc: "dot", regular: "NotoSansSC-Regular" },
+    // { lang: "zh-tw", name: "中文(繁體)", col: 28, punc: "dot", regular: "NotoSansTC-Regular" },
+    // { lang: "ta", name: "தமிழ்", col: 45, punc: "dot", regular: "NotoSansTamil-Regular" },
   ];
 
   const updates = require("./changelog.js");
@@ -233,7 +232,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
     function printObject(col) {
       let o = {};
       for (let j = 1; j < rows.length; j++) {
-        o[rows[j][2]] = rows[j][col] === "" || !rows[j][col] ? rows[j][3] : rows[j][col];
+        o[rows[j][2]] = decodeEntities(rows[j][col] === "" || !rows[j][col] ? rows[j][3] : rows[j][col]);
       }
 
       return o;
@@ -249,12 +248,26 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
       { page: "store", keywords: `${langValues.store}, tees`, title: langValues.store },
       { page: "printables", keywords: `${langValues.printables}, poster, flash cards`, title: langValues.printables },
       { page: "list", keywords: langValues.list, title: langValues.list },
+      { page: "quiz", keywords: `${langValues.quiz || "Quiz"}, practice, test`, title: langValues.quiz || "Quiz" },
+      { page: "molar-mass-calculator", keywords: `${langValues.molarMass || "Molar Mass Calculator"}, molecular weight`, title: langValues.molarMass || "Molar Mass Calculator" },
+      { page: "equation-balancer", keywords: `${langValues.equationBalancer || "Equation Balancer"}, balance`, title: langValues.equationBalancer || "Equation Balancer" },
+      { page: "percent-composition-calculator", keywords: `${langValues.percentComposition || "Percent Composition"}, mass percent`, title: langValues.percentComposition || "Percent Composition" },
+      { page: "empirical-formula-calculator", keywords: `${langValues.empiricalFormula || "Empirical Formula"}, composition`, title: langValues.empiricalFormula || "Empirical Formula" },
+      { page: "dilution-calculator", keywords: `${langValues.dilution || "Dilution Calculator"}, C1V1 C2V2`, title: langValues.dilution || "Dilution Calculator" },
+      { page: "molarity-calculator", keywords: `${langValues.molarity || "Molarity Calculator"}, concentration, solution`, title: langValues.molarity || "Molarity Calculator" },
+      { page: "ideal-gas-law-calculator", keywords: `${langValues.idealGas || "Ideal Gas Law Calculator"}, PV nRT`, title: langValues.idealGas || "Ideal Gas Law Calculator" },
+      { page: "percent-yield-calculator", keywords: `${langValues.percentYield || "Percent Yield Calculator"}, reaction yield`, title: langValues.percentYield || "Percent Yield Calculator" },
+      { page: "half-life-calculator", keywords: `${langValues.halfLifeCalc || "Half-Life Calculator"}, radioactive decay`, title: langValues.halfLifeCalc || "Half-Life Calculator" },
+      { page: "ph-calculator", keywords: `${langValues.phCalc || "pH Calculator"}, pOH, acid, base`, title: langValues.phCalc || "pH Calculator" },
       { page: "element", keywords: "element", title: langValues.helium },
       { page: "compare", keywords: `${langValues.compare}, comparison`, title: langValues.compare },
       { page: "credits", keywords: `${langValues.credits}, translators, ${langValues.translation}`, title: langValues.credits },
-      // { page: "translation", keywords: `${langValues.translation}, translators`, title: langValues.translation },
       { page: "solubility-chart", keywords: langValues.solubilityChart, title: langValues.solubilityChart },
       { page: "reactivity-series", keywords: langValues.reactivitySeries, title: langValues.reactivitySeries },
+      { page: "polyatomic-ions", keywords: `${langValues.polyatomicIons || "Polyatomic Ions"}, ion charges`, title: langValues.polyatomicIons || "Polyatomic Ions" },
+      { page: "acids-and-bases", keywords: `${langValues.acidsBases || "Common Acids & Bases"}, strong weak`, title: langValues.acidsBases || "Common Acids & Bases" },
+      { page: "flame-test-colors", keywords: `${langValues.flameTest || "Flame Test Colours"}, flame colours`, title: langValues.flameTest || "Flame Test Colours" },
+      { page: "property-rankings", keywords: `${langValues.propertyRankings || "Property Rankings"}, periodic trends, electronegativity, density, melting point`, title: langValues.propertyRankings || "Property Rankings" },
       { page: "periodic-table-poster-1", keywords: '', title: `${langValues.poster} #1 - ${langValues.available35}` },
       { page: "periodic-table-poster-2", keywords: '', title: `${langValues.poster} #2 - ${langValues.available35}` },
       { page: "periodic-table-poster-3", keywords: '', title: `${langValues.poster} #3 - ${langValues.available35}` },
@@ -460,6 +473,9 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
       `${listIcon}<span id='listLink'>${langValues.list}</span></a>`,
       "</li>",
       "<li>",
+      `<a title='${langValues.quiz || "Quiz"}' href='quiz'><svg xmlns='http://www.w3.org/2000/svg' width='1.5em' height='1.5em' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='9'/><path d='M9 10a3 3 0 1 1 4 2.83c-.6.34-1 .98-1 1.67v.5'/><line x1='12' y1='18' x2='12' y2='18'/></svg><span id='quizLink'>${langValues.quiz || "Quiz"}</span><span class='proBadge'>Pro</span></a>`,
+      "</li>",
+      "<li>",
       `<a title='${langValues.compare}' href='compare'>${compareIcon}<span id='compareLink'>${langValues.compare}</span></a>`,
       "</li>",
       "<li>",
@@ -479,6 +495,31 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
       "<ul>",
       `<li><a class='tablesList' href='solubility-chart'>${langValues.solubilityChart}</a></li>`,
       `<li><a class='tablesList' href='reactivity-series'>${langValues.reactivitySeries}</a></li>`,
+      `<li><a class='tablesList' href='polyatomic-ions'>${langValues.polyatomicIons || "Polyatomic Ions"}</a></li>`,
+      `<li><a class='tablesList' href='acids-and-bases'>${langValues.acidsBases || "Common Acids & Bases"}</a></li>`,
+      `<li><a class='tablesList' href='flame-test-colors'>${langValues.flameTest || "Flame Test Colours"}</a></li>`,
+      `<li><a class='tablesList' href='property-rankings'>${langValues.propertyRankings || "Property Rankings"}</a></li>`,
+      "</ul>",
+      "</li>",
+      "<li>",
+      `<label for='drop-2' class='toggle'>` +
+        toolsIcon + "<span>" + (langValues.tools || "Tools") + "</span>" +
+        " <svg xmlns='http://www.w3.org/2000/svg' width='1.2em' height='1.2em' viewBox='5 5 15 15' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9' /></svg></label>",
+      "<a id='toolsLink'>" +
+        toolsIcon + "<span>" + (langValues.tools || "Tools") + "</span>" +
+        " <svg xmlns='http://www.w3.org/2000/svg' width='1.2em' height='1.2em' viewBox='5 5 15 15' stroke-width='1.5' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9' /></svg></a>",
+      "<input type='checkbox' id='drop-2' />",
+      "<ul>",
+      `<li><a class='tablesList' href='molar-mass-calculator'>${langValues.molarMass || "Molar Mass Calculator"}</a></li>`,
+      `<li><a class='tablesList' href='percent-composition-calculator'>${langValues.percentComposition || "Percent Composition"}</a></li>`,
+      `<li><a class='tablesList' href='empirical-formula-calculator'>${langValues.empiricalFormula || "Empirical Formula"}<span class='proBadge'>Pro</span></a></li>`,
+      `<li><a class='tablesList' href='dilution-calculator'>${langValues.dilution || "Dilution Calculator"}</a></li>`,
+      `<li><a class='tablesList' href='molarity-calculator'>${langValues.molarity || "Molarity Calculator"}</a></li>`,
+      `<li><a class='tablesList' href='ideal-gas-law-calculator'>${langValues.idealGas || "Ideal Gas Law Calculator"}</a></li>`,
+      `<li><a class='tablesList' href='percent-yield-calculator'>${langValues.percentYield || "Percent Yield Calculator"}</a></li>`,
+      `<li><a class='tablesList' href='half-life-calculator'>${langValues.halfLifeCalc || "Half-Life Calculator"}<span class='proBadge'>Pro</span></a></li>`,
+      `<li><a class='tablesList' href='ph-calculator'>${langValues.phCalc || "pH Calculator"}</a></li>`,
+      `<li><a class='tablesList' href='equation-balancer'>${langValues.equationBalancer || "Equation Balancer"}<span class='proBadge'>Pro</span></a></li>`,
       "</ul>",
       "</li>",
       "<li>",
@@ -502,9 +543,6 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
           <div id='notificationList' class='notification-list'></div>
         </div>
       </div>`,
-      "<a target='_blank' href='https://www.buymeacoffee.com/naveencs' rel='noopener noreferrer' class='px-4 flex' id='coffeeIcon'>",
-      coffeeIcon,
-      "</a>",
       `<button onclick='sideBar()' title='${langValues.settings}'>`,
       `${settingsIcon}</button>`,
       `<button id='themeIcon' onclick='changeTheme()' data-theme='light' title='${langValues.theme}'>`,
@@ -545,13 +583,6 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
       "</svg>",
       "</a>",
       "</div>",
-      `<div class='flex place-content-center'><a href="https://www.buymeacoffee.com/naveencs" class="bmcCta mx-auto" rel="noopener noreferrer" target="_blank" title="Buy me a coffee">
-      <div class="flex items-center" style="background-color:#FF813F;padding:.65rem 1rem;border-radius:.75rem;">
-      <svg viewBox="0 0 67.64 97.92" xmlns="http://www.w3.org/2000/svg" fill="none" style="height:42px">
-      <path d="M36.18 45.23c-3.52 1.5-7.51 3.23-12.7 3.23a24 24 0 0 1-6.4-.89l3.59 36.74a6.14 6.14 0 0 0 6.12 5.63s5.07.26 6.76.26c1.83 0 7.29-.26 7.29-.26a6.14 6.14 0 0 0 6.12-5.63l3.83-40.6a16.3 16.3 0 0 0-5.4-.97c-3.36 0-6.08 1.16-9.21 2.5z" fill="#ffc800"/>
-      <path d="m67.34 26.17-.54-2.72c-.48-2.43-1.58-4.74-4.08-5.62-.8-.28-1.72-.4-2.33-.99-.62-.58-.8-1.49-.94-2.33l-.78-4.62c-.23-1.33-.42-2.8-1.03-4.03-.8-1.63-2.43-2.58-4.06-3.2-.83-.33-1.7-.59-2.55-.8C46.95.77 42.67.38 38.48.15c-5.03-.28-10.08-.2-15.1.25-3.73.34-7.67.75-11.22 2.04A9.5 9.5 0 0 0 8.54 4.5a3.92 3.92 0 0 0-.72 4.67 6.05 6.05 0 0 0 2.82 2.37c1.47.66 3 1.16 4.58 1.5 4.39.96 8.93 1.34 13.4 1.5 4.98.2 9.96.04 14.9-.48 1.22-.14 2.44-.3 3.66-.49 1.44-.22 2.36-2.1 1.93-3.4-.5-1.56-1.86-2.17-3.4-1.93l-.68.1-.16.02a95.5 95.5 0 0 1-4.8.47 107.24 107.24 0 0 1-19.14-.4l-.47-.07h-.1l-.48-.08a50.9 50.9 0 0 1-2.96-.53.44.44 0 0 1 0-.87h.02a47.95 47.95 0 0 1 3.42-.6c.54-.03 1.08-.13 1.6-.2a102.3 102.3 0 0 1 22.2.1l.57.08.38.05c1.09.16 2.17.36 3.25.6 1.6.34 3.66.45 4.37 2.2.22.56.33 1.18.45 1.76l.16.75v.04l1.14 5.27a.95.95 0 0 1-.15.75.97.97 0 0 1-.66.4h-.01l-.23.04-.23.03a128.48 128.48 0 0 1-6.45.68 149.64 149.64 0 0 1-12.9.52 151.25 151.25 0 0 1-19.17-1.24l-.51-.07-1.2-.17c-1.32-.2-2.63-.45-3.96-.66a6.9 6.9 0 0 0-4.58.66 6.66 6.66 0 0 0-2.76 2.86c-.62 1.3-.8 2.7-1.08 4.08-.28 1.4-.72 2.88-.55 4.3a6.87 6.87 0 0 0 5.59 6.13 161.9 161.9 0 0 0 46.27 1.53 1.98 1.98 0 0 1 2.19 2.17l-.3 2.85a1089465 1089465 0 0 1-4.15 40.42c-.17 1.67-.2 3.4-.5 5.04-.5 2.6-2.27 4.2-4.83 4.78-2.35.54-4.76.82-7.17.84-2.67.01-5.34-.1-8.01-.1-2.86.02-6.35-.24-8.55-2.36-1.94-1.87-2.2-4.79-2.47-7.3l-1.04-10.04-1.94-18.59-1.25-12.02-.07-.6c-.15-1.43-1.16-2.84-2.76-2.77-1.37.06-2.93 1.23-2.77 2.77l.93 8.92 1.92 18.44 1.64 15.72.3 3.01c.6 5.5 4.8 8.44 9.99 9.27 3.03.5 6.14.6 9.2.64 3.95.06 7.93.22 11.8-.5 5.75-1.05 10.06-4.89 10.68-10.84l.53-5.15 1.75-17.05 1.9-18.58.87-8.5a1.98 1.98 0 0 1 1.6-1.75c1.64-.32 3.2-.87 4.38-2.12 1.86-1.99 2.23-4.58 1.57-7.2zm-61.8 1.84c.03 0-.02.2-.04.3 0-.15 0-.28.05-.3zm.16 1.23c.02 0 .06.04.1.1zm.16.2c.06.1.09.16 0 0zm.32.26.02.03a.21.21 0 0 0-.03-.03zm55.13-.38c-.6.56-1.48.82-2.36.95a166.3 166.3 0 0 1-29.81 1.9A200.69 200.69 0 0 1 7.9 30.12c-.7-.1-1.44-.23-1.92-.74-.9-.96-.46-2.9-.22-4.06.2-1.06.62-2.48 1.88-2.63 1.98-.23 4.28.6 6.23.9a136.85 136.85 0 0 0 37.57.3c1.84-.26 3.67-.54 5.5-.87 1.62-.3 3.42-.84 4.4.84.67 1.15.76 2.68.66 3.98a2.2 2.2 0 0 1-.7 1.48z" fill="#0d0c22">
-      </path></svg> 
-      <span class="coffee text-xl">Buy me a coffee</span></div></a></div>`,
       "<div class='flex flex-wrap justify-center p-2 pb-8 self-center'>Made with&nbsp; <span style='color:#e25555'>❤</span> &nbsp;by <a target='_blank' href='https://x.com/MrNaveenCS/' rel='noopener noreferrer'>",
       "<span class='linkText'>Naveen CS</span>",
       "</a></div>",
@@ -656,6 +687,14 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
         case "reactivity-series":
           htmlReactivity.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
+        case "polyatomic-ions":
+        case "acids-and-bases":
+        case "flame-test-colors":
+          htmlRefTable.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "property-rankings":
+          htmlTrends.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
         case "about":
           htmlAbout.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter, updates);
           break;
@@ -670,6 +709,21 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
           break;
         case "list":
           htmlList.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "quiz":
+          htmlQuiz.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "molar-mass-calculator":
+        case "equation-balancer":
+        case "percent-composition-calculator":
+        case "empirical-formula-calculator":
+        case "dilution-calculator":
+        case "molarity-calculator":
+        case "ideal-gas-law-calculator":
+        case "percent-yield-calculator":
+        case "half-life-calculator":
+        case "ph-calculator":
+          htmlTool.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
         case "credits":
           htmlCredits.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);

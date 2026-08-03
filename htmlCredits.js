@@ -1,5 +1,6 @@
 const fs = require("fs");
 const xlsxFile = require("read-excel-file/node");
+const decodeEntities = require("./decodeEntities.js");
 
 const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter) => {
   xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm", { sheet: "Translators" }).then((result) => {
@@ -11,7 +12,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
 
     for (let j = 0; j < rows.length; j++) {
       let listing = {
-        name: rows[j][0],
+        name: decodeEntities(rows[j][0]),
         language: rows[j][2],
       };
       translators.push(listing);

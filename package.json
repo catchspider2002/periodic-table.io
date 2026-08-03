@@ -7,7 +7,9 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "minify-css": "cleancss -o global.css global_actual.css",
         "minify-js": "uglifyjs htmlJS_actual.js --compress --mangle --output htmlJS.js",
-        "build": "npm run minify-css && npm run minify-js && node htmlGenerator.js"
+        "build": "npm run minify-css && npm run minify-js && node htmlGenerator.js",
+        "serve": "npx --yes serve en",
+        "dev": "npm run build && npx --yes serve en"
     },
     "repository": {
         "type": "git",
@@ -47,7 +49,7 @@
         "follow-redirects": "^1.16.0",
         "fs-extra": "^11.3.6",
         "jsdom": "^29.1.1",
-        "read-excel-file": "^9.2.0",
+        "read-excel-file": "^9.3.1",
         "svg2img": "^0.9.4",
         "uglify-js": "^3.19.3"
     },

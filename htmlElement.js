@@ -2,6 +2,10 @@ const xlsxFile = require("read-excel-file/node");
 const fs = require("fs");
 const Constants = require("./htmlConstants.js");
 const { cssFileName, jsFileName } = require("./assetVersion.js");
+const { renderSpectrum, SPECTRA } = require("./htmlSpectra.js");
+const decodeEntities = require("./decodeEntities.js");
+const extraData = require("./element-extra-data.js");
+const flameColors = require("./flame-colors.js");
 
 let newRawDataElement = Constants.rawData;
 
@@ -237,7 +241,7 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       function printObject(col) {
         let o = {};
         for (var j = 1; j < rows.length; j++) {
-          o[rows[j][1]] = rows[j][col] === "" || !rows[j][col] ? rows[j][3] : rows[j][col];
+          o[rows[j][1]] = decodeEntities(rows[j][col] === "" || !rows[j][col] ? rows[j][3] : rows[j][col]);
         }
 
         return o;
@@ -880,8 +884,8 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
           break;
         case 90:
           eleUnstable =
-            "<sup>209</sup>Th, <sup>210</sup>Th, <sup>211</sup>Th, <sup>212</sup>Th, <sup>213</sup>Th, <sup>214</sup>Th, <sup>215</sup>Th, <sup>216</sup>Th, <sup>217</sup>Th, <sup>218</sup>Th, <sup>219</sup>Th, <sup>220</sup>Th, <sup>221</sup>Th, <sup>222</sup>Th, <sup>223</sup>Th, <sup>224</sup>Th, <sup>225</sup>Th, <sup>226</sup>Th, <sup>227</sup>Th, <sup>228</sup>Th, <sup>229</sup>Th, <sup>230</sup>Th, <sup>231</sup>Th, <sup>233</sup>Th, <sup>234</sup>Th, <sup>235</sup>Th, <sup>236</sup>Th, <sup>237</sup>Th, <sup>238</sup>Th";
-          eleStable = "<sup>232</sup>Th";
+            "<sup>209</sup>Th, <sup>210</sup>Th, <sup>211</sup>Th, <sup>212</sup>Th, <sup>213</sup>Th, <sup>214</sup>Th, <sup>215</sup>Th, <sup>216</sup>Th, <sup>217</sup>Th, <sup>218</sup>Th, <sup>219</sup>Th, <sup>220</sup>Th, <sup>221</sup>Th, <sup>222</sup>Th, <sup>223</sup>Th, <sup>224</sup>Th, <sup>225</sup>Th, <sup>226</sup>Th, <sup>227</sup>Th, <sup>228</sup>Th, <sup>229</sup>Th, <sup>230</sup>Th, <sup>231</sup>Th, <sup>232</sup>Th, <sup>233</sup>Th, <sup>234</sup>Th, <sup>235</sup>Th, <sup>236</sup>Th, <sup>237</sup>Th, <sup>238</sup>Th";
+          eleStable = "-";
           eleHighlight = "30,0";
           eleCredits =
             preLink + "'http://commons.wikimedia.org/wiki/File:Keplers_supernova.jpg'>Wikimedia Commons (NASA/ESA/JHU/R.Sankrit & W.Blair)</a>";
@@ -1794,6 +1798,19 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       writeStream.write("</div>");
       writeStream.write(`<div class='grayText hyphen'>${langValues.labelOxidationMain}</div>`);
       writeStream.write(`<div class='ltrText justify-start'>${element.oxi}</div>`);
+      // Electron affinity + successive ionization energies (Bowserinator data,
+      // keyed by atomic number). Both in kJ/mol; "-" when we have no value.
+      const ex = extraData[element.num] || {};
+      writeStream.write(`<div class='grayText hyphen'>${langValues.labelElectronAffinityMain || "Electron Affinity"}</div>`);
+      writeStream.write("<div>");
+      if (ex.ea == null) writeStream.write("-");
+      else writeStream.write(`${getNum(ex.ea)} kJ/mol`);
+      writeStream.write("</div>");
+      writeStream.write(`<div class='grayText hyphen'>${langValues.labelIonizationEnergiesMain || "Ionization Energies"}</div>`);
+      writeStream.write("<div class='ltrText justify-start'>");
+      if (!ex.ie || !ex.ie.length) writeStream.write("-");
+      else writeStream.write(`${ex.ie.map((v) => getNum(v)).join(", ")} kJ/mol`);
+      writeStream.write("</div>");
       writeStream.write("</div>");
       writeStream.write("</div>");
 
@@ -1816,6 +1833,29 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
       writeStream.write(`<div class='grayText py-4'>${langValues.unstableIsotopes}</div>`);
       writeStream.write(`<span>${eleUnstable}</span>`);
       writeStream.write("</div>");
+
+      // Emission Spectrum (feedback #103544). Baked inline SVG of the element's
+      // strongest visible emission lines; only rendered when we have data.
+      const spectrumSvg = renderSpectrum(SPECTRA[eleNum]);
+      if (spectrumSvg) {
+        writeStream.write("<div class='box-content masonry-col'>");
+        writeStream.write(`<span class='headerOutline text-upper'>${langValues.emissionSpectrum || "Emission Spectrum"}</span>`);
+        writeStream.write(`<div class='emissionSpectrumWrap py-4'>${spectrumSvg}</div>`);
+        writeStream.write("<div class='emissionScale grayText'><span>380</span><span>750&#8202;nm</span></div>");
+        writeStream.write(`<div class='grayText'>${langValues.emissionSpectrumNote || "Strongest visible emission lines. Source: NIST Atomic Spectra Database."}</div>`);
+        writeStream.write("</div>");
+      }
+
+      // Flame Test colour (only for elements with a characteristic one; shared
+      // with the standalone flame-test chart via flame-colors.js).
+      const flame = flameColors.BY_NUM[element.num];
+      if (flame) {
+        const flameName = langValues[flame.colorKey] || flame.colorEn;
+        writeStream.write("<div class='box-content masonry-col'>");
+        writeStream.write(`<span class='headerOutline text-upper'>${langValues.flameTest || "Flame Test Colours"}</span>`);
+        writeStream.write(`<div class='py-4'><span class='flameSwatch' style='background:${flame.hex}'></span>${flameName}</div>`);
+        writeStream.write("</div>");
+      }
 
       // Important Links
       writeStream.write("<div class='box-content masonry-col'>");

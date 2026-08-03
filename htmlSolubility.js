@@ -23,8 +23,12 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
 
   writeStream.write("<section class='content-wrapper'>");
   writeStream.write("<div class='container'>");
-  writeStream.write("<h1 class='py-8 text-upper text-center grayText'>");
-  writeStream.write(langValues.solubilityChart + "</h1>");
+  writeStream.write(
+    "<div class='toolIntro grayText'>" +
+      (langValues.solubilityChartIntro ||
+        "See at a glance whether each ionic compound is soluble, slightly soluble or insoluble in water.") +
+      "</div>"
+  );
   writeStream.write("<div id='solubilityHeader' class='row text-upper aboutHeader text-center heavyFont'></div>");
   writeStream.write("<div>");
   writeStream.write("<div class='grid-container'>");
@@ -393,7 +397,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       langValues.magnesium +
       "</span> <span class='solSym' title='" +
       langValues.magnesium +
-      "'>Mg<sub>2</sub><sup>+</sup></span>"
+      "'>Mg<sup>2+</sup></span>"
   );
   writeStream.write("</div>");
   writeStream.write(
@@ -455,7 +459,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       langValues.calcium +
       "</span> <span class='solSym' title='" +
       langValues.calcium +
-      "'>Ca<sub>2</sub><sup>+</sup></span>"
+      "'>Ca<sup>2+</sup></span>"
   );
   writeStream.write("</div>");
   writeStream.write(
@@ -513,7 +517,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div class='grid-col'>");
   writeStream.write("<div class='grid-item grid-item--header'>");
   writeStream.write(
-    "<span class='solName'>" + langValues.barium + "</span> <span class='solSym' title='" + langValues.barium + "'>Ba<sub>2</sub><sup>+</sup></span>"
+    "<span class='solName'>" + langValues.barium + "</span> <span class='solSym' title='" + langValues.barium + "'>Ba<sup>2+</sup></span>"
   );
   writeStream.write("</div>");
   writeStream.write(
@@ -575,7 +579,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       langValues.iron +
       " (II)</span> <span class='solSym' title='" +
       langValues.iron +
-      " (II)'>Fe<sub>2</sub><sup>+</sup></span>"
+      " (II)'>Fe<sup>2+</sup></span>"
   );
   writeStream.write("</div>");
   writeStream.write(
@@ -637,7 +641,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       langValues.iron +
       " (III)</span> <span class='solSym' title='" +
       langValues.iron +
-      " (III)'>Fe<sub>3</sub><sup>+</sup></span>"
+      " (III)'>Fe<sup>3+</sup></span>"
   );
   writeStream.write("</div>");
   writeStream.write(
@@ -699,7 +703,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       langValues.copper +
       " (II)</span> <span class='solSym' title='" +
       langValues.copper +
-      " (II)'>Cu<sub>2</sub><sup>+</sup></span>"
+      " (II)'>Cu<sup>2+</sup></span>"
   );
   writeStream.write("</div>");
   writeStream.write(
@@ -815,7 +819,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<div class='grid-col'>");
   writeStream.write("<div class='grid-item grid-item--header'>");
   writeStream.write(
-    "<span class='solName'>" + langValues.zinc + "</span> <span class='solSym' title='" + langValues.zinc + "'>Zn<sub>2</sub><sup>+</sup></span>"
+    "<span class='solName'>" + langValues.zinc + "</span> <span class='solSym' title='" + langValues.zinc + "'>Zn<sup>2+</sup></span>"
   );
   writeStream.write("</div>");
   writeStream.write(
@@ -877,7 +881,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       langValues.lead +
       " (II)</span> <span class='solSym' title='" +
       langValues.lead +
-      " (II)'>Pb<sub>2</sub><sup>+</sup></span>"
+      " (II)'>Pb<sup>2+</sup></span>"
   );
   writeStream.write("</div>");
   writeStream.write(
@@ -939,7 +943,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       langValues.aluminium +
       "</span> <span class='solSym' title='" +
       langValues.aluminium +
-      "'>Al<sub>3</sub><sup>+</sup></span>"
+      "'>Al<sup>3+</sup></span>"
   );
   writeStream.write("</div>");
   writeStream.write(

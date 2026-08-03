@@ -3,6 +3,7 @@ const fsextra = require("fs-extra");
 
 const xlsxFile = require("read-excel-file/node");
 const Constants = require("../htmlConstants.js");
+const decodeEntities = require("../decodeEntities.js");
 
 let newRawDataElement = Constants.rawData;
 
@@ -312,7 +313,7 @@ xlsxFile("../../../../OneDrive/Translation/Periodic Table others.xlsm", { sheet:
     function printObject(col) {
       let o = {};
       for (let j = 1; j < rows.length; j++) {
-        o[rows[j][2]] = rows[j][col] === "" || !rows[j][col] ? rows[j][3] : rows[j][col];
+        o[rows[j][2]] = decodeEntities(rows[j][col] === "" || !rows[j][col] ? rows[j][3] : rows[j][col]);
       }
 
       return o;

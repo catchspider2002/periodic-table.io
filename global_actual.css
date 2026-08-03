@@ -73,14 +73,6 @@ html {
   font-family: 'Inter', Regular, SpecialRegular, sans-serif;
 }
 
-@font-face {
-  font-family: Coffee;
-  src: local("Coffee"), local("coffee"),
-    url("https://giguom.com/pattern.monster/fonts/coffeefont.ttf");
-  font-weight: normal;
-  font-display: swap;
-}
-
 .grayText {
   /* color: rgba(var(--text-color), 0.7); */
   color: rgb(var(--blockquote-color));
@@ -172,9 +164,6 @@ a {
     grid-template-columns: repeat(2, 1fr);
     place-content: stretch;
   }
-  #coffeeIcon {
-    display: none;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -228,6 +217,21 @@ body {
   background: var(--body-gradient);
   color: rgb(var(--text-color));
   font-variant-numeric: tabular-nums;
+}
+
+/* Sticky footer for content pages: body is the scroll container (height:100%),
+   so lay it out as a flex column. Children keep their natural height (never
+   squashed); when a page is shorter than the viewport, the footer's auto
+   top-margin (below) absorbs the spare space and sits at the bottom instead of
+   floating up. Scoped to pages with a .content-wrapper so the periodic-table
+   home page (its own full-height layout) is left untouched. */
+body:has(.content-wrapper) {
+  display: flex;
+  flex-direction: column;
+}
+
+body:has(.content-wrapper) > * {
+  flex-shrink: 0;
 }
 
 body.fade-out {
@@ -712,8 +716,8 @@ table,
 .settingsGrid {
   display: grid;
   grid-template-columns: auto auto;
-  gap: 2.5rem;
-  padding: 5rem 2rem 2rem;
+  gap: 1.75rem;
+  padding: 4rem 1.25rem 1.5rem;
 }
 
 #settingPeriodicTable,
@@ -1470,7 +1474,320 @@ canvas {
 }
 
 .disable-select {
+  -webkit-user-select: none; /* Safari (incl. iOS) still needs the prefix, else labels highlight on tap */
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
+}
+
+/* Emission spectrum (element pages, feedback #103544): a baked SVG band of the
+   element's visible emission lines on black, stretched to the box width. */
+.emissionSpectrum {
+  display: block;
+  width: 100%;
+  height: 44px;
+  border-radius: 4px;
+  border: 1px solid rgba(var(--blockquote-color), 0.3);
+}
+
+.emissionScale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72em;
+  margin-top: 0.25rem;
+}
+
+/* Element quiz — Pro feature (feedback #102924). */
+.quizApp {
+  max-width: 460px;
+  margin: 1rem auto 2.5rem;
+}
+.quizIntro {
+  max-width: 460px;
+  margin: 0 auto 1rem;
+  text-align: center;
+  font-size: 0.85em;
+}
+.quizHead {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  color: rgb(var(--blockquote-color));
+  margin-bottom: 1rem;
+}
+.quizPrompt {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  min-height: 3rem;
+}
+.quizOptions {
+  display: grid;
+  gap: 0.6rem;
+}
+.quizOption {
+  text-align: var(--direction, left);
+  padding: 0.8rem 1rem;
+  border-radius: 9px;
+  border: 1px solid rgba(var(--blockquote-color), 0.35);
+  background: var(--form-bg-color);
+  color: rgb(var(--text-color));
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.quizOption:hover:not(:disabled) {
+  border-color: rgb(var(--theme-color));
+}
+.quizOption.correct {
+  background: rgba(var(--color6), 0.22);
+  border-color: rgb(var(--color6));
+}
+.quizOption.wrong {
+  background: rgba(var(--theme-color), 0.18);
+  border-color: rgb(var(--theme-color));
+}
+.quizOption:disabled {
+  cursor: default;
+}
+.quizFeedback {
+  margin-top: 0.9rem;
+  min-height: 1.4rem;
+  font-weight: 600;
+}
+.quizNext {
+  margin-top: 0.9rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: 9px;
+  border: 0;
+  background: rgb(var(--theme-color));
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.quizGate {
+  text-align: center;
+  padding: 1.5rem 0.5rem;
+}
+.quizGateTitle {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+.quizGateText {
+  color: rgb(var(--blockquote-color));
+  margin-bottom: 1.25rem;
+}
+.quizGateCta {
+  padding: 0.75rem 1.2rem;
+  border-radius: 9px;
+  border: 0;
+  background: rgb(var(--theme-color));
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Chemistry tools — molar mass (#139736) + equation balancer (#192759).
+   The balancer's Pro gate reuses the .quizGate* styles above. */
+.toolApp {
+  max-width: 460px;
+  margin: 1rem auto 2.5rem;
+}
+.toolIntro {
+  max-width: 460px;
+  margin: 0 auto 1rem;
+  text-align: center;
+  font-size: 0.85em;
+}
+.molarLabel {
+  display: block;
+  font-size: 0.85em;
+  color: rgb(var(--blockquote-color));
+  margin-bottom: 0.5rem;
+}
+.molarInput {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.8rem 1rem;
+  border-radius: 9px;
+  border: 1px solid rgba(var(--blockquote-color), 0.4);
+  background: var(--form-bg-color);
+  color: rgb(var(--text-color));
+  font-size: 1.1rem;
+}
+.molarInput:focus {
+  outline: none;
+  border-color: rgb(var(--theme-color));
+  box-shadow: 0 0 0 3px rgba(var(--theme-color), 0.15);
+}
+.molarResult {
+  margin-top: 1.2rem;
+}
+.molarMass {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.molarUnit {
+  font-size: 0.9rem;
+  color: rgb(var(--blockquote-color));
+  font-weight: 400;
+}
+.molarBreakdown {
+  width: 100%;
+  margin-top: 0.75rem;
+  border-collapse: collapse;
+  font-size: 0.85em;
+  color: rgb(var(--blockquote-color));
+}
+.molarBreakdown td {
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(var(--blockquote-color), 0.2);
+}
+.molarBreakdown td:first-child {
+  font-weight: 600;
+  color: rgb(var(--text-color));
+}
+.molarBreakdown td:last-child {
+  text-align: right;
+  color: rgb(var(--text-color));
+}
+.molarError {
+  color: rgb(var(--theme-color));
+  font-size: 0.95em;
+}
+.balEquation {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: rgb(var(--color6));
+  line-height: 1.5;
+}
+.dilGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 1rem;
+}
+.dilNote {
+  margin-top: 0.75rem;
+  font-size: 0.8em;
+}
+.molarMassReadout {
+  margin: 0.4rem 0;
+  font-size: 0.85em;
+}
+
+/* Reference tables in the "Tables" dropdown (polyatomic ions, acids & bases,
+   flame tests). One shared look; data comes from htmlRefTable.js. */
+.refTableWrap {
+  max-width: 640px;
+  margin: 0.5rem auto 2.5rem;
+  overflow-x: auto;
+}
+.refTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.refTable th,
+.refTable td {
+  padding: 0.65rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(var(--blockquote-color), 0.2);
+}
+.refTable thead th {
+  position: sticky;
+  top: 0;
+  background: var(--card-bg-color);
+  font-weight: 600;
+  color: rgb(var(--text-color));
+  box-shadow: 0 2px 4px -2px rgba(0, 0, 0, 0.12);
+}
+.refTable tbody tr:nth-child(2n) {
+  background-color: rgba(var(--blockquote-color), 0.06);
+}
+.refTable td sub,
+.refTable td sup {
+  font-size: 0.75em;
+}
+.flameSwatch {
+  display: inline-block;
+  width: 0.95em;
+  height: 0.95em;
+  border-radius: 3px;
+  margin-right: 0.5rem;
+  vertical-align: -0.1em;
+  border: 1px solid rgba(var(--blockquote-color), 0.35);
+}
+/* Electronegativity value + heat bar cell. */
+.engCell {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.engVal {
+  min-width: 2.6em;
+  font-variant-numeric: tabular-nums;
+}
+.engBarWrap {
+  flex: 1;
+  height: 0.55em;
+  min-width: 60px;
+  border-radius: 4px;
+  background: rgba(var(--blockquote-color), 0.15);
+  overflow: hidden;
+}
+.engBar {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  background: rgb(var(--theme-color));
+}
+/* Property Rankings controls (property picker + sort toggle). */
+.trendApp {
+  max-width: 640px;
+}
+.trendControls {
+  margin: 0 auto 1rem;
+}
+.trendControlsRow {
+  display: flex;
+  gap: 0.6rem;
+  align-items: stretch;
+}
+/* Trends select reuses the compare page's .select-css look (custom arrow +
+   padding); here we only override sizing so it flexes beside the sort button.
+   .select-css sets width:100%, and flex-shrink pulls it back to leave room for
+   the fixed 3rem button; min-width:0 lets it shrink past its long option text. */
+.trendSelect {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+/* The sort toggle is a fixed square icon button so it can't stretch. */
+.trendSort {
+  flex: 0 0 auto;
+  width: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 10px;
+  border: 1px solid rgba(var(--blockquote-color), 0.4);
+  background: var(--form-bg-color);
+  color: rgb(var(--text-color));
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.trendSort:hover {
+  border-color: rgb(var(--theme-color));
+  background: rgba(var(--theme-color), 0.1);
+  color: rgb(var(--theme-color));
+}
+.trendSort:focus-visible {
+  outline: none;
+  border-color: rgb(var(--theme-color));
+  box-shadow: 0 0 0 3px rgba(var(--theme-color), 0.18);
 }
 
 #actinidesMain,
@@ -1486,9 +1803,9 @@ canvas {
   align-items: flex-start;
   gap: 0.5rem;
   font-size: 0.85em;
-  /* Pull the box up: the settingsGrid 2.5rem row gap otherwise reads as a
-     blank line between the "Remove ads" header and the subscribe button. */
-  margin-top: -1.75rem;
+  /* Pull the box up: the settingsGrid row gap otherwise reads as a blank line
+     between the "Remove ads" header and the subscribe button. */
+  margin-top: -1rem;
 }
 
 /* Filled accent CTA so the subscribe button stands out among the muted
@@ -1513,6 +1830,33 @@ canvas {
 
 #proBox .proNote {
   color: rgb(var(--theme-color));
+}
+
+/* Small "Pro" pill shown next to gated nav items (quiz + the 3 Pro tools) so
+   users see they're Pro before clicking through. Matches the Pro accent. */
+.proBadge {
+  /* Lift to the top-right corner and pull back so it overlaps the tail of the
+     word (superscript-style) rather than trailing after it. */
+  position: relative;
+  top: -1.7em;
+  margin-left: -1.9em;
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 0.55em;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 1em;
+  /* Gold pill so it reads as a premium badge against the theme-coloured nav. */
+  background: linear-gradient(180deg, #f7d878, #d4a017);
+  color: #3d2b00;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+
+/* Once subscribed (initPro sets .isPro on <html>), drop the upsell badges. */
+:root.isPro .proBadge {
+  display: none;
 }
 
 #compareBg {
@@ -1617,6 +1961,33 @@ input:focus + .slider {
 .footer {
   background-color: transparent;
   border-top: 1px solid rgba(var(--blockquote-color), 0.15);
+}
+
+/* Pin to the bottom of the viewport on short content pages (see body flex above). */
+body:has(.content-wrapper) .footer {
+  margin-top: auto;
+}
+
+/* Desktop footer: collapse the three stacked rows (links / social / credit)
+   into a single compact row - links on the left, social icons + credit pushed
+   to the right. Mobile keeps the taller stacked, centred layout. */
+@media (min-width: 768px) {
+  .footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 0.75rem;
+    padding: 0.15rem 1.5rem;
+  }
+  .footer > div {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+  }
+  /* Push the social icons (and the credit line after them) to the right edge. */
+  .footer > div:nth-child(2) {
+    margin-left: auto;
+  }
 }
 
 #colorTable {
@@ -2210,8 +2581,32 @@ blockquote,
 .grid-container {
   display: grid;
   overflow: auto;
-  /* max-height: calc(100vh - 410px); */
   max-height: 60vh;
+}
+
+/* Now the big page title is gone and the desktop footer is compact, let the
+   grid fill the reclaimed vertical space while keeping the footer visible on
+   the page. Two-axis scroll stays (overflow:auto above). Tuned per page:
+   solubility has a colour legend below it, reactivity does not. */
+@media (min-width: 768px) {
+  .grid-container {
+    max-height: calc(100vh - 250px);
+  }
+  .grid-container:has(.reactivity-grid) {
+    max-height: calc(100vh - 260px);
+  }
+  /* Compact single-row colour legend on desktop (was a tall two-column grid),
+     so the larger table and the footer both fit on screen. */
+  .keyGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.25rem;
+  }
+  .keyGrid.py-8 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
 }
 
 .solubility-grid,
@@ -2262,7 +2657,7 @@ blockquote,
 }
 
 .reactivity-grid .grid-col .grid-item {
-  height: 90px;
+  height: 64px;
 }
 
 .grid-item--header {
@@ -2432,7 +2827,7 @@ blockquote,
   }
 
   .reactivity-grid .grid-col .grid-item {
-    height: 75px;
+    height: 64px;
   }
 
   .keyGrid {
@@ -2706,7 +3101,10 @@ nav > button {
 
 @media all and (max-width: 640px) {
   #sidebar {
-    min-width: 320px;
+    min-width: min(320px, 100vw);
+    /* Never let the shrink-to-fit sidebar grow wider than the screen; it is
+       positioned right:0, so any overflow spills off the left edge out of view. */
+    max-width: 100vw;
   }
 
   #sidebar.collapsed,
@@ -2723,13 +3121,14 @@ nav > button {
 
   .settingsGrid {
     grid-template-columns: auto;
-    padding: 5rem 1rem 1rem;
-    gap: 1.5rem;
+    padding: 4rem 1rem 1rem;
+    gap: 1.25rem;
   }
 
   #settingPeriodicTable,
   #settingDetails,
-  #settingPro {
+  #settingPro,
+  #proBox {
     grid-column: 1;
   }
 }
@@ -2783,6 +3182,7 @@ nav > button {
   display: block;
   font-size: 1em;
   font-family: inherit;
+  font-weight: 600;
   color: rgb(var(--text-color));
   line-height: normal;
   padding: 0.6em 1.4em 0.5em 0.8em;
@@ -2888,23 +3288,9 @@ nav > button {
   padding: 1px 6px;
   border-radius: 0 4px 4px 0;
 }
-.bmcCta {
-  margin: 0.5em 0.5em 1em;
-  justify-self: center;
-}
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-.coffee {
-  font-family: Coffee, "Arial Narrow Bold", sans-serif;
-  margin-left: 0.6rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #fff;
-}
-.coffee:hover {
-  color: #e6e6e6;
 }
 /* Notification Styles */
 .notification-wrapper {

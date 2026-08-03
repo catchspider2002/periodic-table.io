@@ -12,6 +12,35 @@
 
 const updates = [
   {
+    date: "Aug 2, 2026",
+    updates: [
+      "New Element Quiz - practice symbols, names and atomic numbers (a Pro feature)",
+      "Fixed the footer floating in the middle of the screen on short pages - it now sits at the bottom",
+      "Removed the Buy Me a Coffee link from the header and footer to tidy up the interface",
+      "New Molar Mass Calculator under Tools - type a formula like Ca(OH)2 to get its molecular weight",
+      "New Percent Composition calculator under Tools - see each element's percent by mass",
+      "New Empirical Formula calculator under Tools - find the simplest formula from composition (a Pro feature)",
+      "New Equation Balancer under Tools - balances chemical equations for you (a Pro feature)",
+      "New Dilution Calculator under Tools - solve C₁V₁ = C₂V₂ for any missing value",
+      "New Molarity Calculator under Tools - type a formula, then solve mass, volume or molarity",
+      "New Ideal Gas Law Calculator under Tools - solve PV = nRT for any missing value",
+      "New Percent Yield Calculator under Tools - solve actual, theoretical or percent yield",
+      "New Half-Life Calculator under Tools - radioactive decay N = N₀·(½)^(t/t½), solve any value (a Pro feature)",
+      "New pH Calculator under Tools - enter pH, pOH, [H⁺] or [OH⁻] to get the rest",
+      "New Polyatomic Ions chart under Tables - common ions with their formulas and charges",
+      "New Common Acids & Bases chart under Tables - formulas and strong/weak classification",
+      "New Flame Test Colours chart under Tables - the characteristic flame colour of each metal",
+      "Element pages now show the flame test colour for elements that have a characteristic one (e.g. sodium, copper, calcium)",
+      "New Property Rankings page under Tables - rank the elements by electronegativity, density, melting point, atomic radius, ionization energy and more",
+      "Element pages now list each element's Electron Affinity and its successive Ionization Energies",
+      "Element pages now show the element's visible emission spectrum (its characteristic coloured lines)",
+      "On an element's page, you can now go to the previous or next element with the arrow keys, a swipe, or a sideways scroll",
+      "Fixed the Settings panel selection on Safari, and parts of Settings being cut off on mobile",
+      "Fixed ion charges in the solubility chart showing as subscripts instead of superscripts (e.g. Mg²⁺)",
+      "Corrected Thorium-232, which was incorrectly listed as a stable isotope",
+    ],
+  },
+  {
     date: "Jul 6, 2026",
     updates: [
       `You can now remove ads for $1/month - <a class='underlineLink' target='_blank' href='https://periodictabio.gumroad.com/l/pro' rel='noopener noreferrer'>subscribe</a> and log in with Gumroad under Settings`,

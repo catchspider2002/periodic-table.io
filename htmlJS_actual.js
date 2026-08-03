@@ -11055,6 +11055,9 @@ function initPro() {
   let footerLink = id("removeAdsFooter");
   if (footerLink) footerLink.classList.toggle("hidden", isPro);
 
+  // Nav "Pro" badges are the same upsell cue — drop them once subscribed.
+  document.documentElement.classList.toggle("isPro", isPro);
+
   if (isPro) {
     box.innerHTML =
       "<div class='proActive'>&#10003; " + t("proActive", "Pro active - ads are off.") + "</div>" +
@@ -11195,6 +11198,102 @@ document.onkeydown = function (evt) {
   else isEscape = evt.keyCode === 27;
   if (isEscape && !id("sidebar").classList.contains("collapsed")) sideBar();
 };
+
+// --- Element-page navigation (feedback #107278) ----------------------------
+// On element detail pages, move to the previous/next element via Left/Right
+// arrow keys, a horizontal touch swipe, or a horizontal mouse-wheel / trackpad
+// tilt. Progressive enhancement: it just drives the existing #elementNav
+// links, and is inert on any page that isn't an element page (no #elementNav
+// and/or no element-N in the URL).
+(function () {
+  function currentElementNumber() {
+    var m = (location.pathname || "").match(/element-(\d+)/);
+    return m ? parseInt(m[1], 10) : null;
+  }
+
+  // { prev, next } anchors from #elementNav; either may be null at the ends
+  // (element 1 has no previous, 118 no next — those render as "-", not links).
+  function navLinks() {
+    var nav = document.getElementById("elementNav");
+    if (!nav) return null;
+    var current = currentElementNumber();
+    if (current === null) return null;
+    var anchors = nav.getElementsByTagName("a");
+    var out = { prev: null, next: null };
+    for (var i = 0; i < anchors.length; i++) {
+      var m = (anchors[i].getAttribute("href") || "").match(/element-(\d+)/);
+      if (!m) continue;
+      var n = parseInt(m[1], 10);
+      if (n < current) out.prev = anchors[i];
+      else if (n > current) out.next = anchors[i];
+    }
+    return out;
+  }
+
+  // dir > 0 = next, dir < 0 = previous. Returns true if it navigated.
+  function go(dir) {
+    var links = navLinks();
+    if (!links) return false;
+    var a = dir > 0 ? links.next : links.prev;
+    if (a && a.href) {
+      window.location.href = a.href;
+      return true;
+    }
+    return false;
+  }
+
+  function blocked() {
+    var el = document.activeElement;
+    if (el) {
+      var tag = el.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || el.isContentEditable === true) return true;
+    }
+    var sb = document.getElementById("sidebar");
+    if (sb && !sb.classList.contains("collapsed")) return true; // settings open
+    return false;
+  }
+
+  // Keyboard: Left = previous, Right = next.
+  document.addEventListener("keydown", function (evt) {
+    if (evt.defaultPrevented || evt.ctrlKey || evt.metaKey || evt.altKey) return;
+    if (blocked()) return;
+    if (evt.key === "ArrowRight") { if (go(1)) evt.preventDefault(); }
+    else if (evt.key === "ArrowLeft") { if (go(-1)) evt.preventDefault(); }
+  });
+
+  // Touch: horizontal swipe. Swipe left -> next, swipe right -> previous.
+  var touchX = null, touchY = null;
+  document.addEventListener("touchstart", function (e) {
+    if (e.touches && e.touches.length === 1) {
+      touchX = e.touches[0].clientX;
+      touchY = e.touches[0].clientY;
+    } else {
+      touchX = touchY = null;
+    }
+  }, { passive: true });
+  document.addEventListener("touchend", function (e) {
+    var sx = touchX, sy = touchY;
+    touchX = touchY = null;
+    if (sx === null || blocked()) return;
+    var t = (e.changedTouches && e.changedTouches[0]) || null;
+    if (!t) return;
+    var dx = t.clientX - sx, dy = t.clientY - sy;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) go(dx < 0 ? 1 : -1);
+  }, { passive: true });
+
+  // Horizontal mouse-wheel / trackpad tilt, with a cooldown so one gesture
+  // navigates once. Element pages have no horizontal scroll, so a clear
+  // horizontal intent is safe to treat as navigation.
+  var wheelLock = 0;
+  document.addEventListener("wheel", function (e) {
+    if (blocked()) return;
+    var now = Date.now();
+    if (now < wheelLock) return;
+    if (Math.abs(e.deltaX) > 40 && Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+      if (go(e.deltaX > 0 ? 1 : -1)) { wheelLock = now + 900; e.preventDefault(); }
+    }
+  }, { passive: false });
+})();
 
 
 // Constants

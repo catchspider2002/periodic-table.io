@@ -23,8 +23,12 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
 
   writeStream.write("<section class='content-wrapper'>");
   writeStream.write("<div class='container'>");
-  writeStream.write("<h1 class='py-8 text-upper text-center grayText'>");
-  writeStream.write(langValues.reactivitySeries + "</h1>");
+  writeStream.write(
+    "<div class='toolIntro grayText'>" +
+      (langValues.reactivitySeriesIntro ||
+        "Compare how vigorously metals react - from the most reactive at the top to the least reactive at the bottom.") +
+      "</div>"
+  );
   writeStream.write("<div id='solubilityHeader' class='row text-upper aboutHeader text-center heavyFont'></div>");
   writeStream.write("<div>");
   writeStream.write("<div class='grid-container'>");

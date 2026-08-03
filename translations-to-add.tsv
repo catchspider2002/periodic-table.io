@@ -1,0 +1,174 @@
+Key	English
+emissionSpectrum	Emission Spectrum
+emissionSpectrumNote	Strongest visible emission lines. Source: NIST Atomic Spectra Database.
+solubilityChartIntro	See at a glance whether each ionic compound is soluble, slightly soluble or insoluble in water.
+reactivitySeriesIntro	Compare how vigorously metals react - from the most reactive at the top to the least reactive at the bottom.
+labelElectronAffinityMain	Electron Affinity
+labelIonizationEnergiesMain	Ionization Energies
+quiz	Quiz
+quizIntro	Test yourself on the elements. A Pro feature.
+quizNameToSymbol	What is the chemical symbol for {0}?
+quizSymbolToName	Which element has the symbol {0}?
+quizNumberToName	Which element has atomic number {0}?
+quizNameToNumber	What is the atomic number of {0}?
+quizCorrect	Correct!
+quizWrong	Not quite.
+quizNext	Next question
+quizScore	Score
+quizStreak	Streak
+quizBest	best
+quizProTitle	Quiz is a Pro feature
+quizProText	Practice with unlimited questions, ad-free.
+quizNoData	Quiz unavailable.
+tools	Tools
+molarMass	Molar Mass Calculator
+molarIntro	Type a chemical formula to get its molar mass.
+molarLabel	Enter a chemical formula
+molarPlaceholder	e.g. Ca(OH)2, CuSO4·5H2O
+molarUnit	g/mol
+equationBalancer	Equation Balancer
+balancerIntro	Type an unbalanced equation to balance it. A Pro feature.
+balancerLabel	Enter an unbalanced equation
+balancerPlaceholder	e.g. C3H8 + O2 -> CO2 + H2O
+balancerProTitle	Equation balancer is a Pro feature
+balancerProText	Balance any equation instantly, ad-free.
+percentComposition	Percent Composition
+percentIntro	Type a formula to get each element's percent by mass.
+percentLabel	Enter a chemical formula
+percentPlaceholder	e.g. C6H12O6
+empiricalFormula	Empirical Formula
+empiricalIntro	Enter element percentages to find the simplest formula. A Pro feature.
+empiricalLabel	Enter element percentages or masses
+empiricalPlaceholder	e.g. C 40, H 6.7, O 53.3
+empiricalProTitle	Empirical formula is a Pro feature
+empiricalProText	Find formulas from composition, ad-free.
+empiricalApprox	Approximate - check your inputs.
+dilution	Dilution Calculator
+dilutionIntro	Fill any three of C₁V₁ = C₂V₂ to solve for the fourth.
+dilutionNote	Leave one field blank. Keep concentration units the same, and volume units the same.
+molarity	Molarity Calculator
+molarityIntro	Enter a formula, then two of mass / volume / molarity to solve the third.
+molarityFormula	Formula or molar mass (g/mol)
+molarityFormulaPh	e.g. NaCl or 58.44
+molarityMass	Mass (g)
+molarityVolume	Volume (L)
+molarityMolarity	Molarity (mol/L)
+molarMass2	Molar mass
+molarityNote	Then leave one of the three blank to solve for it.
+idealGas	Ideal Gas Law Calculator
+idealGasIntro	Fill any three of PV = nRT to solve for the fourth.
+idealGasP	Pressure (atm)
+idealGasV	Volume (L)
+idealGasN	Moles (mol)
+idealGasT	Temperature (K)
+idealGasNote	Leave one field blank. R = 0.082057 L·atm·mol⁻¹·K⁻¹ (use atm, L, mol, K).
+percentYield	Percent Yield Calculator
+percentYieldIntro	Fill any two of actual / theoretical / percent yield to solve the third.
+yieldActual	Actual yield (g)
+yieldTheoretical	Theoretical yield (g)
+yieldPercent	Percent yield (%)
+yieldNote	Leave one field blank to solve for it.
+halfLifeCalc	Half-Life Calculator
+halfLifeIntro	Radioactive decay N = N₀ · (½)^(t / t½). Fill any three to solve the fourth. A Pro feature.
+halfLifeN0	Initial amount (N₀)
+halfLifeN	Remaining amount (N)
+halfLifeT	Elapsed time
+halfLifeHalf	Half-life (same time unit)
+halfLifeNote	Leave one field blank. Use the same time unit for elapsed time and half-life.
+halfLifeProTitle	Half-life calculator is a Pro feature
+halfLifeProText	Solve decay problems instantly, ad-free.
+phCalc	pH Calculator
+phCalcIntro	Enter any one of pH, pOH, [H⁺] or [OH⁻] to get the rest.
+phCalcPh	pH
+phCalcPoh	pOH
+phCalcH	[H⁺] (mol/L)
+phCalcOh	[OH⁻] (mol/L)
+phCalcNote	Enter any one value to get the rest. Assumes 25 °C (Kw = 1.0×10⁻¹⁴).
+polyatomicIons	Polyatomic Ions
+polyatomicIonsIntro	Common polyatomic ions with their formulas and charges.
+ionName	Name
+ionFormula	Formula
+ionCharge	Charge
+ionAmmonium	Ammonium
+ionHydronium	Hydronium
+ionHydroxide	Hydroxide
+ionNitrate	Nitrate
+ionNitrite	Nitrite
+ionBicarbonate	Hydrogen carbonate (bicarbonate)
+ionAcetate	Acetate
+ionCyanide	Cyanide
+ionPermanganate	Permanganate
+ionHypochlorite	Hypochlorite
+ionChlorite	Chlorite
+ionChlorate	Chlorate
+ionPerchlorate	Perchlorate
+ionCarbonate	Carbonate
+ionSulfate	Sulfate
+ionSulfite	Sulfite
+ionChromate	Chromate
+ionDichromate	Dichromate
+ionOxalate	Oxalate
+ionThiosulfate	Thiosulfate
+ionPeroxide	Peroxide
+ionSilicate	Silicate
+ionPhosphate	Phosphate
+ionPhosphite	Phosphite
+ionBorate	Borate
+acidsBases	Common Acids & Bases
+acidsBasesIntro	Common acids and bases with their formulas and strength.
+abName	Name
+abFormula	Formula
+abType	Type
+abStrongAcid	Strong acid
+abWeakAcid	Weak acid
+abStrongBase	Strong base
+abWeakBase	Weak base
+abHydrochloric	Hydrochloric acid
+abSulfuric	Sulfuric acid
+abNitric	Nitric acid
+abHydrobromic	Hydrobromic acid
+abHydroiodic	Hydroiodic acid
+abPerchloric	Perchloric acid
+abPhosphoric	Phosphoric acid
+abAcetic	Acetic acid
+abCarbonic	Carbonic acid
+abHydrofluoric	Hydrofluoric acid
+abCitric	Citric acid
+abSodiumHydroxide	Sodium hydroxide
+abPotassiumHydroxide	Potassium hydroxide
+abLithiumHydroxide	Lithium hydroxide
+abCalciumHydroxide	Calcium hydroxide
+abBariumHydroxide	Barium hydroxide
+abAmmonia	Ammonia
+abSodiumBicarbonate	Sodium bicarbonate
+flameTest	Flame Test Colours
+flameTestIntro	Characteristic flame colours used to identify metal ions.
+ftElement	Element
+ftColor	Flame colour
+ftCrimson	Crimson red
+ftYellow	Intense yellow
+ftLilac	Lilac (violet)
+ftRedViolet	Red-violet
+ftBlueViolet	Blue-violet
+ftOrangeRed	Orange-red
+ftScarlet	Crimson (scarlet)
+ftPaleGreen	Pale green
+ftBlueGreen	Blue-green
+ftBrightGreen	Bright green
+ftBluishWhite	Bluish white
+ftBrilliantWhite	Brilliant white
+propertyRankings	Property Rankings
+propertyRankingsIntro	Rank every element by a property, from highest to lowest.
+trendRankBy	Rank by
+trendToggleOrder	Toggle order
+trendElement	Element
+trendSymbol	Symbol
+propElectronegativity	Electronegativity
+propAtomicWeight	Atomic Weight
+propDensity	Density
+propMelting	Melting Point
+propBoiling	Boiling Point
+propAtomicRadius	Atomic Radius
+propIonization	First Ionization Energy
+propElectronAffinity	Electron Affinity
+propThermal	Thermal Conductivity

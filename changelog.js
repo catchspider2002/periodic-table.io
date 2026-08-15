@@ -19,6 +19,8 @@ const updates = [
       "New 'Wide' option under Table Width in Settings - shows the full 32-column table with the lanthanides and actinides inline in their proper place",
       "New 'A/B Group Labels' toggle in Settings - switch the column headers between the modern 1-18 numbering and the traditional A/B labels (IA, IIA ... VIIIA)",
       "New Pro page with all membership benefits and a clearer 'Go Pro' button across the site, now that Pro includes the Quiz and calculators (not just ad-free)",
+      "Fixed the home page showing a stray extra vertical scrollbar even when there was nothing to scroll",
+      "Fixed the Settings panel layout on mobile, where the options and their labels were splitting into two misaligned columns",
     ],
   },
   {

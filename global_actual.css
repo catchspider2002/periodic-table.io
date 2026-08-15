@@ -1061,7 +1061,13 @@ canvas {
 
 #headerwrap {
   padding-top: 10px;
+  /* Horizontal scroll only (small screens). Declare the y-axis explicitly:
+     with only overflow-x:auto set, CSS promotes overflow-y from visible to
+     auto, turning this into a vertical scroll container too - which produced a
+     phantom vertical scrollbar on the home page from sub-pixel rounding / the
+     :hover cell lift, even when nothing overflowed vertically. */
   overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .text-upper {
@@ -3405,10 +3411,16 @@ nav > button {
     gap: 1.25rem;
   }
 
+  /* The grid is single-column here, so any leftover `grid-column: 1 / span 2`
+     (from .span-2 on the section headers and #proSeeAll) would make the browser
+     synthesise a phantom 2nd column that the label/control rows then pack into,
+     breaking the stacked layout. Pin every full-width item back to column 1. */
   #settingPeriodicTable,
   #settingDetails,
   #settingPro,
-  #proBox {
+  #proBox,
+  .span-2,
+  #proSeeAll {
     grid-column: 1;
   }
 }

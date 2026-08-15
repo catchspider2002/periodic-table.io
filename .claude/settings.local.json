@@ -101,7 +101,8 @@
       "Bash(node -e \"const C=require\\('./htmlConstants.js'\\); const d=C.rawData; const m={}; d.forEach\\(e=>{\\(m[e.ctg]=m[e.ctg]||[]\\).push\\(e.num\\)}\\); for\\(const k in m\\){console.log\\(k,'=>',m[k].slice\\(0,6\\).join\\(','\\),'\\(n='+m[k].length+'\\)'\\)}\")",
       "Bash(git check-ignore *)",
       "Bash(git rm *)",
-      "Bash(git commit -m 'Remove tracked package-lock.json \\(already gitignored\\) *)"
+      "Bash(git commit -m 'Remove tracked package-lock.json \\(already gitignored\\) *)",
+      "Bash(grep -o \"<body[^>]*>.\\\\{0,400\\\\}\" en/index.html)"
     ]
   }
 }

@@ -1842,7 +1842,11 @@ const writeFile = (lang, langValues, column, regularFont, punc, page, defaultHea
         writeStream.write(`<span class='headerOutline text-upper'>${langValues.emissionSpectrum || "Emission Spectrum"}</span>`);
         writeStream.write(`<div class='emissionSpectrumWrap py-4'>${spectrumSvg}</div>`);
         writeStream.write("<div class='emissionScale grayText'><span>380</span><span>750&#8202;nm</span></div>");
-        writeStream.write(`<div class='grayText'>${langValues.emissionSpectrumNote || "Strongest visible emission lines. Source: NIST Atomic Spectra Database."}</div>`);
+        // Break after the first sentence so the "Source:" credit sits on its
+        // own line. Falls back gracefully (stays one line) if a translation
+        // uses no period.
+        const emissionNote = (langValues.emissionSpectrumNote || "Strongest visible emission lines. Source: NIST Atomic Spectra Database.").replace(/\.\s+/, ".<br>");
+        writeStream.write(`<div class='grayText'>${emissionNote}</div>`);
         writeStream.write("</div>");
       }
 

@@ -5,6 +5,7 @@ const xlsxFile = require("read-excel-file/node");
 const decodeEntities = require("./decodeEntities.js");
 const htmlPrivacy = require("./htmlPrivacy.js");
 const htmlAbout = require("./htmlAbout.js");
+const htmlPro = require("./htmlPro.js");
 const htmlStore = require("./htmlStore.js");
 const htmlPrintables = require("./htmlPrintables.js");
 const htmlCompare = require("./htmlCompare.js");
@@ -74,7 +75,7 @@ let darkIcon =
 xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((result) => {
   let rows = result.length && result[0].sheet && result[0].data ? (result.find(s => s.sheet === 'OtherSource') || result[4]).data : result;
   let languages = [
-    { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans"},
+    // { lang: "en", name: "English", col: 3, punc: "dot", regular: "NotoSans"},
     // { lang: "en-gb", name: "English (UK)", col: 40, punc: "dot", regular: "NotoSans" },
     // { lang: "af", name: "Afrikaans", col: 44, punc: "comma", regular: "NotoSans" },
     // { lang: "id", name: "Bahasa Indonesia", col: 21, punc: "comma", regular: "NotoSans" },
@@ -111,24 +112,24 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
     // { lang: "eo", name: "Esperanto", col: 47, punc: "comma", regular: "NotoSans" },
     // { lang: "el", name: "Ελληνικά", col: 35, punc: "comma", regular: "NotoSans" },
     
-    // { lang: "bg", name: "Български", col: 20, puncncu: "comma", regular: "NotoSans" },
-    // { lang: "mk", name: "Македонски", col: 43, punc: "comma", regular: "NotoSans" },
-    // { lang: "ru", name: "Русский", col: 9, punc: "comma", regular: "NotoSans" },
-    // { lang: "sr", name: "Српски", col: 26, punc: "comma", regular: "NotoSans" },
-    // { lang: "uk", name: "Українська", col: 14, punc: "comma", regular: "NotoSans" },
+    { lang: "bg", name: "Български", col: 20, puncncu: "comma", regular: "NotoSans" },
+    { lang: "mk", name: "Македонски", col: 43, punc: "comma", regular: "NotoSans" },
+    { lang: "ru", name: "Русский", col: 9, punc: "comma", regular: "NotoSans" },
+    { lang: "sr", name: "Српски", col: 26, punc: "comma", regular: "NotoSans" },
+    { lang: "uk", name: "Українська", col: 14, punc: "comma", regular: "NotoSans" },
     
-    // { lang: "hy", name: "Հայերեն", col: 42, punc: "comma", regular: "NotoSansArmenian-Regular" },
-    // { lang: "he", name: "עברית", col: 36, punc: "dot", regular: "NotoSansHebrew-Regular" },
-    // { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular" },
-    // { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular" },
-    // { lang: "hi", name: "हिंदी", col: 29, punc: "dot", regular: "NotoSansDevanagari-Regular" },
+    { lang: "hy", name: "Հայերեն", col: 42, punc: "comma", regular: "NotoSansArmenian-Regular" },
+    { lang: "he", name: "עברית", col: 36, punc: "dot", regular: "NotoSansHebrew-Regular" },
+    { lang: "ar", name: "العربية", col: 31, punc: "dot", regular: "NotoSansKufiArabic-Regular" },
+    { lang: "fa", name: "فارسی", col: 16, punc: "dot", regular: "NotoSansKufiArabic-Regular" },
+    { lang: "hi", name: "हिंदी", col: 29, punc: "dot", regular: "NotoSansDevanagari-Regular" },
     
-    // { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular" },
-    // { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular" },
-    // { lang: "ko", name: "한국어", col: 10, punc: "dot", regular: "NotoSansKR-Regular" },
-    // { lang: "zh-cn", name: "中文(简体)", col: 6, punc: "dot", regular: "NotoSansSC-Regular" },
-    // { lang: "zh-tw", name: "中文(繁體)", col: 28, punc: "dot", regular: "NotoSansTC-Regular" },
-    // { lang: "ta", name: "தமிழ்", col: 45, punc: "dot", regular: "NotoSansTamil-Regular" },
+    { lang: "th", name: "ไทย", col: 34, punc: "dot", regular: "NotoSansThai-Regular" },
+    { lang: "ja", name: "日本語", col: 23, punc: "dot", regular: "NotoSansJP-Regular" },
+    { lang: "ko", name: "한국어", col: 10, punc: "dot", regular: "NotoSansKR-Regular" },
+    { lang: "zh-cn", name: "中文(简体)", col: 6, punc: "dot", regular: "NotoSansSC-Regular" },
+    { lang: "zh-tw", name: "中文(繁體)", col: 28, punc: "dot", regular: "NotoSansTC-Regular" },
+    { lang: "ta", name: "தமிழ்", col: 45, punc: "dot", regular: "NotoSansTamil-Regular" },
   ];
 
   const updates = require("./changelog.js");
@@ -245,6 +246,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
       { page: "about", keywords: langValues.about, title: langValues.about },
       { page: "index", keywords: langValues.homeHeader, title: langValues.homeHeader },
       { page: "privacy-policy", keywords: langValues.privacy, title: langValues.privacy },
+      { page: "pro", keywords: `${langValues.proTitle || "Periodic Table Pro"}, upgrade, subscription, ad-free`, title: langValues.proTitle || "Periodic Table Pro" },
       { page: "store", keywords: `${langValues.store}, tees`, title: langValues.store },
       { page: "printables", keywords: `${langValues.printables}, poster, flash cards`, title: langValues.printables },
       { page: "list", keywords: langValues.list, title: langValues.list },
@@ -352,12 +354,12 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
     // out). The localized strings ride along as data attributes because the
     // built JS is one shared file across every language folder.
     const escAttr = (s) => String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/'/g, "&#39;").replace(/</g, "&lt;");
+    // Settings just points to the dedicated /pro page (which holds the benefits,
+    // pricing, subscribe/login and member state). initPro() adjusts the label for
+    // members and hides the upsell where appropriate.
     let proNav = [
-      `<div class='span-2' id='settingPro'>${langValues.removeAds}</div>`,
-      `<div id='proBox' data-remove-ads='${escAttr(langValues.removeAds)}' data-price='${escAttr(langValues.price)}'` +
-        ` data-pro-active='${escAttr(langValues.proActive)}' data-logout='${escAttr(langValues.logout)}'` +
-        ` data-login='${escAttr(langValues.login)}' data-no-subscription='${escAttr(langValues.noSubscription)}'` +
-        ` data-login-failed='${escAttr(langValues.loginFailed)}'></div>`,
+      `<div class='span-2' id='settingPro'>${langValues.proTitle || "Periodic Table Pro"}</div>`,
+      `<a class='underlineLink span-2' id='proSeeAll' href='pro'>${langValues.proSeeAll || "See all Pro features"} &rarr;</a>`,
     ];
 
     let nav2 = [
@@ -432,6 +434,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
       "<option value='0.9'>90%</option>",
       "<option value='0.85'>85%</option>",
       "<option value='0.8'>80%</option>",
+      `<option value='wide'>${langValues.wide || "Wide"}</option>`,
       "</select>",
       "</div>",
       `<div id='nameSettingLabel' class='grayText'>${langValues.labelName}</div>`,
@@ -445,6 +448,13 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
       "<div>",
       "<label class='switch'>",
       "<input id='atmNoSelectSetting' type='checkbox' aria-labelledby='atmWtSettingLabel'>",
+      "<span class='slider round' ></span>",
+      "</label>",
+      "</div>",
+      `<div id='groupLabelSettingLabel' class='grayText'>${langValues.groupLabels || "A/B Group Labels"}</div>`,
+      "<div>",
+      "<label class='switch'>",
+      "<input id='groupLabelSetting' type='checkbox' aria-labelledby='groupLabelSettingLabel'>",
       "<span class='slider round' ></span>",
       "</label>",
       "</div>",
@@ -564,7 +574,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
       `<a href='privacy-policy' class='m-1 px-4 py-2'>${langValues.privacy}</a>`,
       // Opens the settings sidebar, where the Pro box sits at the top.
       // initPro() hides this for members (no point upselling what they have).
-      `<a href='#' id='removeAdsFooter' class='m-1 px-4 py-2' onclick='sideBar();return false;'>${langValues.removeAds}</a>`,
+      `<a href='pro' id='removeAdsFooter' class='m-1 px-4 py-2'>${langValues.goPro || "Go Pro"}</a>`,
       "</div>",
       "<div class='flex flex-wrap justify-center pt-2 py-4'>",
       "<a target='_blank' href='https://github.com/catchspider2002/periodic-table.io' rel='noopener noreferrer' class='flex m-1 p-2' title='Github'>",
@@ -583,7 +593,7 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
       "</svg>",
       "</a>",
       "</div>",
-      "<div class='flex flex-wrap justify-center p-2 pb-8 self-center'>Made with&nbsp; <span style='color:#e25555'>❤</span> &nbsp;by <a target='_blank' href='https://x.com/MrNaveenCS/' rel='noopener noreferrer'>",
+      `<div class='flex flex-wrap justify-center p-2 pb-8 self-center'>${langValues.madeWith || "Made with"}&nbsp; <span style='color:#e25555'>❤</span> &nbsp;${langValues.by || "by"} <a target='_blank' href='https://x.com/MrNaveenCS/' rel='noopener noreferrer'>`,
       "<span class='linkText'>Naveen CS</span>",
       "</a></div>",
       "</section>",
@@ -677,6 +687,9 @@ xlsxFile("../../../OneDrive/Translation/Periodic Table others.xlsm").then((resul
           break;
         case "index":
           htmlIndex.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
+          break;
+        case "pro":
+          htmlPro.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);
           break;
         case "privacy-policy":
           htmlPrivacy.writeFile(lang, langValues, page, defaultHead, metaTags, defaultNav, nav4, defaultFooter);

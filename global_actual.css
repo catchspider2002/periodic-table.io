@@ -35,8 +35,10 @@
   --slider-left: 0.25rem;
   --dropdown-arrow: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" stroke-width="1.5" stroke="%23000000" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath stroke="none" d="M0 0h24v24H0z" fill="none"/%3E%3Cpolyline points="6 9 12 15 18 9" /%3E%3C/svg%3E'),
     linear-gradient(to bottom, transparent 0%, transparent 100%);
-  --circle: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" transform="translate(0,7)" viewBox="0 0 24 31" stroke-width="2" stroke="rgba(103, 106, 109, 0.5)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="12" r="9" /%3E%3C/svg%3E');
-  --white-check: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" transform="translate(0,7)" viewBox="0 0 24 31" stroke-width="2" stroke="rgb(234, 234, 234)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="12" r="9" /%3E%3Cpath d="M9 12l2 2l4 -4" /%3E%3C/svg%3E');
+  /* Offset baked into the shape coords (cy 12->19, path y 12->19) instead of a
+     transform on the root <svg>, which Safari/WebKit ignores (icon rode high). */
+  --circle: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 31" stroke-width="2" stroke="rgba(103, 106, 109, 0.5)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="19" r="9" /%3E%3C/svg%3E');
+  --white-check: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 31" stroke-width="2" stroke="rgb(234, 234, 234)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="19" r="9" /%3E%3Cpath d="M9 19l2 2l4 -4" /%3E%3C/svg%3E');
 }
 
 [data-direction="rtl"] {
@@ -66,7 +68,7 @@
     linear-gradient(to right, rgb(var(--theme-color)), rgb(var(--theme-color)));
   --dropdown-arrow: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" stroke-width="1.5" stroke="%23ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath stroke="none" d="M0 0h24v24H0z" fill="none"/%3E%3Cpolyline points="6 9 12 15 18 9" /%3E%3C/svg%3E'),
     linear-gradient(to bottom, transparent 0%, transparent 100%);
-  --circle: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" transform="translate(0,7)" viewBox="0 0 24 31" stroke-width="2" stroke="rgba(148, 146, 143, 0.5)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="12" r="9" /%3E%3C/svg%3E');
+  --circle: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 31" stroke-width="2" stroke="rgba(148, 146, 143, 0.5)" fill="none" stroke-linecap="round" stroke-linejoin="round"%3E%3Ccircle cx="12" cy="19" r="9" /%3E%3C/svg%3E');
 }
 
 html {
@@ -219,18 +221,19 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-/* Sticky footer for content pages: body is the scroll container (height:100%),
-   so lay it out as a flex column. Children keep their natural height (never
-   squashed); when a page is shorter than the viewport, the footer's auto
-   top-margin (below) absorbs the spare space and sits at the bottom instead of
-   floating up. Scoped to pages with a .content-wrapper so the periodic-table
-   home page (its own full-height layout) is left untouched. */
-body:has(.content-wrapper) {
+/* Sticky footer: body is the scroll container (height:100%), so lay it out as a
+   flex column. Children keep their natural height (never squashed); when a page
+   is shorter than the viewport, the footer's auto top-margin (below) absorbs the
+   spare space and sits at the bottom instead of floating up. Applies to content
+   pages (.content-wrapper) and the home page (#headerwrap). */
+body:has(.content-wrapper),
+body:has(#headerwrap) {
   display: flex;
   flex-direction: column;
 }
 
-body:has(.content-wrapper) > * {
+body:has(.content-wrapper) > *,
+body:has(#headerwrap) > * {
   flex-shrink: 0;
 }
 
@@ -743,6 +746,10 @@ table,
   font-weight: 600;
 }
 
+.span-2 {
+  grid-column: 1 / span 2;
+}
+
 .span-3 {
   grid-column: 1/4;
 }
@@ -1235,6 +1242,126 @@ canvas {
   direction: ltr;
 }
 
+/* --- Wide (32-column long-form) table ------------------------------------
+   Self-contained CSS-grid view shown when Table Width = "Wide". Hidden by
+   default; the narrow <table> above is untouched. Sizes purely in CSS
+   (aspect-ratio cells + container units) so it needs no JS. */
+#ptableWide {
+  display: none;
+  grid-template-columns: auto repeat(32, minmax(0, 1fr));
+  /* vw (viewport width) gives an identical row and column gap. A % row-gap
+     collapses to 0 (indefinite height) and cqi rendered the two axes unevenly. */
+  gap: 0.28vw;
+  width: 100%;
+  box-sizing: border-box;
+  /* Side gutters (also trims the cells a touch so the table isn't edge-to-edge). */
+  padding: 0 2.5rem;
+  margin: 0 auto 20px;
+  container-type: inline-size;
+}
+[data-layout="wide"] #ptable {
+  display: none;
+}
+[data-layout="wide"] #ptableWide {
+  display: grid;
+}
+/* Keep the scientific diagram LTR even in RTL locales (mirrors #ptable). */
+[data-direction="rtl"] #ptableWide {
+  direction: ltr;
+}
+.wEle {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  /* Lock the cell to a square derived from its width (size containment) so the
+     text - which can total slightly more than the square - can't stretch the
+     grid row. Mirrors the narrow table, whose cells are a fixed square (JS-sized)
+     with content clipped, keeping number/symbol/name/weight in the same
+     relative positions. */
+  contain: size;
+  border-radius: 6px;
+  color: rgb(var(--text-color));
+  text-decoration: none;
+  /* Cell font-size = cell width / 4, matching the narrow table (#ptable font is
+     individualWidth/4). Every inner row is em/percentage based, so this single
+     constant reproduces the standard cell's font ratios and positions - and the
+     Name / Atomic-No scenario styling (setScenarios) applies through the shared
+     .eleNum/.eleSym/.eleNm/.eleWt classes. */
+  font-size: 0.76cqi;
+  animation: slideUpFade 0.5s ease backwards;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.2s ease, filter 0.2s ease;
+}
+.wEle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  /* Cancel the global a:hover theme-colour tint (matches .elements:hover). */
+  color: currentColor;
+  z-index: 1;
+}
+.wEle:focus-visible {
+  outline: 2px solid rgb(var(--theme-color));
+  outline-offset: 2px;
+}
+/* When both name and weight show (scenario 4) they sit a little far apart in the
+   smaller wide cells - tighten just those two rows' line-height to pull them
+   together. Only these rows, so the number/symbol stay put; wide-only. */
+.wEle .eleNm,
+.wEle .eleWt {
+  line-height: 1.2;
+}
+/* The tighter line-height lifts the name toward the symbol; nudge the name+weight
+   pair back down as a group so the name clears it. :has() limits this to
+   scenario 4 (weight sibling visible), leaving the name-only view untouched.
+   margin-top is free here - setScenarios only sets padding-top inline. */
+.wEle .eleNm:has(~ .eleWt:not([style*="display: none"])) {
+  margin-top: 5%;
+}
+.wPeriod,
+.wGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(4px, 1cqi, 14px);
+  color: rgb(var(--text-color));
+  opacity: 0.55;
+}
+.wPeriod {
+  justify-content: flex-end;
+  padding-right: 0.5em;
+}
+.wGroup {
+  align-items: flex-end;
+  padding-bottom: 0.3em;
+}
+
+/* Mobile: instead of shrinking 32 columns into the viewport (tiny cells), size
+   the cells off the viewport height so the table fills the height and scrolls
+   horizontally inside #headerwrap (overflow-x:auto) - same feel as the standard
+   table on phones. */
+@media (max-width: 768px) {
+  #ptableWide {
+    width: max-content;
+    /* Breathing room around the grid (shows at the scroll extremes too). */
+    padding: 1.25rem;
+    container-type: normal; /* cqi no longer applies; size via vh below */
+    grid-template-columns: auto repeat(32, 9vh);
+    grid-template-rows: auto repeat(7, 9vh);
+    gap: 0.7vh;
+  }
+  #ptableWide .wEle {
+    aspect-ratio: auto;
+    width: 9vh;
+    height: 9vh;
+    /* cell / 4, same ratio as the narrow table. */
+    font-size: 2.25vh;
+  }
+  #ptableWide .wGroup,
+  #ptableWide .wPeriod {
+    font-size: 1.9vh;
+  }
+}
+
 .gap {
   height: 1.5em;
 }
@@ -1243,6 +1370,21 @@ canvas {
 .groups,
 .periods {
   font-size: 0.742em;
+}
+
+/* Group-header labels: modern IUPAC number (1-18) by default; the traditional
+   US/CAS A/B label shows instead when Settings enables it (data-grouplabels).
+   Shared by the standard and wide tables via the .gNum/.gAB header spans. */
+.gAB {
+  display: none;
+}
+[data-grouplabels="ab"] .gNum {
+  display: none;
+}
+[data-grouplabels="ab"] .gAB {
+  display: inline;
+  white-space: nowrap;
+  font-size: 0.85em; /* "VIIIB" is wide - shrink a touch to fit the column */
 }
 
 .eleNum {
@@ -1276,7 +1418,9 @@ canvas {
 #details {
   font-size: 0.8em;
   display: grid;
-  grid-template-columns: auto 1fr;
+  /* Label column can shrink (and ellipsize) so a long translated label never
+     squeezes the value onto a second line; value keeps the remaining width. */
+  grid-template-columns: minmax(0, auto) 1fr;
   grid-column-gap: 2em;
   grid-template-rows: repeat(7, auto);
   align-content: center;
@@ -1292,7 +1436,9 @@ canvas {
   border-top: 1px solid rgba(var(--blockquote-color), 0.1);
 }
 
-/* Property labels (Discovered, Melting point, ...) - muted small caps */
+/* Property labels (Discovered, Melting point, ...) - muted small caps.
+   Ellipsize when too long (full text on hover via title) instead of pushing
+   the value onto a second line. */
 #details > *:nth-child(2n+2) {
   font-size: 0.82em;
   font-weight: 500;
@@ -1300,12 +1446,17 @@ canvas {
   letter-spacing: 0.04em;
   color: rgba(var(--text-color), 0.6);
   align-self: center;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-/* Property values - emphasised */
+/* Property values - emphasised, kept on a single line (never truncated). */
 #details > *:nth-child(2n+3) {
   font-weight: 600;
   align-self: center;
+  white-space: nowrap;
 }
 
 /* The card spans periods 1-3 (rowspan=3). Pull it out of the table's height
@@ -1804,8 +1955,17 @@ canvas {
   gap: 0.5rem;
   font-size: 0.85em;
   /* Pull the box up: the settingsGrid row gap otherwise reads as a blank line
-     between the "Remove ads" header and the subscribe button. */
+     between the Pro header and the subscribe button. */
   margin-top: -1rem;
+}
+
+/* "See all Pro features" link under the box - counter the 1.75rem grid gap so it
+   sits close to the CTA, and keep it on one line. */
+#proSeeAll {
+  margin-top: -1.25rem;
+  justify-self: start;
+  font-size: 0.85em;
+  white-space: nowrap;
 }
 
 /* Filled accent CTA so the subscribe button stands out among the muted
@@ -1832,6 +1992,105 @@ canvas {
   color: rgb(var(--theme-color));
 }
 
+/* Dedicated /pro upgrade page (htmlPro.js) - a centered pricing card. */
+.proCard {
+  max-width: 440px;
+  margin: 2rem auto;
+  padding: 2.25rem 2rem 2rem;
+  border: 1px solid rgba(var(--blockquote-color), 0.18);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(var(--theme-color), 0.07), rgba(var(--theme-color), 0) 45%);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.09);
+  text-align: center;
+}
+.proPill {
+  display: inline-block;
+  background: rgb(var(--theme-color));
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+}
+.proHeading {
+  margin: 0.85rem 0 0.35rem;
+  font-size: 1.55rem;
+}
+.proCard .proTagline {
+  margin: 0 0 1.6rem;
+  font-size: 1rem;
+}
+.proBenefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  text-align: start;
+}
+.proBenefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.proCheck {
+  flex-shrink: 0;
+  width: 1.4em;
+  height: 1.4em;
+  margin-top: 0.05em;
+  border-radius: 50%;
+  background: rgba(var(--color6), 0.16);
+  color: rgb(var(--color6));
+  font-size: 0.82em;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.proPrice {
+  font-size: 1.85rem;
+  font-weight: 700;
+  margin: 0 0 1.25rem;
+}
+.proHero {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.85rem;
+}
+.proHero .proCta {
+  display: block;
+  text-align: center;
+  background-color: rgb(var(--theme-color));
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+.proHero .proCta:hover {
+  background-color: rgba(var(--theme-color), 0.88);
+  color: #fff;
+  transform: translateY(-1px);
+}
+.proHero .proActive {
+  color: rgb(var(--color6));
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.proHero .proNote {
+  color: rgb(var(--theme-color));
+  font-size: 0.9rem;
+}
+.proHero .underlineLink {
+  font-size: 0.9rem;
+}
+
 /* Small "Pro" pill shown next to gated nav items (quiz + the 3 Pro tools) so
    users see they're Pro before clicking through. Matches the Pro accent. */
 .proBadge {
@@ -1849,9 +2108,8 @@ canvas {
   letter-spacing: 0.05em;
   border-radius: 1em;
   /* Gold pill so it reads as a premium badge against the theme-coloured nav. */
-  background: linear-gradient(180deg, #f7d878, #d4a017);
+  background: #d4a017;
   color: #3d2b00;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
 }
 
 /* Once subscribed (initPro sets .isPro on <html>), drop the upsell badges. */
@@ -1963,8 +2221,9 @@ input:focus + .slider {
   border-top: 1px solid rgba(var(--blockquote-color), 0.15);
 }
 
-/* Pin to the bottom of the viewport on short content pages (see body flex above). */
-body:has(.content-wrapper) .footer {
+/* Pin to the bottom of the viewport on short pages (see body flex above). */
+body:has(.content-wrapper) .footer,
+body:has(#headerwrap) .footer {
   margin-top: auto;
 }
 
@@ -2862,6 +3121,18 @@ nav {
   letter-spacing: 0.5px;
   align-items: center;
   color: #fff;
+}
+
+/* The nav's frosted background lives on a pseudo-element rather than on `nav`
+   itself. If `nav` carried `backdrop-filter`, it would become a "backdrop
+   root" and its descendant dropdowns could no longer blur the page behind
+   them (their blur would have nothing to sample). Painting the blur on ::before
+   keeps the identical look while letting the dropdown's own blur work. */
+nav::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   backdrop-filter: blur(12px);
   background-color: rgba(var(--darker-color-rgb), 0.85);
 }
@@ -2949,8 +3220,17 @@ nav a:hover {
 nav ul ul {
   display: none;
   position: absolute;
+  /* Frosted-glass panel, matching the Settings sidebar: blur + translucent
+     tint + subtle light border + soft shadow. Kept a dark tint (not the
+     sidebar's light one) because the menu text is white. */
   backdrop-filter: blur(12px);
-  background-color: rgba(var(--darker-color-rgb), 0.85);
+  background-color: rgba(var(--darker-color-rgb), 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+  /* Hangs flush under the navbar, so only round the free (bottom) corners.
+     overflow:hidden clips the last item's hover highlight to the curve. */
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
   /* has to be the same number as the "line-height" of "nav a" */
   /*     top: 60px; */
 }

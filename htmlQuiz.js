@@ -42,7 +42,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
     best: langValues.quizBest || "best",
     proTitle: langValues.quizProTitle || "Quiz is a Pro feature",
     proText: langValues.quizProText || "Practice with unlimited questions, ad-free.",
-    proCta: langValues.removeAds || "Remove ads - $1/month",
+    proCta: langValues.goPro || "Go Pro",
     noData: langValues.quizNoData || "Quiz unavailable.",
   };
 
@@ -59,7 +59,7 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write(
     `<script>window.__quizT=${JSON.stringify(t)};(function(){var el=document.getElementById('quizApp');` +
       `if(el&&window.Quiz){window.Quiz.initQuiz(el,{data:window.QUIZ_DATA,t:window.__quizT,` +
-      `onSubscribe:function(){if(window.sideBar){window.sideBar();}else{location.href='https://periodictabio.gumroad.com/l/pro';}}});}})();</script>`
+      `onSubscribe:function(){location.href='pro';}});}})();</script>`
   );
 
   defaultFooter.forEach((f) => writeStream.write(f));

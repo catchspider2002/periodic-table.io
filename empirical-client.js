@@ -77,7 +77,7 @@
         "</div><div class='quizGateText'>" + (t.proText || "Find formulas from composition, ad-free.") + "</div></div>";
       var btn = document.createElement("button");
       btn.className = "quizGateCta";
-      btn.textContent = t.proCta || "Remove ads & unlock - $1/month";
+      btn.textContent = t.proCta || "Go Pro";
       btn.addEventListener("click", function () { if (opts.onSubscribe) opts.onSubscribe(); });
       container.querySelector(".quizGate").appendChild(btn);
       return { gated: true };

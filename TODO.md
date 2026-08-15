@@ -30,6 +30,37 @@ Safari + a phone, and the solubility chart charges.
 
 ---
 
+## 1b. New translation strings needed  🌐
+
+New UI strings were added in code with English fallbacks (`langValues.x || "English"`), so
+untranslated locales currently show English. Add a column per language in the source Excel and wire
+the key so they translate:
+
+The footer credit ("Made with ❤ by Naveen CS") is intentionally kept **English-only** — no
+`madeWith`/`by` keys needed (the code fallbacks render English for every locale).
+
+- [ ] **`wide`** — "Wide" — the new Table Width option in Settings (long-form 32-column table).
+- [ ] **`groupLabels`** — "A/B Group Labels" — the new Settings toggle that swaps the column
+      headers between IUPAC 1–18 and the traditional US/CAS A/B labels (IA, IIA … VIIIA). The A/B
+      labels themselves are Roman numerals (locale-independent), so only this toggle label needs it.
+
+**Pro upgrade page + rebrand** (new `/pro` page, Settings header, footer CTA — replaces the old
+"Remove ads" framing). Reuses existing `price`, `proActive`, `login`, `logout`, `noSubscription`,
+`loginFailed`. New keys:
+- [ ] **`proTitle`** — "Periodic Table Pro" (page `<h1>`/`<h2>`, Settings header, footer/nav title).
+- [ ] **`proTagline`** — "Support the site and unlock everything." (page subtitle).
+- [ ] **`goPro`** — "Go Pro" (footer link → `/pro`).
+- [ ] **`proSubscribe`** — "Subscribe" (CTA button, precedes the price; also the Settings box CTA).
+- [ ] **`proSeeAll`** — "See all Pro features" (Settings box link → `/pro`).
+- [ ] **`proBenefitAds`** — "Ad-free browsing".
+- [ ] **`proBenefitQuiz`** — "Element Quiz".
+- [ ] **`proBenefitTools`** — "Pro calculators" (followed by the tool names, which are their own keys).
+- [ ] **`proSupport`** — "Support the site's development".
+
+Until added, untranslated locales fall back to English (no breakage).
+
+---
+
 ## 2. Decisions only you can make  🤔
 
 - [ ] **Caesium / Bismuth radioactivity** (#226018, #327513, #120396 — keeps recurring). Pick one
@@ -73,7 +104,11 @@ Web-relevant, still open:
 - **Group A/B labels toggle (~5 posts: 350230, 216077, 143762, 282968)** — clean, low-risk, data
   already present.
 
-Small self-contained: **129023** (Tennessine image error), **171774** (font-size toggle, 1 vote).
+Small self-contained: ~~**129023** (Tennessine image error)~~ — **not a bug / won't fix**: the
+photo is the Dubna JINR "House of Scientists" building (shared `Db.jpg` for the 7 Dubna-discovered
+superheavies 105, 113–118), deliberately shown as the discovery site since Ts has no real
+photograph; caption already says so. Reply/close as intended behaviour. — **171774** (font-size
+toggle, 1 vote).
 
 Bigger/data-heavy (defer): X-ray emission lines (comment on 103544), calculators/compound builder,
 quiz/flashcards.

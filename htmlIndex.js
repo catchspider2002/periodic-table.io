@@ -74,24 +74,18 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
       langValues.period +
       "</span></td>"
   );
-  writeStream.write("<td id='c1' class='groups unselectable c1'>1</td>");
-  writeStream.write("<td id='c2' class='groups unselectable c2'>2</td>");
-  writeStream.write("<td id='c3' class='groups unselectable c3'>3</td>");
-  writeStream.write("<td id='c4' class='groups unselectable c4'>4</td>");
-  writeStream.write("<td id='c5' class='groups unselectable c5'>5</td>");
-  writeStream.write("<td id='c6' class='groups unselectable c6'>6</td>");
-  writeStream.write("<td id='c7' class='groups unselectable c7'>7</td>");
-  writeStream.write("<td id='c8' class='groups unselectable c8'>8</td>");
-  writeStream.write("<td id='c9' class='groups unselectable c9'>9</td>");
-  writeStream.write("<td id='c10' class='groups unselectable c10'>10</td>");
-  writeStream.write("<td id='c11' class='groups unselectable c11'>11</td>");
-  writeStream.write("<td id='c12' class='groups unselectable c12'>12</td>");
-  writeStream.write("<td id='c13' class='groups unselectable c13'>13</td>");
-  writeStream.write("<td id='c14' class='groups unselectable c14'>14</td>");
-  writeStream.write("<td id='c15' class='groups unselectable c15'>15</td>");
-  writeStream.write("<td id='c16' class='groups unselectable c16'>16</td>");
-  writeStream.write("<td id='c17' class='groups unselectable c17'>17</td>");
-  writeStream.write("<td id='c18' class='groups unselectable c18'>18</td>");
+  // Group headers carry both the modern IUPAC number and the traditional US/CAS
+  // A/B label; a Settings toggle (data-grouplabels) swaps which span shows.
+  // Index 1-18 = group number. CAS: s/p-block = A, transition = B.
+  const AB_LABELS = ["", "IA", "IIA", "IIIB", "IVB", "VB", "VIB", "VIIB", "VIIIB",
+    "VIIIB", "VIIIB", "IB", "IIB", "IIIA", "IVA", "VA", "VIA", "VIIA", "VIIIA"];
+  for (let g = 1; g <= 18; g++) {
+    writeStream.write(
+      "<td id='c" + g + "' class='groups unselectable c" + g + "'>" +
+      "<span class='gNum'>" + g + "</span>" +
+      "<span class='gAB'>" + AB_LABELS[g] + "</span></td>"
+    );
+  }
   writeStream.write("<td id='c19' class='groups unselectable' />");
   writeStream.write("</tr>");
   writeStream.write("<tr>");
@@ -313,6 +307,57 @@ const writeFile = (lang, langValues, page, defaultHead, metaTags, defaultNav, na
   writeStream.write("<tr />");
   writeStream.write("</tbody>");
   writeStream.write("</table>");
+
+  // --- Wide (32-column long-form) view -------------------------------------
+  // A self-contained CSS-grid alternative to the narrow <table>, shown only
+  // when Table Width = "Wide" (Settings). The narrow table and its JS sizing
+  // are left untouched. f-block is spliced inline (14 wide, La-Yb / Ac-No) with
+  // Lu/Lr in group 3. Cells reuse the category colour + block classes but use a
+  // distinct `wEle` class and carry no ids (navigation is via the <a href>), so
+  // the narrow-table JS (setSize/hover/search) never touches them.
+  const CTG_CLASS = {
+    cat1: "alkaliMetals", cat2: "alkalineEarthMetals", cat3: "transitionMetals",
+    cat4: "postTransitionMetals", cat5: "otherNonmetals", cat6: "metalloids",
+    cat7: "halogens", cat8: "nobleGases",
+    lanthanides: "lanthanides", actinides: "actinides",
+  };
+  // Element -> wide grid column (col 1 = period label).
+  function wideCol(e) {
+    if (e.ctg === "lanthanides" || e.ctg === "actinides") {
+      const i = e.num - (e.prd === 6 ? 57 : 89); // 0..14 along the strip
+      return i === 14 ? 18 : 4 + i;              // Lu/Lr -> group 3 (col 18)
+    }
+    const g = parseInt(e.grp, 10);
+    if (g === 1) return 2;
+    if (g === 2) return 3;
+    return 15 + g;                               // group 3 -> 18 ... group 18 -> 33
+  }
+  writeStream.write("<div id='ptableWide' class='square'>");
+  // Row 1 = group-number header; the f-block columns (4-17) stay blank. Rows
+  // 2-8 = periods 1-7 (label in col 1).
+  for (let g = 1; g <= 18; g++) {
+    const col = g === 1 ? 2 : g === 2 ? 3 : 15 + g;
+    writeStream.write(
+      "<div class='wGroup unselectable' style='grid-column:" + col + ";grid-row:1'>" +
+      "<span class='gNum'>" + g + "</span>" +
+      "<span class='gAB'>" + AB_LABELS[g] + "</span></div>"
+    );
+  }
+  for (let p = 1; p <= 7; p++) {
+    writeStream.write("<div class='wPeriod unselectable' style='grid-column:1;grid-row:" + (p + 1) + "'>" + p + "</div>");
+  }
+  newRawDataIndex.forEach((e) => {
+    writeStream.write(
+      "<a href='element-" + e.num + "' class='wEle " + CTG_CLASS[e.ctg] + " blk" + e.blk.toUpperCase() +
+      "' style='grid-column:" + wideCol(e) + ";grid-row:" + (e.prd + 1) + "'>" +
+      "<div class='eleNum'>" + e.num + "</div>" +
+      "<div class='eleSym'>" + e.sym + "</div>" +
+      "<div class='eleNm'>" + langValues[e.nme] + "</div>" +
+      "<div class='eleWt'>" + e.aWt + "</div></a>"
+    );
+  });
+  writeStream.write("</div>");
+
   writeStream.write("</div>");
 
   defaultFooter.forEach((footers) => {

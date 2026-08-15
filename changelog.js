@@ -12,6 +12,16 @@
 
 const updates = [
   {
+    date: "Aug 15, 2026",
+    updates: [
+      "Fixed the element details on the home page overflowing onto a second line in some languages - long labels now shorten with the full text on hover",
+      "Fixed the Temperature and Color selectors in Settings showing their check marks misaligned on Safari",
+      "New 'Wide' option under Table Width in Settings - shows the full 32-column table with the lanthanides and actinides inline in their proper place",
+      "New 'A/B Group Labels' toggle in Settings - switch the column headers between the modern 1-18 numbering and the traditional A/B labels (IA, IIA ... VIIIA)",
+      "New Pro page with all membership benefits and a clearer 'Go Pro' button across the site, now that Pro includes the Quiz and calculators (not just ad-free)",
+    ],
+  },
+  {
     date: "Aug 2, 2026",
     updates: [
       "New Element Quiz - practice symbols, names and atomic numbers (a Pro feature)",

@@ -36,11 +36,11 @@ const TOOLS = {
       placeholder: lv.balancerPlaceholder || "e.g. C3H8 + O2 -> CO2 + H2O",
       proTitle: lv.balancerProTitle || "Equation balancer is a Pro feature",
       proText: lv.balancerProText || "Balance any equation instantly, ad-free.",
-      proCta: lv.removeAds || "Remove ads - $1/month",
+      proCta: lv.goPro || "Go Pro",
     }),
     init: (t) =>
       `window.Balancer.initBalancer(document.getElementById('toolApp'),{weights:window.MOLAR_WEIGHTS,t:${t},` +
-      `onSubscribe:function(){if(window.sideBar){window.sideBar();}else{location.href='https://periodictabio.gumroad.com/l/pro';}}});`,
+      `onSubscribe:function(){location.href='pro';}});`,
   },
   "percent-composition-calculator": {
     title: (lv) => lv.percentComposition || "Percent Composition",
@@ -114,11 +114,11 @@ const TOOLS = {
       note: lv.halfLifeNote || "Leave one field blank. Use the same time unit for elapsed time and half-life.",
       proTitle: lv.halfLifeProTitle || "Half-life calculator is a Pro feature",
       proText: lv.halfLifeProText || "Solve decay problems instantly, ad-free.",
-      proCta: lv.removeAds || "Remove ads - $1/month",
+      proCta: lv.goPro || "Go Pro",
     }),
     init: (t) =>
       `window.HalfLife.initHalfLife(document.getElementById('toolApp'),{t:${t},` +
-      `onSubscribe:function(){if(window.sideBar){window.sideBar();}else{location.href='https://periodictabio.gumroad.com/l/pro';}}});`,
+      `onSubscribe:function(){location.href='pro';}});`,
   },
   "ph-calculator": {
     title: (lv) => lv.phCalc || "pH Calculator",
@@ -142,12 +142,12 @@ const TOOLS = {
       placeholder: lv.empiricalPlaceholder || "e.g. C 40, H 6.7, O 53.3",
       proTitle: lv.empiricalProTitle || "Empirical formula is a Pro feature",
       proText: lv.empiricalProText || "Find formulas from composition, ad-free.",
-      proCta: lv.removeAds || "Remove ads - $1/month",
+      proCta: lv.goPro || "Go Pro",
       approx: lv.empiricalApprox || "Approximate - check your inputs.",
     }),
     init: (t) =>
       `window.Empirical.initEmpirical(document.getElementById('toolApp'),{weights:window.MOLAR_WEIGHTS,t:${t},` +
-      `onSubscribe:function(){if(window.sideBar){window.sideBar();}else{location.href='https://periodictabio.gumroad.com/l/pro';}}});`,
+      `onSubscribe:function(){location.href='pro';}});`,
   },
 };
 

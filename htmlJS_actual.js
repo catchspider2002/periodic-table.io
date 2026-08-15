@@ -10476,14 +10476,21 @@ function colorLuminance(hex, lum) {
 // Index
 
 function resizeEvent() {
-  console.log("resizeEvent");
+  // "Wide" (long-form) layout sizes itself in CSS; just toggle the attribute
+  // and skip the pixel-sizing that setSize() applies to the narrow table
+  // (setSize("wide") would compute NaN widths).
+  if (defaultMargin === "wide") {
+    document.documentElement.setAttribute("data-layout", "wide");
+    return;
+  }
+  document.documentElement.removeAttribute("data-layout");
   setSize(defaultMargin);
 }
 
 let singleElement, singleGroup, singlePeriod, singleCategory, singleBlock;
 
 let elementLength, categoryLength, periodLength, groupLength, blockLength;
-let defaultNewTheme, defaultColor, defaultTemp, defaultStyle, defaultMargin;
+let defaultNewTheme, defaultColor, defaultTemp, defaultStyle, defaultMargin, defaultGroupLabels;
 
 let outerElement = cls("outerElement");
 let singleNum = cls("eleNum");
@@ -10606,7 +10613,12 @@ if (id("ptable")) {
   }
 
   for (let i = 0; i < groupLength; i++) {
-    if (langValue === "ar" || langValue === "fa" || langValue === "he") singleGroup[i].textContent = getNum(singleGroup[i].textContent);
+    // Localize only the numeric span (Arabic/Farsi/Hebrew numerals); leave the
+    // A/B (Roman-numeral) span intact. Empty c19 has no .gNum, so guard.
+    if (langValue === "ar" || langValue === "fa" || langValue === "he") {
+      let gn = singleGroup[i].querySelector(".gNum");
+      if (gn) gn.textContent = getNum(gn.textContent);
+    }
     singleGroup[i].addEventListener("mouseenter", setOpacity15, false);
     singleGroup[i].addEventListener("mouseleave", setOpacity100, false);
   }
@@ -10631,11 +10643,22 @@ if (id("ptable")) {
     defaultAtmNo = "off";
   }
 
+  defaultGroupLabels = localStorage.getItem("defaultGroupLabels");
+
+  if (!defaultGroupLabels) {
+    localStorage.setItem("defaultGroupLabels", "off");
+    defaultGroupLabels = "off";
+  }
+
   id("nameSelectSetting").checked = defaultName === "on" ? true : false;
   id("nameSelectSetting").addEventListener("change", setNm, false);
 
   id("atmNoSelectSetting").checked = defaultAtmNo === "on" ? true : false;
   id("atmNoSelectSetting").addEventListener("change", setAtmNo, false);
+
+  id("groupLabelSetting").checked = defaultGroupLabels === "on" ? true : false;
+  id("groupLabelSetting").addEventListener("change", setGroupLabels, false);
+  if (defaultGroupLabels === "on") document.documentElement.setAttribute("data-grouplabels", "ab");
 
   id("marginSetting").addEventListener("change", setMargin, false);
   id("marginSetting").value = defaultMargin;
@@ -10720,10 +10743,21 @@ function setAtmNo() {
   setScenarios();
 }
 
+// Toggle the traditional US/CAS A/B group-header labels (vs IUPAC 1-18). CSS
+// (data-grouplabels="ab") swaps the .gNum/.gAB spans in both tables.
+function setGroupLabels() {
+  defaultGroupLabels = id("groupLabelSetting").checked ? "on" : "off";
+  if (defaultGroupLabels === "on") document.documentElement.setAttribute("data-grouplabels", "ab");
+  else document.documentElement.removeAttribute("data-grouplabels");
+  localStorage.setItem("defaultGroupLabels", defaultGroupLabels);
+}
+
 function setMargin() {
   defaultMargin = id("marginSetting").value;
   localStorage.setItem("defaultMargin", defaultMargin);
-  setSize(defaultMargin);
+  // resizeEvent() applies the wide/narrow layout (data-layout) and, for the
+  // percentage options, re-runs setSize().
+  resizeEvent();
 }
 
 function setScenarios() {
@@ -10779,7 +10813,9 @@ function setScenarios() {
     }
   }
 
-  setSize(defaultMargin);
+  // resizeEvent() re-sizes the narrow table, or (in Wide mode) skips setSize and
+  // just keeps the data-layout attribute - avoids setSize("wide") -> NaN.
+  resizeEvent();
 }
 
 // --- Configurable hover detail helpers --------------------------------------
@@ -10825,7 +10861,12 @@ function applyDetailLabels(keys) {
   for (let i = 0; i < 6; i++) {
     let f = DETAIL_FIELDS[keys[i]];
     let row = id("detailRow" + (i + 2));
-    if (f && row) row.innerHTML = f.label;
+    if (f && row) {
+      row.innerHTML = f.label;
+      // The label ellipsizes when a translation is too long (so the value
+      // stays on one line); expose the full text on hover only when truncated.
+      row.title = row.scrollWidth > row.clientWidth + 1 ? row.textContent.trim() : "";
+    }
   }
 }
 
@@ -11021,53 +11062,46 @@ function setSettings() {
   initPro();
 }
 
-// "Remove ads (Pro)" settings box. Reads the domain-wide `ptio_pro` cookie (set
-// by the auth worker after a verified Gumroad login) to show the right state:
-// subscribe / log in when off, or "active" + log out when on.
+// Pro membership state. Reads the domain-wide `ptio_pro` cookie (set by the auth
+// worker after a verified Gumroad login). The buy/login UI lives on the /pro page
+// (server-rendered); here we just hide the upsell for members and, on /pro, swap
+// the hero for the active/log-out state + show any login outcome.
 function initPro() {
-  let box = id("proBox");
-  if (!box) return;
-
   const PRO_ORIGIN = "https://pro.periodic-table.io";
-  const GUMROAD_PRO = "https://periodictabio.gumroad.com/l/pro";
   const ret = encodeURIComponent(window.location.href.split("?")[0]);
-  // Localized strings injected by the generator as data-* attributes on #proBox
-  // (this JS file is shared by every language folder, so it can't hold the text).
-  const t = (key, fallback) => box.dataset[key] || fallback;
 
-  // Show the outcome of a just-completed login/logout, then strip the ?pro= param.
+  let isPro = /(?:^|;\s*)ptio_pro=1(?:;|$)/.test(document.cookie);
+
+  // Footer "Go Pro" upsell + nav "Pro" badges: not needed once subscribed.
+  let footerLink = id("removeAdsFooter");
+  if (footerLink) footerLink.classList.toggle("hidden", isPro);
+  document.documentElement.classList.toggle("isPro", isPro);
+
+  // Everything below is the /pro page only.
+  let hero = id("proHero");
+  if (!hero) return;
+
+  // Outcome of a just-completed login (worker returns here), then strip ?pro=.
   let params = new URLSearchParams(window.location.search);
   let outcome = params.get("pro");
   let note = "";
   if (outcome === "not_subscribed")
-    note = "<div class='proNote'>" + t("noSubscription", "No active subscription found for that Gumroad account.") + "</div>";
+    note = "<div class='proNote'>" + (hero.dataset.noSubscription || "No active subscription found for that Gumroad account.") + "</div>";
   else if (outcome === "login_failed" || outcome === "no_email")
-    note = "<div class='proNote'>" + t("loginFailed", "Login didn't complete. Please try again.") + "</div>";
+    note = "<div class='proNote'>" + (hero.dataset.loginFailed || "Login didn't complete. Please try again.") + "</div>";
   if (outcome) {
     params.delete("pro");
     let qs = params.toString();
     history.replaceState(null, "", window.location.pathname + (qs ? "?" + qs : "") + window.location.hash);
   }
 
-  let isPro = /(?:^|;\s*)ptio_pro=1(?:;|$)/.test(document.cookie);
-
-  // Footer "Remove ads" link: an upsell members don't need, so hide it for Pro.
-  let footerLink = id("removeAdsFooter");
-  if (footerLink) footerLink.classList.toggle("hidden", isPro);
-
-  // Nav "Pro" badges are the same upsell cue — drop them once subscribed.
-  document.documentElement.classList.toggle("isPro", isPro);
-
   if (isPro) {
-    box.innerHTML =
-      "<div class='proActive'>&#10003; " + t("proActive", "Pro active - ads are off.") + "</div>" +
-      "<a class='underlineLink' href='" + PRO_ORIGIN + "/logout?return=" + ret + "'>" + t("logout", "Log out") + "</a>";
-  } else {
-    box.innerHTML =
+    hero.innerHTML =
       note +
-      "<a class='storeLink proCta' target='_blank' rel='noopener' href='" + GUMROAD_PRO + "'>" +
-      t("removeAds", "Remove ads") + " - " + t("price", "$1/month") + "</a>" +
-      "<a class='underlineLink' href='" + PRO_ORIGIN + "/login?return=" + ret + "'>" + t("login", "Already a member? Log in with Gumroad") + "</a>";
+      "<div class='proActive'>&#10003; " + (hero.dataset.proActive || "Pro active - ads are off.") + "</div>" +
+      "<a class='underlineLink' href='" + PRO_ORIGIN + "/logout?return=" + ret + "'>" + (hero.dataset.logout || "Log out") + "</a>";
+  } else if (note) {
+    hero.insertAdjacentHTML("afterbegin", note);
   }
 }
 
@@ -11463,7 +11497,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Quick Search functionality for Periodic Table Index
 function handleQuickSearch(query) {
   query = query.toLowerCase().trim();
-  const elements = document.querySelectorAll('#ptable .elements');
+  const elements = document.querySelectorAll('#ptable .elements, #ptableWide .wEle');
   if (!elements.length) return;
 
   if (query === '') {

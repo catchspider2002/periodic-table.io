@@ -88,7 +88,20 @@
       "Bash(awk '-F\\\\t' 'NR==448{tr=$3;gsub\\(/\\\\r/,\"\",tr\\);print \"row448 \\(\"$1\"\\): \"substr\\(tr,1,180\\)}' 'c:/Users/catch/Downloads/GIT Projects/periodic-table.io/translation-validations/sr.tsv')",
       "Bash(awk '-F\\\\t' 'NR==448{tr=$3;gsub\\(/\\\\r/,\"\",tr\\);print \"row448: ...\"substr\\(tr,60,40\\)\"...\"}' 'c:/Users/catch/Downloads/GIT Projects/periodic-table.io/translation-validations/sr.tsv')",
       "Bash(awk '-F\\\\t' 'NR==311{tr=$3;gsub\\(/\\\\r/,\"\",tr\\);print tr}' 'c:/Users/catch/Downloads/GIT Projects/periodic-table.io/translation-validations/sr.tsv')",
-      "Bash(awk '-F\\\\t' 'NR>1 && $3 ~ /[Uu]lterpur|[Uu]ltrapur/{tr=$3;gsub\\(/\\\\r/,\"\",tr\\);print \"  \"NR\": \"tr}' 'c:/Users/catch/Downloads/GIT Projects/periodic-table.io/translation-validations/esperanto.tsv')"
+      "Bash(awk '-F\\\\t' 'NR>1 && $3 ~ /[Uu]lterpur|[Uu]ltrapur/{tr=$3;gsub\\(/\\\\r/,\"\",tr\\);print \"  \"NR\": \"tr}' 'c:/Users/catch/Downloads/GIT Projects/periodic-table.io/translation-validations/esperanto.tsv')",
+      "Bash(echo \"=== element detail row markup in htmlElement.js ===\")",
+      "Bash(grep -n 'grayText\\\\|detailRow\\\\|meltingpoint\\\\|discovery\\\\|electronConfig\\\\|shells\\\\|<td\\\\|infoRow\\\\|elementDetail' 'c:/Users/catch/Downloads/GIT Projects/periodic-table.io/htmlElement.js')",
+      "Bash(grep -n '^\\\\.grid\\\\s*{\\\\|^\\\\.grid,\\\\|box-content\\\\|masonry-col\\\\|\\\\.grid >' 'c:/Users/catch/Downloads/GIT Projects/periodic-table.io/global_actual.css')",
+      "Bash(D=\"c:/Users/catch/Downloads/GIT Projects/periodic-table.io\"; echo \"=== minified htmlJS.js has tooltip change? ===\"; grep -c \"scrollWidth\" \"$D/htmlJS.js\" 2>/dev/null; echo \"=== timestamps: source vs intermediate vs built ===\"; stat -c '%y %n' \"$D/global_actual.css\" \"$D/global.css\" \"$D/en/css/global.1398478e.css\" 2>/dev/null | sed 's#/c/Users.*/periodic-table.io/##'; echo \"=== how many languages currently uncommented in build array ===\"; grep -cE \"^\\\\s*\\\\{ lang:\" \"$D/htmlGenerator.js\")",
+      "Read(//c/Users/catch/Downloads/GIT Projects/periodic-table.io/**)",
+      "Bash(awk '/#details[ ,{]/{f=1} f{print NR\": \"$0} f&&/}/{exit}' 'c:/Users/catch/Downloads/GIT Projects/periodic-table.io/global_actual.css')",
+      "Bash(sed -n '/^\\\\.grid {/,/^}/p' 'c:/Users/catch/Downloads/GIT Projects/periodic-table.io/global_actual.css')",
+      "Bash(sed -n '/nth-child\\(2n+2\\)/,/^}/p' 'c:/Users/catch/Downloads/GIT Projects/periodic-table.io/global_actual.css')",
+      "Bash(node -e \"const C=require\\('./htmlConstants.js'\\); const d=C.rawData; console.log\\('count',d.length\\); console.log\\(JSON.stringify\\(d[0]\\)\\); console.log\\(JSON.stringify\\(d[56]\\)\\); console.log\\(JSON.stringify\\(d[70]\\)\\);\")",
+      "Bash(node -e \"const C=require\\('./htmlConstants.js'\\); const d=C.rawData; const m={}; d.forEach\\(e=>{\\(m[e.ctg]=m[e.ctg]||[]\\).push\\(e.num\\)}\\); for\\(const k in m\\){console.log\\(k,'=>',m[k].slice\\(0,6\\).join\\(','\\),'\\(n='+m[k].length+'\\)'\\)}\")",
+      "Bash(git check-ignore *)",
+      "Bash(git rm *)",
+      "Bash(git commit -m 'Remove tracked package-lock.json \\(already gitignored\\) *)"
     ]
   }
 }
